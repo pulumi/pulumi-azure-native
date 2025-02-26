@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Represents an project policy resource.
  * Azure REST API version: 2024-10-01-preview.
- *
- * Other available API versions: 2025-02-01.
  */
 export class ProjectPolicy extends pulumi.CustomResource {
     /**
@@ -100,7 +98,7 @@ export class ProjectPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20241001preview:ProjectPolicy" }, { type: "azure-native:devcenter/v20250201:ProjectPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20241001preview:ProjectPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectPolicy.__pulumiType, name, resourceInputs, opts);
     }

@@ -39,33 +39,13 @@ export class SolutionConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * The last time resources were inventoried
-     */
-    public /*out*/ readonly lastSyncTime!: pulumi.Output<string>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource provisioning state.
+     * The resource-specific properties for this resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Solution settings
-     */
-    public readonly solutionSettings!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * The type of the solution
-     */
-    public readonly solutionType!: pulumi.Output<string>;
-    /**
-     * The status of solution configurations
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * The detailed message of status details
-     */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hybridconnectivity.SolutionConfigurationPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -89,28 +69,15 @@ export class SolutionConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.solutionType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'solutionType'");
-            }
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["solutionConfiguration"] = args ? args.solutionConfiguration : undefined;
-            resourceInputs["solutionSettings"] = args ? args.solutionSettings : undefined;
-            resourceInputs["solutionType"] = args ? args.solutionType : undefined;
-            resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["solutionSettings"] = undefined /*out*/;
-            resourceInputs["solutionType"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -126,6 +93,10 @@ export class SolutionConfiguration extends pulumi.CustomResource {
  */
 export interface SolutionConfigurationArgs {
     /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.hybridconnectivity.SolutionConfigurationPropertiesArgs>;
+    /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
@@ -133,12 +104,4 @@ export interface SolutionConfigurationArgs {
      * Represent Solution Configuration Resource.
      */
     solutionConfiguration?: pulumi.Input<string>;
-    /**
-     * Solution settings
-     */
-    solutionSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The type of the solution
-     */
-    solutionType: pulumi.Input<string>;
 }

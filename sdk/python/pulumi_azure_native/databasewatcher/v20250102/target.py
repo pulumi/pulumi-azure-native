@@ -31,7 +31,7 @@ class TargetArgs:
                  target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
         """
         The set of arguments for constructing a Target resource.
-        :param pulumi.Input[str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_type: Discriminator property for TargetProperties.
@@ -53,7 +53,7 @@ class TargetArgs:
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> pulumi.Input[str]:
         """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 
@@ -152,7 +152,7 @@ class Target(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param pulumi.Input[str] connection_server_name: The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'TargetAuthenticationType']] target_authentication_type: The type of authentication to use when connecting to a target.
         :param pulumi.Input[str] target_name: The target resource name.
@@ -259,7 +259,7 @@ class Target(pulumi.CustomResource):
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> pulumi.Output[str]:
         """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 

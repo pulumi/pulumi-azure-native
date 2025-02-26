@@ -79,18 +79,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class GetPublicCloudConnectorResult
     {
         /// <summary>
-        /// Cloud profile for AWS.
-        /// </summary>
-        public readonly Outputs.AwsCloudProfileResponse AwsCloudProfile;
-        /// <summary>
-        /// Connector primary identifier.
-        /// </summary>
-        public readonly string ConnectorPrimaryIdentifier;
-        /// <summary>
-        /// Host cloud the public cloud connector.
-        /// </summary>
-        public readonly string HostType;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -103,9 +91,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource provisioning state.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.PublicCloudConnectorPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -121,19 +109,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
         [OutputConstructor]
         private GetPublicCloudConnectorResult(
-            Outputs.AwsCloudProfileResponse awsCloudProfile,
-
-            string connectorPrimaryIdentifier,
-
-            string hostType,
-
             string id,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.PublicCloudConnectorPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -141,13 +123,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
             string type)
         {
-            AwsCloudProfile = awsCloudProfile;
-            ConnectorPrimaryIdentifier = connectorPrimaryIdentifier;
-            HostType = hostType;
             Id = id;
             Location = location;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
             Tags = tags;
             Type = type;

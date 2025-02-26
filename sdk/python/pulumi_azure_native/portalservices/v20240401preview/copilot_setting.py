@@ -95,7 +95,7 @@ class CopilotSetting(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portalservices/v20240401:CopilotSetting"), pulumi.Alias(type_="azure-native:portalservices:CopilotSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portalservices:CopilotSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CopilotSetting, __self__).__init__(
             'azure-native:portalservices/v20240401preview:CopilotSetting',

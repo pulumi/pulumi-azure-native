@@ -39,18 +39,6 @@ export class PublicCloudConnector extends pulumi.CustomResource {
     }
 
     /**
-     * Cloud profile for AWS.
-     */
-    public readonly awsCloudProfile!: pulumi.Output<outputs.hybridconnectivity.AwsCloudProfileResponse>;
-    /**
-     * Connector primary identifier.
-     */
-    public /*out*/ readonly connectorPrimaryIdentifier!: pulumi.Output<string>;
-    /**
-     * Host cloud the public cloud connector.
-     */
-    public readonly hostType!: pulumi.Output<string>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -59,9 +47,9 @@ export class PublicCloudConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource provisioning state.
+     * The resource-specific properties for this resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hybridconnectivity.PublicCloudConnectorPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -86,33 +74,21 @@ export class PublicCloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsCloudProfile === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'awsCloudProfile'");
-            }
-            if ((!args || args.hostType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hostType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["awsCloudProfile"] = args ? (args.awsCloudProfile ? pulumi.output(args.awsCloudProfile).apply(inputs.hybridconnectivity.awsCloudProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.hybridconnectivity.publicCloudConnectorPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["publicCloudConnector"] = args ? args.publicCloudConnector : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["connectorPrimaryIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["awsCloudProfile"] = undefined /*out*/;
-            resourceInputs["connectorPrimaryIdentifier"] = undefined /*out*/;
-            resourceInputs["hostType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -129,17 +105,13 @@ export class PublicCloudConnector extends pulumi.CustomResource {
  */
 export interface PublicCloudConnectorArgs {
     /**
-     * Cloud profile for AWS.
-     */
-    awsCloudProfile: pulumi.Input<inputs.hybridconnectivity.AwsCloudProfileArgs>;
-    /**
-     * Host cloud the public cloud connector.
-     */
-    hostType: pulumi.Input<string | enums.hybridconnectivity.HostType>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The resource-specific properties for this resource.
+     */
+    properties?: pulumi.Input<inputs.hybridconnectivity.PublicCloudConnectorPropertiesArgs>;
     /**
      * Represent public cloud connectors resource.
      */

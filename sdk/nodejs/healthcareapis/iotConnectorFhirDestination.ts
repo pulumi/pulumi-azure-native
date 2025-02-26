@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * IoT Connector FHIR destination definition.
  * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
  */
 export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**
@@ -125,7 +125,7 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20230228:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20231201:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20240301:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20240331:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20250301preview:IotConnectorFhirDestination" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220601:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20221001preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20221201:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20230228:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20230906:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20231101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20231201:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20240301:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20240331:IotConnectorFhirDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnectorFhirDestination.__pulumiType, name, resourceInputs, opts);
     }

@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
  */
 export function getInferenceGroup(args: GetInferenceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,7 +86,7 @@ export interface GetInferenceGroupResult {
 /**
  * Azure REST API version: 2023-08-01-preview.
  *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
  */
 export function getInferenceGroupOutput(args: GetInferenceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Represents a Schedule to execute a task.
  * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -129,7 +129,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Schedule" }, { type: "azure-native:devcenter/v20220901preview:Schedule" }, { type: "azure-native:devcenter/v20221012preview:Schedule" }, { type: "azure-native:devcenter/v20221111preview:Schedule" }, { type: "azure-native:devcenter/v20230101preview:Schedule" }, { type: "azure-native:devcenter/v20230401:Schedule" }, { type: "azure-native:devcenter/v20230801preview:Schedule" }, { type: "azure-native:devcenter/v20231001preview:Schedule" }, { type: "azure-native:devcenter/v20240201:Schedule" }, { type: "azure-native:devcenter/v20240501preview:Schedule" }, { type: "azure-native:devcenter/v20240601preview:Schedule" }, { type: "azure-native:devcenter/v20240701preview:Schedule" }, { type: "azure-native:devcenter/v20240801preview:Schedule" }, { type: "azure-native:devcenter/v20241001preview:Schedule" }, { type: "azure-native:devcenter/v20250201:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Schedule" }, { type: "azure-native:devcenter/v20220901preview:Schedule" }, { type: "azure-native:devcenter/v20221012preview:Schedule" }, { type: "azure-native:devcenter/v20221111preview:Schedule" }, { type: "azure-native:devcenter/v20230101preview:Schedule" }, { type: "azure-native:devcenter/v20230401:Schedule" }, { type: "azure-native:devcenter/v20230801preview:Schedule" }, { type: "azure-native:devcenter/v20231001preview:Schedule" }, { type: "azure-native:devcenter/v20240201:Schedule" }, { type: "azure-native:devcenter/v20240501preview:Schedule" }, { type: "azure-native:devcenter/v20240601preview:Schedule" }, { type: "azure-native:devcenter/v20240701preview:Schedule" }, { type: "azure-native:devcenter/v20240801preview:Schedule" }, { type: "azure-native:devcenter/v20241001preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }

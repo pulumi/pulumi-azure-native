@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function listEndpointKeys(args: ListEndpointKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,7 +45,7 @@ export interface ListEndpointKeysResult {
 /**
  * Azure REST API version: 2024-01-01-preview.
  *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
  */
 export function listEndpointKeysOutput(args: ListEndpointKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListEndpointKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

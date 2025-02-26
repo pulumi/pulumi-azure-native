@@ -119,7 +119,7 @@ export class InferenceEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices/v20240101preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices/v20241001preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices/v20250101preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices:InferenceEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices/v20240101preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices/v20241001preview:InferenceEndpoint" }, { type: "azure-native:machinelearningservices:InferenceEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InferenceEndpoint.__pulumiType, name, resourceInputs, opts);
     }

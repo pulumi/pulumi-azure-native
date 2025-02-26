@@ -83,33 +83,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The last time resources were inventoried
-        /// </summary>
-        public readonly string LastSyncTime;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource provisioning state.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Solution settings
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? SolutionSettings;
-        /// <summary>
-        /// The type of the solution
-        /// </summary>
-        public readonly string SolutionType;
-        /// <summary>
-        /// The status of solution configurations
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
-        /// The detailed message of status details
-        /// </summary>
-        public readonly string StatusDetails;
+        public readonly Outputs.SolutionConfigurationPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -123,32 +103,17 @@ namespace Pulumi.AzureNative.HybridConnectivity
         private GetSolutionConfigurationResult(
             string id,
 
-            string lastSyncTime,
-
             string name,
 
-            string provisioningState,
-
-            ImmutableDictionary<string, string>? solutionSettings,
-
-            string solutionType,
-
-            string status,
-
-            string statusDetails,
+            Outputs.SolutionConfigurationPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
-            LastSyncTime = lastSyncTime;
             Name = name;
-            ProvisioningState = provisioningState;
-            SolutionSettings = solutionSettings;
-            SolutionType = solutionType;
-            Status = status;
-            StatusDetails = statusDetails;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

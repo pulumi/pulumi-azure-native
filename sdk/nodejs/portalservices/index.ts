@@ -17,11 +17,9 @@ utilities.lazyLoad(exports, ["getCopilotSetting","getCopilotSettingOutput"], () 
 
 
 // Export sub-modules:
-import * as v20240401 from "./v20240401";
 import * as v20240401preview from "./v20240401preview";
 
 export {
-    v20240401,
     v20240401preview,
 };
 

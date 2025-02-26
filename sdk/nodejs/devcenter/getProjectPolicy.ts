@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a specific project policy.
  * Azure REST API version: 2024-10-01-preview.
- *
- * Other available API versions: 2025-02-01.
  */
 export function getProjectPolicy(args: GetProjectPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,8 +71,6 @@ export interface GetProjectPolicyResult {
 /**
  * Gets a specific project policy.
  * Azure REST API version: 2024-10-01-preview.
- *
- * Other available API versions: 2025-02-01.
  */
 export function getProjectPolicyOutput(args: GetProjectPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

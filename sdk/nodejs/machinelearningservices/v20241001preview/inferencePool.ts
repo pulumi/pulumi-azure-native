@@ -115,7 +115,7 @@ export class InferencePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240101preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240401preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20250101preview:InferencePool" }, { type: "azure-native:machinelearningservices:InferencePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20230801preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240101preview:InferencePool" }, { type: "azure-native:machinelearningservices/v20240401preview:InferencePool" }, { type: "azure-native:machinelearningservices:InferencePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InferencePool.__pulumiType, name, resourceInputs, opts);
     }

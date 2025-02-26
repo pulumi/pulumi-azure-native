@@ -66,7 +66,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240401Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionRaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionRaiPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionRaiPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionRaiPolicy" },
                 },
             };

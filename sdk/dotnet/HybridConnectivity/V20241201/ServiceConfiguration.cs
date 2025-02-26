@@ -16,6 +16,42 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     public partial class ServiceConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Output("createdByType")]
+        public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Output("lastModifiedAt")]
+        public Output<string?> LastModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedByType")]
+        public Output<string?> LastModifiedByType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -108,10 +144,46 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     public sealed class ServiceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Input("createdBy")]
+        public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Input("createdByType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.CreatedByType>? CreatedByType { get; set; }
+
+        /// <summary>
         /// The endpoint name.
         /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Input("lastModifiedAt")]
+        public Input<string>? LastModifiedAt { get; set; }
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedByType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The port on which service is enabled.
@@ -126,7 +198,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource.
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

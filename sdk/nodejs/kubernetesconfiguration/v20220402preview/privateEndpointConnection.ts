@@ -100,7 +100,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20241101preview:PrivateEndpointConnection" }, { type: "azure-native:kubernetesconfiguration:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

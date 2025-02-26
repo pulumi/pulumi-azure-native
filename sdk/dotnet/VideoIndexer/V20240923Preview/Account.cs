@@ -134,7 +134,6 @@ namespace Pulumi.AzureNative.VideoIndexer.V20240923Preview
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240401preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20240601preview:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20250101:Account" },
-                    new global::Pulumi.Alias { Type = "azure-native:videoindexer/v20250301:Account" },
                     new global::Pulumi.Alias { Type = "azure-native:videoindexer:Account" },
                 },
             };

@@ -25,7 +25,7 @@ export interface GetServiceConfigurationArgs {
      */
     endpointName: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: string;
     /**
@@ -39,9 +39,33 @@ export interface GetServiceConfigurationArgs {
  */
 export interface GetServiceConfigurationResult {
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    readonly createdAt?: string;
+    /**
+     * The identity that created the resource.
+     */
+    readonly createdBy?: string;
+    /**
+     * The type of identity that created the resource.
+     */
+    readonly createdByType?: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    readonly lastModifiedAt?: string;
+    /**
+     * The identity that last modified the resource.
+     */
+    readonly lastModifiedBy?: string;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    readonly lastModifiedByType?: string;
     /**
      * The name of the resource
      */
@@ -89,7 +113,7 @@ export interface GetServiceConfigurationOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
     /**

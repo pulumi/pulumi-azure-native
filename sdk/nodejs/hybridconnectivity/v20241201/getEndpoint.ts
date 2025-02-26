@@ -24,7 +24,7 @@ export interface GetEndpointArgs {
      */
     endpointName: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: string;
 }
@@ -34,21 +34,41 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    readonly createdAt?: string;
+    /**
+     * The identity that created the resource.
+     */
+    readonly createdBy?: string;
+    /**
+     * The type of identity that created the resource.
+     */
+    readonly createdByType?: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    readonly lastModifiedAt?: string;
+    /**
+     * The identity that last modified the resource.
+     */
+    readonly lastModifiedBy?: string;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    readonly lastModifiedByType?: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The resource provisioning state.
+     * The endpoint properties.
      */
-    readonly provisioningState: string;
-    /**
-     * The resource Id of the connectivity endpoint (optional).
-     */
-    readonly resourceId?: string;
+    readonly properties: outputs.hybridconnectivity.v20241201.EndpointPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -75,7 +95,7 @@ export interface GetEndpointOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
 }

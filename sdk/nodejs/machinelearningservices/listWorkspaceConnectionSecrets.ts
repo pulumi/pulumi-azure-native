@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
  */
 export function listWorkspaceConnectionSecrets(args: ListWorkspaceConnectionSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceConnectionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +58,7 @@ export interface ListWorkspaceConnectionSecretsResult {
 /**
  * Azure REST API version: 2023-06-01-preview.
  *
- * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Other available API versions: 2023-08-01-preview, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
  */
 export function listWorkspaceConnectionSecretsOutput(args: ListWorkspaceConnectionSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkspaceConnectionSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

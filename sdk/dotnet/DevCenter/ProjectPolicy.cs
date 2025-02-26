@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.DevCenter
     /// <summary>
     /// Represents an project policy resource.
     /// Azure REST API version: 2024-10-01-preview.
-    /// 
-    /// Other available API versions: 2025-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectPolicy")]
     public partial class ProjectPolicy : global::Pulumi.CustomResource
@@ -80,7 +78,6 @@ namespace Pulumi.AzureNative.DevCenter
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectPolicy" },
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

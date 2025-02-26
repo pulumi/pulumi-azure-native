@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a CopilotSettingsResource
  * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-04-01.
  */
 export function getCopilotSetting(args?: GetCopilotSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetCopilotSettingResult> {
     args = args || {};
@@ -55,8 +53,6 @@ export interface GetCopilotSettingResult {
 /**
  * Get a CopilotSettingsResource
  * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-04-01.
  */
 export function getCopilotSettingOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCopilotSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

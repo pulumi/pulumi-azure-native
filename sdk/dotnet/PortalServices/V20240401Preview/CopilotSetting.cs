@@ -70,7 +70,6 @@ namespace Pulumi.AzureNative.PortalServices.V20240401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:portalservices/v20240401:CopilotSetting" },
                     new global::Pulumi.Alias { Type = "azure-native:portalservices:CopilotSetting" },
                 },
             };

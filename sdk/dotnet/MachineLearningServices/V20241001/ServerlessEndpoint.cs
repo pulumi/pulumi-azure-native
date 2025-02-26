@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ServerlessEndpoint" },
                 },
             };

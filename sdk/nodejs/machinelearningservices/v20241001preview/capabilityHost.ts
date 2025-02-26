@@ -87,7 +87,7 @@ export class CapabilityHost extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20250101preview:CapabilityHost" }, { type: "azure-native:machinelearningservices:CapabilityHost" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CapabilityHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapabilityHost.__pulumiType, name, resourceInputs, opts);
     }

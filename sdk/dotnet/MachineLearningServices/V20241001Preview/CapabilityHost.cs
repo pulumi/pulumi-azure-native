@@ -64,7 +64,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:CapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:CapabilityHost" },
                 },
             };

@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220402Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101preview:PrivateLinkScope" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:PrivateLinkScope" },
                 },
             };

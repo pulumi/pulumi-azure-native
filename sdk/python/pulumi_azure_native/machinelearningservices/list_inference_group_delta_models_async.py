@@ -73,8 +73,6 @@ def list_inference_group_delta_models_async(count: Optional[int] = None,
     A paginated list of String entities.
     Azure REST API version: 2024-10-01-preview.
 
-    Other available API versions: 2025-01-01-preview.
-
 
     :param int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.
     :param str group_name: InferenceGroup name.
@@ -109,8 +107,6 @@ def list_inference_group_delta_models_async_output(count: Optional[pulumi.Input[
     """
     A paginated list of String entities.
     Azure REST API version: 2024-10-01-preview.
-
-    Other available API versions: 2025-01-01-preview.
 
 
     :param int count: Gets or sets number of delta models to return. Default: -1, means that all will be returned.

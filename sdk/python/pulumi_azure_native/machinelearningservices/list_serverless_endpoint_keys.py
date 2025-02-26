@@ -69,7 +69,7 @@ def list_serverless_endpoint_keys(name: Optional[str] = None,
     Keys for endpoint authentication.
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
 
 
     :param str name: Serverless Endpoint name.
@@ -94,7 +94,7 @@ def list_serverless_endpoint_keys_output(name: Optional[pulumi.Input[str]] = Non
     Keys for endpoint authentication.
     Azure REST API version: 2023-08-01-preview.
 
-    Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
+    Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
 
 
     :param str name: Serverless Endpoint name.
