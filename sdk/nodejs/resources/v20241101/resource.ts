@@ -93,6 +93,9 @@ export class Resource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.apiVersion === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'apiVersion'");
+            }
             if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
@@ -105,6 +108,7 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -145,6 +149,10 @@ export class Resource extends pulumi.CustomResource {
  * The set of arguments for constructing a Resource resource.
  */
 export interface ResourceArgs {
+    /**
+     * The API version to use for the operation.
+     */
+    apiVersion: pulumi.Input<string>;
     /**
      * Resource extended location.
      */

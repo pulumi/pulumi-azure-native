@@ -22,6 +22,7 @@ __all__ = ['ManagementLockAtResourceLevelArgs', 'ManagementLockAtResourceLevel']
 @pulumi.input_type
 class ManagementLockAtResourceLevelArgs:
     def __init__(__self__, *,
+                 api_version: pulumi.Input[str],
                  level: pulumi.Input[Union[str, 'LockLevel']],
                  parent_resource_path: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -33,6 +34,7 @@ class ManagementLockAtResourceLevelArgs:
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
         The set of arguments for constructing a ManagementLockAtResourceLevel resource.
+        :param pulumi.Input[str] api_version: The API version to use for this operation.
         :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] parent_resource_path: The parent resource identity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the resource to lock. 
@@ -43,6 +45,7 @@ class ManagementLockAtResourceLevelArgs:
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
         """
+        pulumi.set(__self__, "api_version", api_version)
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "parent_resource_path", parent_resource_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -55,6 +58,18 @@ class ManagementLockAtResourceLevelArgs:
             pulumi.set(__self__, "notes", notes)
         if owners is not None:
             pulumi.set(__self__, "owners", owners)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> pulumi.Input[str]:
+        """
+        The API version to use for this operation.
+        """
+        return pulumi.get(self, "api_version")
+
+    @api_version.setter
+    def api_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "api_version", value)
 
     @property
     @pulumi.getter
@@ -170,6 +185,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_version: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -185,6 +201,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_version: The API version to use for this operation.
         :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
@@ -219,6 +236,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_version: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -237,6 +255,9 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagementLockAtResourceLevelArgs.__new__(ManagementLockAtResourceLevelArgs)
 
+            if api_version is None and not opts.urn:
+                raise TypeError("Missing required property 'api_version'")
+            __props__.__dict__["api_version"] = api_version
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__.__dict__["level"] = level

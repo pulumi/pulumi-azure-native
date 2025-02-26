@@ -404,3 +404,61 @@ func TestResourcePathTracker(t *testing.T) {
 		assert.True(t, tracker.hasConflicts())
 	})
 }
+
+func TestIsApiVersionQueryParam(t *testing.T) {
+	createParam := func(name, in string) *openapi.Parameter {
+		return &openapi.Parameter{
+			Parameter: &spec.Parameter{
+				ParamProps: spec.ParamProps{
+					Name: name,
+					In:   in,
+				},
+			},
+		}
+	}
+
+	t.Run("not api-version param", func(t *testing.T) {
+		m := &moduleGenerator{
+			moduleName:   "SomeModule",
+			resourceName: "SomeResource",
+		}
+		param := createParam("some-other-param", "query")
+		assert.False(t, m.paramIsSetByProvider(param, nil))
+	})
+
+	t.Run("not query param", func(t *testing.T) {
+		m := &moduleGenerator{
+			moduleName:   "SomeModule",
+			resourceName: "SomeResource",
+		}
+		param := createParam("some-other-param", "path")
+		assert.False(t, m.paramIsSetByProvider(param, nil))
+	})
+
+	t.Run("Resources.Resource special case", func(t *testing.T) {
+		m := &moduleGenerator{
+			moduleName:   "Resources",
+			resourceName: "Resource",
+		}
+		param := createParam("api-version", "query")
+		assert.False(t, m.paramIsSetByProvider(param, nil))
+	})
+
+	t.Run("Authorization.ManagementLockAtResourceLevel special case", func(t *testing.T) {
+		m := &moduleGenerator{
+			moduleName:   "Authorization",
+			resourceName: "ManagementLockAtResourceLevel",
+		}
+		param := createParam("api-version", "query")
+		assert.False(t, m.paramIsSetByProvider(param, nil))
+	})
+
+	t.Run("standard api-version query param", func(t *testing.T) {
+		m := &moduleGenerator{
+			moduleName:   "SomeModule",
+			resourceName: "SomeResource",
+		}
+		param := createParam("api-version", "query")
+		assert.True(t, m.paramIsSetByProvider(param, nil))
+	})
+}
