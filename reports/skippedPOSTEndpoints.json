@@ -167,6 +167,7 @@
     "Alerts_Refresh": "/{scope}/providers/Microsoft.Authorization/roleManagementAlerts/{alertId}/refresh",
     "Alerts_RefreshAll": "/{scope}/providers/Microsoft.Authorization/roleManagementAlerts/refresh",
     "GlobalAdministrator_ElevateAccess": "/providers/Microsoft.Authorization/elevateAccess",
+    "PolicyTokens_Acquire": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/acquirePolicyToken",
     "RoleAssignmentScheduleRequests_Cancel": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}/cancel",
     "RoleAssignmentScheduleRequests_Validate": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleRequests/{roleAssignmentScheduleRequestName}/validate",
     "RoleAssignments_Validate": "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}/validate",

@@ -45713,6 +45713,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -45783,6 +45784,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46020,6 +46022,7 @@
           "Central India",
           "South India",
           "West India",
+          "Italy North",
           "Japan East",
           "Japan West",
           "Korea Central",
@@ -46042,8 +46045,8 @@
           "West US 2",
           "West US 3",
           "Israel Central",
-          "Italy North",
           "Mexico Central",
+          "New Zealand North",
           "Poland Central",
           "Qatar Central",
           "Spain Central",
@@ -46098,6 +46101,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46167,6 +46171,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46234,6 +46239,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46288,6 +46294,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46362,6 +46369,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -46431,6 +46439,7 @@
           "Israel Central",
           "Italy North",
           "Mexico Central",
+          "New Zealand North",
           "Poland Central",
           "Qatar Central",
           "Spain Central",
@@ -47095,6 +47104,7 @@
           "Korea Central",
           "Korea South",
           "Mexico Central",
+          "New Zealand North",
           "North Central US",
           "North Europe",
           "Norway East",
@@ -91768,6 +91778,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -92323,6 +92335,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -92401,6 +92415,7 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
           "2024-05-01",
           "2024-01-01-preview"
         ],
@@ -92459,11 +92474,10 @@
       },
       {
         "apiVersions": [
-          "2023-09-01-preview",
-          "2023-08-01-preview",
-          "2023-07-01-preview"
+          "2024-07-01",
+          "2024-06-01-preview"
         ],
-        "defaultApiVersion": "2023-07-01-preview",
+        "defaultApiVersion": "2024-06-01-preview",
         "locations": [
           "West Central US",
           "North Central US",
@@ -92880,6 +92894,8 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
+          "2024-06-01-preview",
           "2023-09-01-preview",
           "2023-08-01-preview",
           "2023-07-01-preview",
@@ -93093,6 +93109,8 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
+          "2024-06-01-preview",
           "2023-09-01-preview",
           "2023-08-01-preview",
           "2023-07-01-preview",
@@ -94087,6 +94105,7 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
           "2024-05-01",
           "2024-01-01-preview"
         ],
@@ -94613,6 +94632,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -94638,6 +94659,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -94716,6 +94739,7 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
           "2024-05-01",
           "2024-01-01-preview",
           "2023-07-01-preview"
@@ -94775,6 +94799,7 @@
       },
       {
         "apiVersions": [
+          "2024-07-01",
           "2024-05-01",
           "2024-01-01-preview"
         ],
@@ -95009,6 +95034,74 @@
           "East US 2 EUAP"
         ],
         "resourceType": "networkSecurityGroups"
+      },
+      {
+        "apiVersions": [
+          "2024-07-01",
+          "2024-06-01-preview",
+          "2023-09-01-preview",
+          "2023-08-01-preview",
+          "2023-07-01-preview",
+          "2022-02-01-preview",
+          "2021-05-01-preview",
+          "2021-02-01-preview"
+        ],
+        "defaultApiVersion": "2024-07-01",
+        "locations": [
+          "West Central US",
+          "North Central US",
+          "West US",
+          "West Europe",
+          "UAE Central",
+          "Germany North",
+          "East US",
+          "West India",
+          "East US 2",
+          "Australia Central",
+          "Australia Central 2",
+          "South Africa West",
+          "Brazil South",
+          "UK West",
+          "North Europe",
+          "Central US",
+          "UAE North",
+          "Germany West Central",
+          "Switzerland West",
+          "East Asia",
+          "South Africa North",
+          "UK South",
+          "South India",
+          "Australia Southeast",
+          "France South",
+          "West US 2",
+          "Sweden Central",
+          "Japan West",
+          "Norway East",
+          "France Central",
+          "West US 3",
+          "Central India",
+          "Korea South",
+          "Brazil Southeast",
+          "Korea Central",
+          "Southeast Asia",
+          "South Central US",
+          "Norway West",
+          "Australia East",
+          "Japan East",
+          "Canada East",
+          "Canada Central",
+          "Switzerland North",
+          "Qatar Central",
+          "Poland Central",
+          "Italy North",
+          "Israel Central",
+          "Mexico Central",
+          "Spain Central",
+          "New Zealand North",
+          "East US 2 EUAP",
+          "Central US EUAP"
+        ],
+        "resourceType": "networkSecurityPerimeters"
       },
       {
         "apiVersions": [
@@ -97805,6 +97898,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -97883,6 +97978,8 @@
       },
       {
         "apiVersions": [
+          "2024-09-01-preview",
+          "2024-07-01",
           "2024-05-01",
           "2024-03-01",
           "2024-01-01-preview",
@@ -150743,7 +150840,8 @@
         ],
         "defaultApiVersion": "2024-12-01-preview",
         "locations": [
-          "Brazil South"
+          "Brazil South",
+          "Italy North"
         ],
         "resourceType": "exadbVmClusters"
       },
@@ -150753,7 +150851,8 @@
         ],
         "defaultApiVersion": "2024-12-01-preview",
         "locations": [
-          "Brazil South"
+          "Brazil South",
+          "Italy North"
         ],
         "resourceType": "exadbVmClusters/dbNodes"
       },
@@ -150763,7 +150862,8 @@
         ],
         "defaultApiVersion": "2024-12-01-preview",
         "locations": [
-          "Brazil South"
+          "Brazil South",
+          "Italy North"
         ],
         "resourceType": "exascaleDbStorageVaults"
       },
