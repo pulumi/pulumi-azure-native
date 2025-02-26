@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the policy.
  * Azure REST API version: 2021-02-16-preview.
- *
- * Other available API versions: 2024-09-01.
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,8 +60,6 @@ export interface GetPolicyResult {
 /**
  * Gets the details of the policy.
  * Azure REST API version: 2021-02-16-preview.
- *
- * Other available API versions: 2024-09-01.
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -201,7 +201,7 @@ def get_account(account_name: Optional[str] = None,
     Gets the properties of an Azure Video Indexer account.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01.
+    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.
@@ -234,7 +234,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     Gets the properties of an Azure Video Indexer account.
     Azure REST API version: 2022-08-01.
 
-    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01, 2025-03-01.
+    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.

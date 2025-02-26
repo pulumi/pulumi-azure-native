@@ -83,7 +83,6 @@ namespace Pulumi.AzureNative.DevCenter.V20240701Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:Gallery" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:Gallery" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:Gallery" },
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:Gallery" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:Gallery" },
                 },
             };

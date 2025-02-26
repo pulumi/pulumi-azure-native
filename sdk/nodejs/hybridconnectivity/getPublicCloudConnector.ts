@@ -35,18 +35,6 @@ export interface GetPublicCloudConnectorArgs {
  */
 export interface GetPublicCloudConnectorResult {
     /**
-     * Cloud profile for AWS.
-     */
-    readonly awsCloudProfile: outputs.hybridconnectivity.AwsCloudProfileResponse;
-    /**
-     * Connector primary identifier.
-     */
-    readonly connectorPrimaryIdentifier: string;
-    /**
-     * Host cloud the public cloud connector.
-     */
-    readonly hostType: string;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -59,9 +47,9 @@ export interface GetPublicCloudConnectorResult {
      */
     readonly name: string;
     /**
-     * The resource provisioning state.
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
+    readonly properties: outputs.hybridconnectivity.PublicCloudConnectorPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

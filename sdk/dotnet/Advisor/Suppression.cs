@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.Advisor
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
-    /// 
-    /// Other available API versions: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource
@@ -86,7 +84,6 @@ namespace Pulumi.AzureNative.Advisor
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20220901:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20221001:Suppression" },
                     new global::Pulumi.Alias { Type = "azure-native:advisor/v20230101:Suppression" },
-                    new global::Pulumi.Alias { Type = "azure-native:advisor/v20230901preview:Suppression" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -97,7 +97,7 @@ export class ProjectPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20250201:ProjectPolicy" }, { type: "azure-native:devcenter:ProjectPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter:ProjectPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectPolicy.__pulumiType, name, resourceInputs, opts);
     }

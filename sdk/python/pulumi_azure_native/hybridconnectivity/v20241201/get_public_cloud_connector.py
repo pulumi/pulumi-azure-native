@@ -27,16 +27,7 @@ class GetPublicCloudConnectorResult:
     """
     Public Cloud Connector
     """
-    def __init__(__self__, aws_cloud_profile=None, connector_primary_identifier=None, host_type=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
-        if aws_cloud_profile and not isinstance(aws_cloud_profile, dict):
-            raise TypeError("Expected argument 'aws_cloud_profile' to be a dict")
-        pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
-        if connector_primary_identifier and not isinstance(connector_primary_identifier, str):
-            raise TypeError("Expected argument 'connector_primary_identifier' to be a str")
-        pulumi.set(__self__, "connector_primary_identifier", connector_primary_identifier)
-        if host_type and not isinstance(host_type, str):
-            raise TypeError("Expected argument 'host_type' to be a str")
-        pulumi.set(__self__, "host_type", host_type)
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +37,9 @@ class GetPublicCloudConnectorResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -58,30 +49,6 @@ class GetPublicCloudConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="awsCloudProfile")
-    def aws_cloud_profile(self) -> 'outputs.AwsCloudProfileResponse':
-        """
-        Cloud profile for AWS.
-        """
-        return pulumi.get(self, "aws_cloud_profile")
-
-    @property
-    @pulumi.getter(name="connectorPrimaryIdentifier")
-    def connector_primary_identifier(self) -> str:
-        """
-        Connector primary identifier.
-        """
-        return pulumi.get(self, "connector_primary_identifier")
-
-    @property
-    @pulumi.getter(name="hostType")
-    def host_type(self) -> str:
-        """
-        Host cloud the public cloud connector.
-        """
-        return pulumi.get(self, "host_type")
 
     @property
     @pulumi.getter
@@ -108,12 +75,12 @@ class GetPublicCloudConnectorResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.PublicCloudConnectorPropertiesResponse':
         """
-        The resource provisioning state.
+        The resource-specific properties for this resource.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -146,13 +113,10 @@ class AwaitableGetPublicCloudConnectorResult(GetPublicCloudConnectorResult):
         if False:
             yield self
         return GetPublicCloudConnectorResult(
-            aws_cloud_profile=self.aws_cloud_profile,
-            connector_primary_identifier=self.connector_primary_identifier,
-            host_type=self.host_type,
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -175,13 +139,10 @@ def get_public_cloud_connector(public_cloud_connector: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity/v20241201:getPublicCloudConnector', __args__, opts=opts, typ=GetPublicCloudConnectorResult).value
 
     return AwaitableGetPublicCloudConnectorResult(
-        aws_cloud_profile=pulumi.get(__ret__, 'aws_cloud_profile'),
-        connector_primary_identifier=pulumi.get(__ret__, 'connector_primary_identifier'),
-        host_type=pulumi.get(__ret__, 'host_type'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -201,13 +162,10 @@ def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity/v20241201:getPublicCloudConnector', __args__, opts=opts, typ=GetPublicCloudConnectorResult)
     return __ret__.apply(lambda __response__: GetPublicCloudConnectorResult(
-        aws_cloud_profile=pulumi.get(__response__, 'aws_cloud_profile'),
-        connector_primary_identifier=pulumi.get(__response__, 'connector_primary_identifier'),
-        host_type=pulumi.get(__response__, 'host_type'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

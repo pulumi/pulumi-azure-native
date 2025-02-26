@@ -16,22 +16,52 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string?> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Output("createdByType")]
+        public Output<string?> CreatedByType { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
+        [Output("lastModifiedAt")]
+        public Output<string?> LastModifiedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Output("lastModifiedByType")]
+        public Output<string?> LastModifiedByType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource provisioning state.
+        /// The endpoint properties.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource Id of the connectivity endpoint (optional).
-        /// </summary>
-        [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.EndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -98,28 +128,58 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
+        [Input("createdBy")]
+        public Input<string>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that created the resource.
+        /// </summary>
+        [Input("createdByType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.CreatedByType>? CreatedByType { get; set; }
+
+        /// <summary>
         /// The endpoint name.
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
         /// <summary>
-        /// The resource Id of the connectivity endpoint (optional).
+        /// The timestamp of resource last modification (UTC)
         /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
+        [Input("lastModifiedAt")]
+        public Input<string>? LastModifiedAt { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource.
+        /// The identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
+        [Input("lastModifiedByType")]
+        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.CreatedByType>? LastModifiedByType { get; set; }
+
+        /// <summary>
+        /// The endpoint properties.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.EndpointPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
-
-        /// <summary>
-        /// The type of endpoint.
-        /// </summary>
-        [Input("type", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.V20241201.Type> Type { get; set; } = null!;
 
         public EndpointArgs()
         {

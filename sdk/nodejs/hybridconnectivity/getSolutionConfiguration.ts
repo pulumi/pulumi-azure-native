@@ -39,33 +39,13 @@ export interface GetSolutionConfigurationResult {
      */
     readonly id: string;
     /**
-     * The last time resources were inventoried
-     */
-    readonly lastSyncTime: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The resource provisioning state.
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * Solution settings
-     */
-    readonly solutionSettings?: {[key: string]: string};
-    /**
-     * The type of the solution
-     */
-    readonly solutionType: string;
-    /**
-     * The status of solution configurations
-     */
-    readonly status: string;
-    /**
-     * The detailed message of status details
-     */
-    readonly statusDetails: string;
+    readonly properties: outputs.hybridconnectivity.SolutionConfigurationPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

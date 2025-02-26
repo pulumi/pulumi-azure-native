@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Extension object.
  * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
  *
- * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+ * Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
  */
 export class Extension extends pulumi.CustomResource {
     /**
@@ -192,7 +192,7 @@ export class Extension extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20200701preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210901:Extension" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220301:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220402preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220701:Extension" }, { type: "azure-native:kubernetesconfiguration/v20221101:Extension" }, { type: "azure-native:kubernetesconfiguration/v20230501:Extension" }, { type: "azure-native:kubernetesconfiguration/v20241101:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20200701preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210901:Extension" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220301:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220402preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220701:Extension" }, { type: "azure-native:kubernetesconfiguration/v20221101:Extension" }, { type: "azure-native:kubernetesconfiguration/v20230501:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, resourceInputs, opts);
     }

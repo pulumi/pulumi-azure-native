@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Sovereign.Inputs
         /// <summary>
         /// The managed identity to be assigned to this landing zone registration.
         /// </summary>
-        [Input("managedIdentity")]
-        public Input<Inputs.ManagedIdentityPropertiesArgs>? ManagedIdentity { get; set; }
+        [Input("managedIdentity", required: true)]
+        public Input<Inputs.ManagedIdentityPropertiesArgs> ManagedIdentity { get; set; } = null!;
 
         public LandingZoneRegistrationResourcePropertiesArgs()
         {

@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// The Extension object.
     /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-07-01-preview.
     /// 
-    /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01, 2024-11-01.
+    /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:Extension")]
     public partial class Extension : global::Pulumi.CustomResource
@@ -173,7 +173,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20221101:Extension" },
                     new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20230501:Extension" },
-                    new global::Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20241101:Extension" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

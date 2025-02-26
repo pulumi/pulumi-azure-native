@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestProfileMappingResource
         /// Azure REST API version: 2023-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Task<GetLoadTestProfileMappingResult> InvokeAsync(GetLoadTestProfileMappingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestProfileMappingResource
         /// Azure REST API version: 2023-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Get a LoadTestProfileMappingResource
         /// Azure REST API version: 2023-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-12-01-preview.
         /// </summary>
         public static Output<GetLoadTestProfileMappingResult> Invoke(GetLoadTestProfileMappingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadTestProfileMappingResult>("azure-native:loadtestservice:getLoadTestProfileMapping", args ?? new GetLoadTestProfileMappingInvokeArgs(), options.WithDefaults());

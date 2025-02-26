@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2024-10-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Task<GetCapabilityHostResult> InvokeAsync(GetCapabilityHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityHostResult>("azure-native:machinelearningservices:getCapabilityHost", args ?? new GetCapabilityHostArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2024-10-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Output<GetCapabilityHostResult> Invoke(GetCapabilityHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityHostResult>("azure-native:machinelearningservices:getCapabilityHost", args ?? new GetCapabilityHostInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Azure Resource Manager resource envelope.
         /// Azure REST API version: 2024-10-01-preview.
-        /// 
-        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Output<GetCapabilityHostResult> Invoke(GetCapabilityHostInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityHostResult>("azure-native:machinelearningservices:getCapabilityHost", args ?? new GetCapabilityHostInvokeArgs(), options.WithDefaults());

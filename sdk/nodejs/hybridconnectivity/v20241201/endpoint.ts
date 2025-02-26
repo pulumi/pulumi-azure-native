@@ -38,17 +38,37 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that created the resource.
+     */
+    public readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that created the resource.
+     */
+    public readonly createdByType!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that last modified the resource.
+     */
+    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource provisioning state.
+     * The endpoint properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The resource Id of the connectivity endpoint (optional).
-     */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.hybridconnectivity.v20241201.EndpointPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -56,7 +76,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -72,20 +92,27 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["lastModifiedAt"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -101,19 +128,39 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointArgs {
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * The identity that created the resource.
+     */
+    createdBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that created the resource.
+     */
+    createdByType?: pulumi.Input<string | enums.hybridconnectivity.v20241201.CreatedByType>;
+    /**
      * The endpoint name.
      */
     endpointName?: pulumi.Input<string>;
     /**
-     * The resource Id of the connectivity endpoint (optional).
+     * The timestamp of resource last modification (UTC)
      */
-    resourceId?: pulumi.Input<string>;
+    lastModifiedAt?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The identity that last modified the resource.
+     */
+    lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    lastModifiedByType?: pulumi.Input<string | enums.hybridconnectivity.v20241201.CreatedByType>;
+    /**
+     * The endpoint properties.
+     */
+    properties?: pulumi.Input<inputs.hybridconnectivity.v20241201.EndpointPropertiesArgs>;
+    /**
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
-    /**
-     * The type of endpoint.
-     */
-    type: pulumi.Input<string | enums.hybridconnectivity.v20241201.Type>;
 }

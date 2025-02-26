@@ -31,7 +31,7 @@ export interface ListEndpointManagedProxyDetailsArgs {
      */
     hostname?: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: string;
     /**
@@ -81,7 +81,7 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
      */
     hostname?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
     /**

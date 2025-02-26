@@ -60,7 +60,7 @@ class GetTargetResult:
     @pulumi.getter(name="connectionServerName")
     def connection_server_name(self) -> str:
         """
-        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         """
         return pulumi.get(self, "connection_server_name")
 

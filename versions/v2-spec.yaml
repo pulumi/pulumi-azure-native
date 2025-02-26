@@ -16,12 +16,8 @@ Addons:
     tracking: "2018-03-01"
 Advisor:
     tracking: "2023-01-01"
-    additions:
-        Assessment: 2023-09-01-preview
 AgFoodPlatform:
     tracking: 2023-06-01-preview
-AgriculturePlatform:
-    tracking: 2024-06-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
@@ -810,8 +806,6 @@ DataReplication:
     tracking: 2021-02-16-preview
 DataShare:
     tracking: "2021-08-01"
-DatabaseFleetManager:
-    tracking: 2025-02-01-preview
 DatabaseWatcher:
     tracking: 2023-09-01-preview
     additions:
@@ -829,8 +823,6 @@ Datadog:
         getBillingInfo: "2023-10-20"
 DelegatedNetwork:
     tracking: "2021-03-15"
-DependencyMap:
-    tracking: 2025-01-31-preview
 DesktopVirtualization:
     tracking: "2022-09-09"
     additions:

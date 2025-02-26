@@ -200,7 +200,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["serial_number"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:Volume"), pulumi.Alias(type_="azure-native:networkcloud:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:Volume"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:Volume"), pulumi.Alias(type_="azure-native:networkcloud:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:networkcloud/v20241001preview:Volume',

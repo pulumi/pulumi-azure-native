@@ -119,7 +119,6 @@ namespace Pulumi.AzureNative.DevCenter.V20230401
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:ProjectEnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:ProjectEnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectEnvironmentType" },
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectEnvironmentType" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:ProjectEnvironmentType" },
                 },
             };

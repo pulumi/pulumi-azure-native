@@ -38,6 +38,30 @@ export class ServiceConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that created the resource.
+     */
+    public readonly createdBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that created the resource.
+     */
+    public readonly createdByType!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
+    /**
+     * The identity that last modified the resource.
+     */
+    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -86,7 +110,13 @@ export class ServiceConfiguration extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
@@ -97,6 +127,12 @@ export class ServiceConfiguration extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["lastModifiedAt"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -117,9 +153,33 @@ export class ServiceConfiguration extends pulumi.CustomResource {
  */
 export interface ServiceConfigurationArgs {
     /**
+     * The timestamp of resource creation (UTC).
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * The identity that created the resource.
+     */
+    createdBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that created the resource.
+     */
+    createdByType?: pulumi.Input<string | enums.hybridconnectivity.v20241201.CreatedByType>;
+    /**
      * The endpoint name.
      */
     endpointName: pulumi.Input<string>;
+    /**
+     * The timestamp of resource last modification (UTC)
+     */
+    lastModifiedAt?: pulumi.Input<string>;
+    /**
+     * The identity that last modified the resource.
+     */
+    lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The type of identity that last modified the resource.
+     */
+    lastModifiedByType?: pulumi.Input<string | enums.hybridconnectivity.v20241201.CreatedByType>;
     /**
      * The port on which service is enabled.
      */
@@ -129,7 +189,7 @@ export interface ServiceConfigurationArgs {
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource.
+     * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
     /**

@@ -125,7 +125,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:Console" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:Console" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:Console" },
                 },
             };

@@ -151,11 +151,6 @@ Addons:
         ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Addons/supportProviders/canonical/listSupportPlanInfo
         RpNamespace: Microsoft.Addons
 Advisor:
-    Assessment:
-        ApiVersion: 2023-09-01-preview
-        SpecFilePath: specification/advisor/resource-manager/Microsoft.Advisor/preview/2023-09-01-preview/assessments.json
-        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.Advisor/assessments/{assessmentName}
-        RpNamespace: Microsoft.Advisor
     Suppression:
         ApiVersion: "2023-01-01"
         SpecFilePath: specification/advisor/resource-manager/Microsoft.Advisor/stable/2023-01-01/advisor.json
@@ -187,17 +182,6 @@ AgFoodPlatform:
         SpecFilePath: specification/agrifood/resource-manager/Microsoft.AgFoodPlatform/preview/2023-06-01-preview/agfood.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgFoodPlatform/farmBeats/{dataManagerForAgricultureResourceName}/solutions/{solutionId}
         RpNamespace: Microsoft.AgFoodPlatform
-AgriculturePlatform:
-    AgriService:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/agricultureplatform/resource-manager/Microsoft.AgriculturePlatform/preview/2024-06-01-preview/openapi.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgriculturePlatform/agriServices/{agriServiceResourceName}
-        RpNamespace: Microsoft.AgriculturePlatform
-    listAgriServiceAvailableSolutions:
-        ApiVersion: 2024-06-01-preview
-        SpecFilePath: specification/agricultureplatform/resource-manager/Microsoft.AgriculturePlatform/preview/2024-06-01-preview/openapi.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AgriculturePlatform/agriServices/{agriServiceResourceName}/listAvailableSolutions
-        RpNamespace: Microsoft.AgriculturePlatform
 AlertsManagement:
     ActionRuleByName:
         ApiVersion: 2019-05-05-preview
@@ -4595,32 +4579,6 @@ DataShare:
         SpecFilePath: specification/datashare/resource-manager/Microsoft.DataShare/stable/2021-08-01/DataShare.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/listSynchronizations
         RpNamespace: Microsoft.DataShare
-DatabaseFleetManager:
-    FirewallRule:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/firewallRules/{firewallRuleName}
-        RpNamespace: Microsoft.DatabaseFleetManager
-    Fleet:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}
-        RpNamespace: Microsoft.DatabaseFleetManager
-    FleetDatabase:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}
-        RpNamespace: Microsoft.DatabaseFleetManager
-    FleetTier:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/tiers/{tierName}
-        RpNamespace: Microsoft.DatabaseFleetManager
-    Fleetspace:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/databasefleetmanager/resource-manager/Microsoft.DatabaseFleetManager/preview/2025-02-01-preview/databasefleetmanager.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}
-        RpNamespace: Microsoft.DatabaseFleetManager
 DatabaseWatcher:
     AlertRuleResource:
         ApiVersion: 2024-07-19-preview
@@ -4720,32 +4678,6 @@ DelegatedNetwork:
         SpecFilePath: specification/dnc/resource-manager/Microsoft.DelegatedNetwork/stable/2021-03-15/orchestrators.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DelegatedNetwork/orchestrators/{resourceName}
         RpNamespace: Microsoft.DelegatedNetwork
-DependencyMap:
-    DiscoverySource:
-        ApiVersion: 2025-01-31-preview
-        SpecFilePath: specification/azuredependencymap/resource-manager/Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/discoverySources/{sourceName}
-        RpNamespace: Microsoft.DependencyMap
-    Map:
-        ApiVersion: 2025-01-31-preview
-        SpecFilePath: specification/azuredependencymap/resource-manager/Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}
-        RpNamespace: Microsoft.DependencyMap
-    getMapConnectionsForProcessOnFocusedMachine:
-        ApiVersion: 2025-01-31-preview
-        SpecFilePath: specification/azuredependencymap/resource-manager/Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/getConnectionsForProcessOnFocusedMachine
-        RpNamespace: Microsoft.DependencyMap
-    getMapConnectionsWithConnectedMachineForFocusedMachine:
-        ApiVersion: 2025-01-31-preview
-        SpecFilePath: specification/azuredependencymap/resource-manager/Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/getConnectionsWithConnectedMachineForFocusedMachine
-        RpNamespace: Microsoft.DependencyMap
-    getMapDependencyViewForFocusedMachine:
-        ApiVersion: 2025-01-31-preview
-        SpecFilePath: specification/azuredependencymap/resource-manager/Microsoft.DependencyMap/preview/2025-01-31-preview/dependencyMap.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/getDependencyViewForFocusedMachine
-        RpNamespace: Microsoft.DependencyMap
 DesktopVirtualization:
     AppAttachPackage:
         ApiVersion: 2023-10-04-preview
@@ -6228,7 +6160,7 @@ HybridConnectivity:
         RpNamespace: Microsoft.HybridConnectivity
     PublicCloudConnector:
         ApiVersion: "2024-12-01"
-        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/stable/2024-12-01/hybridconnectivity.json
+        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/PublicCloud/stable/2024-12-01/publicCloud.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridConnectivity/publicCloudConnectors/{publicCloudConnector}
         RpNamespace: Microsoft.HybridConnectivity
     ServiceConfiguration:
@@ -6238,7 +6170,7 @@ HybridConnectivity:
         RpNamespace: Microsoft.HybridConnectivity
     SolutionConfiguration:
         ApiVersion: "2024-12-01"
-        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/stable/2024-12-01/hybridconnectivity.json
+        SpecFilePath: specification/hybridconnectivity/resource-manager/Microsoft.HybridConnectivity/PublicCloud/stable/2024-12-01/publicCloud.json
         ResourceUri: /{resourceUri}/providers/Microsoft.HybridConnectivity/solutionConfigurations/{solutionConfiguration}
         RpNamespace: Microsoft.HybridConnectivity
     listEndpointCredentials:

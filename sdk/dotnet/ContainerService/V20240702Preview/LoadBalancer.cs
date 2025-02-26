@@ -99,7 +99,6 @@ namespace Pulumi.AzureNative.ContainerService.V20240702Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240602preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:LoadBalancer" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:LoadBalancer" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:LoadBalancer" },
                 },
             };

@@ -103,8 +103,6 @@ def get_policy(policy_name: Optional[str] = None,
     Gets the details of the policy.
     Azure REST API version: 2021-02-16-preview.
 
-    Other available API versions: 2024-09-01.
-
 
     :param str policy_name: The policy name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -130,8 +128,6 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     """
     Gets the details of the policy.
     Azure REST API version: 2021-02-16-preview.
-
-    Other available API versions: 2024-09-01.
 
 
     :param str policy_name: The policy name.

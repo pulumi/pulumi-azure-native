@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// Azure REST API version: 2024-10-01-preview.
-    /// 
-    /// Other available API versions: 2025-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CapabilityHost")]
     public partial class CapabilityHost : global::Pulumi.CustomResource
@@ -68,7 +66,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:CapabilityHost" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:CapabilityHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

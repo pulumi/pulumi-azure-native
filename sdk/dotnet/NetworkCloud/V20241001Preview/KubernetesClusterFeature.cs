@@ -111,7 +111,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20241001Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:KubernetesClusterFeature" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:KubernetesClusterFeature" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:KubernetesClusterFeature" },
                 },
             };

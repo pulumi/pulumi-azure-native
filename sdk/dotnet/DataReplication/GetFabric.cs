@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the fabric.
         /// Azure REST API version: 2021-02-16-preview.
-        /// 
-        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Task<GetFabricResult> InvokeAsync(GetFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFabricResult>("azure-native:datareplication:getFabric", args ?? new GetFabricArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the fabric.
         /// Azure REST API version: 2021-02-16-preview.
-        /// 
-        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure-native:datareplication:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the fabric.
         /// Azure REST API version: 2021-02-16-preview.
-        /// 
-        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetFabricResult> Invoke(GetFabricInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricResult>("azure-native:datareplication:getFabric", args ?? new GetFabricInvokeArgs(), options.WithDefaults());

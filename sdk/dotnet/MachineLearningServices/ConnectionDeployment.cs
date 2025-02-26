@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure REST API version: 2024-04-01-preview.
     /// 
-    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:ConnectionDeployment")]
     public partial class ConnectionDeployment : global::Pulumi.CustomResource
@@ -69,7 +69,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionDeployment" },
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

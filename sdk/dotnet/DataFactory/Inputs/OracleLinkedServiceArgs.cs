@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         /// </summary>
-        [Input("connectionString")]
-        public Input<object>? ConnectionString { get; set; }
+        [Input("connectionString", required: true)]
+        public Input<object> ConnectionString { get; set; } = null!;
 
         /// <summary>
         /// Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.

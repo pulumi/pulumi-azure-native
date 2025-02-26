@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20250102
     public partial class Target : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        /// The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         /// </summary>
         [Output("connectionServerName")]
         public Output<string> ConnectionServerName { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher.V20250102
     public sealed class TargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        /// The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
         /// </summary>
         [Input("connectionServerName", required: true)]
         public Input<string> ConnectionServerName { get; set; } = null!;

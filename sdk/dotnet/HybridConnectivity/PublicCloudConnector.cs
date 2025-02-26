@@ -17,24 +17,6 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public partial class PublicCloudConnector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Cloud profile for AWS.
-        /// </summary>
-        [Output("awsCloudProfile")]
-        public Output<Outputs.AwsCloudProfileResponse> AwsCloudProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Connector primary identifier.
-        /// </summary>
-        [Output("connectorPrimaryIdentifier")]
-        public Output<string> ConnectorPrimaryIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// Host cloud the public cloud connector.
-        /// </summary>
-        [Output("hostType")]
-        public Output<string> HostType { get; private set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -47,10 +29,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource provisioning state.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.PublicCloudConnectorPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -120,22 +102,16 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class PublicCloudConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Cloud profile for AWS.
-        /// </summary>
-        [Input("awsCloudProfile", required: true)]
-        public Input<Inputs.AwsCloudProfileArgs> AwsCloudProfile { get; set; } = null!;
-
-        /// <summary>
-        /// Host cloud the public cloud connector.
-        /// </summary>
-        [Input("hostType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.HybridConnectivity.HostType> HostType { get; set; } = null!;
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.PublicCloudConnectorPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Represent public cloud connectors resource.

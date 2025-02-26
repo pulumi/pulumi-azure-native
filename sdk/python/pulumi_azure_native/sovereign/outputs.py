@@ -654,10 +654,10 @@ class LandingZoneRegistrationResourcePropertiesResponse(dict):
             suggest = "existing_landing_zone_configuration_id"
         elif key == "existingTopLevelMgId":
             suggest = "existing_top_level_mg_id"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "managedIdentity":
             suggest = "managed_identity"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LandingZoneRegistrationResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -673,20 +673,19 @@ class LandingZoneRegistrationResourcePropertiesResponse(dict):
     def __init__(__self__, *,
                  existing_landing_zone_configuration_id: str,
                  existing_top_level_mg_id: str,
-                 provisioning_state: str,
-                 managed_identity: Optional['outputs.ManagedIdentityPropertiesResponse'] = None):
+                 managed_identity: 'outputs.ManagedIdentityPropertiesResponse',
+                 provisioning_state: str):
         """
         The properties of landing zone registration resource type.
         :param str existing_landing_zone_configuration_id: The resource id of the associated landing zone configuration.
         :param str existing_top_level_mg_id: The resource id of the top level management group
-        :param str provisioning_state: The state that reflects the current stage in the creation, updating, or deletion process of the landing zone registration resource type.
         :param 'ManagedIdentityPropertiesResponse' managed_identity: The managed identity to be assigned to this landing zone registration.
+        :param str provisioning_state: The state that reflects the current stage in the creation, updating, or deletion process of the landing zone registration resource type.
         """
         pulumi.set(__self__, "existing_landing_zone_configuration_id", existing_landing_zone_configuration_id)
         pulumi.set(__self__, "existing_top_level_mg_id", existing_top_level_mg_id)
+        pulumi.set(__self__, "managed_identity", managed_identity)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
 
     @property
     @pulumi.getter(name="existingLandingZoneConfigurationId")
@@ -705,20 +704,20 @@ class LandingZoneRegistrationResourcePropertiesResponse(dict):
         return pulumi.get(self, "existing_top_level_mg_id")
 
     @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> 'outputs.ManagedIdentityPropertiesResponse':
+        """
+        The managed identity to be assigned to this landing zone registration.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The state that reflects the current stage in the creation, updating, or deletion process of the landing zone registration resource type.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional['outputs.ManagedIdentityPropertiesResponse']:
-        """
-        The managed identity to be assigned to this landing zone registration.
-        """
-        return pulumi.get(self, "managed_identity")
 
 
 @pulumi.output_type

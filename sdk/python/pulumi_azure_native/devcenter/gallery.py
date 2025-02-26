@@ -100,7 +100,7 @@ class Gallery(pulumi.CustomResource):
         Represents a gallery.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class Gallery(pulumi.CustomResource):
         Represents a gallery.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
+        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.
@@ -163,7 +163,7 @@ class Gallery(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20250201:Gallery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240201:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:Gallery"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gallery, __self__).__init__(
             'azure-native:devcenter:Gallery',

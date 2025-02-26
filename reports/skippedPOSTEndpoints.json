@@ -18,10 +18,7 @@
   },
   "Advisor": {
     "Predict": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/predict",
-    "Recommendations_Generate": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations",
-    "triageRecommendations_ApproveTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/approve",
-    "triageRecommendations_RejectTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/reject",
-    "triageRecommendations_ResetTriageRecommendation": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/resiliencyReviews/{reviewId}/providers/Microsoft.Advisor/triageRecommendations/{recommendationId}/reset"
+    "Recommendations_Generate": "/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/generateRecommendations"
   },
   "AgFoodPlatform": {
     "CheckNameAvailability_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.AgFoodPlatform/checkNameAvailability",
@@ -915,10 +912,7 @@
   },
   "DataReplication": {
     "CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.DataReplication/locations/{location}/checkNameAvailability",
-    "CheckNameAvailability_Post": "/subscriptions/{subscriptionId}/providers/Microsoft.DataReplication/locations/{location}/checkNameAvailability",
     "DeploymentPreflight": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/deployments/{deploymentId}/preflight",
-    "DeploymentPreflight_Post": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/deployments/{deploymentId}/preflight",
-    "PrivateEndpointConnectionProxies_Validate": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/privateEndpointConnectionProxies/{privateEndpointConnectionProxyName}/validate",
     "ProtectedItem_PlannedFailover": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataReplication/replicationVaults/{vaultName}/protectedItems/{protectedItemName}/plannedFailover"
   },
   "DataShare": {
@@ -931,14 +925,6 @@
     "ShareSubscriptions_CancelSynchronization": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/cancelSynchronization",
     "ShareSubscriptions_Synchronize": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shareSubscriptions/{shareSubscriptionName}/synchronize"
   },
-  "DatabaseFleetManager": {
-    "FleetDatabases_ChangeTier": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/changeTier",
-    "FleetDatabases_Rename": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/rename",
-    "FleetDatabases_Revert": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/databases/{databaseName}/revert",
-    "FleetTiers_Disable": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/tiers/{tierName}/disable",
-    "Fleetspaces_RegisterServer": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/registerServer",
-    "Fleetspaces_Unregister": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseFleetManager/fleets/{fleetName}/fleetspaces/{fleetspaceName}/unregister"
-  },
   "DatabaseWatcher": {
     "HealthValidations_StartValidation": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseWatcher/watchers/{watcherName}/healthValidations/{healthValidationName}/startValidation",
     "Watchers_Start": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DatabaseWatcher/watchers/{watcherName}/start",
@@ -947,9 +933,6 @@
   "Datadog": {
     "Monitors_RefreshSetPasswordLink": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/refreshSetPasswordLink",
     "Monitors_SetDefaultKey": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Datadog/monitors/{monitorName}/setDefaultKey"
-  },
-  "DependencyMap": {
-    "Maps_ExportDependencies": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DependencyMap/maps/{mapName}/exportDependencies"
   },
   "DesktopVirtualization": {
     "AppAttachPackageInfo_Import": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DesktopVirtualization/hostPools/{hostPoolName}/importAppAttachPackageInfo",
@@ -1393,7 +1376,6 @@
     "VirtualMachines_Stop": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labs/{labName}/virtualMachines/{virtualMachineName}/stop"
   },
   "LoadTestService": {
-    "LoadTestsMaxMonthlyVirtualUserHoursLimitsResource_Set": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}/limits/maxMonthlyVirtualUserHours/set",
     "Quotas_CheckAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.LoadTestService/locations/{location}/quotas/{quotaBucketName}/checkAvailability"
   },
   "Logic": {
@@ -2575,8 +2557,6 @@
   "VideoIndexer": {
     "Accounts_CheckNameAvailability": "/subscriptions/{subscriptionId}/providers/Microsoft.VideoIndexer/checkNameAvailability",
     "Generate_AccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateAccessToken",
-    "Generate_ExtensionAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateExtensionAccessToken",
-    "Generate_ExtensionRestrictedViewerAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateExtensionRestrictedViewerAccessToken",
     "Generate_RestrictedViewerAccessToken": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}/generateRestrictedViewerAccessToken"
   },
   "VirtualMachineImages": {

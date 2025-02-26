@@ -17,7 +17,6 @@ import * as aadiam from "./aadiam";
 import * as addons from "./addons";
 import * as advisor from "./advisor";
 import * as agfoodplatform from "./agfoodplatform";
-import * as agricultureplatform from "./agricultureplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apicenter from "./apicenter";
@@ -73,7 +72,6 @@ import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
 import * as dashboard from "./dashboard";
-import * as databasefleetmanager from "./databasefleetmanager";
 import * as databasewatcher from "./databasewatcher";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
@@ -91,7 +89,6 @@ import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
 import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
-import * as dependencymap from "./dependencymap";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
@@ -259,7 +256,6 @@ export {
     addons,
     advisor,
     agfoodplatform,
-    agricultureplatform,
     alertsmanagement,
     analysisservices,
     apicenter,
@@ -315,7 +311,6 @@ export {
     customerinsights,
     customproviders,
     dashboard,
-    databasefleetmanager,
     databasewatcher,
     databox,
     databoxedge,
@@ -333,7 +328,6 @@ export {
     dbformysql,
     dbforpostgresql,
     delegatednetwork,
-    dependencymap,
     desktopvirtualization,
     devcenter,
     devhub,

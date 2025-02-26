@@ -18,6 +18,12 @@ from ._enums import *
 __all__ = [
     'AwsCloudProfileArgs',
     'AwsCloudProfileArgsDict',
+    'EndpointPropertiesArgs',
+    'EndpointPropertiesArgsDict',
+    'PublicCloudConnectorPropertiesArgs',
+    'PublicCloudConnectorPropertiesArgsDict',
+    'SolutionConfigurationPropertiesArgs',
+    'SolutionConfigurationPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -97,5 +103,169 @@ class AwsCloudProfileArgs:
     @is_organizational_account.setter
     def is_organizational_account(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_organizational_account", value)
+
+
+if not MYPY:
+    class EndpointPropertiesArgsDict(TypedDict):
+        """
+        Endpoint details
+        """
+        type: pulumi.Input[Union[str, 'Type']]
+        """
+        The type of endpoint.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource Id of the connectivity endpoint (optional).
+        """
+elif False:
+    EndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointPropertiesArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'Type']],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Endpoint details
+        :param pulumi.Input[Union[str, 'Type']] type: The type of endpoint.
+        :param pulumi.Input[str] resource_id: The resource Id of the connectivity endpoint (optional).
+        """
+        pulumi.set(__self__, "type", type)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'Type']]:
+        """
+        The type of endpoint.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'Type']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource Id of the connectivity endpoint (optional).
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class PublicCloudConnectorPropertiesArgsDict(TypedDict):
+        """
+        Properties of public cloud connectors.
+        """
+        aws_cloud_profile: pulumi.Input['AwsCloudProfileArgsDict']
+        """
+        Cloud profile for AWS.
+        """
+        host_type: pulumi.Input[Union[str, 'HostType']]
+        """
+        Host cloud the public cloud connector.
+        """
+elif False:
+    PublicCloudConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicCloudConnectorPropertiesArgs:
+    def __init__(__self__, *,
+                 aws_cloud_profile: pulumi.Input['AwsCloudProfileArgs'],
+                 host_type: pulumi.Input[Union[str, 'HostType']]):
+        """
+        Properties of public cloud connectors.
+        :param pulumi.Input['AwsCloudProfileArgs'] aws_cloud_profile: Cloud profile for AWS.
+        :param pulumi.Input[Union[str, 'HostType']] host_type: Host cloud the public cloud connector.
+        """
+        pulumi.set(__self__, "aws_cloud_profile", aws_cloud_profile)
+        pulumi.set(__self__, "host_type", host_type)
+
+    @property
+    @pulumi.getter(name="awsCloudProfile")
+    def aws_cloud_profile(self) -> pulumi.Input['AwsCloudProfileArgs']:
+        """
+        Cloud profile for AWS.
+        """
+        return pulumi.get(self, "aws_cloud_profile")
+
+    @aws_cloud_profile.setter
+    def aws_cloud_profile(self, value: pulumi.Input['AwsCloudProfileArgs']):
+        pulumi.set(self, "aws_cloud_profile", value)
+
+    @property
+    @pulumi.getter(name="hostType")
+    def host_type(self) -> pulumi.Input[Union[str, 'HostType']]:
+        """
+        Host cloud the public cloud connector.
+        """
+        return pulumi.get(self, "host_type")
+
+    @host_type.setter
+    def host_type(self, value: pulumi.Input[Union[str, 'HostType']]):
+        pulumi.set(self, "host_type", value)
+
+
+if not MYPY:
+    class SolutionConfigurationPropertiesArgsDict(TypedDict):
+        """
+        Solution configuration resource.
+        """
+        solution_type: pulumi.Input[str]
+        """
+        The type of the solution
+        """
+        solution_settings: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Solution settings
+        """
+elif False:
+    SolutionConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SolutionConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 solution_type: pulumi.Input[str],
+                 solution_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Solution configuration resource.
+        :param pulumi.Input[str] solution_type: The type of the solution
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] solution_settings: Solution settings
+        """
+        pulumi.set(__self__, "solution_type", solution_type)
+        if solution_settings is not None:
+            pulumi.set(__self__, "solution_settings", solution_settings)
+
+    @property
+    @pulumi.getter(name="solutionType")
+    def solution_type(self) -> pulumi.Input[str]:
+        """
+        The type of the solution
+        """
+        return pulumi.get(self, "solution_type")
+
+    @solution_type.setter
+    def solution_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "solution_type", value)
+
+    @property
+    @pulumi.getter(name="solutionSettings")
+    def solution_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Solution settings
+        """
+        return pulumi.get(self, "solution_settings")
+
+    @solution_settings.setter
+    def solution_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "solution_settings", value)
 
 

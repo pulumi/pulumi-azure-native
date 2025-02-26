@@ -113,7 +113,6 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:Schedule" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:Schedule" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:Schedule" },
-                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:Schedule" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:Schedule" },
                 },
             };

@@ -111,7 +111,6 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230228
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20231201:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240301:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20240331:Service" },
-                    new global::Pulumi.Alias { Type = "azure-native:healthcareapis/v20250301preview:Service" },
                     new global::Pulumi.Alias { Type = "azure-native:healthcareapis:Service" },
                 },
             };

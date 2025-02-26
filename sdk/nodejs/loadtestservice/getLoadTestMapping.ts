@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a LoadTestMappingResource
  * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-12-01-preview.
  */
 export function getLoadTestMapping(args: GetLoadTestMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,8 +66,6 @@ export interface GetLoadTestMappingResult {
 /**
  * Get a LoadTestMappingResource
  * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-12-01-preview.
  */
 export function getLoadTestMappingOutput(args: GetLoadTestMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadTestMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

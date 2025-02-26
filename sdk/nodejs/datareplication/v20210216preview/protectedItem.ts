@@ -85,7 +85,7 @@ export class ProtectedItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20240901:ProtectedItem" }, { type: "azure-native:datareplication:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication:ProtectedItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectedItem.__pulumiType, name, resourceInputs, opts);
     }
