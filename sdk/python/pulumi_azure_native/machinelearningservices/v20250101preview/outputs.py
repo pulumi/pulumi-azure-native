@@ -8572,10 +8572,10 @@ class ContentSafetyResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "contentSafetyLevel":
-            suggest = "content_safety_level"
-        elif key == "contentSafetyStatus":
+        if key == "contentSafetyStatus":
             suggest = "content_safety_status"
+        elif key == "contentSafetyLevel":
+            suggest = "content_safety_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContentSafetyResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8589,22 +8589,15 @@ class ContentSafetyResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_safety_level: str,
-                 content_safety_status: str):
+                 content_safety_status: str,
+                 content_safety_level: Optional[str] = None):
         """
-        :param str content_safety_level: [Required] Specifies the current safety level for content safety.
         :param str content_safety_status: [Required] Specifies the status of content safety.
+        :param str content_safety_level: [Required] Specifies the current safety level for content safety.
         """
-        pulumi.set(__self__, "content_safety_level", content_safety_level)
         pulumi.set(__self__, "content_safety_status", content_safety_status)
-
-    @property
-    @pulumi.getter(name="contentSafetyLevel")
-    def content_safety_level(self) -> str:
-        """
-        [Required] Specifies the current safety level for content safety.
-        """
-        return pulumi.get(self, "content_safety_level")
+        if content_safety_level is not None:
+            pulumi.set(__self__, "content_safety_level", content_safety_level)
 
     @property
     @pulumi.getter(name="contentSafetyStatus")
@@ -8613,6 +8606,14 @@ class ContentSafetyResponse(dict):
         [Required] Specifies the status of content safety.
         """
         return pulumi.get(self, "content_safety_status")
+
+    @property
+    @pulumi.getter(name="contentSafetyLevel")
+    def content_safety_level(self) -> Optional[str]:
+        """
+        [Required] Specifies the current safety level for content safety.
+        """
+        return pulumi.get(self, "content_safety_level")
 
 
 @pulumi.output_type

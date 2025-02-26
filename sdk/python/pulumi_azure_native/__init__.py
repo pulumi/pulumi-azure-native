@@ -131,8 +131,6 @@ if typing.TYPE_CHECKING:
     customproviders = __customproviders
     import pulumi_azure_native.dashboard as __dashboard
     dashboard = __dashboard
-    import pulumi_azure_native.databasefleetmanager as __databasefleetmanager
-    databasefleetmanager = __databasefleetmanager
     import pulumi_azure_native.databasewatcher as __databasewatcher
     databasewatcher = __databasewatcher
     import pulumi_azure_native.databox as __databox
@@ -549,7 +547,6 @@ else:
     customerinsights = _utilities.lazy_import('pulumi_azure_native.customerinsights')
     customproviders = _utilities.lazy_import('pulumi_azure_native.customproviders')
     dashboard = _utilities.lazy_import('pulumi_azure_native.dashboard')
-    databasefleetmanager = _utilities.lazy_import('pulumi_azure_native.databasefleetmanager')
     databasewatcher = _utilities.lazy_import('pulumi_azure_native.databasewatcher')
     databox = _utilities.lazy_import('pulumi_azure_native.databox')
     databoxedge = _utilities.lazy_import('pulumi_azure_native.databoxedge')
@@ -821,7 +818,6 @@ _utilities.register(
   "mod": "advisor",
   "fqn": "pulumi_azure_native.advisor",
   "classes": {
-   "azure-native:advisor:Assessment": "Assessment",
    "azure-native:advisor:Suppression": "Suppression"
   }
  },
@@ -831,15 +827,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.advisor.v20230101",
   "classes": {
    "azure-native:advisor/v20230101:Suppression": "Suppression"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "advisor/v20230901preview",
-  "fqn": "pulumi_azure_native.advisor.v20230901preview",
-  "classes": {
-   "azure-native:advisor/v20230901preview:Assessment": "Assessment",
-   "azure-native:advisor/v20230901preview:Suppression": "Suppression"
   }
  },
  {
@@ -6680,21 +6667,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "containerservice/v20241002preview",
-  "fqn": "pulumi_azure_native.containerservice.v20241002preview",
-  "classes": {
-   "azure-native:containerservice/v20241002preview:AgentPool": "AgentPool",
-   "azure-native:containerservice/v20241002preview:LoadBalancer": "LoadBalancer",
-   "azure-native:containerservice/v20241002preview:MaintenanceConfiguration": "MaintenanceConfiguration",
-   "azure-native:containerservice/v20241002preview:ManagedCluster": "ManagedCluster",
-   "azure-native:containerservice/v20241002preview:ManagedClusterSnapshot": "ManagedClusterSnapshot",
-   "azure-native:containerservice/v20241002preview:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:containerservice/v20241002preview:Snapshot": "Snapshot",
-   "azure-native:containerservice/v20241002preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "containerstorage",
   "fqn": "pulumi_azure_native.containerstorage",
   "classes": {
@@ -7058,30 +7030,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "databasefleetmanager",
-  "fqn": "pulumi_azure_native.databasefleetmanager",
-  "classes": {
-   "azure-native:databasefleetmanager:FirewallRule": "FirewallRule",
-   "azure-native:databasefleetmanager:Fleet": "Fleet",
-   "azure-native:databasefleetmanager:FleetDatabase": "FleetDatabase",
-   "azure-native:databasefleetmanager:FleetTier": "FleetTier",
-   "azure-native:databasefleetmanager:Fleetspace": "Fleetspace"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databasefleetmanager/v20250201preview",
-  "fqn": "pulumi_azure_native.databasefleetmanager.v20250201preview",
-  "classes": {
-   "azure-native:databasefleetmanager/v20250201preview:FirewallRule": "FirewallRule",
-   "azure-native:databasefleetmanager/v20250201preview:Fleet": "Fleet",
-   "azure-native:databasefleetmanager/v20250201preview:FleetDatabase": "FleetDatabase",
-   "azure-native:databasefleetmanager/v20250201preview:FleetTier": "FleetTier",
-   "azure-native:databasefleetmanager/v20250201preview:Fleetspace": "Fleetspace"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "databasewatcher",
   "fqn": "pulumi_azure_native.databasewatcher",
   "classes": {
@@ -7180,14 +7128,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.databox.v20240301preview",
   "classes": {
    "azure-native:databox/v20240301preview:Job": "Job"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "databox/v20250201",
-  "fqn": "pulumi_azure_native.databox.v20250201",
-  "classes": {
-   "azure-native:databox/v20250201:Job": "Job"
   }
  },
  {
@@ -7789,21 +7729,6 @@ _utilities.register(
    "azure-native:datareplication/v20210216preview:ProtectedItem": "ProtectedItem",
    "azure-native:datareplication/v20210216preview:ReplicationExtension": "ReplicationExtension",
    "azure-native:datareplication/v20210216preview:Vault": "Vault"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "datareplication/v20240901",
-  "fqn": "pulumi_azure_native.datareplication.v20240901",
-  "classes": {
-   "azure-native:datareplication/v20240901:Fabric": "Fabric",
-   "azure-native:datareplication/v20240901:FabricAgent": "FabricAgent",
-   "azure-native:datareplication/v20240901:Policy": "Policy",
-   "azure-native:datareplication/v20240901:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:datareplication/v20240901:PrivateEndpointConnectionProxy": "PrivateEndpointConnectionProxy",
-   "azure-native:datareplication/v20240901:ProtectedItem": "ProtectedItem",
-   "azure-native:datareplication/v20240901:ReplicationExtension": "ReplicationExtension",
-   "azure-native:datareplication/v20240901:Vault": "Vault"
   }
  },
  {
@@ -10743,16 +10668,6 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
-  "mod": "hdinsight/v20250115preview",
-  "fqn": "pulumi_azure_native.hdinsight.v20250115preview",
-  "classes": {
-   "azure-native:hdinsight/v20250115preview:Application": "Application",
-   "azure-native:hdinsight/v20250115preview:Cluster": "Cluster",
-   "azure-native:hdinsight/v20250115preview:PrivateEndpointConnection": "PrivateEndpointConnection"
-  }
- },
- {
-  "pkg": "azure-native",
   "mod": "healthbot",
   "fqn": "pulumi_azure_native.healthbot",
   "classes": {
@@ -12501,16 +12416,6 @@ _utilities.register(
    "azure-native:loadtestservice/v20231201preview:LoadTest": "LoadTest",
    "azure-native:loadtestservice/v20231201preview:LoadTestMapping": "LoadTestMapping",
    "azure-native:loadtestservice/v20231201preview:LoadTestProfileMapping": "LoadTestProfileMapping"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "loadtestservice/v20241201preview",
-  "fqn": "pulumi_azure_native.loadtestservice.v20241201preview",
-  "classes": {
-   "azure-native:loadtestservice/v20241201preview:LoadTest": "LoadTest",
-   "azure-native:loadtestservice/v20241201preview:LoadTestMapping": "LoadTestMapping",
-   "azure-native:loadtestservice/v20241201preview:LoadTestProfileMapping": "LoadTestProfileMapping"
   }
  },
  {
@@ -16286,31 +16191,6 @@ _utilities.register(
    "azure-native:networkcloud/v20241001preview:TrunkedNetwork": "TrunkedNetwork",
    "azure-native:networkcloud/v20241001preview:VirtualMachine": "VirtualMachine",
    "azure-native:networkcloud/v20241001preview:Volume": "Volume"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "networkcloud/v20250201",
-  "fqn": "pulumi_azure_native.networkcloud.v20250201",
-  "classes": {
-   "azure-native:networkcloud/v20250201:AgentPool": "AgentPool",
-   "azure-native:networkcloud/v20250201:BareMetalMachine": "BareMetalMachine",
-   "azure-native:networkcloud/v20250201:BareMetalMachineKeySet": "BareMetalMachineKeySet",
-   "azure-native:networkcloud/v20250201:BmcKeySet": "BmcKeySet",
-   "azure-native:networkcloud/v20250201:CloudServicesNetwork": "CloudServicesNetwork",
-   "azure-native:networkcloud/v20250201:Cluster": "Cluster",
-   "azure-native:networkcloud/v20250201:ClusterManager": "ClusterManager",
-   "azure-native:networkcloud/v20250201:Console": "Console",
-   "azure-native:networkcloud/v20250201:KubernetesCluster": "KubernetesCluster",
-   "azure-native:networkcloud/v20250201:KubernetesClusterFeature": "KubernetesClusterFeature",
-   "azure-native:networkcloud/v20250201:L2Network": "L2Network",
-   "azure-native:networkcloud/v20250201:L3Network": "L3Network",
-   "azure-native:networkcloud/v20250201:MetricsConfiguration": "MetricsConfiguration",
-   "azure-native:networkcloud/v20250201:Rack": "Rack",
-   "azure-native:networkcloud/v20250201:StorageAppliance": "StorageAppliance",
-   "azure-native:networkcloud/v20250201:TrunkedNetwork": "TrunkedNetwork",
-   "azure-native:networkcloud/v20250201:VirtualMachine": "VirtualMachine",
-   "azure-native:networkcloud/v20250201:Volume": "Volume"
   }
  },
  {

@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets the gateway settings for the specified cluster.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets the gateway settings for the specified cluster.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetClusterGatewaySettingsResult> Invoke(GetClusterGatewaySettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets the gateway settings for the specified cluster.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetClusterGatewaySettingsResult> Invoke(GetClusterGatewaySettingsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsInvokeArgs(), options.WithDefaults());

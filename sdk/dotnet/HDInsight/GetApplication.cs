@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets properties of the specified application.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets properties of the specified application.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// Gets properties of the specified application.
         /// Azure REST API version: 2021-06-01.
         /// 
-        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+        /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

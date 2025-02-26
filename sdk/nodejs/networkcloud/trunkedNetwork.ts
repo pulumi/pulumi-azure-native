@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
+ * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
  */
 export class TrunkedNetwork extends pulumi.CustomResource {
     /**
@@ -170,7 +170,7 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             resourceInputs["vlans"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20250201:TrunkedNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20231001preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240601preview:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20240701:TrunkedNetwork" }, { type: "azure-native:networkcloud/v20241001preview:TrunkedNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrunkedNetwork.__pulumiType, name, resourceInputs, opts);
     }

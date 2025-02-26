@@ -117,7 +117,6 @@ namespace Pulumi.AzureNative.ContainerService.V20240702Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240502preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240602preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20240902preview:ManagedClusterSnapshot" },
-                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20241002preview:ManagedClusterSnapshot" },
                     new global::Pulumi.Alias { Type = "azure-native:containerservice:ManagedClusterSnapshot" },
                 },
             };

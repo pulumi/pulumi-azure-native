@@ -81,7 +81,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:Application" },
-                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:Application" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application" },
                 },
             };

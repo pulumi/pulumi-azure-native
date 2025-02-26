@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Protected item model.
  * Azure REST API version: 2021-02-16-preview.
- *
- * Other available API versions: 2024-09-01.
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**
@@ -88,7 +86,7 @@ export class ProtectedItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ProtectedItem" }, { type: "azure-native:datareplication/v20240901:ProtectedItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ProtectedItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProtectedItem.__pulumiType, name, resourceInputs, opts);
     }

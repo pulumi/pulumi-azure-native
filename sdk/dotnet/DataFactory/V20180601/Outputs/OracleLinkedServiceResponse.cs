@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         /// </summary>
-        public readonly object? ConnectionString;
+        public readonly object ConnectionString;
         /// <summary>
         /// Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
         /// </summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
-            object? connectionString,
+            object connectionString,
 
             object? cryptoChecksumClient,
 

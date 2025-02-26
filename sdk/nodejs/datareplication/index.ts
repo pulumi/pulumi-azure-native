@@ -71,11 +71,9 @@ export * from "../types/enums/datareplication";
 
 // Export sub-modules:
 import * as v20210216preview from "./v20210216preview";
-import * as v20240901 from "./v20240901";
 
 export {
     v20210216preview,
-    v20240901,
 };
 
 const _module = {

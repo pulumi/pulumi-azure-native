@@ -15,8 +15,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20250101Preview.Inputs
         /// <summary>
         /// [Required] Specifies the current safety level for content safety.
         /// </summary>
-        [Input("contentSafetyLevel", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20250101Preview.ContentSafetyLevel> ContentSafetyLevel { get; set; } = null!;
+        [Input("contentSafetyLevel")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.V20250101Preview.ContentSafetyLevel>? ContentSafetyLevel { get; set; }
 
         /// <summary>
         /// [Required] Specifies the status of content safety.

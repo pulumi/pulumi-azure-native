@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20250101Preview.Outputs
         /// <summary>
         /// [Required] Specifies the current safety level for content safety.
         /// </summary>
-        public readonly string ContentSafetyLevel;
+        public readonly string? ContentSafetyLevel;
         /// <summary>
         /// [Required] Specifies the status of content safety.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20250101Preview.Outputs
 
         [OutputConstructor]
         private ContentSafetyResponse(
-            string contentSafetyLevel,
+            string? contentSafetyLevel,
 
             string contentSafetyStatus)
         {

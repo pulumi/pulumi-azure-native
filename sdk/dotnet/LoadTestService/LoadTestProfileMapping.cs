@@ -12,8 +12,6 @@ namespace Pulumi.AzureNative.LoadTestService
     /// <summary>
     /// LoadTest profile mapping resource details
     /// Azure REST API version: 2023-12-01-preview.
-    /// 
-    /// Other available API versions: 2024-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:LoadTestProfileMapping")]
     public partial class LoadTestProfileMapping : global::Pulumi.CustomResource
@@ -80,7 +78,6 @@ namespace Pulumi.AzureNative.LoadTestService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20231201preview:LoadTestProfileMapping" },
-                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20241201preview:LoadTestProfileMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

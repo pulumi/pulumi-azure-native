@@ -9265,13 +9265,13 @@ class ContentSafetyEndpointDeploymentResourcePropertiesArgs:
 
 if not MYPY:
     class ContentSafetyArgsDict(TypedDict):
-        content_safety_level: pulumi.Input[Union[str, 'ContentSafetyLevel']]
-        """
-        [Required] Specifies the current safety level for content safety.
-        """
         content_safety_status: pulumi.Input[Union[str, 'ContentSafetyStatus']]
         """
         [Required] Specifies the status of content safety.
+        """
+        content_safety_level: NotRequired[pulumi.Input[Union[str, 'ContentSafetyLevel']]]
+        """
+        [Required] Specifies the current safety level for content safety.
         """
 elif False:
     ContentSafetyArgsDict: TypeAlias = Mapping[str, Any]
@@ -9279,26 +9279,15 @@ elif False:
 @pulumi.input_type
 class ContentSafetyArgs:
     def __init__(__self__, *,
-                 content_safety_level: pulumi.Input[Union[str, 'ContentSafetyLevel']],
-                 content_safety_status: pulumi.Input[Union[str, 'ContentSafetyStatus']]):
+                 content_safety_status: pulumi.Input[Union[str, 'ContentSafetyStatus']],
+                 content_safety_level: Optional[pulumi.Input[Union[str, 'ContentSafetyLevel']]] = None):
         """
-        :param pulumi.Input[Union[str, 'ContentSafetyLevel']] content_safety_level: [Required] Specifies the current safety level for content safety.
         :param pulumi.Input[Union[str, 'ContentSafetyStatus']] content_safety_status: [Required] Specifies the status of content safety.
+        :param pulumi.Input[Union[str, 'ContentSafetyLevel']] content_safety_level: [Required] Specifies the current safety level for content safety.
         """
-        pulumi.set(__self__, "content_safety_level", content_safety_level)
         pulumi.set(__self__, "content_safety_status", content_safety_status)
-
-    @property
-    @pulumi.getter(name="contentSafetyLevel")
-    def content_safety_level(self) -> pulumi.Input[Union[str, 'ContentSafetyLevel']]:
-        """
-        [Required] Specifies the current safety level for content safety.
-        """
-        return pulumi.get(self, "content_safety_level")
-
-    @content_safety_level.setter
-    def content_safety_level(self, value: pulumi.Input[Union[str, 'ContentSafetyLevel']]):
-        pulumi.set(self, "content_safety_level", value)
+        if content_safety_level is not None:
+            pulumi.set(__self__, "content_safety_level", content_safety_level)
 
     @property
     @pulumi.getter(name="contentSafetyStatus")
@@ -9311,6 +9300,18 @@ class ContentSafetyArgs:
     @content_safety_status.setter
     def content_safety_status(self, value: pulumi.Input[Union[str, 'ContentSafetyStatus']]):
         pulumi.set(self, "content_safety_status", value)
+
+    @property
+    @pulumi.getter(name="contentSafetyLevel")
+    def content_safety_level(self) -> Optional[pulumi.Input[Union[str, 'ContentSafetyLevel']]]:
+        """
+        [Required] Specifies the current safety level for content safety.
+        """
+        return pulumi.get(self, "content_safety_level")
+
+    @content_safety_level.setter
+    def content_safety_level(self, value: Optional[pulumi.Input[Union[str, 'ContentSafetyLevel']]]):
+        pulumi.set(self, "content_safety_level", value)
 
 
 if not MYPY:

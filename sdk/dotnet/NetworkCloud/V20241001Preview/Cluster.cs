@@ -264,7 +264,6 @@ namespace Pulumi.AzureNative.NetworkCloud.V20241001Preview
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20231001preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:Cluster" },
-                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:Cluster" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud:Cluster" },
                 },
             };

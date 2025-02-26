@@ -425,7 +425,7 @@ class BareMetalMachine(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud:BareMetalMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud:BareMetalMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BareMetalMachine, __self__).__init__(
             'azure-native:networkcloud/v20240601preview:BareMetalMachine',

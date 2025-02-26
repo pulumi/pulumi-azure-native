@@ -153,7 +153,7 @@ export class ClusterManager extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:ClusterManager" }, { type: "azure-native:networkcloud/v20231001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240701:ClusterManager" }, { type: "azure-native:networkcloud/v20241001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20250201:ClusterManager" }, { type: "azure-native:networkcloud:ClusterManager" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:ClusterManager" }, { type: "azure-native:networkcloud/v20231001preview:ClusterManager" }, { type: "azure-native:networkcloud/v20240701:ClusterManager" }, { type: "azure-native:networkcloud/v20241001preview:ClusterManager" }, { type: "azure-native:networkcloud:ClusterManager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ClusterManager.__pulumiType, name, resourceInputs, opts);
     }

@@ -142,7 +142,7 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
     Gets the specific private endpoint connection.
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -173,7 +173,7 @@ def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[s
     Gets the specific private endpoint connection.
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
+    Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

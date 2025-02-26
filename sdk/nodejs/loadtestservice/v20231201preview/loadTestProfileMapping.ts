@@ -93,7 +93,7 @@ export class LoadTestProfileMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20241201preview:LoadTestProfileMapping" }, { type: "azure-native:loadtestservice:LoadTestProfileMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice:LoadTestProfileMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadTestProfileMapping.__pulumiType, name, resourceInputs, opts);
     }

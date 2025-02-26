@@ -76,7 +76,6 @@ namespace Pulumi.AzureNative.LoadTestService.V20231201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:loadtestservice/v20241201preview:LoadTestProfileMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:loadtestservice:LoadTestProfileMapping" },
                 },
             };

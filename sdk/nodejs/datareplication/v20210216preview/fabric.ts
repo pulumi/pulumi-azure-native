@@ -93,7 +93,7 @@ export class Fabric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20240901:Fabric" }, { type: "azure-native:datareplication:Fabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication:Fabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Fabric.__pulumiType, name, resourceInputs, opts);
     }

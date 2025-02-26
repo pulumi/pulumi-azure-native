@@ -61,7 +61,6 @@ namespace Pulumi.AzureNative.DataReplication.V20210216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:datareplication/v20240901:ReplicationExtension" },
                     new global::Pulumi.Alias { Type = "azure-native:datareplication:ReplicationExtension" },
                 },
             };

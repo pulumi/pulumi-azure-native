@@ -23,11 +23,8 @@ if typing.TYPE_CHECKING:
     v20221201 = __v20221201
     import pulumi_azure_native.loadtestservice.v20231201preview as __v20231201preview
     v20231201preview = __v20231201preview
-    import pulumi_azure_native.loadtestservice.v20241201preview as __v20241201preview
-    v20241201preview = __v20241201preview
 else:
     v20211201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20211201preview')
     v20221201 = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20221201')
     v20231201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20231201preview')
-    v20241201preview = _utilities.lazy_import('pulumi_azure_native.loadtestservice.v20241201preview')
 
