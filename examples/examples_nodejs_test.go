@@ -329,7 +329,8 @@ func TestRecoveryServicesProtectedItemTs(t *testing.T) {
 }
 
 func TestPIMRoleEligibilitySchedule(t *testing.T) {
-	skipIfShort(t)
+	t.Skip(`Skipping because each test run triggers an email notification to everyone. See
+https://stackoverflow.com/questions/79454225/turn-off-notifications-like-pim-test-user-has-the-data-box-reader-role?noredirect=1#comment140124389_79454225.`)
 
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
