@@ -65,6 +65,34 @@ func TestReadWithClient(t *testing.T) {
 	assert.Equal(t, "https://myaccount.blob.core.windows.net/mycontainer/myblob", blobProperties[url])
 }
 
+func TestReadFromUSGovWithClient(t *testing.T) {
+	blob := blob_azidentity{
+		creds: &azfake.TokenCredential{},
+		env:   cloud.AzureGovernment,
+	}
+
+	properties := resource.NewPropertyMapFromMap(map[string]any{
+		accountName:       "myaccount",
+		blobName:          "myblob",
+		containerName:     "mycontainer",
+		resourceGroupName: "myrg",
+	})
+
+	azureProperties := azureblob.GetPropertiesResponse{
+		BlobType:    ref(azureblob.BlobTypeBlockBlob),
+		ContentType: ref("text/plain"),
+	}
+
+	var reader blobPropertiesReader = func(ctx context.Context) (azureblob.GetPropertiesResponse, error) {
+		return azureProperties, nil
+	}
+
+	blobProperties, found, err := blob.readBlob(context.Background(), properties, reader)
+	require.NoError(t, err)
+	assert.True(t, found)
+	assert.Equal(t, "https://myaccount.blob.core.usgovcloudapi.net/mycontainer/myblob", blobProperties[url])
+}
+
 func fakeListKeysStorageAccountServer(keys []*armstorage.AccountKey) fake.AccountsServer {
 	return fake.AccountsServer{
 		ListKeys: func(ctx context.Context, resourceGroupName string, accountName string, options *armstorage.AccountsClientListKeysOptions) (resp azfake.Responder[armstorage.AccountsClientListKeysResponse], errResp azfake.ErrorResponder) {
