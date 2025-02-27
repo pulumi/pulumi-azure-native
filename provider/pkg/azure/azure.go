@@ -77,12 +77,16 @@ func AzureError(err error) error {
 // the default public cloud. It's assumed that validation of cloud name in the provider's config
 // has been done earlier.
 func GetCloudByName(cloudName string) azcloud.Configuration {
-	switch cloudName {
+	switch strings.ToLower(cloudName) {
 	case "china":
+		return azcloud.AzureChina
+	case "azurechinacloud":
 		return azcloud.AzureChina
 	case "usgov":
 		return azcloud.AzureGovernment
 	case "usgovernment":
+		return azcloud.AzureGovernment
+	case "azureusgovernment":
 		return azcloud.AzureGovernment
 	}
 	return azcloud.AzurePublic
