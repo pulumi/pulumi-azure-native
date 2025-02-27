@@ -106,6 +106,8 @@ def get_capability_host(name: Optional[str] = None,
     Azure Resource Manager resource envelope.
     Azure REST API version: 2024-10-01-preview.
 
+    Other available API versions: 2025-01-01-preview.
+
 
     :param str name: CapabilityHost name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -131,6 +133,8 @@ def get_capability_host_output(name: Optional[pulumi.Input[str]] = None,
     """
     Azure Resource Manager resource envelope.
     Azure REST API version: 2024-10-01-preview.
+
+    Other available API versions: 2025-01-01-preview.
 
 
     :param str name: CapabilityHost name.

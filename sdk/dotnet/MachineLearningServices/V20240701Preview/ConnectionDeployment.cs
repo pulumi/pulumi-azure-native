@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20240701Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:ConnectionDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:ConnectionDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:ConnectionDeployment" },
                 },
             };

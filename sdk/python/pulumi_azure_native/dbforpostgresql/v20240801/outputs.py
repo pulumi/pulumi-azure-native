@@ -1645,7 +1645,7 @@ class UserAssignedIdentityResponse(dict):
         """
         Information describing the identities associated with this application.
         :param str tenant_id: Tenant id of the server.
-        :param str type: the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        :param str type: the types of identities associated with this resource
         :param str principal_id: the identity principal Id of the server.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: represents user assigned identities map.
         """
@@ -1668,7 +1668,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        the types of identities associated with this resource
         """
         return pulumi.get(self, "type")
 

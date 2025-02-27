@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The policy assignment.
  * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
  *
- * Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01.
+ * Other available API versions: 2019-06-01, 2020-03-01, 2023-04-01, 2024-04-01, 2024-05-01, 2025-01-01, 2025-03-01.
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -155,7 +155,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20160401:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180301:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-native:authorization/v20200901:PolicyAssignment" }, { type: "azure-native:authorization/v20210601:PolicyAssignment" }, { type: "azure-native:authorization/v20220601:PolicyAssignment" }, { type: "azure-native:authorization/v20230401:PolicyAssignment" }, { type: "azure-native:authorization/v20240401:PolicyAssignment" }, { type: "azure-native:authorization/v20240501:PolicyAssignment" }, { type: "azure-native:authorization/v20250101:PolicyAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20160401:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180301:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-native:authorization/v20200901:PolicyAssignment" }, { type: "azure-native:authorization/v20210601:PolicyAssignment" }, { type: "azure-native:authorization/v20220601:PolicyAssignment" }, { type: "azure-native:authorization/v20230401:PolicyAssignment" }, { type: "azure-native:authorization/v20240401:PolicyAssignment" }, { type: "azure-native:authorization/v20240501:PolicyAssignment" }, { type: "azure-native:authorization/v20250101:PolicyAssignment" }, { type: "azure-native:authorization/v20250301:PolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }

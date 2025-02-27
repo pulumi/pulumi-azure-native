@@ -186,7 +186,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         Represents a definition for a Developer Machine.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,7 +210,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         Represents a definition for a Developer Machine.
         Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
 
-        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -269,7 +269,7 @@ class DevBoxDefinition(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240201:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:DevBoxDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20231001preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240201:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240501preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240601preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240701preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20240801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20241001preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20250201:DevBoxDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevBoxDefinition, __self__).__init__(
             'azure-native:devcenter:DevBoxDefinition',

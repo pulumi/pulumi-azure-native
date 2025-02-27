@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.DevCenter.V20241001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectPolicy" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:ProjectPolicy" },
                 },
             };

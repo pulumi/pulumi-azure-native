@@ -1062,7 +1062,7 @@ if not MYPY:
         """
         type: pulumi.Input[Union[str, 'IdentityType']]
         """
-        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        the types of identities associated with this resource
         """
         principal_id: NotRequired[pulumi.Input[str]]
         """
@@ -1083,7 +1083,7 @@ class UserAssignedIdentityArgs:
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
         Information describing the identities associated with this application.
-        :param pulumi.Input[Union[str, 'IdentityType']] type: the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        :param pulumi.Input[Union[str, 'IdentityType']] type: the types of identities associated with this resource
         :param pulumi.Input[str] principal_id: the identity principal Id of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: represents user assigned identities map.
         """
@@ -1097,7 +1097,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
         """
-        the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+        the types of identities associated with this resource
         """
         return pulumi.get(self, "type")
 

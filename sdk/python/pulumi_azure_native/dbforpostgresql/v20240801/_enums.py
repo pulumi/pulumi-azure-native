@@ -114,11 +114,12 @@ class HighAvailabilityMode(str, Enum):
 
 class IdentityType(str, Enum):
     """
-    the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+    the types of identities associated with this resource
     """
     NONE = "None"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class KeyStatusEnum(str, Enum):

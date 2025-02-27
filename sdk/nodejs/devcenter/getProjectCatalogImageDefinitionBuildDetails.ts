@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * Gets Build details
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getProjectCatalogImageDefinitionBuildDetails(args: GetProjectCatalogImageDefinitionBuildDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogImageDefinitionBuildDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,7 +96,7 @@ export interface GetProjectCatalogImageDefinitionBuildDetailsResult {
  * Gets Build details
  * Azure REST API version: 2024-07-01-preview.
  *
- * Other available API versions: 2024-08-01-preview, 2024-10-01-preview.
+ * Other available API versions: 2024-08-01-preview, 2024-10-01-preview, 2025-02-01.
  */
 export function getProjectCatalogImageDefinitionBuildDetailsOutput(args: GetProjectCatalogImageDefinitionBuildDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogImageDefinitionBuildDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

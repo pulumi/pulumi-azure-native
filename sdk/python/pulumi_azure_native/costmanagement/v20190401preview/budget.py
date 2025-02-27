@@ -260,7 +260,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:Budget"), pulumi.Alias(type_="azure-native:costmanagement:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20241001preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azure-native:costmanagement/v20190401preview:Budget',

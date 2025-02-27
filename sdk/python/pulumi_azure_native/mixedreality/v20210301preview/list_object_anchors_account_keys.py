@@ -65,7 +65,13 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListObjectAnchorsAccountKeysResult:
     """
-    List Both of the 2 Keys of an object anchors Account
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     List Both of the 2 Keys of an object anchors Account
 
 
     :param str account_name: Name of an Mixed Reality Account.
@@ -84,7 +90,13 @@ def list_object_anchors_account_keys_output(account_name: Optional[pulumi.Input[
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListObjectAnchorsAccountKeysResult]:
     """
-    List Both of the 2 Keys of an object anchors Account
+    > [!NOTE]
+    > 
+    > **Mixed Reality retirement**
+    > 
+    > The Mixed Reality service is now deprecated and will be retired.
+
+     List Both of the 2 Keys of an object anchors Account
 
 
     :param str account_name: Name of an Mixed Reality Account.

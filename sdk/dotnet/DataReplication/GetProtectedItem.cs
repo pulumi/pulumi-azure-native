@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the protected item.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Task<GetProtectedItemResult> InvokeAsync(GetProtectedItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectedItemResult>("azure-native:datareplication:getProtectedItem", args ?? new GetProtectedItemArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the protected item.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:datareplication:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// Gets the details of the protected item.
         /// Azure REST API version: 2021-02-16-preview.
+        /// 
+        /// Other available API versions: 2024-09-01.
         /// </summary>
         public static Output<GetProtectedItemResult> Invoke(GetProtectedItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectedItemResult>("azure-native:datareplication:getProtectedItem", args ?? new GetProtectedItemInvokeArgs(), options.WithDefaults());

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public string? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20241201
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;

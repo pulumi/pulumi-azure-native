@@ -236,7 +236,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud:CloudServicesNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud:CloudServicesNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudServicesNetwork, __self__).__init__(
             'azure-native:networkcloud/v20240701:CloudServicesNetwork',

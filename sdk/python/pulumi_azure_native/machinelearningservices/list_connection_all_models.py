@@ -65,6 +65,8 @@ def list_connection_all_models(resource_group_name: Optional[str] = None,
     """
     Azure REST API version: 2024-10-01-preview.
 
+    Other available API versions: 2025-01-01-preview.
+
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
@@ -83,6 +85,8 @@ def list_connection_all_models_output(resource_group_name: Optional[pulumi.Input
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectionAllModelsResult]:
     """
     Azure REST API version: 2024-10-01-preview.
+
+    Other available API versions: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

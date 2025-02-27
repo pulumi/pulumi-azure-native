@@ -186,7 +186,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
         """
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 
@@ -211,7 +211,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
         """
         Azure REST API version: 2023-08-01-preview.
 
-        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Other available API versions: 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview.
 
         A Serverless Endpoint requires a Marketplace subscription. You can create one via the [MarketplaceSubscription resource](https://www.pulumi.com/registry/packages/azure-native/api-docs/machinelearningservices/marketplacesubscription/) and then making your endpoint [depend](https://www.pulumi.com/docs/iac/concepts/options/dependson/) on it.
 
@@ -265,7 +265,7 @@ class ServerlessEndpoint(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20230801preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240101preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ServerlessEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ServerlessEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerlessEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:ServerlessEndpoint',

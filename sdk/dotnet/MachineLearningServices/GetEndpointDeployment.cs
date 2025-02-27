@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Task<GetEndpointDeploymentResult> InvokeAsync(GetEndpointDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointDeploymentResult>("azure-native:machinelearningservices:getEndpointDeployment", args ?? new GetEndpointDeploymentArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<GetEndpointDeploymentResult> Invoke(GetEndpointDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointDeploymentResult>("azure-native:machinelearningservices:getEndpointDeployment", args ?? new GetEndpointDeploymentInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// 
         /// Azure REST API version: 2024-01-01-preview.
         /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+        /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview.
         /// </summary>
         public static Output<GetEndpointDeploymentResult> Invoke(GetEndpointDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointDeploymentResult>("azure-native:machinelearningservices:getEndpointDeployment", args ?? new GetEndpointDeploymentInvokeArgs(), options.WithDefaults());

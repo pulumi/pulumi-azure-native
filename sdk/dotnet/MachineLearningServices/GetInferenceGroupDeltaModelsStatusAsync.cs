@@ -14,6 +14,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Task<GetInferenceGroupDeltaModelsStatusAsyncResult> InvokeAsync(GetInferenceGroupDeltaModelsStatusAsyncArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncArgs(), options.WithDefaults());
@@ -21,6 +23,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());
@@ -28,6 +32,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Contract returning to user the delta models.
         /// Azure REST API version: 2024-10-01-preview.
+        /// 
+        /// Other available API versions: 2025-01-01-preview.
         /// </summary>
         public static Output<GetInferenceGroupDeltaModelsStatusAsyncResult> Invoke(GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceGroupDeltaModelsStatusAsyncResult>("azure-native:machinelearningservices:getInferenceGroupDeltaModelsStatusAsync", args ?? new GetInferenceGroupDeltaModelsStatusAsyncInvokeArgs(), options.WithDefaults());

@@ -129,6 +129,8 @@ def get_load_test_mapping(load_test_mapping_name: Optional[str] = None,
     Get a LoadTestMappingResource
     Azure REST API version: 2023-12-01-preview.
 
+    Other available API versions: 2024-12-01-preview.
+
 
     :param str load_test_mapping_name: Load Test Mapping name
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -153,6 +155,8 @@ def get_load_test_mapping_output(load_test_mapping_name: Optional[pulumi.Input[s
     """
     Get a LoadTestMappingResource
     Azure REST API version: 2023-12-01-preview.
+
+    Other available API versions: 2024-12-01-preview.
 
 
     :param str load_test_mapping_name: Load Test Mapping name

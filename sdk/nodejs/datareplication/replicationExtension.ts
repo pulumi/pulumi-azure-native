@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Replication extension model.
  * Azure REST API version: 2021-02-16-preview.
+ *
+ * Other available API versions: 2024-09-01.
  */
 export class ReplicationExtension extends pulumi.CustomResource {
     /**
@@ -86,7 +88,7 @@ export class ReplicationExtension extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ReplicationExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datareplication/v20210216preview:ReplicationExtension" }, { type: "azure-native:datareplication/v20240901:ReplicationExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationExtension.__pulumiType, name, resourceInputs, opts);
     }
