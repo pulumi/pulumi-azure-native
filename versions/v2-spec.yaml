@@ -16,8 +16,12 @@ Addons:
     tracking: "2018-03-01"
 Advisor:
     tracking: "2023-01-01"
+    additions:
+        Assessment: 2023-09-01-preview
 AgFoodPlatform:
     tracking: 2023-06-01-preview
+AgriculturePlatform:
+    tracking: 2024-06-01-preview
 AlertsManagement:
     tracking: "2023-03-01"
     additions:
@@ -252,7 +256,8 @@ Billing:
         BillingRoleAssignmentByDepartment: 2019-10-01-preview
         BillingRoleAssignmentByEnrollmentAccount: 2019-10-01-preview
         InvoiceSection: "2024-04-01"
-BillingBenefits: {}
+BillingBenefits:
+    tracking: 2024-11-01-preview
 Blueprint:
     tracking: 2018-11-01-preview
 BotService:
@@ -804,8 +809,14 @@ DataProtection:
     tracking: "2023-01-01"
 DataReplication:
     tracking: 2021-02-16-preview
+    additions:
+        FabricAgent: "2024-09-01"
+        PrivateEndpointConnection: "2024-09-01"
+        PrivateEndpointConnectionProxy: "2024-09-01"
 DataShare:
     tracking: "2021-08-01"
+DatabaseFleetManager:
+    tracking: 2025-02-01-preview
 DatabaseWatcher:
     tracking: 2023-09-01-preview
     additions:
@@ -823,6 +834,8 @@ Datadog:
         getBillingInfo: "2023-10-20"
 DelegatedNetwork:
     tracking: "2021-03-15"
+DependencyMap:
+    tracking: 2025-01-31-preview
 DesktopVirtualization:
     tracking: "2022-09-09"
     additions:

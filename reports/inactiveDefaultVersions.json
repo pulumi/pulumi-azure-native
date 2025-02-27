@@ -9,6 +9,9 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
+  "BillingBenefits": [
+    "2024-11-01-preview"
+  ],
   "Cloudngfw": [
     "2023-09-01",
     "2024-02-07-preview"
