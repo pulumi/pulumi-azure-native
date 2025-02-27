@@ -73,11 +73,12 @@ func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 }
 
 type BuildSchemaResult struct {
-	PackageSpec schema.PackageSpec
-	Metadata    resources.AzureAPIMetadata
-	Version     VersionMetadata
-	Reports     BuildSchemaReports
-	Modules     openapi.AzureModules
+	PackageSpec     schema.PackageSpec
+	Metadata        resources.AzureAPIMetadata
+	Version         VersionMetadata
+	Reports         BuildSchemaReports
+	Modules         openapi.AzureModules
+	DefaultVersions openapi.ModuleDefaultVersions
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
@@ -85,7 +86,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if specsDir == "" {
 		specsDir = path.Join(args.RootDir, "azure-rest-api-specs")
 	}
-	modules, diagnostics, err := openapi.ReadAzureModules(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
+	modules, diagnostics, defaultVersions, err := openapi.ReadAzureModules(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
 	if err != nil {
 		return nil, err
 	}
@@ -162,11 +163,12 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	}
 
 	return &BuildSchemaResult{
-		PackageSpec: *pkgSpec,
-		Metadata:    *metadata,
-		Version:     versionMetadata,
-		Reports:     buildSchemaReports,
-		Modules:     modules,
+		PackageSpec:     *pkgSpec,
+		Metadata:        *metadata,
+		Version:         versionMetadata,
+		Reports:         buildSchemaReports,
+		Modules:         modules,
+		DefaultVersions: defaultVersions,
 	}, nil
 }
 

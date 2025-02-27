@@ -31,7 +31,7 @@ import (
 // case of stable versions, this is _probably_ ok, in case of preview versions it's more questionable. But we cannot
 // simply use the latest stable version since some services barely release stable versions.
 
-func readDefaultVersionFromReadme(readme io.Reader) (string, error) {
+func ReadDefaultVersionFromReadme(readme io.Reader) (string, error) {
 	var version string
 	var inYamlBlock bool
 
@@ -81,7 +81,7 @@ func ReadAllDefaultVersionsFromReadmes(specBaseDir string) (map[string]string, e
 		pathParts := strings.Split(file, string(filepath.Separator))
 		moduleFolder := pathParts[len(pathParts)-3]
 
-		version, err := readDefaultVersionFromReadme(f)
+		version, err := ReadDefaultVersionFromReadme(f)
 		if err != nil {
 			return nil, err
 		}

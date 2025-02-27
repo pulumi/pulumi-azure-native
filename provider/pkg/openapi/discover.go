@@ -4,6 +4,7 @@ package openapi
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -79,6 +80,8 @@ type DiscoveryDiagnostics struct {
 
 // module -> resource/type name -> path -> Endpoint
 type Endpoints map[ModuleName]map[ResourceName]map[string]*Endpoint
+
+type ModuleDefaultVersions map[ModuleName]ApiVersion
 
 // merge combines e2 into e, which is modified in-place.
 func (e Endpoints) merge(e2 Endpoints) {
@@ -332,14 +335,19 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 // collected per Azure Module and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
 // Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
-func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, DiscoveryDiagnostics, error) {
+func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, DiscoveryDiagnostics, ModuleDefaultVersions, error) {
 	diagnostics := DiscoveryDiagnostics{
 		SkippedPOSTEndpoints: map[ModuleName]map[string]string{},
 		Endpoints:            map[ModuleName]map[string]map[string]*Endpoint{},
 	}
 	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
-		return nil, diagnostics, err
+		return nil, diagnostics, nil, err
+	}
+
+	defaultVersionsFromReadmes, err := readDefaultVersionsFromReadmes(swaggerSpecLocations, specsDir)
+	if err != nil {
+		return nil, diagnostics, nil, err
 	}
 
 	// Collect all versions for each path in the API across all Swagger files.
@@ -347,7 +355,7 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 	for _, location := range swaggerSpecLocations {
 		relLocation, err := filepath.Rel(specsDir, location)
 		if err != nil {
-			return nil, diagnostics, errors.Wrapf(err, "failed to get relative path for %q", location)
+			return nil, diagnostics, nil, errors.Wrapf(err, "failed to get relative path for %q", location)
 		}
 
 		if exclude(relLocation) {
@@ -356,7 +364,7 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 
 		swagger, err := NewSpec(location)
 		if err != nil {
-			return nil, diagnostics, errors.Wrapf(err, "failed to parse %q", location)
+			return nil, diagnostics, nil, errors.Wrapf(err, "failed to parse %q", location)
 		}
 
 		orderedPaths := make([]string, 0, len(swagger.Paths.Paths))
@@ -378,7 +386,58 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 			diagnostics.ModuleNameErrors = append(diagnostics.ModuleNameErrors, moduleDiagnostics.ModuleNameErrors...)
 		}
 	}
-	return modules, diagnostics, nil
+	return modules, diagnostics, defaultVersionsFromReadmes, nil
+}
+
+func readDefaultVersionsFromReadmes(swaggerSpecLocations []string, specsDir string) (ModuleDefaultVersions, error) {
+	defaultVersionsFromReadmes := make(map[ModuleName]ApiVersion)
+	for _, location := range swaggerSpecLocations {
+		swagger, err := NewSpec(location)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to parse %q", location)
+		}
+
+		var moduleNaming *resources.ModuleNaming
+		for path := range swagger.Paths.Paths {
+			randomPath := path
+
+			naming, err := resources.GetModuleName(version.GetVersion().Major, location, randomPath)
+			if err == nil {
+				moduleNaming = &naming
+				break
+			}
+		}
+
+		if moduleNaming == nil && !strings.Contains(strings.ToLower(location), "common") {
+			fmt.Printf("warning: failed to get module name for %q\n", location)
+			continue
+		}
+
+		if _, seen := defaultVersionsFromReadmes[moduleNaming.ResolvedName]; seen {
+			continue
+		}
+
+		readmePath := getServiceReadmePath(specsDir, location)
+		if readmePath == "" {
+			fmt.Printf("warning: failed to get readme path for %q\n", location)
+			continue
+		}
+
+		f, err := os.Open(readmePath)
+		if err != nil {
+			fmt.Printf("warning: failed to open readme for %q: %v\n", moduleNaming.ResolvedName, err)
+			continue
+		}
+		defer f.Close()
+		defaultVersion, err := ReadDefaultVersionFromReadme(f)
+		if err != nil {
+			fmt.Printf("warning: failed to get default version for %q: %v\n", moduleNaming.ResolvedName, err)
+			continue
+		}
+		defaultVersionsFromReadmes[moduleNaming.ResolvedName] = ApiVersion(defaultVersion)
+	}
+
+	return defaultVersionsFromReadmes, nil
 }
 
 func deprecateAll(resourceSpecs map[string]*ResourceSpec, version ApiVersion) {
@@ -778,4 +837,21 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 func operationFromOperationID(opID string) string {
 	parts := strings.Split(opID, "_")
 	return strings.ToLower(parts[len(parts)-1])
+}
+
+// getServiceReadmePath transforms a swagger spec path into the corresponding service readme.md path
+func getServiceReadmePath(specsDir, location string) string {
+	// Extract the service-specific readme path
+	specPath := filepath.Join(specsDir, "specification")
+	if strings.HasPrefix(location, specPath) {
+		// Get the service folder and construct the resource-manager readme path
+		relativePath := strings.TrimPrefix(location, specPath)
+		parts := strings.Split(relativePath, string(filepath.Separator))
+		if len(parts) >= 3 && parts[2] == "resource-manager" {
+			serviceName := parts[1]
+			return filepath.Join(specPath, serviceName, "resource-manager", "readme.md")
+		}
+	}
+
+	return ""
 }

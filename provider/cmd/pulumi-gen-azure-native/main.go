@@ -100,6 +100,12 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
+
+			err = gen.EmitFile(fmt.Sprintf("versions/v%d-default-readme-versions.json", version.Major), buildSchemaResult.DefaultVersions)
+			if err != nil {
+				panic(err)
+			}
+
 			for _, v := range written {
 				fmt.Printf("Emitted %s\n", v)
 			}
