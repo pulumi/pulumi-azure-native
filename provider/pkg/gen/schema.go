@@ -50,6 +50,8 @@ const goModuleVersion = "/v2"
 // pulumiProviderName is the name of the provider as used in all tokens.
 const pulumiProviderName = "azure-native"
 
+const apiVersionOverride = "apiVersionOverride"
+
 type ResourceDeprecation struct {
 	ReplacementToken string
 }
@@ -924,6 +926,8 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
+	g.addApiVersionOverride(resourceRequest, resource.ResourceSpec.ApiVersion)
+
 	if resourceDeprecation, ok := g.versioning.GetDeprecation(resourceTok); ok {
 		deprecationMessage := fmt.Sprintf(
 			"%s is being removed in the next major version of this provider. "+
@@ -1053,6 +1057,24 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 
 func isSingleton(resource *resourceVariant) bool {
 	return resource.PathItem.Delete == nil || customresources.IsSingleton(resource.Path)
+}
+
+func (g *packageGenerator) addApiVersionOverride(resourceRequest *parameterBag, defaultApiVersion openapi.ApiVersion) {
+	if g.majorVersion < 3 {
+		return
+	}
+	if _, hasSettableApiVersion := resourceRequest.specs["apiVersion"]; !hasSettableApiVersion {
+		resourceRequest.parameters = append(resourceRequest.parameters, resources.AzureAPIParameter{
+			Name:     apiVersionOverride,
+			Location: "query",
+			Value:    &resources.AzureAPIProperty{Type: "string"},
+		})
+		resourceRequest.specs[apiVersionOverride] = pschema.PropertySpec{
+			Description:          fmt.Sprintf("_Typically not needed_: the Azure API version to use instead of the default version %s.", defaultApiVersion),
+			TypeSpec:             pschema.TypeSpec{Type: "string"},
+			WillReplaceOnChanges: false,
+		}
+	}
 }
 
 func (g *packageGenerator) generateAliases(resourceTok string, resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {

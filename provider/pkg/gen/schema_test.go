@@ -7,6 +7,7 @@ import (
 
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -460,5 +461,45 @@ func TestParamIsSetByProvider(t *testing.T) {
 		}
 		param := createParam("api-version", "query")
 		assert.True(t, m.paramIsSetByProvider(param, nil))
+	})
+}
+
+func TestAddApiVersionOverride(t *testing.T) {
+	t.Run("major version < 3", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 2,
+		}
+		resourceRequest := &parameterBag{specs: map[string]pschema.PropertySpec{}}
+		g.addApiVersionOverride(resourceRequest, "2022-02-22")
+		assert.Equal(t, 0, len(resourceRequest.parameters))
+	})
+
+	t.Run("major version >= 3", func(t *testing.T) {
+		g := &packageGenerator{majorVersion: 3}
+		resourceRequest := &parameterBag{
+			specs:      map[string]pschema.PropertySpec{},
+			parameters: []resources.AzureAPIParameter{},
+		}
+		g.addApiVersionOverride(resourceRequest, "2022-02-22")
+		assert.Equal(t, 1, len(resourceRequest.specs))
+		assert.Contains(t, resourceRequest.specs, apiVersionOverride)
+		assert.Len(t, resourceRequest.parameters, 1)
+		assert.Equal(t, apiVersionOverride, resourceRequest.parameters[0].Name)
+	})
+
+	t.Run("major version >= 3, api version already set", func(t *testing.T) {
+		g := &packageGenerator{
+			majorVersion: 3,
+		}
+		resourceRequest := &parameterBag{
+			specs: map[string]pschema.PropertySpec{
+				"apiVersion": {
+					TypeSpec: pschema.TypeSpec{Type: "string"},
+				},
+			},
+			parameters: []resources.AzureAPIParameter{},
+		}
+		g.addApiVersionOverride(resourceRequest, "2022-02-22")
+		assert.Equal(t, 1, len(resourceRequest.specs))
 	})
 }
