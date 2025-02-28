@@ -249,7 +249,7 @@ func TestTraverseProperties(t *testing.T) {
 
 func TestResourceModuleNaming(t *testing.T) {
 	t.Run("Standard case", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
 		assert.Nil(t, err)
@@ -261,7 +261,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("Standard case v3", func(t *testing.T) {
-		naming, err := GetModuleName(3,
+		naming, err := GetModuleNameFromSwaggerPath(3,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.EnterpriseKnowledgeGraph/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.EnterpriseKnowledgeGraph/operations")
 		assert.Nil(t, err)
@@ -274,7 +274,7 @@ func TestResourceModuleNaming(t *testing.T) {
 	})
 	// go/pulumi-azure-native/azure-rest-api-specs/specification/dfp/resource-manager/Microsoft.Dynamics365Fraudprotection/preview/2021-02-01-preview/dfp.json
 	t.Run("Prefer namespace from file path", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dfp/resource-manager/Microsoft.Dynamics365Fraudprotection/preview/2021-02-01-preview/dfp.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Dynamics365FraudProtection/instances/{instanceName}")
 		assert.Nil(t, err)
@@ -286,7 +286,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("PaloAltoNetworks namespace", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2022-08-29-preview/PaloAltoNetworks.Cloudngfw.json",
 			"/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks")
 		assert.Nil(t, err)
@@ -298,7 +298,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("Well known namespace", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/domainservices/resource-manager/Microsoft.AAD/stable/2017-06-01/examples/GetDomainService.json",
 			"/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/sva-tt-WUS/providers/Microsoft.AAD/domainServices/zdomain.zforest.com")
 		assert.Nil(t, err)
@@ -310,14 +310,14 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("When the namespace from the file path and URI don't match, return empty", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/Microsoft.One/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/Microsoft.Two/operations")
 		assert.ErrorContains(t, err, "resolved module name mismatch: file: One, uri: Two")
 		assert.Equal(t, ModuleNaming{}, naming)
 	})
 	t.Run("Change lower case to title case", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/EnterpriseKnowledgeGraph/resource-manager/microsoft.fooBar/preview/2018-12-03/EnterpriseKnowledgeGraphSwagger.json",
 			"/providers/microsoft.fooBar/operations")
 		assert.Nil(t, err)
@@ -329,7 +329,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("Folder named resource", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
 		assert.Nil(t, err)
@@ -341,7 +341,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("Network overrides not applied to v2", func(t *testing.T) {
-		naming, err := GetModuleName(2,
+		naming, err := GetModuleNameFromSwaggerPath(2,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01/dns.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}")
 		assert.Nil(t, err)
@@ -353,7 +353,7 @@ func TestResourceModuleNaming(t *testing.T) {
 		}, naming)
 	})
 	t.Run("Network overrides applied to v3", func(t *testing.T) {
-		naming, err := GetModuleName(3,
+		naming, err := GetModuleNameFromSwaggerPath(3,
 			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dns/resource-manager/Microsoft.Network/stable/2018-05-01/dns.json",
 			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{zoneName}")
 		assert.Nil(t, err)
@@ -364,8 +364,4 @@ func TestResourceModuleNaming(t *testing.T) {
 			RpNamespace:            "Microsoft.Network",
 		}, naming)
 	})
-}
-
-func ptr[T any](s T) *T {
-	return &s
 }

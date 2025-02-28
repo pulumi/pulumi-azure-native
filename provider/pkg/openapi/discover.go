@@ -348,19 +348,14 @@ func ReadReadmes(specsDir string) (ModuleDefaultVersions, error) {
 // collected per Azure Module and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
 // Use apiVersions with a wildcard to filter versions, e.g. "2022*preview", or leave it blank to use the default of "20*".
-func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, DiscoveryDiagnostics, ModuleDefaultVersions, error) {
+func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, DiscoveryDiagnostics, error) {
 	diagnostics := DiscoveryDiagnostics{
 		SkippedPOSTEndpoints: map[ModuleName]map[string]string{},
 		Endpoints:            map[ModuleName]map[string]map[string]*Endpoint{},
 	}
 	swaggerSpecLocations, err := swaggerLocations(specsDir, namespace, apiVersions)
 	if err != nil {
-		return nil, diagnostics, nil, err
-	}
-
-	defaultVersionsFromReadmes, err := readDefaultVersionsFromReadmes(swaggerSpecLocations, specsDir)
-	if err != nil {
-		return nil, diagnostics, nil, err
+		return nil, diagnostics, err
 	}
 
 	// Collect all versions for each path in the API across all Swagger files.
@@ -368,7 +363,7 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 	for _, location := range swaggerSpecLocations {
 		relLocation, err := filepath.Rel(specsDir, location)
 		if err != nil {
-			return nil, diagnostics, nil, errors.Wrapf(err, "failed to get relative path for %q", location)
+			return nil, diagnostics, errors.Wrapf(err, "failed to get relative path for %q", location)
 		}
 
 		if exclude(relLocation) {
@@ -377,7 +372,7 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 
 		swagger, err := NewSpec(location)
 		if err != nil {
-			return nil, diagnostics, nil, errors.Wrapf(err, "failed to parse %q", location)
+			return nil, diagnostics, errors.Wrapf(err, "failed to parse %q", location)
 		}
 
 		orderedPaths := make([]string, 0, len(swagger.Paths.Paths))
@@ -399,25 +394,19 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 			diagnostics.ModuleNameErrors = append(diagnostics.ModuleNameErrors, moduleDiagnostics.ModuleNameErrors...)
 		}
 	}
-	return modules, diagnostics, defaultVersionsFromReadmes, nil
+	return modules, diagnostics, nil
 }
 
 func readDefaultVersionsFromReadmes(readmePath []string, specsDir string) (ModuleDefaultVersions, error) {
 	defaultVersionsFromReadmes := make(ModuleDefaultVersions)
-	for _, location := range readmePath {
-		moduleNaming, err := resources.GetModuleNameFromReadmePath(version.GetVersion().Major, location)
+	for _, readmePath := range readmePath {
+		moduleNaming, err := resources.GetModuleNameFromReadmePath(version.GetVersion().Major, readmePath)
 		if err != nil {
-			return nil, errors.Wrapf(err, "failed to get module name for %q", location)
+			return nil, errors.Wrapf(err, "failed to get module name for %q", readmePath)
 		}
 
 		if _, ok := defaultVersionsFromReadmes[moduleNaming.ResolvedName]; !ok {
 			defaultVersionsFromReadmes[moduleNaming.ResolvedName] = map[Service]ApiVersion{}
-		}
-
-		readmePath := getServiceReadmePath(specsDir, location)
-		if readmePath == "" {
-			fmt.Printf("warning: failed to get readme path for %q\n", location)
-			continue
 		}
 
 		f, err := os.Open(readmePath)
@@ -857,24 +846,4 @@ func addResourcesAndInvokes(version VersionResources, fileLocation, path string,
 func operationFromOperationID(opID string) string {
 	parts := strings.Split(opID, "_")
 	return strings.ToLower(parts[len(parts)-1])
-}
-
-// getServiceReadmePath transforms a swagger spec path into the corresponding service readme.md path.
-// It either looks like
-// specification/FOLDER/resource-manager/readme.md or
-// specification/FOLDER/resource-manager/Microsoft.MODULE/SERVICE/readme.md
-func getServiceReadmePath(specsDir, location string) string {
-	// Extract the service-specific readme path
-	specPath := filepath.Join(specsDir, "specification")
-	if strings.HasPrefix(location, specPath) {
-		// Get the service folder and construct the resource-manager readme path
-		relativePath := strings.TrimPrefix(location, specPath)
-		parts := strings.Split(relativePath, string(filepath.Separator))
-		if len(parts) >= 3 && parts[2] == "resource-manager" {
-			serviceName := parts[1]
-			return filepath.Join(specPath, serviceName, "resource-manager", "readme.md")
-		}
-	}
-
-	return ""
 }

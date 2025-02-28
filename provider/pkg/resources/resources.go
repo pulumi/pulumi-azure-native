@@ -316,12 +316,15 @@ func GetModuleNameFromSwaggerPath(majorVersion uint64, filePath, apiUri string) 
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last namespace in the URI)
 	specFolderName := getSpecFolderName(filePath)
+	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
 	namespace, err := findSpecNamespace(filePath)
 	if err != nil {
 		return ModuleNaming{}, err
 	}
-	namespaceWithoutPrefix := removeNamespacePrefixAndNormalise(namespace)
-
+	// Sanity check the new and old methods return consistent results for now.
+	if namespaceWithoutPrefix := removeNamespacePrefixAndNormalise(namespace); namespaceWithoutPrefix != namespaceWithoutPrefixFromSpecFilePath {
+		return ModuleNaming{}, fmt.Errorf("resolved namespace mismatch: old: %s, new: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefix)
+	}
 	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
 	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
@@ -329,21 +332,21 @@ func GetModuleNameFromSwaggerPath(majorVersion uint64, filePath, apiUri string) 
 		return ModuleNaming{
 			ResolvedName:           override,
 			SpecFolderName:         specFolderName,
-			NamespaceWithoutPrefix: namespaceWithoutPrefix,
+			NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
 			RpNamespace:            namespace,
 		}, nil
 	}
 	// We proceed with the endpoint if both module values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
-	if !strings.EqualFold(namespaceWithoutPrefix, namespaceWithoutPrefixFromResourceUrl) {
-		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefix, namespaceWithoutPrefixFromResourceUrl)
+	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
+		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
 	}
 	// Ultimately we use the module name from the spec file path.
 	return ModuleNaming{
-		ResolvedName:           ModuleName(namespaceWithoutPrefix),
+		ResolvedName:           ModuleName(namespaceWithoutPrefixFromSpecFilePath),
 		SpecFolderName:         specFolderName,
-		NamespaceWithoutPrefix: namespaceWithoutPrefix,
+		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
 		RpNamespace:            namespace,
 	}, nil
 }
