@@ -405,7 +405,7 @@ func TestResourcePathTracker(t *testing.T) {
 	})
 }
 
-func TestIsApiVersionQueryParam(t *testing.T) {
+func TestParamIsSetByProvider(t *testing.T) {
 	createParam := func(name, in string) *openapi.Parameter {
 		return &openapi.Parameter{
 			Parameter: &spec.Parameter{
