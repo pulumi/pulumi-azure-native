@@ -4,6 +4,8 @@ package resources
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"regexp"
 	"sort"
 	"strings"
@@ -279,20 +281,47 @@ type ModuleNaming struct {
 
 // GetModuleName returns a module name given Open API spec file and resource's API URI.
 // Returns the module name, optional old module name, or error.
-func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, error) {
+func GetModuleNameFromReadmePath(majorVersion uint64, readmePath string) (ModuleNaming, error) {
+	// We extract the module name from two sources:
+	// - from the folder name of the Open API spec
+	// - from the URI of the API endpoint (we take the last namespace in the URI)
+	specFolderName := getSpecFolderName(readmePath)
+	namespaceWithoutPrefixFromSpecFilePath, namespaceWithPrefixFromFilepath, err := findNamespaceFromReadmePath(readmePath, "")
+	if err != nil {
+		return ModuleNaming{}, err
+	}
+
+	if override, hasOverride := getNameOverride(majorVersion, specFolderName); hasOverride {
+		return ModuleNaming{
+			ResolvedName:           override,
+			SpecFolderName:         specFolderName,
+			NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+			RpNamespace:            namespaceWithPrefixFromFilepath,
+		}, nil
+	}
+
+	// Ultimately we use the module name from the spec file path.
+	return ModuleNaming{
+		ResolvedName:           ModuleName(namespaceWithoutPrefixFromSpecFilePath),
+		SpecFolderName:         specFolderName,
+		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+		RpNamespace:            namespaceWithPrefixFromFilepath,
+	}, nil
+}
+
+// GetModuleName returns a module name given Open API spec file and resource's API URI.
+// Returns the module name, optional old module name, or error.
+func GetModuleNameFromSwaggerPath(majorVersion uint64, filePath, apiUri string) (ModuleNaming, error) {
 	// We extract the module name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last namespace in the URI)
 	specFolderName := getSpecFolderName(filePath)
-	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
 	namespace, err := findSpecNamespace(filePath)
 	if err != nil {
 		return ModuleNaming{}, err
 	}
-	// Sanity check the new and old methods return consistent results for now.
-	if namespaceWithoutPrefix := removeNamespacePrefixAndNormalise(namespace); namespaceWithoutPrefix != namespaceWithoutPrefixFromSpecFilePath {
-		return ModuleNaming{}, fmt.Errorf("resolved namespace mismatch: old: %s, new: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefix)
-	}
+	namespaceWithoutPrefix := removeNamespacePrefixAndNormalise(namespace)
+
 	// Start with extracting the namespace from the folder path. If the folder name is explicitly listed,
 	// use it as the module name. This is the new style we use for newer resources after 1.0. Older
 	// resources to be migrated as part of https://github.com/pulumi/pulumi-azure-native/issues/690.
@@ -300,21 +329,21 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 		return ModuleNaming{
 			ResolvedName:           override,
 			SpecFolderName:         specFolderName,
-			NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+			NamespaceWithoutPrefix: namespaceWithoutPrefix,
 			RpNamespace:            namespace,
 		}, nil
 	}
 	// We proceed with the endpoint if both module values match. This way, we avoid flukes and
 	// declarations outside of the current API provider.
 	namespaceWithoutPrefixFromResourceUrl := findNamespaceWithoutPrefixFromPath(apiUri, "Resources")
-	if !strings.EqualFold(namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl) {
-		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefixFromSpecFilePath, namespaceWithoutPrefixFromResourceUrl)
+	if !strings.EqualFold(namespaceWithoutPrefix, namespaceWithoutPrefixFromResourceUrl) {
+		return ModuleNaming{}, fmt.Errorf("resolved module name mismatch: file: %s, uri: %s", namespaceWithoutPrefix, namespaceWithoutPrefixFromResourceUrl)
 	}
 	// Ultimately we use the module name from the spec file path.
 	return ModuleNaming{
-		ResolvedName:           ModuleName(namespaceWithoutPrefixFromSpecFilePath),
+		ResolvedName:           ModuleName(namespaceWithoutPrefix),
 		SpecFolderName:         specFolderName,
-		NamespaceWithoutPrefix: namespaceWithoutPrefixFromSpecFilePath,
+		NamespaceWithoutPrefix: namespaceWithoutPrefix,
 		RpNamespace:            namespace,
 	}, nil
 }
@@ -417,6 +446,54 @@ func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	}
 
 	return defaultValue
+}
+
+// TODO why not always use the full namespace with prefix?
+func findNamespaceFromReadmePath(path, defaultValue string) (string, string, error) {
+	// Try service group paths like containerservice/resource-manager/Microsoft.ContainerService/aks/readme.md
+	parts := strings.Split(path, "/")
+	if len(parts) < 3 {
+		return defaultValue, "", nil
+	}
+	for i := len(parts) - 2; i >= 0; i-- {
+		withoutPrefix, withPrefix, ok := findNamespaceInPathSegment(parts[i])
+		if ok {
+			return withoutPrefix, withPrefix, nil
+		}
+	}
+
+	// Try simple paths like containerservice/resource-manager/readme.md
+	dir := filepath.Dir(path)
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return defaultValue, "", err
+	}
+
+	for _, entry := range entries {
+		if entry.IsDir() {
+			withoutPrefix, withPrefix, ok := findNamespaceInPathSegment(entry.Name())
+			if ok {
+				return withoutPrefix, withPrefix, nil
+			}
+		}
+	}
+
+	fmt.Printf("no namespace found in readme path: %s", path)
+	return defaultValue, "", nil
+}
+
+func findNamespaceInPathSegment(segment string) (string, string, bool) {
+	for _, prefix := range []string{"Microsoft.", "microsoft.", "PaloAltoNetworks."} {
+		if strings.HasPrefix(segment, prefix) {
+			withPrefix := segment
+			withoutPrefix := strings.Title(strings.TrimPrefix(segment, prefix))
+			if knownName, ok := wellKnownModuleNames[strings.ToLower(withoutPrefix)]; ok {
+				return knownName, withPrefix, true
+			}
+			return withoutPrefix, withPrefix, true
+		}
+	}
+	return "", "", false
 }
 
 var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z-]+)/resource-manager/.*`)

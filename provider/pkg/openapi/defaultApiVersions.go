@@ -3,8 +3,6 @@ package openapi
 import (
 	"bufio"
 	"io"
-	"os"
-	"path/filepath"
 	"strings"
 )
 
@@ -31,7 +29,8 @@ import (
 // case of stable versions, this is _probably_ ok, in case of preview versions it's more questionable. But we cannot
 // simply use the latest stable version since some services barely release stable versions.
 
-func ReadDefaultVersionFromReadme(readme io.Reader) (string, error) {
+// TODO service groups
+func ReadDefaultVersionFromReadme(readme io.Reader) (map[Service]ApiVersion, error) {
 	var version string
 	var inYamlBlock bool
 
@@ -59,34 +58,34 @@ func ReadDefaultVersionFromReadme(readme io.Reader) (string, error) {
 	// if strings.HasPrefix(version, "composite-") {
 	// 	return "", fmt.Errorf("composite versions are not supported yet")
 	// }
-	return version, nil
+	return map[Service]ApiVersion{Service(""): ApiVersion(version)}, nil
 }
 
-func ReadAllDefaultVersionsFromReadmes(specBaseDir string) (map[string]string, error) {
-	versions := make(map[string]string)
+// func ReadAllDefaultVersionsFromReadmes(specBaseDir string) (map[string]string, error) {
+// 	versions := make(map[string]string)
 
-	pattern := filepath.Join(specBaseDir, "specification", "*", "resource-manager", "readme.md")
-	files, err := filepath.Glob(pattern)
-	if err != nil {
-		return nil, err
-	}
+// 	pattern := filepath.Join(specBaseDir, "specification", "*", "resource-manager", "readme.md")
+// 	files, err := filepath.Glob(pattern)
+// 	if err != nil {
+// 		return nil, err
+// 	}
 
-	for _, file := range files {
-		f, err := os.Open(file)
-		if err != nil {
-			return nil, err
-		}
-		defer f.Close()
+// 	for _, file := range files {
+// 		f, err := os.Open(file)
+// 		if err != nil {
+// 			return nil, err
+// 		}
+// 		defer f.Close()
 
-		pathParts := strings.Split(file, string(filepath.Separator))
-		moduleFolder := pathParts[len(pathParts)-3]
+// 		pathParts := strings.Split(file, string(filepath.Separator))
+// 		moduleFolder := pathParts[len(pathParts)-3]
 
-		version, err := ReadDefaultVersionFromReadme(f)
-		if err != nil {
-			return nil, err
-		}
-		versions[moduleFolder] = version
-	}
+// 		version, err := ReadDefaultVersionFromReadme(f)
+// 		if err != nil {
+// 			return nil, err
+// 		}
+// 		versions[moduleFolder] = version
+// 	}
 
-	return versions, nil
-}
+// 	return versions, nil
+// }

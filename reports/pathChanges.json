@@ -1,5 +1,21 @@
 {
-  "Changes": [],
+  "Changes": [
+    {
+      "CurrentPath": "/{}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/hybrididentitymetadata/default",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/provisionedclusters/{}/hybrididentitymetadata/{}",
+      "ResourceName": "HybridIdentityMetadatum"
+    },
+    {
+      "CurrentPath": "/{}/providers/microsoft.hybridcontainerservice/provisionedclusterinstances/default/agentpools/{}",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.hybridcontainerservice/provisionedclusters/{}/agentpools/{}",
+      "ResourceName": "agentPool"
+    },
+    {
+      "CurrentPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/backupvaults/{}/backups/{}",
+      "PreviousPath": "/subscriptions/{}/resourcegroups/{}/providers/microsoft.netapp/netappaccounts/{}/capacitypools/{}/volumes/{}/backups/{}",
+      "ResourceName": "Backup"
+    }
+  ],
   "MissingPreviousDefaultVersions": [
     {
       "ModuleName": "Cache",

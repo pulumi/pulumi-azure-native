@@ -81,7 +81,11 @@ type DiscoveryDiagnostics struct {
 // module -> resource/type name -> path -> Endpoint
 type Endpoints map[ModuleName]map[ResourceName]map[string]*Endpoint
 
-type ModuleDefaultVersions map[ModuleName]ApiVersion
+// Services are part of [Service Groups](https://github.com/Azure/azure-rest-api-specs/blob/main/documentation/uniform-versioning.md)
+// that some modules use to organize their API. All APIs in a service share the same API version, but it can be different
+// across the services of a service group.
+type Service string
+type ModuleDefaultVersions map[ModuleName]map[Service]ApiVersion
 
 // merge combines e2 into e, which is modified in-place.
 func (e Endpoints) merge(e2 Endpoints) {
@@ -331,6 +335,15 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 	}
 }
 
+func ReadReadmes(specsDir string) (ModuleDefaultVersions, error) {
+	readmeLocations, err := readmeLocations(specsDir)
+	if err != nil {
+		return nil, err
+	}
+
+	return readDefaultVersionsFromReadmes(readmeLocations, specsDir)
+}
+
 // ReadAzureModules finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Module and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
@@ -389,32 +402,16 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 	return modules, diagnostics, defaultVersionsFromReadmes, nil
 }
 
-func readDefaultVersionsFromReadmes(swaggerSpecLocations []string, specsDir string) (ModuleDefaultVersions, error) {
-	defaultVersionsFromReadmes := make(map[ModuleName]ApiVersion)
-	for _, location := range swaggerSpecLocations {
-		swagger, err := NewSpec(location)
+func readDefaultVersionsFromReadmes(readmePath []string, specsDir string) (ModuleDefaultVersions, error) {
+	defaultVersionsFromReadmes := make(ModuleDefaultVersions)
+	for _, location := range readmePath {
+		moduleNaming, err := resources.GetModuleNameFromReadmePath(version.GetVersion().Major, location)
 		if err != nil {
-			return nil, errors.Wrapf(err, "failed to parse %q", location)
+			return nil, errors.Wrapf(err, "failed to get module name for %q", location)
 		}
 
-		var moduleNaming *resources.ModuleNaming
-		for path := range swagger.Paths.Paths {
-			randomPath := path
-
-			naming, err := resources.GetModuleName(version.GetVersion().Major, location, randomPath)
-			if err == nil {
-				moduleNaming = &naming
-				break
-			}
-		}
-
-		if moduleNaming == nil && !strings.Contains(strings.ToLower(location), "common") {
-			fmt.Printf("warning: failed to get module name for %q\n", location)
-			continue
-		}
-
-		if _, seen := defaultVersionsFromReadmes[moduleNaming.ResolvedName]; seen {
-			continue
+		if _, ok := defaultVersionsFromReadmes[moduleNaming.ResolvedName]; !ok {
+			defaultVersionsFromReadmes[moduleNaming.ResolvedName] = map[Service]ApiVersion{}
 		}
 
 		readmePath := getServiceReadmePath(specsDir, location)
@@ -429,12 +426,19 @@ func readDefaultVersionsFromReadmes(swaggerSpecLocations []string, specsDir stri
 			continue
 		}
 		defer f.Close()
-		defaultVersion, err := ReadDefaultVersionFromReadme(f)
+
+		defaultVersions, err := ReadDefaultVersionFromReadme(f)
 		if err != nil {
 			fmt.Printf("warning: failed to get default version for %q: %v\n", moduleNaming.ResolvedName, err)
 			continue
 		}
-		defaultVersionsFromReadmes[moduleNaming.ResolvedName] = ApiVersion(defaultVersion)
+
+		for service, version := range defaultVersions {
+			if existing, ok := defaultVersionsFromReadmes[moduleNaming.ResolvedName][service]; ok && existing != version {
+				fmt.Printf("warning: multiple default versions for Service %q in module %q: %s and %s\n", service, moduleNaming.ResolvedName, existing, version)
+			}
+			defaultVersionsFromReadmes[moduleNaming.ResolvedName][service] = version
+		}
 	}
 
 	return defaultVersionsFromReadmes, nil
@@ -524,6 +528,22 @@ func SortApiVersions(versions []ApiVersion) {
 	})
 }
 
+func readmeLocations(specsDir string) ([]string, error) {
+	pattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "readme.md")
+	files, err := filepath.Glob(pattern)
+	if err != nil {
+		return nil, err
+	}
+
+	servicePattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "*", "*", "readme.md")
+	files2, err := filepath.Glob(servicePattern)
+	if err != nil {
+		return nil, err
+	}
+
+	return append(files, files2...), nil
+}
+
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
 // namespace and apiVersion can be blank to return all files, or can be used to filter the results.
 func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error) {
@@ -590,7 +610,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // module map. Modules are mutated in-place.
 func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	moduleNaming, err := resources.GetModuleName(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
+	moduleNaming, err := resources.GetModuleNameFromSwaggerPath(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ModuleNameErrors: []ModuleNameError{
@@ -839,7 +859,10 @@ func operationFromOperationID(opID string) string {
 	return strings.ToLower(parts[len(parts)-1])
 }
 
-// getServiceReadmePath transforms a swagger spec path into the corresponding service readme.md path
+// getServiceReadmePath transforms a swagger spec path into the corresponding service readme.md path.
+// It either looks like
+// specification/FOLDER/resource-manager/readme.md or
+// specification/FOLDER/resource-manager/Microsoft.MODULE/SERVICE/readme.md
 func getServiceReadmePath(specsDir, location string) string {
 	// Extract the service-specific readme path
 	specPath := filepath.Join(specsDir, "specification")

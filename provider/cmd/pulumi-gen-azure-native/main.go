@@ -73,9 +73,10 @@ func main() {
 	codegenSchemaOutputPath := os.Getenv("CODEGEN_SCHEMA_OUTPUT_PATH")
 	codegenMetadataOutputPath := os.Getenv("CODEGEN_METADATA_OUTPUT_PATH")
 
+	specsDir := os.Getenv("CODEGEN_SPECS_DIR")
 	buildSchemaArgs := versioning.BuildSchemaArgs{
 		Specs: versioning.ReadSpecsArgs{
-			SpecsDir:        os.Getenv("CODEGEN_SPECS_DIR"),
+			SpecsDir:        specsDir,
 			NamespaceFilter: namespaces,
 			VersionsFilter:  apiVersions,
 		},
@@ -192,8 +193,20 @@ func main() {
 			panic(err)
 		}
 
-	case "readApiVersionsFromReadmes":
-		versions, err := openapi.ReadAllDefaultVersionsFromReadmes(buildSchemaArgs.Specs.SpecsDir)
+	// case "readApiVersionsFromReadmes":
+	// 	versions, err := openapi.ReadAllDefaultVersionsFromReadmes(buildSchemaArgs.Specs.SpecsDir)
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	for _, module := range util.SortedKeys(versions) {
+	// 		fmt.Printf("%s,%s\n", module, versions[module])
+	// 	}
+
+	case "readmes":
+		if specsDir == "" {
+			specsDir = path.Join(wd, "azure-rest-api-specs")
+		}
+		versions, err := openapi.ReadReadmes(specsDir)
 		if err != nil {
 			panic(err)
 		}
