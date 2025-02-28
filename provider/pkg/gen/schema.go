@@ -302,10 +302,11 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 		for moduleVersion, versionResources := range util.MapOrdered(moduleVersions) {
 			var sdkVersion openapi.SdkVersion
 			var apiVersion *openapi.ApiVersion
-			if moduleVersion.IsDefault() {
-				apiVersion = nil
-				sdkVersion = ""
-			} else {
+
+			if !moduleVersion.IsDefault() {
+				if providerVersion.Major >= 3 {
+					continue
+				}
 				apiVersion = &moduleVersion
 				sdkVersion = openapi.ApiToSdkVersion(moduleVersion)
 			}
