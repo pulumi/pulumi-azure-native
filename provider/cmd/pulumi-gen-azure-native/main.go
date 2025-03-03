@@ -16,6 +16,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/squeeze"
 	embeddedVersion "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
@@ -71,9 +72,10 @@ func main() {
 	codegenSchemaOutputPath := os.Getenv("CODEGEN_SCHEMA_OUTPUT_PATH")
 	codegenMetadataOutputPath := os.Getenv("CODEGEN_METADATA_OUTPUT_PATH")
 
+	specsDir := os.Getenv("CODEGEN_SPECS_DIR")
 	buildSchemaArgs := versioning.BuildSchemaArgs{
 		Specs: versioning.ReadSpecsArgs{
-			SpecsDir:        os.Getenv("CODEGEN_SPECS_DIR"),
+			SpecsDir:        specsDir,
 			NamespaceFilter: namespaces,
 			VersionsFilter:  apiVersions,
 		},
@@ -180,6 +182,20 @@ func main() {
 		outdir := path.Join(".", "sdk", "pulumi-azure-native-sdk")
 		pkgSpec.Version = version.String()
 		err = emitSplitPackage(&pkgSpec, "go", outdir)
+		if err != nil {
+			panic(err)
+		}
+
+	case "defaultVersions":
+		if specsDir == "" {
+			specsDir = path.Join(wd, "azure-rest-api-specs")
+		}
+		versions, err := openapi.ReadReadmes(specsDir)
+		if err != nil {
+			panic(err)
+		}
+
+		err = gen.EmitFile(fmt.Sprintf("versions/v%d-default-readme-versions.json", version.Major), versions)
 		if err != nil {
 			panic(err)
 		}

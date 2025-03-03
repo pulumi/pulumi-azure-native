@@ -4,6 +4,7 @@ package openapi
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -79,6 +80,12 @@ type DiscoveryDiagnostics struct {
 
 // module -> resource/type name -> path -> Endpoint
 type Endpoints map[ModuleName]map[ResourceName]map[string]*Endpoint
+
+// Services are part of [Service Groups](https://github.com/Azure/azure-rest-api-specs/blob/main/documentation/uniform-versioning.md)
+// that some modules use to organize their API. All APIs in a service share the same API version, but it can be different
+// across the services of a service group.
+type Service string
+type ModuleDefaultVersions map[ModuleName]map[Service]ApiVersion
 
 // merge combines e2 into e, which is modified in-place.
 func (e Endpoints) merge(e2 Endpoints) {
@@ -328,6 +335,15 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 	}
 }
 
+func ReadReadmes(specsDir string) (ModuleDefaultVersions, error) {
+	readmeLocations, err := readmeLocations(specsDir)
+	if err != nil {
+		return nil, err
+	}
+
+	return readDefaultVersionsFromReadmes(readmeLocations, specsDir)
+}
+
 // ReadAzureModules finds Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Module and API Version - for all API versions.
 // Use the namespace "*" to load all available namespaces, or a specific namespace to filter, e.g. "Compute".
@@ -379,6 +395,42 @@ func ReadAzureModules(specsDir, namespace, apiVersions string) (AzureModules, Di
 		}
 	}
 	return modules, diagnostics, nil
+}
+
+func readDefaultVersionsFromReadmes(readmePath []string, specsDir string) (ModuleDefaultVersions, error) {
+	defaultVersionsFromReadmes := make(ModuleDefaultVersions)
+	for _, readmePath := range readmePath {
+		moduleNaming, err := resources.GetModuleNameFromReadmePath(version.GetVersion().Major, readmePath)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to get module name for %q", readmePath)
+		}
+
+		if _, ok := defaultVersionsFromReadmes[moduleNaming.ResolvedName]; !ok {
+			defaultVersionsFromReadmes[moduleNaming.ResolvedName] = map[Service]ApiVersion{}
+		}
+
+		f, err := os.Open(readmePath)
+		if err != nil {
+			fmt.Printf("warning: failed to open readme for %q: %v\n", moduleNaming.ResolvedName, err)
+			continue
+		}
+		defer f.Close()
+
+		defaultVersions, err := ReadDefaultVersionFromReadme(f)
+		if err != nil {
+			fmt.Printf("warning: failed to get default version for %q: %v\n", moduleNaming.ResolvedName, err)
+			continue
+		}
+
+		for service, version := range defaultVersions {
+			if existing, ok := defaultVersionsFromReadmes[moduleNaming.ResolvedName][service]; ok && existing != version {
+				fmt.Printf("warning: multiple default versions for Service %q in module %q: %s and %s\n", service, moduleNaming.ResolvedName, existing, version)
+			}
+			defaultVersionsFromReadmes[moduleNaming.ResolvedName][service] = version
+		}
+	}
+
+	return defaultVersionsFromReadmes, nil
 }
 
 func deprecateAll(resourceSpecs map[string]*ResourceSpec, version ApiVersion) {
@@ -465,6 +517,22 @@ func SortApiVersions(versions []ApiVersion) {
 	})
 }
 
+func readmeLocations(specsDir string) ([]string, error) {
+	pattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "readme.md")
+	files, err := filepath.Glob(pattern)
+	if err != nil {
+		return nil, err
+	}
+
+	servicePattern := filepath.Join(specsDir, "specification", "*", "resource-manager", "*", "*", "readme.md")
+	files2, err := filepath.Glob(servicePattern)
+	if err != nil {
+		return nil, err
+	}
+
+	return append(files, files2...), nil
+}
+
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.
 // namespace and apiVersion can be blank to return all files, or can be used to filter the results.
 func swaggerLocations(specsDir, namespace, apiVersions string) ([]string, error) {
@@ -531,7 +599,7 @@ func exclude(filePath string) bool {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // module map. Modules are mutated in-place.
 func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
-	moduleNaming, err := resources.GetModuleName(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
+	moduleNaming, err := resources.GetModuleNameFromSwaggerPath(version.GetVersion().Major, filepath.Join(specsDir, fileLocation), path)
 	if err != nil {
 		return DiscoveryDiagnostics{
 			ModuleNameErrors: []ModuleNameError{

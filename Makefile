@@ -232,6 +232,7 @@ bin/$(CODEGEN): .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGE
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
 bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed.json versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
+	bin/$(CODEGEN) defaultVersions
 	bin/$(CODEGEN) schema
 
 # Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
