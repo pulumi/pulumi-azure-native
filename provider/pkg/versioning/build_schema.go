@@ -1,3 +1,5 @@
+// Copyright 2023-2025, Pulumi Corporation.
+
 package versioning
 
 import (

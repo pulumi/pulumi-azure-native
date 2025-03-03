@@ -1551,7 +1551,8 @@ func (k *azureNativeProvider) Delete(ctx context.Context, req *rpc.DeleteRequest
 					k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("error converting inputs to request body: %v", err))
 				}
 
-				queryParams := map[string]interface{}{"api-version": res.APIVersion}
+				// TODO,tkappler check if overrideApiVersion is set
+				queryParams := map[string]any{"api-version": res.APIVersion}
 
 				// Submit the `PUT` or `PATCH` against the ARM endpoint
 				op := k.azureClient.Put
