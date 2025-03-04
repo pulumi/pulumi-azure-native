@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.CostManagement
     /// An export resource.
     /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
     /// 
-    /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    /// Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Export")]
     public partial class Export : global::Pulumi.CustomResource
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230901:Export" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20231101:Export" },
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20240801:Export" },
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20241001preview:Export" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

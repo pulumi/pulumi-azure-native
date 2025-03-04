@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.StandbyPool.V20231201Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20250301:StandbyVirtualMachinePool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool:StandbyVirtualMachinePool" },
                 },
             };

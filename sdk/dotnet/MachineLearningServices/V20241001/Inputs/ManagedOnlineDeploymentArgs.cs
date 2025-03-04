@@ -127,6 +127,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001.Inputs
         [Input("scaleSettings")]
         public InputUnion<Inputs.DefaultScaleSettingsArgs, Inputs.TargetUtilizationScaleSettingsArgs>? ScaleSettings { get; set; }
 
+        /// <summary>
+        /// This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        /// </summary>
+        [Input("startupProbe")]
+        public Input<Inputs.ProbeSettingsArgs>? StartupProbe { get; set; }
+
         public ManagedOnlineDeploymentArgs()
         {
             AppInsightsEnabled = false;

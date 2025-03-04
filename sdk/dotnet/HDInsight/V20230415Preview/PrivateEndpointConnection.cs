@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.HDInsight.V20230415Preview
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight:PrivateEndpointConnection" },
                 },
             };

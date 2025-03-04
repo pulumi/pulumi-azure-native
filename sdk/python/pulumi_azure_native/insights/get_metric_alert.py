@@ -175,7 +175,7 @@ class GetMetricAlertResult:
     @pulumi.getter
     def scopes(self) -> Sequence[str]:
         """
-        the list of resource id's that this metric alert is scoped to.
+        the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         """
         return pulumi.get(self, "scopes")
 

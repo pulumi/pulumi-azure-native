@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Insights.V20180301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// the list of resource id's that this metric alert is scoped to.
+        /// the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
@@ -230,7 +230,7 @@ namespace Pulumi.AzureNative.Insights.V20180301
         private InputList<string>? _scopes;
 
         /// <summary>
-        /// the list of resource id's that this metric alert is scoped to.
+        /// the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
         /// </summary>
         public InputList<string> Scopes
         {

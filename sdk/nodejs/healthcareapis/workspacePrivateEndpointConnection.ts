@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
  *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31, 2025-03-01-preview.
  */
 export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class WorkspacePrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230906:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231201:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20240301:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20240331:WorkspacePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220601:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221001preview:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20221201:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230228:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20230906:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231101:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20231201:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20240301:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20240331:WorkspacePrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20250301preview:WorkspacePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspacePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

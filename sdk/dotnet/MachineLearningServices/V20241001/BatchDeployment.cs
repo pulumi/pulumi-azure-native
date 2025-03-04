@@ -109,6 +109,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20241001
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:BatchDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:BatchDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:BatchDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:BatchDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment" },
                 },
             };

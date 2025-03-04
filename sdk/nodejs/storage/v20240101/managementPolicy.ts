@@ -46,7 +46,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
      */
     public readonly policy!: pulumi.Output<outputs.storage.v20240101.ManagementPolicySchemaResponse>;
     /**
@@ -107,7 +107,7 @@ export interface ManagementPolicyArgs {
      */
     managementPolicyName?: pulumi.Input<string>;
     /**
-     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
      */
     policy: pulumi.Input<inputs.storage.v20240101.ManagementPolicySchemaArgs>;
     /**

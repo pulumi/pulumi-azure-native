@@ -407,7 +407,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         The scheduled query rule resource.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
 
-        Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+        Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -444,7 +444,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         The scheduled query rule resource.
         Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2018-04-16.
 
-        Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview.
+        Other available API versions: 2018-04-16, 2020-05-01-preview, 2022-08-01-preview, 2023-12-01, 2024-01-01-preview, 2025-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRuleArgs args: The arguments to use to populate this resource's properties.
@@ -529,7 +529,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20200501preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220801preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20230315preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20231201:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20240101preview:ScheduledQueryRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180416:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20200501preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210201preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20210801:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220615:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20220801preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20230315preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20231201:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20240101preview:ScheduledQueryRule"), pulumi.Alias(type_="azure-native:insights/v20250101preview:ScheduledQueryRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledQueryRule, __self__).__init__(
             'azure-native:insights:ScheduledQueryRule',

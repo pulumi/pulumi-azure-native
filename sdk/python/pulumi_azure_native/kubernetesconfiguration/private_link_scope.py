@@ -121,6 +121,8 @@ class PrivateLinkScope(pulumi.CustomResource):
         An Azure Arc PrivateLinkScope definition.
         Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
 
+        Other available API versions: 2024-11-01-preview.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -138,6 +140,8 @@ class PrivateLinkScope(pulumi.CustomResource):
         """
         An Azure Arc PrivateLinkScope definition.
         Azure REST API version: 2022-04-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview.
+
+        Other available API versions: 2024-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +182,7 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20241101preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:kubernetesconfiguration:PrivateLinkScope',

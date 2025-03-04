@@ -2875,6 +2875,11 @@
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2025-03-01/policyAssignments.json",
+    "Path": "/{policyAssignmentId}",
+    "Error": "resolved module name mismatch: file: Authorization, uri: "
+  },
+  {
     "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments",
     "Error": "resolved module name mismatch: file: Resources, uri: Authorization"

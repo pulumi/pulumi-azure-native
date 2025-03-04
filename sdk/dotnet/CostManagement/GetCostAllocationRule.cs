@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
         /// Azure REST API version: 2020-03-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
         /// Azure REST API version: 2020-03-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
         /// Azure REST API version: 2020-03-01-preview.
         /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());

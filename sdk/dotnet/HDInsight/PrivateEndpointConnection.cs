@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.HDInsight
     /// The private endpoint connection.
     /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
     /// 
-    /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+    /// Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview, 2025-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.HDInsight
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230815preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20240801preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20250115preview:PrivateEndpointConnection" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

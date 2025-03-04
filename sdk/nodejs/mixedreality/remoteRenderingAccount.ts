@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * RemoteRenderingAccount Response.
  * Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
  *
- * Other available API versions: 2021-03-01-preview.
+ * Other available API versions: 2021-03-01-preview, 2025-01-01.
  */
 export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**
@@ -132,7 +132,7 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210101:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20210301preview:RemoteRenderingAccount" }, { type: "azure-native:mixedreality/v20250101:RemoteRenderingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RemoteRenderingAccount.__pulumiType, name, resourceInputs, opts);
     }
