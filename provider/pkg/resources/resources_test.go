@@ -364,6 +364,30 @@ func TestResourceModuleNaming(t *testing.T) {
 			RpNamespace:            "Microsoft.Network",
 		}, naming)
 	})
+	t.Run("File path with dots uses last match", func(t *testing.T) {
+		naming, err := GetModuleName(2,
+			"/go/pulumi.azure.native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
+		assert.Nil(t, err)
+		assert.Equal(t, ModuleNaming{
+			ResolvedName:           "VideoAnalyzer",
+			SpecFolderName:         "videoanalyzer",
+			NamespaceWithoutPrefix: "Media",
+			RpNamespace:            "Microsoft.Media",
+		}, naming)
+	})
+	t.Run("Nested specifications file path uses last match", func(t *testing.T) {
+		naming, err := GetModuleName(2,
+			"/go/pulumi-azure-native/azure-rest-api-specs/specification/dns/resource-manager/Microsoft.Network/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}")
+		assert.Nil(t, err)
+		assert.Equal(t, ModuleNaming{
+			ResolvedName:           "VideoAnalyzer",
+			SpecFolderName:         "videoanalyzer",
+			NamespaceWithoutPrefix: "Media",
+			RpNamespace:            "Microsoft.Media",
+		}, naming)
+	})
 }
 
 func ptr[T any](s T) *T {
