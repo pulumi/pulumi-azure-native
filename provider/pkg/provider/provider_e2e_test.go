@@ -168,7 +168,7 @@ func providerServer(_ providers.PulumiTest) (pulumirpc.ResourceProviderServer, e
 		return nil, fmt.Errorf("azure API resources not loaded")
 	}
 
-	return makeProvider(nil, "azure-native", "2.0.0", schemaBytes, azureAPIResourcesBytes)
+	return makeProvider(nil, "azure-native", version.GetVersion().String(), schemaBytes, azureAPIResourcesBytes)
 }
 
 func getLocation() string {
