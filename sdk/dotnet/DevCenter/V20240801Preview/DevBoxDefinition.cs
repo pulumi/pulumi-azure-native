@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.DevCenter.V20240801Preview
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240601preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:DevBoxDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:DevBoxDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter:DevBoxDefinition" },
                 },
             };

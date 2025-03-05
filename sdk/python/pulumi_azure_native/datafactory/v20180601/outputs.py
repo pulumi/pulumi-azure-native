@@ -57223,12 +57223,12 @@ class OracleLinkedServiceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "connectionString":
-            suggest = "connection_string"
-        elif key == "authenticationType":
+        if key == "authenticationType":
             suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
+        elif key == "connectionString":
+            suggest = "connection_string"
         elif key == "cryptoChecksumClient":
             suggest = "crypto_checksum_client"
         elif key == "cryptoChecksumTypesClient":
@@ -57266,11 +57266,11 @@ class OracleLinkedServiceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 connection_string: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 connection_string: Optional[Any] = None,
                  crypto_checksum_client: Optional[Any] = None,
                  crypto_checksum_types_client: Optional[Any] = None,
                  description: Optional[str] = None,
@@ -57291,12 +57291,12 @@ class OracleLinkedServiceResponse(dict):
                  version: Optional[str] = None):
         """
         Oracle database. This linked service has supported version property. The Version 1.0 is scheduled for deprecation while your pipeline will continue to run after EOL but without any bug fix or new features.
-        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         :param str type: Type of linked service.
                Expected value is 'Oracle'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: Authentication type for connecting to the Oracle database. Only used for Version 2.0.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
         :param Any crypto_checksum_client: Specifies the desired data integrity behavior when this client connects to a server. Supported values are accepted, rejected, requested or required, default value is required. Type: string. Only used for Version 2.0.
         :param Any crypto_checksum_types_client: Specifies the crypto-checksum algorithms that client can use. Supported values are SHA1, SHA256, SHA384, SHA512, default value is (SHA512). Type: string. Only used for Version 2.0.
         :param str description: Linked service description.
@@ -57316,7 +57316,6 @@ class OracleLinkedServiceResponse(dict):
         :param Any username: The Oracle database username. Type: string. Only used for Version 2.0.
         :param str version: Version of the linked service.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "type", 'Oracle')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -57324,6 +57323,8 @@ class OracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if connection_string is not None:
+            pulumi.set(__self__, "connection_string", connection_string)
         if crypto_checksum_client is not None:
             pulumi.set(__self__, "crypto_checksum_client", crypto_checksum_client)
         if crypto_checksum_types_client is not None:
@@ -57362,14 +57363,6 @@ class OracleLinkedServiceResponse(dict):
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Any:
-        """
-        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -57401,6 +57394,14 @@ class OracleLinkedServiceResponse(dict):
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter(name="connectionString")
+    def connection_string(self) -> Optional[Any]:
+        """
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference. Only used for Version 1.0.
+        """
+        return pulumi.get(self, "connection_string")
 
     @property
     @pulumi.getter(name="cryptoChecksumClient")
@@ -75546,6 +75547,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
             suggest = "linked_service_name"
         elif key == "tableName":
             suggest = "table_name"
+        elif key == "valueType":
+            suggest = "value_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceNowV2ObjectDatasetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -75567,7 +75570,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
-                 table_name: Optional[Any] = None):
+                 table_name: Optional[Any] = None,
+                 value_type: Optional[str] = None):
         """
         ServiceNowV2 server dataset.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
@@ -75580,6 +75584,7 @@ class ServiceNowV2ObjectDatasetResponse(dict):
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         :param Any table_name: The table name. Type: string (or Expression with resultType string).
+        :param str value_type: Type of value copied from source.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'ServiceNowV2Object')
@@ -75597,6 +75602,8 @@ class ServiceNowV2ObjectDatasetResponse(dict):
             pulumi.set(__self__, "structure", structure)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+        if value_type is not None:
+            pulumi.set(__self__, "value_type", value_type)
 
     @property
     @pulumi.getter(name="linkedServiceName")
@@ -75670,6 +75677,14 @@ class ServiceNowV2ObjectDatasetResponse(dict):
         The table name. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> Optional[str]:
+        """
+        Type of value copied from source.
+        """
+        return pulumi.get(self, "value_type")
 
 
 @pulumi.output_type

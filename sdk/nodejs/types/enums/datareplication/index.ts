@@ -3,10 +3,36 @@
 
 // Export sub-modules:
 import * as v20210216preview from "./v20210216preview";
+import * as v20240901 from "./v20240901";
 
 export {
     v20210216preview,
+    v20240901,
 };
+
+export const PrivateEndpointConnectionStatus = {
+    /**
+     * Approved Status.
+     */
+    Approved: "Approved",
+    /**
+     * Disconnected Status.
+     */
+    Disconnected: "Disconnected",
+    /**
+     * Pending Status.
+     */
+    Pending: "Pending",
+    /**
+     * Rejected Status.
+     */
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Gets or sets the status.
+ */
+export type PrivateEndpointConnectionStatus = (typeof PrivateEndpointConnectionStatus)[keyof typeof PrivateEndpointConnectionStatus];
 
 export const ReplicationVaultType = {
     DisasterRecovery: "DisasterRecovery",

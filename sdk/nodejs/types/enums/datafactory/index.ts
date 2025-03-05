@@ -933,6 +933,16 @@ export const Type = {
  */
 export type Type = (typeof Type)[keyof typeof Type];
 
+export const ValueType = {
+    Actual: "actual",
+    Display: "display",
+} as const;
+
+/**
+ * Type of value copied from source.
+ */
+export type ValueType = (typeof ValueType)[keyof typeof ValueType];
+
 export const VariableType = {
     String: "String",
     Bool: "Bool",

@@ -90,6 +90,7 @@ __all__ = [
     'TriggerReferenceType',
     'TumblingWindowFrequency',
     'Type',
+    'ValueType',
     'VariableType',
     'WebActivityMethod',
     'WebAuthenticationType',
@@ -851,6 +852,14 @@ class Type(str, Enum):
     Linked service reference type.
     """
     LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
+
+
+class ValueType(str, Enum):
+    """
+    Type of value copied from source.
+    """
+    ACTUAL = "actual"
+    DISPLAY = "display"
 
 
 class VariableType(str, Enum):

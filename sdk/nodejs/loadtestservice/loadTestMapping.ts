@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * LoadTest mapping resource details
  * Azure REST API version: 2023-12-01-preview.
+ *
+ * Other available API versions: 2024-12-01-preview.
  */
 export class LoadTestMapping extends pulumi.CustomResource {
     /**
@@ -94,7 +96,7 @@ export class LoadTestMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20231201preview:LoadTestMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:loadtestservice/v20231201preview:LoadTestMapping" }, { type: "azure-native:loadtestservice/v20241201preview:LoadTestMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LoadTestMapping.__pulumiType, name, resourceInputs, opts);
     }

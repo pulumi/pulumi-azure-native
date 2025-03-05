@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.Authorization.V20190601
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20230401:PolicySetDefinitionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20240501:PolicySetDefinitionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization/v20250101:PolicySetDefinitionAtManagementGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:authorization/v20250301:PolicySetDefinitionAtManagementGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:authorization:PolicySetDefinitionAtManagementGroup" },
                 },
             };

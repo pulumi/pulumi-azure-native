@@ -306,7 +306,7 @@ class ViewByScope(pulumi.CustomResource):
         States and configurations of Cost Analysis.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
 
-        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -337,7 +337,7 @@ class ViewByScope(pulumi.CustomResource):
         States and configurations of Cost Analysis.
         Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01.
 
-        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Other available API versions: 2019-11-01, 2020-06-01, 2022-10-01, 2022-10-05-preview, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01, 2024-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ViewByScopeArgs args: The arguments to use to populate this resource's properties.
@@ -404,7 +404,7 @@ class ViewByScope(pulumi.CustomResource):
             __props__.__dict__["created_on"] = None
             __props__.__dict__["currency"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:ViewByScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230701preview:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:ViewByScope"), pulumi.Alias(type_="azure-native:costmanagement/v20241001preview:ViewByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ViewByScope, __self__).__init__(
             'azure-native:costmanagement:ViewByScope',

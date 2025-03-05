@@ -2718,6 +2718,37 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// Type of value copied from source.
+    /// </summary>
+    [EnumType]
+    public readonly struct ValueType : IEquatable<ValueType>
+    {
+        private readonly string _value;
+
+        private ValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ValueType Actual { get; } = new ValueType("actual");
+        public static ValueType Display { get; } = new ValueType("display");
+
+        public static bool operator ==(ValueType left, ValueType right) => left.Equals(right);
+        public static bool operator !=(ValueType left, ValueType right) => !left.Equals(right);
+
+        public static explicit operator string(ValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ValueType other && Equals(other);
+        public bool Equals(ValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Variable type.
     /// </summary>
     [EnumType]

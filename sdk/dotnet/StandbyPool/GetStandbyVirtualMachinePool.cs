@@ -15,7 +15,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// Get a StandbyVirtualMachinePoolResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
         /// </summary>
         public static Task<GetStandbyVirtualMachinePoolResult> InvokeAsync(GetStandbyVirtualMachinePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolArgs(), options.WithDefaults());
@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// Get a StandbyVirtualMachinePoolResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.StandbyPool
         /// Get a StandbyVirtualMachinePoolResource
         /// Azure REST API version: 2023-12-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+        /// Other available API versions: 2024-03-01, 2024-03-01-preview, 2025-03-01.
         /// </summary>
         public static Output<GetStandbyVirtualMachinePoolResult> Invoke(GetStandbyVirtualMachinePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStandbyVirtualMachinePoolResult>("azure-native:standbypool:getStandbyVirtualMachinePool", args ?? new GetStandbyVirtualMachinePoolInvokeArgs(), options.WithDefaults());

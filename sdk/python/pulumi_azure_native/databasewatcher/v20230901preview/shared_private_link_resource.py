@@ -34,7 +34,7 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] watcher_name: The database watcher name.
-        :param pulumi.Input[str] dns_zone: The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        :param pulumi.Input[str] dns_zone: The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         :param pulumi.Input[str] shared_private_link_resource_name: The Shared Private Link resource name.
         """
         pulumi.set(__self__, "group_id", group_id)
@@ -111,7 +111,7 @@ class SharedPrivateLinkResourceArgs:
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         """
         return pulumi.get(self, "dns_zone")
 
@@ -150,7 +150,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] dns_zone: The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        :param pulumi.Input[str] dns_zone: The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
         :param pulumi.Input[str] private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
@@ -259,7 +259,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     @pulumi.getter(name="dnsZone")
     def dns_zone(self) -> pulumi.Output[Optional[str]]:
         """
-        The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
+        The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
         """
         return pulumi.get(self, "dns_zone")
 

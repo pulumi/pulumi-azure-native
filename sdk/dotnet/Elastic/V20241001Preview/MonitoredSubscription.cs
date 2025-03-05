@@ -60,6 +60,7 @@ namespace Pulumi.AzureNative.Elastic.V20241001Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240501preview:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20240615preview:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20250115preview:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:elastic:MonitoredSubscription" },
                 },
             };

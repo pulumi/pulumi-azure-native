@@ -19411,6 +19411,10 @@ if not MYPY:
         it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
         and to DefaultScaleSettings for ManagedOnlineDeployment.
         """
+        startup_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
 elif False:
     KubernetesOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -19433,7 +19437,8 @@ class KubernetesOnlineDeploymentArgs:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  readiness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
                  request_settings: Optional[pulumi.Input['OnlineRequestSettingsArgs']] = None,
-                 scale_settings: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]] = None):
+                 scale_settings: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]] = None,
+                 startup_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None):
         """
         Properties specific to a KubernetesOnlineDeployment.
         :param pulumi.Input[str] endpoint_compute_type: Enum to determine endpoint compute type.
@@ -19457,6 +19462,7 @@ class KubernetesOnlineDeploymentArgs:
                If it is null or not provided,
                it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
                and to DefaultScaleSettings for ManagedOnlineDeployment.
+        :param pulumi.Input['ProbeSettingsArgs'] startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'Kubernetes')
         if app_insights_enabled is None:
@@ -19497,6 +19503,8 @@ class KubernetesOnlineDeploymentArgs:
             pulumi.set(__self__, "request_settings", request_settings)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
 
     @property
     @pulumi.getter(name="endpointComputeType")
@@ -19705,6 +19713,18 @@ class KubernetesOnlineDeploymentArgs:
     @scale_settings.setter
     def scale_settings(self, value: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]]):
         pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        return pulumi.get(self, "startup_probe")
+
+    @startup_probe.setter
+    def startup_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "startup_probe", value)
 
 
 if not MYPY:
@@ -21262,6 +21282,10 @@ if not MYPY:
         it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
         and to DefaultScaleSettings for ManagedOnlineDeployment.
         """
+        startup_probe: NotRequired[pulumi.Input['ProbeSettingsArgsDict']]
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
 elif False:
     ManagedOnlineDeploymentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -21283,7 +21307,8 @@ class ManagedOnlineDeploymentArgs:
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  readiness_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None,
                  request_settings: Optional[pulumi.Input['OnlineRequestSettingsArgs']] = None,
-                 scale_settings: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]] = None):
+                 scale_settings: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]] = None,
+                 startup_probe: Optional[pulumi.Input['ProbeSettingsArgs']] = None):
         """
         Properties specific to a ManagedOnlineDeployment.
         :param pulumi.Input[str] endpoint_compute_type: Enum to determine endpoint compute type.
@@ -21306,6 +21331,7 @@ class ManagedOnlineDeploymentArgs:
                If it is null or not provided,
                it defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment
                and to DefaultScaleSettings for ManagedOnlineDeployment.
+        :param pulumi.Input['ProbeSettingsArgs'] startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
         """
         pulumi.set(__self__, "endpoint_compute_type", 'Managed')
         if app_insights_enabled is None:
@@ -21344,6 +21370,8 @@ class ManagedOnlineDeploymentArgs:
             pulumi.set(__self__, "request_settings", request_settings)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
 
     @property
     @pulumi.getter(name="endpointComputeType")
@@ -21540,6 +21568,18 @@ class ManagedOnlineDeploymentArgs:
     @scale_settings.setter
     def scale_settings(self, value: Optional[pulumi.Input[Union['DefaultScaleSettingsArgs', 'TargetUtilizationScaleSettingsArgs']]]):
         pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional[pulumi.Input['ProbeSettingsArgs']]:
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        return pulumi.get(self, "startup_probe")
+
+    @startup_probe.setter
+    def startup_probe(self, value: Optional[pulumi.Input['ProbeSettingsArgs']]):
+        pulumi.set(self, "startup_probe", value)
 
 
 if not MYPY:

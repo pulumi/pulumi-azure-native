@@ -235,7 +235,7 @@ def get_bmc_key_set(bmc_key_set_name: Optional[str] = None,
     Get baseboard management controller key set of the provided cluster.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
 
 
     :param str bmc_key_set_name: The name of the baseboard management controller key set.
@@ -274,7 +274,7 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[str]] = None,
     Get baseboard management controller key set of the provided cluster.
     Azure REST API version: 2023-10-01-preview.
 
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
 
 
     :param str bmc_key_set_name: The name of the baseboard management controller key set.

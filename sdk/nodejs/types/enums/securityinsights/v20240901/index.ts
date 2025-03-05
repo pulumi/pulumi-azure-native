@@ -934,17 +934,6 @@ export const ProviderPermissionsScope = {
  */
 export type ProviderPermissionsScope = (typeof ProviderPermissionsScope)[keyof typeof ProviderPermissionsScope];
 
-export const RepositoryAccessKind = {
-    OAuth: "OAuth",
-    PAT: "PAT",
-    App: "App",
-} as const;
-
-/**
- * The kind of repository access credentials
- */
-export type RepositoryAccessKind = (typeof RepositoryAccessKind)[keyof typeof RepositoryAccessKind];
-
 export const RestApiPollerRequestPagingKind = {
     LinkHeader: "LinkHeader",
     NextPageToken: "NextPageToken",

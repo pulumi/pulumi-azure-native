@@ -5,6 +5,7 @@
 import * as aad from "./aad";
 import * as aadiam from "./aadiam";
 import * as agfoodplatform from "./agfoodplatform";
+import * as agricultureplatform from "./agricultureplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
 import * as apicenter from "./apicenter";
@@ -31,6 +32,7 @@ import * as azurestackhci from "./azurestackhci";
 import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
+import * as billingbenefits from "./billingbenefits";
 import * as blueprint from "./blueprint";
 import * as botservice from "./botservice";
 import * as cache from "./cache";
@@ -57,6 +59,7 @@ import * as costmanagement from "./costmanagement";
 import * as customerinsights from "./customerinsights";
 import * as customproviders from "./customproviders";
 import * as dashboard from "./dashboard";
+import * as databasefleetmanager from "./databasefleetmanager";
 import * as databasewatcher from "./databasewatcher";
 import * as databox from "./databox";
 import * as databoxedge from "./databoxedge";
@@ -74,6 +77,7 @@ import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
 import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
+import * as dependencymap from "./dependencymap";
 import * as desktopvirtualization from "./desktopvirtualization";
 import * as devcenter from "./devcenter";
 import * as devhub from "./devhub";
@@ -125,7 +129,6 @@ import * as kusto from "./kusto";
 import * as labservices from "./labservices";
 import * as loadtestservice from "./loadtestservice";
 import * as logic from "./logic";
-import * as logz from "./logz";
 import * as m365securityandcompliance from "./m365securityandcompliance";
 import * as machinelearning from "./machinelearning";
 import * as machinelearningservices from "./machinelearningservices";
@@ -216,6 +219,7 @@ export {
     aad,
     aadiam,
     agfoodplatform,
+    agricultureplatform,
     alertsmanagement,
     analysisservices,
     apicenter,
@@ -242,6 +246,7 @@ export {
     baremetalinfrastructure,
     batch,
     billing,
+    billingbenefits,
     blueprint,
     botservice,
     cache,
@@ -268,6 +273,7 @@ export {
     customerinsights,
     customproviders,
     dashboard,
+    databasefleetmanager,
     databasewatcher,
     databox,
     databoxedge,
@@ -285,6 +291,7 @@ export {
     dbformysql,
     dbforpostgresql,
     delegatednetwork,
+    dependencymap,
     desktopvirtualization,
     devcenter,
     devhub,
@@ -336,7 +343,6 @@ export {
     labservices,
     loadtestservice,
     logic,
-    logz,
     m365securityandcompliance,
     machinelearning,
     machinelearningservices,

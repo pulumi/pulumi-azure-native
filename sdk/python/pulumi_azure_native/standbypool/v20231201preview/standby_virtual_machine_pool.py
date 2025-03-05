@@ -218,7 +218,7 @@ class StandbyVirtualMachinePool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool:StandbyVirtualMachinePool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:standbypool/v20240301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20240301preview:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool/v20250301:StandbyVirtualMachinePool"), pulumi.Alias(type_="azure-native:standbypool:StandbyVirtualMachinePool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StandbyVirtualMachinePool, __self__).__init__(
             'azure-native:standbypool/v20231201preview:StandbyVirtualMachinePool',

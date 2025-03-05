@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure REST API version: 2023-08-01-preview.
     /// 
-    /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+    /// Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:InferencePool")]
     public partial class InferencePool : global::Pulumi.CustomResource
@@ -100,6 +100,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240101preview:InferencePool" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:InferencePool" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:InferencePool" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:InferencePool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

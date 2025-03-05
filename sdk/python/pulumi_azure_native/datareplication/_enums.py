@@ -5,9 +5,32 @@
 from enum import Enum
 
 __all__ = [
+    'PrivateEndpointConnectionStatus',
     'ReplicationVaultType',
     'VMNicSelection',
 ]
+
+
+class PrivateEndpointConnectionStatus(str, Enum):
+    """
+    Gets or sets the status.
+    """
+    APPROVED = "Approved"
+    """
+    Approved Status.
+    """
+    DISCONNECTED = "Disconnected"
+    """
+    Disconnected Status.
+    """
+    PENDING = "Pending"
+    """
+    Pending Status.
+    """
+    REJECTED = "Rejected"
+    """
+    Rejected Status.
+    """
 
 
 class ReplicationVaultType(str, Enum):

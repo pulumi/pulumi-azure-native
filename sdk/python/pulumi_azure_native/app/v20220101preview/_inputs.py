@@ -646,7 +646,7 @@ if not MYPY:
         open_id_issuer: NotRequired[pulumi.Input[str]]
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -676,7 +676,7 @@ class AzureActiveDirectoryRegistrationArgs:
                a replacement for the Client Secret. It is also optional.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param pulumi.Input[str] open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -764,7 +764,7 @@ class AzureActiveDirectoryRegistrationArgs:
     def open_id_issuer(self) -> Optional[pulumi.Input[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """

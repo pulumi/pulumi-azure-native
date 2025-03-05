@@ -41,7 +41,6 @@ __all__ = [
     'OwnerType',
     'PackageKind',
     'ProviderPermissionsScope',
-    'RepositoryAccessKind',
     'RestApiPollerRequestPagingKind',
     'SecurityMLAnalyticsSettingsKind',
     'SettingsStatus',
@@ -913,15 +912,6 @@ class ProviderPermissionsScope(str, Enum):
     SUBSCRIPTION = "Subscription"
     RESOURCE_GROUP = "ResourceGroup"
     WORKSPACE = "Workspace"
-
-
-class RepositoryAccessKind(str, Enum):
-    """
-    The kind of repository access credentials
-    """
-    O_AUTH = "OAuth"
-    PAT = "PAT"
-    APP = "App"
 
 
 class RestApiPollerRequestPagingKind(str, Enum):

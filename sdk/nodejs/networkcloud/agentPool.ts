@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Azure REST API version: 2023-10-01-preview.
  *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview, 2025-02-01.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -192,7 +192,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSkuName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:AgentPool" }, { type: "azure-native:networkcloud/v20231001preview:AgentPool" }, { type: "azure-native:networkcloud/v20240601preview:AgentPool" }, { type: "azure-native:networkcloud/v20240701:AgentPool" }, { type: "azure-native:networkcloud/v20241001preview:AgentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:AgentPool" }, { type: "azure-native:networkcloud/v20231001preview:AgentPool" }, { type: "azure-native:networkcloud/v20240601preview:AgentPool" }, { type: "azure-native:networkcloud/v20240701:AgentPool" }, { type: "azure-native:networkcloud/v20241001preview:AgentPool" }, { type: "azure-native:networkcloud/v20250201:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

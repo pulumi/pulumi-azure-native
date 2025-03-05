@@ -21,8 +21,7 @@ namespace Pulumi.AzureNative.Web.V20230101.Outputs
         /// </summary>
         public readonly string? ActionHostName;
         /// <summary>
-        /// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-        /// https://www.siteextensions.net/packages/TiPCallback/
+        /// Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         /// </summary>
         public readonly string? ChangeDecisionCallbackUrl;
         /// <summary>

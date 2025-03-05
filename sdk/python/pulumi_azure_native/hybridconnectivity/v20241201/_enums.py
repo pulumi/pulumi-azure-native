@@ -5,21 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'CreatedByType',
     'HostType',
     'ServiceName',
     'Type',
 ]
-
-
-class CreatedByType(str, Enum):
-    """
-    The type of identity that last modified the resource.
-    """
-    USER = "User"
-    APPLICATION = "Application"
-    MANAGED_IDENTITY = "ManagedIdentity"
-    KEY = "Key"
 
 
 class HostType(str, Enum):

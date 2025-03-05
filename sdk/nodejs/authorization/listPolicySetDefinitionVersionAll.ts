@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * This operation lists all the policy set definition versions for all policy set definitions within a subscription.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
  */
 export function listPolicySetDefinitionVersionAll(args?: ListPolicySetDefinitionVersionAllArgs, opts?: pulumi.InvokeOptions): Promise<ListPolicySetDefinitionVersionAllResult> {
     args = args || {};
@@ -40,7 +40,7 @@ export interface ListPolicySetDefinitionVersionAllResult {
  * This operation lists all the policy set definition versions for all policy set definitions within a subscription.
  * Azure REST API version: 2023-04-01.
  *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Other available API versions: 2024-05-01, 2025-01-01, 2025-03-01.
  */
 export function listPolicySetDefinitionVersionAllOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPolicySetDefinitionVersionAllResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

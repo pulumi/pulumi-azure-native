@@ -79,7 +79,7 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * the list of resource id's that this metric alert is scoped to.
+     * the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
      */
     public readonly scopes!: pulumi.Output<string[]>;
     /**
@@ -225,7 +225,7 @@ export interface MetricAlertArgs {
      */
     ruleName?: pulumi.Input<string>;
     /**
-     * the list of resource id's that this metric alert is scoped to.
+     * the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
      */
     scopes: pulumi.Input<pulumi.Input<string>[]>;
     /**

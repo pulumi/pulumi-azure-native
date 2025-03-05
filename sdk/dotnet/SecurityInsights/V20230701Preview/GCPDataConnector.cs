@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230701Preview
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:GCPDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:GCPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:GCPDataConnector" },
                 },
             };

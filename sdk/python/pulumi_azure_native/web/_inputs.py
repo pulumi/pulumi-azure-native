@@ -2212,7 +2212,7 @@ if not MYPY:
         open_id_issuer: NotRequired[pulumi.Input[str]]
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -2242,7 +2242,7 @@ class AzureActiveDirectoryRegistrationArgs:
                a replacement for the Client Secret. It is also optional.
         :param pulumi.Input[str] client_secret_setting_name: The app setting name that contains the client secret of the relying party application.
         :param pulumi.Input[str] open_id_issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+               When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
                This URI is a case-sensitive identifier for the token issuer.
                More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -2330,7 +2330,7 @@ class AzureActiveDirectoryRegistrationArgs:
     def open_id_issuer(self) -> Optional[pulumi.Input[str]]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
-        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://login.microsoftonline.com/v2.0/{tenant-guid}/.
+        When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://login.microsoftonline.com/v2.0/{tenant-guid}/`.
         This URI is a case-sensitive identifier for the token issuer.
         More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
         """
@@ -9287,8 +9287,7 @@ if not MYPY:
         """
         change_decision_callback_url: NotRequired[pulumi.Input[str]]
         """
-        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-        https://www.siteextensions.net/packages/TiPCallback/
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         """
         change_interval_in_minutes: NotRequired[pulumi.Input[int]]
         """
@@ -9333,8 +9332,7 @@ class RampUpRuleArgs:
         """
         Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
         :param pulumi.Input[str] action_host_name: Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-        :param pulumi.Input[str] change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-               https://www.siteextensions.net/packages/TiPCallback/
+        :param pulumi.Input[str] change_decision_callback_url: Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         :param pulumi.Input[int] change_interval_in_minutes: Specifies interval in minutes to reevaluate ReroutePercentage.
         :param pulumi.Input[float] change_step: In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches \\n<code>MinReroutePercentage</code> or 
                <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.\\nCustom decision algorithm 
@@ -9377,8 +9375,7 @@ class RampUpRuleArgs:
     @pulumi.getter(name="changeDecisionCallbackUrl")
     def change_decision_callback_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-        https://www.siteextensions.net/packages/TiPCallback/
+        Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified.
         """
         return pulumi.get(self, "change_decision_callback_url")
 
