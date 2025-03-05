@@ -364,6 +364,18 @@ func TestResourceModuleNaming(t *testing.T) {
 			RpNamespace:            "Microsoft.Network",
 		}, naming)
 	})
+	t.Run("Module name with numbers", func(t *testing.T) {
+		naming, err := GetModuleName(2,
+			"/go/pulumi-azure-native/azure-rest-api-specs/specification/storsimple8000series/resource-manager/Microsoft.StorSimple/stable/2017-06-01/storsimple.json",
+			"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorSimple/managers/{managerName}")
+		assert.Nil(t, err)
+		assert.Equal(t, ModuleNaming{
+			ResolvedName:           "StorSimple",
+			SpecFolderName:         "storsimple8000series",
+			NamespaceWithoutPrefix: "StorSimple",
+			RpNamespace:            "Microsoft.StorSimple",
+		}, naming)
+	})
 	t.Run("File path with dots uses last match", func(t *testing.T) {
 		naming, err := GetModuleName(2,
 			"/go/pulumi.azure.native/azure-rest-api-specs/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json",
