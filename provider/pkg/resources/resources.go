@@ -283,9 +283,9 @@ func GetModuleName(majorVersion uint64, filePath, apiUri string) (ModuleNaming, 
 	// We extract the module name from two sources:
 	// - from the folder name of the Open API spec
 	// - from the URI of the API endpoint (we take the last namespace in the URI)
-	specFolderName := getSpecFolderName(filePath)
+	specFolderName, specFilePath := getSpecFolderNameAndFilePath(filePath)
 	namespaceWithoutPrefixFromSpecFilePath := findNamespaceWithoutPrefixFromPath(filePath, "")
-	namespace, err := findSpecNamespace(filePath)
+	namespace, err := findSpecNamespace(specFilePath)
 	if err != nil {
 		return ModuleNaming{}, err
 	}
@@ -419,15 +419,18 @@ func findNamespaceWithoutPrefixFromPath(path, defaultValue string) string {
 	return defaultValue
 }
 
-var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z-]+)/resource-manager/.*`)
+var folderModulePattern = regexp.MustCompile(`.*/specification/([a-zA-Z0-9-]+)/resource-manager/(.*)`)
 
-func getSpecFolderName(path string) string {
+func getSpecFolderNameAndFilePath(path string) (string, string) {
+	// Note that this returns last match, e.g. the following path matches `C`, `D`:
+	// specification/A/resource-manager/B/specification/C/resource-manager/D
 	subMatches := folderModulePattern.FindStringSubmatch(path)
-	if len(subMatches) > 1 {
+	if len(subMatches) > 2 {
 		moduleAlias := subMatches[1]
-		return moduleAlias
+		filePath := subMatches[2]
+		return moduleAlias, filePath
 	}
-	return ""
+	return "", ""
 }
 
 var verbReplacer = strings.NewReplacer(
