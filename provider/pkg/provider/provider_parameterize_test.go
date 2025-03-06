@@ -4,23 +4,34 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"os"
 	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/require"
 )
 
+// A struct to get the schema version without deserializing the whole schema.
+type schemaWithVersion struct {
+	Version string `json:"version"`
+}
+
 func TestParameterize(t *testing.T) {
 	t.Parallel()
 
-	providerVersion := version.GetVersion().String()
-
 	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
 	require.NoError(t, err)
+
+	// Get the schema version from the schema. In production, it would be the same than version.GetVersion(), but in
+	// CI it's not - 2.0.0-alpha.0+dev vs. 2.90.0-alpha.1741284698+8268d88.
+	var v schemaWithVersion
+	err = json.Unmarshal(schemaBytes, &v)
+	require.NoError(t, err)
+	providerVersion := v.Version
+
 	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.PartialAzureAPIMetadata{
 		Types:     resources.PartialMap[resources.AzureAPIType]{},
 		Resources: resources.PartialMap[resources.AzureAPIResource]{},
