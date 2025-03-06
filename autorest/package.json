@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "autorest",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node --import=tsx index.ts"
+  },
+  "dependencies": {
+    "@autorest/common": "^1.6.0",
+    "@autorest/configuration": "^1.12.1",
+    "@azure-tools/uri": "^3.1.1",
+    "fast-glob": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
