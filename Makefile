@@ -41,6 +41,9 @@ MAJOR_VERSION   = $(shell echo $(PROVIDER_VERSION) | cut -d. -f1)
 PREVIOUS_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)-1 | bc)
 NEXT_MAJOR_VERSION = $(shell echo $(MAJOR_VERSION)+1 | bc)
 
+# Depending on the major version, we use the full schema with all API versions or default versions only.
+CODEGEN_SCHEMA = $(shell if [ $(MAJOR_VERSION) -lt 3 ]; then echo "bin/schema-full.json"; else echo "bin/schema-default-versions.json"; fi)
+
 # Set these variables to enable signing of the windows binary
 AZURE_SIGNING_CLIENT_ID ?=
 AZURE_SIGNING_CLIENT_SECRET ?=
@@ -231,10 +234,10 @@ bin/$(CODEGEN): .make/prebuild .make/provider_mod_download provider/cmd/$(CODEGE
 
 # Writes schema-full.json and metadata-compact.json to bin/
 # Also re-calculates files in versions/ at same time
-bin/schema-full.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed.json versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
+bin/schema-full.json bin/schema-default-versions.json bin/metadata-compact.json &: bin/$(CODEGEN) $(SPECS) versions/az-provider-list.json versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-spec.yaml versions/v${MAJOR_VERSION}-removed.json versions/v${MAJOR_VERSION}-removed-resources.json versions/v${NEXT_MAJOR_VERSION}-removed-resources.json
 	bin/$(CODEGEN) schema
 
-# Docs schema - treat as phony becasuse it's committed so we always need to rebuild it.
+# Docs schema - treat as phony because it's committed so we always need to rebuild it.
 .PHONY: provider/cmd/pulumi-resource-azure-native/schema.json
 provider/cmd/pulumi-resource-azure-native/schema.json: bin/$(CODEGEN) $(SPECS) versions/v${PREVIOUS_MAJOR_VERSION}.yaml versions/v${MAJOR_VERSION}-config.yaml versions/v${MAJOR_VERSION}-removed-resources.json
 	bin/$(CODEGEN) docs
@@ -331,34 +334,34 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_nodejs: .pulumi/bin/pulumi $(CODEGEN_SCHEMA)
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
+	.pulumi/bin/pulumi package gen-sdk $(CODEGEN_SCHEMA) --language nodejs
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_python: .pulumi/bin/pulumi $(CODEGEN_SCHEMA)
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language python
+	.pulumi/bin/pulumi package gen-sdk $(CODEGEN_SCHEMA) --language python
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: .pulumi/bin/pulumi bin/schema-full.json
+.make/generate_dotnet: .pulumi/bin/pulumi $(CODEGEN_SCHEMA)
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language dotnet
+	.pulumi/bin/pulumi package gen-sdk $(CODEGEN_SCHEMA) --language dotnet
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	echo "azure-native\n$(PROVIDER_VERSION)" > sdk/dotnet/version.txt
 	@touch $@
 
-.make/generate_go_local: bin/$(CODEGEN) bin/schema-full.json
+.make/generate_go_local: bin/$(CODEGEN) $(CODEGEN_SCHEMA)
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
