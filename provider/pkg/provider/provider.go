@@ -417,9 +417,11 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 	}
 
 	if res.GetResource {
+		// resource getters have an azureApiVersion output property.
 		if version.GetVersion().Major >= 3 {
-			// resources have an apiVersion output property.
-			outputs["apiVersion"] = res.APIVersion
+			if res.APIVersion != "" {
+				outputs["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
+			}
 		}
 	}
 
@@ -648,11 +650,11 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 		}
 	}
 
-	// Apply the apiVersion of this resource.
-	// Note that some resource types do not have an apiVersion property (e.g. storage:Blob).
+	// Set the default value of azureApiVersion to the APIVersion of the inputs.
+	// Note that some Azure resource types do not have an APIVersion (e.g. storage:Blob).
 	if version.GetVersion().Major >= 3 {
 		if res.APIVersion != "" {
-			news["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+			news["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 		}
 	}
 }
@@ -860,12 +862,13 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		logging.V(9).Infof("no __inputs found for '%s'", urn)
 	}
 
-	// v2-to-v3 migration: apiVersion might be available in the old state and we use it to suppress spurious diffs.
+	// v2-to-v3 migration: apiVersion might be available in the old state and we use it to suppress spurious diffs
+	// that would otherwise be produced by mere input-input diffing.
 	migratedApiVersion := false
 	if version.GetVersion().Major >= 3 {
-		if _, ok := oldInputs["apiVersion"]; !ok {
-			if v, ok := oldState["apiVersion"]; ok {
-				oldInputs["apiVersion"] = v
+		if _, ok := oldInputs["azureApiVersion"]; !ok {
+			if v, ok := oldState["azureApiVersion"]; ok {
+				oldInputs["azureApiVersion"] = v
 				migratedApiVersion = true
 			}
 		}
@@ -903,7 +906,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, *res)
 
 	if migratedApiVersion {
-		if v, ok := detailedDiff["apiVersion"]; ok {
+		if v, ok := detailedDiff["azureApiVersion"]; ok {
 			// in this case, the diff is between the old state and the new inputs.
 			v.InputDiff = false
 		}
@@ -1662,9 +1665,9 @@ func checkpointObject(res *resources.AzureAPIResource, inputs resource.PropertyM
 		object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
 	}
 
-	// emit the actual apiversion as an output property, for resources that have an apiVersion property.
+	// emit the actual APIVersion as an output property.
 	if res.APIVersion != "" {
-		object["apiVersion"] = resource.NewStringProperty(res.APIVersion)
+		object["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 	}
 	return object
 }
