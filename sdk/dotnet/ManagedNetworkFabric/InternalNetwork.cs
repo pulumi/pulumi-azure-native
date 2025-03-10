@@ -10,16 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// Defines the InternalNetwork item.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// Defines the Internal Network resource.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:InternalNetwork")]
     public partial class InternalNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Administrative state of the InternalNetwork. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         [Output("administrativeState")]
         public Output<string> AdministrativeState { get; private set; } = null!;
@@ -31,58 +29,76 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the BFD for BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        /// </summary>
-        [Output("bfdDisabledOnResources")]
-        public Output<ImmutableArray<string>> BfdDisabledOnResources { get; private set; } = null!;
-
-        /// <summary>
-        /// List of resources the BFD of StaticRoutes is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        /// </summary>
-        [Output("bfdForStaticRoutesDisabledOnResources")]
-        public Output<ImmutableArray<string>> BfdForStaticRoutesDisabledOnResources { get; private set; } = null!;
-
-        /// <summary>
-        /// BGP configuration properties
+        /// BGP configuration properties.
         /// </summary>
         [Output("bgpConfiguration")]
-        public Output<Outputs.BgpConfigurationResponse?> BgpConfiguration { get; private set; } = null!;
+        public Output<Outputs.InternalNetworkPropertiesResponseBgpConfiguration?> BgpConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// Configuration state of the resource.
         /// </summary>
-        [Output("bgpDisabledOnResources")]
-        public Output<ImmutableArray<string>> BgpDisabledOnResources { get; private set; } = null!;
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
 
         /// <summary>
-        /// List with object connected IPv4 Subnets.
+        /// List of Connected IPv4 Subnets.
         /// </summary>
         [Output("connectedIPv4Subnets")]
         public Output<ImmutableArray<Outputs.ConnectedSubnetResponse>> ConnectedIPv4Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// List with object connected IPv6 Subnets.
+        /// List of connected IPv6 Subnets.
         /// </summary>
         [Output("connectedIPv6Subnets")]
         public Output<ImmutableArray<Outputs.ConnectedSubnetResponse>> ConnectedIPv6Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// Egress Acl. ARM resource ID of Access Control Lists.
         /// </summary>
-        [Output("disabledOnResources")]
-        public Output<ImmutableArray<string>> DisabledOnResources { get; private set; } = null!;
+        [Output("egressAclId")]
+        public Output<string?> EgressAclId { get; private set; } = null!;
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Export Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Output("exportRoutePolicy")]
+        public Output<Outputs.ExportRoutePolicyResponse?> ExportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Output("exportRoutePolicyId")]
         public Output<string?> ExportRoutePolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Extension. Example: NoExtension | NPB.
+        /// </summary>
+        [Output("extension")]
+        public Output<string?> Extension { get; private set; } = null!;
+
+        /// <summary>
+        /// Import Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Output("importRoutePolicy")]
+        public Output<Outputs.ImportRoutePolicyResponse?> ImportRoutePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Output("importRoutePolicyId")]
         public Output<string?> ImportRoutePolicyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Output("ingressAclId")]
+        public Output<string?> IngressAclId { get; private set; } = null!;
+
+        /// <summary>
+        /// To check whether monitoring of internal network is enabled or not.
+        /// </summary>
+        [Output("isMonitoringEnabled")]
+        public Output<string?> IsMonitoringEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Maximum transmission unit. Default value is 1500.
@@ -97,7 +113,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -106,7 +122,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Static Route Configuration properties.
         /// </summary>
         [Output("staticRouteConfiguration")]
-        public Output<Outputs.StaticRouteConfigurationResponse?> StaticRouteConfiguration { get; private set; } = null!;
+        public Output<Outputs.InternalNetworkPropertiesResponseStaticRouteConfiguration?> StaticRouteConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -183,16 +199,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// BGP configuration properties
+        /// BGP configuration properties.
         /// </summary>
         [Input("bgpConfiguration")]
-        public Input<Inputs.BgpConfigurationArgs>? BgpConfiguration { get; set; }
+        public Input<Inputs.InternalNetworkPropertiesBgpConfigurationArgs>? BgpConfiguration { get; set; }
 
         [Input("connectedIPv4Subnets")]
         private InputList<Inputs.ConnectedSubnetArgs>? _connectedIPv4Subnets;
 
         /// <summary>
-        /// List with object connected IPv4 Subnets.
+        /// List of Connected IPv4 Subnets.
         /// </summary>
         public InputList<Inputs.ConnectedSubnetArgs> ConnectedIPv4Subnets
         {
@@ -204,7 +220,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         private InputList<Inputs.ConnectedSubnetArgs>? _connectedIPv6Subnets;
 
         /// <summary>
-        /// List with object connected IPv6 Subnets.
+        /// List of connected IPv6 Subnets.
         /// </summary>
         public InputList<Inputs.ConnectedSubnetArgs> ConnectedIPv6Subnets
         {
@@ -213,25 +229,61 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         }
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Egress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Input("egressAclId")]
+        public Input<string>? EgressAclId { get; set; }
+
+        /// <summary>
+        /// Export Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Input("exportRoutePolicy")]
+        public Input<Inputs.ExportRoutePolicyArgs>? ExportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Input("exportRoutePolicyId")]
         public Input<string>? ExportRoutePolicyId { get; set; }
 
         /// <summary>
-        /// ARM resource ID of importRoutePolicy.
+        /// Extension. Example: NoExtension | NPB.
+        /// </summary>
+        [Input("extension")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.Extension>? Extension { get; set; }
+
+        /// <summary>
+        /// Import Route Policy either IPv4 or IPv6.
+        /// </summary>
+        [Input("importRoutePolicy")]
+        public Input<Inputs.ImportRoutePolicyArgs>? ImportRoutePolicy { get; set; }
+
+        /// <summary>
+        /// ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         /// </summary>
         [Input("importRoutePolicyId")]
         public Input<string>? ImportRoutePolicyId { get; set; }
 
         /// <summary>
-        /// Name of the InternalNetwork
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Input("ingressAclId")]
+        public Input<string>? IngressAclId { get; set; }
+
+        /// <summary>
+        /// Name of the Internal Network.
         /// </summary>
         [Input("internalNetworkName")]
         public Input<string>? InternalNetworkName { get; set; }
 
         /// <summary>
-        /// Name of the L3IsolationDomain
+        /// To check whether monitoring of internal network is enabled or not.
+        /// </summary>
+        [Input("isMonitoringEnabled")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.IsMonitoringEnabled>? IsMonitoringEnabled { get; set; }
+
+        /// <summary>
+        /// Name of the L3 Isolation Domain.
         /// </summary>
         [Input("l3IsolationDomainName", required: true)]
         public Input<string> L3IsolationDomainName { get; set; } = null!;
@@ -252,7 +304,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// Static Route Configuration properties.
         /// </summary>
         [Input("staticRouteConfiguration")]
-        public Input<Inputs.StaticRouteConfigurationArgs>? StaticRouteConfiguration { get; set; }
+        public Input<Inputs.InternalNetworkPropertiesStaticRouteConfigurationArgs>? StaticRouteConfiguration { get; set; }
 
         /// <summary>
         /// Vlan identifier. Example: 1001.
@@ -262,6 +314,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         public InternalNetworkArgs()
         {
+            Extension = "NoExtension";
+            IsMonitoringEnabled = "False";
             Mtu = 1500;
         }
         public static new InternalNetworkArgs Empty => new InternalNetworkArgs();

@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<bool>? AllowVirtualWanTraffic { get; set; }
 
         /// <summary>
+        /// Autoscale configuration for virutal network gateway
+        /// </summary>
+        [Input("autoScaleConfiguration")]
+        public Input<Inputs.VirtualNetworkGatewayAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
+
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
@@ -105,6 +111,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// The identity of the virtual network gateway, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
         [Input("ipConfigurations")]
         private InputList<Inputs.VirtualNetworkGatewayIPConfigurationArgs>? _ipConfigurations;
 
@@ -134,6 +146,12 @@ namespace Pulumi.AzureNative.Network.Inputs
             get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
             set => _natRules = value;
         }
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+        /// </summary>
+        [Input("resiliencyModel")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ResiliencyModel>? ResiliencyModel { get; set; }
 
         /// <summary>
         /// The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.

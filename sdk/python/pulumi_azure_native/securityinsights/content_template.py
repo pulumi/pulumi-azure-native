@@ -24,8 +24,10 @@ class ContentTemplateArgs:
     def __init__(__self__, *,
                  content_id: pulumi.Input[str],
                  content_kind: pulumi.Input[Union[str, 'Kind']],
+                 content_product_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  package_id: pulumi.Input[str],
+                 package_version: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  source: pulumi.Input['MetadataSourceArgs'],
                  version: pulumi.Input[str],
@@ -52,8 +54,10 @@ class ContentTemplateArgs:
         The set of arguments for constructing a ContentTemplate resource.
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[Union[str, 'Kind']] content_kind: The kind of content the template is for.
+        :param pulumi.Input[str] content_product_id: Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
         :param pulumi.Input[str] display_name: The display name of the template
         :param pulumi.Input[str] package_id: the package Id contains this template
+        :param pulumi.Input[str] package_version: Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['MetadataSourceArgs'] source: Source of the content.  This is where/how it was created.
         :param pulumi.Input[str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
@@ -66,7 +70,7 @@ class ContentTemplateArgs:
         :param pulumi.Input[str] first_publish_date: first publish date content item
         :param pulumi.Input[str] icon: the icon identifier. this id can later be fetched from the content metadata
         :param pulumi.Input[str] last_publish_date: last publish date for the content item
-        :param Any main_template: The JSON of the ARM template to deploy active content
+        :param Any main_template: The JSON of the ARM template to deploy active content. Expandable.
         :param pulumi.Input[Union[str, 'PackageKind']] package_kind: the packageKind of the package contains this template
         :param pulumi.Input[str] package_name: the name of the package contains this template
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: preview image file names. These will be taken from the solution artifacts
@@ -79,8 +83,10 @@ class ContentTemplateArgs:
         """
         pulumi.set(__self__, "content_id", content_id)
         pulumi.set(__self__, "content_kind", content_kind)
+        pulumi.set(__self__, "content_product_id", content_product_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "package_id", package_id)
+        pulumi.set(__self__, "package_version", package_version)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "version", version)
@@ -147,6 +153,18 @@ class ContentTemplateArgs:
         pulumi.set(self, "content_kind", value)
 
     @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> pulumi.Input[str]:
+        """
+        Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        """
+        return pulumi.get(self, "content_product_id")
+
+    @content_product_id.setter
+    def content_product_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_product_id", value)
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
@@ -169,6 +187,18 @@ class ContentTemplateArgs:
     @package_id.setter
     def package_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "package_id", value)
+
+    @property
+    @pulumi.getter(name="packageVersion")
+    def package_version(self) -> pulumi.Input[str]:
+        """
+        Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        """
+        return pulumi.get(self, "package_version")
+
+    @package_version.setter
+    def package_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "package_version", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -318,7 +348,7 @@ class ContentTemplateArgs:
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> Optional[Any]:
         """
-        The JSON of the ARM template to deploy active content
+        The JSON of the ARM template to deploy active content. Expandable.
         """
         return pulumi.get(self, "main_template")
 
@@ -444,6 +474,7 @@ class ContentTemplate(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
@@ -455,6 +486,7 @@ class ContentTemplate(pulumi.CustomResource):
                  package_id: Optional[pulumi.Input[str]] = None,
                  package_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 package_version: Optional[pulumi.Input[str]] = None,
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_dark: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -469,9 +501,7 @@ class ContentTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Template resource definition.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -479,6 +509,7 @@ class ContentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']] categories: Categories for the item
         :param pulumi.Input[str] content_id: Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
         :param pulumi.Input[Union[str, 'Kind']] content_kind: The kind of content the template is for.
+        :param pulumi.Input[str] content_product_id: Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
         :param pulumi.Input[str] content_schema_version: Schema version of the content. Can be used to distinguish between different flow based on the schema version
         :param pulumi.Input[str] custom_version: The custom version of the content. A optional free text
         :param pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']] dependencies: Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
@@ -486,10 +517,11 @@ class ContentTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] first_publish_date: first publish date content item
         :param pulumi.Input[str] icon: the icon identifier. this id can later be fetched from the content metadata
         :param pulumi.Input[str] last_publish_date: last publish date for the content item
-        :param Any main_template: The JSON of the ARM template to deploy active content
+        :param Any main_template: The JSON of the ARM template to deploy active content. Expandable.
         :param pulumi.Input[str] package_id: the package Id contains this template
         :param pulumi.Input[Union[str, 'PackageKind']] package_kind: the packageKind of the package contains this template
         :param pulumi.Input[str] package_name: the name of the package contains this template
+        :param pulumi.Input[str] package_version: Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images: preview image file names. These will be taken from the solution artifacts
         :param pulumi.Input[Sequence[pulumi.Input[str]]] preview_images_dark: preview image file names. These will be taken from the solution artifacts. used for dark theme support
         :param pulumi.Input[Sequence[pulumi.Input[str]]] providers: Providers for the content item
@@ -510,9 +542,7 @@ class ContentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template resource definition.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ContentTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -533,6 +563,7 @@ class ContentTemplate(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  custom_version: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
@@ -544,6 +575,7 @@ class ContentTemplate(pulumi.CustomResource):
                  package_id: Optional[pulumi.Input[str]] = None,
                  package_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
+                 package_version: Optional[pulumi.Input[str]] = None,
                  preview_images: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  preview_images_dark: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -572,6 +604,9 @@ class ContentTemplate(pulumi.CustomResource):
             if content_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'content_kind'")
             __props__.__dict__["content_kind"] = content_kind
+            if content_product_id is None and not opts.urn:
+                raise TypeError("Missing required property 'content_product_id'")
+            __props__.__dict__["content_product_id"] = content_product_id
             __props__.__dict__["content_schema_version"] = content_schema_version
             __props__.__dict__["custom_version"] = custom_version
             __props__.__dict__["dependencies"] = dependencies
@@ -587,6 +622,9 @@ class ContentTemplate(pulumi.CustomResource):
             __props__.__dict__["package_id"] = package_id
             __props__.__dict__["package_kind"] = package_kind
             __props__.__dict__["package_name"] = package_name
+            if package_version is None and not opts.urn:
+                raise TypeError("Missing required property 'package_version'")
+            __props__.__dict__["package_version"] = package_version
             __props__.__dict__["preview_images"] = preview_images
             __props__.__dict__["preview_images_dark"] = preview_images_dark
             __props__.__dict__["providers"] = providers
@@ -606,7 +644,9 @@ class ContentTemplate(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["dependant_templates"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["is_deprecated"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -638,19 +678,23 @@ class ContentTemplate(pulumi.CustomResource):
         __props__.__dict__["categories"] = None
         __props__.__dict__["content_id"] = None
         __props__.__dict__["content_kind"] = None
+        __props__.__dict__["content_product_id"] = None
         __props__.__dict__["content_schema_version"] = None
         __props__.__dict__["custom_version"] = None
+        __props__.__dict__["dependant_templates"] = None
         __props__.__dict__["dependencies"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["first_publish_date"] = None
         __props__.__dict__["icon"] = None
+        __props__.__dict__["is_deprecated"] = None
         __props__.__dict__["last_publish_date"] = None
         __props__.__dict__["main_template"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["package_id"] = None
         __props__.__dict__["package_kind"] = None
         __props__.__dict__["package_name"] = None
+        __props__.__dict__["package_version"] = None
         __props__.__dict__["preview_images"] = None
         __props__.__dict__["preview_images_dark"] = None
         __props__.__dict__["providers"] = None
@@ -696,6 +740,14 @@ class ContentTemplate(pulumi.CustomResource):
         return pulumi.get(self, "content_kind")
 
     @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> pulumi.Output[str]:
+        """
+        Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
+        """
+        return pulumi.get(self, "content_product_id")
+
+    @property
     @pulumi.getter(name="contentSchemaVersion")
     def content_schema_version(self) -> pulumi.Output[Optional[str]]:
         """
@@ -710,6 +762,14 @@ class ContentTemplate(pulumi.CustomResource):
         The custom version of the content. A optional free text
         """
         return pulumi.get(self, "custom_version")
+
+    @property
+    @pulumi.getter(name="dependantTemplates")
+    def dependant_templates(self) -> pulumi.Output[Sequence['outputs.TemplatePropertiesResponse']]:
+        """
+        Dependant templates. Expandable.
+        """
+        return pulumi.get(self, "dependant_templates")
 
     @property
     @pulumi.getter
@@ -752,6 +812,14 @@ class ContentTemplate(pulumi.CustomResource):
         return pulumi.get(self, "icon")
 
     @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> pulumi.Output[str]:
+        """
+        Flag indicates if this template is deprecated
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @property
     @pulumi.getter(name="lastPublishDate")
     def last_publish_date(self) -> pulumi.Output[Optional[str]]:
         """
@@ -763,7 +831,7 @@ class ContentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="mainTemplate")
     def main_template(self) -> pulumi.Output[Optional[Any]]:
         """
-        The JSON of the ARM template to deploy active content
+        The JSON of the ARM template to deploy active content. Expandable.
         """
         return pulumi.get(self, "main_template")
 
@@ -798,6 +866,14 @@ class ContentTemplate(pulumi.CustomResource):
         the name of the package contains this template
         """
         return pulumi.get(self, "package_name")
+
+    @property
+    @pulumi.getter(name="packageVersion")
+    def package_version(self) -> pulumi.Output[str]:
+        """
+        Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
+        """
+        return pulumi.get(self, "package_version")
 
     @property
     @pulumi.getter(name="previewImages")

@@ -17,6 +17,7 @@ __all__ = [
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
     'ServiceManagedIdentityType',
+    'SmartDataActions',
 ]
 
 
@@ -116,3 +117,10 @@ class ServiceManagedIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class SmartDataActions(str, Enum):
+    """
+    The Data Actions that can be enabled for a Smart Identity Provider Application.
+    """
+    READ = "Read"

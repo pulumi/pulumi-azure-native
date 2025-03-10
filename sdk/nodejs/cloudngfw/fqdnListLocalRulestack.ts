@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * LocalRulestack fqdnList
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class FqdnListLocalRulestack extends pulumi.CustomResource {
     /**

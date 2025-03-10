@@ -116,9 +116,7 @@ def get_secret(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Azure REST API version: 2024-11-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
@@ -145,9 +143,7 @@ def get_secret_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     Gets the specified secret.  NOTE: This API is intended for internal use in ARM deployments. Users should use the data-plane REST service for interaction with vault secrets.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Azure REST API version: 2024-11-01.
 
 
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.

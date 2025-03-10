@@ -196,7 +196,7 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
                  __props__=None):
         """
         An ADLS Gen2 file system data set mapping.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,7 +220,7 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen2 file system data set mapping.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param ADLSGen2FileSystemDataSetMappingArgs args: The arguments to use to populate this resource's properties.
@@ -289,7 +289,7 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20191101:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobContainerDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoClusterDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDWTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobContainerDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:BlobFolderDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:KustoClusterDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:KustoDatabaseDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:KustoTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SqlDBTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SqlDWTableDataSetMapping"), pulumi.Alias(type_="azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ADLSGen2FileSystemDataSetMapping, __self__).__init__(
             'azure-native:datashare:ADLSGen2FileSystemDataSetMapping',

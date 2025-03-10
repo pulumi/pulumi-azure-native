@@ -104,7 +104,7 @@ class GetQueryResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -112,7 +112,7 @@ class GetQueryResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -136,7 +136,7 @@ class GetQueryResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -168,7 +168,7 @@ class GetQueryResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -200,9 +200,7 @@ def get_query(id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
-
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
@@ -236,9 +234,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
-
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack

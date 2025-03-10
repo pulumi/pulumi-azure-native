@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,14 +35,6 @@ export interface GetVpnServerConfigurationArgs {
  */
 export interface GetVpnServerConfigurationResult {
     /**
-     * The set of aad vpn authentication parameters.
-     */
-    readonly aadAuthenticationParameters?: outputs.network.AadAuthenticationParametersResponse;
-    /**
-     * List of all VpnServerConfigurationPolicyGroups.
-     */
-    readonly configurationPolicyGroups?: outputs.network.VpnServerConfigurationPolicyGroupResponse[];
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -61,33 +51,9 @@ export interface GetVpnServerConfigurationResult {
      */
     readonly name: string;
     /**
-     * List of references to P2SVpnGateways.
+     * Properties of the P2SVpnServer configuration.
      */
-    readonly p2SVpnGateways: outputs.network.P2SVpnGatewayResponse[];
-    /**
-     * The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-     */
-    readonly provisioningState: string;
-    /**
-     * Radius client root certificate of VpnServerConfiguration.
-     */
-    readonly radiusClientRootCertificates?: outputs.network.VpnServerConfigRadiusClientRootCertificateResponse[];
-    /**
-     * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-     */
-    readonly radiusServerAddress?: string;
-    /**
-     * Radius Server root certificate of VpnServerConfiguration.
-     */
-    readonly radiusServerRootCertificates?: outputs.network.VpnServerConfigRadiusServerRootCertificateResponse[];
-    /**
-     * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-     */
-    readonly radiusServerSecret?: string;
-    /**
-     * Multiple Radius Server configuration for VpnServerConfiguration.
-     */
-    readonly radiusServers?: outputs.network.RadiusServerResponse[];
+    readonly properties: outputs.network.VpnServerConfigurationPropertiesResponse;
     /**
      * Resource tags.
      */
@@ -96,32 +62,10 @@ export interface GetVpnServerConfigurationResult {
      * Resource type.
      */
     readonly type: string;
-    /**
-     * VPN authentication types for the VpnServerConfiguration.
-     */
-    readonly vpnAuthenticationTypes?: string[];
-    /**
-     * VpnClientIpsecPolicies for VpnServerConfiguration.
-     */
-    readonly vpnClientIpsecPolicies?: outputs.network.IpsecPolicyResponse[];
-    /**
-     * VPN client revoked certificate of VpnServerConfiguration.
-     */
-    readonly vpnClientRevokedCertificates?: outputs.network.VpnServerConfigVpnClientRevokedCertificateResponse[];
-    /**
-     * VPN client root certificate of VpnServerConfiguration.
-     */
-    readonly vpnClientRootCertificates?: outputs.network.VpnServerConfigVpnClientRootCertificateResponse[];
-    /**
-     * VPN protocols for the VpnServerConfiguration.
-     */
-    readonly vpnProtocols?: string[];
 }
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpnServerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

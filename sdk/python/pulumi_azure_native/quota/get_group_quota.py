@@ -62,10 +62,7 @@ class GetGroupQuotaResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.GroupQuotasEntityBaseResponse':
-        """
-        Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        """
+    def properties(self) -> 'outputs.GroupQuotasEntityResponseProperties':
         return pulumi.get(self, "properties")
 
     @property
@@ -103,9 +100,7 @@ def get_group_quota(group_quota_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupQuotaResult:
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Azure REST API version: 2025-03-01.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -128,9 +123,7 @@ def get_group_quota_output(group_quota_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaResult]:
     """
     Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Azure REST API version: 2025-03-01.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.

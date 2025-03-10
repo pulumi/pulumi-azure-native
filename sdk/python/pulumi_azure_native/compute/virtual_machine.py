@@ -44,6 +44,7 @@ class VirtualMachineArgs:
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 scheduled_events_policy: Optional[pulumi.Input['ScheduledEventsPolicyArgs']] = None,
                  scheduled_events_profile: Optional[pulumi.Input['ScheduledEventsProfileArgs']] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
@@ -76,6 +77,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[int] platform_fault_domain: Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains. This is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set. The Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' greater than 1. This property cannot be updated once the Virtual Machine is created. Fault domain assignment can be viewed in the Virtual Machine Instance View. Minimum api‐version: 2020‐12‐01.
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
+        :param pulumi.Input['ScheduledEventsPolicyArgs'] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         :param pulumi.Input['ScheduledEventsProfileArgs'] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -128,6 +130,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "priority", priority)
         if proximity_placement_group is not None:
             pulumi.set(__self__, "proximity_placement_group", proximity_placement_group)
+        if scheduled_events_policy is not None:
+            pulumi.set(__self__, "scheduled_events_policy", scheduled_events_policy)
         if scheduled_events_profile is not None:
             pulumi.set(__self__, "scheduled_events_profile", scheduled_events_profile)
         if security_profile is not None:
@@ -410,6 +414,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "proximity_placement_group", value)
 
     @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> Optional[pulumi.Input['ScheduledEventsPolicyArgs']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
+
+    @scheduled_events_policy.setter
+    def scheduled_events_policy(self, value: Optional[pulumi.Input['ScheduledEventsPolicyArgs']]):
+        pulumi.set(self, "scheduled_events_policy", value)
+
+    @property
     @pulumi.getter(name="scheduledEventsProfile")
     def scheduled_events_profile(self) -> Optional[pulumi.Input['ScheduledEventsProfileArgs']]:
         """
@@ -533,6 +549,7 @@ class VirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -544,9 +561,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -572,6 +587,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. Minimum api-version: 2019-03-01
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']] scheduled_events_policy: Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
         :param pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']] scheduled_events_profile: Specifies Scheduled Event related configurations.
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
@@ -589,9 +605,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -630,6 +644,7 @@ class VirtualMachine(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scheduled_events_policy: Optional[pulumi.Input[Union['ScheduledEventsPolicyArgs', 'ScheduledEventsPolicyArgsDict']]] = None,
                  scheduled_events_profile: Optional[pulumi.Input[Union['ScheduledEventsProfileArgs', 'ScheduledEventsProfileArgsDict']]] = None,
                  security_profile: Optional[pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']]] = None,
                  storage_profile: Optional[pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']]] = None,
@@ -671,6 +686,7 @@ class VirtualMachine(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scheduled_events_policy"] = scheduled_events_policy
             __props__.__dict__["scheduled_events_profile"] = scheduled_events_profile
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["storage_profile"] = storage_profile
@@ -679,7 +695,9 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["virtual_machine_scale_set"] = virtual_machine_scale_set
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["etag"] = None
             __props__.__dict__["instance_view"] = None
+            __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
@@ -716,6 +734,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["billing_profile"] = None
         __props__.__dict__["capacity_reservation"] = None
         __props__.__dict__["diagnostics_profile"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["eviction_policy"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["extensions_time_budget"] = None
@@ -726,6 +745,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_profile"] = None
         __props__.__dict__["os_profile"] = None
@@ -735,6 +755,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proximity_placement_group"] = None
         __props__.__dict__["resources"] = None
+        __props__.__dict__["scheduled_events_policy"] = None
         __props__.__dict__["scheduled_events_profile"] = None
         __props__.__dict__["security_profile"] = None
         __props__.__dict__["storage_profile"] = None
@@ -794,6 +815,14 @@ class VirtualMachine(pulumi.CustomResource):
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="evictionPolicy")
@@ -876,6 +905,14 @@ class VirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -946,6 +983,14 @@ class VirtualMachine(pulumi.CustomResource):
         The virtual machine child extension resources.
         """
         return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter(name="scheduledEventsPolicy")
+    def scheduled_events_policy(self) -> pulumi.Output[Optional['outputs.ScheduledEventsPolicyResponse']]:
+        """
+        Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        """
+        return pulumi.get(self, "scheduled_events_policy")
 
     @property
     @pulumi.getter(name="scheduledEventsProfile")

@@ -27,7 +27,7 @@ class GetUpdateRunResult:
     """
     A multi-stage process to perform update operations across members of a Fleet.
     """
-    def __init__(__self__, e_tag=None, id=None, managed_cluster_update=None, name=None, provisioning_state=None, status=None, strategy=None, system_data=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, managed_cluster_update=None, name=None, provisioning_state=None, status=None, strategy=None, system_data=None, type=None, update_strategy_id=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -55,6 +55,9 @@ class GetUpdateRunResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if update_strategy_id and not isinstance(update_strategy_id, str):
+            raise TypeError("Expected argument 'update_strategy_id' to be a str")
+        pulumi.set(__self__, "update_strategy_id", update_strategy_id)
 
     @property
     @pulumi.getter(name="eTag")
@@ -130,6 +133,25 @@ class GetUpdateRunResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="updateStrategyId")
+    def update_strategy_id(self) -> Optional[str]:
+        """
+        The resource id of the FleetUpdateStrategy resource to reference.
+
+        When creating a new run, there are three ways to define a strategy for the run:
+        1. Define a new strategy in place: Set the "strategy" field.
+        2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+
+        Setting both "updateStrategyId" and "strategy" is invalid.
+
+        UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        """
+        return pulumi.get(self, "update_strategy_id")
+
 
 class AwaitableGetUpdateRunResult(GetUpdateRunResult):
     # pylint: disable=using-constant-test
@@ -145,7 +167,8 @@ class AwaitableGetUpdateRunResult(GetUpdateRunResult):
             status=self.status,
             strategy=self.strategy,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            update_strategy_id=self.update_strategy_id)
 
 
 def get_update_run(fleet_name: Optional[str] = None,
@@ -154,9 +177,7 @@ def get_update_run(fleet_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateRunResult:
     """
     Get a UpdateRun
-    Azure REST API version: 2023-03-15-preview.
-
-    Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -179,16 +200,15 @@ def get_update_run(fleet_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         strategy=pulumi.get(__ret__, 'strategy'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        update_strategy_id=pulumi.get(__ret__, 'update_strategy_id'))
 def get_update_run_output(fleet_name: Optional[pulumi.Input[str]] = None,
                           resource_group_name: Optional[pulumi.Input[str]] = None,
                           update_run_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
     Get a UpdateRun
-    Azure REST API version: 2023-03-15-preview.
-
-    Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -210,4 +230,5 @@ def get_update_run_output(fleet_name: Optional[pulumi.Input[str]] = None,
         status=pulumi.get(__response__, 'status'),
         strategy=pulumi.get(__response__, 'strategy'),
         system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        update_strategy_id=pulumi.get(__response__, 'update_strategy_id')))

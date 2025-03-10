@@ -27,28 +27,31 @@ class GetAssetResult:
     """
     Asset definition.
     """
-    def __init__(__self__, asset_endpoint_profile_uri=None, asset_type=None, attributes=None, data_points=None, default_data_points_configuration=None, default_events_configuration=None, description=None, display_name=None, documentation_uri=None, enabled=None, events=None, extended_location=None, external_asset_id=None, hardware_revision=None, id=None, location=None, manufacturer=None, manufacturer_uri=None, model=None, name=None, product_code=None, provisioning_state=None, serial_number=None, software_revision=None, status=None, system_data=None, tags=None, type=None, uuid=None, version=None):
-        if asset_endpoint_profile_uri and not isinstance(asset_endpoint_profile_uri, str):
-            raise TypeError("Expected argument 'asset_endpoint_profile_uri' to be a str")
-        pulumi.set(__self__, "asset_endpoint_profile_uri", asset_endpoint_profile_uri)
-        if asset_type and not isinstance(asset_type, str):
-            raise TypeError("Expected argument 'asset_type' to be a str")
-        pulumi.set(__self__, "asset_type", asset_type)
+    def __init__(__self__, asset_endpoint_profile_ref=None, attributes=None, datasets=None, default_datasets_configuration=None, default_events_configuration=None, default_topic=None, description=None, discovered_asset_refs=None, display_name=None, documentation_uri=None, enabled=None, events=None, extended_location=None, external_asset_id=None, hardware_revision=None, id=None, location=None, manufacturer=None, manufacturer_uri=None, model=None, name=None, product_code=None, provisioning_state=None, serial_number=None, software_revision=None, status=None, system_data=None, tags=None, type=None, uuid=None, version=None):
+        if asset_endpoint_profile_ref and not isinstance(asset_endpoint_profile_ref, str):
+            raise TypeError("Expected argument 'asset_endpoint_profile_ref' to be a str")
+        pulumi.set(__self__, "asset_endpoint_profile_ref", asset_endpoint_profile_ref)
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
-        if data_points and not isinstance(data_points, list):
-            raise TypeError("Expected argument 'data_points' to be a list")
-        pulumi.set(__self__, "data_points", data_points)
-        if default_data_points_configuration and not isinstance(default_data_points_configuration, str):
-            raise TypeError("Expected argument 'default_data_points_configuration' to be a str")
-        pulumi.set(__self__, "default_data_points_configuration", default_data_points_configuration)
+        if datasets and not isinstance(datasets, list):
+            raise TypeError("Expected argument 'datasets' to be a list")
+        pulumi.set(__self__, "datasets", datasets)
+        if default_datasets_configuration and not isinstance(default_datasets_configuration, str):
+            raise TypeError("Expected argument 'default_datasets_configuration' to be a str")
+        pulumi.set(__self__, "default_datasets_configuration", default_datasets_configuration)
         if default_events_configuration and not isinstance(default_events_configuration, str):
             raise TypeError("Expected argument 'default_events_configuration' to be a str")
         pulumi.set(__self__, "default_events_configuration", default_events_configuration)
+        if default_topic and not isinstance(default_topic, dict):
+            raise TypeError("Expected argument 'default_topic' to be a dict")
+        pulumi.set(__self__, "default_topic", default_topic)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if discovered_asset_refs and not isinstance(discovered_asset_refs, list):
+            raise TypeError("Expected argument 'discovered_asset_refs' to be a list")
+        pulumi.set(__self__, "discovered_asset_refs", discovered_asset_refs)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -115,25 +118,17 @@ class GetAssetResult:
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
-        if version and not isinstance(version, int):
-            raise TypeError("Expected argument 'version' to be a int")
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
         pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="assetEndpointProfileUri")
-    def asset_endpoint_profile_uri(self) -> str:
+    @pulumi.getter(name="assetEndpointProfileRef")
+    def asset_endpoint_profile_ref(self) -> str:
         """
-        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must have the format <ModuleCR.metadata.namespace>/<ModuleCR.metadata.name>.
+        A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         """
-        return pulumi.get(self, "asset_endpoint_profile_uri")
-
-    @property
-    @pulumi.getter(name="assetType")
-    def asset_type(self) -> Optional[str]:
-        """
-        Resource path to asset type (model) definition.
-        """
-        return pulumi.get(self, "asset_type")
+        return pulumi.get(self, "asset_endpoint_profile_ref")
 
     @property
     @pulumi.getter
@@ -144,20 +139,20 @@ class GetAssetResult:
         return pulumi.get(self, "attributes")
 
     @property
-    @pulumi.getter(name="dataPoints")
-    def data_points(self) -> Optional[Sequence['outputs.DataPointResponse']]:
+    @pulumi.getter
+    def datasets(self) -> Optional[Sequence['outputs.DatasetResponse']]:
         """
-        Array of data points that are part of the asset. Each data point can reference an asset type capability and have per-data point configuration.
+        Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
         """
-        return pulumi.get(self, "data_points")
+        return pulumi.get(self, "datasets")
 
     @property
-    @pulumi.getter(name="defaultDataPointsConfiguration")
-    def default_data_points_configuration(self) -> Optional[str]:
+    @pulumi.getter(name="defaultDatasetsConfiguration")
+    def default_datasets_configuration(self) -> Optional[str]:
         """
-        Stringified JSON that contains protocol-specific default configuration for all data points. Each data point can have its own configuration that overrides the default settings here.
+        Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         """
-        return pulumi.get(self, "default_data_points_configuration")
+        return pulumi.get(self, "default_datasets_configuration")
 
     @property
     @pulumi.getter(name="defaultEventsConfiguration")
@@ -168,12 +163,28 @@ class GetAssetResult:
         return pulumi.get(self, "default_events_configuration")
 
     @property
+    @pulumi.getter(name="defaultTopic")
+    def default_topic(self) -> Optional['outputs.TopicResponse']:
+        """
+        Object that describes the default topic information for the asset.
+        """
+        return pulumi.get(self, "default_topic")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Human-readable description of the asset.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="discoveredAssetRefs")
+    def discovered_asset_refs(self) -> Optional[Sequence[str]]:
+        """
+        Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
+        """
+        return pulumi.get(self, "discovered_asset_refs")
 
     @property
     @pulumi.getter(name="displayName")
@@ -235,7 +246,7 @@ class GetAssetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -353,7 +364,7 @@ class GetAssetResult:
 
     @property
     @pulumi.getter
-    def version(self) -> int:
+    def version(self) -> float:
         """
         An integer that is incremented each time the resource is modified.
         """
@@ -366,13 +377,14 @@ class AwaitableGetAssetResult(GetAssetResult):
         if False:
             yield self
         return GetAssetResult(
-            asset_endpoint_profile_uri=self.asset_endpoint_profile_uri,
-            asset_type=self.asset_type,
+            asset_endpoint_profile_ref=self.asset_endpoint_profile_ref,
             attributes=self.attributes,
-            data_points=self.data_points,
-            default_data_points_configuration=self.default_data_points_configuration,
+            datasets=self.datasets,
+            default_datasets_configuration=self.default_datasets_configuration,
             default_events_configuration=self.default_events_configuration,
+            default_topic=self.default_topic,
             description=self.description,
+            discovered_asset_refs=self.discovered_asset_refs,
             display_name=self.display_name,
             documentation_uri=self.documentation_uri,
             enabled=self.enabled,
@@ -403,9 +415,7 @@ def get_asset(asset_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Get a Asset
-    Azure REST API version: 2023-11-01-preview.
-
-    Other available API versions: 2024-09-01-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str asset_name: Asset name parameter.
@@ -418,13 +428,14 @@ def get_asset(asset_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceregistry:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        asset_endpoint_profile_uri=pulumi.get(__ret__, 'asset_endpoint_profile_uri'),
-        asset_type=pulumi.get(__ret__, 'asset_type'),
+        asset_endpoint_profile_ref=pulumi.get(__ret__, 'asset_endpoint_profile_ref'),
         attributes=pulumi.get(__ret__, 'attributes'),
-        data_points=pulumi.get(__ret__, 'data_points'),
-        default_data_points_configuration=pulumi.get(__ret__, 'default_data_points_configuration'),
+        datasets=pulumi.get(__ret__, 'datasets'),
+        default_datasets_configuration=pulumi.get(__ret__, 'default_datasets_configuration'),
         default_events_configuration=pulumi.get(__ret__, 'default_events_configuration'),
+        default_topic=pulumi.get(__ret__, 'default_topic'),
         description=pulumi.get(__ret__, 'description'),
+        discovered_asset_refs=pulumi.get(__ret__, 'discovered_asset_refs'),
         display_name=pulumi.get(__ret__, 'display_name'),
         documentation_uri=pulumi.get(__ret__, 'documentation_uri'),
         enabled=pulumi.get(__ret__, 'enabled'),
@@ -453,9 +464,7 @@ def get_asset_output(asset_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Get a Asset
-    Azure REST API version: 2023-11-01-preview.
-
-    Other available API versions: 2024-09-01-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str asset_name: Asset name parameter.
@@ -467,13 +476,14 @@ def get_asset_output(asset_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getAsset', __args__, opts=opts, typ=GetAssetResult)
     return __ret__.apply(lambda __response__: GetAssetResult(
-        asset_endpoint_profile_uri=pulumi.get(__response__, 'asset_endpoint_profile_uri'),
-        asset_type=pulumi.get(__response__, 'asset_type'),
+        asset_endpoint_profile_ref=pulumi.get(__response__, 'asset_endpoint_profile_ref'),
         attributes=pulumi.get(__response__, 'attributes'),
-        data_points=pulumi.get(__response__, 'data_points'),
-        default_data_points_configuration=pulumi.get(__response__, 'default_data_points_configuration'),
+        datasets=pulumi.get(__response__, 'datasets'),
+        default_datasets_configuration=pulumi.get(__response__, 'default_datasets_configuration'),
         default_events_configuration=pulumi.get(__response__, 'default_events_configuration'),
+        default_topic=pulumi.get(__response__, 'default_topic'),
         description=pulumi.get(__response__, 'description'),
+        discovered_asset_refs=pulumi.get(__response__, 'discovered_asset_refs'),
         display_name=pulumi.get(__response__, 'display_name'),
         documentation_uri=pulumi.get(__response__, 'documentation_uri'),
         enabled=pulumi.get(__response__, 'enabled'),

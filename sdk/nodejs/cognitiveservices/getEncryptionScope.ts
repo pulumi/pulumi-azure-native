@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified EncryptionScope associated with the Cognitive Services account.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +70,7 @@ export interface GetEncryptionScopeResult {
 }
 /**
  * Gets the specified EncryptionScope associated with the Cognitive Services account.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncryptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

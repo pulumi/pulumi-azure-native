@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements cluster GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:connectedvmwarevsphere:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements cluster GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:connectedvmwarevsphere:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements cluster GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:connectedvmwarevsphere:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -89,7 +83,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string CustomResourceName;
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> DatastoreIds;
         /// <summary>
@@ -125,11 +119,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> NetworkIds;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -145,9 +139,25 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Gets the max CPU usage across all cores on the cluster in MHz.
+        /// </summary>
+        public readonly double TotalCpuMHz;
+        /// <summary>
+        /// Gets the total amount of physical memory on the cluster in GB.
+        /// </summary>
+        public readonly double TotalMemoryGB;
+        /// <summary>
         /// Gets or sets the type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets the used CPU usage across all cores on the cluster in MHz.
+        /// </summary>
+        public readonly double UsedCpuMHz;
+        /// <summary>
+        /// Gets the used physical memory on the cluster in GB.
+        /// </summary>
+        public readonly double UsedMemoryGB;
         /// <summary>
         /// Gets or sets a unique identifier for this resource.
         /// </summary>
@@ -189,7 +199,15 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             ImmutableDictionary<string, string>? tags,
 
+            double totalCpuMHz,
+
+            double totalMemoryGB,
+
             string type,
+
+            double usedCpuMHz,
+
+            double usedMemoryGB,
 
             string uuid,
 
@@ -210,7 +228,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             Statuses = statuses;
             SystemData = systemData;
             Tags = tags;
+            TotalCpuMHz = totalCpuMHz;
+            TotalMemoryGB = totalMemoryGB;
             Type = type;
+            UsedCpuMHz = usedCpuMHz;
+            UsedMemoryGB = usedMemoryGB;
             Uuid = uuid;
             VCenterId = vCenterId;
         }

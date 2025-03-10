@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Get a private access resource
-        /// Azure REST API version: 2023-10-27-preview.
-        /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-03-22-preview.
         /// </summary>
         public static Task<GetPrivateAccessResult> InvokeAsync(GetPrivateAccessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private access resource
-        /// Azure REST API version: 2023-10-27-preview.
-        /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-03-22-preview.
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private access resource
-        /// Azure REST API version: 2023-10-27-preview.
-        /// 
-        /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-03-22-preview.
         /// </summary>
         public static Output<GetPrivateAccessResult> Invoke(GetPrivateAccessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateAccessResult>("azure-native:chaos:getPrivateAccess", args ?? new GetPrivateAccessInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,14 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
+        /// Most recent provisioning state for the given privateAccess resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Public Network Access Control for PrivateAccess resource.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -123,6 +125,10 @@ namespace Pulumi.AzureNative.Chaos
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
+            string provisioningState,
+
+            string? publicNetworkAccess,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -133,6 +139,8 @@ namespace Pulumi.AzureNative.Chaos
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;
             Tags = tags;
             Type = type;

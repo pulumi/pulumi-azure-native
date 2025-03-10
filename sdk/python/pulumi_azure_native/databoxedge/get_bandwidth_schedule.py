@@ -140,9 +140,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthScheduleResult:
     """
     Gets the properties of the specified bandwidth schedule.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -171,9 +169,7 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBandwidthScheduleResult]:
     """
     Gets the properties of the specified bandwidth schedule.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.

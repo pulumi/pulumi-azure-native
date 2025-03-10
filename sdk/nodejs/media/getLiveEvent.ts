@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets properties of a live event.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
  */
 export function getLiveEvent(args: GetLiveEventArgs, opts?: pulumi.InvokeOptions): Promise<GetLiveEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -121,8 +119,6 @@ export interface GetLiveEventResult {
 /**
  * Gets properties of a live event.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
  */
 export function getLiveEventOutput(args: GetLiveEventOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveEventResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets all deployments for a remediation at resource scope.
- * Azure REST API version: 2021-10-01.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function listRemediationDeploymentsAtResource(args: ListRemediationDeploymentsAtResourceArgs, opts?: pulumi.InvokeOptions): Promise<ListRemediationDeploymentsAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,9 +50,7 @@ export interface ListRemediationDeploymentsAtResourceResult {
 }
 /**
  * Gets all deployments for a remediation at resource scope.
- * Azure REST API version: 2021-10-01.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function listRemediationDeploymentsAtResourceOutput(args: ListRemediationDeploymentsAtResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemediationDeploymentsAtResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

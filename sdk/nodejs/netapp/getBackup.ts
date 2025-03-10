@@ -8,19 +8,16 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the specified backup of the volume
- * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+ * Get the specified Backup under Backup Vault.
+ * Azure REST API version: 2024-09-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:netapp:getBackup", {
         "accountName": args.accountName,
         "backupName": args.backupName,
-        "poolName": args.poolName,
+        "backupVaultName": args.backupVaultName,
         "resourceGroupName": args.resourceGroupName,
-        "volumeName": args.volumeName,
     }, opts);
 }
 
@@ -34,27 +31,27 @@ export interface GetBackupArgs {
      */
     backupName: string;
     /**
-     * The name of the capacity pool
+     * The name of the Backup Vault
      */
-    poolName: string;
+    backupVaultName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
-    /**
-     * The name of the volume
-     */
-    volumeName: string;
 }
 
 /**
- * Backup of a Volume
+ * Backup under a Backup Vault
  */
 export interface GetBackupResult {
     /**
      * UUID v4 used to identify the Backup
      */
     readonly backupId: string;
+    /**
+     * ResourceId used to identify the backup policy
+     */
+    readonly backupPolicyResourceId: string;
     /**
      * Type of backup Manual or Scheduled
      */
@@ -68,17 +65,13 @@ export interface GetBackupResult {
      */
     readonly failureReason: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * Label for backup
      */
     readonly label?: string;
-    /**
-     * Resource location
-     */
-    readonly location: string;
     /**
      * The name of the resource
      */
@@ -88,9 +81,13 @@ export interface GetBackupResult {
      */
     readonly provisioningState: string;
     /**
-     * Size of backup
+     * Size of backup in bytes
      */
     readonly size: number;
+    /**
+     * The name of the snapshot
+     */
+    readonly snapshotName?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -104,24 +101,21 @@ export interface GetBackupResult {
      */
     readonly useExistingSnapshot?: boolean;
     /**
-     * Volume name
+     * ResourceId used to identify the Volume
      */
-    readonly volumeName: string;
+    readonly volumeResourceId: string;
 }
 /**
- * Gets the specified backup of the volume
- * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-05-01-preview, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+ * Get the specified Backup under Backup Vault.
+ * Azure REST API version: 2024-09-01.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:netapp:getBackup", {
         "accountName": args.accountName,
         "backupName": args.backupName,
-        "poolName": args.poolName,
+        "backupVaultName": args.backupVaultName,
         "resourceGroupName": args.resourceGroupName,
-        "volumeName": args.volumeName,
     }, opts);
 }
 
@@ -135,15 +129,11 @@ export interface GetBackupOutputArgs {
      */
     backupName: pulumi.Input<string>;
     /**
-     * The name of the capacity pool
+     * The name of the Backup Vault
      */
-    poolName: pulumi.Input<string>;
+    backupVaultName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the volume
-     */
-    volumeName: pulumi.Input<string>;
 }

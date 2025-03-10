@@ -9,38 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Workloads
 {
-    public static class GetSAPApplicationServerInstance
+    public static class GetSapApplicationServerInstance
     {
         /// <summary>
         /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Task<GetSAPApplicationServerInstanceResult> InvokeAsync(GetSAPApplicationServerInstanceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPApplicationServerInstanceResult>("azure-native:workloads:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceArgs(), options.WithDefaults());
+        public static Task<GetSapApplicationServerInstanceResult> InvokeAsync(GetSapApplicationServerInstanceArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapApplicationServerInstanceResult>("azure-native:workloads:getSapApplicationServerInstance", args ?? new GetSapApplicationServerInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPApplicationServerInstanceResult> Invoke(GetSAPApplicationServerInstanceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPApplicationServerInstanceResult>("azure-native:workloads:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapApplicationServerInstanceResult> Invoke(GetSapApplicationServerInstanceInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapApplicationServerInstanceResult>("azure-native:workloads:getSapApplicationServerInstance", args ?? new GetSapApplicationServerInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-12-01-preview, 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPApplicationServerInstanceResult> Invoke(GetSAPApplicationServerInstanceInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPApplicationServerInstanceResult>("azure-native:workloads:getSAPApplicationServerInstance", args ?? new GetSAPApplicationServerInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapApplicationServerInstanceResult> Invoke(GetSapApplicationServerInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapApplicationServerInstanceResult>("azure-native:workloads:getSapApplicationServerInstance", args ?? new GetSapApplicationServerInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSAPApplicationServerInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapApplicationServerInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance resource.
@@ -60,13 +54,13 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPApplicationServerInstanceArgs()
+        public GetSapApplicationServerInstanceArgs()
         {
         }
-        public static new GetSAPApplicationServerInstanceArgs Empty => new GetSAPApplicationServerInstanceArgs();
+        public static new GetSapApplicationServerInstanceArgs Empty => new GetSapApplicationServerInstanceArgs();
     }
 
-    public sealed class GetSAPApplicationServerInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapApplicationServerInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of SAP Application Server instance resource.
@@ -86,16 +80,20 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPApplicationServerInstanceInvokeArgs()
+        public GetSapApplicationServerInstanceInvokeArgs()
         {
         }
-        public static new GetSAPApplicationServerInstanceInvokeArgs Empty => new GetSAPApplicationServerInstanceInvokeArgs();
+        public static new GetSapApplicationServerInstanceInvokeArgs Empty => new GetSapApplicationServerInstanceInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetSAPApplicationServerInstanceResult
+    public sealed class GetSapApplicationServerInstanceResult
     {
+        /// <summary>
+        /// Application server instance dispatcher status.
+        /// </summary>
+        public readonly string DispatcherStatus;
         /// <summary>
         /// Defines the Application Instance errors.
         /// </summary>
@@ -121,7 +119,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly double IcmHttpsPort;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -129,7 +127,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string InstanceNo;
         /// <summary>
-        ///  Application server instance SAP IP Address.
+        /// Application server instance SAP IP Address.
         /// </summary>
         public readonly string IpAddress;
         /// <summary>
@@ -137,7 +135,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string KernelPatch;
         /// <summary>
-        ///  Application server instance SAP Kernel Version.
+        /// Application server instance SAP Kernel Version.
         /// </summary>
         public readonly string KernelVersion;
         /// <summary>
@@ -182,7 +180,9 @@ namespace Pulumi.AzureNative.Workloads
         public readonly ImmutableArray<Outputs.ApplicationServerVmDetailsResponse> VmDetails;
 
         [OutputConstructor]
-        private GetSAPApplicationServerInstanceResult(
+        private GetSapApplicationServerInstanceResult(
+            string dispatcherStatus,
+
             Outputs.SAPVirtualInstanceErrorResponse errors,
 
             double gatewayPort,
@@ -225,6 +225,7 @@ namespace Pulumi.AzureNative.Workloads
 
             ImmutableArray<Outputs.ApplicationServerVmDetailsResponse> vmDetails)
         {
+            DispatcherStatus = dispatcherStatus;
             Errors = errors;
             GatewayPort = gatewayPort;
             Health = health;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Method to get a site.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getSqlSitesController(args: GetSqlSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,9 +76,7 @@ export interface GetSqlSitesControllerResult {
 }
 /**
  * Method to get a site.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getSqlSitesControllerOutput(args: GetSqlSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

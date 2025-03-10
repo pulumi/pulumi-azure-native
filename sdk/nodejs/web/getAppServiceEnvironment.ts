@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get the properties of an App Service Environment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,7 +71,7 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly ipsslAddressCount?: number;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -144,9 +142,7 @@ export interface GetAppServiceEnvironmentResult {
 }
 /**
  * Description for Get the properties of an App Service Environment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2019-08-01, 2020-10-01, 2021-01-15, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

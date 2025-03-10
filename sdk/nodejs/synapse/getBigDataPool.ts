@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a Big Data pool.
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,8 +139,6 @@ export interface GetBigDataPoolResult {
 /**
  * Get a Big Data pool.
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBigDataPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

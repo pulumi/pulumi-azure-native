@@ -140,9 +140,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the Maps Account.
-    Azure REST API version: 2023-12-01-preview.
-
-    Other available API versions: 2024-01-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
@@ -171,9 +169,7 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the Maps Account.
-    Azure REST API version: 2023-12-01-preview.
-
-    Other available API versions: 2024-01-01-preview.
+    Azure REST API version: 2024-01-01-preview.
 
 
     :param str account_name: The name of the Maps Account.

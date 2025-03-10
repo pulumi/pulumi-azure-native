@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a file import.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getFileImport(args: GetFileImportArgs, opts?: pulumi.InvokeOptions): Promise<GetFileImportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,7 +60,7 @@ export interface GetFileImportResult {
      */
     readonly filesValidUntilTimeUTC: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -112,9 +110,7 @@ export interface GetFileImportResult {
 }
 /**
  * Gets a file import.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getFileImportOutput(args: GetFileImportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileImportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

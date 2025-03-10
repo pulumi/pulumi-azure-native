@@ -27,7 +27,7 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, additional_nics=None, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, delegation=None, deployment_type=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, partner_managed_resource=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, additional_nics=None, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, delegation=None, deployment_type=None, etag=None, id=None, identity=None, inbound_security_rules=None, internet_ingress_public_ips=None, location=None, name=None, network_profile=None, nva_sku=None, partner_managed_resource=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_connections=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
         if additional_nics and not isinstance(additional_nics, list):
             raise TypeError("Expected argument 'additional_nics' to be a list")
         pulumi.set(__self__, "additional_nics", additional_nics)
@@ -61,12 +61,18 @@ class GetNetworkVirtualApplianceResult:
         if inbound_security_rules and not isinstance(inbound_security_rules, list):
             raise TypeError("Expected argument 'inbound_security_rules' to be a list")
         pulumi.set(__self__, "inbound_security_rules", inbound_security_rules)
+        if internet_ingress_public_ips and not isinstance(internet_ingress_public_ips, list):
+            raise TypeError("Expected argument 'internet_ingress_public_ips' to be a list")
+        pulumi.set(__self__, "internet_ingress_public_ips", internet_ingress_public_ips)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        pulumi.set(__self__, "network_profile", network_profile)
         if nva_sku and not isinstance(nva_sku, dict):
             raise TypeError("Expected argument 'nva_sku' to be a dict")
         pulumi.set(__self__, "nva_sku", nva_sku)
@@ -88,6 +94,9 @@ class GetNetworkVirtualApplianceResult:
         if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
             raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
         pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
+        if virtual_appliance_connections and not isinstance(virtual_appliance_connections, list):
+            raise TypeError("Expected argument 'virtual_appliance_connections' to be a list")
+        pulumi.set(__self__, "virtual_appliance_connections", virtual_appliance_connections)
         if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
             raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
         pulumi.set(__self__, "virtual_appliance_nics", virtual_appliance_nics)
@@ -187,6 +196,14 @@ class GetNetworkVirtualApplianceResult:
         return pulumi.get(self, "inbound_security_rules")
 
     @property
+    @pulumi.getter(name="internetIngressPublicIps")
+    def internet_ingress_public_ips(self) -> Optional[Sequence['outputs.InternetIngressPublicIpsPropertiesResponse']]:
+        """
+        List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        """
+        return pulumi.get(self, "internet_ingress_public_ips")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
@@ -201,6 +218,14 @@ class GetNetworkVirtualApplianceResult:
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile']:
+        """
+        Network Profile containing configurations for Public and Private NIC.
+        """
+        return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="nvaSku")
@@ -259,6 +284,14 @@ class GetNetworkVirtualApplianceResult:
         return pulumi.get(self, "virtual_appliance_asn")
 
     @property
+    @pulumi.getter(name="virtualApplianceConnections")
+    def virtual_appliance_connections(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of references to VirtualApplianceConnections.
+        """
+        return pulumi.get(self, "virtual_appliance_connections")
+
+    @property
     @pulumi.getter(name="virtualApplianceNics")
     def virtual_appliance_nics(self) -> Sequence['outputs.VirtualApplianceNicPropertiesResponse']:
         """
@@ -300,8 +333,10 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             id=self.id,
             identity=self.identity,
             inbound_security_rules=self.inbound_security_rules,
+            internet_ingress_public_ips=self.internet_ingress_public_ips,
             location=self.location,
             name=self.name,
+            network_profile=self.network_profile,
             nva_sku=self.nva_sku,
             partner_managed_resource=self.partner_managed_resource,
             provisioning_state=self.provisioning_state,
@@ -309,6 +344,7 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             tags=self.tags,
             type=self.type,
             virtual_appliance_asn=self.virtual_appliance_asn,
+            virtual_appliance_connections=self.virtual_appliance_connections,
             virtual_appliance_nics=self.virtual_appliance_nics,
             virtual_appliance_sites=self.virtual_appliance_sites,
             virtual_hub=self.virtual_hub)
@@ -320,9 +356,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
     Gets the specified Network Virtual Appliance.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -348,8 +382,10 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         inbound_security_rules=pulumi.get(__ret__, 'inbound_security_rules'),
+        internet_ingress_public_ips=pulumi.get(__ret__, 'internet_ingress_public_ips'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
         nva_sku=pulumi.get(__ret__, 'nva_sku'),
         partner_managed_resource=pulumi.get(__ret__, 'partner_managed_resource'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -357,6 +393,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_appliance_asn=pulumi.get(__ret__, 'virtual_appliance_asn'),
+        virtual_appliance_connections=pulumi.get(__ret__, 'virtual_appliance_connections'),
         virtual_appliance_nics=pulumi.get(__ret__, 'virtual_appliance_nics'),
         virtual_appliance_sites=pulumi.get(__ret__, 'virtual_appliance_sites'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
@@ -366,9 +403,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
     Gets the specified Network Virtual Appliance.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -393,8 +428,10 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         inbound_security_rules=pulumi.get(__response__, 'inbound_security_rules'),
+        internet_ingress_public_ips=pulumi.get(__response__, 'internet_ingress_public_ips'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        network_profile=pulumi.get(__response__, 'network_profile'),
         nva_sku=pulumi.get(__response__, 'nva_sku'),
         partner_managed_resource=pulumi.get(__response__, 'partner_managed_resource'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
@@ -402,6 +439,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         virtual_appliance_asn=pulumi.get(__response__, 'virtual_appliance_asn'),
+        virtual_appliance_connections=pulumi.get(__response__, 'virtual_appliance_connections'),
         virtual_appliance_nics=pulumi.get(__response__, 'virtual_appliance_nics'),
         virtual_appliance_sites=pulumi.get(__response__, 'virtual_appliance_sites'),
         virtual_hub=pulumi.get(__response__, 'virtual_hub')))

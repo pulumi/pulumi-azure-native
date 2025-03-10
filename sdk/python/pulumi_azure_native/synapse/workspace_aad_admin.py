@@ -132,9 +132,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceAadAdminArgs args: The arguments to use to populate this resource's properties.

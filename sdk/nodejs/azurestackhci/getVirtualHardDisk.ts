@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual hard disk
- * Azure REST API version: 2022-12-15-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview.
  */
 export function getVirtualHardDisk(args: GetVirtualHardDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHardDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,11 +34,18 @@ export interface GetVirtualHardDiskArgs {
  * The virtual hard disk resource definition.
  */
 export interface GetVirtualHardDiskResult {
+    /**
+     * Block size in bytes
+     */
     readonly blockSizeBytes?: number;
     /**
      * Storage ContainerID of the storage container to be used for VHD
      */
     readonly containerId?: string;
+    /**
+     * Boolean indicating whether it is an existing local hard disk or if one should be created.
+     */
+    readonly createFromLocal?: boolean;
     /**
      * The format of the actual VHD file [vhd, vhdx]
      */
@@ -49,6 +54,10 @@ export interface GetVirtualHardDiskResult {
      * Size of the disk in GB
      */
     readonly diskSizeGB?: number;
+    /**
+     * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+     */
+    readonly downloadUrl?: string;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
@@ -62,18 +71,24 @@ export interface GetVirtualHardDiskResult {
      */
     readonly hyperVGeneration?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Logical sector in bytes
+     */
     readonly logicalSectorBytes?: number;
     /**
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Physical sector in bytes
+     */
     readonly physicalSectorBytes?: number;
     /**
      * Provisioning state of the virtual hard disk.
@@ -98,9 +113,7 @@ export interface GetVirtualHardDiskResult {
 }
 /**
  * Gets a virtual hard disk
- * Azure REST API version: 2022-12-15-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview.
  */
 export function getVirtualHardDiskOutput(args: GetVirtualHardDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHardDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetBillingHubServiceFreeHourBalanceResult> InvokeAsync(GetBillingHubServiceFreeHourBalanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceFreeHourBalanceResult> Invoke(GetBillingHubServiceFreeHourBalanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceFreeHourBalanceResult> Invoke(GetBillingHubServiceFreeHourBalanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceFreeHourBalanceResult>("azure-native:testbase:getBillingHubServiceFreeHourBalance", args ?? new GetBillingHubServiceFreeHourBalanceInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class GetBillingHubServiceFreeHourBalanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.TestBase
     public sealed class GetBillingHubServiceFreeHourBalanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

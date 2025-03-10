@@ -222,9 +222,7 @@ class GlobalRulestack(pulumi.CustomResource):
                  __props__=None):
         """
         PaloAltoNetworks GlobalRulestack
-        Azure REST API version: 2023-09-01.
-
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,9 +246,7 @@ class GlobalRulestack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PaloAltoNetworks GlobalRulestack
-        Azure REST API version: 2023-09-01.
-
-        Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param GlobalRulestackArgs args: The arguments to use to populate this resource's properties.

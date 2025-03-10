@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get specific backup for a given server.
- * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +70,7 @@ export interface GetBackupResult {
 }
 /**
  * Get specific backup for a given server.
- * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

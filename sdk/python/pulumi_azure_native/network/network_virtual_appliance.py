@@ -30,7 +30,9 @@ class NetworkVirtualApplianceArgs:
                  delegation: Optional[pulumi.Input['DelegationPropertiesArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 internet_ingress_public_ips: Optional[pulumi.Input[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs']] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input['VirtualApplianceSkuPropertiesArgs']] = None,
                  ssh_public_key: Optional[pulumi.Input[str]] = None,
@@ -47,7 +49,9 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input['DelegationPropertiesArgs'] delegation: The delegation for the Virtual Appliance
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The service principal that has read access to cloud-init and config blob.
+        :param pulumi.Input[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]] internet_ingress_public_ips: List of Resource Uri of Public IPs for Internet Ingress Scenario.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs'] network_profile: Network Profile containing configurations for Public and Private NIC.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input['VirtualApplianceSkuPropertiesArgs'] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] ssh_public_key: Public key for SSH login.
@@ -70,8 +74,12 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "id", id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if internet_ingress_public_ips is not None:
+            pulumi.set(__self__, "internet_ingress_public_ips", internet_ingress_public_ips)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if network_virtual_appliance_name is not None:
             pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         if nva_sku is not None:
@@ -182,6 +190,18 @@ class NetworkVirtualApplianceArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="internetIngressPublicIps")
+    def internet_ingress_public_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]]]:
+        """
+        List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        """
+        return pulumi.get(self, "internet_ingress_public_ips")
+
+    @internet_ingress_public_ips.setter
+    def internet_ingress_public_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]]]):
+        pulumi.set(self, "internet_ingress_public_ips", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -192,6 +212,18 @@ class NetworkVirtualApplianceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs']]:
+        """
+        Network Profile containing configurations for Public and Private NIC.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
 
     @property
     @pulumi.getter(name="networkVirtualApplianceName")
@@ -278,7 +310,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  delegation: Optional[pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 internet_ingress_public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InternetIngressPublicIpsPropertiesArgs', 'InternetIngressPublicIpsPropertiesArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs', 'NetworkVirtualAppliancePropertiesFormatNetworkProfileArgsDict']]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -289,9 +323,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkVirtualAppliance Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,7 +334,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         :param pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']] delegation: The delegation for the Virtual Appliance
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The service principal that has read access to cloud-init and config blob.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InternetIngressPublicIpsPropertiesArgs', 'InternetIngressPublicIpsPropertiesArgsDict']]]] internet_ingress_public_ips: List of Resource Uri of Public IPs for Internet Ingress Scenario.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs', 'NetworkVirtualAppliancePropertiesFormatNetworkProfileArgsDict']] network_profile: Network Profile containing configurations for Public and Private NIC.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -319,9 +353,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualAppliance Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -345,7 +377,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  delegation: Optional[pulumi.Input[Union['DelegationPropertiesArgs', 'DelegationPropertiesArgsDict']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 internet_ingress_public_ips: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InternetIngressPublicIpsPropertiesArgs', 'InternetIngressPublicIpsPropertiesArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[Union['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs', 'NetworkVirtualAppliancePropertiesFormatNetworkProfileArgsDict']]] = None,
                  network_virtual_appliance_name: Optional[pulumi.Input[str]] = None,
                  nva_sku: Optional[pulumi.Input[Union['VirtualApplianceSkuPropertiesArgs', 'VirtualApplianceSkuPropertiesArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -369,7 +403,9 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["delegation"] = delegation
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["internet_ingress_public_ips"] = internet_ingress_public_ips
             __props__.__dict__["location"] = location
+            __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["network_virtual_appliance_name"] = network_virtual_appliance_name
             __props__.__dict__["nva_sku"] = nva_sku
             if resource_group_name is None and not opts.urn:
@@ -387,6 +423,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["partner_managed_resource"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["virtual_appliance_connections"] = None
             __props__.__dict__["virtual_appliance_nics"] = None
             __props__.__dict__["virtual_appliance_sites"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20230901:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20231101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20240101:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20240301:NetworkVirtualAppliance"), pulumi.Alias(type_="azure-native:network/v20240501:NetworkVirtualAppliance")])
@@ -423,8 +460,10 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["inbound_security_rules"] = None
+        __props__.__dict__["internet_ingress_public_ips"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
         __props__.__dict__["nva_sku"] = None
         __props__.__dict__["partner_managed_resource"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -432,6 +471,7 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_appliance_asn"] = None
+        __props__.__dict__["virtual_appliance_connections"] = None
         __props__.__dict__["virtual_appliance_nics"] = None
         __props__.__dict__["virtual_appliance_sites"] = None
         __props__.__dict__["virtual_hub"] = None
@@ -518,6 +558,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         return pulumi.get(self, "inbound_security_rules")
 
     @property
+    @pulumi.getter(name="internetIngressPublicIps")
+    def internet_ingress_public_ips(self) -> pulumi.Output[Optional[Sequence['outputs.InternetIngressPublicIpsPropertiesResponse']]]:
+        """
+        List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        """
+        return pulumi.get(self, "internet_ingress_public_ips")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
@@ -532,6 +580,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output[Optional['outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile']]:
+        """
+        Network Profile containing configurations for Public and Private NIC.
+        """
+        return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="nvaSku")
@@ -588,6 +644,14 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
+
+    @property
+    @pulumi.getter(name="virtualApplianceConnections")
+    def virtual_appliance_connections(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
+        """
+        List of references to VirtualApplianceConnections.
+        """
+        return pulumi.get(self, "virtual_appliance_connections")
 
     @property
     @pulumi.getter(name="virtualApplianceNics")

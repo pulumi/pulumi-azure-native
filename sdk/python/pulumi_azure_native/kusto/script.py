@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['ScriptArgs', 'Script']
 
@@ -25,7 +26,9 @@ class ScriptArgs:
                  resource_group_name: pulumi.Input[str],
                  continue_on_errors: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[Union[str, 'PrincipalPermissionsAction']]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
+                 script_level: Optional[pulumi.Input[Union[str, 'ScriptLevel']]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_url: Optional[pulumi.Input[str]] = None,
                  script_url_sas_token: Optional[pulumi.Input[str]] = None):
@@ -33,10 +36,12 @@ class ScriptArgs:
         The set of arguments for constructing a Script resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] continue_on_errors: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[str] force_update_tag: A unique string. If changed the script will be applied again.
+        :param pulumi.Input[Union[str, 'PrincipalPermissionsAction']] principal_permissions_action: Indicates if the permissions for the script caller are kept following completion of the script.
         :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+        :param pulumi.Input[Union[str, 'ScriptLevel']] script_level: Differentiates between the type of script commands included - Database or Cluster. The default is Database.
         :param pulumi.Input[str] script_name: The name of the Kusto database script.
         :param pulumi.Input[str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
         :param pulumi.Input[str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
@@ -50,8 +55,12 @@ class ScriptArgs:
             pulumi.set(__self__, "continue_on_errors", continue_on_errors)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if principal_permissions_action is not None:
+            pulumi.set(__self__, "principal_permissions_action", principal_permissions_action)
         if script_content is not None:
             pulumi.set(__self__, "script_content", script_content)
+        if script_level is not None:
+            pulumi.set(__self__, "script_level", script_level)
         if script_name is not None:
             pulumi.set(__self__, "script_name", script_name)
         if script_url is not None:
@@ -87,7 +96,7 @@ class ScriptArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -120,6 +129,18 @@ class ScriptArgs:
         pulumi.set(self, "force_update_tag", value)
 
     @property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> Optional[pulumi.Input[Union[str, 'PrincipalPermissionsAction']]]:
+        """
+        Indicates if the permissions for the script caller are kept following completion of the script.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @principal_permissions_action.setter
+    def principal_permissions_action(self, value: Optional[pulumi.Input[Union[str, 'PrincipalPermissionsAction']]]):
+        pulumi.set(self, "principal_permissions_action", value)
+
+    @property
     @pulumi.getter(name="scriptContent")
     def script_content(self) -> Optional[pulumi.Input[str]]:
         """
@@ -130,6 +151,18 @@ class ScriptArgs:
     @script_content.setter
     def script_content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "script_content", value)
+
+    @property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> Optional[pulumi.Input[Union[str, 'ScriptLevel']]]:
+        """
+        Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+        """
+        return pulumi.get(self, "script_level")
+
+    @script_level.setter
+    def script_level(self, value: Optional[pulumi.Input[Union[str, 'ScriptLevel']]]):
+        pulumi.set(self, "script_level", value)
 
     @property
     @pulumi.getter(name="scriptName")
@@ -177,17 +210,17 @@ class Script(pulumi.CustomResource):
                  continue_on_errors: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[Union[str, 'PrincipalPermissionsAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
+                 script_level: Optional[pulumi.Input[Union[str, 'ScriptLevel']]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_url: Optional[pulumi.Input[str]] = None,
                  script_url_sas_token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Class representing a database script.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,8 +228,10 @@ class Script(pulumi.CustomResource):
         :param pulumi.Input[bool] continue_on_errors: Flag that indicates whether to continue if one of the command fails.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] force_update_tag: A unique string. If changed the script will be applied again.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[Union[str, 'PrincipalPermissionsAction']] principal_permissions_action: Indicates if the permissions for the script caller are kept following completion of the script.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] script_content: The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+        :param pulumi.Input[Union[str, 'ScriptLevel']] script_level: Differentiates between the type of script commands included - Database or Cluster. The default is Database.
         :param pulumi.Input[str] script_name: The name of the Kusto database script.
         :param pulumi.Input[str] script_url: The url to the KQL script blob file. Must not be used together with scriptContent property
         :param pulumi.Input[str] script_url_sas_token: The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
@@ -209,9 +244,7 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database script.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.
@@ -232,8 +265,10 @@ class Script(pulumi.CustomResource):
                  continue_on_errors: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 principal_permissions_action: Optional[pulumi.Input[Union[str, 'PrincipalPermissionsAction']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
+                 script_level: Optional[pulumi.Input[Union[str, 'ScriptLevel']]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
                  script_url: Optional[pulumi.Input[str]] = None,
                  script_url_sas_token: Optional[pulumi.Input[str]] = None,
@@ -256,10 +291,12 @@ class Script(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["force_update_tag"] = force_update_tag
+            __props__.__dict__["principal_permissions_action"] = principal_permissions_action
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["script_content"] = script_content
+            __props__.__dict__["script_level"] = script_level
             __props__.__dict__["script_name"] = script_name
             __props__.__dict__["script_url"] = script_url
             __props__.__dict__["script_url_sas_token"] = script_url_sas_token
@@ -294,7 +331,9 @@ class Script(pulumi.CustomResource):
         __props__.__dict__["continue_on_errors"] = None
         __props__.__dict__["force_update_tag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["principal_permissions_action"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["script_level"] = None
         __props__.__dict__["script_url"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -325,12 +364,28 @@ class Script(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="principalPermissionsAction")
+    def principal_permissions_action(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates if the permissions for the script caller are kept following completion of the script.
+        """
+        return pulumi.get(self, "principal_permissions_action")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="scriptLevel")
+    def script_level(self) -> pulumi.Output[Optional[str]]:
+        """
+        Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+        """
+        return pulumi.get(self, "script_level")
 
     @property
     @pulumi.getter(name="scriptUrl")

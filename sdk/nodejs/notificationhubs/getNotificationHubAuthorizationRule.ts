@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,21 +45,55 @@ export interface GetNotificationHubAuthorizationRuleArgs {
  */
 export interface GetNotificationHubAuthorizationRuleResult {
     /**
+     * Gets a string that describes the claim type
+     */
+    readonly claimType: string;
+    /**
+     * Gets a string that describes the claim value
+     */
+    readonly claimValue: string;
+    /**
+     * Gets the created time for this rule
+     */
+    readonly createdTime: string;
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Gets a string that describes the authorization rule.
+     */
+    readonly keyName: string;
     /**
      * Deprecated - only for compatibility.
      */
     readonly location?: string;
     /**
+     * Gets the last modified time for this rule
+     */
+    readonly modifiedTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * SharedAccessAuthorizationRule properties.
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
      */
-    readonly properties: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse;
+    readonly primaryKey?: string;
+    /**
+     * Gets the revision number for the rule
+     */
+    readonly revision: number;
+    /**
+     * Gets or sets the rights associated with the rule.
+     */
+    readonly rights: string[];
+    /**
+     * Gets a base64-encoded 256-bit primary key for signing and
+     * validating the SAS token.
+     */
+    readonly secondaryKey?: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -77,9 +109,7 @@ export interface GetNotificationHubAuthorizationRuleResult {
 }
 /**
  * Response for POST requests that return single SharedAccessAuthorizationRule.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

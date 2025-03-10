@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Vcenter
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getVcenterController(args: GetVcenterControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetVcenterControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -104,9 +102,7 @@ export interface GetVcenterControllerResult {
 }
 /**
  * Get a Vcenter
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getVcenterControllerOutput(args: GetVcenterControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVcenterControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

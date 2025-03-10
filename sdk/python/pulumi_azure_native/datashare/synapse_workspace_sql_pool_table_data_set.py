@@ -132,7 +132,7 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
                  __props__=None):
         """
         A Synapse Workspace Sql Pool Table data set.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Synapse Workspace Sql Pool Table data set.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param SynapseWorkspaceSqlPoolTableDataSetArgs args: The arguments to use to populate this resource's properties.
@@ -204,7 +204,7 @@ class SynapseWorkspaceSqlPoolTableDataSet(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:BlobStorageAccountDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen2FolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobContainerDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:BlobFolderDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDBTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SqlDWTableDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen1FolderDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FileSystemDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen2FolderDataSet"), pulumi.Alias(type_="azure-native:datashare:BlobContainerDataSet"), pulumi.Alias(type_="azure-native:datashare:BlobDataSet"), pulumi.Alias(type_="azure-native:datashare:BlobFolderDataSet"), pulumi.Alias(type_="azure-native:datashare:KustoClusterDataSet"), pulumi.Alias(type_="azure-native:datashare:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare:KustoTableDataSet"), pulumi.Alias(type_="azure-native:datashare:SqlDBTableDataSet"), pulumi.Alias(type_="azure-native:datashare:SqlDWTableDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SynapseWorkspaceSqlPoolTableDataSet, __self__).__init__(
             'azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet',

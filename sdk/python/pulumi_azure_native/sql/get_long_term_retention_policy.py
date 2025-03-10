@@ -130,8 +130,6 @@ def get_long_term_retention_policy(database_name: Optional[str] = None,
     Gets a database's long term retention policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str policy_name: The policy name. Should always be Default.
@@ -162,8 +160,6 @@ def get_long_term_retention_policy_output(database_name: Optional[pulumi.Input[s
     """
     Gets a database's long term retention policy.
     Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str database_name: The name of the database.

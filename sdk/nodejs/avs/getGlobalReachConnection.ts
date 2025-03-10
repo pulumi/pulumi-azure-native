@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A global reach connection resource
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Get a GlobalReachConnection
+ * Azure REST API version: 2023-09-01.
  */
 export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalReachConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,7 +22,7 @@ export function getGlobalReachConnection(args: GetGlobalReachConnectionArgs, opt
 
 export interface GetGlobalReachConnectionArgs {
     /**
-     * Name of the global reach connection in the private cloud
+     * Name of the global reach connection
      */
     globalReachConnectionName: string;
     /**
@@ -39,11 +40,13 @@ export interface GetGlobalReachConnectionArgs {
  */
 export interface GetGlobalReachConnectionResult {
     /**
-     * The network used for global reach carved out from the original network block provided for the private cloud
+     * The network used for global reach carved out from the original network block
+     * provided for the private cloud
      */
     readonly addressPrefix: string;
     /**
-     * Authorization key from the peer express route used for the global reach connection
+     * Authorization key from the peer express route used for the global reach
+     * connection
      */
     readonly authorizationKey?: string;
     /**
@@ -51,19 +54,21 @@ export interface GetGlobalReachConnectionResult {
      */
     readonly circuitConnectionStatus: string;
     /**
-     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+     * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
+     * global reach connection
      */
     readonly expressRouteId?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Identifier of the ExpressRoute Circuit to peer with in the global reach connection
+     * Identifier of the ExpressRoute Circuit to peer with in the global reach
+     * connection
      */
     readonly peerExpressRouteCircuit?: string;
     /**
@@ -71,15 +76,17 @@ export interface GetGlobalReachConnectionResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * A global reach connection resource
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Get a GlobalReachConnection
+ * Azure REST API version: 2023-09-01.
  */
 export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalReachConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,7 +99,7 @@ export function getGlobalReachConnectionOutput(args: GetGlobalReachConnectionOut
 
 export interface GetGlobalReachConnectionOutputArgs {
     /**
-     * Name of the global reach connection in the private cloud
+     * Name of the global reach connection
      */
     globalReachConnectionName: pulumi.Input<string>;
     /**

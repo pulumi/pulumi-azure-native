@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Azure Firewall.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetAzureFirewallResult> InvokeAsync(GetAzureFirewallArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure Firewall.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure Firewall.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAzureFirewallResult> Invoke(GetAzureFirewallInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureFirewallResult>("azure-native:network:getAzureFirewall", args ?? new GetAzureFirewallInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.Network
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> ApplicationRuleCollections;
+        /// <summary>
+        /// Properties to provide a custom autoscale configuration to this azure firewall.
+        /// </summary>
+        public readonly Outputs.AzureFirewallAutoscaleConfigurationResponse? AutoscaleConfiguration;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -171,6 +169,8 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponse> applicationRuleCollections,
 
+            Outputs.AzureFirewallAutoscaleConfigurationResponse? autoscaleConfiguration,
+
             string etag,
 
             Outputs.SubResourceResponse? firewallPolicy,
@@ -209,6 +209,7 @@ namespace Pulumi.AzureNative.Network
         {
             AdditionalProperties = additionalProperties;
             ApplicationRuleCollections = applicationRuleCollections;
+            AutoscaleConfiguration = autoscaleConfiguration;
             Etag = etag;
             FirewallPolicy = firewallPolicy;
             HubIPAddresses = hubIPAddresses;

@@ -105,9 +105,7 @@ def get_reachability_analysis_run(network_manager_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReachabilityAnalysisRunResult:
     """
     Configuration information for analysis run.
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -136,9 +134,7 @@ def get_reachability_analysis_run_output(network_manager_name: Optional[pulumi.I
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReachabilityAnalysisRunResult]:
     """
     Configuration information for analysis run.
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.

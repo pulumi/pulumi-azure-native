@@ -30,7 +30,7 @@ class CustomerEventArgs:
         The set of arguments for constructing a CustomerEvent resource.
         :param pulumi.Input[str] event_name: The name of the event subscribed to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationEventReceiverArgs']]] receivers: The notification event receivers.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[str] customer_event_name: The resource name of the Test Base Customer event.
         """
@@ -69,7 +69,7 @@ class CustomerEventArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -115,16 +115,14 @@ class CustomerEvent(pulumi.CustomResource):
                  __props__=None):
         """
         The Customer Notification Event resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_event_name: The resource name of the Test Base Customer event.
         :param pulumi.Input[str] event_name: The name of the event subscribed to.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationEventReceiverArgs', 'NotificationEventReceiverArgsDict']]]] receivers: The notification event receivers.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         """
         ...
@@ -135,9 +133,7 @@ class CustomerEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Customer Notification Event resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomerEventArgs args: The arguments to use to populate this resource's properties.
@@ -227,7 +223,7 @@ class CustomerEvent(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -243,7 +239,7 @@ class CustomerEvent(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -251,7 +247,7 @@ class CustomerEvent(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

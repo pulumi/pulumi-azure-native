@@ -10,25 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Quantum
 {
     /// <summary>
-    /// The resource proxy definition object for quantum workspace.
-    /// Azure REST API version: 2022-01-10-preview. Prior API version in Azure Native 1.x: 2019-11-04-preview.
-    /// 
-    /// Other available API versions: 2023-11-13-preview.
+    /// The resource proxy definition object for Quantum Workspace.
+    /// Azure REST API version: 2023-11-13-preview. Prior API version in Azure Native 2.x: 2022-01-10-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The URI of the workspace endpoint.
-        /// </summary>
-        [Output("endpointUri")]
-        public Output<string> EndpointUri { get; private set; } = null!;
-
-        /// <summary>
-        /// Managed Identity information.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.QuantumWorkspaceResponseIdentity?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -43,25 +35,13 @@ namespace Pulumi.AzureNative.Quantum
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of Providers selected for this Workspace
+        /// Gets or sets the properties. Define quantum workspace's specific properties.
         /// </summary>
-        [Output("providers")]
-        public Output<ImmutableArray<Outputs.ProviderResponse>> Providers { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.WorkspaceResourcePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status field
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// ARM Resource Id of the storage account associated with this workspace.
-        /// </summary>
-        [Output("storageAccount")]
-        public Output<string?> StorageAccount { get; private set; } = null!;
-
-        /// <summary>
-        /// System metadata
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -77,12 +57,6 @@ namespace Pulumi.AzureNative.Quantum
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether the current workspace is ready to accept Jobs.
-        /// </summary>
-        [Output("usable")]
-        public Output<string> Usable { get; private set; } = null!;
 
 
         /// <summary>
@@ -136,10 +110,10 @@ namespace Pulumi.AzureNative.Quantum
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Managed Identity information.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.QuantumWorkspaceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -147,29 +121,17 @@ namespace Pulumi.AzureNative.Quantum
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("providers")]
-        private InputList<Inputs.ProviderArgs>? _providers;
-
         /// <summary>
-        /// List of Providers selected for this Workspace
+        /// Gets or sets the properties. Define quantum workspace's specific properties.
         /// </summary>
-        public InputList<Inputs.ProviderArgs> Providers
-        {
-            get => _providers ?? (_providers = new InputList<Inputs.ProviderArgs>());
-            set => _providers = value;
-        }
+        [Input("properties")]
+        public Input<Inputs.WorkspaceResourcePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// ARM Resource Id of the storage account associated with this workspace.
-        /// </summary>
-        [Input("storageAccount")]
-        public Input<string>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

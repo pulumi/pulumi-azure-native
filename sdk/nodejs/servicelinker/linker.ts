@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linker of source and target resource
- * Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
- *
- * Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
  */
 export class Linker extends pulumi.CustomResource {
     /**
@@ -43,7 +41,7 @@ export class Linker extends pulumi.CustomResource {
     /**
      * The authentication type.
      */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
+    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
     /**
      * The application client type
      */
@@ -145,7 +143,7 @@ export interface LinkerArgs {
     /**
      * The authentication type.
      */
-    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
+    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
     /**
      * The application client type
      */

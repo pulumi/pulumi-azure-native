@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a security user rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityUserRuleResult> InvokeAsync(GetSecurityUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserRuleResult>("azure-native:network:getSecurityUserRule", args ?? new GetSecurityUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a security user rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserRuleResult> Invoke(GetSecurityUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleResult>("azure-native:network:getSecurityUserRule", args ?? new GetSecurityUserRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a security user rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserRuleResult> Invoke(GetSecurityUserRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleResult>("azure-native:network:getSecurityUserRule", args ?? new GetSecurityUserRuleInvokeArgs(), options.WithDefaults());

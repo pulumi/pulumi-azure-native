@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostic details.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class WorkspaceDiagnostic extends pulumi.CustomResource {
     /**
@@ -56,6 +54,10 @@ export class WorkspaceDiagnostic extends pulumi.CustomResource {
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
     public readonly httpCorrelationProtocol!: pulumi.Output<string | undefined>;
+    /**
+     * Large Language Models diagnostic settings
+     */
+    public readonly largeLanguageModel!: pulumi.Output<outputs.apimanagement.LLMDiagnosticSettingsResponse | undefined>;
     /**
      * Log the ClientIP. Default is false.
      */
@@ -117,6 +119,7 @@ export class WorkspaceDiagnostic extends pulumi.CustomResource {
             resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
             resourceInputs["frontend"] = args ? args.frontend : undefined;
             resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
+            resourceInputs["largeLanguageModel"] = args ? args.largeLanguageModel : undefined;
             resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
             resourceInputs["loggerId"] = args ? args.loggerId : undefined;
             resourceInputs["metrics"] = args ? args.metrics : undefined;
@@ -133,6 +136,7 @@ export class WorkspaceDiagnostic extends pulumi.CustomResource {
             resourceInputs["backend"] = undefined /*out*/;
             resourceInputs["frontend"] = undefined /*out*/;
             resourceInputs["httpCorrelationProtocol"] = undefined /*out*/;
+            resourceInputs["largeLanguageModel"] = undefined /*out*/;
             resourceInputs["logClientIp"] = undefined /*out*/;
             resourceInputs["loggerId"] = undefined /*out*/;
             resourceInputs["metrics"] = undefined /*out*/;
@@ -173,6 +177,10 @@ export interface WorkspaceDiagnosticArgs {
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
     httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.HttpCorrelationProtocol>;
+    /**
+     * Large Language Models diagnostic settings
+     */
+    largeLanguageModel?: pulumi.Input<inputs.apimanagement.LLMDiagnosticSettingsArgs>;
     /**
      * Log the ClientIP. Default is false.
      */

@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.AVS
     public static class GetWorkloadNetworkPortMirroring
     {
         /// <summary>
-        /// NSX Port Mirroring
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkPortMirroring
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetWorkloadNetworkPortMirroringResult> InvokeAsync(GetWorkloadNetworkPortMirroringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkloadNetworkPortMirroringResult>("azure-native:avs:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Port Mirroring
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkPortMirroring
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPortMirroringResult> Invoke(GetWorkloadNetworkPortMirroringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPortMirroringResult>("azure-native:avs:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// NSX Port Mirroring
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a WorkloadNetworkPortMirroring
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetWorkloadNetworkPortMirroringResult> Invoke(GetWorkloadNetworkPortMirroringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkloadNetworkPortMirroringResult>("azure-native:avs:getWorkloadNetworkPortMirroring", args ?? new GetWorkloadNetworkPortMirroringInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkPortMirroringArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+        /// ID of the NSX port mirroring profile.
         /// </summary>
         [Input("portMirroringId", required: true)]
         public string PortMirroringId { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetWorkloadNetworkPortMirroringInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
+        /// ID of the NSX port mirroring profile.
         /// </summary>
         [Input("portMirroringId", required: true)]
         public Input<string> PortMirroringId { get; set; } = null!;
@@ -109,11 +103,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -133,7 +127,11 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -157,6 +155,8 @@ namespace Pulumi.AzureNative.AVS
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Destination = destination;
@@ -168,6 +168,7 @@ namespace Pulumi.AzureNative.AVS
             Revision = revision;
             Source = source;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

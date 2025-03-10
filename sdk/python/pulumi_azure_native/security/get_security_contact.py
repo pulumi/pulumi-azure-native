@@ -27,36 +27,31 @@ class GetSecurityContactResult:
     """
     Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
     """
-    def __init__(__self__, alert_notifications=None, emails=None, id=None, name=None, notifications_by_role=None, phone=None, type=None):
-        if alert_notifications and not isinstance(alert_notifications, dict):
-            raise TypeError("Expected argument 'alert_notifications' to be a dict")
-        pulumi.set(__self__, "alert_notifications", alert_notifications)
+    def __init__(__self__, emails=None, id=None, is_enabled=None, name=None, notifications_by_role=None, notifications_sources=None, phone=None, type=None):
         if emails and not isinstance(emails, str):
             raise TypeError("Expected argument 'emails' to be a str")
         pulumi.set(__self__, "emails", emails)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        pulumi.set(__self__, "is_enabled", is_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if notifications_by_role and not isinstance(notifications_by_role, dict):
             raise TypeError("Expected argument 'notifications_by_role' to be a dict")
         pulumi.set(__self__, "notifications_by_role", notifications_by_role)
+        if notifications_sources and not isinstance(notifications_sources, list):
+            raise TypeError("Expected argument 'notifications_sources' to be a list")
+        pulumi.set(__self__, "notifications_sources", notifications_sources)
         if phone and not isinstance(phone, str):
             raise TypeError("Expected argument 'phone' to be a str")
         pulumi.set(__self__, "phone", phone)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="alertNotifications")
-    def alert_notifications(self) -> Optional['outputs.SecurityContactPropertiesResponseAlertNotifications']:
-        """
-        Defines whether to send email notifications about new security alerts
-        """
-        return pulumi.get(self, "alert_notifications")
 
     @property
     @pulumi.getter
@@ -75,6 +70,14 @@ class GetSecurityContactResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether the security contact is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -89,6 +92,14 @@ class GetSecurityContactResult:
         Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         """
         return pulumi.get(self, "notifications_by_role")
+
+    @property
+    @pulumi.getter(name="notificationsSources")
+    def notifications_sources(self) -> Optional[Sequence[Any]]:
+        """
+        A collection of sources types which evaluate the email notification.
+        """
+        return pulumi.get(self, "notifications_sources")
 
     @property
     @pulumi.getter
@@ -113,11 +124,12 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
         if False:
             yield self
         return GetSecurityContactResult(
-            alert_notifications=self.alert_notifications,
             emails=self.emails,
             id=self.id,
+            is_enabled=self.is_enabled,
             name=self.name,
             notifications_by_role=self.notifications_by_role,
+            notifications_sources=self.notifications_sources,
             phone=self.phone,
             type=self.type)
 
@@ -126,9 +138,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityContactResult:
     """
     Get Default Security contact configurations for the subscription
-    Azure REST API version: 2020-01-01-preview.
-
-    Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object
@@ -139,20 +149,19 @@ def get_security_contact(security_contact_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityContact', __args__, opts=opts, typ=GetSecurityContactResult).value
 
     return AwaitableGetSecurityContactResult(
-        alert_notifications=pulumi.get(__ret__, 'alert_notifications'),
         emails=pulumi.get(__ret__, 'emails'),
         id=pulumi.get(__ret__, 'id'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
         name=pulumi.get(__ret__, 'name'),
         notifications_by_role=pulumi.get(__ret__, 'notifications_by_role'),
+        notifications_sources=pulumi.get(__ret__, 'notifications_sources'),
         phone=pulumi.get(__ret__, 'phone'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityContactResult]:
     """
     Get Default Security contact configurations for the subscription
-    Azure REST API version: 2020-01-01-preview.
-
-    Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str security_contact_name: Name of the security contact object
@@ -162,10 +171,11 @@ def get_security_contact_output(security_contact_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getSecurityContact', __args__, opts=opts, typ=GetSecurityContactResult)
     return __ret__.apply(lambda __response__: GetSecurityContactResult(
-        alert_notifications=pulumi.get(__response__, 'alert_notifications'),
         emails=pulumi.get(__response__, 'emails'),
         id=pulumi.get(__response__, 'id'),
+        is_enabled=pulumi.get(__response__, 'is_enabled'),
         name=pulumi.get(__response__, 'name'),
         notifications_by_role=pulumi.get(__response__, 'notifications_by_role'),
+        notifications_sources=pulumi.get(__response__, 'notifications_sources'),
         phone=pulumi.get(__response__, 'phone'),
         type=pulumi.get(__response__, 'type')))

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified FHIR Service.
- * Azure REST API version: 2023-02-28.
- *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Azure REST API version: 2024-03-31.
  */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,10 +40,6 @@ export interface GetFhirServiceArgs {
  */
 export interface GetFhirServiceResult {
     /**
-     * Fhir Service access policies.
-     */
-    readonly accessPolicies?: outputs.healthcareapis.FhirServiceAccessPolicyEntryResponse[];
-    /**
      * Fhir Service Azure container registry configuration.
      */
     readonly acrConfiguration?: outputs.healthcareapis.FhirServiceAcrConfigurationResponse;
@@ -57,6 +51,10 @@ export interface GetFhirServiceResult {
      * Fhir Service Cors configuration.
      */
     readonly corsConfiguration?: outputs.healthcareapis.FhirServiceCorsConfigurationResponse;
+    /**
+     * The encryption settings of the FHIR service
+     */
+    readonly encryption?: outputs.healthcareapis.EncryptionResponse;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -128,9 +126,7 @@ export interface GetFhirServiceResult {
 }
 /**
  * Gets the properties of the specified FHIR Service.
- * Azure REST API version: 2023-02-28.
- *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Azure REST API version: 2024-03-31.
  */
 export function getFhirServiceOutput(args: GetFhirServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFhirServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

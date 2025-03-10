@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The NSP access rule resource
-    /// Azure REST API version: 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterAccessRule")]
     public partial class NetworkSecurityPerimeterAccessRule : global::Pulumi.CustomResource
@@ -120,9 +120,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspAccessRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -168,8 +168,6 @@ def get_suppression_list_address(address_id: Optional[str] = None,
     Get a SuppressionListAddress.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
-
 
     :param str address_id: The id of the address in a suppression list.
     :param str domain_name: The name of the Domains resource.
@@ -206,8 +204,6 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
     """
     Get a SuppressionListAddress.
     Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-09-01-preview.
 
 
     :param str address_id: The id of the address in a suppression list.

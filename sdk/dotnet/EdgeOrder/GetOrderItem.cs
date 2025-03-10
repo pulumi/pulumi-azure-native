@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-02-01.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetOrderItemResult> InvokeAsync(GetOrderItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemResult>("azure-native:edgeorder:getOrderItem", args ?? new GetOrderItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-02-01.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetOrderItemResult> Invoke(GetOrderItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an order item.
-        /// Azure REST API version: 2022-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-02-01.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetOrderItemResult> Invoke(GetOrderItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderItemResult>("azure-native:edgeorder:getOrderItem", args ?? new GetOrderItemInvokeArgs(), options.WithDefaults());
@@ -99,11 +93,15 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// <summary>
         /// Represents shipping and return address for order item.
         /// </summary>
-        public readonly Outputs.AddressDetailsResponse AddressDetails;
+        public readonly Outputs.AddressDetailsResponse? AddressDetails;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Msi identity of the resource
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -121,11 +119,15 @@ namespace Pulumi.AzureNative.EdgeOrder
         /// </summary>
         public readonly Outputs.OrderItemDetailsResponse OrderItemDetails;
         /// <summary>
+        /// Provisioning state
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Start time of order item.
         /// </summary>
         public readonly string StartTime;
         /// <summary>
-        /// Represents resource creation and update time.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -139,9 +141,11 @@ namespace Pulumi.AzureNative.EdgeOrder
 
         [OutputConstructor]
         private GetOrderItemResult(
-            Outputs.AddressDetailsResponse addressDetails,
+            Outputs.AddressDetailsResponse? addressDetails,
 
             string id,
+
+            Outputs.ResourceIdentityResponse? identity,
 
             string location,
 
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.EdgeOrder
             string orderId,
 
             Outputs.OrderItemDetailsResponse orderItemDetails,
+
+            string provisioningState,
 
             string startTime,
 
@@ -161,10 +167,12 @@ namespace Pulumi.AzureNative.EdgeOrder
         {
             AddressDetails = addressDetails;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             OrderId = orderId;
             OrderItemDetails = orderItemDetails;
+            ProvisioningState = provisioningState;
             StartTime = startTime;
             SystemData = systemData;
             Tags = tags;

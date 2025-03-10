@@ -164,9 +164,7 @@ def get_alert_rule_resource(alert_rule_resource_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertRuleResourceResult:
     """
     Get a AlertRuleResource
-    Azure REST API version: 2024-07-19-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str alert_rule_resource_name: The alert rule proxy resource name.
@@ -197,9 +195,7 @@ def get_alert_rule_resource_output(alert_rule_resource_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertRuleResourceResult]:
     """
     Get a AlertRuleResource
-    Azure REST API version: 2024-07-19-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str alert_rule_resource_name: The alert rule proxy resource name.

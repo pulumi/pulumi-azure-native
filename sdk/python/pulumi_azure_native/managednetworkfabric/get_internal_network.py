@@ -25,45 +25,54 @@ __all__ = [
 @pulumi.output_type
 class GetInternalNetworkResult:
     """
-    Defines the InternalNetwork item.
+    Defines the Internal Network resource.
     """
-    def __init__(__self__, administrative_state=None, annotation=None, bfd_disabled_on_resources=None, bfd_for_static_routes_disabled_on_resources=None, bgp_configuration=None, bgp_disabled_on_resources=None, connected_i_pv4_subnets=None, connected_i_pv6_subnets=None, disabled_on_resources=None, export_route_policy_id=None, id=None, import_route_policy_id=None, mtu=None, name=None, provisioning_state=None, static_route_configuration=None, system_data=None, type=None, vlan_id=None):
+    def __init__(__self__, administrative_state=None, annotation=None, bgp_configuration=None, configuration_state=None, connected_i_pv4_subnets=None, connected_i_pv6_subnets=None, egress_acl_id=None, export_route_policy=None, export_route_policy_id=None, extension=None, id=None, import_route_policy=None, import_route_policy_id=None, ingress_acl_id=None, is_monitoring_enabled=None, mtu=None, name=None, provisioning_state=None, static_route_configuration=None, system_data=None, type=None, vlan_id=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if bfd_disabled_on_resources and not isinstance(bfd_disabled_on_resources, list):
-            raise TypeError("Expected argument 'bfd_disabled_on_resources' to be a list")
-        pulumi.set(__self__, "bfd_disabled_on_resources", bfd_disabled_on_resources)
-        if bfd_for_static_routes_disabled_on_resources and not isinstance(bfd_for_static_routes_disabled_on_resources, list):
-            raise TypeError("Expected argument 'bfd_for_static_routes_disabled_on_resources' to be a list")
-        pulumi.set(__self__, "bfd_for_static_routes_disabled_on_resources", bfd_for_static_routes_disabled_on_resources)
         if bgp_configuration and not isinstance(bgp_configuration, dict):
             raise TypeError("Expected argument 'bgp_configuration' to be a dict")
         pulumi.set(__self__, "bgp_configuration", bgp_configuration)
-        if bgp_disabled_on_resources and not isinstance(bgp_disabled_on_resources, list):
-            raise TypeError("Expected argument 'bgp_disabled_on_resources' to be a list")
-        pulumi.set(__self__, "bgp_disabled_on_resources", bgp_disabled_on_resources)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if connected_i_pv4_subnets and not isinstance(connected_i_pv4_subnets, list):
             raise TypeError("Expected argument 'connected_i_pv4_subnets' to be a list")
         pulumi.set(__self__, "connected_i_pv4_subnets", connected_i_pv4_subnets)
         if connected_i_pv6_subnets and not isinstance(connected_i_pv6_subnets, list):
             raise TypeError("Expected argument 'connected_i_pv6_subnets' to be a list")
         pulumi.set(__self__, "connected_i_pv6_subnets", connected_i_pv6_subnets)
-        if disabled_on_resources and not isinstance(disabled_on_resources, list):
-            raise TypeError("Expected argument 'disabled_on_resources' to be a list")
-        pulumi.set(__self__, "disabled_on_resources", disabled_on_resources)
+        if egress_acl_id and not isinstance(egress_acl_id, str):
+            raise TypeError("Expected argument 'egress_acl_id' to be a str")
+        pulumi.set(__self__, "egress_acl_id", egress_acl_id)
+        if export_route_policy and not isinstance(export_route_policy, dict):
+            raise TypeError("Expected argument 'export_route_policy' to be a dict")
+        pulumi.set(__self__, "export_route_policy", export_route_policy)
         if export_route_policy_id and not isinstance(export_route_policy_id, str):
             raise TypeError("Expected argument 'export_route_policy_id' to be a str")
         pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
+        if extension and not isinstance(extension, str):
+            raise TypeError("Expected argument 'extension' to be a str")
+        pulumi.set(__self__, "extension", extension)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if import_route_policy and not isinstance(import_route_policy, dict):
+            raise TypeError("Expected argument 'import_route_policy' to be a dict")
+        pulumi.set(__self__, "import_route_policy", import_route_policy)
         if import_route_policy_id and not isinstance(import_route_policy_id, str):
             raise TypeError("Expected argument 'import_route_policy_id' to be a str")
         pulumi.set(__self__, "import_route_policy_id", import_route_policy_id)
+        if ingress_acl_id and not isinstance(ingress_acl_id, str):
+            raise TypeError("Expected argument 'ingress_acl_id' to be a str")
+        pulumi.set(__self__, "ingress_acl_id", ingress_acl_id)
+        if is_monitoring_enabled and not isinstance(is_monitoring_enabled, str):
+            raise TypeError("Expected argument 'is_monitoring_enabled' to be a str")
+        pulumi.set(__self__, "is_monitoring_enabled", is_monitoring_enabled)
         if mtu and not isinstance(mtu, int):
             raise TypeError("Expected argument 'mtu' to be a int")
         pulumi.set(__self__, "mtu", mtu)
@@ -90,7 +99,7 @@ class GetInternalNetworkResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        Administrative state of the InternalNetwork. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -103,42 +112,26 @@ class GetInternalNetworkResult:
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="bfdDisabledOnResources")
-    def bfd_disabled_on_resources(self) -> Sequence[str]:
-        """
-        List of resources the BFD for BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "bfd_disabled_on_resources")
-
-    @property
-    @pulumi.getter(name="bfdForStaticRoutesDisabledOnResources")
-    def bfd_for_static_routes_disabled_on_resources(self) -> Sequence[str]:
-        """
-        List of resources the BFD of StaticRoutes is disabled on. Can be either entire NetworkFabric or NetworkRack.
-        """
-        return pulumi.get(self, "bfd_for_static_routes_disabled_on_resources")
-
-    @property
     @pulumi.getter(name="bgpConfiguration")
-    def bgp_configuration(self) -> Optional['outputs.BgpConfigurationResponse']:
+    def bgp_configuration(self) -> Optional['outputs.InternalNetworkPropertiesResponseBgpConfiguration']:
         """
-        BGP configuration properties
+        BGP configuration properties.
         """
         return pulumi.get(self, "bgp_configuration")
 
     @property
-    @pulumi.getter(name="bgpDisabledOnResources")
-    def bgp_disabled_on_resources(self) -> Sequence[str]:
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
         """
-        List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        Configuration state of the resource.
         """
-        return pulumi.get(self, "bgp_disabled_on_resources")
+        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter(name="connectedIPv4Subnets")
     def connected_i_pv4_subnets(self) -> Optional[Sequence['outputs.ConnectedSubnetResponse']]:
         """
-        List with object connected IPv4 Subnets.
+        List of Connected IPv4 Subnets.
         """
         return pulumi.get(self, "connected_i_pv4_subnets")
 
@@ -146,41 +139,81 @@ class GetInternalNetworkResult:
     @pulumi.getter(name="connectedIPv6Subnets")
     def connected_i_pv6_subnets(self) -> Optional[Sequence['outputs.ConnectedSubnetResponse']]:
         """
-        List with object connected IPv6 Subnets.
+        List of connected IPv6 Subnets.
         """
         return pulumi.get(self, "connected_i_pv6_subnets")
 
     @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> Sequence[str]:
+    @pulumi.getter(name="egressAclId")
+    def egress_acl_id(self) -> Optional[str]:
         """
-        List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        Egress Acl. ARM resource ID of Access Control Lists.
         """
-        return pulumi.get(self, "disabled_on_resources")
+        return pulumi.get(self, "egress_acl_id")
+
+    @property
+    @pulumi.getter(name="exportRoutePolicy")
+    def export_route_policy(self) -> Optional['outputs.ExportRoutePolicyResponse']:
+        """
+        Export Route Policy either IPv4 or IPv6.
+        """
+        return pulumi.get(self, "export_route_policy")
 
     @property
     @pulumi.getter(name="exportRoutePolicyId")
     def export_route_policy_id(self) -> Optional[str]:
         """
-        ARM resource ID of importRoutePolicy.
+        ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         """
         return pulumi.get(self, "export_route_policy_id")
 
     @property
     @pulumi.getter
+    def extension(self) -> Optional[str]:
+        """
+        Extension. Example: NoExtension | NPB.
+        """
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="importRoutePolicy")
+    def import_route_policy(self) -> Optional['outputs.ImportRoutePolicyResponse']:
+        """
+        Import Route Policy either IPv4 or IPv6.
+        """
+        return pulumi.get(self, "import_route_policy")
 
     @property
     @pulumi.getter(name="importRoutePolicyId")
     def import_route_policy_id(self) -> Optional[str]:
         """
-        ARM resource ID of importRoutePolicy.
+        ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         """
         return pulumi.get(self, "import_route_policy_id")
+
+    @property
+    @pulumi.getter(name="ingressAclId")
+    def ingress_acl_id(self) -> Optional[str]:
+        """
+        Ingress Acl. ARM resource ID of Access Control Lists.
+        """
+        return pulumi.get(self, "ingress_acl_id")
+
+    @property
+    @pulumi.getter(name="isMonitoringEnabled")
+    def is_monitoring_enabled(self) -> Optional[str]:
+        """
+        To check whether monitoring of internal network is enabled or not.
+        """
+        return pulumi.get(self, "is_monitoring_enabled")
 
     @property
     @pulumi.getter
@@ -202,13 +235,13 @@ class GetInternalNetworkResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="staticRouteConfiguration")
-    def static_route_configuration(self) -> Optional['outputs.StaticRouteConfigurationResponse']:
+    def static_route_configuration(self) -> Optional['outputs.InternalNetworkPropertiesResponseStaticRouteConfiguration']:
         """
         Static Route Configuration properties.
         """
@@ -247,16 +280,19 @@ class AwaitableGetInternalNetworkResult(GetInternalNetworkResult):
         return GetInternalNetworkResult(
             administrative_state=self.administrative_state,
             annotation=self.annotation,
-            bfd_disabled_on_resources=self.bfd_disabled_on_resources,
-            bfd_for_static_routes_disabled_on_resources=self.bfd_for_static_routes_disabled_on_resources,
             bgp_configuration=self.bgp_configuration,
-            bgp_disabled_on_resources=self.bgp_disabled_on_resources,
+            configuration_state=self.configuration_state,
             connected_i_pv4_subnets=self.connected_i_pv4_subnets,
             connected_i_pv6_subnets=self.connected_i_pv6_subnets,
-            disabled_on_resources=self.disabled_on_resources,
+            egress_acl_id=self.egress_acl_id,
+            export_route_policy=self.export_route_policy,
             export_route_policy_id=self.export_route_policy_id,
+            extension=self.extension,
             id=self.id,
+            import_route_policy=self.import_route_policy,
             import_route_policy_id=self.import_route_policy_id,
+            ingress_acl_id=self.ingress_acl_id,
+            is_monitoring_enabled=self.is_monitoring_enabled,
             mtu=self.mtu,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -272,13 +308,11 @@ def get_internal_network(internal_network_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternalNetworkResult:
     """
     Gets a InternalNetworks.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str internal_network_name: Name of the InternalNetwork
-    :param str l3_isolation_domain_name: Name of the L3IsolationDomain
+    :param str internal_network_name: Name of the Internal Network.
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -291,16 +325,19 @@ def get_internal_network(internal_network_name: Optional[str] = None,
     return AwaitableGetInternalNetworkResult(
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
-        bfd_disabled_on_resources=pulumi.get(__ret__, 'bfd_disabled_on_resources'),
-        bfd_for_static_routes_disabled_on_resources=pulumi.get(__ret__, 'bfd_for_static_routes_disabled_on_resources'),
         bgp_configuration=pulumi.get(__ret__, 'bgp_configuration'),
-        bgp_disabled_on_resources=pulumi.get(__ret__, 'bgp_disabled_on_resources'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         connected_i_pv4_subnets=pulumi.get(__ret__, 'connected_i_pv4_subnets'),
         connected_i_pv6_subnets=pulumi.get(__ret__, 'connected_i_pv6_subnets'),
-        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
+        egress_acl_id=pulumi.get(__ret__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__ret__, 'export_route_policy'),
         export_route_policy_id=pulumi.get(__ret__, 'export_route_policy_id'),
+        extension=pulumi.get(__ret__, 'extension'),
         id=pulumi.get(__ret__, 'id'),
+        import_route_policy=pulumi.get(__ret__, 'import_route_policy'),
         import_route_policy_id=pulumi.get(__ret__, 'import_route_policy_id'),
+        ingress_acl_id=pulumi.get(__ret__, 'ingress_acl_id'),
+        is_monitoring_enabled=pulumi.get(__ret__, 'is_monitoring_enabled'),
         mtu=pulumi.get(__ret__, 'mtu'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -314,13 +351,11 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternalNetworkResult]:
     """
     Gets a InternalNetworks.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str internal_network_name: Name of the InternalNetwork
-    :param str l3_isolation_domain_name: Name of the L3IsolationDomain
+    :param str internal_network_name: Name of the Internal Network.
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -332,16 +367,19 @@ def get_internal_network_output(internal_network_name: Optional[pulumi.Input[str
     return __ret__.apply(lambda __response__: GetInternalNetworkResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
-        bfd_disabled_on_resources=pulumi.get(__response__, 'bfd_disabled_on_resources'),
-        bfd_for_static_routes_disabled_on_resources=pulumi.get(__response__, 'bfd_for_static_routes_disabled_on_resources'),
         bgp_configuration=pulumi.get(__response__, 'bgp_configuration'),
-        bgp_disabled_on_resources=pulumi.get(__response__, 'bgp_disabled_on_resources'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         connected_i_pv4_subnets=pulumi.get(__response__, 'connected_i_pv4_subnets'),
         connected_i_pv6_subnets=pulumi.get(__response__, 'connected_i_pv6_subnets'),
-        disabled_on_resources=pulumi.get(__response__, 'disabled_on_resources'),
+        egress_acl_id=pulumi.get(__response__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
         export_route_policy_id=pulumi.get(__response__, 'export_route_policy_id'),
+        extension=pulumi.get(__response__, 'extension'),
         id=pulumi.get(__response__, 'id'),
+        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
         import_route_policy_id=pulumi.get(__response__, 'import_route_policy_id'),
+        ingress_acl_id=pulumi.get(__response__, 'ingress_acl_id'),
+        is_monitoring_enabled=pulumi.get(__response__, 'is_monitoring_enabled'),
         mtu=pulumi.get(__response__, 'mtu'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.HealthcareApis.Inputs
         [Input("authority")]
         public Input<string>? Authority { get; set; }
 
+        [Input("smartIdentityProviders")]
+        private InputList<Inputs.SmartIdentityProviderConfigurationArgs>? _smartIdentityProviders;
+
+        /// <summary>
+        /// The array of identity provider configurations for SMART on FHIR authentication.
+        /// </summary>
+        public InputList<Inputs.SmartIdentityProviderConfigurationArgs> SmartIdentityProviders
+        {
+            get => _smartIdentityProviders ?? (_smartIdentityProviders = new InputList<Inputs.SmartIdentityProviderConfigurationArgs>());
+            set => _smartIdentityProviders = value;
+        }
+
         /// <summary>
         /// If the SMART on FHIR proxy is enabled
         /// </summary>

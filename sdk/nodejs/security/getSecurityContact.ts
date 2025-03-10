@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Default Security contact configurations for the subscription
- * Azure REST API version: 2020-01-01-preview.
- *
- * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview.
  */
 export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,10 +30,6 @@ export interface GetSecurityContactArgs {
  */
 export interface GetSecurityContactResult {
     /**
-     * Defines whether to send email notifications about new security alerts
-     */
-    readonly alertNotifications?: outputs.security.SecurityContactPropertiesResponseAlertNotifications;
-    /**
      * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
     readonly emails?: string;
@@ -44,6 +38,10 @@ export interface GetSecurityContactResult {
      */
     readonly id: string;
     /**
+     * Indicates whether the security contact is enabled.
+     */
+    readonly isEnabled?: boolean;
+    /**
      * Resource name
      */
     readonly name: string;
@@ -51,6 +49,10 @@ export interface GetSecurityContactResult {
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
     readonly notificationsByRole?: outputs.security.SecurityContactPropertiesResponseNotificationsByRole;
+    /**
+     * A collection of sources types which evaluate the email notification.
+     */
+    readonly notificationsSources?: (outputs.security.NotificationsSourceAlertResponse | outputs.security.NotificationsSourceAttackPathResponse)[];
     /**
      * The security contact's phone number
      */
@@ -62,9 +64,7 @@ export interface GetSecurityContactResult {
 }
 /**
  * Get Default Security contact configurations for the subscription
- * Azure REST API version: 2020-01-01-preview.
- *
- * Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview.
  */
 export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

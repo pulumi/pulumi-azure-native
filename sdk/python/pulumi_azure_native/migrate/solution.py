@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['SolutionArgs', 'Solution']
@@ -101,7 +100,7 @@ class Solution(pulumi.CustomResource):
                  __props__=None):
         """
         Solution REST Resource.
-        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +117,7 @@ class Solution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Solution REST Resource.
-        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+        Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +158,7 @@ class Solution(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:Solution"), pulumi.Alias(type_="azure-native:migrate/v20230101:Solution")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180901preview:Solution"), pulumi.Alias(type_="azure-native:migrate/v20230101:Solution"), pulumi.Alias(type_="azure-native:migrate/v20230101:SolutionsControllerSolution"), pulumi.Alias(type_="azure-native:migrate:SolutionsControllerSolution")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Solution, __self__).__init__(
             'azure-native:migrate:Solution',

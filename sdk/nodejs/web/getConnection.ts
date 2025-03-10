@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a specific connection
  * Azure REST API version: 2016-06-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,8 +68,6 @@ export interface GetConnectionResult {
 /**
  * Get a specific connection
  * Azure REST API version: 2016-06-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

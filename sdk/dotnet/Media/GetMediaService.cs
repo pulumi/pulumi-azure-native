@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Media Services account
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2015-10-01.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Media Services account
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2015-10-01.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Get the details of a Media Services account
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2015-10-01.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());

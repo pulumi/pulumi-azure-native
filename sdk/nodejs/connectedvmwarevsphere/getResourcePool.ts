@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements resourcePool GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getResourcePool(args: GetResourcePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,10 +35,18 @@ export interface GetResourcePoolArgs {
  */
 export interface GetResourcePoolResult {
     /**
+     * Gets the max CPU usage across all cores on the pool in MHz.
+     */
+    readonly cpuCapacityMHz: number;
+    /**
      * Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
      * Utilization will not exceed this limit even if there are available resources.
      */
     readonly cpuLimitMHz: number;
+    /**
+     * Gets the used CPU usage across all cores on the pool in MHz.
+     */
+    readonly cpuOverallUsageMHz: number;
     /**
      * Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
      * to be available.
@@ -56,7 +62,7 @@ export interface GetResourcePoolResult {
      */
     readonly customResourceName: string;
     /**
-     * Gets or sets the datastore ARM ids.
+     * Gets the datastore ARM ids.
      */
     readonly datastoreIds: string[];
     /**
@@ -80,10 +86,18 @@ export interface GetResourcePoolResult {
      */
     readonly location: string;
     /**
+     * Gets the total amount of physical memory on the pool in GB.
+     */
+    readonly memCapacityGB: number;
+    /**
      * Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
      * Utilization will not exceed the specified limit even if there are available resources.
      */
     readonly memLimitMB: number;
+    /**
+     * Gets the used physical memory on the pool in GB.
+     */
+    readonly memOverallUsageGB: number;
     /**
      * Gets or sets MemReservationMB which specifies the guaranteed available memory in
      * megabytes.
@@ -107,11 +121,11 @@ export interface GetResourcePoolResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the network ARM ids.
+     * Gets the network ARM ids.
      */
     readonly networkIds: string[];
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -141,9 +155,7 @@ export interface GetResourcePoolResult {
 }
 /**
  * Implements resourcePool GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getResourcePoolOutput(args: GetResourcePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -11,25 +11,11 @@ namespace Pulumi.AzureNative.DevHub
 {
     /// <summary>
     /// Resource representation of a workflow
-    /// Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-    /// 
-    /// Other available API versions: 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+    /// Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2022-10-11-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Information on the azure container registry
-        /// </summary>
-        [Output("acr")]
-        public Output<Outputs.ACRResponse?> Acr { get; private set; } = null!;
-
-        /// <summary>
-        /// The Azure Kubernetes Cluster Resource the application will be deployed to.
-        /// </summary>
-        [Output("aksResourceId")]
-        public Output<string?> AksResourceId { get; private set; } = null!;
-
         /// <summary>
         /// The name of the app.
         /// </summary>
@@ -37,37 +23,10 @@ namespace Pulumi.AzureNative.DevHub
         public Output<string?> AppName { get; private set; } = null!;
 
         /// <summary>
-        /// Determines the authorization status of requests.
-        /// </summary>
-        [Output("authStatus")]
-        public Output<string> AuthStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Repository Branch Name
-        /// </summary>
-        [Output("branchName")]
-        public Output<string?> BranchName { get; private set; } = null!;
-
-        /// <summary>
         /// The version of the language image used for building the code in the generated dockerfile.
         /// </summary>
         [Output("builderVersion")]
         public Output<string?> BuilderVersion { get; private set; } = null!;
-
-        [Output("deploymentProperties")]
-        public Output<Outputs.DeploymentPropertiesResponse?> DeploymentProperties { get; private set; } = null!;
-
-        /// <summary>
-        /// Path to Dockerfile Build Context within the repository.
-        /// </summary>
-        [Output("dockerBuildContext")]
-        public Output<string?> DockerBuildContext { get; private set; } = null!;
-
-        /// <summary>
-        /// Path to the Dockerfile within the repository.
-        /// </summary>
-        [Output("dockerfile")]
-        public Output<string?> Dockerfile { get; private set; } = null!;
 
         /// <summary>
         /// The mode of generation to be used for generating Dockerfiles.
@@ -88,6 +47,12 @@ namespace Pulumi.AzureNative.DevHub
         public Output<string?> GenerationLanguage { get; private set; } = null!;
 
         /// <summary>
+        /// Profile of a github workflow.
+        /// </summary>
+        [Output("githubWorkflowProfile")]
+        public Output<Outputs.GitHubWorkflowProfileResponse?> GithubWorkflowProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the image to be generated.
         /// </summary>
         [Output("imageName")]
@@ -104,9 +69,6 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Output("languageVersion")]
         public Output<string?> LanguageVersion { get; private set; } = null!;
-
-        [Output("lastWorkflowRun")]
-        public Output<Outputs.WorkflowRunResponse?> LastWorkflowRun { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -139,52 +101,16 @@ namespace Pulumi.AzureNative.DevHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Kubernetes namespace the application is deployed to.
+        /// The namespace to deploy the application to.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
-
-        /// <summary>
-        /// The fields needed for OIDC with GitHub.
-        /// </summary>
-        [Output("oidcCredentials")]
-        public Output<Outputs.GitHubWorkflowProfileResponseOidcCredentials?> OidcCredentials { get; private set; } = null!;
 
         /// <summary>
         /// The port the application is exposed on.
         /// </summary>
         [Output("port")]
         public Output<string?> Port { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of the Pull Request submitted against the users repository.
-        /// </summary>
-        [Output("prStatus")]
-        public Output<string> PrStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// The URL to the Pull Request submitted against the users repository.
-        /// </summary>
-        [Output("prURL")]
-        public Output<string> PrURL { get; private set; } = null!;
-
-        /// <summary>
-        /// The number associated with the submitted pull request.
-        /// </summary>
-        [Output("pullNumber")]
-        public Output<int> PullNumber { get; private set; } = null!;
-
-        /// <summary>
-        /// Repository Name
-        /// </summary>
-        [Output("repositoryName")]
-        public Output<string?> RepositoryName { get; private set; } = null!;
-
-        /// <summary>
-        /// Repository Owner
-        /// </summary>
-        [Output("repositoryOwner")]
-        public Output<string?> RepositoryOwner { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -258,49 +184,16 @@ namespace Pulumi.AzureNative.DevHub
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information on the azure container registry
-        /// </summary>
-        [Input("acr")]
-        public Input<Inputs.ACRArgs>? Acr { get; set; }
-
-        /// <summary>
-        /// The Azure Kubernetes Cluster Resource the application will be deployed to.
-        /// </summary>
-        [Input("aksResourceId")]
-        public Input<string>? AksResourceId { get; set; }
-
-        /// <summary>
         /// The name of the app.
         /// </summary>
         [Input("appName")]
         public Input<string>? AppName { get; set; }
 
         /// <summary>
-        /// Repository Branch Name
-        /// </summary>
-        [Input("branchName")]
-        public Input<string>? BranchName { get; set; }
-
-        /// <summary>
         /// The version of the language image used for building the code in the generated dockerfile.
         /// </summary>
         [Input("builderVersion")]
         public Input<string>? BuilderVersion { get; set; }
-
-        [Input("deploymentProperties")]
-        public Input<Inputs.DeploymentPropertiesArgs>? DeploymentProperties { get; set; }
-
-        /// <summary>
-        /// Path to Dockerfile Build Context within the repository.
-        /// </summary>
-        [Input("dockerBuildContext")]
-        public Input<string>? DockerBuildContext { get; set; }
-
-        /// <summary>
-        /// Path to the Dockerfile within the repository.
-        /// </summary>
-        [Input("dockerfile")]
-        public Input<string>? Dockerfile { get; set; }
 
         /// <summary>
         /// The mode of generation to be used for generating Dockerfiles.
@@ -321,6 +214,12 @@ namespace Pulumi.AzureNative.DevHub
         public InputUnion<string, Pulumi.AzureNative.DevHub.GenerationLanguage>? GenerationLanguage { get; set; }
 
         /// <summary>
+        /// Profile of a github workflow.
+        /// </summary>
+        [Input("githubWorkflowProfile")]
+        public Input<Inputs.GitHubWorkflowProfileArgs>? GithubWorkflowProfile { get; set; }
+
+        /// <summary>
         /// The name of the image to be generated.
         /// </summary>
         [Input("imageName")]
@@ -337,9 +236,6 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Input("languageVersion")]
         public Input<string>? LanguageVersion { get; set; }
-
-        [Input("lastWorkflowRun")]
-        public Input<Inputs.WorkflowRunArgs>? LastWorkflowRun { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -366,34 +262,16 @@ namespace Pulumi.AzureNative.DevHub
         public InputUnion<string, Pulumi.AzureNative.DevHub.GenerationManifestType>? ManifestType { get; set; }
 
         /// <summary>
-        /// Kubernetes namespace the application is deployed to.
+        /// The namespace to deploy the application to.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
-
-        /// <summary>
-        /// The fields needed for OIDC with GitHub.
-        /// </summary>
-        [Input("oidcCredentials")]
-        public Input<Inputs.GitHubWorkflowProfileOidcCredentialsArgs>? OidcCredentials { get; set; }
 
         /// <summary>
         /// The port the application is exposed on.
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
-
-        /// <summary>
-        /// Repository Name
-        /// </summary>
-        [Input("repositoryName")]
-        public Input<string>? RepositoryName { get; set; }
-
-        /// <summary>
-        /// Repository Owner
-        /// </summary>
-        [Input("repositoryOwner")]
-        public Input<string>? RepositoryOwner { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +47,11 @@ export interface GetTopicResult {
      */
     readonly endpoint: string;
     /**
+     * Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+     * subscriber to view different types of events that are published.
+     */
+    readonly eventTypeInfo?: outputs.eventgrid.EventTypeInfoResponse;
+    /**
      * Fully qualified identifier of the resource.
      */
     readonly id: string;
@@ -77,9 +80,16 @@ export interface GetTopicResult {
      */
     readonly metricResourceId: string;
     /**
+     * Minimum TLS version of the publisher allowed to publish to this topic
+     */
+    readonly minimumTlsVersionAllowed?: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections.
+     */
     readonly privateEndpointConnections: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the topic.
@@ -91,7 +101,7 @@ export interface GetTopicResult {
      */
     readonly publicNetworkAccess?: string;
     /**
-     * The system metadata relating to Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -105,9 +115,7 @@ export interface GetTopicResult {
 }
 /**
  * Get properties of a topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

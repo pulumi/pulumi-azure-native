@@ -118,8 +118,6 @@ def get_private_endpoint_connection_controller_private_endpoint_connection(migra
     Get the private endpoint with the specified name.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2023-01-01.
-
 
     :param str migrate_project_name: Migrate project name.
     :param str pe_connection_name: Private endpoint connection name.
@@ -146,8 +144,6 @@ def get_private_endpoint_connection_controller_private_endpoint_connection_outpu
     """
     Get the private endpoint with the specified name.
     Azure REST API version: 2020-05-01.
-
-    Other available API versions: 2023-01-01.
 
 
     :param str migrate_project_name: Migrate project name.

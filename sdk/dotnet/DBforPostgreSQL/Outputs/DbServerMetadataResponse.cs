@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// SKU for the database server
+        /// SKU for the database server. This object is empty for PG single server
         /// </summary>
         public readonly Outputs.ServerSkuResponse? Sku;
         /// <summary>

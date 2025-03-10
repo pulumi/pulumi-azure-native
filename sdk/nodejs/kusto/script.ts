@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database script.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class Script extends pulumi.CustomResource {
     /**
@@ -53,9 +51,17 @@ export class Script extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Indicates if the permissions for the script caller are kept following completion of the script.
+     */
+    public readonly principalPermissionsAction!: pulumi.Output<string | undefined>;
+    /**
      * The provisioned state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+     */
+    public readonly scriptLevel!: pulumi.Output<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
@@ -93,8 +99,10 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["continueOnErrors"] = (args ? args.continueOnErrors : undefined) ?? false;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["principalPermissionsAction"] = args ? args.principalPermissionsAction : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
+            resourceInputs["scriptLevel"] = args ? args.scriptLevel : undefined;
             resourceInputs["scriptName"] = args ? args.scriptName : undefined;
             resourceInputs["scriptUrl"] = args ? args.scriptUrl : undefined;
             resourceInputs["scriptUrlSasToken"] = args ? args.scriptUrlSasToken : undefined;
@@ -106,7 +114,9 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["continueOnErrors"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalPermissionsAction"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scriptLevel"] = undefined /*out*/;
             resourceInputs["scriptUrl"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -139,13 +149,21 @@ export interface ScriptArgs {
      */
     forceUpdateTag?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * Indicates if the permissions for the script caller are kept following completion of the script.
+     */
+    principalPermissionsAction?: pulumi.Input<string | enums.kusto.PrincipalPermissionsAction>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
      */
     scriptContent?: pulumi.Input<string>;
+    /**
+     * Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+     */
+    scriptLevel?: pulumi.Input<string | enums.kusto.ScriptLevel>;
     /**
      * The name of the Kusto database script.
      */

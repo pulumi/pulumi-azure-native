@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Retrieves information about a virtual machine instance.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetVirtualMachineInstanceResult> InvokeAsync(GetVirtualMachineInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineInstanceResult>("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a virtual machine instance.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a virtual machine instance.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:connectedvmwarevsphere:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());

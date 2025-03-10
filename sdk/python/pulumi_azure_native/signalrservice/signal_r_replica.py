@@ -25,7 +25,9 @@ class SignalRReplicaArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  replica_name: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -33,7 +35,12 @@ class SignalRReplicaArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
         :param pulumi.Input[str] replica_name: The name of the replica.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "false".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -41,8 +48,16 @@ class SignalRReplicaArgs:
         pulumi.set(__self__, "resource_name", resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if region_endpoint_enabled is None:
+            region_endpoint_enabled = 'Enabled'
+        if region_endpoint_enabled is not None:
+            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if replica_name is not None:
             pulumi.set(__self__, "replica_name", replica_name)
+        if resource_stopped is None:
+            resource_stopped = 'false'
+        if resource_stopped is not None:
+            pulumi.set(__self__, "resource_stopped", resource_stopped)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -85,6 +100,19 @@ class SignalRReplicaArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @region_endpoint_enabled.setter
+    def region_endpoint_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_endpoint_enabled", value)
+
+    @property
     @pulumi.getter(name="replicaName")
     def replica_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -95,6 +123,20 @@ class SignalRReplicaArgs:
     @replica_name.setter
     def replica_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replica_name", value)
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[pulumi.Input[str]]:
+        """
+        Stop or start the resource.  Default to "false".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
+
+    @resource_stopped.setter
+    def resource_stopped(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_stopped", value)
 
     @property
     @pulumi.getter
@@ -127,24 +169,29 @@ class SignalRReplica(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  replica_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A class represent a replica resource.
-        Azure REST API version: 2023-03-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
+               When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
         :param pulumi.Input[str] replica_name: The name of the replica.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource.
+        :param pulumi.Input[str] resource_stopped: Stop or start the resource.  Default to "false".
+               When it's true, the data plane of the resource is shutdown.
+               When it's false, the data plane of the resource is started.
         :param pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -156,9 +203,7 @@ class SignalRReplica(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a replica resource.
-        Azure REST API version: 2023-03-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SignalRReplicaArgs args: The arguments to use to populate this resource's properties.
@@ -176,9 +221,11 @@ class SignalRReplica(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[str]] = None,
                  replica_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
+                 resource_stopped: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -191,6 +238,9 @@ class SignalRReplica(pulumi.CustomResource):
             __props__ = SignalRReplicaArgs.__new__(SignalRReplicaArgs)
 
             __props__.__dict__["location"] = location
+            if region_endpoint_enabled is None:
+                region_endpoint_enabled = 'Enabled'
+            __props__.__dict__["region_endpoint_enabled"] = region_endpoint_enabled
             __props__.__dict__["replica_name"] = replica_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -198,6 +248,9 @@ class SignalRReplica(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            if resource_stopped is None:
+                resource_stopped = 'false'
+            __props__.__dict__["resource_stopped"] = resource_stopped
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
@@ -231,6 +284,8 @@ class SignalRReplica(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["region_endpoint_enabled"] = None
+        __props__.__dict__["resource_stopped"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -260,6 +315,25 @@ class SignalRReplica(pulumi.CustomResource):
         Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> pulumi.Output[Optional[str]]:
+        """
+        Stop or start the resource.  Default to "false".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
 
     @property
     @pulumi.getter

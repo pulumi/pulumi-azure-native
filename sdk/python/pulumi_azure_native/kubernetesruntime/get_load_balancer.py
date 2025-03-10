@@ -153,8 +153,6 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
     Get a LoadBalancer
     Azure REST API version: 2024-03-01.
 
-    Other available API versions: 2023-10-01-preview.
-
 
     :param str load_balancer_name: The name of the LoadBalancer
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
@@ -181,8 +179,6 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     """
     Get a LoadBalancer
     Azure REST API version: 2024-03-01.
-
-    Other available API versions: 2023-10-01-preview.
 
 
     :param str load_balancer_name: The name of the LoadBalancer

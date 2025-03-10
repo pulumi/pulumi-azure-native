@@ -27,7 +27,7 @@ class GetDevBoxDefinitionResult:
     """
     Represents a definition for a Developer Machine.
     """
-    def __init__(__self__, active_image_reference=None, hibernate_support=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, active_image_reference=None, hibernate_support=None, id=None, image_reference=None, image_validation_error_details=None, image_validation_status=None, location=None, name=None, os_storage_type=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, validation_status=None):
         if active_image_reference and not isinstance(active_image_reference, dict):
             raise TypeError("Expected argument 'active_image_reference' to be a dict")
         pulumi.set(__self__, "active_image_reference", active_image_reference)
@@ -70,6 +70,9 @@ class GetDevBoxDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if validation_status and not isinstance(validation_status, str):
+            raise TypeError("Expected argument 'validation_status' to be a str")
+        pulumi.set(__self__, "validation_status", validation_status)
 
     @property
     @pulumi.getter(name="activeImageReference")
@@ -91,7 +94,7 @@ class GetDevBoxDefinitionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -183,6 +186,14 @@ class GetDevBoxDefinitionResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="validationStatus")
+    def validation_status(self) -> str:
+        """
+        Validation status for the Dev Box Definition.
+        """
+        return pulumi.get(self, "validation_status")
+
 
 class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
     # pylint: disable=using-constant-test
@@ -203,7 +214,8 @@ class AwaitableGetDevBoxDefinitionResult(GetDevBoxDefinitionResult):
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            validation_status=self.validation_status)
 
 
 def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
@@ -212,9 +224,7 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevBoxDefinitionResult:
     """
     Gets a Dev Box definition
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -242,16 +252,15 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        validation_status=pulumi.get(__ret__, 'validation_status'))
 def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                                   dev_center_name: Optional[pulumi.Input[str]] = None,
                                   resource_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevBoxDefinitionResult]:
     """
     Gets a Dev Box definition
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str dev_box_definition_name: The name of the Dev Box definition.
@@ -278,4 +287,5 @@ def get_dev_box_definition_output(dev_box_definition_name: Optional[pulumi.Input
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        validation_status=pulumi.get(__response__, 'validation_status')))

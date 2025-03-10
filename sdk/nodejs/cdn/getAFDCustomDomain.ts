@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,9 +95,7 @@ export interface GetAFDCustomDomainResult {
 }
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDeploymentResult> InvokeAsync(GetDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
-        /// Azure REST API version: 2022-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("azure-native:azuresphere:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());

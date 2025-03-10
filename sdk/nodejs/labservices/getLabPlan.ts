@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of a Lab Plan.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetLabPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +75,10 @@ export interface GetLabPlanResult {
      */
     readonly provisioningState: string;
     /**
+     * Error details of last operation done on lab plan.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
+    /**
      * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
      */
     readonly sharedGalleryId?: string;
@@ -99,9 +101,7 @@ export interface GetLabPlanResult {
 }
 /**
  * Retrieves the properties of a Lab Plan.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

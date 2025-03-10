@@ -11,19 +11,11 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Fhir Service
-    /// Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
-    /// 
-    /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+    /// Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:FhirService")]
     public partial class FhirService : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Fhir Service access policies.
-        /// </summary>
-        [Output("accessPolicies")]
-        public Output<ImmutableArray<Outputs.FhirServiceAccessPolicyEntryResponse>> AccessPolicies { get; private set; } = null!;
-
         /// <summary>
         /// Fhir Service Azure container registry configuration.
         /// </summary>
@@ -41,6 +33,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("corsConfiguration")]
         public Output<Outputs.FhirServiceCorsConfigurationResponse?> CorsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption settings of the FHIR service
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -199,18 +197,6 @@ namespace Pulumi.AzureNative.HealthcareApis
 
     public sealed class FhirServiceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("accessPolicies")]
-        private InputList<Inputs.FhirServiceAccessPolicyEntryArgs>? _accessPolicies;
-
-        /// <summary>
-        /// Fhir Service access policies.
-        /// </summary>
-        public InputList<Inputs.FhirServiceAccessPolicyEntryArgs> AccessPolicies
-        {
-            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.FhirServiceAccessPolicyEntryArgs>());
-            set => _accessPolicies = value;
-        }
-
         /// <summary>
         /// Fhir Service Azure container registry configuration.
         /// </summary>
@@ -228,6 +214,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Input("corsConfiguration")]
         public Input<Inputs.FhirServiceCorsConfigurationArgs>? CorsConfiguration { get; set; }
+
+        /// <summary>
+        /// The encryption settings of the FHIR service
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// Fhir Service export configuration.

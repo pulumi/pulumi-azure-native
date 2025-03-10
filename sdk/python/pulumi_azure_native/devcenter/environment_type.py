@@ -22,17 +22,21 @@ class EnvironmentTypeArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentType resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] display_name: The display name of the environment type.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if environment_type_name is not None:
             pulumi.set(__self__, "environment_type_name", environment_type_name)
         if tags is not None:
@@ -61,6 +65,18 @@ class EnvironmentTypeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the environment type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter(name="environmentTypeName")
@@ -93,19 +109,19 @@ class EnvironmentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents an environment type.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
+        :param pulumi.Input[str] display_name: The display name of the environment type.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -118,9 +134,7 @@ class EnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param EnvironmentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -138,6 +152,7 @@ class EnvironmentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -153,6 +168,7 @@ class EnvironmentType(pulumi.CustomResource):
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
+            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["environment_type_name"] = environment_type_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -186,12 +202,21 @@ class EnvironmentType(pulumi.CustomResource):
 
         __props__ = EnvironmentTypeArgs.__new__(EnvironmentTypeArgs)
 
+        __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return EnvironmentType(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the environment type.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified authorization from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRouteCircuitAuthorizationResult> InvokeAsync(GetExpressRouteCircuitAuthorizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteCircuitAuthorizationResult>("azure-native:network:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified authorization from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitAuthorizationResult> Invoke(GetExpressRouteCircuitAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitAuthorizationResult>("azure-native:network:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified authorization from the specified express route circuit.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteCircuitAuthorizationResult> Invoke(GetExpressRouteCircuitAuthorizationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteCircuitAuthorizationResult>("azure-native:network:getExpressRouteCircuitAuthorization", args ?? new GetExpressRouteCircuitAuthorizationInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AuthorizationUseStatus;
         /// <summary>
+        /// The reference to the ExpressRoute connection resource using the authorization.
+        /// </summary>
+        public readonly string ConnectionResourceUri;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Network
 
             string? authorizationUseStatus,
 
+            string connectionResourceUri,
+
             string etag,
 
             string? id,
@@ -143,6 +143,7 @@ namespace Pulumi.AzureNative.Network
         {
             AuthorizationKey = authorizationKey;
             AuthorizationUseStatus = authorizationUseStatus;
+            ConnectionResourceUri = connectionResourceUri;
             Etag = etag;
             Id = id;
             Name = name;

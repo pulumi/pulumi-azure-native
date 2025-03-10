@@ -117,9 +117,7 @@ def get_broker_listener(broker_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerListenerResult:
     """
     Get a BrokerListenerResource
-    Azure REST API version: 2024-07-01-preview.
-
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str broker_name: Name of broker.
@@ -149,9 +147,7 @@ def get_broker_listener_output(broker_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerListenerResult]:
     """
     Get a BrokerListenerResource
-    Azure REST API version: 2024-07-01-preview.
-
-    Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str broker_name: Name of broker.

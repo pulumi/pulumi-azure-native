@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
- * Azure REST API version: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview.
  */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,11 @@ export interface GetDelegatedSubnetServiceDetailsArgs {
  * Represents an instance of a orchestrator.
  */
 export interface GetDelegatedSubnetServiceDetailsResult {
+    /**
+     * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
+     * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
+     */
+    readonly allocationBlockPrefixSize?: number;
     /**
      * Properties of the controller.
      */
@@ -75,9 +78,7 @@ export interface GetDelegatedSubnetServiceDetailsResult {
 }
 /**
  * Gets details about the specified dnc DelegatedSubnet Link.
- * Azure REST API version: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview.
  */
 export function getDelegatedSubnetServiceDetailsOutput(args: GetDelegatedSubnetServiceDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedSubnetServiceDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

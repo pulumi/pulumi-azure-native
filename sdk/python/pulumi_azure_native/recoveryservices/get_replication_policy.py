@@ -104,9 +104,7 @@ def get_replication_policy(policy_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationPolicyResult:
     """
     Gets the details of a replication policy.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str policy_name: Replication policy name.
@@ -132,9 +130,7 @@ def get_replication_policy_output(policy_name: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationPolicyResult]:
     """
     Gets the details of a replication policy.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str policy_name: Replication policy name.

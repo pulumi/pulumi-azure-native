@@ -27,7 +27,10 @@ class GetAddressResult:
     """
     Address Resource.
     """
-    def __init__(__self__, address_validation_status=None, contact_details=None, id=None, location=None, name=None, shipping_address=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, address_classification=None, address_validation_status=None, contact_details=None, id=None, location=None, name=None, provisioning_state=None, shipping_address=None, system_data=None, tags=None, type=None):
+        if address_classification and not isinstance(address_classification, str):
+            raise TypeError("Expected argument 'address_classification' to be a str")
+        pulumi.set(__self__, "address_classification", address_classification)
         if address_validation_status and not isinstance(address_validation_status, str):
             raise TypeError("Expected argument 'address_validation_status' to be a str")
         pulumi.set(__self__, "address_validation_status", address_validation_status)
@@ -43,6 +46,9 @@ class GetAddressResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if shipping_address and not isinstance(shipping_address, dict):
             raise TypeError("Expected argument 'shipping_address' to be a dict")
         pulumi.set(__self__, "shipping_address", shipping_address)
@@ -57,6 +63,14 @@ class GetAddressResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="addressClassification")
+    def address_classification(self) -> Optional[str]:
+        """
+        Type of address based on its usage context.
+        """
+        return pulumi.get(self, "address_classification")
+
+    @property
     @pulumi.getter(name="addressValidationStatus")
     def address_validation_status(self) -> str:
         """
@@ -66,7 +80,7 @@ class GetAddressResult:
 
     @property
     @pulumi.getter(name="contactDetails")
-    def contact_details(self) -> 'outputs.ContactDetailsResponse':
+    def contact_details(self) -> Optional['outputs.ContactDetailsResponse']:
         """
         Contact details for the address.
         """
@@ -76,7 +90,7 @@ class GetAddressResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -97,6 +111,14 @@ class GetAddressResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional['outputs.ShippingAddressResponse']:
         """
@@ -108,7 +130,7 @@ class GetAddressResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Represents resource creation and update time.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -135,11 +157,13 @@ class AwaitableGetAddressResult(GetAddressResult):
         if False:
             yield self
         return GetAddressResult(
+            address_classification=self.address_classification,
             address_validation_status=self.address_validation_status,
             contact_details=self.contact_details,
             id=self.id,
             location=self.location,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             shipping_address=self.shipping_address,
             system_data=self.system_data,
             tags=self.tags,
@@ -151,9 +175,7 @@ def get_address(address_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressResult:
     """
     Get information about the specified address.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
@@ -166,11 +188,13 @@ def get_address(address_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder:getAddress', __args__, opts=opts, typ=GetAddressResult).value
 
     return AwaitableGetAddressResult(
+        address_classification=pulumi.get(__ret__, 'address_classification'),
         address_validation_status=pulumi.get(__ret__, 'address_validation_status'),
         contact_details=pulumi.get(__ret__, 'contact_details'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         shipping_address=pulumi.get(__ret__, 'shipping_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -180,9 +204,7 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddressResult]:
     """
     Get information about the specified address.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
@@ -194,11 +216,13 @@ def get_address_output(address_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:edgeorder:getAddress', __args__, opts=opts, typ=GetAddressResult)
     return __ret__.apply(lambda __response__: GetAddressResult(
+        address_classification=pulumi.get(__response__, 'address_classification'),
         address_validation_status=pulumi.get(__response__, 'address_validation_status'),
         contact_details=pulumi.get(__response__, 'contact_details'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         shipping_address=pulumi.get(__response__, 'shipping_address'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

@@ -8,6 +8,267 @@ using Pulumi;
 namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
+    /// Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessMode : IEquatable<AccessMode>
+    {
+        private readonly string _value;
+
+        private AccessMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessMode Open { get; } = new AccessMode("Open");
+        public static AccessMode PrivateOnly { get; } = new AccessMode("PrivateOnly");
+
+        public static bool operator ==(AccessMode left, AccessMode right) => left.Equals(right);
+        public static bool operator !=(AccessMode left, AccessMode right) => !left.Equals(right);
+
+        public static explicit operator string(AccessMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessMode other && Equals(other);
+        public bool Equals(AccessMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the criteria time aggregation types.
+    /// </summary>
+    [EnumType]
+    public readonly struct AggregationTypeEnum : IEquatable<AggregationTypeEnum>
+    {
+        private readonly string _value;
+
+        private AggregationTypeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AggregationTypeEnum Average { get; } = new AggregationTypeEnum("Average");
+        public static AggregationTypeEnum Count { get; } = new AggregationTypeEnum("Count");
+        public static AggregationTypeEnum Minimum { get; } = new AggregationTypeEnum("Minimum");
+        public static AggregationTypeEnum Maximum { get; } = new AggregationTypeEnum("Maximum");
+        public static AggregationTypeEnum Total { get; } = new AggregationTypeEnum("Total");
+
+        public static bool operator ==(AggregationTypeEnum left, AggregationTypeEnum right) => left.Equals(right);
+        public static bool operator !=(AggregationTypeEnum left, AggregationTypeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(AggregationTypeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AggregationTypeEnum other && Equals(other);
+        public bool Equals(AggregationTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the operator that is used to compare the metric data and the threshold.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComparisonOperationType : IEquatable<ComparisonOperationType>
+    {
+        private readonly string _value;
+
+        private ComparisonOperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComparisonOperationType EqualsValue { get; } = new ComparisonOperationType("Equals");
+        public static ComparisonOperationType NotEquals { get; } = new ComparisonOperationType("NotEquals");
+        public static ComparisonOperationType GreaterThan { get; } = new ComparisonOperationType("GreaterThan");
+        public static ComparisonOperationType GreaterThanOrEqual { get; } = new ComparisonOperationType("GreaterThanOrEqual");
+        public static ComparisonOperationType LessThan { get; } = new ComparisonOperationType("LessThan");
+        public static ComparisonOperationType LessThanOrEqual { get; } = new ComparisonOperationType("LessThanOrEqual");
+
+        public static bool operator ==(ComparisonOperationType left, ComparisonOperationType right) => left.Equals(right);
+        public static bool operator !=(ComparisonOperationType left, ComparisonOperationType right) => !left.Equals(right);
+
+        public static explicit operator string(ComparisonOperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComparisonOperationType other && Equals(other);
+        public bool Equals(ComparisonOperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The criteria operator. Relevant and required only for rules of the kind LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConditionOperator : IEquatable<ConditionOperator>
+    {
+        private readonly string _value;
+
+        private ConditionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConditionOperator EqualsValue { get; } = new ConditionOperator("Equals");
+        public static ConditionOperator GreaterThan { get; } = new ConditionOperator("GreaterThan");
+        public static ConditionOperator GreaterThanOrEqual { get; } = new ConditionOperator("GreaterThanOrEqual");
+        public static ConditionOperator LessThan { get; } = new ConditionOperator("LessThan");
+        public static ConditionOperator LessThanOrEqual { get; } = new ConditionOperator("LessThanOrEqual");
+        public static ConditionOperator GreaterOrLessThan { get; } = new ConditionOperator("GreaterOrLessThan");
+
+        public static bool operator ==(ConditionOperator left, ConditionOperator right) => left.Equals(right);
+        public static bool operator !=(ConditionOperator left, ConditionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ConditionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConditionOperator other && Equals(other);
+        public bool Equals(ConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of threshold criteria
+    /// </summary>
+    [EnumType]
+    public readonly struct CriterionType : IEquatable<CriterionType>
+    {
+        private readonly string _value;
+
+        private CriterionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CriterionType StaticThresholdCriterion { get; } = new CriterionType("StaticThresholdCriterion");
+        public static CriterionType DynamicThresholdCriterion { get; } = new CriterionType("DynamicThresholdCriterion");
+
+        public static bool operator ==(CriterionType left, CriterionType right) => left.Equals(right);
+        public static bool operator !=(CriterionType left, CriterionType right) => !left.Equals(right);
+
+        public static explicit operator string(CriterionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CriterionType other && Equals(other);
+        public bool Equals(CriterionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator for dimension values
+    /// </summary>
+    [EnumType]
+    public readonly struct DimensionOperator : IEquatable<DimensionOperator>
+    {
+        private readonly string _value;
+
+        private DimensionOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DimensionOperator Include { get; } = new DimensionOperator("Include");
+        public static DimensionOperator Exclude { get; } = new DimensionOperator("Exclude");
+
+        public static bool operator ==(DimensionOperator left, DimensionOperator right) => left.Equals(right);
+        public static bool operator !=(DimensionOperator left, DimensionOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DimensionOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DimensionOperator other && Equals(other);
+        public bool Equals(DimensionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator used to compare the metric value against the threshold.
+    /// </summary>
+    [EnumType]
+    public readonly struct DynamicThresholdOperator : IEquatable<DynamicThresholdOperator>
+    {
+        private readonly string _value;
+
+        private DynamicThresholdOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DynamicThresholdOperator GreaterThan { get; } = new DynamicThresholdOperator("GreaterThan");
+        public static DynamicThresholdOperator LessThan { get; } = new DynamicThresholdOperator("LessThan");
+        public static DynamicThresholdOperator GreaterOrLessThan { get; } = new DynamicThresholdOperator("GreaterOrLessThan");
+
+        public static bool operator ==(DynamicThresholdOperator left, DynamicThresholdOperator right) => left.Equals(right);
+        public static bool operator !=(DynamicThresholdOperator left, DynamicThresholdOperator right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicThresholdOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicThresholdOperator other && Equals(other);
+        public bool Equals(DynamicThresholdOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+    /// </summary>
+    [EnumType]
+    public readonly struct DynamicThresholdSensitivity : IEquatable<DynamicThresholdSensitivity>
+    {
+        private readonly string _value;
+
+        private DynamicThresholdSensitivity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DynamicThresholdSensitivity Low { get; } = new DynamicThresholdSensitivity("Low");
+        public static DynamicThresholdSensitivity Medium { get; } = new DynamicThresholdSensitivity("Medium");
+        public static DynamicThresholdSensitivity High { get; } = new DynamicThresholdSensitivity("High");
+
+        public static bool operator ==(DynamicThresholdSensitivity left, DynamicThresholdSensitivity right) => left.Equals(right);
+        public static bool operator !=(DynamicThresholdSensitivity left, DynamicThresholdSensitivity right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicThresholdSensitivity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicThresholdSensitivity other && Equals(other);
+        public bool Equals(DynamicThresholdSensitivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of exporter.
     /// </summary>
     [EnumType]
@@ -115,6 +376,851 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType None { get; } = new IdentityType("None");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The incident management service type
+    /// </summary>
+    [EnumType]
+    public readonly struct IncidentManagementService : IEquatable<IncidentManagementService>
+    {
+        private readonly string _value;
+
+        private IncidentManagementService(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IncidentManagementService Icm { get; } = new IncidentManagementService("Icm");
+
+        public static bool operator ==(IncidentManagementService left, IncidentManagementService right) => left.Equals(right);
+        public static bool operator !=(IncidentManagementService left, IncidentManagementService right) => !left.Equals(right);
+
+        public static explicit operator string(IncidentManagementService value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IncidentManagementService other && Equals(other);
+        public bool Equals(IncidentManagementService other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+    /// </summary>
+    [EnumType]
+    public readonly struct JsonMapperElement : IEquatable<JsonMapperElement>
+    {
+        private readonly string _value;
+
+        private JsonMapperElement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Read or write the json array from or to the body of the message.
+        /// </summary>
+        public static JsonMapperElement Body { get; } = new JsonMapperElement("body");
+        /// <summary>
+        /// Read or write the json array from or to the attributes of the message.
+        /// </summary>
+        public static JsonMapperElement Attributes { get; } = new JsonMapperElement("attributes");
+
+        public static bool operator ==(JsonMapperElement left, JsonMapperElement right) => left.Equals(right);
+        public static bool operator !=(JsonMapperElement left, JsonMapperElement right) => !left.Equals(right);
+
+        public static explicit operator string(JsonMapperElement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JsonMapperElement other && Equals(other);
+        public bool Equals(JsonMapperElement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of scheduled query rule. The default is LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct Kind : IEquatable<Kind>
+    {
+        private readonly string _value;
+
+        private Kind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Kind LogAlert { get; } = new Kind("LogAlert");
+        public static Kind EventLogAlert { get; } = new Kind("EventLogAlert");
+        public static Kind LogToMetric { get; } = new Kind("LogToMetric");
+
+        public static bool operator ==(Kind left, Kind right) => left.Equals(right);
+        public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
+
+        public static explicit operator string(Kind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Kind other && Equals(other);
+        public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the setting. 
+    /// Must be part of the list of supported settings
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownAgentSettingName : IEquatable<KnownAgentSettingName>
+    {
+        private readonly string _value;
+
+        private KnownAgentSettingName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownAgentSettingName MaxDiskQuotaInMB { get; } = new KnownAgentSettingName("MaxDiskQuotaInMB");
+        public static KnownAgentSettingName UseTimeReceivedForForwardedEvents { get; } = new KnownAgentSettingName("UseTimeReceivedForForwardedEvents");
+
+        public static bool operator ==(KnownAgentSettingName left, KnownAgentSettingName right) => left.Equals(right);
+        public static bool operator !=(KnownAgentSettingName left, KnownAgentSettingName right) => !left.Equals(right);
+
+        public static explicit operator string(KnownAgentSettingName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownAgentSettingName other && Equals(other);
+        public bool Equals(KnownAgentSettingName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the column data.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownColumnDefinitionType : IEquatable<KnownColumnDefinitionType>
+    {
+        private readonly string _value;
+
+        private KnownColumnDefinitionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownColumnDefinitionType @String { get; } = new KnownColumnDefinitionType("string");
+        public static KnownColumnDefinitionType @Int { get; } = new KnownColumnDefinitionType("int");
+        public static KnownColumnDefinitionType @Long { get; } = new KnownColumnDefinitionType("long");
+        public static KnownColumnDefinitionType Real { get; } = new KnownColumnDefinitionType("real");
+        public static KnownColumnDefinitionType Boolean { get; } = new KnownColumnDefinitionType("boolean");
+        public static KnownColumnDefinitionType Datetime { get; } = new KnownColumnDefinitionType("datetime");
+        public static KnownColumnDefinitionType @Dynamic { get; } = new KnownColumnDefinitionType("dynamic");
+
+        public static bool operator ==(KnownColumnDefinitionType left, KnownColumnDefinitionType right) => left.Equals(right);
+        public static bool operator !=(KnownColumnDefinitionType left, KnownColumnDefinitionType right) => !left.Equals(right);
+
+        public static explicit operator string(KnownColumnDefinitionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownColumnDefinitionType other && Equals(other);
+        public bool Equals(KnownColumnDefinitionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownDataCollectionEndpointResourceKind : IEquatable<KnownDataCollectionEndpointResourceKind>
+    {
+        private readonly string _value;
+
+        private KnownDataCollectionEndpointResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownDataCollectionEndpointResourceKind Linux { get; } = new KnownDataCollectionEndpointResourceKind("Linux");
+        public static KnownDataCollectionEndpointResourceKind Windows { get; } = new KnownDataCollectionEndpointResourceKind("Windows");
+
+        public static bool operator ==(KnownDataCollectionEndpointResourceKind left, KnownDataCollectionEndpointResourceKind right) => left.Equals(right);
+        public static bool operator !=(KnownDataCollectionEndpointResourceKind left, KnownDataCollectionEndpointResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(KnownDataCollectionEndpointResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownDataCollectionEndpointResourceKind other && Equals(other);
+        public bool Equals(KnownDataCollectionEndpointResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownDataCollectionRuleResourceKind : IEquatable<KnownDataCollectionRuleResourceKind>
+    {
+        private readonly string _value;
+
+        private KnownDataCollectionRuleResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownDataCollectionRuleResourceKind Linux { get; } = new KnownDataCollectionRuleResourceKind("Linux");
+        public static KnownDataCollectionRuleResourceKind Windows { get; } = new KnownDataCollectionRuleResourceKind("Windows");
+
+        public static bool operator ==(KnownDataCollectionRuleResourceKind left, KnownDataCollectionRuleResourceKind right) => left.Equals(right);
+        public static bool operator !=(KnownDataCollectionRuleResourceKind left, KnownDataCollectionRuleResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(KnownDataCollectionRuleResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownDataCollectionRuleResourceKind other && Equals(other);
+        public bool Equals(KnownDataCollectionRuleResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownDataFlowStreams : IEquatable<KnownDataFlowStreams>
+    {
+        private readonly string _value;
+
+        private KnownDataFlowStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownDataFlowStreams Microsoft_Event { get; } = new KnownDataFlowStreams("Microsoft-Event");
+        public static KnownDataFlowStreams Microsoft_InsightsMetrics { get; } = new KnownDataFlowStreams("Microsoft-InsightsMetrics");
+        public static KnownDataFlowStreams Microsoft_Perf { get; } = new KnownDataFlowStreams("Microsoft-Perf");
+        public static KnownDataFlowStreams Microsoft_Syslog { get; } = new KnownDataFlowStreams("Microsoft-Syslog");
+        public static KnownDataFlowStreams Microsoft_WindowsEvent { get; } = new KnownDataFlowStreams("Microsoft-WindowsEvent");
+
+        public static bool operator ==(KnownDataFlowStreams left, KnownDataFlowStreams right) => left.Equals(right);
+        public static bool operator !=(KnownDataFlowStreams left, KnownDataFlowStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownDataFlowStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownDataFlowStreams other && Equals(other);
+        public bool Equals(KnownDataFlowStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownExtensionDataSourceStreams : IEquatable<KnownExtensionDataSourceStreams>
+    {
+        private readonly string _value;
+
+        private KnownExtensionDataSourceStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownExtensionDataSourceStreams Microsoft_Event { get; } = new KnownExtensionDataSourceStreams("Microsoft-Event");
+        public static KnownExtensionDataSourceStreams Microsoft_InsightsMetrics { get; } = new KnownExtensionDataSourceStreams("Microsoft-InsightsMetrics");
+        public static KnownExtensionDataSourceStreams Microsoft_Perf { get; } = new KnownExtensionDataSourceStreams("Microsoft-Perf");
+        public static KnownExtensionDataSourceStreams Microsoft_Syslog { get; } = new KnownExtensionDataSourceStreams("Microsoft-Syslog");
+        public static KnownExtensionDataSourceStreams Microsoft_WindowsEvent { get; } = new KnownExtensionDataSourceStreams("Microsoft-WindowsEvent");
+
+        public static bool operator ==(KnownExtensionDataSourceStreams left, KnownExtensionDataSourceStreams right) => left.Equals(right);
+        public static bool operator !=(KnownExtensionDataSourceStreams left, KnownExtensionDataSourceStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownExtensionDataSourceStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownExtensionDataSourceStreams other && Equals(other);
+        public bool Equals(KnownExtensionDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// One of the supported timestamp formats
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownLogFileTextSettingsRecordStartTimestampFormat : IEquatable<KnownLogFileTextSettingsRecordStartTimestampFormat>
+    {
+        private readonly string _value;
+
+        private KnownLogFileTextSettingsRecordStartTimestampFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat ISO_8601 { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("ISO 8601");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat YYYY_MM_DD_HH_MM_SS { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("YYYY-MM-DD HH:MM:SS");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat M_D_YYYY_HH_MM_SS_AM_PM { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("M/D/YYYY HH:MM:SS AM/PM");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat Mon_DD_YYYY_HH_MM_SS { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("Mon DD, YYYY HH:MM:SS");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat YyMMdd_HH_mm_ss { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("yyMMdd HH:mm:ss");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat DdMMyy_HH_mm_ss { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("ddMMyy HH:mm:ss");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat MMM_d_hh_mm_ss { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("MMM d hh:mm:ss");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat Dd_MMM_yyyy_HH_mm_ss_zzz { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("dd/MMM/yyyy:HH:mm:ss zzz");
+        public static KnownLogFileTextSettingsRecordStartTimestampFormat Yyyy_MM_ddTHH_mm_ssK { get; } = new KnownLogFileTextSettingsRecordStartTimestampFormat("yyyy-MM-ddTHH:mm:ssK");
+
+        public static bool operator ==(KnownLogFileTextSettingsRecordStartTimestampFormat left, KnownLogFileTextSettingsRecordStartTimestampFormat right) => left.Equals(right);
+        public static bool operator !=(KnownLogFileTextSettingsRecordStartTimestampFormat left, KnownLogFileTextSettingsRecordStartTimestampFormat right) => !left.Equals(right);
+
+        public static explicit operator string(KnownLogFileTextSettingsRecordStartTimestampFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownLogFileTextSettingsRecordStartTimestampFormat other && Equals(other);
+        public bool Equals(KnownLogFileTextSettingsRecordStartTimestampFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data format of the log files
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownLogFilesDataSourceFormat : IEquatable<KnownLogFilesDataSourceFormat>
+    {
+        private readonly string _value;
+
+        private KnownLogFilesDataSourceFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownLogFilesDataSourceFormat Json { get; } = new KnownLogFilesDataSourceFormat("json");
+        public static KnownLogFilesDataSourceFormat Text { get; } = new KnownLogFilesDataSourceFormat("text");
+
+        public static bool operator ==(KnownLogFilesDataSourceFormat left, KnownLogFilesDataSourceFormat right) => left.Equals(right);
+        public static bool operator !=(KnownLogFilesDataSourceFormat left, KnownLogFilesDataSourceFormat right) => !left.Equals(right);
+
+        public static explicit operator string(KnownLogFilesDataSourceFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownLogFilesDataSourceFormat other && Equals(other);
+        public bool Equals(KnownLogFilesDataSourceFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownPerfCounterDataSourceStreams : IEquatable<KnownPerfCounterDataSourceStreams>
+    {
+        private readonly string _value;
+
+        private KnownPerfCounterDataSourceStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownPerfCounterDataSourceStreams Microsoft_Perf { get; } = new KnownPerfCounterDataSourceStreams("Microsoft-Perf");
+        public static KnownPerfCounterDataSourceStreams Microsoft_InsightsMetrics { get; } = new KnownPerfCounterDataSourceStreams("Microsoft-InsightsMetrics");
+
+        public static bool operator ==(KnownPerfCounterDataSourceStreams left, KnownPerfCounterDataSourceStreams right) => left.Equals(right);
+        public static bool operator !=(KnownPerfCounterDataSourceStreams left, KnownPerfCounterDataSourceStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownPerfCounterDataSourceStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownPerfCounterDataSourceStreams other && Equals(other);
+        public bool Equals(KnownPerfCounterDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownPrometheusForwarderDataSourceStreams : IEquatable<KnownPrometheusForwarderDataSourceStreams>
+    {
+        private readonly string _value;
+
+        private KnownPrometheusForwarderDataSourceStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownPrometheusForwarderDataSourceStreams Microsoft_PrometheusMetrics { get; } = new KnownPrometheusForwarderDataSourceStreams("Microsoft-PrometheusMetrics");
+
+        public static bool operator ==(KnownPrometheusForwarderDataSourceStreams left, KnownPrometheusForwarderDataSourceStreams right) => left.Equals(right);
+        public static bool operator !=(KnownPrometheusForwarderDataSourceStreams left, KnownPrometheusForwarderDataSourceStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownPrometheusForwarderDataSourceStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownPrometheusForwarderDataSourceStreams other && Equals(other);
+        public bool Equals(KnownPrometheusForwarderDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The configuration to set whether network access from public internet to the endpoints are allowed.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownPublicNetworkAccessOptions : IEquatable<KnownPublicNetworkAccessOptions>
+    {
+        private readonly string _value;
+
+        private KnownPublicNetworkAccessOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownPublicNetworkAccessOptions Enabled { get; } = new KnownPublicNetworkAccessOptions("Enabled");
+        public static KnownPublicNetworkAccessOptions Disabled { get; } = new KnownPublicNetworkAccessOptions("Disabled");
+        public static KnownPublicNetworkAccessOptions SecuredByPerimeter { get; } = new KnownPublicNetworkAccessOptions("SecuredByPerimeter");
+
+        public static bool operator ==(KnownPublicNetworkAccessOptions left, KnownPublicNetworkAccessOptions right) => left.Equals(right);
+        public static bool operator !=(KnownPublicNetworkAccessOptions left, KnownPublicNetworkAccessOptions right) => !left.Equals(right);
+
+        public static explicit operator string(KnownPublicNetworkAccessOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownPublicNetworkAccessOptions other && Equals(other);
+        public bool Equals(KnownPublicNetworkAccessOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of lookup to perform on the blob
+    /// </summary>
+    [EnumType]
+    public readonly struct KnownStorageBlobLookupType : IEquatable<KnownStorageBlobLookupType>
+    {
+        private readonly string _value;
+
+        private KnownStorageBlobLookupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownStorageBlobLookupType String { get; } = new KnownStorageBlobLookupType("String");
+        public static KnownStorageBlobLookupType Cidr { get; } = new KnownStorageBlobLookupType("Cidr");
+
+        public static bool operator ==(KnownStorageBlobLookupType left, KnownStorageBlobLookupType right) => left.Equals(right);
+        public static bool operator !=(KnownStorageBlobLookupType left, KnownStorageBlobLookupType right) => !left.Equals(right);
+
+        public static explicit operator string(KnownStorageBlobLookupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownStorageBlobLookupType other && Equals(other);
+        public bool Equals(KnownStorageBlobLookupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownSyslogDataSourceFacilityNames : IEquatable<KnownSyslogDataSourceFacilityNames>
+    {
+        private readonly string _value;
+
+        private KnownSyslogDataSourceFacilityNames(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownSyslogDataSourceFacilityNames Asterisk { get; } = new KnownSyslogDataSourceFacilityNames("*");
+        public static KnownSyslogDataSourceFacilityNames Alert { get; } = new KnownSyslogDataSourceFacilityNames("alert");
+        public static KnownSyslogDataSourceFacilityNames Audit { get; } = new KnownSyslogDataSourceFacilityNames("audit");
+        public static KnownSyslogDataSourceFacilityNames Auth { get; } = new KnownSyslogDataSourceFacilityNames("auth");
+        public static KnownSyslogDataSourceFacilityNames Authpriv { get; } = new KnownSyslogDataSourceFacilityNames("authpriv");
+        public static KnownSyslogDataSourceFacilityNames Clock { get; } = new KnownSyslogDataSourceFacilityNames("clock");
+        public static KnownSyslogDataSourceFacilityNames Cron { get; } = new KnownSyslogDataSourceFacilityNames("cron");
+        public static KnownSyslogDataSourceFacilityNames Daemon { get; } = new KnownSyslogDataSourceFacilityNames("daemon");
+        public static KnownSyslogDataSourceFacilityNames Ftp { get; } = new KnownSyslogDataSourceFacilityNames("ftp");
+        public static KnownSyslogDataSourceFacilityNames Kern { get; } = new KnownSyslogDataSourceFacilityNames("kern");
+        public static KnownSyslogDataSourceFacilityNames Local0 { get; } = new KnownSyslogDataSourceFacilityNames("local0");
+        public static KnownSyslogDataSourceFacilityNames Local1 { get; } = new KnownSyslogDataSourceFacilityNames("local1");
+        public static KnownSyslogDataSourceFacilityNames Local2 { get; } = new KnownSyslogDataSourceFacilityNames("local2");
+        public static KnownSyslogDataSourceFacilityNames Local3 { get; } = new KnownSyslogDataSourceFacilityNames("local3");
+        public static KnownSyslogDataSourceFacilityNames Local4 { get; } = new KnownSyslogDataSourceFacilityNames("local4");
+        public static KnownSyslogDataSourceFacilityNames Local5 { get; } = new KnownSyslogDataSourceFacilityNames("local5");
+        public static KnownSyslogDataSourceFacilityNames Local6 { get; } = new KnownSyslogDataSourceFacilityNames("local6");
+        public static KnownSyslogDataSourceFacilityNames Local7 { get; } = new KnownSyslogDataSourceFacilityNames("local7");
+        public static KnownSyslogDataSourceFacilityNames Lpr { get; } = new KnownSyslogDataSourceFacilityNames("lpr");
+        public static KnownSyslogDataSourceFacilityNames Mail { get; } = new KnownSyslogDataSourceFacilityNames("mail");
+        public static KnownSyslogDataSourceFacilityNames Mark { get; } = new KnownSyslogDataSourceFacilityNames("mark");
+        public static KnownSyslogDataSourceFacilityNames News { get; } = new KnownSyslogDataSourceFacilityNames("news");
+        public static KnownSyslogDataSourceFacilityNames Nopri { get; } = new KnownSyslogDataSourceFacilityNames("nopri");
+        public static KnownSyslogDataSourceFacilityNames Ntp { get; } = new KnownSyslogDataSourceFacilityNames("ntp");
+        public static KnownSyslogDataSourceFacilityNames Syslog { get; } = new KnownSyslogDataSourceFacilityNames("syslog");
+        public static KnownSyslogDataSourceFacilityNames User { get; } = new KnownSyslogDataSourceFacilityNames("user");
+        public static KnownSyslogDataSourceFacilityNames Uucp { get; } = new KnownSyslogDataSourceFacilityNames("uucp");
+
+        public static bool operator ==(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => left.Equals(right);
+        public static bool operator !=(KnownSyslogDataSourceFacilityNames left, KnownSyslogDataSourceFacilityNames right) => !left.Equals(right);
+
+        public static explicit operator string(KnownSyslogDataSourceFacilityNames value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownSyslogDataSourceFacilityNames other && Equals(other);
+        public bool Equals(KnownSyslogDataSourceFacilityNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownSyslogDataSourceLogLevels : IEquatable<KnownSyslogDataSourceLogLevels>
+    {
+        private readonly string _value;
+
+        private KnownSyslogDataSourceLogLevels(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownSyslogDataSourceLogLevels Debug { get; } = new KnownSyslogDataSourceLogLevels("Debug");
+        public static KnownSyslogDataSourceLogLevels Info { get; } = new KnownSyslogDataSourceLogLevels("Info");
+        public static KnownSyslogDataSourceLogLevels Notice { get; } = new KnownSyslogDataSourceLogLevels("Notice");
+        public static KnownSyslogDataSourceLogLevels Warning { get; } = new KnownSyslogDataSourceLogLevels("Warning");
+        public static KnownSyslogDataSourceLogLevels Error { get; } = new KnownSyslogDataSourceLogLevels("Error");
+        public static KnownSyslogDataSourceLogLevels Critical { get; } = new KnownSyslogDataSourceLogLevels("Critical");
+        public static KnownSyslogDataSourceLogLevels Alert { get; } = new KnownSyslogDataSourceLogLevels("Alert");
+        public static KnownSyslogDataSourceLogLevels Emergency { get; } = new KnownSyslogDataSourceLogLevels("Emergency");
+        public static KnownSyslogDataSourceLogLevels Asterisk { get; } = new KnownSyslogDataSourceLogLevels("*");
+
+        public static bool operator ==(KnownSyslogDataSourceLogLevels left, KnownSyslogDataSourceLogLevels right) => left.Equals(right);
+        public static bool operator !=(KnownSyslogDataSourceLogLevels left, KnownSyslogDataSourceLogLevels right) => !left.Equals(right);
+
+        public static explicit operator string(KnownSyslogDataSourceLogLevels value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownSyslogDataSourceLogLevels other && Equals(other);
+        public bool Equals(KnownSyslogDataSourceLogLevels other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownSyslogDataSourceStreams : IEquatable<KnownSyslogDataSourceStreams>
+    {
+        private readonly string _value;
+
+        private KnownSyslogDataSourceStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownSyslogDataSourceStreams Microsoft_Syslog { get; } = new KnownSyslogDataSourceStreams("Microsoft-Syslog");
+
+        public static bool operator ==(KnownSyslogDataSourceStreams left, KnownSyslogDataSourceStreams right) => left.Equals(right);
+        public static bool operator !=(KnownSyslogDataSourceStreams left, KnownSyslogDataSourceStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownSyslogDataSourceStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownSyslogDataSourceStreams other && Equals(other);
+        public bool Equals(KnownSyslogDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownWindowsEventLogDataSourceStreams : IEquatable<KnownWindowsEventLogDataSourceStreams>
+    {
+        private readonly string _value;
+
+        private KnownWindowsEventLogDataSourceStreams(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownWindowsEventLogDataSourceStreams Microsoft_WindowsEvent { get; } = new KnownWindowsEventLogDataSourceStreams("Microsoft-WindowsEvent");
+        public static KnownWindowsEventLogDataSourceStreams Microsoft_Event { get; } = new KnownWindowsEventLogDataSourceStreams("Microsoft-Event");
+
+        public static bool operator ==(KnownWindowsEventLogDataSourceStreams left, KnownWindowsEventLogDataSourceStreams right) => left.Equals(right);
+        public static bool operator !=(KnownWindowsEventLogDataSourceStreams left, KnownWindowsEventLogDataSourceStreams right) => !left.Equals(right);
+
+        public static explicit operator string(KnownWindowsEventLogDataSourceStreams value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownWindowsEventLogDataSourceStreams other && Equals(other);
+        public bool Equals(KnownWindowsEventLogDataSourceStreams other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnownWindowsFirewallLogsDataSourceProfileFilter : IEquatable<KnownWindowsFirewallLogsDataSourceProfileFilter>
+    {
+        private readonly string _value;
+
+        private KnownWindowsFirewallLogsDataSourceProfileFilter(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Domain { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Domain");
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Private { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Private");
+        public static KnownWindowsFirewallLogsDataSourceProfileFilter Public { get; } = new KnownWindowsFirewallLogsDataSourceProfileFilter("Public");
+
+        public static bool operator ==(KnownWindowsFirewallLogsDataSourceProfileFilter left, KnownWindowsFirewallLogsDataSourceProfileFilter right) => left.Equals(right);
+        public static bool operator !=(KnownWindowsFirewallLogsDataSourceProfileFilter left, KnownWindowsFirewallLogsDataSourceProfileFilter right) => !left.Equals(right);
+
+        public static explicit operator string(KnownWindowsFirewallLogsDataSourceProfileFilter value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnownWindowsFirewallLogsDataSourceProfileFilter other && Equals(other);
+        public bool Equals(KnownWindowsFirewallLogsDataSourceProfileFilter other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the metric statistic type. How the metrics from multiple instances are combined.
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricStatisticType : IEquatable<MetricStatisticType>
+    {
+        private readonly string _value;
+
+        private MetricStatisticType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricStatisticType Average { get; } = new MetricStatisticType("Average");
+        public static MetricStatisticType Min { get; } = new MetricStatisticType("Min");
+        public static MetricStatisticType Max { get; } = new MetricStatisticType("Max");
+        public static MetricStatisticType Sum { get; } = new MetricStatisticType("Sum");
+        public static MetricStatisticType Count { get; } = new MetricStatisticType("Count");
+
+        public static bool operator ==(MetricStatisticType left, MetricStatisticType right) => left.Equals(right);
+        public static bool operator !=(MetricStatisticType left, MetricStatisticType right) => !left.Equals(right);
+
+        public static explicit operator string(MetricStatisticType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricStatisticType other && Equals(other);
+        public bool Equals(MetricStatisticType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// specifies the type of the alert criteria.
+    /// </summary>
+    [EnumType]
+    public readonly struct Odatatype : IEquatable<Odatatype>
+    {
+        private readonly string _value;
+
+        private Odatatype(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Odatatype Microsoft_Azure_Monitor_SingleResourceMultipleMetricCriteria { get; } = new Odatatype("Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria");
+        public static Odatatype Microsoft_Azure_Monitor_MultipleResourceMultipleMetricCriteria { get; } = new Odatatype("Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria");
+        public static Odatatype Microsoft_Azure_Monitor_WebtestLocationAvailabilityCriteria { get; } = new Odatatype("Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria");
+
+        public static bool operator ==(Odatatype left, Odatatype right) => left.Equals(right);
+        public static bool operator !=(Odatatype left, Odatatype right) => !left.Equals(right);
+
+        public static explicit operator string(Odatatype value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Odatatype other && Equals(other);
+        public bool Equals(Odatatype other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the operation associated with the notification and its value must be "scale"
+    /// </summary>
+    [EnumType]
+    public readonly struct OperationType : IEquatable<OperationType>
+    {
+        private readonly string _value;
+
+        private OperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperationType Scale { get; } = new OperationType("Scale");
+
+        public static bool operator ==(OperationType left, OperationType right) => left.Equals(right);
+        public static bool operator !=(OperationType left, OperationType right) => !left.Equals(right);
+
+        public static explicit operator string(OperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperationType other && Equals(other);
+        public bool Equals(OperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the criteria operator.
+    /// </summary>
+    [EnumType]
+    public readonly struct Operator : IEquatable<Operator>
+    {
+        private readonly string _value;
+
+        private Operator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Operator EqualsValue { get; } = new Operator("Equals");
+        public static Operator GreaterThan { get; } = new Operator("GreaterThan");
+        public static Operator GreaterThanOrEqual { get; } = new Operator("GreaterThanOrEqual");
+        public static Operator LessThan { get; } = new Operator("LessThan");
+        public static Operator LessThanOrEqual { get; } = new Operator("LessThanOrEqual");
+
+        public static bool operator ==(Operator left, Operator right) => left.Equals(right);
+        public static bool operator !=(Operator left, Operator right) => !left.Equals(right);
+
+        public static explicit operator string(Operator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Operator other && Equals(other);
+        public bool Equals(Operator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of pipeline
     /// </summary>
     [EnumType]
@@ -130,7 +1236,7 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Pipeline for logs telemetry.
         /// </summary>
-        public static PipelineType Logs { get; } = new PipelineType("logs");
+        public static PipelineType Logs { get; } = new PipelineType("Logs");
 
         public static bool operator ==(PipelineType left, PipelineType right) => left.Equals(right);
         public static bool operator !=(PipelineType left, PipelineType right) => !left.Equals(right);
@@ -140,6 +1246,70 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipelineType other && Equals(other);
         public bool Equals(PipelineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the predictive autoscale mode
+    /// </summary>
+    [EnumType]
+    public readonly struct PredictiveAutoscalePolicyScaleMode : IEquatable<PredictiveAutoscalePolicyScaleMode>
+    {
+        private readonly string _value;
+
+        private PredictiveAutoscalePolicyScaleMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PredictiveAutoscalePolicyScaleMode Disabled { get; } = new PredictiveAutoscalePolicyScaleMode("Disabled");
+        public static PredictiveAutoscalePolicyScaleMode ForecastOnly { get; } = new PredictiveAutoscalePolicyScaleMode("ForecastOnly");
+        public static PredictiveAutoscalePolicyScaleMode Enabled { get; } = new PredictiveAutoscalePolicyScaleMode("Enabled");
+
+        public static bool operator ==(PredictiveAutoscalePolicyScaleMode left, PredictiveAutoscalePolicyScaleMode right) => left.Equals(right);
+        public static bool operator !=(PredictiveAutoscalePolicyScaleMode left, PredictiveAutoscalePolicyScaleMode right) => !left.Equals(right);
+
+        public static explicit operator string(PredictiveAutoscalePolicyScaleMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PredictiveAutoscalePolicyScaleMode other && Equals(other);
+        public bool Equals(PredictiveAutoscalePolicyScaleMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -173,37 +1343,6 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProcessorType other && Equals(other);
         public bool Equals(ProcessorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
-    /// </summary>
-    [EnumType]
-    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
-    {
-        private readonly string _value;
-
-        private PublicNetworkAccess(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
-        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
-
-        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
-
-        public static explicit operator string(PublicNetworkAccess value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
-        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -253,6 +1392,170 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReceiverType other && Equals(other);
         public bool Equals(ReceiverType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+    /// </summary>
+    [EnumType]
+    public readonly struct RecurrenceFrequency : IEquatable<RecurrenceFrequency>
+    {
+        private readonly string _value;
+
+        private RecurrenceFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecurrenceFrequency None { get; } = new RecurrenceFrequency("None");
+        public static RecurrenceFrequency Second { get; } = new RecurrenceFrequency("Second");
+        public static RecurrenceFrequency Minute { get; } = new RecurrenceFrequency("Minute");
+        public static RecurrenceFrequency Hour { get; } = new RecurrenceFrequency("Hour");
+        public static RecurrenceFrequency Day { get; } = new RecurrenceFrequency("Day");
+        public static RecurrenceFrequency Week { get; } = new RecurrenceFrequency("Week");
+        public static RecurrenceFrequency Month { get; } = new RecurrenceFrequency("Month");
+        public static RecurrenceFrequency Year { get; } = new RecurrenceFrequency("Year");
+
+        public static bool operator ==(RecurrenceFrequency left, RecurrenceFrequency right) => left.Equals(right);
+        public static bool operator !=(RecurrenceFrequency left, RecurrenceFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(RecurrenceFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecurrenceFrequency other && Equals(other);
+        public bool Equals(RecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the scale direction. Whether the scaling action increases or decreases the number of instances.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScaleDirection : IEquatable<ScaleDirection>
+    {
+        private readonly string _value;
+
+        private ScaleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScaleDirection None { get; } = new ScaleDirection("None");
+        public static ScaleDirection Increase { get; } = new ScaleDirection("Increase");
+        public static ScaleDirection Decrease { get; } = new ScaleDirection("Decrease");
+
+        public static bool operator ==(ScaleDirection left, ScaleDirection right) => left.Equals(right);
+        public static bool operator !=(ScaleDirection left, ScaleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(ScaleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScaleDirection other && Equals(other);
+        public bool Equals(ScaleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+    /// </summary>
+    [EnumType]
+    public readonly struct ScaleRuleMetricDimensionOperationType : IEquatable<ScaleRuleMetricDimensionOperationType>
+    {
+        private readonly string _value;
+
+        private ScaleRuleMetricDimensionOperationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScaleRuleMetricDimensionOperationType EqualsValue { get; } = new ScaleRuleMetricDimensionOperationType("Equals");
+        public static ScaleRuleMetricDimensionOperationType NotEquals { get; } = new ScaleRuleMetricDimensionOperationType("NotEquals");
+
+        public static bool operator ==(ScaleRuleMetricDimensionOperationType left, ScaleRuleMetricDimensionOperationType right) => left.Equals(right);
+        public static bool operator !=(ScaleRuleMetricDimensionOperationType left, ScaleRuleMetricDimensionOperationType right) => !left.Equals(right);
+
+        public static explicit operator string(ScaleRuleMetricDimensionOperationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScaleRuleMetricDimensionOperationType other && Equals(other);
+        public bool Equals(ScaleRuleMetricDimensionOperationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// the type of action that should occur when the scale rule fires.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScaleType : IEquatable<ScaleType>
+    {
+        private readonly string _value;
+
+        private ScaleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScaleType ChangeCount { get; } = new ScaleType("ChangeCount");
+        public static ScaleType PercentChangeCount { get; } = new ScaleType("PercentChangeCount");
+        public static ScaleType ExactCount { get; } = new ScaleType("ExactCount");
+        public static ScaleType ServiceAllowedNextValue { get; } = new ScaleType("ServiceAllowedNextValue");
+
+        public static bool operator ==(ScaleType left, ScaleType right) => left.Equals(right);
+        public static bool operator !=(ScaleType left, ScaleType right) => !left.Equals(right);
+
+        public static explicit operator string(ScaleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScaleType other && Equals(other);
+        public bool Equals(ScaleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The kind of scoped Azure monitor resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct ScopedResourceKind : IEquatable<ScopedResourceKind>
+    {
+        private readonly string _value;
+
+        private ScopedResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ScopedResourceKind Resource { get; } = new ScopedResourceKind("Resource");
+        public static ScopedResourceKind Metrics { get; } = new ScopedResourceKind("Metrics");
+
+        public static bool operator ==(ScopedResourceKind left, ScopedResourceKind right) => left.Equals(right);
+        public static bool operator !=(ScopedResourceKind left, ScopedResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ScopedResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScopedResourceKind other && Equals(other);
+        public bool Equals(ScopedResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -343,6 +1646,75 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SyslogProtocol other && Equals(other);
         public bool Equals(SyslogProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeAggregation : IEquatable<TimeAggregation>
+    {
+        private readonly string _value;
+
+        private TimeAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TimeAggregation Count { get; } = new TimeAggregation("Count");
+        public static TimeAggregation Average { get; } = new TimeAggregation("Average");
+        public static TimeAggregation Minimum { get; } = new TimeAggregation("Minimum");
+        public static TimeAggregation Maximum { get; } = new TimeAggregation("Maximum");
+        public static TimeAggregation Total { get; } = new TimeAggregation("Total");
+
+        public static bool operator ==(TimeAggregation left, TimeAggregation right) => left.Equals(right);
+        public static bool operator !=(TimeAggregation left, TimeAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(TimeAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeAggregation other && Equals(other);
+        public bool Equals(TimeAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeAggregationType : IEquatable<TimeAggregationType>
+    {
+        private readonly string _value;
+
+        private TimeAggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TimeAggregationType Average { get; } = new TimeAggregationType("Average");
+        public static TimeAggregationType Minimum { get; } = new TimeAggregationType("Minimum");
+        public static TimeAggregationType Maximum { get; } = new TimeAggregationType("Maximum");
+        public static TimeAggregationType Total { get; } = new TimeAggregationType("Total");
+        public static TimeAggregationType Count { get; } = new TimeAggregationType("Count");
+        public static TimeAggregationType Last { get; } = new TimeAggregationType("Last");
+
+        public static bool operator ==(TimeAggregationType left, TimeAggregationType right) => left.Equals(right);
+        public static bool operator !=(TimeAggregationType left, TimeAggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(TimeAggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeAggregationType other && Equals(other);
+        public bool Equals(TimeAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

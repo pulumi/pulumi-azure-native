@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a client.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Task<GetClientResult> InvokeAsync(GetClientArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a client.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetClientResult> Invoke(GetClientInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a client.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetClientResult> Invoke(GetClientInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientResult>("azure-native:eventgrid:getClient", args ?? new GetClientInvokeArgs(), options.WithDefaults());
@@ -103,10 +97,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly object? Attributes;
         /// <summary>
-        /// Authentication information for the client.
-        /// </summary>
-        public readonly Outputs.ClientAuthenticationResponse? Authentication;
-        /// <summary>
         /// The name presented by the client for authentication. The default value is the name of the resource.
         /// </summary>
         public readonly string? AuthenticationName;
@@ -135,7 +125,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// The system metadata relating to the Client resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -146,8 +136,6 @@ namespace Pulumi.AzureNative.EventGrid
         [OutputConstructor]
         private GetClientResult(
             object? attributes,
-
-            Outputs.ClientAuthenticationResponse? authentication,
 
             string? authenticationName,
 
@@ -168,7 +156,6 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             Attributes = attributes;
-            Authentication = authentication;
             AuthenticationName = authenticationName;
             ClientCertificateAuthentication = clientCertificateAuthentication;
             Description = description;

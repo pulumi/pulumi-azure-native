@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Gets the kafka configuration for the account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Task<GetKafkaConfigurationResult> InvokeAsync(GetKafkaConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKafkaConfigurationResult>("azure-native:purview:getKafkaConfiguration", args ?? new GetKafkaConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the kafka configuration for the account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetKafkaConfigurationResult> Invoke(GetKafkaConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConfigurationResult>("azure-native:purview:getKafkaConfiguration", args ?? new GetKafkaConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the kafka configuration for the account
-        /// Azure REST API version: 2021-12-01.
-        /// 
-        /// Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetKafkaConfigurationResult> Invoke(GetKafkaConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKafkaConfigurationResult>("azure-native:purview:getKafkaConfiguration", args ?? new GetKafkaConfigurationInvokeArgs(), options.WithDefaults());
@@ -101,7 +95,7 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string? ConsumerGroup;
         /// <summary>
-        /// Credentials to access event hub.
+        /// Credentials to access the event streaming service attached to the purview account.
         /// </summary>
         public readonly Outputs.CredentialsResponse? Credentials;
         /// <summary>

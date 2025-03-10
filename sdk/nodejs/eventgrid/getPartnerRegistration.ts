@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a partner registration with the specified parameters.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2021-10-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPartnerRegistration(args: GetPartnerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -58,7 +56,7 @@ export interface GetPartnerRegistrationResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to Partner Registration resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -72,9 +70,7 @@ export interface GetPartnerRegistrationResult {
 }
 /**
  * Gets a partner registration with the specified parameters.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2021-10-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPartnerRegistrationOutput(args: GetPartnerRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnerRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

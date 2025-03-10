@@ -127,8 +127,6 @@ def get_connection(connection_name: Optional[str] = None,
     Get a specific connection
     Azure REST API version: 2016-06-01.
 
-    Other available API versions: 2015-08-01-preview.
-
 
     :param str connection_name: Connection name
     :param str resource_group_name: The resource group
@@ -156,8 +154,6 @@ def get_connection_output(connection_name: Optional[pulumi.Input[str]] = None,
     """
     Get a specific connection
     Azure REST API version: 2016-06-01.
-
-    Other available API versions: 2015-08-01-preview.
 
 
     :param str connection_name: Connection name

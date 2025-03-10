@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition version in the given subscription with the given name and version.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicySetDefinitionVersion(args: GetPolicySetDefinitionVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,9 +90,7 @@ export interface GetPolicySetDefinitionVersionResult {
 }
 /**
  * This operation retrieves the policy set definition version in the given subscription with the given name and version.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicySetDefinitionVersionOutput(args: GetPolicySetDefinitionVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

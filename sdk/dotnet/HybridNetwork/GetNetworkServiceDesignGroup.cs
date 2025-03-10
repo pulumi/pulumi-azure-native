@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetNetworkServiceDesignGroupResult> InvokeAsync(GetNetworkServiceDesignGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified networkServiceDesign group.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkServiceDesignGroupResult> Invoke(GetNetworkServiceDesignGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignGroupResult>("azure-native:hybridnetwork:getNetworkServiceDesignGroup", args ?? new GetNetworkServiceDesignGroupInvokeArgs(), options.WithDefaults());

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Inputs
         /// configuration for Vulnerability Assessment autoprovisioning
         /// </summary>
         [Input("configuration")]
-        public Input<Inputs.DefenderForServersGcpOfferingConfigurationConfigurationArgs>? Configuration { get; set; }
+        public Input<Inputs.DefenderForServersGcpOfferingConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Is Vulnerability Assessment auto provisioning enabled

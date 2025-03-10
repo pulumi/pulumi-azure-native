@@ -129,13 +129,6 @@ utilities.lazyLoad(exports, ["PrivateLinkServicesForSCCPowershell"], () => requi
 // Export enums:
 export * from "../types/enums/securityandcompliance";
 
-// Export sub-modules:
-import * as v20210308 from "./v20210308";
-
-export {
-    v20210308,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tag associated with the Product.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getTagByProduct(args: GetTagByProductArgs, opts?: pulumi.InvokeOptions): Promise<GetTagByProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,9 +60,7 @@ export interface GetTagByProductResult {
 }
 /**
  * Get tag associated with the Product.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getTagByProductOutput(args: GetTagByProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagByProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

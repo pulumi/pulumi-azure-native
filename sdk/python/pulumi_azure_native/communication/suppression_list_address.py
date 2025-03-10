@@ -181,9 +181,7 @@ class SuppressionListAddress(pulumi.CustomResource):
                  __props__=None):
         """
         A object that represents a SuppressionList record.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2024-09-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,9 +203,7 @@ class SuppressionListAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A object that represents a SuppressionList record.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2024-09-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SuppressionListAddressArgs args: The arguments to use to populate this resource's properties.

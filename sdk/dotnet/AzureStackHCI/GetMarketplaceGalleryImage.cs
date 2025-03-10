@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets a marketplace gallery image
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Task<GetMarketplaceGalleryImageResult> InvokeAsync(GetMarketplaceGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a marketplace gallery image
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetMarketplaceGalleryImageResult> Invoke(GetMarketplaceGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a marketplace gallery image
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetMarketplaceGalleryImageResult> Invoke(GetMarketplaceGalleryImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMarketplaceGalleryImageResult>("azure-native:azurestackhci:getMarketplaceGalleryImage", args ?? new GetMarketplaceGalleryImageInvokeArgs(), options.WithDefaults());
@@ -89,9 +83,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? CloudInitDataSource;
         /// <summary>
-        /// Container Name for storage container
+        /// Storage ContainerID of the storage container to be used for marketplace gallery image
         /// </summary>
-        public readonly string? ContainerName;
+        public readonly string? ContainerId;
         /// <summary>
         /// The extendedLocation of the resource.
         /// </summary>
@@ -101,7 +95,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -119,7 +113,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Operating system type that the gallery image uses [Windows, Linux]
         /// </summary>
-        public readonly string? OsType;
+        public readonly string OsType;
         /// <summary>
         /// Provisioning state of the marketplace gallery image.
         /// </summary>
@@ -149,7 +143,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         private GetMarketplaceGalleryImageResult(
             string? cloudInitDataSource,
 
-            string? containerName,
+            string? containerId,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
@@ -163,7 +157,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
-            string? osType,
+            string osType,
 
             string provisioningState,
 
@@ -178,7 +172,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             Outputs.GalleryImageVersionResponse? version)
         {
             CloudInitDataSource = cloudInitDataSource;
-            ContainerName = containerName;
+            ContainerId = containerId;
             ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;
             Id = id;

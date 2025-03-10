@@ -99,9 +99,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines a multi-stage process to perform update operations across members of a Fleet.
-        Azure REST API version: 2023-08-15-preview.
-
-        Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines a multi-stage process to perform update operations across members of a Fleet.
-        Azure REST API version: 2023-08-15-preview.
-
-        Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-08-15-preview.
 
         :param str resource_name: The name of the resource.
         :param FleetUpdateStrategyArgs args: The arguments to use to populate this resource's properties.

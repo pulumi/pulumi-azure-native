@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// <summary>
         /// configuration for Vulnerability Assessment autoprovisioning
         /// </summary>
-        public readonly Outputs.DefenderForServersGcpOfferingResponseConfigurationConfiguration? Configuration;
+        public readonly Outputs.DefenderForServersGcpOfferingResponseConfiguration? Configuration;
         /// <summary>
         /// Is Vulnerability Assessment auto provisioning enabled
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 
         [OutputConstructor]
         private DefenderForServersGcpOfferingResponseVaAutoProvisioning(
-            Outputs.DefenderForServersGcpOfferingResponseConfigurationConfiguration? configuration,
+            Outputs.DefenderForServersGcpOfferingResponseConfiguration? configuration,
 
             bool? enabled)
         {

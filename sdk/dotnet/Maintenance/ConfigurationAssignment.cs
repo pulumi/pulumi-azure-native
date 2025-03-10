@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Maintenance
 {
     /// <summary>
     /// Configuration Assignment
-    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-    /// 
-    /// Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignment")]
     public partial class ConfigurationAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Properties of the configuration assignment
+        /// </summary>
+        [Output("filter")]
+        public Output<Outputs.ConfigurationAssignmentFilterPropertiesResponse?> Filter { get; private set; } = null!;
+
         /// <summary>
         /// Location of the resource
         /// </summary>
@@ -114,6 +118,12 @@ namespace Pulumi.AzureNative.Maintenance
         /// </summary>
         [Input("configurationAssignmentName")]
         public Input<string>? ConfigurationAssignmentName { get; set; }
+
+        /// <summary>
+        /// Properties of the configuration assignment
+        /// </summary>
+        [Input("filter")]
+        public Input<Inputs.ConfigurationAssignmentFilterPropertiesArgs>? Filter { get; set; }
 
         /// <summary>
         /// Location of the resource

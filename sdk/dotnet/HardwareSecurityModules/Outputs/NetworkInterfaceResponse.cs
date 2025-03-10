@@ -17,22 +17,22 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.Outputs
     public sealed class NetworkInterfaceResponse
     {
         /// <summary>
-        /// The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        /// </summary>
-        public readonly string Id;
-        /// <summary>
         /// Private Ip address of the interface
         /// </summary>
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        /// </summary>
+        public readonly string ResourceId;
 
         [OutputConstructor]
         private NetworkInterfaceResponse(
-            string id,
+            string? privateIpAddress,
 
-            string? privateIpAddress)
+            string resourceId)
         {
-            Id = id;
             PrivateIpAddress = privateIpAddress;
+            ResourceId = resourceId;
         }
     }
 }

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Managed Network resource
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-    /// 
-    /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManager")]
     public partial class NetworkManager : global::Pulumi.CustomResource
@@ -175,7 +173,7 @@ namespace Pulumi.AzureNative.Network
         [Input("networkManagerName")]
         public Input<string>? NetworkManagerName { get; set; }
 
-        [Input("networkManagerScopeAccesses", required: true)]
+        [Input("networkManagerScopeAccesses")]
         private InputList<Union<string, Pulumi.AzureNative.Network.ConfigurationType>>? _networkManagerScopeAccesses;
 
         /// <summary>

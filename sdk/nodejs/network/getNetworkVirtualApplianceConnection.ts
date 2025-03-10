@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of specified NVA connection.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getNetworkVirtualApplianceConnection(args: GetNetworkVirtualApplianceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,18 +40,6 @@ export interface GetNetworkVirtualApplianceConnectionArgs {
  */
 export interface GetNetworkVirtualApplianceConnectionResult {
     /**
-     * Network Virtual Appliance ASN.
-     */
-    readonly asn?: number;
-    /**
-     * List of bgpPeerAddresses for the NVA instances
-     */
-    readonly bgpPeerAddress?: string[];
-    /**
-     * Enable internet security.
-     */
-    readonly enableInternetSecurity?: boolean;
-    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -62,23 +48,13 @@ export interface GetNetworkVirtualApplianceConnectionResult {
      */
     readonly name?: string;
     /**
-     * The provisioning state of the NetworkVirtualApplianceConnection resource.
+     * Properties of the express route connection.
      */
-    readonly provisioningState: string;
-    /**
-     * The Routing Configuration indicating the associated and propagated route tables on this connection.
-     */
-    readonly routingConfiguration?: outputs.network.RoutingConfigurationResponse;
-    /**
-     * Unique identifier for the connection.
-     */
-    readonly tunnelIdentifier?: number;
+    readonly properties: outputs.network.NetworkVirtualApplianceConnectionPropertiesResponse;
 }
 /**
  * Retrieves the details of specified NVA connection.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getNetworkVirtualApplianceConnectionOutput(args: GetNetworkVirtualApplianceConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkVirtualApplianceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

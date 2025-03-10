@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a replication link.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Task<GetReplicationLinkResult> InvokeAsync(GetReplicationLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a replication link.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a replication link.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-05-01-preview.
         /// </summary>
         public static Output<GetReplicationLinkResult> Invoke(GetReplicationLinkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationLinkResult>("azure-native:sql:getReplicationLink", args ?? new GetReplicationLinkInvokeArgs(), options.WithDefaults());

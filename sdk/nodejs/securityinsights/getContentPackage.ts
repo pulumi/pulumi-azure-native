@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an installed packages by its id.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getContentPackage(args: GetContentPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetContentPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,13 +48,17 @@ export interface GetContentPackageResult {
      */
     readonly categories?: outputs.securityinsights.MetadataCategoriesResponse;
     /**
-     * The package id
+     * The content id of the package
      */
     readonly contentId: string;
     /**
      * The package kind
      */
     readonly contentKind: string;
+    /**
+     * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+     */
+    readonly contentProductId: string;
     /**
      * The version of the content schema.
      */
@@ -89,6 +91,10 @@ export interface GetContentPackageResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Flag indicates if this template is deprecated
+     */
+    readonly isDeprecated?: string;
     /**
      * Flag indicates if this package is among the featured list.
      */
@@ -148,9 +154,7 @@ export interface GetContentPackageResult {
 }
 /**
  * Gets an installed packages by its id.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getContentPackageOutput(args: GetContentPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContentPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

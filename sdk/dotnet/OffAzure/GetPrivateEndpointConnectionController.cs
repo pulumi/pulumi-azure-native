@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Gets the private link resource.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionControllerResult> InvokeAsync(GetPrivateEndpointConnectionControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionControllerResult>("azure-native:offazure:getPrivateEndpointConnectionController", args ?? new GetPrivateEndpointConnectionControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the private link resource.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerResult> Invoke(GetPrivateEndpointConnectionControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerResult>("azure-native:offazure:getPrivateEndpointConnectionController", args ?? new GetPrivateEndpointConnectionControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the private link resource.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionControllerResult> Invoke(GetPrivateEndpointConnectionControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionControllerResult>("azure-native:offazure:getPrivateEndpointConnectionController", args ?? new GetPrivateEndpointConnectionControllerInvokeArgs(), options.WithDefaults());

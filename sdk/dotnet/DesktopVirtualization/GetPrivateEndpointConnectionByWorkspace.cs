@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a private endpoint connection.
-        /// Azure REST API version: 2022-10-14-preview.
-        /// 
-        /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByWorkspaceResult> InvokeAsync(GetPrivateEndpointConnectionByWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private endpoint connection.
-        /// Azure REST API version: 2022-10-14-preview.
-        /// 
-        /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private endpoint connection.
-        /// Azure REST API version: 2022-10-14-preview.
-        /// 
-        /// Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetPrivateEndpointConnectionByWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetPrivateEndpointConnectionByWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the private endpoint connection associated with the Azure resource
+        /// The name of the private endpoint connection associated with the Azure resource.
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -97,7 +91,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetPrivateEndpointConnectionByWorkspaceResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -105,7 +103,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource of private end point.
+        /// The private endpoint resource.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
@@ -117,7 +115,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionByWorkspaceResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;

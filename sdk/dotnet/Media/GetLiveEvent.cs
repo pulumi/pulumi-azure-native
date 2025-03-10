@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets properties of a live event.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
         /// </summary>
         public static Task<GetLiveEventResult> InvokeAsync(GetLiveEventArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets properties of a live event.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets properties of a live event.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
         /// </summary>
         public static Output<GetLiveEventResult> Invoke(GetLiveEventInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveEventResult>("azure-native:media:getLiveEvent", args ?? new GetLiveEventInvokeArgs(), options.WithDefaults());

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// NetworkSecurityGroup resource.
-    /// Azure REST API version: 2024-02-01-preview.
-    /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    /// Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
@@ -53,6 +51,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The observed state of Network Security Group
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.NetworkSecurityGroupStatusResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// A collection of references to logical networks that are currently using this NSG

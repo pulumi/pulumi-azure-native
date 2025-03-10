@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.AVS
     public static class GetHcxEnterpriseSite
     {
         /// <summary>
-        /// An HCX Enterprise Site resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a HcxEnterpriseSite
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetHcxEnterpriseSiteResult> InvokeAsync(GetHcxEnterpriseSiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An HCX Enterprise Site resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a HcxEnterpriseSite
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// An HCX Enterprise Site resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a HcxEnterpriseSite
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetHcxEnterpriseSiteResult> Invoke(GetHcxEnterpriseSiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHcxEnterpriseSiteResult>("azure-native:avs:getHcxEnterpriseSite", args ?? new GetHcxEnterpriseSiteInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetHcxEnterpriseSiteArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the HCX Enterprise Site in the private cloud
+        /// Name of the HCX Enterprise Site
         /// </summary>
         [Input("hcxEnterpriseSiteName", required: true)]
         public string HcxEnterpriseSiteName { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetHcxEnterpriseSiteInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the HCX Enterprise Site in the private cloud
+        /// Name of the HCX Enterprise Site
         /// </summary>
         [Input("hcxEnterpriseSiteName", required: true)]
         public Input<string> HcxEnterpriseSiteName { get; set; } = null!;
@@ -101,19 +95,27 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string ActivationKey;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The status of the HCX Enterprise Site
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -125,14 +127,20 @@ namespace Pulumi.AzureNative.AVS
 
             string name,
 
+            string provisioningState,
+
             string status,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             ActivationKey = activationKey;
             Id = id;
             Name = name;
+            ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

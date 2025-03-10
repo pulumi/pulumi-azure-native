@@ -8,12 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a DataFlowResource
- * Azure REST API version: 2024-07-01-preview.
+ * Get a DataflowResource
+ * Azure REST API version: 2024-11-01.
  */
-export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataFlowResult> {
+export function getDataflow(args: GetDataflowArgs, opts?: pulumi.InvokeOptions): Promise<GetDataflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:iotoperations:getDataFlow", {
+    return pulumi.runtime.invoke("azure-native:iotoperations:getDataflow", {
         "dataflowName": args.dataflowName,
         "dataflowProfileName": args.dataflowProfileName,
         "instanceName": args.instanceName,
@@ -21,7 +21,7 @@ export function getDataFlow(args: GetDataFlowArgs, opts?: pulumi.InvokeOptions):
     }, opts);
 }
 
-export interface GetDataFlowArgs {
+export interface GetDataflowArgs {
     /**
      * Name of Instance dataflowProfile dataflow resource
      */
@@ -43,7 +43,7 @@ export interface GetDataFlowArgs {
 /**
  * Instance dataflowProfile dataflow resource
  */
-export interface GetDataFlowResult {
+export interface GetDataflowResult {
     /**
      * Edge location of the resource.
      */
@@ -59,7 +59,7 @@ export interface GetDataFlowResult {
     /**
      * The resource-specific properties for this resource.
      */
-    readonly properties: outputs.iotoperations.DataFlowPropertiesResponse;
+    readonly properties: outputs.iotoperations.DataflowPropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -70,12 +70,12 @@ export interface GetDataFlowResult {
     readonly type: string;
 }
 /**
- * Get a DataFlowResource
- * Azure REST API version: 2024-07-01-preview.
+ * Get a DataflowResource
+ * Azure REST API version: 2024-11-01.
  */
-export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataFlowResult> {
+export function getDataflowOutput(args: GetDataflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataFlow", {
+    return pulumi.runtime.invokeOutput("azure-native:iotoperations:getDataflow", {
         "dataflowName": args.dataflowName,
         "dataflowProfileName": args.dataflowProfileName,
         "instanceName": args.instanceName,
@@ -83,7 +83,7 @@ export function getDataFlowOutput(args: GetDataFlowOutputArgs, opts?: pulumi.Inv
     }, opts);
 }
 
-export interface GetDataFlowOutputArgs {
+export interface GetDataflowOutputArgs {
     /**
      * Name of Instance dataflowProfile dataflow resource
      */

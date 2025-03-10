@@ -133,9 +133,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Sql Server Availability Group
-        Azure REST API version: 2024-01-01.
-
-        Other available API versions: 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,9 +152,7 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Sql Server Availability Group
-        Azure REST API version: 2024-01-01.
-
-        Other available API versions: 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
 
         :param str resource_name: The name of the resource.
         :param SqlServerAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.

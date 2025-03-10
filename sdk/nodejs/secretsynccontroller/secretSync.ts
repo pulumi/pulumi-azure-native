@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The SecretSync resource.
- * Azure REST API version: 2024-08-21-preview.
+ * Azure REST API version: 2024-08-21-preview. Prior API version in Azure Native 2.x: 2024-08-21-preview.
  */
 export class SecretSync extends pulumi.CustomResource {
     /**

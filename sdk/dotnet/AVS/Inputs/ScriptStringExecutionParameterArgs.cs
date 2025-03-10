@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.AVS.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The type of execution parameter
+        /// script execution parameter type
         /// Expected value is 'Value'.
         /// </summary>
         [Input("type", required: true)]

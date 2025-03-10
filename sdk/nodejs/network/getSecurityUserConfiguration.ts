@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a network manager security user configuration.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +30,7 @@ export interface GetSecurityUserConfigurationArgs {
      */
     networkManagerName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -41,10 +39,6 @@ export interface GetSecurityUserConfigurationArgs {
  * Defines the security user configuration
  */
 export interface GetSecurityUserConfigurationResult {
-    /**
-     * Flag if need to delete existing network security groups.
-     */
-    readonly deleteExistingNSGs?: string;
     /**
      * A description of the security user configuration.
      */
@@ -66,6 +60,10 @@ export interface GetSecurityUserConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -76,9 +74,7 @@ export interface GetSecurityUserConfigurationResult {
 }
 /**
  * Retrieves a network manager security user configuration.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,7 +95,7 @@ export interface GetSecurityUserConfigurationOutputArgs {
      */
     networkManagerName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

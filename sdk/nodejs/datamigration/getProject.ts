@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
- * Azure REST API version: 2021-06-30.
- *
- * Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+ * Azure REST API version: 2023-07-15-preview.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetProjectArgs {
  */
 export interface GetProjectResult {
     /**
+     * Field that defines the Azure active directory application info, used to connect to the target Azure resource
+     */
+    readonly azureAuthenticationInfo?: outputs.datamigration.AzureActiveDirectoryAppResponse;
+    /**
      * UTC Date and time when project was created
      */
     readonly creationTime: string;
@@ -50,16 +52,11 @@ export interface GetProjectResult {
      */
     readonly databasesInfo?: outputs.datamigration.DatabaseInfoResponse[];
     /**
-     * Resource ID.
+     * HTTP strong entity tag value. This is ignored if submitted.
      */
+    readonly etag?: string;
     readonly id: string;
-    /**
-     * Resource location.
-     */
-    readonly location: string;
-    /**
-     * Resource name.
-     */
+    readonly location?: string;
     readonly name: string;
     /**
      * The project's provisioning state
@@ -73,13 +70,7 @@ export interface GetProjectResult {
      * Source platform for the project
      */
     readonly sourcePlatform: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
     readonly systemData: outputs.datamigration.SystemDataResponse;
-    /**
-     * Resource tags.
-     */
     readonly tags?: {[key: string]: string};
     /**
      * Information for connecting to target
@@ -89,16 +80,11 @@ export interface GetProjectResult {
      * Target platform for the project
      */
     readonly targetPlatform: string;
-    /**
-     * Resource type.
-     */
     readonly type: string;
 }
 /**
  * The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
- * Azure REST API version: 2021-06-30.
- *
- * Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+ * Azure REST API version: 2023-07-15-preview.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the specified managed HSM Pool.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetManagedHsmResult> InvokeAsync(GetManagedHsmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified managed HSM Pool.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified managed HSM Pool.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetManagedHsmResult> Invoke(GetManagedHsmInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedHsmResult>("azure-native:keyvault:getManagedHsm", args ?? new GetManagedHsmInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>
         public readonly string? Location;
@@ -121,6 +119,8 @@ namespace Pulumi.AzureNative.KeyVault
         private GetManagedHsmResult(
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string? location,
 
             string name,
@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.KeyVault
             string type)
         {
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

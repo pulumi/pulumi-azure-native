@@ -26,6 +26,7 @@ class ProfileArgs:
                  sku: pulumi.Input['SkuArgs'],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_scrubbing: Optional[pulumi.Input['ProfileLogScrubbingArgs']] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -35,6 +36,7 @@ class ProfileArgs:
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input['ProfileLogScrubbingArgs'] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -45,6 +47,8 @@ class ProfileArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if log_scrubbing is not None:
+            pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if origin_response_timeout_seconds is not None:
             pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
         if profile_name is not None:
@@ -101,6 +105,18 @@ class ProfileArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> Optional[pulumi.Input['ProfileLogScrubbingArgs']]:
+        """
+        Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        """
+        return pulumi.get(self, "log_scrubbing")
+
+    @log_scrubbing.setter
+    def log_scrubbing(self, value: Optional[pulumi.Input['ProfileLogScrubbingArgs']]):
+        pulumi.set(self, "log_scrubbing", value)
+
+    @property
     @pulumi.getter(name="originResponseTimeoutSeconds")
     def origin_response_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -144,6 +160,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -152,14 +169,13 @@ class Profile(pulumi.CustomResource):
                  __props__=None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -174,9 +190,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +209,7 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_scrubbing: Optional[pulumi.Input[Union['ProfileLogScrubbingArgs', 'ProfileLogScrubbingArgsDict']]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -211,6 +226,7 @@ class Profile(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["log_scrubbing"] = log_scrubbing
             __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
@@ -257,6 +273,7 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["log_scrubbing"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["origin_response_timeout_seconds"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -306,6 +323,14 @@ class Profile(pulumi.CustomResource):
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logScrubbing")
+    def log_scrubbing(self) -> pulumi.Output[Optional['outputs.ProfileLogScrubbingResponse']]:
+        """
+        Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
+        """
+        return pulumi.get(self, "log_scrubbing")
 
     @property
     @pulumi.getter

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());

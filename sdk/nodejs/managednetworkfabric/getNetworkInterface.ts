@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Network Interface resource details.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,11 +22,11 @@ export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi
 
 export interface GetNetworkInterfaceArgs {
     /**
-     * Name of the NetworkDevice
+     * Name of the Network Device.
      */
     networkDeviceName: string;
     /**
-     * Name of the NetworkInterfaceName
+     * Name of the Network Interface.
      */
     networkInterfaceName: string;
     /**
@@ -42,7 +40,7 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
-     * administrativeState of the network interface. Example: Enabled | Disabled.
+     * Administrative state of the resource.
      */
     readonly administrativeState: string;
     /**
@@ -50,11 +48,11 @@ export interface GetNetworkInterfaceResult {
      */
     readonly annotation?: string;
     /**
-     * The arm resource id of the interface or compute server its connected to.
+     * The ARM resource id of the interface or compute server its connected to.
      */
     readonly connectedTo: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -62,11 +60,11 @@ export interface GetNetworkInterfaceResult {
      */
     readonly interfaceType: string;
     /**
-     * ipv4Address.
+     * IPv4Address of the interface.
      */
     readonly ipv4Address: string;
     /**
-     * ipv6Address.
+     * IPv6Address of the interface.
      */
     readonly ipv6Address: string;
     /**
@@ -74,11 +72,11 @@ export interface GetNetworkInterfaceResult {
      */
     readonly name: string;
     /**
-     * physicalIdentifier of the network interface.
+     * Physical Identifier of the network interface.
      */
     readonly physicalIdentifier: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -92,9 +90,7 @@ export interface GetNetworkInterfaceResult {
 }
 /**
  * Get the Network Interface resource details.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,11 +103,11 @@ export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, o
 
 export interface GetNetworkInterfaceOutputArgs {
     /**
-     * Name of the NetworkDevice
+     * Name of the Network Device.
      */
     networkDeviceName: pulumi.Input<string>;
     /**
-     * Name of the NetworkInterfaceName
+     * Name of the Network Interface.
      */
     networkInterfaceName: pulumi.Input<string>;
     /**

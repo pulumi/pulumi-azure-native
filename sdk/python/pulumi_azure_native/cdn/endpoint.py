@@ -395,9 +395,7 @@ class Endpoint(pulumi.CustomResource):
                  __props__=None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -431,9 +429,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-
-        Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

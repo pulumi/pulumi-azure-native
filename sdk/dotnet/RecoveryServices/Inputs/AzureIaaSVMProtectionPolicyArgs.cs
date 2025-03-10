@@ -64,6 +64,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("schedulePolicy")]
         public object? SchedulePolicy { get; set; }
 
+        [Input("snapshotConsistencyType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.IaasVMSnapshotConsistencyType>? SnapshotConsistencyType { get; set; }
+
         [Input("tieringPolicy")]
         private InputMap<Inputs.TieringPolicyArgs>? _tieringPolicy;
 

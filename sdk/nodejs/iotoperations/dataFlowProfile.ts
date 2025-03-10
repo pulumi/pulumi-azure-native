@@ -9,33 +9,33 @@ import * as utilities from "../utilities";
 
 /**
  * Instance dataflowProfile resource
- * Azure REST API version: 2024-07-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
-export class DataFlowProfile extends pulumi.CustomResource {
+export class DataflowProfile extends pulumi.CustomResource {
     /**
-     * Get an existing DataFlowProfile resource's state with the given name, ID, and optional extra
+     * Get an existing DataflowProfile resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataFlowProfile {
-        return new DataFlowProfile(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataflowProfile {
+        return new DataflowProfile(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:iotoperations:DataFlowProfile';
+    public static readonly __pulumiType = 'azure-native:iotoperations:DataflowProfile';
 
     /**
-     * Returns true if the given object is an instance of DataFlowProfile.  This is designed to work even
+     * Returns true if the given object is an instance of DataflowProfile.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DataFlowProfile {
+    public static isInstance(obj: any): obj is DataflowProfile {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DataFlowProfile.__pulumiType;
+        return obj['__pulumiType'] === DataflowProfile.__pulumiType;
     }
 
     /**
@@ -49,7 +49,7 @@ export class DataFlowProfile extends pulumi.CustomResource {
     /**
      * The resource-specific properties for this resource.
      */
-    public readonly properties!: pulumi.Output<outputs.iotoperations.DataFlowProfilePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.iotoperations.DataflowProfilePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -60,13 +60,13 @@ export class DataFlowProfile extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a DataFlowProfile resource with the given unique name, arguments, and options.
+     * Create a DataflowProfile resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DataFlowProfileArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataflowProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -82,7 +82,7 @@ export class DataFlowProfile extends pulumi.CustomResource {
             resourceInputs["dataflowProfileName"] = args ? args.dataflowProfileName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.dataFlowProfilePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.dataflowProfilePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -95,16 +95,16 @@ export class DataFlowProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowProfile" }, { type: "azure-native:iotoperations/v20240815preview:DataFlowProfile" }, { type: "azure-native:iotoperations/v20240915preview:DataFlowProfile" }, { type: "azure-native:iotoperations/v20241101:DataFlowProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowProfile" }, { type: "azure-native:iotoperations/v20240701preview:DataflowProfile" }, { type: "azure-native:iotoperations/v20240815preview:DataflowProfile" }, { type: "azure-native:iotoperations/v20240915preview:DataflowProfile" }, { type: "azure-native:iotoperations/v20241101:DataflowProfile" }, { type: "azure-native:iotoperations:DataFlowProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataFlowProfile.__pulumiType, name, resourceInputs, opts);
+        super(DataflowProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a DataFlowProfile resource.
+ * The set of arguments for constructing a DataflowProfile resource.
  */
-export interface DataFlowProfileArgs {
+export interface DataflowProfileArgs {
     /**
      * Name of Instance dataflowProfile resource
      */
@@ -120,7 +120,7 @@ export interface DataFlowProfileArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.DataFlowProfilePropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.DataflowProfilePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

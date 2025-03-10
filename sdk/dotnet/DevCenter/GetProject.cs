@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a specific project.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific project.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific project.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:devcenter:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetProjectResult
     {
         /// <summary>
+        /// Settings to be used when associating a project with a catalog.
+        /// </summary>
+        public readonly Outputs.ProjectCatalogSettingsResponse? CatalogSettings;
+        /// <summary>
         /// Description of the project.
         /// </summary>
         public readonly string? Description;
@@ -97,9 +95,17 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string DevCenterUri;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The display name of the project.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed identity properties
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -131,13 +137,19 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetProjectResult(
+            Outputs.ProjectCatalogSettingsResponse? catalogSettings,
+
             string? description,
 
             string? devCenterId,
 
             string devCenterUri,
 
+            string? displayName,
+
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -153,10 +165,13 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            CatalogSettings = catalogSettings;
             Description = description;
             DevCenterId = devCenterId;
             DevCenterUri = devCenterUri;
+            DisplayName = displayName;
             Id = id;
+            Identity = identity;
             Location = location;
             MaxDevBoxesPerUser = maxDevBoxesPerUser;
             Name = name;

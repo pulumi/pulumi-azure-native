@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetApiDefinitionResult> InvokeAsync(GetApiDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiDefinitionResult> Invoke(GetApiDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the API definition.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetApiDefinitionResult> Invoke(GetApiDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiDefinitionResult>("azure-native:apicenter:getApiDefinition", args ?? new GetApiDefinitionInvokeArgs(), options.WithDefaults());

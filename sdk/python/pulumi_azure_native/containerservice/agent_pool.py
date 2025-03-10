@@ -26,6 +26,7 @@ class AgentPoolArgs:
                  resource_name: pulumi.Input[str],
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -40,8 +41,10 @@ class AgentPoolArgs:
                  linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+                 network_profile: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -56,12 +59,14 @@ class AgentPoolArgs:
                  scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+                 security_profile: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']] = None,
                  workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None):
         """
         The set of arguments for constructing a AgentPool resource.
@@ -69,6 +74,7 @@ class AgentPoolArgs:
         :param pulumi.Input[str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param pulumi.Input[str] capacity_reservation_group_id: AKS will associate the specified agent pool with the Capacity Reservation Group.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input['CreationDataArgs'] creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
@@ -83,8 +89,10 @@ class AgentPoolArgs:
         :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: The OS configuration of Linux agent nodes.
         :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
         :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param pulumi.Input['AgentPoolNetworkProfileArgs'] network_profile: Network-related settings of an agent pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: The node labels to be persisted across all nodes in agent pool.
         :param pulumi.Input[str] node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -99,12 +107,14 @@ class AgentPoolArgs:
         :param pulumi.Input[Union[str, 'ScaleDownMode']] scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param pulumi.Input['AgentPoolSecurityProfileArgs'] security_profile: The security settings of an agent pool.
         :param pulumi.Input[float] spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[Union[str, 'AgentPoolType']] type: The type of Agent Pool.
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[str] vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         :param pulumi.Input[str] vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input['AgentPoolWindowsProfileArgs'] windows_profile: The Windows agent pool's specific profile.
         :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -113,6 +123,8 @@ class AgentPoolArgs:
             pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if count is not None:
             pulumi.set(__self__, "count", count)
         if creation_data is not None:
@@ -141,10 +153,14 @@ class AgentPoolArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_public_ip_prefix_id is not None:
@@ -173,6 +189,8 @@ class AgentPoolArgs:
             pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
             pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -185,6 +203,8 @@ class AgentPoolArgs:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
 
@@ -235,6 +255,18 @@ class AgentPoolArgs:
     @availability_zones.setter
     def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupID")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter
@@ -405,6 +437,18 @@ class AgentPoolArgs:
         pulumi.set(self, "max_pods", value)
 
     @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @message_of_the_day.setter
+    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_of_the_day", value)
+
+    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -427,6 +471,18 @@ class AgentPoolArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]:
+        """
+        Network-related settings of an agent pool.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
 
     @property
     @pulumi.getter(name="nodeLabels")
@@ -597,6 +653,18 @@ class AgentPoolArgs:
         pulumi.set(self, "scale_set_priority", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]:
+        """
+        The security settings of an agent pool.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -669,6 +737,18 @@ class AgentPoolArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]:
+        """
+        The Windows agent pool's specific profile.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @windows_profile.setter
+    def windows_profile(self, value: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]):
+        pulumi.set(self, "windows_profile", value)
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]]:
         """
@@ -688,6 +768,7 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -702,8 +783,10 @@ class AgentPool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[Union['LinuxOSConfigArgs', 'LinuxOSConfigArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['AgentPoolNetworkProfileArgs', 'AgentPoolNetworkProfileArgsDict']]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -720,24 +803,25 @@ class AgentPool(pulumi.CustomResource):
                  scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['AgentPoolSecurityProfileArgs', 'AgentPoolSecurityProfileArgsDict']]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input[Union['AgentPoolWindowsProfileArgs', 'AgentPoolWindowsProfileArgsDict']]] = None,
                  workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None,
                  __props__=None):
         """
         Agent Pool.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param pulumi.Input[str] capacity_reservation_group_id: AKS will associate the specified agent pool with the Capacity Reservation Group.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']] creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
@@ -752,8 +836,10 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxOSConfigArgs', 'LinuxOSConfigArgsDict']] linux_os_config: The OS configuration of Linux agent nodes.
         :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
         :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param pulumi.Input[Union['AgentPoolNetworkProfileArgs', 'AgentPoolNetworkProfileArgsDict']] network_profile: Network-related settings of an agent pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: The node labels to be persisted across all nodes in agent pool.
         :param pulumi.Input[str] node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -770,12 +856,14 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'ScaleDownMode']] scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param pulumi.Input[Union['AgentPoolSecurityProfileArgs', 'AgentPoolSecurityProfileArgsDict']] security_profile: The security settings of an agent pool.
         :param pulumi.Input[float] spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[Union[str, 'AgentPoolType']] type: The type of Agent Pool.
         :param pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[str] vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         :param pulumi.Input[str] vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input[Union['AgentPoolWindowsProfileArgs', 'AgentPoolWindowsProfileArgsDict']] windows_profile: The Windows agent pool's specific profile.
         :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
         ...
@@ -786,9 +874,7 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Agent Pool.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2020-06-01, 2021-02-01, 2021-08-01, 2022-04-02-preview, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -807,6 +893,7 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  creation_data: Optional[pulumi.Input[Union['CreationDataArgs', 'CreationDataArgsDict']]] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -821,8 +908,10 @@ class AgentPool(pulumi.CustomResource):
                  linux_os_config: Optional[pulumi.Input[Union['LinuxOSConfigArgs', 'LinuxOSConfigArgsDict']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+                 network_profile: Optional[pulumi.Input[Union['AgentPoolNetworkProfileArgs', 'AgentPoolNetworkProfileArgsDict']]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -839,12 +928,14 @@ class AgentPool(pulumi.CustomResource):
                  scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['AgentPoolSecurityProfileArgs', 'AgentPoolSecurityProfileArgsDict']]] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input[Union['AgentPoolUpgradeSettingsArgs', 'AgentPoolUpgradeSettingsArgsDict']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input[Union['AgentPoolWindowsProfileArgs', 'AgentPoolWindowsProfileArgsDict']]] = None,
                  workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -857,6 +948,7 @@ class AgentPool(pulumi.CustomResource):
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["availability_zones"] = availability_zones
+            __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["count"] = count
             __props__.__dict__["creation_data"] = creation_data
             __props__.__dict__["enable_auto_scaling"] = enable_auto_scaling
@@ -871,8 +963,10 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["linux_os_config"] = linux_os_config
             __props__.__dict__["max_count"] = max_count
             __props__.__dict__["max_pods"] = max_pods
+            __props__.__dict__["message_of_the_day"] = message_of_the_day
             __props__.__dict__["min_count"] = min_count
             __props__.__dict__["mode"] = mode
+            __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_labels"] = node_labels
             __props__.__dict__["node_public_ip_prefix_id"] = node_public_ip_prefix_id
             __props__.__dict__["node_taints"] = node_taints
@@ -893,14 +987,17 @@ class AgentPool(pulumi.CustomResource):
             __props__.__dict__["scale_down_mode"] = scale_down_mode
             __props__.__dict__["scale_set_eviction_policy"] = scale_set_eviction_policy
             __props__.__dict__["scale_set_priority"] = scale_set_priority
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["spot_max_price"] = spot_max_price
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["upgrade_settings"] = upgrade_settings
             __props__.__dict__["vm_size"] = vm_size
             __props__.__dict__["vnet_subnet_id"] = vnet_subnet_id
+            __props__.__dict__["windows_profile"] = windows_profile
             __props__.__dict__["workload_runtime"] = workload_runtime
             __props__.__dict__["current_orchestrator_version"] = None
+            __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["node_image_version"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -929,9 +1026,11 @@ class AgentPool(pulumi.CustomResource):
         __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["capacity_reservation_group_id"] = None
         __props__.__dict__["count"] = None
         __props__.__dict__["creation_data"] = None
         __props__.__dict__["current_orchestrator_version"] = None
+        __props__.__dict__["e_tag"] = None
         __props__.__dict__["enable_auto_scaling"] = None
         __props__.__dict__["enable_encryption_at_host"] = None
         __props__.__dict__["enable_fips"] = None
@@ -944,9 +1043,11 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["linux_os_config"] = None
         __props__.__dict__["max_count"] = None
         __props__.__dict__["max_pods"] = None
+        __props__.__dict__["message_of_the_day"] = None
         __props__.__dict__["min_count"] = None
         __props__.__dict__["mode"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
         __props__.__dict__["node_image_version"] = None
         __props__.__dict__["node_labels"] = None
         __props__.__dict__["node_public_ip_prefix_id"] = None
@@ -963,12 +1064,14 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["scale_down_mode"] = None
         __props__.__dict__["scale_set_eviction_policy"] = None
         __props__.__dict__["scale_set_priority"] = None
+        __props__.__dict__["security_profile"] = None
         __props__.__dict__["spot_max_price"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["upgrade_settings"] = None
         __props__.__dict__["vm_size"] = None
         __props__.__dict__["vnet_subnet_id"] = None
+        __props__.__dict__["windows_profile"] = None
         __props__.__dict__["workload_runtime"] = None
         return AgentPool(resource_name, opts=opts, __props__=__props__)
 
@@ -979,6 +1082,14 @@ class AgentPool(pulumi.CustomResource):
         The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupID")
+    def capacity_reservation_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter
@@ -1003,6 +1114,14 @@ class AgentPool(pulumi.CustomResource):
         If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         """
         return pulumi.get(self, "current_orchestrator_version")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> pulumi.Output[str]:
+        """
+        Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -1101,6 +1220,14 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "max_pods")
 
     @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> pulumi.Output[Optional[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1123,6 +1250,14 @@ class AgentPool(pulumi.CustomResource):
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output[Optional['outputs.AgentPoolNetworkProfileResponse']]:
+        """
+        Network-related settings of an agent pool.
+        """
+        return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="nodeImageVersion")
@@ -1253,6 +1388,14 @@ class AgentPool(pulumi.CustomResource):
         return pulumi.get(self, "scale_set_priority")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.AgentPoolSecurityProfileResponse']]:
+        """
+        The security settings of an agent pool.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> pulumi.Output[Optional[float]]:
         """
@@ -1299,6 +1442,14 @@ class AgentPool(pulumi.CustomResource):
         If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
+
+    @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> pulumi.Output[Optional['outputs.AgentPoolWindowsProfileResponse']]:
+        """
+        The Windows agent pool's specific profile.
+        """
+        return pulumi.get(self, "windows_profile")
 
     @property
     @pulumi.getter(name="workloadRuntime")

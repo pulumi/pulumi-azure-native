@@ -97,7 +97,7 @@ class GetPartnerConfigurationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to partner configuration resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -138,9 +138,7 @@ def get_partner_configuration(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerConfigurationResult:
     """
     Get properties of a partner configuration.
-    Azure REST API version: 2022-06-15.
-
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.
@@ -163,9 +161,7 @@ def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerConfigurationResult]:
     """
     Get properties of a partner configuration.
-    Azure REST API version: 2022-06-15.
-
-    Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str resource_group_name: The name of the resource group within the user's subscription.

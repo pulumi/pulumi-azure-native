@@ -119,9 +119,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  __props__=None):
         """
         Information about a partner registration.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
-
-        Other available API versions: 2021-10-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,9 +138,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a partner registration.
-        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
-
-        Other available API versions: 2021-10-15-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
 
         :param str resource_name: The name of the resource.
         :param PartnerRegistrationArgs args: The arguments to use to populate this resource's properties.
@@ -254,7 +250,7 @@ class PartnerRegistration(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Partner Registration resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

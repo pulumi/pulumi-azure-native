@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
-        public readonly string TargetResourceName;
+        public readonly string? TargetResourceName;
         /// <summary>
         /// Defines the zone redundant resource setting.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? targetResourceGroupName,
 
-            string targetResourceName,
+            string? targetResourceName,
 
             string? zoneRedundant)
         {

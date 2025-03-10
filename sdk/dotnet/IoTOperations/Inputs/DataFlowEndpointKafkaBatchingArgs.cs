@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Kafka endpoint Batching properties
     /// </summary>
-    public sealed class DataFlowEndpointKafkaBatchingArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointKafkaBatchingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Batching latency in milliseconds.
@@ -39,13 +39,13 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.IoTOperations.OperationalMode>? Mode { get; set; }
 
-        public DataFlowEndpointKafkaBatchingArgs()
+        public DataflowEndpointKafkaBatchingArgs()
         {
             LatencyMs = 5;
             MaxBytes = 1000000;
             MaxMessages = 100000;
             Mode = "Enabled";
         }
-        public static new DataFlowEndpointKafkaBatchingArgs Empty => new DataFlowEndpointKafkaBatchingArgs();
+        public static new DataflowEndpointKafkaBatchingArgs Empty => new DataflowEndpointKafkaBatchingArgs();
     }
 }

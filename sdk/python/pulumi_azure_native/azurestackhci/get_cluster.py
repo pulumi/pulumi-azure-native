@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     Cluster details.
     """
-    def __init__(__self__, aad_application_object_id=None, aad_client_id=None, aad_service_principal_object_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, cloud_management_endpoint=None, desired_properties=None, id=None, last_billing_timestamp=None, last_sync_timestamp=None, location=None, name=None, principal_id=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, resource_provider_object_id=None, service_endpoint=None, software_assurance_properties=None, status=None, system_data=None, tags=None, tenant_id=None, trial_days_remaining=None, type=None, user_assigned_identities=None):
+    def __init__(__self__, aad_application_object_id=None, aad_client_id=None, aad_service_principal_object_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, cloud_management_endpoint=None, connectivity_status=None, desired_properties=None, id=None, isolated_vm_attestation_configuration=None, last_billing_timestamp=None, last_sync_timestamp=None, location=None, log_collection_properties=None, name=None, principal_id=None, provisioning_state=None, registration_timestamp=None, remote_support_properties=None, reported_properties=None, resource_provider_object_id=None, service_endpoint=None, software_assurance_properties=None, status=None, system_data=None, tags=None, tenant_id=None, trial_days_remaining=None, type=None, user_assigned_identities=None):
         if aad_application_object_id and not isinstance(aad_application_object_id, str):
             raise TypeError("Expected argument 'aad_application_object_id' to be a str")
         pulumi.set(__self__, "aad_application_object_id", aad_application_object_id)
@@ -49,12 +49,18 @@ class GetClusterResult:
         if cloud_management_endpoint and not isinstance(cloud_management_endpoint, str):
             raise TypeError("Expected argument 'cloud_management_endpoint' to be a str")
         pulumi.set(__self__, "cloud_management_endpoint", cloud_management_endpoint)
+        if connectivity_status and not isinstance(connectivity_status, str):
+            raise TypeError("Expected argument 'connectivity_status' to be a str")
+        pulumi.set(__self__, "connectivity_status", connectivity_status)
         if desired_properties and not isinstance(desired_properties, dict):
             raise TypeError("Expected argument 'desired_properties' to be a dict")
         pulumi.set(__self__, "desired_properties", desired_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if isolated_vm_attestation_configuration and not isinstance(isolated_vm_attestation_configuration, dict):
+            raise TypeError("Expected argument 'isolated_vm_attestation_configuration' to be a dict")
+        pulumi.set(__self__, "isolated_vm_attestation_configuration", isolated_vm_attestation_configuration)
         if last_billing_timestamp and not isinstance(last_billing_timestamp, str):
             raise TypeError("Expected argument 'last_billing_timestamp' to be a str")
         pulumi.set(__self__, "last_billing_timestamp", last_billing_timestamp)
@@ -64,6 +70,9 @@ class GetClusterResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if log_collection_properties and not isinstance(log_collection_properties, dict):
+            raise TypeError("Expected argument 'log_collection_properties' to be a dict")
+        pulumi.set(__self__, "log_collection_properties", log_collection_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -76,6 +85,9 @@ class GetClusterResult:
         if registration_timestamp and not isinstance(registration_timestamp, str):
             raise TypeError("Expected argument 'registration_timestamp' to be a str")
         pulumi.set(__self__, "registration_timestamp", registration_timestamp)
+        if remote_support_properties and not isinstance(remote_support_properties, dict):
+            raise TypeError("Expected argument 'remote_support_properties' to be a dict")
+        pulumi.set(__self__, "remote_support_properties", remote_support_properties)
         if reported_properties and not isinstance(reported_properties, dict):
             raise TypeError("Expected argument 'reported_properties' to be a dict")
         pulumi.set(__self__, "reported_properties", reported_properties)
@@ -167,6 +179,14 @@ class GetClusterResult:
         return pulumi.get(self, "cloud_management_endpoint")
 
     @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> str:
+        """
+        Overall connectivity status for the cluster resource.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @property
     @pulumi.getter(name="desiredProperties")
     def desired_properties(self) -> Optional['outputs.ClusterDesiredPropertiesResponse']:
         """
@@ -178,9 +198,17 @@ class GetClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="isolatedVmAttestationConfiguration")
+    def isolated_vm_attestation_configuration(self) -> 'outputs.IsolatedVmAttestationConfigurationResponse':
+        """
+        Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+        """
+        return pulumi.get(self, "isolated_vm_attestation_configuration")
 
     @property
     @pulumi.getter(name="lastBillingTimestamp")
@@ -205,6 +233,14 @@ class GetClusterResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logCollectionProperties")
+    def log_collection_properties(self) -> Optional['outputs.LogCollectionPropertiesResponse']:
+        """
+        Log Collection properties of the cluster.
+        """
+        return pulumi.get(self, "log_collection_properties")
 
     @property
     @pulumi.getter
@@ -237,6 +273,14 @@ class GetClusterResult:
         First cluster sync timestamp.
         """
         return pulumi.get(self, "registration_timestamp")
+
+    @property
+    @pulumi.getter(name="remoteSupportProperties")
+    def remote_support_properties(self) -> Optional['outputs.RemoteSupportPropertiesResponse']:
+        """
+        RemoteSupport properties of the cluster.
+        """
+        return pulumi.get(self, "remote_support_properties")
 
     @property
     @pulumi.getter(name="reportedProperties")
@@ -340,15 +384,19 @@ class AwaitableGetClusterResult(GetClusterResult):
             billing_model=self.billing_model,
             cloud_id=self.cloud_id,
             cloud_management_endpoint=self.cloud_management_endpoint,
+            connectivity_status=self.connectivity_status,
             desired_properties=self.desired_properties,
             id=self.id,
+            isolated_vm_attestation_configuration=self.isolated_vm_attestation_configuration,
             last_billing_timestamp=self.last_billing_timestamp,
             last_sync_timestamp=self.last_sync_timestamp,
             location=self.location,
+            log_collection_properties=self.log_collection_properties,
             name=self.name,
             principal_id=self.principal_id,
             provisioning_state=self.provisioning_state,
             registration_timestamp=self.registration_timestamp,
+            remote_support_properties=self.remote_support_properties,
             reported_properties=self.reported_properties,
             resource_provider_object_id=self.resource_provider_object_id,
             service_endpoint=self.service_endpoint,
@@ -367,9 +415,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get HCI cluster.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -389,15 +435,19 @@ def get_cluster(cluster_name: Optional[str] = None,
         billing_model=pulumi.get(__ret__, 'billing_model'),
         cloud_id=pulumi.get(__ret__, 'cloud_id'),
         cloud_management_endpoint=pulumi.get(__ret__, 'cloud_management_endpoint'),
+        connectivity_status=pulumi.get(__ret__, 'connectivity_status'),
         desired_properties=pulumi.get(__ret__, 'desired_properties'),
         id=pulumi.get(__ret__, 'id'),
+        isolated_vm_attestation_configuration=pulumi.get(__ret__, 'isolated_vm_attestation_configuration'),
         last_billing_timestamp=pulumi.get(__ret__, 'last_billing_timestamp'),
         last_sync_timestamp=pulumi.get(__ret__, 'last_sync_timestamp'),
         location=pulumi.get(__ret__, 'location'),
+        log_collection_properties=pulumi.get(__ret__, 'log_collection_properties'),
         name=pulumi.get(__ret__, 'name'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         registration_timestamp=pulumi.get(__ret__, 'registration_timestamp'),
+        remote_support_properties=pulumi.get(__ret__, 'remote_support_properties'),
         reported_properties=pulumi.get(__ret__, 'reported_properties'),
         resource_provider_object_id=pulumi.get(__ret__, 'resource_provider_object_id'),
         service_endpoint=pulumi.get(__ret__, 'service_endpoint'),
@@ -414,9 +464,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get HCI cluster.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -435,15 +483,19 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         billing_model=pulumi.get(__response__, 'billing_model'),
         cloud_id=pulumi.get(__response__, 'cloud_id'),
         cloud_management_endpoint=pulumi.get(__response__, 'cloud_management_endpoint'),
+        connectivity_status=pulumi.get(__response__, 'connectivity_status'),
         desired_properties=pulumi.get(__response__, 'desired_properties'),
         id=pulumi.get(__response__, 'id'),
+        isolated_vm_attestation_configuration=pulumi.get(__response__, 'isolated_vm_attestation_configuration'),
         last_billing_timestamp=pulumi.get(__response__, 'last_billing_timestamp'),
         last_sync_timestamp=pulumi.get(__response__, 'last_sync_timestamp'),
         location=pulumi.get(__response__, 'location'),
+        log_collection_properties=pulumi.get(__response__, 'log_collection_properties'),
         name=pulumi.get(__response__, 'name'),
         principal_id=pulumi.get(__response__, 'principal_id'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         registration_timestamp=pulumi.get(__response__, 'registration_timestamp'),
+        remote_support_properties=pulumi.get(__response__, 'remote_support_properties'),
         reported_properties=pulumi.get(__response__, 'reported_properties'),
         resource_provider_object_id=pulumi.get(__response__, 'resource_provider_object_id'),
         service_endpoint=pulumi.get(__response__, 'service_endpoint'),

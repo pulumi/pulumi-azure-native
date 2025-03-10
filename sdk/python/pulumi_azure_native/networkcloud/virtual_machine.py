@@ -49,7 +49,7 @@ class VirtualMachineArgs:
         :param pulumi.Input['NetworkAttachmentArgs'] cloud_services_network_attachment: The cloud service network that provides platform-level services for the virtual machine.
         :param pulumi.Input[float] cpu_cores: The number of CPU cores in the virtual machine.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
+        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine. Allocations are measured in gibibytes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile that specifies size and other parameters about the disks related to the virtual machine.
         :param pulumi.Input[str] vm_image: The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
@@ -162,7 +162,7 @@ class VirtualMachineArgs:
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> pulumi.Input[float]:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 
@@ -391,9 +391,7 @@ class VirtualMachine(pulumi.CustomResource):
                  vm_image_repository_credentials: Optional[pulumi.Input[Union['ImageRepositoryCredentialsArgs', 'ImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -404,7 +402,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Union[str, 'VirtualMachineIsolateEmulatorThread']] isolate_emulator_thread: Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine in GB.
+        :param pulumi.Input[float] memory_size_gb: The memory size of the virtual machine. Allocations are measured in gibibytes.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkAttachmentArgs', 'NetworkAttachmentArgsDict']]]] network_attachments: The list of network attachments to the virtual machine.
         :param pulumi.Input[str] network_data: The Base64 encoded cloud-init network data.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachinePlacementHintArgs', 'VirtualMachinePlacementHintArgsDict']]]] placement_hints: The scheduling hints for the virtual machine.
@@ -426,9 +424,7 @@ class VirtualMachine(pulumi.CustomResource):
                  args: VirtualMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -687,7 +683,7 @@ class VirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> pulumi.Output[float]:
         """
-        The memory size of the virtual machine in GB.
+        The memory size of the virtual machine. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 

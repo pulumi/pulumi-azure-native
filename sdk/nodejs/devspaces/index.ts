@@ -24,13 +24,6 @@ utilities.lazyLoad(exports, ["listControllerConnectionDetails","listControllerCo
 // Export enums:
 export * from "../types/enums/devspaces";
 
-// Export sub-modules:
-import * as v20190401 from "./v20190401";
-
-export {
-    v20190401,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

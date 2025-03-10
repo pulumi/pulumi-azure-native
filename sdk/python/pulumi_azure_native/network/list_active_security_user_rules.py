@@ -71,8 +71,6 @@ def list_active_security_user_rules(network_manager_name: Optional[str] = None,
     Lists Active Security User Rules in a network manager.
     Azure REST API version: 2022-04-01-preview.
 
-    Other available API versions: 2021-05-01-preview.
-
 
     :param str network_manager_name: The name of the network manager.
     :param Sequence[str] regions: List of regions.
@@ -98,8 +96,6 @@ def list_active_security_user_rules_output(network_manager_name: Optional[pulumi
     """
     Lists Active Security User Rules in a network manager.
     Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2021-05-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.

@@ -30,6 +30,7 @@ class LoadBalancerBackendAddressPoolArgs:
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sync_mode: Optional[pulumi.Input[Union[str, 'SyncMode']]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]] = None,
                  virtual_network: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
@@ -42,6 +43,7 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+        :param pulumi.Input[Union[str, 'SyncMode']] sync_mode: Backend address synchronous mode for the backend pool
         :param pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         :param pulumi.Input['SubResourceArgs'] virtual_network: A reference to a virtual network.
         """
@@ -59,6 +61,8 @@ class LoadBalancerBackendAddressPoolArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sync_mode is not None:
+            pulumi.set(__self__, "sync_mode", sync_mode)
         if tunnel_interfaces is not None:
             pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
         if virtual_network is not None:
@@ -161,6 +165,18 @@ class LoadBalancerBackendAddressPoolArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[pulumi.Input[Union[str, 'SyncMode']]]:
+        """
+        Backend address synchronous mode for the backend pool
+        """
+        return pulumi.get(self, "sync_mode")
+
+    @sync_mode.setter
+    def sync_mode(self, value: Optional[pulumi.Input[Union[str, 'SyncMode']]]):
+        pulumi.set(self, "sync_mode", value)
+
+    @property
     @pulumi.getter(name="tunnelInterfaces")
     def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GatewayLoadBalancerTunnelInterfaceArgs']]]]:
         """
@@ -198,14 +214,13 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sync_mode: Optional[pulumi.Input[Union[str, 'SyncMode']]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]]] = None,
                  virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         Pool of backend IP addresses.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,6 +232,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Union[str, 'SyncMode']] sync_mode: Backend address synchronous mode for the backend pool
         :param pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
         :param pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']] virtual_network: A reference to a virtual network.
         """
@@ -228,9 +244,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pool of backend IP addresses.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerBackendAddressPoolArgs args: The arguments to use to populate this resource's properties.
@@ -255,6 +269,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sync_mode: Optional[pulumi.Input[Union[str, 'SyncMode']]] = None,
                  tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GatewayLoadBalancerTunnelInterfaceArgs', 'GatewayLoadBalancerTunnelInterfaceArgsDict']]]]] = None,
                  virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
@@ -278,6 +293,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sync_mode"] = sync_mode
             __props__.__dict__["tunnel_interfaces"] = tunnel_interfaces
             __props__.__dict__["virtual_network"] = virtual_network
             __props__.__dict__["backend_ip_configurations"] = None
@@ -323,6 +339,7 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         __props__.__dict__["outbound_rule"] = None
         __props__.__dict__["outbound_rules"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["sync_mode"] = None
         __props__.__dict__["tunnel_interfaces"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_network"] = None
@@ -415,6 +432,14 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         The provisioning state of the backend address pool resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Backend address synchronous mode for the backend pool
+        """
+        return pulumi.get(self, "sync_mode")
 
     @property
     @pulumi.getter(name="tunnelInterfaces")

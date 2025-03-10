@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Task<GetGalleryResult> InvokeAsync(GetGalleryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a Shared Image Gallery.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryResult> Invoke(GetGalleryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryResult>("azure-native:compute:getGallery", args ?? new GetGalleryInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.GalleryIdentifierResponse? Identifier;
         /// <summary>
+        /// The identity of the gallery, if configured.
+        /// </summary>
+        public readonly Outputs.GalleryIdentityResponse? Identity;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.GalleryIdentifierResponse? identifier,
 
+            Outputs.GalleryIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Compute
             Description = description;
             Id = id;
             Identifier = identifier;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

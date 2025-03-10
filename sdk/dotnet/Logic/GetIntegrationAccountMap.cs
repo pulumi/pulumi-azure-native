@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());

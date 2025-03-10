@@ -27,10 +27,13 @@ class GetMaintenanceConfigurationResult:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     """
-    def __init__(__self__, id=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
+    def __init__(__self__, id=None, maintenance_window=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if maintenance_window and not isinstance(maintenance_window, dict):
+            raise TypeError("Expected argument 'maintenance_window' to be a dict")
+        pulumi.set(__self__, "maintenance_window", maintenance_window)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetMaintenanceConfigurationResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
+        """
+        Maintenance window for the maintenance configuration.
+        """
+        return pulumi.get(self, "maintenance_window")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
             yield self
         return GetMaintenanceConfigurationResult(
             id=self.id,
+            maintenance_window=self.maintenance_window,
             name=self.name,
             not_allowed_time=self.not_allowed_time,
             system_data=self.system_data,
@@ -116,9 +128,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -134,6 +144,7 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
 
     return AwaitableGetMaintenanceConfigurationResult(
         id=pulumi.get(__ret__, 'id'),
+        maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         name=pulumi.get(__ret__, 'name'),
         not_allowed_time=pulumi.get(__ret__, 'not_allowed_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -145,9 +156,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str config_name: The name of the maintenance configuration.
@@ -162,6 +171,7 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerservice:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult)
     return __ret__.apply(lambda __response__: GetMaintenanceConfigurationResult(
         id=pulumi.get(__response__, 'id'),
+        maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         name=pulumi.get(__response__, 'name'),
         not_allowed_time=pulumi.get(__response__, 'not_allowed_time'),
         system_data=pulumi.get(__response__, 'system_data'),

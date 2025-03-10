@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A budget resource.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  */
 export class Budget extends pulumi.CustomResource {
     /**
@@ -77,7 +75,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public /*out*/ readonly forecastSpend!: pulumi.Output<outputs.costmanagement.ForecastSpendResponse>;
     /**
-     * The name of the resource
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -121,7 +119,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly timePeriod!: pulumi.Output<outputs.costmanagement.BudgetTimePeriodResponse>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

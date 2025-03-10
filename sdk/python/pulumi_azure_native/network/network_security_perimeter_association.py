@@ -186,7 +186,7 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
                  __props__=None):
         """
         The NSP resource association resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,7 +208,7 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP resource association resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAssociationArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +260,7 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspAssociation"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspAssociation"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspAssociation"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation"), pulumi.Alias(type_="azure-native:network:NspAssociation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterAssociation, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterAssociation',

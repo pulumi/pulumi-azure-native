@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the logging configuration of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppDiagnosticLogsConfiguration(args: GetWebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDiagnosticLogsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -71,9 +69,7 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
 }
 /**
  * Description for Gets the logging configuration of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppDiagnosticLogsConfigurationOutput(args: GetWebAppDiagnosticLogsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppDiagnosticLogsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

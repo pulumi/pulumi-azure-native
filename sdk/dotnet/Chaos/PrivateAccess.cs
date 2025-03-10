@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Chaos
 {
     /// <summary>
     /// PrivateAccesses tracked resource.
-    /// Azure REST API version: 2023-10-27-preview.
-    /// 
-    /// Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+    /// Azure REST API version: 2024-03-22-preview. Prior API version in Azure Native 2.x: 2023-10-27-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:PrivateAccess")]
     public partial class PrivateAccess : global::Pulumi.CustomResource
@@ -35,6 +33,18 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Most recent provisioning state for the given privateAccess resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Public Network Access Control for PrivateAccess resource.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -116,6 +126,12 @@ namespace Pulumi.AzureNative.Chaos
         /// </summary>
         [Input("privateAccessName")]
         public Input<string>? PrivateAccessName { get; set; }
+
+        /// <summary>
+        /// Public Network Access Control for PrivateAccess resource.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Chaos.PublicNetworkAccessOption>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// String that represents an Azure resource group.

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about packet capture session.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
@@ -44,6 +42,14 @@ export class PacketCapture extends pulumi.CustomResource {
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
     public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
+    /**
+     * The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+     */
+    public readonly captureSettings!: pulumi.Output<outputs.network.PacketCaptureSettingsResponse | undefined>;
+    /**
+     * This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+     */
+    public readonly continuousCapture!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -109,6 +115,8 @@ export class PacketCapture extends pulumi.CustomResource {
                 throw new Error("Missing required property 'target'");
             }
             resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
+            resourceInputs["captureSettings"] = args ? (args.captureSettings ? pulumi.output(args.captureSettings).apply(inputs.network.packetCaptureSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["continuousCapture"] = args ? args.continuousCapture : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
             resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
@@ -124,6 +132,8 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["bytesToCapturePerPacket"] = undefined /*out*/;
+            resourceInputs["captureSettings"] = undefined /*out*/;
+            resourceInputs["continuousCapture"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -150,6 +160,14 @@ export interface PacketCaptureArgs {
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
     bytesToCapturePerPacket?: pulumi.Input<number>;
+    /**
+     * The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+     */
+    captureSettings?: pulumi.Input<inputs.network.PacketCaptureSettingsArgs>;
+    /**
+     * This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+     */
+    continuousCapture?: pulumi.Input<boolean>;
     /**
      * A list of packet capture filters.
      */

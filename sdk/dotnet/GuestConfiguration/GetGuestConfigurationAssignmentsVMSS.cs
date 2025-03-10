@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.GuestConfiguration
     {
         /// <summary>
         /// Get information about a guest configuration assignment for VMSS
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Task<GetGuestConfigurationAssignmentsVMSSResult> InvokeAsync(GetGuestConfigurationAssignmentsVMSSArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationAssignmentsVMSSResult>("azure-native:guestconfiguration:getGuestConfigurationAssignmentsVMSS", args ?? new GetGuestConfigurationAssignmentsVMSSArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment for VMSS
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentsVMSSResult> Invoke(GetGuestConfigurationAssignmentsVMSSInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentsVMSSResult>("azure-native:guestconfiguration:getGuestConfigurationAssignmentsVMSS", args ?? new GetGuestConfigurationAssignmentsVMSSInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment for VMSS
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationAssignmentsVMSSResult> Invoke(GetGuestConfigurationAssignmentsVMSSInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationAssignmentsVMSSResult>("azure-native:guestconfiguration:getGuestConfigurationAssignmentsVMSS", args ?? new GetGuestConfigurationAssignmentsVMSSInvokeArgs(), options.WithDefaults());

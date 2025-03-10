@@ -119,7 +119,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
                  __props__=None):
         """
         Alert processing rule object containing target scopes, conditions and scheduling logic.
-        Azure REST API version: 2021-08-08.
+        Azure REST API version: 2021-08-08. Prior API version in Azure Native 2.x: 2021-08-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,7 +137,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Alert processing rule object containing target scopes, conditions and scheduling logic.
-        Azure REST API version: 2021-08-08.
+        Azure REST API version: 2021-08-08. Prior API version in Azure Native 2.x: 2021-08-08.
 
         :param str resource_name: The name of the resource.
         :param AlertProcessingRuleByNameArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class AlertProcessingRuleByName(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:ActionRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName"), pulumi.Alias(type_="azure-native:alertsmanagement:ActionRuleByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertProcessingRuleByName, __self__).__init__(
             'azure-native:alertsmanagement:AlertProcessingRuleByName',

@@ -18,9 +18,9 @@ from ._enums import *
 
 __all__ = [
     'ApiEntityReferenceResponse',
-    'CloudHsmClusterSecurityDomainPropertiesResponse',
     'CloudHsmClusterSkuResponse',
     'CloudHsmPropertiesResponse',
+    'ManagedServiceIdentityResponse',
     'NetworkInterfaceResponse',
     'NetworkProfileResponse',
     'PrivateEndpointConnectionResponse',
@@ -28,6 +28,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'SkuResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -35,76 +36,39 @@ class ApiEntityReferenceResponse(dict):
     """
     The API entity reference.
     """
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        The API entity reference.
-        :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class CloudHsmClusterSecurityDomainPropertiesResponse(dict):
-    """
-    Security domain properties information for Cloud HSM cluster
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "activationStatus":
-            suggest = "activation_status"
-        elif key == "fipsState":
-            suggest = "fips_state"
+        if key == "resourceId":
+            suggest = "resource_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in CloudHsmClusterSecurityDomainPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ApiEntityReferenceResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        CloudHsmClusterSecurityDomainPropertiesResponse.__key_warning(key)
+        ApiEntityReferenceResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        CloudHsmClusterSecurityDomainPropertiesResponse.__key_warning(key)
+        ApiEntityReferenceResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 activation_status: Optional[str] = None,
-                 fips_state: Optional[int] = None):
+                 resource_id: Optional[str] = None):
         """
-        Security domain properties information for Cloud HSM cluster
-        :param str activation_status: status of security domain activation
-        :param int fips_state: FIPS state information for security domain
+        The API entity reference.
+        :param str resource_id: The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
-        if activation_status is not None:
-            pulumi.set(__self__, "activation_status", activation_status)
-        if fips_state is not None:
-            pulumi.set(__self__, "fips_state", fips_state)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
-    @pulumi.getter(name="activationStatus")
-    def activation_status(self) -> Optional[str]:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
         """
-        status of security domain activation
+        The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
-        return pulumi.get(self, "activation_status")
-
-    @property
-    @pulumi.getter(name="fipsState")
-    def fips_state(self) -> Optional[int]:
-        """
-        FIPS state information for security domain
-        """
-        return pulumi.get(self, "fips_state")
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -181,7 +145,7 @@ class CloudHsmPropertiesResponse(dict):
         """
         The Cloud HSM Properties
         :param str fqdn: FQDN of the Cloud HSM
-        :param str state: The Cloud HSM State
+        :param str state: The Cloud HSM State. Values are: Deploying, ConfiguringSlb, Starting, Starting, Failed, Failed, Deleting, DeletingSlbEntry, InitialProvisioning, Updating
         :param str state_message: The Cloud HSM State message
         """
         if fqdn is not None:
@@ -203,7 +167,7 @@ class CloudHsmPropertiesResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        The Cloud HSM State
+        The Cloud HSM State. Values are: Deploying, ConfiguringSlb, Starting, Starting, Failed, Failed, Deleting, DeletingSlbEntry, InitialProvisioning, Updating
         """
         return pulumi.get(self, "state")
 
@@ -217,6 +181,83 @@ class CloudHsmPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class NetworkInterfaceResponse(dict):
     """
     The network interface definition.
@@ -224,7 +265,9 @@ class NetworkInterfaceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateIpAddress":
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "privateIpAddress":
             suggest = "private_ip_address"
 
         if suggest:
@@ -239,24 +282,24 @@ class NetworkInterfaceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 id: str,
+                 resource_id: str,
                  private_ip_address: Optional[str] = None):
         """
         The network interface definition.
-        :param str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        :param str resource_id: The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         :param str private_ip_address: Private Ip address of the interface
         """
-        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "resource_id", resource_id)
         if private_ip_address is not None:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
 
     @property
-    @pulumi.getter
-    def id(self) -> str:
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
         """
-        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        The Azure resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "resource_id")
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -568,7 +611,7 @@ class SkuResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    Metadata pertaining to creation and last modification of dedicated hsm resource.
+    Metadata pertaining to creation and last modification of the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -605,13 +648,13 @@ class SystemDataResponse(dict):
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
         """
-        Metadata pertaining to creation and last modification of dedicated hsm resource.
-        :param str created_at: The timestamp of dedicated hsm resource creation (UTC).
-        :param str created_by: The identity that created dedicated hsm resource.
-        :param str created_by_type: The type of identity that created dedicated hsm resource.
-        :param str last_modified_at: The timestamp of dedicated hsm resource last modification (UTC).
-        :param str last_modified_by: The identity that last modified dedicated hsm resource.
-        :param str last_modified_by_type: The type of identity that last modified dedicated hsm resource.
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -630,7 +673,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The timestamp of dedicated hsm resource creation (UTC).
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
@@ -638,7 +681,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
         """
-        The identity that created dedicated hsm resource.
+        The identity that created the resource.
         """
         return pulumi.get(self, "created_by")
 
@@ -646,7 +689,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[str]:
         """
-        The type of identity that created dedicated hsm resource.
+        The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
 
@@ -654,7 +697,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of dedicated hsm resource last modification (UTC).
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -662,7 +705,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[str]:
         """
-        The identity that last modified dedicated hsm resource.
+        The identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -670,8 +713,60 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[str]:
         """
-        The type of identity that last modified dedicated hsm resource.
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

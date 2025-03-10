@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The tenant configuration resource definition.
- * Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
- *
- * Other available API versions: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 2.x: 2020-09-01-preview.
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**

@@ -8,6 +8,43 @@ using Pulumi;
 namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
+    /// The data plane proxy authentication mode. This property manages the authentication mode of request to the data plane resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMode : IEquatable<AuthenticationMode>
+    {
+        private readonly string _value;
+
+        private AuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The local authentication mode. Users are not required to have data plane permissions if local authentication is not disabled.
+        /// </summary>
+        public static AuthenticationMode Local { get; } = new AuthenticationMode("Local");
+        /// <summary>
+        /// The pass-through authentication mode. User identity will be passed through from Azure Resource Manager (ARM), requiring user to have data plane action permissions (Available via App Configuration Data Owner/ App Configuration Data Reader).
+        /// </summary>
+        public static AuthenticationMode Pass_through { get; } = new AuthenticationMode("Pass-through");
+
+        public static bool operator ==(AuthenticationMode left, AuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMode left, AuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMode other && Equals(other);
+        public bool Equals(AuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The private link service connection status.
     /// </summary>
     [EnumType]
@@ -97,6 +134,43 @@ namespace Pulumi.AzureNative.AppConfiguration
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data plane proxy private link delegation. This property manages if a request from delegated Azure Resource Manager (ARM) private link is allowed when the data plane resource requires private link.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkDelegation : IEquatable<PrivateLinkDelegation>
+    {
+        private readonly string _value;
+
+        private PrivateLinkDelegation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Azure Resource Manager (ARM) private endpoint is required if the resource requires private link.
+        /// </summary>
+        public static PrivateLinkDelegation Enabled { get; } = new PrivateLinkDelegation("Enabled");
+        /// <summary>
+        /// Request is denied if the resource requires private link.
+        /// </summary>
+        public static PrivateLinkDelegation Disabled { get; } = new PrivateLinkDelegation("Disabled");
+
+        public static bool operator ==(PrivateLinkDelegation left, PrivateLinkDelegation right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkDelegation left, PrivateLinkDelegation right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkDelegation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkDelegation other && Equals(other);
+        public bool Equals(PrivateLinkDelegation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

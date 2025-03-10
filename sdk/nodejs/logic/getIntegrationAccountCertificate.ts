@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets an integration account certificate.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountCertificate(args: GetIntegrationAccountCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -85,8 +83,6 @@ export interface GetIntegrationAccountCertificateResult {
 /**
  * Gets an integration account certificate.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountCertificateOutput(args: GetIntegrationAccountCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the application accelerator.
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getApplicationAccelerator(args: GetApplicationAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -68,9 +66,7 @@ export interface GetApplicationAcceleratorResult {
 }
 /**
  * Get the application accelerator.
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getApplicationAcceleratorOutput(args: GetApplicationAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

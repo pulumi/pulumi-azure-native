@@ -9,20 +9,18 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAP Database Instance resource.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPDatabaseInstance(args: GetSAPDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDatabaseInstanceResult> {
+export function getSapDatabaseInstance(args: GetSapDatabaseInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSapDatabaseInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:workloads:getSAPDatabaseInstance", {
+    return pulumi.runtime.invoke("azure-native:workloads:getSapDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPDatabaseInstanceArgs {
+export interface GetSapDatabaseInstanceArgs {
     /**
      * Database resource name string modeled as parameter for auto generation to work correctly.
      */
@@ -40,7 +38,7 @@ export interface GetSAPDatabaseInstanceArgs {
 /**
  * Define the Database resource.
  */
-export interface GetSAPDatabaseInstanceResult {
+export interface GetSapDatabaseInstanceResult {
     /**
      * Database SID name.
      */
@@ -54,7 +52,7 @@ export interface GetSAPDatabaseInstanceResult {
      */
     readonly errors: outputs.workloads.SAPVirtualInstanceErrorResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -104,20 +102,18 @@ export interface GetSAPDatabaseInstanceResult {
 }
 /**
  * Gets the SAP Database Instance resource.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
-export function getSAPDatabaseInstanceOutput(args: GetSAPDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSAPDatabaseInstanceResult> {
+export function getSapDatabaseInstanceOutput(args: GetSapDatabaseInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSapDatabaseInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:workloads:getSAPDatabaseInstance", {
+    return pulumi.runtime.invokeOutput("azure-native:workloads:getSapDatabaseInstance", {
         "databaseInstanceName": args.databaseInstanceName,
         "resourceGroupName": args.resourceGroupName,
         "sapVirtualInstanceName": args.sapVirtualInstanceName,
     }, opts);
 }
 
-export interface GetSAPDatabaseInstanceOutputArgs {
+export interface GetSapDatabaseInstanceOutputArgs {
     /**
      * Database resource name string modeled as parameter for auto generation to work correctly.
      */

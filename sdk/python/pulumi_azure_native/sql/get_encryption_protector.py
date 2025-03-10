@@ -177,8 +177,6 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -210,8 +208,6 @@ def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.I
     """
     Gets a server encryption protector.
     Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str encryption_protector_name: The name of the encryption protector to be retrieved.

@@ -31,6 +31,7 @@ class UpdateArgs:
                  health_check_date: Optional[pulumi.Input[str]] = None,
                  installed_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_sbe_version_required: Optional[pulumi.Input[str]] = None,
                  notify_message: Optional[pulumi.Input[str]] = None,
                  package_path: Optional[pulumi.Input[str]] = None,
                  package_size_in_mb: Optional[pulumi.Input[float]] = None,
@@ -53,6 +54,7 @@ class UpdateArgs:
         :param pulumi.Input[str] health_check_date: Last time the package-specific checks were run.
         :param pulumi.Input[str] installed_date: Date that the update was installed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] min_sbe_version_required: Minimum Sbe Version of the update.
         :param pulumi.Input[str] notify_message: Brief message with instructions for updates of AvailabilityType Notify.
         :param pulumi.Input[str] package_path: Path where the update package is available.
         :param pulumi.Input[float] package_size_in_mb: Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.
@@ -81,6 +83,8 @@ class UpdateArgs:
             pulumi.set(__self__, "installed_date", installed_date)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if min_sbe_version_required is not None:
+            pulumi.set(__self__, "min_sbe_version_required", min_sbe_version_required)
         if notify_message is not None:
             pulumi.set(__self__, "notify_message", notify_message)
         if package_path is not None:
@@ -211,6 +215,18 @@ class UpdateArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minSbeVersionRequired")
+    def min_sbe_version_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        Minimum Sbe Version of the update.
+        """
+        return pulumi.get(self, "min_sbe_version_required")
+
+    @min_sbe_version_required.setter
+    def min_sbe_version_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "min_sbe_version_required", value)
 
     @property
     @pulumi.getter(name="notifyMessage")
@@ -358,6 +374,7 @@ class Update(pulumi.CustomResource):
                  health_check_date: Optional[pulumi.Input[str]] = None,
                  installed_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_sbe_version_required: Optional[pulumi.Input[str]] = None,
                  notify_message: Optional[pulumi.Input[str]] = None,
                  package_path: Optional[pulumi.Input[str]] = None,
                  package_size_in_mb: Optional[pulumi.Input[float]] = None,
@@ -373,9 +390,7 @@ class Update(pulumi.CustomResource):
                  __props__=None):
         """
         Update details
-        Azure REST API version: 2023-03-01.
-
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,6 +402,7 @@ class Update(pulumi.CustomResource):
         :param pulumi.Input[str] health_check_date: Last time the package-specific checks were run.
         :param pulumi.Input[str] installed_date: Date that the update was installed.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] min_sbe_version_required: Minimum Sbe Version of the update.
         :param pulumi.Input[str] notify_message: Brief message with instructions for updates of AvailabilityType Notify.
         :param pulumi.Input[str] package_path: Path where the update package is available.
         :param pulumi.Input[float] package_size_in_mb: Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.
@@ -408,9 +424,7 @@ class Update(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Update details
-        Azure REST API version: 2023-03-01.
-
-        Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param UpdateArgs args: The arguments to use to populate this resource's properties.
@@ -435,6 +449,7 @@ class Update(pulumi.CustomResource):
                  health_check_date: Optional[pulumi.Input[str]] = None,
                  installed_date: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 min_sbe_version_required: Optional[pulumi.Input[str]] = None,
                  notify_message: Optional[pulumi.Input[str]] = None,
                  package_path: Optional[pulumi.Input[str]] = None,
                  package_size_in_mb: Optional[pulumi.Input[float]] = None,
@@ -466,6 +481,7 @@ class Update(pulumi.CustomResource):
             __props__.__dict__["health_check_date"] = health_check_date
             __props__.__dict__["installed_date"] = installed_date
             __props__.__dict__["location"] = location
+            __props__.__dict__["min_sbe_version_required"] = min_sbe_version_required
             __props__.__dict__["notify_message"] = notify_message
             __props__.__dict__["package_path"] = package_path
             __props__.__dict__["package_size_in_mb"] = package_size_in_mb
@@ -515,6 +531,7 @@ class Update(pulumi.CustomResource):
         __props__.__dict__["health_check_date"] = None
         __props__.__dict__["installed_date"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["min_sbe_version_required"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notify_message"] = None
         __props__.__dict__["package_path"] = None
@@ -586,6 +603,14 @@ class Update(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="minSbeVersionRequired")
+    def min_sbe_version_required(self) -> pulumi.Output[Optional[str]]:
+        """
+        Minimum Sbe Version of the update.
+        """
+        return pulumi.get(self, "min_sbe_version_required")
 
     @property
     @pulumi.getter

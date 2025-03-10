@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.WebPubSub
     {
         /// <summary>
         /// Get the resource and its properties.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetWebPubSubResult> InvokeAsync(GetWebPubSubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the resource and its properties.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the resource and its properties.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetWebPubSubResult> Invoke(GetWebPubSubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebPubSubResult>("azure-native:webpubsub:getWebPubSub", args ?? new GetWebPubSubInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.WebPubSub
     public sealed class GetWebPubSubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -109,7 +103,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly string HostNamePrefix;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,15 +111,19 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
         /// <summary>
+        /// The kind of the service
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
         /// Live trace configuration of a Microsoft.SignalRService resource.
         /// </summary>
         public readonly Outputs.LiveTraceConfigurationResponse? LiveTraceConfiguration;
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -151,9 +149,21 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly int PublicPort;
         /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        public readonly string? RegionEndpointEnabled;
+        /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
         /// </summary>
         public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
+        /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        public readonly string? ResourceStopped;
         /// <summary>
         /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
@@ -167,11 +177,15 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// SocketIO settings for the resource
+        /// </summary>
+        public readonly Outputs.WebPubSubSocketIOSettingsResponse? SocketIO;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -179,7 +193,7 @@ namespace Pulumi.AzureNative.WebPubSub
         /// </summary>
         public readonly Outputs.WebPubSubTlsSettingsResponse? Tls;
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -203,9 +217,11 @@ namespace Pulumi.AzureNative.WebPubSub
 
             Outputs.ManagedIdentityResponse? identity,
 
+            string? kind,
+
             Outputs.LiveTraceConfigurationResponse? liveTraceConfiguration,
 
-            string? location,
+            string location,
 
             string name,
 
@@ -219,13 +235,19 @@ namespace Pulumi.AzureNative.WebPubSub
 
             int publicPort,
 
+            string? regionEndpointEnabled,
+
             Outputs.ResourceLogConfigurationResponse? resourceLogConfiguration,
+
+            string? resourceStopped,
 
             int serverPort,
 
             ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> sharedPrivateLinkResources,
 
             Outputs.ResourceSkuResponse? sku,
+
+            Outputs.WebPubSubSocketIOSettingsResponse? socketIO,
 
             Outputs.SystemDataResponse systemData,
 
@@ -244,6 +266,7 @@ namespace Pulumi.AzureNative.WebPubSub
             HostNamePrefix = hostNamePrefix;
             Id = id;
             Identity = identity;
+            Kind = kind;
             LiveTraceConfiguration = liveTraceConfiguration;
             Location = location;
             Name = name;
@@ -252,10 +275,13 @@ namespace Pulumi.AzureNative.WebPubSub
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PublicPort = publicPort;
+            RegionEndpointEnabled = regionEndpointEnabled;
             ResourceLogConfiguration = resourceLogConfiguration;
+            ResourceStopped = resourceStopped;
             ServerPort = serverPort;
             SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;
+            SocketIO = socketIO;
             SystemData = systemData;
             Tags = tags;
             Tls = tls;

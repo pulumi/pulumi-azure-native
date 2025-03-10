@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the automation rule.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getAutomationRule(args: GetAutomationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAutomationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,7 +39,7 @@ export interface GetAutomationRuleResult {
     /**
      * The actions to execute when the automation rule is triggered.
      */
-    readonly actions: (outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[];
+    readonly actions: (outputs.securityinsights.AutomationRuleAddIncidentTaskActionResponse | outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[];
     /**
      * Information on the client (user or application) that made some action
      */
@@ -93,9 +91,7 @@ export interface GetAutomationRuleResult {
 }
 /**
  * Gets the automation rule.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getAutomationRuleOutput(args: GetAutomationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutomationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

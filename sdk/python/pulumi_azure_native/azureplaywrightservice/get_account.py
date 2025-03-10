@@ -25,15 +25,18 @@ __all__ = [
 @pulumi.output_type
 class GetAccountResult:
     """
-    An account resource
+    A Playwright service account resource.
     """
-    def __init__(__self__, dashboard_uri=None, id=None, location=None, name=None, provisioning_state=None, regional_affinity=None, reporting=None, scalable_execution=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, dashboard_uri=None, id=None, local_auth=None, location=None, name=None, provisioning_state=None, regional_affinity=None, reporting=None, scalable_execution=None, system_data=None, tags=None, type=None):
         if dashboard_uri and not isinstance(dashboard_uri, str):
             raise TypeError("Expected argument 'dashboard_uri' to be a str")
         pulumi.set(__self__, "dashboard_uri", dashboard_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if local_auth and not isinstance(local_auth, str):
+            raise TypeError("Expected argument 'local_auth' to be a str")
+        pulumi.set(__self__, "local_auth", local_auth)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -74,9 +77,17 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="localAuth")
+    def local_auth(self) -> Optional[str]:
+        """
+        When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
+        """
+        return pulumi.get(self, "local_auth")
 
     @property
     @pulumi.getter
@@ -159,6 +170,7 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             dashboard_uri=self.dashboard_uri,
             id=self.id,
+            local_auth=self.local_auth,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -170,21 +182,19 @@ class AwaitableGetAccountResult(GetAccountResult):
             type=self.type)
 
 
-def get_account(name: Optional[str] = None,
+def get_account(account_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Get a Account
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
-    :param str name: Name of account
+    :param str account_name: Name of account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:azureplaywrightservice:getAccount', __args__, opts=opts, typ=GetAccountResult).value
@@ -192,6 +202,7 @@ def get_account(name: Optional[str] = None,
     return AwaitableGetAccountResult(
         dashboard_uri=pulumi.get(__ret__, 'dashboard_uri'),
         id=pulumi.get(__ret__, 'id'),
+        local_auth=pulumi.get(__ret__, 'local_auth'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -201,27 +212,26 @@ def get_account(name: Optional[str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_account_output(name: Optional[pulumi.Input[str]] = None,
+def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Get a Account
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2024-02-01-preview, 2024-08-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
-    :param str name: Name of account
+    :param str account_name: Name of account.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azureplaywrightservice:getAccount', __args__, opts=opts, typ=GetAccountResult)
     return __ret__.apply(lambda __response__: GetAccountResult(
         dashboard_uri=pulumi.get(__response__, 'dashboard_uri'),
         id=pulumi.get(__response__, 'id'),
+        local_auth=pulumi.get(__response__, 'local_auth'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

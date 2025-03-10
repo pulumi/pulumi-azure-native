@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowProfile Resource properties
+    /// DataflowProfile Resource properties
     /// </summary>
-    public sealed class DataFlowProfilePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Spec defines the desired identities of NBC diagnostics settings.
@@ -27,9 +27,10 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
 
-        public DataFlowProfilePropertiesArgs()
+        public DataflowProfilePropertiesArgs()
         {
+            InstanceCount = 1;
         }
-        public static new DataFlowProfilePropertiesArgs Empty => new DataFlowProfilePropertiesArgs();
+        public static new DataflowProfilePropertiesArgs Empty => new DataflowProfilePropertiesArgs();
     }
 }

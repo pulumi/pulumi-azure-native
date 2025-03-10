@@ -58,35 +58,3 @@ from .watcher import *
 from .webhook import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.automation.v20151031 as __v20151031
-    v20151031 = __v20151031
-    import pulumi_azure_native.automation.v20170515preview as __v20170515preview
-    v20170515preview = __v20170515preview
-    import pulumi_azure_native.automation.v20190601 as __v20190601
-    v20190601 = __v20190601
-    import pulumi_azure_native.automation.v20200113preview as __v20200113preview
-    v20200113preview = __v20200113preview
-    import pulumi_azure_native.automation.v20210622 as __v20210622
-    v20210622 = __v20210622
-    import pulumi_azure_native.automation.v20220808 as __v20220808
-    v20220808 = __v20220808
-    import pulumi_azure_native.automation.v20230515preview as __v20230515preview
-    v20230515preview = __v20230515preview
-    import pulumi_azure_native.automation.v20231101 as __v20231101
-    v20231101 = __v20231101
-    import pulumi_azure_native.automation.v20241023 as __v20241023
-    v20241023 = __v20241023
-else:
-    v20151031 = _utilities.lazy_import('pulumi_azure_native.automation.v20151031')
-    v20170515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20170515preview')
-    v20190601 = _utilities.lazy_import('pulumi_azure_native.automation.v20190601')
-    v20200113preview = _utilities.lazy_import('pulumi_azure_native.automation.v20200113preview')
-    v20210622 = _utilities.lazy_import('pulumi_azure_native.automation.v20210622')
-    v20220808 = _utilities.lazy_import('pulumi_azure_native.automation.v20220808')
-    v20230515preview = _utilities.lazy_import('pulumi_azure_native.automation.v20230515preview')
-    v20231101 = _utilities.lazy_import('pulumi_azure_native.automation.v20231101')
-    v20241023 = _utilities.lazy_import('pulumi_azure_native.automation.v20241023')
-

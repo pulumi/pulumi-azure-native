@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP link resource.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspLink(args: GetNspLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetNspLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -55,7 +53,7 @@ export interface GetNspLinkResult {
      */
     readonly id: string;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     readonly localInboundProfiles?: string[];
     /**
@@ -71,7 +69,7 @@ export interface GetNspLinkResult {
      */
     readonly provisioningState: string;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     readonly remoteInboundProfiles?: string[];
     /**
@@ -97,9 +95,7 @@ export interface GetNspLinkResult {
 }
 /**
  * Gets the specified NSP link resource.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspLinkOutput(args: GetNspLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

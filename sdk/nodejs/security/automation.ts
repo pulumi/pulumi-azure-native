@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The security automation resource.
- * Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
  */
 export class Automation extends pulumi.CustomResource {
     /**

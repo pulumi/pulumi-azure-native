@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A network interface in a resource group.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Auxiliary sku of Network Interface resource.
      */
     public readonly auxiliarySku!: pulumi.Output<string | undefined>;
+    /**
+     * Whether default outbound connectivity for nic was configured or not.
+     */
+    public /*out*/ readonly defaultOutboundConnectivityEnabled!: pulumi.Output<boolean>;
     /**
      * Indicates whether to disable tcp state tracking.
      */
@@ -185,6 +187,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workloadType"] = args ? args.workloadType : undefined;
+            resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hostedWorkloads"] = undefined /*out*/;
@@ -201,6 +204,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         } else {
             resourceInputs["auxiliaryMode"] = undefined /*out*/;
             resourceInputs["auxiliarySku"] = undefined /*out*/;
+            resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["disableTcpStateTracking"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;

@@ -27,7 +27,7 @@ class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource.
     """
-    def __init__(__self__, e_tag=None, extended_location=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, subnets=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, extended_location=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, status=None, subnets=None, system_data=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -49,6 +49,9 @@ class GetNetworkSecurityGroupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        pulumi.set(__self__, "status", status)
         if subnets and not isinstance(subnets, list):
             raise TypeError("Expected argument 'subnets' to be a list")
         pulumi.set(__self__, "subnets", subnets)
@@ -120,6 +123,14 @@ class GetNetworkSecurityGroupResult:
 
     @property
     @pulumi.getter
+    def status(self) -> 'outputs.NetworkSecurityGroupStatusResponse':
+        """
+        The observed state of Network Security Group
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def subnets(self) -> Sequence['outputs.LogicalNetworkArmReferenceResponse']:
         """
         A collection of references to logical networks that are currently using this NSG
@@ -164,6 +175,7 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
             name=self.name,
             network_interfaces=self.network_interfaces,
             provisioning_state=self.provisioning_state,
+            status=self.status,
             subnets=self.subnets,
             system_data=self.system_data,
             tags=self.tags,
@@ -175,9 +187,7 @@ def get_network_security_group(network_security_group_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkSecurityGroupResult:
     """
     Gets the specified network security group.
-    Azure REST API version: 2024-02-01-preview.
-
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str network_security_group_name: Name of the network security group
@@ -197,6 +207,7 @@ def get_network_security_group(network_security_group_name: Optional[str] = None
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
         subnets=pulumi.get(__ret__, 'subnets'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -206,9 +217,7 @@ def get_network_security_group_output(network_security_group_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSecurityGroupResult]:
     """
     Gets the specified network security group.
-    Azure REST API version: 2024-02-01-preview.
-
-    Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str network_security_group_name: Name of the network security group
@@ -227,6 +236,7 @@ def get_network_security_group_output(network_security_group_name: Optional[pulu
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        status=pulumi.get(__response__, 'status'),
         subnets=pulumi.get(__response__, 'subnets'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

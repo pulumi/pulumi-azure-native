@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a SuppressionList resource.
  * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-09-01-preview.
  */
 export function getSuppressionList(args: GetSuppressionListArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,8 +80,6 @@ export interface GetSuppressionListResult {
 /**
  * Get a SuppressionList resource.
  * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-09-01-preview.
  */
 export function getSuppressionListOutput(args: GetSuppressionListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

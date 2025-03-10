@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 {
     /// <summary>
     /// Firmware definition
-    /// Azure REST API version: 2023-02-08-preview.
-    /// 
-    /// Other available API versions: 2024-01-10.
+    /// Azure REST API version: 2024-01-10. Prior API version in Azure Native 2.x: 2023-02-08-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotfirmwaredefense:Firmware")]
     public partial class Firmware : global::Pulumi.CustomResource
@@ -64,7 +62,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// A list of errors or other messages generated during firmware analysis
         /// </summary>
         [Output("statusMessages")]
-        public Output<ImmutableArray<object>> StatusMessages { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StatusMessageResponse>> StatusMessages { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -183,14 +181,14 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         public InputUnion<string, Pulumi.AzureNative.IoTFirmwareDefense.Status>? Status { get; set; }
 
         [Input("statusMessages")]
-        private InputList<object>? _statusMessages;
+        private InputList<Inputs.StatusMessageArgs>? _statusMessages;
 
         /// <summary>
         /// A list of errors or other messages generated during firmware analysis
         /// </summary>
-        public InputList<object> StatusMessages
+        public InputList<Inputs.StatusMessageArgs> StatusMessages
         {
-            get => _statusMessages ?? (_statusMessages = new InputList<object>());
+            get => _statusMessages ?? (_statusMessages = new InputList<Inputs.StatusMessageArgs>());
             set => _statusMessages = value;
         }
 

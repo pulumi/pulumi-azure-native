@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
+    /// <summary>
+    /// DNS Settings of the interface
+    /// </summary>
     [OutputType]
     public sealed class InterfaceDNSSettingsResponse
     {

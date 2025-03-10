@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the managed application definition.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());

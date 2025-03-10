@@ -10,14 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The IPPrefix resource definition.
-    /// Azure REST API version: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// The IP Prefix resource definition.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpPrefix")]
     public partial class IpPrefix : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
+
         /// <summary>
         /// Switch configuration description.
         /// </summary>
@@ -25,10 +29,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string?> Annotation { get; private set; } = null!;
 
         /// <summary>
-        /// IpPrefix contains the list of IP PrefixRules objects.
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of IP Prefix Rules.
         /// </summary>
         [Output("ipPrefixRules")]
-        public Output<ImmutableArray<Outputs.IpPrefixPropertiesResponseIpPrefixRules>> IpPrefixRules { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpPrefixRuleResponse>> IpPrefixRules { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -43,7 +53,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -123,20 +133,20 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// Name of the IP Prefix
+        /// Name of the IP Prefix.
         /// </summary>
         [Input("ipPrefixName")]
         public Input<string>? IpPrefixName { get; set; }
 
         [Input("ipPrefixRules", required: true)]
-        private InputList<Inputs.IpPrefixPropertiesIpPrefixRulesArgs>? _ipPrefixRules;
+        private InputList<Inputs.IpPrefixRuleArgs>? _ipPrefixRules;
 
         /// <summary>
-        /// IpPrefix contains the list of IP PrefixRules objects.
+        /// The list of IP Prefix Rules.
         /// </summary>
-        public InputList<Inputs.IpPrefixPropertiesIpPrefixRulesArgs> IpPrefixRules
+        public InputList<Inputs.IpPrefixRuleArgs> IpPrefixRules
         {
-            get => _ipPrefixRules ?? (_ipPrefixRules = new InputList<Inputs.IpPrefixPropertiesIpPrefixRulesArgs>());
+            get => _ipPrefixRules ?? (_ipPrefixRules = new InputList<Inputs.IpPrefixRuleArgs>());
             set => _ipPrefixRules = value;
         }
 

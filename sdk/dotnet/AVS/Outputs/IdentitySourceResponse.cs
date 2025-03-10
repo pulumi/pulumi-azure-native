@@ -37,7 +37,8 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+        /// The password of the Active Directory user with a minimum of read-only access to
+        /// Base DN for users and groups.
         /// </summary>
         public readonly string? Password;
         /// <summary>
@@ -53,7 +54,8 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string? Ssl;
         /// <summary>
-        /// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+        /// The ID of an Active Directory user with a minimum of read-only access to Base
+        /// DN for users and group
         /// </summary>
         public readonly string? Username;
 

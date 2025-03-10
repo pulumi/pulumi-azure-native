@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the NetworkInterface resource.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**
@@ -41,7 +39,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
-     * administrativeState of the network interface. Example: Enabled | Disabled.
+     * Administrative state of the resource.
      */
     public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
@@ -49,7 +47,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * The arm resource id of the interface or compute server its connected to.
+     * The ARM resource id of the interface or compute server its connected to.
      */
     public /*out*/ readonly connectedTo!: pulumi.Output<string>;
     /**
@@ -57,11 +55,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly interfaceType!: pulumi.Output<string>;
     /**
-     * ipv4Address.
+     * IPv4Address of the interface.
      */
     public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
     /**
-     * ipv6Address.
+     * IPv6Address of the interface.
      */
     public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
     /**
@@ -69,11 +67,11 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * physicalIdentifier of the network interface.
+     * Physical Identifier of the network interface.
      */
     public /*out*/ readonly physicalIdentifier!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -145,11 +143,11 @@ export interface NetworkInterfaceArgs {
      */
     annotation?: pulumi.Input<string>;
     /**
-     * Name of the NetworkDevice
+     * Name of the Network Device.
      */
     networkDeviceName: pulumi.Input<string>;
     /**
-     * Name of the NetworkInterface
+     * Name of the Network Interface.
      */
     networkInterfaceName?: pulumi.Input<string>;
     /**

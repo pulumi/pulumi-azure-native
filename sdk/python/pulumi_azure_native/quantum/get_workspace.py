@@ -25,12 +25,9 @@ __all__ = [
 @pulumi.output_type
 class GetWorkspaceResult:
     """
-    The resource proxy definition object for quantum workspace.
+    The resource proxy definition object for Quantum Workspace.
     """
-    def __init__(__self__, endpoint_uri=None, id=None, identity=None, location=None, name=None, providers=None, provisioning_state=None, storage_account=None, system_data=None, tags=None, type=None, usable=None):
-        if endpoint_uri and not isinstance(endpoint_uri, str):
-            raise TypeError("Expected argument 'endpoint_uri' to be a str")
-        pulumi.set(__self__, "endpoint_uri", endpoint_uri)
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,15 +40,9 @@ class GetWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if providers and not isinstance(providers, list):
-            raise TypeError("Expected argument 'providers' to be a list")
-        pulumi.set(__self__, "providers", providers)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if storage_account and not isinstance(storage_account, str):
-            raise TypeError("Expected argument 'storage_account' to be a str")
-        pulumi.set(__self__, "storage_account", storage_account)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -61,31 +52,20 @@ class GetWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if usable and not isinstance(usable, str):
-            raise TypeError("Expected argument 'usable' to be a str")
-        pulumi.set(__self__, "usable", usable)
-
-    @property
-    @pulumi.getter(name="endpointUri")
-    def endpoint_uri(self) -> str:
-        """
-        The URI of the workspace endpoint.
-        """
-        return pulumi.get(self, "endpoint_uri")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.QuantumWorkspaceResponseIdentity']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Managed Identity information.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -107,33 +87,17 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
-    def providers(self) -> Optional[Sequence['outputs.ProviderResponse']]:
+    def properties(self) -> 'outputs.WorkspaceResourcePropertiesResponse':
         """
-        List of Providers selected for this Workspace
+        Gets or sets the properties. Define quantum workspace's specific properties.
         """
-        return pulumi.get(self, "providers")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Provisioning status field
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="storageAccount")
-    def storage_account(self) -> Optional[str]:
-        """
-        ARM Resource Id of the storage account associated with this workspace.
-        """
-        return pulumi.get(self, "storage_account")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System metadata
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -153,14 +117,6 @@ class GetWorkspaceResult:
         """
         return pulumi.get(self, "type")
 
-    @property
-    @pulumi.getter
-    def usable(self) -> str:
-        """
-        Whether the current workspace is ready to accept Jobs.
-        """
-        return pulumi.get(self, "usable")
-
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
     # pylint: disable=using-constant-test
@@ -168,18 +124,14 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
-            endpoint_uri=self.endpoint_uri,
             id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            providers=self.providers,
-            provisioning_state=self.provisioning_state,
-            storage_account=self.storage_account,
+            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type,
-            usable=self.usable)
+            type=self.type)
 
 
 def get_workspace(resource_group_name: Optional[str] = None,
@@ -187,12 +139,10 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Returns the Workspace resource associated with the given name.
-    Azure REST API version: 2022-01-10-preview.
-
-    Other available API versions: 2023-11-13-preview.
+    Azure REST API version: 2023-11-13-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the quantum workspace resource.
     """
     __args__ = dict()
@@ -202,29 +152,23 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:quantum:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        endpoint_uri=pulumi.get(__ret__, 'endpoint_uri'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
-        providers=pulumi.get(__ret__, 'providers'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
-        storage_account=pulumi.get(__ret__, 'storage_account'),
+        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'),
-        usable=pulumi.get(__ret__, 'usable'))
+        type=pulumi.get(__ret__, 'type'))
 def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                          workspace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Returns the Workspace resource associated with the given name.
-    Azure REST API version: 2022-01-10-preview.
-
-    Other available API versions: 2023-11-13-preview.
+    Azure REST API version: 2023-11-13-preview.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the quantum workspace resource.
     """
     __args__ = dict()
@@ -233,15 +177,11 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:quantum:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
-        endpoint_uri=pulumi.get(__response__, 'endpoint_uri'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
-        providers=pulumi.get(__response__, 'providers'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
-        storage_account=pulumi.get(__response__, 'storage_account'),
+        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type'),
-        usable=pulumi.get(__response__, 'usable')))
+        type=pulumi.get(__response__, 'type')))

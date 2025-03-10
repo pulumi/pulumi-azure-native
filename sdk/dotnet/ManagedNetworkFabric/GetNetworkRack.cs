@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Get Network Rack resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkRackResult> InvokeAsync(GetNetworkRackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkRackResult>("azure-native:managednetworkfabric:getNetworkRack", args ?? new GetNetworkRackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Network Rack resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkRackResult> Invoke(GetNetworkRackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkRackResult>("azure-native:managednetworkfabric:getNetworkRack", args ?? new GetNetworkRackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Network Rack resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkRackResult> Invoke(GetNetworkRackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkRackResult>("azure-native:managednetworkfabric:getNetworkRack", args ?? new GetNetworkRackInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkRackArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Rack
+        /// Name of the Network Rack.
         /// </summary>
         [Input("networkRackName", required: true)]
         public string NetworkRackName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkRackInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Rack
+        /// Name of the Network Rack.
         /// </summary>
         [Input("networkRackName", required: true)]
         public Input<string> NetworkRackName { get; set; } = null!;
@@ -89,7 +83,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -101,19 +95,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of network device ARM resource ids.
+        /// List of network device ARM resource IDs.
         /// </summary>
         public readonly ImmutableArray<string> NetworkDevices;
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM resource ID of the Network Fabric.
         /// </summary>
         public readonly string NetworkFabricId;
         /// <summary>
         /// Network Rack SKU name.
         /// </summary>
-        public readonly string NetworkRackSku;
+        public readonly string? NetworkRackType;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -143,7 +137,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string networkFabricId,
 
-            string networkRackSku,
+            string? networkRackType,
 
             string provisioningState,
 
@@ -159,7 +153,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             Name = name;
             NetworkDevices = networkDevices;
             NetworkFabricId = networkFabricId;
-            NetworkRackSku = networkRackSku;
+            NetworkRackType = networkRackType;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

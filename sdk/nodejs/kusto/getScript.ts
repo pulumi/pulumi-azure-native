@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster database script.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,7 +31,7 @@ export interface GetScriptArgs {
      */
     databaseName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -63,9 +61,17 @@ export interface GetScriptResult {
      */
     readonly name: string;
     /**
+     * Indicates if the permissions for the script caller are kept following completion of the script.
+     */
+    readonly principalPermissionsAction?: string;
+    /**
      * The provisioned state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Differentiates between the type of script commands included - Database or Cluster. The default is Database.
+     */
+    readonly scriptLevel?: string;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
@@ -81,9 +87,7 @@ export interface GetScriptResult {
 }
 /**
  * Gets a Kusto cluster database script.
- * Azure REST API version: 2022-12-29.
- *
- * Other available API versions: 2021-08-27, 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,7 +109,7 @@ export interface GetScriptOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

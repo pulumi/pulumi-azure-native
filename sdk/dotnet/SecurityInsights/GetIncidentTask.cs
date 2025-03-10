@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets an incident task.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetIncidentTaskResult> InvokeAsync(GetIncidentTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentTaskResult>("azure-native:securityinsights:getIncidentTask", args ?? new GetIncidentTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an incident task.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetIncidentTaskResult> Invoke(GetIncidentTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentTaskResult>("azure-native:securityinsights:getIncidentTask", args ?? new GetIncidentTaskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an incident task.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetIncidentTaskResult> Invoke(GetIncidentTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentTaskResult>("azure-native:securityinsights:getIncidentTask", args ?? new GetIncidentTaskInvokeArgs(), options.WithDefaults());
@@ -140,6 +134,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the task
+        /// </summary>
         public readonly string Status;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

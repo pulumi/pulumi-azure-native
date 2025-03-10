@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// A budget resource.
-    /// Azure REST API version: 2023-04-01-preview.
-    /// 
-    /// Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Budget")]
     public partial class Budget : global::Pulumi.CustomResource
@@ -67,7 +65,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.ForecastSpendResponse> ForecastSpend { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -119,7 +117,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.BudgetTimePeriodResponse> TimePeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

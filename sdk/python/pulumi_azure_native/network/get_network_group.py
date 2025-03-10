@@ -27,7 +27,7 @@ class GetNetworkGroupResult:
     """
     The network group resource
     """
-    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, description=None, etag=None, id=None, member_type=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +37,9 @@ class GetNetworkGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if member_type and not isinstance(member_type, str):
+            raise TypeError("Expected argument 'member_type' to be a str")
+        pulumi.set(__self__, "member_type", member_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -76,6 +79,14 @@ class GetNetworkGroupResult:
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[str]:
+        """
+        The type of the group member.
+        """
+        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter
@@ -127,6 +138,7 @@ class AwaitableGetNetworkGroupResult(GetNetworkGroupResult):
             description=self.description,
             etag=self.etag,
             id=self.id,
+            member_type=self.member_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
@@ -140,9 +152,7 @@ def get_network_group(network_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkGroupResult:
     """
     Gets the specified network group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_group_name: The name of the network group.
@@ -160,6 +170,7 @@ def get_network_group(network_group_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
+        member_type=pulumi.get(__ret__, 'member_type'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
@@ -171,9 +182,7 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkGroupResult]:
     """
     Gets the specified network group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_group_name: The name of the network group.
@@ -190,6 +199,7 @@ def get_network_group_output(network_group_name: Optional[pulumi.Input[str]] = N
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
+        member_type=pulumi.get(__response__, 'member_type'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),

@@ -24,6 +24,8 @@ __all__ = [
     'EventListenerArgsDict',
     'EventNameFilterArgs',
     'EventNameFilterArgsDict',
+    'IPRuleArgs',
+    'IPRuleArgsDict',
     'LiveTraceCategoryArgs',
     'LiveTraceCategoryArgsDict',
     'LiveTraceConfigurationArgs',
@@ -54,6 +56,8 @@ __all__ = [
     'WebPubSubHubPropertiesArgsDict',
     'WebPubSubNetworkACLsArgs',
     'WebPubSubNetworkACLsArgsDict',
+    'WebPubSubSocketIOSettingsArgs',
+    'WebPubSubSocketIOSettingsArgsDict',
     'WebPubSubTlsSettingsArgs',
     'WebPubSubTlsSettingsArgsDict',
 ]
@@ -390,6 +394,62 @@ class EventNameFilterArgs:
     @user_event_pattern.setter
     def user_event_pattern(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_event_pattern", value)
+
+
+if not MYPY:
+    class IPRuleArgsDict(TypedDict):
+        """
+        An IP rule
+        """
+        action: NotRequired[pulumi.Input[Union[str, 'ACLAction']]]
+        """
+        Azure Networking ACL Action.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        An IP or CIDR or ServiceTag
+        """
+elif False:
+    IPRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPRuleArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        An IP rule
+        :param pulumi.Input[Union[str, 'ACLAction']] action: Azure Networking ACL Action.
+        :param pulumi.Input[str] value: An IP or CIDR or ServiceTag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'ACLAction']]]:
+        """
+        Azure Networking ACL Action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'ACLAction']]]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        An IP or CIDR or ServiceTag
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -1017,16 +1077,18 @@ if not MYPY:
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         capacity: NotRequired[pulumi.Input[int]]
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         tier: NotRequired[pulumi.Input[Union[str, 'WebPubSubSkuTier']]]
         """
@@ -1047,13 +1109,15 @@ class ResourceSkuArgs:
         The billing information of the resource.
         :param pulumi.Input[str] name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1, Premium_P1
-        :param pulumi.Input[int] capacity: Optional, integer. The unit count of the resource. 1 by default.
+               Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
+        :param pulumi.Input[int] capacity: Optional, integer. The unit count of the resource.
+               1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
                
                If present, following values are allowed:
-                   Free: 1;
-                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Free_F1: 1;
+                   Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         :param pulumi.Input[Union[str, 'WebPubSubSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -1070,7 +1134,7 @@ class ResourceSkuArgs:
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
 
@@ -1082,12 +1146,14 @@ class ResourceSkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         return pulumi.get(self, "capacity")
 
@@ -1186,6 +1252,10 @@ if not MYPY:
         One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
         Maximum count of event listeners among all hubs is 10.
         """
+        web_socket_keep_alive_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+        """
 elif False:
     WebPubSubHubPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1194,7 +1264,8 @@ class WebPubSubHubPropertiesArgs:
     def __init__(__self__, *,
                  anonymous_connect_policy: Optional[pulumi.Input[str]] = None,
                  event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['EventHandlerArgs']]]] = None,
-                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['EventListenerArgs']]]] = None):
+                 event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['EventListenerArgs']]]] = None,
+                 web_socket_keep_alive_interval_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         Properties of a hub.
         :param pulumi.Input[str] anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
@@ -1203,6 +1274,7 @@ class WebPubSubHubPropertiesArgs:
                Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
                One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
                Maximum count of event listeners among all hubs is 10.
+        :param pulumi.Input[int] web_socket_keep_alive_interval_in_seconds: The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
         """
         if anonymous_connect_policy is None:
             anonymous_connect_policy = 'deny'
@@ -1212,6 +1284,10 @@ class WebPubSubHubPropertiesArgs:
             pulumi.set(__self__, "event_handlers", event_handlers)
         if event_listeners is not None:
             pulumi.set(__self__, "event_listeners", event_listeners)
+        if web_socket_keep_alive_interval_in_seconds is None:
+            web_socket_keep_alive_interval_in_seconds = 20
+        if web_socket_keep_alive_interval_in_seconds is not None:
+            pulumi.set(__self__, "web_socket_keep_alive_interval_in_seconds", web_socket_keep_alive_interval_in_seconds)
 
     @property
     @pulumi.getter(name="anonymousConnectPolicy")
@@ -1252,6 +1328,18 @@ class WebPubSubHubPropertiesArgs:
     def event_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventListenerArgs']]]]):
         pulumi.set(self, "event_listeners", value)
 
+    @property
+    @pulumi.getter(name="webSocketKeepAliveIntervalInSeconds")
+    def web_socket_keep_alive_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+        """
+        return pulumi.get(self, "web_socket_keep_alive_interval_in_seconds")
+
+    @web_socket_keep_alive_interval_in_seconds.setter
+    def web_socket_keep_alive_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "web_socket_keep_alive_interval_in_seconds", value)
+
 
 if not MYPY:
     class WebPubSubNetworkACLsArgsDict(TypedDict):
@@ -1261,6 +1349,10 @@ if not MYPY:
         default_action: NotRequired[pulumi.Input[Union[str, 'ACLAction']]]
         """
         Azure Networking ACL Action.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPRuleArgsDict']]]]
+        """
+        IP rules for filtering public traffic
         """
         private_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgsDict']]]]
         """
@@ -1277,16 +1369,20 @@ elif False:
 class WebPubSubNetworkACLsArgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
         Network ACLs for the resource
         :param pulumi.Input[Union[str, 'ACLAction']] default_action: Azure Networking ACL Action.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: IP rules for filtering public traffic
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: Network ACL
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if private_endpoints is not None:
             pulumi.set(__self__, "private_endpoints", private_endpoints)
         if public_network is not None:
@@ -1303,6 +1399,18 @@ class WebPubSubNetworkACLsArgs:
     @default_action.setter
     def default_action(self, value: Optional[pulumi.Input[Union[str, 'ACLAction']]]):
         pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+        """
+        IP rules for filtering public traffic
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="privateEndpoints")
@@ -1330,13 +1438,55 @@ class WebPubSubNetworkACLsArgs:
 
 
 if not MYPY:
+    class WebPubSubSocketIOSettingsArgsDict(TypedDict):
+        """
+        SocketIO settings for the resource
+        """
+        service_mode: NotRequired[pulumi.Input[str]]
+        """
+        The service mode of Web PubSub for Socket.IO. Values allowed: 
+        "Default": have your own backend Socket.IO server
+        "Serverless": your application doesn't have a backend server
+        """
+elif False:
+    WebPubSubSocketIOSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebPubSubSocketIOSettingsArgs:
+    def __init__(__self__, *,
+                 service_mode: Optional[pulumi.Input[str]] = None):
+        """
+        SocketIO settings for the resource
+        :param pulumi.Input[str] service_mode: The service mode of Web PubSub for Socket.IO. Values allowed: 
+               "Default": have your own backend Socket.IO server
+               "Serverless": your application doesn't have a backend server
+        """
+        if service_mode is not None:
+            pulumi.set(__self__, "service_mode", service_mode)
+
+    @property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service mode of Web PubSub for Socket.IO. Values allowed: 
+        "Default": have your own backend Socket.IO server
+        "Serverless": your application doesn't have a backend server
+        """
+        return pulumi.get(self, "service_mode")
+
+    @service_mode.setter
+    def service_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_mode", value)
+
+
+if not MYPY:
     class WebPubSubTlsSettingsArgsDict(TypedDict):
         """
         TLS settings for the resource
         """
         client_cert_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
 elif False:
     WebPubSubTlsSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1347,10 +1497,10 @@ class WebPubSubTlsSettingsArgs:
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None):
         """
         TLS settings for the resource
-        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
+        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:
-            client_cert_enabled = True
+            client_cert_enabled = False
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
 
@@ -1358,7 +1508,7 @@ class WebPubSubTlsSettingsArgs:
     @pulumi.getter(name="clientCertEnabled")
     def client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         return pulumi.get(self, "client_cert_enabled")
 

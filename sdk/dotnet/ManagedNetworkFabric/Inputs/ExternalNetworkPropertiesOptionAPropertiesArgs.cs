@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
     public sealed class ExternalNetworkPropertiesOptionAPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// BFD configuration properties
+        /// </summary>
+        [Input("bfdConfiguration")]
+        public Input<Inputs.BfdConfigurationArgs>? BfdConfiguration { get; set; }
+
+        /// <summary>
+        /// Egress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Input("egressAclId")]
+        public Input<string>? EgressAclId { get; set; }
+
+        /// <summary>
+        /// Ingress Acl. ARM resource ID of Access Control Lists.
+        /// </summary>
+        [Input("ingressAclId")]
+        public Input<string>? IngressAclId { get; set; }
+
+        /// <summary>
         /// MTU to use for option A peering.
         /// </summary>
         [Input("mtu")]
@@ -25,28 +43,28 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         /// Peer ASN number.Example : 28
         /// </summary>
         [Input("peerASN", required: true)]
-        public Input<int> PeerASN { get; set; } = null!;
+        public Input<double> PeerASN { get; set; } = null!;
 
         /// <summary>
-        /// IPv4 Address Prefix of CE-PE interconnect links. Example: 172.31.0.0/31. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// IPv4 Address Prefix.
         /// </summary>
         [Input("primaryIpv4Prefix")]
         public Input<string>? PrimaryIpv4Prefix { get; set; }
 
         /// <summary>
-        /// IPv6 Address Prefix of CE-PE interconnect links. Example: 3FFE:FFFF:0:CD30::a0/126. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// IPv6 Address Prefix.
         /// </summary>
         [Input("primaryIpv6Prefix")]
         public Input<string>? PrimaryIpv6Prefix { get; set; }
 
         /// <summary>
-        /// Secondary IPv4 Address Prefix of CE-PE interconnect links. Example: 172.31.0.20/31. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// Secondary IPv4 Address Prefix.
         /// </summary>
         [Input("secondaryIpv4Prefix")]
         public Input<string>? SecondaryIpv4Prefix { get; set; }
 
         /// <summary>
-        /// Secondary IPv6 Address Prefix of CE-PE interconnect links. Example: 3FFE:FFFF:0:CD30::a4/126. The values can be specified at the time of creation or can be updated afterwards. Any update to the values post-provisioning may disrupt traffic. The 1st and 3rd IPs are to be configured on CE1 and CE2 for Option B interfaces. The 2nd and 4th IPs are to be configured on PE1 and PE2 for Option B interfaces.
+        /// Secondary IPv6 Address Prefix.
         /// </summary>
         [Input("secondaryIpv6Prefix")]
         public Input<string>? SecondaryIpv6Prefix { get; set; }

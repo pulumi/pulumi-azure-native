@@ -101,7 +101,7 @@ class LandingZoneConfigurationOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2025-02-27-preview.
+        Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class LandingZoneConfigurationOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2025-02-27-preview.
+        Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param LandingZoneConfigurationOperationArgs args: The arguments to use to populate this resource's properties.

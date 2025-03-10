@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * DevOps Configuration resource.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDevOpsConfiguration(args: GetDevOpsConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDevOpsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,9 +57,7 @@ export interface GetDevOpsConfigurationResult {
 }
 /**
  * DevOps Configuration resource.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDevOpsConfigurationOutput(args: GetDevOpsConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevOpsConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

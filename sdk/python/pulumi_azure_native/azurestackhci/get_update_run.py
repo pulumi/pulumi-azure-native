@@ -27,7 +27,7 @@ class GetUpdateRunResult:
     """
     Details of an Update run
     """
-    def __init__(__self__, description=None, duration=None, end_time_utc=None, error_message=None, id=None, last_updated_time=None, last_updated_time_utc=None, location=None, name=None, provisioning_state=None, start_time_utc=None, state=None, status=None, steps=None, system_data=None, time_started=None, type=None):
+    def __init__(__self__, description=None, duration=None, end_time_utc=None, error_message=None, expected_execution_time=None, id=None, last_updated_time=None, last_updated_time_utc=None, location=None, name=None, provisioning_state=None, start_time_utc=None, state=None, status=None, steps=None, system_data=None, time_started=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +40,9 @@ class GetUpdateRunResult:
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
+        if expected_execution_time and not isinstance(expected_execution_time, str):
+            raise TypeError("Expected argument 'expected_execution_time' to be a str")
+        pulumi.set(__self__, "expected_execution_time", expected_execution_time)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -111,6 +114,14 @@ class GetUpdateRunResult:
         Error message, specified if the step is in a failed state.
         """
         return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="expectedExecutionTime")
+    def expected_execution_time(self) -> Optional[str]:
+        """
+        Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
+        """
+        return pulumi.get(self, "expected_execution_time")
 
     @property
     @pulumi.getter
@@ -227,6 +238,7 @@ class AwaitableGetUpdateRunResult(GetUpdateRunResult):
             duration=self.duration,
             end_time_utc=self.end_time_utc,
             error_message=self.error_message,
+            expected_execution_time=self.expected_execution_time,
             id=self.id,
             last_updated_time=self.last_updated_time,
             last_updated_time_utc=self.last_updated_time_utc,
@@ -249,9 +261,7 @@ def get_update_run(cluster_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateRunResult:
     """
     Get the Update run for a specified update
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -272,6 +282,7 @@ def get_update_run(cluster_name: Optional[str] = None,
         duration=pulumi.get(__ret__, 'duration'),
         end_time_utc=pulumi.get(__ret__, 'end_time_utc'),
         error_message=pulumi.get(__ret__, 'error_message'),
+        expected_execution_time=pulumi.get(__ret__, 'expected_execution_time'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         last_updated_time_utc=pulumi.get(__ret__, 'last_updated_time_utc'),
@@ -292,9 +303,7 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
     Get the Update run for a specified update
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -314,6 +323,7 @@ def get_update_run_output(cluster_name: Optional[pulumi.Input[str]] = None,
         duration=pulumi.get(__response__, 'duration'),
         end_time_utc=pulumi.get(__response__, 'end_time_utc'),
         error_message=pulumi.get(__response__, 'error_message'),
+        expected_execution_time=pulumi.get(__response__, 'expected_execution_time'),
         id=pulumi.get(__response__, 'id'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         last_updated_time_utc=pulumi.get(__response__, 'last_updated_time_utc'),

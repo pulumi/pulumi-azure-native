@@ -118,8 +118,6 @@ def get_workspace_global_schema(resource_group_name: Optional[str] = None,
     Gets the details of the Schema specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
@@ -149,8 +147,6 @@ def get_workspace_global_schema_output(resource_group_name: Optional[pulumi.Inpu
     """
     Gets the details of the Schema specified by its identifier.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

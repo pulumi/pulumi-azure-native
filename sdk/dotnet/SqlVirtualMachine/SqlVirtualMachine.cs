@@ -11,15 +11,19 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-    /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+    /// Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Assessment Settings.
+        /// Additional VM Patching solution enabled on the Virtual Machine
+        /// </summary>
+        [Output("additionalVmPatch")]
+        public Output<string> AdditionalVmPatch { get; private set; } = null!;
+
+        /// <summary>
+        /// SQL best practices Assessment Settings.
         /// </summary>
         [Output("assessmentSettings")]
         public Output<Outputs.AssessmentSettingsResponse?> AssessmentSettings { get; private set; } = null!;
@@ -37,7 +41,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<Outputs.AutoPatchingSettingsResponse?> AutoPatchingSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Active Directory identity of the server.
+        /// Enable automatic upgrade of Sql IaaS extension Agent.
+        /// </summary>
+        [Output("enableAutomaticUpgrade")]
+        public Output<bool?> EnableAutomaticUpgrade { get; private set; } = null!;
+
+        /// <summary>
+        /// DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
@@ -47,6 +57,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Output("keyVaultCredentialSettings")]
         public Output<Outputs.KeyVaultCredentialSettingsResponse?> KeyVaultCredentialSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// SQL IaaS Agent least privilege mode.
+        /// </summary>
+        [Output("leastPrivilegeMode")]
+        public Output<string?> LeastPrivilegeMode { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -59,6 +75,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Operating System of the current SQL Virtual Machine.
+        /// </summary>
+        [Output("osType")]
+        public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state to track the async operation status.
@@ -85,7 +107,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<string?> SqlImageSku { get; private set; } = null!;
 
         /// <summary>
-        /// SQL Server Management type.
+        /// SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         /// </summary>
         [Output("sqlManagement")]
         public Output<string?> SqlManagement { get; private set; } = null!;
@@ -121,10 +143,22 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Troubleshooting status
+        /// </summary>
+        [Output("troubleshootingStatus")]
+        public Output<Outputs.TroubleshootingStatusResponse> TroubleshootingStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual Machine Identity details used for Sql IaaS extension configurations.
+        /// </summary>
+        [Output("virtualMachineIdentitySettings")]
+        public Output<Outputs.VirtualMachineIdentityResponse?> VirtualMachineIdentitySettings { get; private set; } = null!;
 
         /// <summary>
         /// ARM Resource id of underlying virtual machine created from SQL marketplace image.
@@ -201,7 +235,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     public sealed class SqlVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Assessment Settings.
+        /// SQL best practices Assessment Settings.
         /// </summary>
         [Input("assessmentSettings")]
         public Input<Inputs.AssessmentSettingsArgs>? AssessmentSettings { get; set; }
@@ -219,7 +253,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Input<Inputs.AutoPatchingSettingsArgs>? AutoPatchingSettings { get; set; }
 
         /// <summary>
-        /// Azure Active Directory identity of the server.
+        /// Enable automatic upgrade of Sql IaaS extension Agent.
+        /// </summary>
+        [Input("enableAutomaticUpgrade")]
+        public Input<bool>? EnableAutomaticUpgrade { get; set; }
+
+        /// <summary>
+        /// DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
@@ -229,6 +269,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Input("keyVaultCredentialSettings")]
         public Input<Inputs.KeyVaultCredentialSettingsArgs>? KeyVaultCredentialSettings { get; set; }
+
+        /// <summary>
+        /// SQL IaaS Agent least privilege mode.
+        /// </summary>
+        [Input("leastPrivilegeMode")]
+        public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.LeastPrivilegeMode>? LeastPrivilegeMode { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -261,7 +307,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlImageSku>? SqlImageSku { get; set; }
 
         /// <summary>
-        /// SQL Server Management type.
+        /// SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
         /// </summary>
         [Input("sqlManagement")]
         public InputUnion<string, Pulumi.AzureNative.SqlVirtualMachine.SqlManagementMode>? SqlManagement { get; set; }
@@ -303,6 +349,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         }
 
         /// <summary>
+        /// Virtual Machine Identity details used for Sql IaaS extension configurations.
+        /// </summary>
+        [Input("virtualMachineIdentitySettings")]
+        public Input<Inputs.VirtualMachineIdentityArgs>? VirtualMachineIdentitySettings { get; set; }
+
+        /// <summary>
         /// ARM Resource id of underlying virtual machine created from SQL marketplace image.
         /// </summary>
         [Input("virtualMachineResourceId")]
@@ -322,6 +374,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
         public SqlVirtualMachineArgs()
         {
+            EnableAutomaticUpgrade = false;
+            LeastPrivilegeMode = "NotSet";
         }
         public static new SqlVirtualMachineArgs Empty => new SqlVirtualMachineArgs();
     }

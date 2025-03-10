@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a draft Firewall Policy.
- * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFirewallPolicyDraft(args: GetFirewallPolicyDraftArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,9 +93,7 @@ export interface GetFirewallPolicyDraftResult {
 }
 /**
  * Get a draft Firewall Policy.
- * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFirewallPolicyDraftOutput(args: GetFirewallPolicyDraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

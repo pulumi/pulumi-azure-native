@@ -11,34 +11,34 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
+    /// DataflowEndpoint Authentication UserAssignedManagedIdentity properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse
+    public sealed class DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse
     {
-        /// <summary>
-        /// Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
-        /// </summary>
-        public readonly string Audience;
         /// <summary>
         /// Client ID for the user-assigned managed identity.
         /// </summary>
         public readonly string ClientId;
+        /// <summary>
+        /// Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        /// </summary>
+        public readonly string? Scope;
         /// <summary>
         /// Tenant ID.
         /// </summary>
         public readonly string TenantId;
 
         [OutputConstructor]
-        private DataFlowEndpointAuthenticationUserAssignedManagedIdentityResponse(
-            string audience,
-
+        private DataflowEndpointAuthenticationUserAssignedManagedIdentityResponse(
             string clientId,
+
+            string? scope,
 
             string tenantId)
         {
-            Audience = audience;
             ClientId = clientId;
+            Scope = scope;
             TenantId = tenantId;
         }
     }

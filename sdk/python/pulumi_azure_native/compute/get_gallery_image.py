@@ -27,7 +27,10 @@ class GetGalleryImageResult:
     """
     Specifies information about the gallery image definition that you want to create or update.
     """
-    def __init__(__self__, architecture=None, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+    def __init__(__self__, allow_update_image=None, architecture=None, description=None, disallowed=None, end_of_life_date=None, eula=None, features=None, hyper_v_generation=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+        if allow_update_image and not isinstance(allow_update_image, bool):
+            raise TypeError("Expected argument 'allow_update_image' to be a bool")
+        pulumi.set(__self__, "allow_update_image", allow_update_image)
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -88,6 +91,14 @@ class GetGalleryImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="allowUpdateImage")
+    def allow_update_image(self) -> Optional[bool]:
+        """
+        Optional. Must be set to true if the gallery image features are being updated.
+        """
+        return pulumi.get(self, "allow_update_image")
 
     @property
     @pulumi.getter
@@ -189,7 +200,7 @@ class GetGalleryImageResult:
     @pulumi.getter(name="osType")
     def os_type(self) -> str:
         """
-        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "os_type")
 
@@ -256,6 +267,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
         if False:
             yield self
         return GetGalleryImageResult(
+            allow_update_image=self.allow_update_image,
             architecture=self.architecture,
             description=self.description,
             disallowed=self.disallowed,
@@ -284,9 +296,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Retrieves information about a gallery image definition.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.
@@ -301,6 +311,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult).value
 
     return AwaitableGetGalleryImageResult(
+        allow_update_image=pulumi.get(__ret__, 'allow_update_image'),
         architecture=pulumi.get(__ret__, 'architecture'),
         description=pulumi.get(__ret__, 'description'),
         disallowed=pulumi.get(__ret__, 'disallowed'),
@@ -327,9 +338,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Retrieves information about a gallery image definition.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str gallery_image_name: The name of the gallery image definition to be retrieved.
@@ -343,6 +352,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
     return __ret__.apply(lambda __response__: GetGalleryImageResult(
+        allow_update_image=pulumi.get(__response__, 'allow_update_image'),
         architecture=pulumi.get(__response__, 'architecture'),
         description=pulumi.get(__response__, 'description'),
         disallowed=pulumi.get(__response__, 'disallowed'),

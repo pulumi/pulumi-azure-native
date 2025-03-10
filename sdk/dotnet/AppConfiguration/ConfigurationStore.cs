@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        /// </summary>
+        [Output("dataPlaneProxy")]
+        public Output<Outputs.DataPlaneProxyPropertiesResponse?> DataPlaneProxy { get; private set; } = null!;
 
         /// <summary>
         /// Disables all authentication methods other than AAD authentication.
@@ -186,6 +190,12 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// </summary>
         [Input("createMode")]
         public Input<Pulumi.AzureNative.AppConfiguration.CreateMode>? CreateMode { get; set; }
+
+        /// <summary>
+        /// Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        /// </summary>
+        [Input("dataPlaneProxy")]
+        public Input<Inputs.DataPlaneProxyPropertiesArgs>? DataPlaneProxy { get; set; }
 
         /// <summary>
         /// Disables all authentication methods other than AAD authentication.

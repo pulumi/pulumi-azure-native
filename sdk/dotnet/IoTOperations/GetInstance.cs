@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.IoTOperations
     {
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a InstanceResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:iotoperations:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.IoTOperations
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed service identities assigned to this resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.IoTOperations
 
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.IoTOperations
         {
             ExtendedLocation = extendedLocation;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

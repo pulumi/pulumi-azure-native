@@ -116,10 +116,8 @@ def get_service_task(expand: Optional[str] = None,
                      task_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceTaskResult:
     """
-    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str expand: Expand the response
@@ -148,10 +146,8 @@ def get_service_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             task_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceTaskResult]:
     """
-    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str expand: Expand the response

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema Contract details.
- * Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 2.x: 2021-04-01-preview.
  */
 export class Schema extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:Schema" }, { type: "azure-native:apimanagement/v20210801:Schema" }, { type: "azure-native:apimanagement/v20211201preview:Schema" }, { type: "azure-native:apimanagement/v20220401preview:Schema" }, { type: "azure-native:apimanagement/v20220801:Schema" }, { type: "azure-native:apimanagement/v20220901preview:Schema" }, { type: "azure-native:apimanagement/v20230301preview:Schema" }, { type: "azure-native:apimanagement/v20230501preview:Schema" }, { type: "azure-native:apimanagement/v20230901preview:Schema" }, { type: "azure-native:apimanagement/v20240501:Schema" }, { type: "azure-native:apimanagement/v20240601preview:Schema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:Schema" }, { type: "azure-native:apimanagement/v20210801:Schema" }, { type: "azure-native:apimanagement/v20211201preview:Schema" }, { type: "azure-native:apimanagement/v20220401preview:Schema" }, { type: "azure-native:apimanagement/v20220801:GlobalSchema" }, { type: "azure-native:apimanagement/v20220801:Schema" }, { type: "azure-native:apimanagement/v20220901preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20220901preview:Schema" }, { type: "azure-native:apimanagement/v20230301preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20230301preview:Schema" }, { type: "azure-native:apimanagement/v20230501preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20230501preview:Schema" }, { type: "azure-native:apimanagement/v20230901preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20230901preview:Schema" }, { type: "azure-native:apimanagement/v20240501:GlobalSchema" }, { type: "azure-native:apimanagement/v20240501:Schema" }, { type: "azure-native:apimanagement/v20240601preview:GlobalSchema" }, { type: "azure-native:apimanagement/v20240601preview:Schema" }, { type: "azure-native:apimanagement:GlobalSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schema.__pulumiType, name, resourceInputs, opts);
     }

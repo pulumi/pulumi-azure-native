@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List springbootservers resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getSpringbootserver(args: GetSpringbootserverArgs, opts?: pulumi.InvokeOptions): Promise<GetSpringbootserverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,17 +56,13 @@ export interface GetSpringbootserverResult {
      */
     readonly systemData: outputs.offazurespringboot.SystemDataResponse;
     /**
-     * Resource tags
-     */
-    readonly tags?: {[key: string]: string};
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * List springbootservers resource.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function getSpringbootserverOutput(args: GetSpringbootserverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpringbootserverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

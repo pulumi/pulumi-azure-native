@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified container registry.
- * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetRegistryResult {
      * The value that indicates whether the admin user is enabled.
      */
     readonly adminUserEnabled?: boolean;
+    /**
+     * Enables registry-wide pull from unauthenticated clients.
+     */
+    readonly anonymousPullEnabled?: boolean;
     /**
      * The creation date of the container registry in ISO8601 format.
      */
@@ -127,9 +129,7 @@ export interface GetRegistryResult {
 }
 /**
  * Gets the properties of the specified container registry.
- * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2017-03-01, 2019-05-01, 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

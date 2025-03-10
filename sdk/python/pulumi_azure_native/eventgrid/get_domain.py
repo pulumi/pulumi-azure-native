@@ -27,7 +27,7 @@ class GetDomainResult:
     """
     EventGrid Domain.
     """
-    def __init__(__self__, auto_create_topic_with_first_subscription=None, auto_delete_topic_with_last_subscription=None, data_residency_boundary=None, disable_local_auth=None, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_create_topic_with_first_subscription=None, auto_delete_topic_with_last_subscription=None, data_residency_boundary=None, disable_local_auth=None, endpoint=None, event_type_info=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, minimum_tls_version_allowed=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if auto_create_topic_with_first_subscription and not isinstance(auto_create_topic_with_first_subscription, bool):
             raise TypeError("Expected argument 'auto_create_topic_with_first_subscription' to be a bool")
         pulumi.set(__self__, "auto_create_topic_with_first_subscription", auto_create_topic_with_first_subscription)
@@ -43,6 +43,9 @@ class GetDomainResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if event_type_info and not isinstance(event_type_info, dict):
+            raise TypeError("Expected argument 'event_type_info' to be a dict")
+        pulumi.set(__self__, "event_type_info", event_type_info)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,6 +67,9 @@ class GetDomainResult:
         if metric_resource_id and not isinstance(metric_resource_id, str):
             raise TypeError("Expected argument 'metric_resource_id' to be a str")
         pulumi.set(__self__, "metric_resource_id", metric_resource_id)
+        if minimum_tls_version_allowed and not isinstance(minimum_tls_version_allowed, str):
+            raise TypeError("Expected argument 'minimum_tls_version_allowed' to be a str")
+        pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -139,6 +145,15 @@ class GetDomainResult:
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter(name="eventTypeInfo")
+    def event_type_info(self) -> Optional['outputs.EventTypeInfoResponse']:
+        """
+        Event Type Information for the domain. This information is provided by the publisher and can be used by the 
+        subscriber to view different types of events that are published.
+        """
+        return pulumi.get(self, "event_type_info")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -195,6 +210,14 @@ class GetDomainResult:
         return pulumi.get(self, "metric_resource_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[str]:
+        """
+        Minimum TLS version of the publisher allowed to publish to this domain
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -231,7 +254,7 @@ class GetDomainResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the Event Grid Domain resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -263,6 +286,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             data_residency_boundary=self.data_residency_boundary,
             disable_local_auth=self.disable_local_auth,
             endpoint=self.endpoint,
+            event_type_info=self.event_type_info,
             id=self.id,
             identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
@@ -270,6 +294,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             input_schema_mapping=self.input_schema_mapping,
             location=self.location,
             metric_resource_id=self.metric_resource_id,
+            minimum_tls_version_allowed=self.minimum_tls_version_allowed,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
@@ -284,9 +309,7 @@ def get_domain(domain_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Get properties of a domain.
-    Azure REST API version: 2022-06-15.
-
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str domain_name: Name of the domain.
@@ -304,6 +327,7 @@ def get_domain(domain_name: Optional[str] = None,
         data_residency_boundary=pulumi.get(__ret__, 'data_residency_boundary'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        event_type_info=pulumi.get(__ret__, 'event_type_info'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
@@ -311,6 +335,7 @@ def get_domain(domain_name: Optional[str] = None,
         input_schema_mapping=pulumi.get(__ret__, 'input_schema_mapping'),
         location=pulumi.get(__ret__, 'location'),
         metric_resource_id=pulumi.get(__ret__, 'metric_resource_id'),
+        minimum_tls_version_allowed=pulumi.get(__ret__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -323,9 +348,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Get properties of a domain.
-    Azure REST API version: 2022-06-15.
-
-    Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str domain_name: Name of the domain.
@@ -342,6 +365,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
         data_residency_boundary=pulumi.get(__response__, 'data_residency_boundary'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        event_type_info=pulumi.get(__response__, 'event_type_info'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         inbound_ip_rules=pulumi.get(__response__, 'inbound_ip_rules'),
@@ -349,6 +373,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
         input_schema_mapping=pulumi.get(__response__, 'input_schema_mapping'),
         location=pulumi.get(__response__, 'location'),
         metric_resource_id=pulumi.get(__response__, 'metric_resource_id'),
+        minimum_tls_version_allowed=pulumi.get(__response__, 'minimum_tls_version_allowed'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

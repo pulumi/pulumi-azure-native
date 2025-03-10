@@ -32,11 +32,3 @@ from .private_link_services_for_o365_management_activity_api import *
 from .private_link_services_for_scc_powershell import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.securityandcompliance.v20210308 as __v20210308
-    v20210308 = __v20210308
-else:
-    v20210308 = _utilities.lazy_import('pulumi_azure_native.securityandcompliance.v20210308')
-

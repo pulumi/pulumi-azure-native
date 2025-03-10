@@ -22,13 +22,13 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
-                 job_base_properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SweepJobArgs']],
+                 job_base_properties: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Job resource.
-        :param pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SweepJobArgs']] job_base_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']] job_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] id: The name and identifier for the Job. This is case-sensitive.
@@ -41,14 +41,14 @@ class JobArgs:
 
     @property
     @pulumi.getter(name="jobBaseProperties")
-    def job_base_properties(self) -> pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SweepJobArgs']]:
+    def job_base_properties(self) -> pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]:
         """
         [Required] Additional attributes of the entity.
         """
         return pulumi.get(self, "job_base_properties")
 
     @job_base_properties.setter
-    def job_base_properties(self, value: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SweepJobArgs']]):
+    def job_base_properties(self, value: pulumi.Input[Union['AutoMLJobArgs', 'CommandJobArgs', 'PipelineJobArgs', 'SparkJobArgs', 'SweepJobArgs']]):
         pulumi.set(self, "job_base_properties", value)
 
     @property
@@ -94,20 +94,18 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
+                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The name and identifier for the Job. This is case-sensitive.
-        :param pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]] job_base_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]] job_base_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -119,9 +117,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
-
-        Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -139,7 +135,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
+                 job_base_properties: Optional[pulumi.Input[Union[Union['AutoMLJobArgs', 'AutoMLJobArgsDict'], Union['CommandJobArgs', 'CommandJobArgsDict'], Union['PipelineJobArgs', 'PipelineJobArgsDict'], Union['SparkJobArgs', 'SparkJobArgsDict'], Union['SweepJobArgs', 'SweepJobArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):

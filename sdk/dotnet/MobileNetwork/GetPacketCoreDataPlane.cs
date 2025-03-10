@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified packet core data plane.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetPacketCoreDataPlaneResult> InvokeAsync(GetPacketCoreDataPlaneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet core data plane.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified packet core data plane.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetPacketCoreDataPlaneResult> Invoke(GetPacketCoreDataPlaneInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCoreDataPlaneResult>("azure-native:mobilenetwork:getPacketCoreDataPlane", args ?? new GetPacketCoreDataPlaneInvokeArgs(), options.WithDefaults());
@@ -128,6 +122,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
         /// </summary>
         public readonly Outputs.InterfacePropertiesResponse UserPlaneAccessInterface;
+        /// <summary>
+        /// The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+        /// </summary>
+        public readonly ImmutableArray<string> UserPlaneAccessVirtualIpv4Addresses;
 
         [OutputConstructor]
         private GetPacketCoreDataPlaneResult(
@@ -145,7 +143,9 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             string type,
 
-            Outputs.InterfacePropertiesResponse userPlaneAccessInterface)
+            Outputs.InterfacePropertiesResponse userPlaneAccessInterface,
+
+            ImmutableArray<string> userPlaneAccessVirtualIpv4Addresses)
         {
             Id = id;
             Location = location;
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.MobileNetwork
             Tags = tags;
             Type = type;
             UserPlaneAccessInterface = userPlaneAccessInterface;
+            UserPlaneAccessVirtualIpv4Addresses = userPlaneAccessVirtualIpv4Addresses;
         }
     }
 }

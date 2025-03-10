@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -160,7 +158,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taints"] = args ? args.taints : undefined;
-            resourceInputs["upgradeSettings"] = args ? (args.upgradeSettings ? pulumi.output(args.upgradeSettings).apply(inputs.networkcloud.agentPoolUpgradeSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             resourceInputs["vmSkuName"] = args ? args.vmSkuName : undefined;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

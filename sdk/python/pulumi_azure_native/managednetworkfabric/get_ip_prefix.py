@@ -25,12 +25,18 @@ __all__ = [
 @pulumi.output_type
 class GetIpPrefixResult:
     """
-    The IPPrefix resource definition.
+    The IP Prefix resource definition.
     """
-    def __init__(__self__, annotation=None, id=None, ip_prefix_rules=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrative_state=None, annotation=None, configuration_state=None, id=None, ip_prefix_rules=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -57,6 +63,14 @@ class GetIpPrefixResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
+
+    @property
     @pulumi.getter
     def annotation(self) -> Optional[str]:
         """
@@ -65,18 +79,26 @@ class GetIpPrefixResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipPrefixRules")
-    def ip_prefix_rules(self) -> Sequence['outputs.IpPrefixPropertiesResponseIpPrefixRules']:
+    def ip_prefix_rules(self) -> Sequence['outputs.IpPrefixRuleResponse']:
         """
-        IpPrefix contains the list of IP PrefixRules objects.
+        The list of IP Prefix Rules.
         """
         return pulumi.get(self, "ip_prefix_rules")
 
@@ -100,7 +122,7 @@ class GetIpPrefixResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -135,7 +157,9 @@ class AwaitableGetIpPrefixResult(GetIpPrefixResult):
         if False:
             yield self
         return GetIpPrefixResult(
+            administrative_state=self.administrative_state,
             annotation=self.annotation,
+            configuration_state=self.configuration_state,
             id=self.id,
             ip_prefix_rules=self.ip_prefix_rules,
             location=self.location,
@@ -151,12 +175,10 @@ def get_ip_prefix(ip_prefix_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpPrefixResult:
     """
     Implements IP Prefix GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str ip_prefix_name: Name of the IP Prefix
+    :param str ip_prefix_name: Name of the IP Prefix.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -166,7 +188,9 @@ def get_ip_prefix(ip_prefix_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getIpPrefix', __args__, opts=opts, typ=GetIpPrefixResult).value
 
     return AwaitableGetIpPrefixResult(
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
         id=pulumi.get(__ret__, 'id'),
         ip_prefix_rules=pulumi.get(__ret__, 'ip_prefix_rules'),
         location=pulumi.get(__ret__, 'location'),
@@ -180,12 +204,10 @@ def get_ip_prefix_output(ip_prefix_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpPrefixResult]:
     """
     Implements IP Prefix GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str ip_prefix_name: Name of the IP Prefix
+    :param str ip_prefix_name: Name of the IP Prefix.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -194,7 +216,9 @@ def get_ip_prefix_output(ip_prefix_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getIpPrefix', __args__, opts=opts, typ=GetIpPrefixResult)
     return __ret__.apply(lambda __response__: GetIpPrefixResult(
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
         id=pulumi.get(__response__, 'id'),
         ip_prefix_rules=pulumi.get(__response__, 'ip_prefix_rules'),
         location=pulumi.get(__response__, 'location'),

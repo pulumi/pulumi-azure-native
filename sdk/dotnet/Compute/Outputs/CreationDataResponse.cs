@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string CreateOption;
         /// <summary>
+        /// Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+        /// </summary>
+        public readonly string? ElasticSanResourceId;
+        /// <summary>
         /// Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
         /// </summary>
         public readonly Outputs.ImageDiskReferenceResponse? GalleryImageReference;
@@ -36,6 +40,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
         /// </summary>
         public readonly bool? PerformancePlus;
+        /// <summary>
+        /// If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+        /// </summary>
+        public readonly string? ProvisionedBandwidthCopySpeed;
         /// <summary>
         /// If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
         /// </summary>
@@ -65,6 +73,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private CreationDataResponse(
             string createOption,
 
+            string? elasticSanResourceId,
+
             Outputs.ImageDiskReferenceResponse? galleryImageReference,
 
             Outputs.ImageDiskReferenceResponse? imageReference,
@@ -72,6 +82,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
             int? logicalSectorSize,
 
             bool? performancePlus,
+
+            string? provisionedBandwidthCopySpeed,
 
             string? securityDataUri,
 
@@ -86,10 +98,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
             double? uploadSizeBytes)
         {
             CreateOption = createOption;
+            ElasticSanResourceId = elasticSanResourceId;
             GalleryImageReference = galleryImageReference;
             ImageReference = imageReference;
             LogicalSectorSize = logicalSectorSize;
             PerformancePlus = performancePlus;
+            ProvisionedBandwidthCopySpeed = provisionedBandwidthCopySpeed;
             SecurityDataUri = securityDataUri;
             SourceResourceId = sourceResourceId;
             SourceUniqueId = sourceUniqueId;

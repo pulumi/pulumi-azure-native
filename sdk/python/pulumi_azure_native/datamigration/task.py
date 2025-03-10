@@ -117,9 +117,7 @@ class Task(pulumi.CustomResource):
                  __props__=None):
         """
         A task resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
-
-        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A task resource
-        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19.
-
-        Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        Azure REST API version: 2023-07-15-preview. Prior API version in Azure Native 2.x: 2021-06-30.
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

@@ -168,6 +168,47 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     }
 
     /// <summary>
+    /// Resource Origin.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceOrigin : IEquatable<ResourceOrigin>
+    {
+        private readonly string _value;
+
+        private ResourceOrigin(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The resource is from Azure.
+        /// </summary>
+        public static ResourceOrigin Azure { get; } = new ResourceOrigin("Azure");
+        /// <summary>
+        /// The resource is from AWS.
+        /// </summary>
+        public static ResourceOrigin AWS { get; } = new ResourceOrigin("AWS");
+        /// <summary>
+        /// The resource is from GCP.
+        /// </summary>
+        public static ResourceOrigin GCP { get; } = new ResourceOrigin("GCP");
+
+        public static bool operator ==(ResourceOrigin left, ResourceOrigin right) => left.Equals(right);
+        public static bool operator !=(ResourceOrigin left, ResourceOrigin right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceOrigin value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceOrigin other && Equals(other);
+        public bool Equals(ResourceOrigin other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// whether to send notification under any event.
     /// </summary>
     [EnumType]

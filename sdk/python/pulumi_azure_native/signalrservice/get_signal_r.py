@@ -27,7 +27,7 @@ class GetSignalRResult:
     """
     A class represent a resource.
     """
-    def __init__(__self__, cors=None, disable_aad_auth=None, disable_local_auth=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, id=None, identity=None, kind=None, live_trace_configuration=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, resource_log_configuration=None, server_port=None, serverless=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, upstream=None, version=None):
+    def __init__(__self__, cors=None, disable_aad_auth=None, disable_local_auth=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, id=None, identity=None, kind=None, live_trace_configuration=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, region_endpoint_enabled=None, resource_log_configuration=None, resource_stopped=None, server_port=None, serverless=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, upstream=None, version=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
@@ -82,9 +82,15 @@ class GetSignalRResult:
         if public_port and not isinstance(public_port, int):
             raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
+        if region_endpoint_enabled and not isinstance(region_endpoint_enabled, str):
+            raise TypeError("Expected argument 'region_endpoint_enabled' to be a str")
+        pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if resource_log_configuration and not isinstance(resource_log_configuration, dict):
             raise TypeError("Expected argument 'resource_log_configuration' to be a dict")
         pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
+        if resource_stopped and not isinstance(resource_stopped, str):
+            raise TypeError("Expected argument 'resource_stopped' to be a str")
+        pulumi.set(__self__, "resource_stopped", resource_stopped)
         if server_port and not isinstance(server_port, int):
             raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
@@ -185,7 +191,7 @@ class GetSignalRResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -201,7 +207,7 @@ class GetSignalRResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of the service, it can be SignalR or RawWebSockets
+        The kind of the service
         """
         return pulumi.get(self, "kind")
 
@@ -215,9 +221,9 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -225,7 +231,7 @@ class GetSignalRResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -272,12 +278,32 @@ class GetSignalRResult:
         return pulumi.get(self, "public_port")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[str]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
     @pulumi.getter(name="resourceLogConfiguration")
     def resource_log_configuration(self) -> Optional['outputs.ResourceLogConfigurationResponse']:
         """
         Resource log configuration of a Microsoft.SignalRService resource.
         """
         return pulumi.get(self, "resource_log_configuration")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[str]:
+        """
+        Stop or start the resource.  Default to "False".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
 
     @property
     @pulumi.getter(name="serverPort")
@@ -315,7 +341,7 @@ class GetSignalRResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -323,7 +349,7 @@ class GetSignalRResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -339,7 +365,7 @@ class GetSignalRResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -384,7 +410,9 @@ class AwaitableGetSignalRResult(GetSignalRResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             public_port=self.public_port,
+            region_endpoint_enabled=self.region_endpoint_enabled,
             resource_log_configuration=self.resource_log_configuration,
+            resource_stopped=self.resource_stopped,
             server_port=self.server_port,
             serverless=self.serverless,
             shared_private_link_resources=self.shared_private_link_resources,
@@ -402,12 +430,10 @@ def get_signal_r(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRResult:
     """
     Get the resource and its properties.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -435,7 +461,9 @@ def get_signal_r(resource_group_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         public_port=pulumi.get(__ret__, 'public_port'),
+        region_endpoint_enabled=pulumi.get(__ret__, 'region_endpoint_enabled'),
         resource_log_configuration=pulumi.get(__ret__, 'resource_log_configuration'),
+        resource_stopped=pulumi.get(__ret__, 'resource_stopped'),
         server_port=pulumi.get(__ret__, 'server_port'),
         serverless=pulumi.get(__ret__, 'serverless'),
         shared_private_link_resources=pulumi.get(__ret__, 'shared_private_link_resources'),
@@ -451,12 +479,10 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRResult]:
     """
     Get the resource and its properties.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -483,7 +509,9 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         public_port=pulumi.get(__response__, 'public_port'),
+        region_endpoint_enabled=pulumi.get(__response__, 'region_endpoint_enabled'),
         resource_log_configuration=pulumi.get(__response__, 'resource_log_configuration'),
+        resource_stopped=pulumi.get(__response__, 'resource_stopped'),
         server_port=pulumi.get(__response__, 'server_port'),
         serverless=pulumi.get(__response__, 'serverless'),
         shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),

@@ -94,13 +94,6 @@ utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 // Export enums:
 export * from "../types/enums/logz";
 
-// Export sub-modules:
-import * as v20220101preview from "./v20220101preview";
-
-export {
-    v20220101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

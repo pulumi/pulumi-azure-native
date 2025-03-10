@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.IoTOperations
     {
         /// <summary>
         /// Get a BrokerListenerResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetBrokerListenerResult> InvokeAsync(GetBrokerListenerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerListenerResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerListenerResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetBrokerListenerResult> Invoke(GetBrokerListenerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerListenerResult>("azure-native:iotoperations:getBrokerListener", args ?? new GetBrokerListenerInvokeArgs(), options.WithDefaults());

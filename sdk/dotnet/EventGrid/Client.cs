@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// The Client resource.
-    /// Azure REST API version: 2023-06-01-preview.
-    /// 
-    /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Client")]
     public partial class Client : global::Pulumi.CustomResource
@@ -25,12 +23,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("attributes")]
         public Output<object?> Attributes { get; private set; } = null!;
-
-        /// <summary>
-        /// Authentication information for the client.
-        /// </summary>
-        [Output("authentication")]
-        public Output<Outputs.ClientAuthenticationResponse?> Authentication { get; private set; } = null!;
 
         /// <summary>
         /// The name presented by the client for authentication. The default value is the name of the resource.
@@ -69,7 +61,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to the Client resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -140,12 +132,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("attributes")]
         public Input<object>? Attributes { get; set; }
-
-        /// <summary>
-        /// Authentication information for the client.
-        /// </summary>
-        [Input("authentication")]
-        public Input<Inputs.ClientAuthenticationArgs>? Authentication { get; set; }
 
         /// <summary>
         /// The name presented by the client for authentication. The default value is the name of the resource.

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a CA certificate.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getCaCertificate(args: GetCaCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -70,7 +68,7 @@ export interface GetCaCertificateResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to the CaCertificate resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -80,9 +78,7 @@ export interface GetCaCertificateResult {
 }
 /**
  * Get properties of a CA certificate.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get function secrets for a function in a web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,9 +52,7 @@ export interface ListWebAppFunctionSecretsSlotResult {
 }
 /**
  * Description for Get function secrets for a function in a web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

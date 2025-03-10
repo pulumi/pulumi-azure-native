@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Preferences related to the double encryption
+    /// Preferences related to the double encryption.
     /// </summary>
     public sealed class EncryptionPreferencesArgs : global::Pulumi.ResourceArgs
     {

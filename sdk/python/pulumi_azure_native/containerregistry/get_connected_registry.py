@@ -27,7 +27,7 @@ class GetConnectedRegistryResult:
     """
     An object that represents a connected registry for a container registry.
     """
-    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, id=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, notifications_list=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
+    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, garbage_collection=None, id=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, notifications_list=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
         if activation and not isinstance(activation, dict):
             raise TypeError("Expected argument 'activation' to be a dict")
         pulumi.set(__self__, "activation", activation)
@@ -37,6 +37,9 @@ class GetConnectedRegistryResult:
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
+        if garbage_collection and not isinstance(garbage_collection, dict):
+            raise TypeError("Expected argument 'garbage_collection' to be a dict")
+        pulumi.set(__self__, "garbage_collection", garbage_collection)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -100,6 +103,14 @@ class GetConnectedRegistryResult:
         The current connection state of the connected registry.
         """
         return pulumi.get(self, "connection_state")
+
+    @property
+    @pulumi.getter(name="garbageCollection")
+    def garbage_collection(self) -> Optional['outputs.GarbageCollectionPropertiesResponse']:
+        """
+        The garbage collection properties of the connected registry.
+        """
+        return pulumi.get(self, "garbage_collection")
 
     @property
     @pulumi.getter
@@ -215,6 +226,7 @@ class AwaitableGetConnectedRegistryResult(GetConnectedRegistryResult):
             activation=self.activation,
             client_token_ids=self.client_token_ids,
             connection_state=self.connection_state,
+            garbage_collection=self.garbage_collection,
             id=self.id,
             last_activity_time=self.last_activity_time,
             logging=self.logging,
@@ -236,9 +248,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
     Gets the properties of the connected registry.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.
@@ -256,6 +266,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
         activation=pulumi.get(__ret__, 'activation'),
         client_token_ids=pulumi.get(__ret__, 'client_token_ids'),
         connection_state=pulumi.get(__ret__, 'connection_state'),
+        garbage_collection=pulumi.get(__ret__, 'garbage_collection'),
         id=pulumi.get(__ret__, 'id'),
         last_activity_time=pulumi.get(__ret__, 'last_activity_time'),
         logging=pulumi.get(__ret__, 'logging'),
@@ -275,9 +286,7 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
     Gets the properties of the connected registry.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.
@@ -294,6 +303,7 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
         activation=pulumi.get(__response__, 'activation'),
         client_token_ids=pulumi.get(__response__, 'client_token_ids'),
         connection_state=pulumi.get(__response__, 'connection_state'),
+        garbage_collection=pulumi.get(__response__, 'garbage_collection'),
         id=pulumi.get(__response__, 'id'),
         last_activity_time=pulumi.get(__response__, 'last_activity_time'),
         logging=pulumi.get(__response__, 'logging'),

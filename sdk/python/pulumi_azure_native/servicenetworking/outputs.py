@@ -13,13 +13,16 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'AssociationSubnetResponse',
     'ResourceIdResponse',
+    'SecurityPolicyConfigurationsResponse',
     'SystemDataResponse',
     'WafPolicyResponse',
+    'WafSecurityPolicyResponse',
 ]
 
 @pulumi.output_type
@@ -64,6 +67,46 @@ class ResourceIdResponse(dict):
         Resource ID of child resource.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SecurityPolicyConfigurationsResponse(dict):
+    """
+    SecurityPolicyConfigurations Subresource of Traffic Controller.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "wafSecurityPolicy":
+            suggest = "waf_security_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityPolicyConfigurationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityPolicyConfigurationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityPolicyConfigurationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 waf_security_policy: Optional['outputs.WafSecurityPolicyResponse'] = None):
+        """
+        SecurityPolicyConfigurations Subresource of Traffic Controller.
+        :param 'WafSecurityPolicyResponse' waf_security_policy: Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        """
+        if waf_security_policy is not None:
+            pulumi.set(__self__, "waf_security_policy", waf_security_policy)
+
+    @property
+    @pulumi.getter(name="wafSecurityPolicy")
+    def waf_security_policy(self) -> Optional['outputs.WafSecurityPolicyResponse']:
+        """
+        Contains reference to a WAF-type security policy that is applied at the Traffic Controller level.
+        """
+        return pulumi.get(self, "waf_security_policy")
 
 
 @pulumi.output_type
@@ -194,6 +237,28 @@ class WafPolicyResponse(dict):
     def id(self) -> str:
         """
         Resource ID of the WAF
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class WafSecurityPolicyResponse(dict):
+    """
+    Web Application Firewall Security Policy
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Web Application Firewall Security Policy
+        :param str id: Resource ID of the Waf Security Policy
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the Waf Security Policy
         """
         return pulumi.get(self, "id")
 

@@ -248,9 +248,7 @@ def list_geodata_by_ip(enrichment_type: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListGeodataByIpResult:
     """
     Get geodata for a single IP address
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str enrichment_type: Enrichment type
@@ -291,9 +289,7 @@ def list_geodata_by_ip_output(enrichment_type: Optional[pulumi.Input[str]] = Non
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGeodataByIpResult]:
     """
     Get geodata for a single IP address
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str enrichment_type: Enrichment type

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A multi-stage process to perform update operations across members of a Fleet.
-    /// Azure REST API version: 2023-03-15-preview.
-    /// 
-    /// Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    /// Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource
@@ -67,6 +65,23 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of the FleetUpdateStrategy resource to reference.
+        /// 
+        /// When creating a new run, there are three ways to define a strategy for the run:
+        /// 1. Define a new strategy in place: Set the "strategy" field.
+        /// 2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        /// 3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+        /// 
+        /// Setting both "updateStrategyId" and "strategy" is invalid.
+        /// 
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        /// </summary>
+        [Output("updateStrategyId")]
+        public Output<string?> UpdateStrategyId { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,6 +169,23 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("updateRunName")]
         public Input<string>? UpdateRunName { get; set; }
+
+        /// <summary>
+        /// The resource id of the FleetUpdateStrategy resource to reference.
+        /// 
+        /// When creating a new run, there are three ways to define a strategy for the run:
+        /// 1. Define a new strategy in place: Set the "strategy" field.
+        /// 2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+        /// 3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+        /// 
+        /// Setting both "updateStrategyId" and "strategy" is invalid.
+        /// 
+        /// UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+        /// Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+        /// UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+        /// </summary>
+        [Input("updateStrategyId")]
+        public Input<string>? UpdateStrategyId { get; set; }
 
         public UpdateRunArgs()
         {

@@ -22,30 +22,32 @@ __all__ = ['DeploymentStackAtResourceGroupArgs', 'DeploymentStackAtResourceGroup
 @pulumi.input_type
 class DeploymentStackAtResourceGroupArgs:
     def __init__(__self__, *,
-                 action_on_unmanage: pulumi.Input['DeploymentStackPropertiesActionOnUnmanageArgs'],
+                 action_on_unmanage: pulumi.Input['ActionOnUnmanageArgs'],
                  deny_settings: pulumi.Input['DenySettingsArgs'],
                  resource_group_name: pulumi.Input[str],
+                 bypass_stack_out_of_sync_error: Optional[pulumi.Input[bool]] = None,
                  debug_setting: Optional[pulumi.Input['DeploymentStacksDebugSettingArgs']] = None,
                  deployment_scope: Optional[pulumi.Input[str]] = None,
                  deployment_stack_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]] = None,
                  parameters_link: Optional[pulumi.Input['DeploymentStacksParametersLinkArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['DeploymentStacksTemplateLinkArgs']] = None):
         """
         The set of arguments for constructing a DeploymentStackAtResourceGroup resource.
-        :param pulumi.Input['DeploymentStackPropertiesActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are not managed immediately after the stack is updated.
+        :param pulumi.Input['ActionOnUnmanageArgs'] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         :param pulumi.Input['DenySettingsArgs'] deny_settings: Defines how resources deployed by the stack are locked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] bypass_stack_out_of_sync_error: Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
         :param pulumi.Input['DeploymentStacksDebugSettingArgs'] debug_setting: The debug setting of the deployment.
         :param pulumi.Input[str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param pulumi.Input[str] deployment_stack_name: Name of the deployment stack.
-        :param pulumi.Input[str] description: Deployment stack description.
-        :param pulumi.Input[str] location: The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
-        :param Any parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input[str] description: Deployment stack description. Max length of 4096 characters.
+        :param pulumi.Input[str] location: The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input['DeploymentStacksParametersLinkArgs'] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment stack resource tags.
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
@@ -54,6 +56,8 @@ class DeploymentStackAtResourceGroupArgs:
         pulumi.set(__self__, "action_on_unmanage", action_on_unmanage)
         pulumi.set(__self__, "deny_settings", deny_settings)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if bypass_stack_out_of_sync_error is not None:
+            pulumi.set(__self__, "bypass_stack_out_of_sync_error", bypass_stack_out_of_sync_error)
         if debug_setting is not None:
             pulumi.set(__self__, "debug_setting", debug_setting)
         if deployment_scope is not None:
@@ -77,14 +81,14 @@ class DeploymentStackAtResourceGroupArgs:
 
     @property
     @pulumi.getter(name="actionOnUnmanage")
-    def action_on_unmanage(self) -> pulumi.Input['DeploymentStackPropertiesActionOnUnmanageArgs']:
+    def action_on_unmanage(self) -> pulumi.Input['ActionOnUnmanageArgs']:
         """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         """
         return pulumi.get(self, "action_on_unmanage")
 
     @action_on_unmanage.setter
-    def action_on_unmanage(self, value: pulumi.Input['DeploymentStackPropertiesActionOnUnmanageArgs']):
+    def action_on_unmanage(self, value: pulumi.Input['ActionOnUnmanageArgs']):
         pulumi.set(self, "action_on_unmanage", value)
 
     @property
@@ -110,6 +114,18 @@ class DeploymentStackAtResourceGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="bypassStackOutOfSyncError")
+    def bypass_stack_out_of_sync_error(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
+        """
+        return pulumi.get(self, "bypass_stack_out_of_sync_error")
+
+    @bypass_stack_out_of_sync_error.setter
+    def bypass_stack_out_of_sync_error(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_stack_out_of_sync_error", value)
 
     @property
     @pulumi.getter(name="debugSetting")
@@ -151,7 +167,7 @@ class DeploymentStackAtResourceGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Deployment stack description.
+        Deployment stack description. Max length of 4096 characters.
         """
         return pulumi.get(self, "description")
 
@@ -163,7 +179,7 @@ class DeploymentStackAtResourceGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         """
         return pulumi.get(self, "location")
 
@@ -173,14 +189,14 @@ class DeploymentStackAtResourceGroupArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]:
         """
-        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[Any]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -237,14 +253,15 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_on_unmanage: Optional[pulumi.Input[Union['DeploymentStackPropertiesActionOnUnmanageArgs', 'DeploymentStackPropertiesActionOnUnmanageArgsDict']]] = None,
+                 action_on_unmanage: Optional[pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']]] = None,
+                 bypass_stack_out_of_sync_error: Optional[pulumi.Input[bool]] = None,
                  debug_setting: Optional[pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']]] = None,
                  deny_settings: Optional[pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']]] = None,
                  deployment_scope: Optional[pulumi.Input[str]] = None,
                  deployment_stack_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]]] = None,
                  parameters_link: Optional[pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -253,20 +270,19 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Deployment stack object.
-        Azure REST API version: 2022-08-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentStackPropertiesActionOnUnmanageArgs', 'DeploymentStackPropertiesActionOnUnmanageArgsDict']] action_on_unmanage: Defines the behavior of resources that are not managed immediately after the stack is updated.
+        :param pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']] action_on_unmanage: Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
+        :param pulumi.Input[bool] bypass_stack_out_of_sync_error: Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
         :param pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']] debug_setting: The debug setting of the deployment.
         :param pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']] deny_settings: Defines how resources deployed by the stack are locked.
         :param pulumi.Input[str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param pulumi.Input[str] deployment_stack_name: Name of the deployment stack.
-        :param pulumi.Input[str] description: Deployment stack description.
-        :param pulumi.Input[str] location: The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
-        :param Any parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        :param pulumi.Input[str] description: Deployment stack description. Max length of 4096 characters.
+        :param pulumi.Input[str] location: The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Deployment stack resource tags.
@@ -281,9 +297,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment stack object.
-        Azure REST API version: 2022-08-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DeploymentStackAtResourceGroupArgs args: The arguments to use to populate this resource's properties.
@@ -300,14 +314,15 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_on_unmanage: Optional[pulumi.Input[Union['DeploymentStackPropertiesActionOnUnmanageArgs', 'DeploymentStackPropertiesActionOnUnmanageArgsDict']]] = None,
+                 action_on_unmanage: Optional[pulumi.Input[Union['ActionOnUnmanageArgs', 'ActionOnUnmanageArgsDict']]] = None,
+                 bypass_stack_out_of_sync_error: Optional[pulumi.Input[bool]] = None,
                  debug_setting: Optional[pulumi.Input[Union['DeploymentStacksDebugSettingArgs', 'DeploymentStacksDebugSettingArgsDict']]] = None,
                  deny_settings: Optional[pulumi.Input[Union['DenySettingsArgs', 'DenySettingsArgsDict']]] = None,
                  deployment_scope: Optional[pulumi.Input[str]] = None,
                  deployment_stack_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]]] = None,
                  parameters_link: Optional[pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -325,6 +340,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
             if action_on_unmanage is None and not opts.urn:
                 raise TypeError("Missing required property 'action_on_unmanage'")
             __props__.__dict__["action_on_unmanage"] = action_on_unmanage
+            __props__.__dict__["bypass_stack_out_of_sync_error"] = bypass_stack_out_of_sync_error
             __props__.__dict__["debug_setting"] = debug_setting
             if deny_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'deny_settings'")
@@ -341,6 +357,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
             __props__.__dict__["template_link"] = template_link
+            __props__.__dict__["correlation_id"] = None
             __props__.__dict__["deleted_resources"] = None
             __props__.__dict__["deployment_id"] = None
             __props__.__dict__["detached_resources"] = None
@@ -378,6 +395,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
         __props__ = DeploymentStackAtResourceGroupArgs.__new__(DeploymentStackAtResourceGroupArgs)
 
         __props__.__dict__["action_on_unmanage"] = None
+        __props__.__dict__["correlation_id"] = None
         __props__.__dict__["debug_setting"] = None
         __props__.__dict__["deleted_resources"] = None
         __props__.__dict__["deny_settings"] = None
@@ -402,11 +420,19 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="actionOnUnmanage")
-    def action_on_unmanage(self) -> pulumi.Output['outputs.DeploymentStackPropertiesResponseActionOnUnmanage']:
+    def action_on_unmanage(self) -> pulumi.Output['outputs.ActionOnUnmanageResponse']:
         """
-        Defines the behavior of resources that are not managed immediately after the stack is updated.
+        Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
         """
         return pulumi.get(self, "action_on_unmanage")
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> pulumi.Output[str]:
+        """
+        The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+        """
+        return pulumi.get(self, "correlation_id")
 
     @property
     @pulumi.getter(name="debugSetting")
@@ -420,7 +446,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter(name="deletedResources")
     def deleted_resources(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceResponse']]:
         """
-        An array of resources that were deleted during the most recent update.
+        An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
         """
         return pulumi.get(self, "deleted_resources")
 
@@ -452,7 +478,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Deployment stack description.
+        Deployment stack description. Max length of 4096 characters.
         """
         return pulumi.get(self, "description")
 
@@ -460,7 +486,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter(name="detachedResources")
     def detached_resources(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceResponse']]:
         """
-        An array of resources that were detached during the most recent update.
+        An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
         """
         return pulumi.get(self, "detached_resources")
 
@@ -468,15 +494,15 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def duration(self) -> pulumi.Output[str]:
         """
-        The duration of the deployment stack update.
+        The duration of the last successful Deployment stack update.
         """
         return pulumi.get(self, "duration")
 
     @property
     @pulumi.getter
-    def error(self) -> pulumi.Output[Optional['outputs.ErrorResponseResponse']]:
+    def error(self) -> pulumi.Output[Optional['outputs.ErrorDetailResponse']]:
         """
-        Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+        The error detail.
         """
         return pulumi.get(self, "error")
 
@@ -484,7 +510,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter(name="failedResources")
     def failed_resources(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceExtendedResponse']]:
         """
-        An array of resources that failed to reach goal state during the most recent update.
+        An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
         """
         return pulumi.get(self, "failed_resources")
 
@@ -492,7 +518,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[str]]:
         """
-        The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
         """
         return pulumi.get(self, "location")
 
@@ -508,15 +534,15 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Any]:
         """
-        The outputs of the underlying deployment.
+        The outputs of the deployment resource created by the deployment stack.
         """
         return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Output[Optional[Any]]:
+    def parameters(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.DeploymentParameterResponse']]]:
         """
-        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+        Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         """
         return pulumi.get(self, "parameters")
 

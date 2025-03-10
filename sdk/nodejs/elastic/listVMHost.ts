@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list operation.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listVMHost(args: ListVMHostArgs, opts?: pulumi.InvokeOptions): Promise<ListVMHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +25,7 @@ export interface ListVMHostArgs {
      */
     monitorName: string;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -47,9 +45,7 @@ export interface ListVMHostResult {
 }
 /**
  * Response of a list operation.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listVMHostOutput(args: ListVMHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVMHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,7 +61,7 @@ export interface ListVMHostOutputArgs {
      */
     monitorName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

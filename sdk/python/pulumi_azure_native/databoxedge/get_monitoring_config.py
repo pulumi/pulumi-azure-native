@@ -104,9 +104,7 @@ def get_monitoring_config(device_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringConfigResult:
     """
     The metric setting details for the role
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -132,9 +130,7 @@ def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringConfigResult]:
     """
     The metric setting details for the role
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.

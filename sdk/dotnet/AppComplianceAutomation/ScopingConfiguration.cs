@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
 {
     /// <summary>
     /// A class represent an AppComplianceAutomation scoping configuration resource.
-    /// Azure REST API version: 2024-06-27.
+    /// Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:ScopingConfiguration")]
     public partial class ScopingConfiguration : global::Pulumi.CustomResource

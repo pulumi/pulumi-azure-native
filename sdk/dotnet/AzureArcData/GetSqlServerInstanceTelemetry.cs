@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves SQL Server instance telemetry
         /// Azure REST API version: 2024-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Task<GetSqlServerInstanceTelemetryResult> InvokeAsync(GetSqlServerInstanceTelemetryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceTelemetryResult>("azure-native:azurearcdata:getSqlServerInstanceTelemetry", args ?? new GetSqlServerInstanceTelemetryArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves SQL Server instance telemetry
         /// Azure REST API version: 2024-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceTelemetryResult> Invoke(GetSqlServerInstanceTelemetryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceTelemetryResult>("azure-native:azurearcdata:getSqlServerInstanceTelemetry", args ?? new GetSqlServerInstanceTelemetryInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Retrieves SQL Server instance telemetry
         /// Azure REST API version: 2024-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview.
         /// </summary>
         public static Output<GetSqlServerInstanceTelemetryResult> Invoke(GetSqlServerInstanceTelemetryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceTelemetryResult>("azure-native:azurearcdata:getSqlServerInstanceTelemetry", args ?? new GetSqlServerInstanceTelemetryInvokeArgs(), options.WithDefaults());

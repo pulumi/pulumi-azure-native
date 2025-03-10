@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.Confluent
     public static class ListAccessClusters
     {
         /// <summary>
-        /// List cluster success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Details of the clusters returned on successful response
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<ListAccessClustersResult> InvokeAsync(ListAccessClustersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List cluster success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Details of the clusters returned on successful response
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<ListAccessClustersResult> Invoke(ListAccessClustersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List cluster success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Details of the clusters returned on successful response
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<ListAccessClustersResult> Invoke(ListAccessClustersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessClustersResult>("azure-native:confluent:listAccessClusters", args ?? new ListAccessClustersInvokeArgs(), options.WithDefaults());
@@ -109,7 +103,7 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class ListAccessClustersResult
     {
         /// <summary>
-        /// Data of the environments list
+        /// List of clusters
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterRecordResponse> Data;
         /// <summary>

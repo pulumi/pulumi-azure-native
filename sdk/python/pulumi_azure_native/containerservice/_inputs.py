@@ -16,12 +16,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'APIServerAccessProfileArgs',
+    'APIServerAccessProfileArgsDict',
+    'AbsoluteMonthlyScheduleArgs',
+    'AbsoluteMonthlyScheduleArgsDict',
+    'AdvancedNetworkingObservabilityArgs',
+    'AdvancedNetworkingObservabilityArgsDict',
+    'AdvancedNetworkingSecurityArgs',
+    'AdvancedNetworkingSecurityArgsDict',
+    'AdvancedNetworkingArgs',
+    'AdvancedNetworkingArgsDict',
+    'AgentPoolNetworkProfileArgs',
+    'AgentPoolNetworkProfileArgsDict',
+    'AgentPoolSecurityProfileArgs',
+    'AgentPoolSecurityProfileArgsDict',
     'AgentPoolUpgradeSettingsArgs',
     'AgentPoolUpgradeSettingsArgsDict',
+    'AgentPoolWindowsProfileArgs',
+    'AgentPoolWindowsProfileArgsDict',
+    'AgentProfileArgs',
+    'AgentProfileArgsDict',
     'AutoUpgradeNodeImageSelectionArgs',
     'AutoUpgradeNodeImageSelectionArgsDict',
     'AzureKeyVaultKmsArgs',
     'AzureKeyVaultKmsArgsDict',
+    'ClusterUpgradeSettingsArgs',
+    'ClusterUpgradeSettingsArgsDict',
     'ContainerServiceLinuxProfileArgs',
     'ContainerServiceLinuxProfileArgsDict',
     'ContainerServiceNetworkProfileArgs',
@@ -32,10 +52,30 @@ __all__ = [
     'ContainerServiceSshPublicKeyArgsDict',
     'CreationDataArgs',
     'CreationDataArgsDict',
+    'DailyScheduleArgs',
+    'DailyScheduleArgsDict',
+    'DateSpanArgs',
+    'DateSpanArgsDict',
+    'DelegatedResourceArgs',
+    'DelegatedResourceArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
     'FleetHubProfileArgs',
     'FleetHubProfileArgsDict',
+    'IPTagArgs',
+    'IPTagArgsDict',
+    'IstioCertificateAuthorityArgs',
+    'IstioCertificateAuthorityArgsDict',
+    'IstioComponentsArgs',
+    'IstioComponentsArgsDict',
+    'IstioEgressGatewayArgs',
+    'IstioEgressGatewayArgsDict',
+    'IstioIngressGatewayArgs',
+    'IstioIngressGatewayArgsDict',
+    'IstioPluginCertificateAuthorityArgs',
+    'IstioPluginCertificateAuthorityArgsDict',
+    'IstioServiceMeshArgs',
+    'IstioServiceMeshArgsDict',
     'KubeletConfigArgs',
     'KubeletConfigArgsDict',
     'LabelSelectorRequirementArgs',
@@ -44,6 +84,8 @@ __all__ = [
     'LabelSelectorArgsDict',
     'LinuxOSConfigArgs',
     'LinuxOSConfigArgsDict',
+    'MaintenanceWindowArgs',
+    'MaintenanceWindowArgsDict',
     'ManagedClusterAADProfileArgs',
     'ManagedClusterAADProfileArgsDict',
     'ManagedClusterAPIServerAccessProfileArgs',
@@ -60,10 +102,16 @@ __all__ = [
     'ManagedClusterAzureMonitorProfileMetricsArgsDict',
     'ManagedClusterAzureMonitorProfileArgs',
     'ManagedClusterAzureMonitorProfileArgsDict',
+    'ManagedClusterCostAnalysisArgs',
+    'ManagedClusterCostAnalysisArgsDict',
     'ManagedClusterHTTPProxyConfigArgs',
     'ManagedClusterHTTPProxyConfigArgsDict',
     'ManagedClusterIdentityArgs',
     'ManagedClusterIdentityArgsDict',
+    'ManagedClusterIngressProfileWebAppRoutingArgs',
+    'ManagedClusterIngressProfileWebAppRoutingArgsDict',
+    'ManagedClusterIngressProfileArgs',
+    'ManagedClusterIngressProfileArgsDict',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs',
     'ManagedClusterLoadBalancerProfileManagedOutboundIPsArgsDict',
     'ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs',
@@ -74,8 +122,12 @@ __all__ = [
     'ManagedClusterLoadBalancerProfileArgsDict',
     'ManagedClusterManagedOutboundIPProfileArgs',
     'ManagedClusterManagedOutboundIPProfileArgsDict',
+    'ManagedClusterMetricsProfileArgs',
+    'ManagedClusterMetricsProfileArgsDict',
     'ManagedClusterNATGatewayProfileArgs',
     'ManagedClusterNATGatewayProfileArgsDict',
+    'ManagedClusterNodeResourceGroupProfileArgs',
+    'ManagedClusterNodeResourceGroupProfileArgsDict',
     'ManagedClusterOIDCIssuerProfileArgs',
     'ManagedClusterOIDCIssuerProfileArgsDict',
     'ManagedClusterPodIdentityExceptionArgs',
@@ -118,26 +170,16 @@ __all__ = [
     'ManagedClusterWindowsProfileArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgs',
     'ManagedClusterWorkloadAutoScalerProfileKedaArgsDict',
+    'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs',
+    'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileArgs',
     'ManagedClusterWorkloadAutoScalerProfileArgsDict',
-    'NetworkProfileArgs',
-    'NetworkProfileArgsDict',
-    'OpenShiftAPIPropertiesArgs',
-    'OpenShiftAPIPropertiesArgsDict',
-    'OpenShiftManagedClusterAADIdentityProviderArgs',
-    'OpenShiftManagedClusterAADIdentityProviderArgsDict',
-    'OpenShiftManagedClusterAgentPoolProfileArgs',
-    'OpenShiftManagedClusterAgentPoolProfileArgsDict',
-    'OpenShiftManagedClusterAuthProfileArgs',
-    'OpenShiftManagedClusterAuthProfileArgsDict',
-    'OpenShiftManagedClusterIdentityProviderArgs',
-    'OpenShiftManagedClusterIdentityProviderArgsDict',
-    'OpenShiftManagedClusterMasterPoolProfileArgs',
-    'OpenShiftManagedClusterMasterPoolProfileArgsDict',
-    'OpenShiftManagedClusterMonitorProfileArgs',
-    'OpenShiftManagedClusterMonitorProfileArgsDict',
-    'OpenShiftRouterProfileArgs',
-    'OpenShiftRouterProfileArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
+    'NodeImageSelectionArgs',
+    'NodeImageSelectionArgsDict',
+    'PortRangeArgs',
+    'PortRangeArgsDict',
     'PowerStateArgs',
     'PowerStateArgsDict',
     'PrivateEndpointArgs',
@@ -146,10 +188,14 @@ __all__ = [
     'PrivateLinkResourceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
-    'PurchasePlanArgs',
-    'PurchasePlanArgsDict',
+    'RelativeMonthlyScheduleArgs',
+    'RelativeMonthlyScheduleArgsDict',
     'ResourceReferenceArgs',
     'ResourceReferenceArgsDict',
+    'ScheduleArgs',
+    'ScheduleArgsDict',
+    'ServiceMeshProfileArgs',
+    'ServiceMeshProfileArgsDict',
     'SysctlConfigArgs',
     'SysctlConfigArgsDict',
     'TimeInWeekArgs',
@@ -162,8 +208,12 @@ __all__ = [
     'UpdateRunStrategyArgsDict',
     'UpdateStageArgs',
     'UpdateStageArgsDict',
+    'UpgradeOverrideSettingsArgs',
+    'UpgradeOverrideSettingsArgsDict',
     'UserAssignedIdentityArgs',
     'UserAssignedIdentityArgsDict',
+    'WeeklyScheduleArgs',
+    'WeeklyScheduleArgsDict',
     'WindowsGmsaProfileArgs',
     'WindowsGmsaProfileArgsDict',
 ]
@@ -171,13 +221,431 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class APIServerAccessProfileArgsDict(TypedDict):
+        """
+        Access profile for the Fleet hub API server.
+        """
+        enable_private_cluster: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to create the Fleet hub as a private cluster or not.
+        """
+        enable_vnet_integration: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable apiserver vnet integration for the Fleet hub or not.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
+        """
+elif False:
+    APIServerAccessProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class APIServerAccessProfileArgs:
+    def __init__(__self__, *,
+                 enable_private_cluster: Optional[pulumi.Input[bool]] = None,
+                 enable_vnet_integration: Optional[pulumi.Input[bool]] = None,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        Access profile for the Fleet hub API server.
+        :param pulumi.Input[bool] enable_private_cluster: Whether to create the Fleet hub as a private cluster or not.
+        :param pulumi.Input[bool] enable_vnet_integration: Whether to enable apiserver vnet integration for the Fleet hub or not.
+        :param pulumi.Input[str] subnet_id: The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
+        """
+        if enable_private_cluster is not None:
+            pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
+        if enable_vnet_integration is not None:
+            pulumi.set(__self__, "enable_vnet_integration", enable_vnet_integration)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="enablePrivateCluster")
+    def enable_private_cluster(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to create the Fleet hub as a private cluster or not.
+        """
+        return pulumi.get(self, "enable_private_cluster")
+
+    @enable_private_cluster.setter
+    def enable_private_cluster(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_cluster", value)
+
+    @property
+    @pulumi.getter(name="enableVnetIntegration")
+    def enable_vnet_integration(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable apiserver vnet integration for the Fleet hub or not.
+        """
+        return pulumi.get(self, "enable_vnet_integration")
+
+    @enable_vnet_integration.setter
+    def enable_vnet_integration(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_vnet_integration", value)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class AbsoluteMonthlyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        day_of_month: pulumi.Input[int]
+        """
+        The date of the month.
+        """
+        interval_months: pulumi.Input[int]
+        """
+        Specifies the number of months between each set of occurrences.
+        """
+elif False:
+    AbsoluteMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AbsoluteMonthlyScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_month: pulumi.Input[int],
+                 interval_months: pulumi.Input[int]):
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        :param pulumi.Input[int] day_of_month: The date of the month.
+        :param pulumi.Input[int] interval_months: Specifies the number of months between each set of occurrences.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "interval_months", interval_months)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> pulumi.Input[int]:
+        """
+        The date of the month.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @day_of_month.setter
+    def day_of_month(self, value: pulumi.Input[int]):
+        pulumi.set(self, "day_of_month", value)
+
+    @property
+    @pulumi.getter(name="intervalMonths")
+    def interval_months(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of months between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_months")
+
+    @interval_months.setter
+    def interval_months(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_months", value)
+
+
+if not MYPY:
+    class AdvancedNetworkingObservabilityArgsDict(TypedDict):
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+elif False:
+    AdvancedNetworkingObservabilityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AdvancedNetworkingObservabilityArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        :param pulumi.Input[bool] enabled: Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class AdvancedNetworkingSecurityArgsDict(TypedDict):
+        """
+        Security profile to enable security features on cilium based cluster.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+elif False:
+    AdvancedNetworkingSecurityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AdvancedNetworkingSecurityArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Security profile to enable security features on cilium based cluster.
+        :param pulumi.Input[bool] enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class AdvancedNetworkingArgsDict(TypedDict):
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
+        """
+        observability: NotRequired[pulumi.Input['AdvancedNetworkingObservabilityArgsDict']]
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        """
+        security: NotRequired[pulumi.Input['AdvancedNetworkingSecurityArgsDict']]
+        """
+        Security profile to enable security features on cilium based cluster.
+        """
+elif False:
+    AdvancedNetworkingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AdvancedNetworkingArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 observability: Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']] = None,
+                 security: Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']] = None):
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        :param pulumi.Input[bool] enabled: Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
+        :param pulumi.Input['AdvancedNetworkingObservabilityArgs'] observability: Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        :param pulumi.Input['AdvancedNetworkingSecurityArgs'] security: Security profile to enable security features on cilium based cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if observability is not None:
+            pulumi.set(__self__, "observability", observability)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def observability(self) -> Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']]:
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        """
+        return pulumi.get(self, "observability")
+
+    @observability.setter
+    def observability(self, value: Optional[pulumi.Input['AdvancedNetworkingObservabilityArgs']]):
+        pulumi.set(self, "observability", value)
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']]:
+        """
+        Security profile to enable security features on cilium based cluster.
+        """
+        return pulumi.get(self, "security")
+
+    @security.setter
+    def security(self, value: Optional[pulumi.Input['AdvancedNetworkingSecurityArgs']]):
+        pulumi.set(self, "security", value)
+
+
+if not MYPY:
+    class AgentPoolNetworkProfileArgsDict(TypedDict):
+        """
+        Network settings of an agent pool.
+        """
+        allowed_host_ports: NotRequired[pulumi.Input[Sequence[pulumi.Input['PortRangeArgsDict']]]]
+        """
+        The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        """
+        application_security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IDs of the application security groups which agent pool will associate when created.
+        """
+        node_public_ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IPTagArgsDict']]]]
+        """
+        IPTags of instance-level public IPs.
+        """
+elif False:
+    AgentPoolNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentPoolNetworkProfileArgs:
+    def __init__(__self__, *,
+                 allowed_host_ports: Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]] = None,
+                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 node_public_ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]] = None):
+        """
+        Network settings of an agent pool.
+        :param pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]] allowed_host_ports: The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_groups: The IDs of the application security groups which agent pool will associate when created.
+        :param pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]] node_public_ip_tags: IPTags of instance-level public IPs.
+        """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]]:
+        """
+        The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @allowed_host_ports.setter
+    def allowed_host_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortRangeArgs']]]]):
+        pulumi.set(self, "allowed_host_ports", value)
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The IDs of the application security groups which agent pool will associate when created.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @application_security_groups.setter
+    def application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_security_groups", value)
+
+    @property
+    @pulumi.getter(name="nodePublicIPTags")
+    def node_public_ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]:
+        """
+        IPTags of instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
+
+    @node_public_ip_tags.setter
+    def node_public_ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPTagArgs']]]]):
+        pulumi.set(self, "node_public_ip_tags", value)
+
+
+if not MYPY:
+    class AgentPoolSecurityProfileArgsDict(TypedDict):
+        """
+        The security settings of an agent pool.
+        """
+        enable_secure_boot: NotRequired[pulumi.Input[bool]]
+        """
+        Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
+        """
+        enable_vtpm: NotRequired[pulumi.Input[bool]]
+        """
+        vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        """
+elif False:
+    AgentPoolSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentPoolSecurityProfileArgs:
+    def __init__(__self__, *,
+                 enable_secure_boot: Optional[pulumi.Input[bool]] = None,
+                 enable_vtpm: Optional[pulumi.Input[bool]] = None):
+        """
+        The security settings of an agent pool.
+        :param pulumi.Input[bool] enable_secure_boot: Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
+        :param pulumi.Input[bool] enable_vtpm: vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        """
+        if enable_secure_boot is not None:
+            pulumi.set(__self__, "enable_secure_boot", enable_secure_boot)
+        if enable_vtpm is not None:
+            pulumi.set(__self__, "enable_vtpm", enable_vtpm)
+
+    @property
+    @pulumi.getter(name="enableSecureBoot")
+    def enable_secure_boot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
+        """
+        return pulumi.get(self, "enable_secure_boot")
+
+    @enable_secure_boot.setter
+    def enable_secure_boot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_secure_boot", value)
+
+    @property
+    @pulumi.getter(name="enableVTPM")
+    def enable_vtpm(self) -> Optional[pulumi.Input[bool]]:
+        """
+        vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enable_vtpm")
+
+    @enable_vtpm.setter
+    def enable_vtpm(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_vtpm", value)
+
+
+if not MYPY:
     class AgentPoolUpgradeSettingsArgsDict(TypedDict):
         """
         Settings for upgrading an agentpool
         """
+        drain_timeout_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        """
         max_surge: NotRequired[pulumi.Input[str]]
         """
         This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        """
+        node_soak_duration_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
 elif False:
     AgentPoolUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -185,13 +653,33 @@ elif False:
 @pulumi.input_type
 class AgentPoolUpgradeSettingsArgs:
     def __init__(__self__, *,
-                 max_surge: Optional[pulumi.Input[str]] = None):
+                 drain_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
+                 max_surge: Optional[pulumi.Input[str]] = None,
+                 node_soak_duration_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         Settings for upgrading an agentpool
+        :param pulumi.Input[int] drain_timeout_in_minutes: The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         :param pulumi.Input[str] max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        :param pulumi.Input[int] node_soak_duration_in_minutes: The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         if max_surge is not None:
             pulumi.set(__self__, "max_surge", max_surge)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
+
+    @drain_timeout_in_minutes.setter
+    def drain_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "drain_timeout_in_minutes", value)
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -204,6 +692,110 @@ class AgentPoolUpgradeSettingsArgs:
     @max_surge.setter
     def max_surge(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_surge", value)
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @node_soak_duration_in_minutes.setter
+    def node_soak_duration_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "node_soak_duration_in_minutes", value)
+
+
+if not MYPY:
+    class AgentPoolWindowsProfileArgsDict(TypedDict):
+        """
+        The Windows agent pool's specific profile.
+        """
+        disable_outbound_nat: NotRequired[pulumi.Input[bool]]
+        """
+        The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        """
+elif False:
+    AgentPoolWindowsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentPoolWindowsProfileArgs:
+    def __init__(__self__, *,
+                 disable_outbound_nat: Optional[pulumi.Input[bool]] = None):
+        """
+        The Windows agent pool's specific profile.
+        :param pulumi.Input[bool] disable_outbound_nat: The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        """
+        if disable_outbound_nat is not None:
+            pulumi.set(__self__, "disable_outbound_nat", disable_outbound_nat)
+
+    @property
+    @pulumi.getter(name="disableOutboundNat")
+    def disable_outbound_nat(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        """
+        return pulumi.get(self, "disable_outbound_nat")
+
+    @disable_outbound_nat.setter
+    def disable_outbound_nat(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_outbound_nat", value)
+
+
+if not MYPY:
+    class AgentProfileArgsDict(TypedDict):
+        """
+        Agent profile for the Fleet hub.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
+        """
+        vm_size: NotRequired[pulumi.Input[str]]
+        """
+        The virtual machine size of the Fleet hub.
+        """
+elif False:
+    AgentProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentProfileArgs:
+    def __init__(__self__, *,
+                 subnet_id: Optional[pulumi.Input[str]] = None,
+                 vm_size: Optional[pulumi.Input[str]] = None):
+        """
+        Agent profile for the Fleet hub.
+        :param pulumi.Input[str] subnet_id: The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
+        :param pulumi.Input[str] vm_size: The virtual machine size of the Fleet hub.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The virtual machine size of the Fleet hub.
+        """
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_size", value)
 
 
 if not MYPY:
@@ -340,6 +932,42 @@ class AzureKeyVaultKmsArgs:
 
 
 if not MYPY:
+    class ClusterUpgradeSettingsArgsDict(TypedDict):
+        """
+        Settings for upgrading a cluster.
+        """
+        override_settings: NotRequired[pulumi.Input['UpgradeOverrideSettingsArgsDict']]
+        """
+        Settings for overrides.
+        """
+elif False:
+    ClusterUpgradeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 override_settings: Optional[pulumi.Input['UpgradeOverrideSettingsArgs']] = None):
+        """
+        Settings for upgrading a cluster.
+        :param pulumi.Input['UpgradeOverrideSettingsArgs'] override_settings: Settings for overrides.
+        """
+        if override_settings is not None:
+            pulumi.set(__self__, "override_settings", override_settings)
+
+    @property
+    @pulumi.getter(name="overrideSettings")
+    def override_settings(self) -> Optional[pulumi.Input['UpgradeOverrideSettingsArgs']]:
+        """
+        Settings for overrides.
+        """
+        return pulumi.get(self, "override_settings")
+
+    @override_settings.setter
+    def override_settings(self, value: Optional[pulumi.Input['UpgradeOverrideSettingsArgs']]):
+        pulumi.set(self, "override_settings", value)
+
+
+if not MYPY:
     class ContainerServiceLinuxProfileArgsDict(TypedDict):
         """
         Profile for Linux VMs in the container service cluster.
@@ -397,6 +1025,10 @@ if not MYPY:
     class ContainerServiceNetworkProfileArgsDict(TypedDict):
         """
         Profile of network configuration.
+        """
+        advanced_networking: NotRequired[pulumi.Input['AdvancedNetworkingArgsDict']]
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         """
         dns_service_ip: NotRequired[pulumi.Input[str]]
         """
@@ -464,6 +1096,7 @@ elif False:
 @pulumi.input_type
 class ContainerServiceNetworkProfileArgs:
     def __init__(__self__, *,
+                 advanced_networking: Optional[pulumi.Input['AdvancedNetworkingArgs']] = None,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  ip_families: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]]] = None,
                  load_balancer_profile: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']] = None,
@@ -481,6 +1114,7 @@ class ContainerServiceNetworkProfileArgs:
                  service_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Profile of network configuration.
+        :param pulumi.Input['AdvancedNetworkingArgs'] advanced_networking: Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'IpFamily']]]] ip_families: IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileArgs'] load_balancer_profile: Profile of the cluster load balancer.
@@ -497,6 +1131,8 @@ class ContainerServiceNetworkProfileArgs:
         :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] service_cidrs: One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         """
+        if advanced_networking is not None:
+            pulumi.set(__self__, "advanced_networking", advanced_networking)
         if dns_service_ip is None:
             dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
@@ -513,8 +1149,6 @@ class ContainerServiceNetworkProfileArgs:
             pulumi.set(__self__, "network_dataplane", network_dataplane)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
-        if network_plugin is None:
-            network_plugin = 'kubenet'
         if network_plugin is not None:
             pulumi.set(__self__, "network_plugin", network_plugin)
         if network_plugin_mode is not None:
@@ -537,6 +1171,18 @@ class ContainerServiceNetworkProfileArgs:
             pulumi.set(__self__, "service_cidr", service_cidr)
         if service_cidrs is not None:
             pulumi.set(__self__, "service_cidrs", service_cidrs)
+
+    @property
+    @pulumi.getter(name="advancedNetworking")
+    def advanced_networking(self) -> Optional[pulumi.Input['AdvancedNetworkingArgs']]:
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        """
+        return pulumi.get(self, "advanced_networking")
+
+    @advanced_networking.setter
+    def advanced_networking(self, value: Optional[pulumi.Input['AdvancedNetworkingArgs']]):
+        pulumi.set(self, "advanced_networking", value)
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -826,6 +1472,191 @@ class CreationDataArgs:
 
 
 if not MYPY:
+    class DailyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        interval_days: pulumi.Input[int]
+        """
+        Specifies the number of days between each set of occurrences.
+        """
+elif False:
+    DailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DailyScheduleArgs:
+    def __init__(__self__, *,
+                 interval_days: pulumi.Input[int]):
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        :param pulumi.Input[int] interval_days: Specifies the number of days between each set of occurrences.
+        """
+        pulumi.set(__self__, "interval_days", interval_days)
+
+    @property
+    @pulumi.getter(name="intervalDays")
+    def interval_days(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_days")
+
+    @interval_days.setter
+    def interval_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_days", value)
+
+
+if not MYPY:
+    class DateSpanArgsDict(TypedDict):
+        """
+        For example, between '2022-12-23' and '2023-01-05'.
+        """
+        end: pulumi.Input[str]
+        """
+        The end date of the date span.
+        """
+        start: pulumi.Input[str]
+        """
+        The start date of the date span.
+        """
+elif False:
+    DateSpanArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DateSpanArgs:
+    def __init__(__self__, *,
+                 end: pulumi.Input[str],
+                 start: pulumi.Input[str]):
+        """
+        For example, between '2022-12-23' and '2023-01-05'.
+        :param pulumi.Input[str] end: The end date of the date span.
+        :param pulumi.Input[str] start: The start date of the date span.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> pulumi.Input[str]:
+        """
+        The end date of the date span.
+        """
+        return pulumi.get(self, "end")
+
+    @end.setter
+    def end(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end", value)
+
+    @property
+    @pulumi.getter
+    def start(self) -> pulumi.Input[str]:
+        """
+        The start date of the date span.
+        """
+        return pulumi.get(self, "start")
+
+    @start.setter
+    def start(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start", value)
+
+
+if not MYPY:
+    class DelegatedResourceArgsDict(TypedDict):
+        """
+        Delegated resource properties - internal use only.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The source resource location - internal use only.
+        """
+        referral_resource: NotRequired[pulumi.Input[str]]
+        """
+        The delegation id of the referral delegation (optional) - internal use only.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM resource id of the delegated resource - internal use only.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the delegated resource - internal use only.
+        """
+elif False:
+    DelegatedResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DelegatedResourceArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None,
+                 referral_resource: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Delegated resource properties - internal use only.
+        :param pulumi.Input[str] location: The source resource location - internal use only.
+        :param pulumi.Input[str] referral_resource: The delegation id of the referral delegation (optional) - internal use only.
+        :param pulumi.Input[str] resource_id: The ARM resource id of the delegated resource - internal use only.
+        :param pulumi.Input[str] tenant_id: The tenant id of the delegated resource - internal use only.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if referral_resource is not None:
+            pulumi.set(__self__, "referral_resource", referral_resource)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source resource location - internal use only.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="referralResource")
+    def referral_resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        The delegation id of the referral delegation (optional) - internal use only.
+        """
+        return pulumi.get(self, "referral_resource")
+
+    @referral_resource.setter
+    def referral_resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "referral_resource", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM resource id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
     class ExtendedLocationArgsDict(TypedDict):
         """
         The complex type of the extended location.
@@ -886,6 +1717,14 @@ if not MYPY:
         """
         The FleetHubProfile configures the fleet hub.
         """
+        agent_profile: NotRequired[pulumi.Input['AgentProfileArgsDict']]
+        """
+        The agent profile for the Fleet hub.
+        """
+        api_server_access_profile: NotRequired[pulumi.Input['APIServerAccessProfileArgsDict']]
+        """
+        The access profile for the Fleet hub API server.
+        """
         dns_prefix: NotRequired[pulumi.Input[str]]
         """
         DNS prefix used to create the FQDN for the Fleet hub.
@@ -896,13 +1735,45 @@ elif False:
 @pulumi.input_type
 class FleetHubProfileArgs:
     def __init__(__self__, *,
+                 agent_profile: Optional[pulumi.Input['AgentProfileArgs']] = None,
+                 api_server_access_profile: Optional[pulumi.Input['APIServerAccessProfileArgs']] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None):
         """
         The FleetHubProfile configures the fleet hub.
+        :param pulumi.Input['AgentProfileArgs'] agent_profile: The agent profile for the Fleet hub.
+        :param pulumi.Input['APIServerAccessProfileArgs'] api_server_access_profile: The access profile for the Fleet hub API server.
         :param pulumi.Input[str] dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
+        if agent_profile is not None:
+            pulumi.set(__self__, "agent_profile", agent_profile)
+        if api_server_access_profile is not None:
+            pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
         if dns_prefix is not None:
             pulumi.set(__self__, "dns_prefix", dns_prefix)
+
+    @property
+    @pulumi.getter(name="agentProfile")
+    def agent_profile(self) -> Optional[pulumi.Input['AgentProfileArgs']]:
+        """
+        The agent profile for the Fleet hub.
+        """
+        return pulumi.get(self, "agent_profile")
+
+    @agent_profile.setter
+    def agent_profile(self, value: Optional[pulumi.Input['AgentProfileArgs']]):
+        pulumi.set(self, "agent_profile", value)
+
+    @property
+    @pulumi.getter(name="apiServerAccessProfile")
+    def api_server_access_profile(self) -> Optional[pulumi.Input['APIServerAccessProfileArgs']]:
+        """
+        The access profile for the Fleet hub API server.
+        """
+        return pulumi.get(self, "api_server_access_profile")
+
+    @api_server_access_profile.setter
+    def api_server_access_profile(self, value: Optional[pulumi.Input['APIServerAccessProfileArgs']]):
+        pulumi.set(self, "api_server_access_profile", value)
 
     @property
     @pulumi.getter(name="dnsPrefix")
@@ -915,6 +1786,435 @@ class FleetHubProfileArgs:
     @dns_prefix.setter
     def dns_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_prefix", value)
+
+
+if not MYPY:
+    class IPTagArgsDict(TypedDict):
+        """
+        Contains the IPTag associated with the object.
+        """
+        ip_tag_type: NotRequired[pulumi.Input[str]]
+        """
+        The IP tag type. Example: RoutingPreference.
+        """
+        tag: NotRequired[pulumi.Input[str]]
+        """
+        The value of the IP tag associated with the public IP. Example: Internet.
+        """
+elif False:
+    IPTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPTagArgs:
+    def __init__(__self__, *,
+                 ip_tag_type: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input[str]] = None):
+        """
+        Contains the IPTag associated with the object.
+        :param pulumi.Input[str] ip_tag_type: The IP tag type. Example: RoutingPreference.
+        :param pulumi.Input[str] tag: The value of the IP tag associated with the public IP. Example: Internet.
+        """
+        if ip_tag_type is not None:
+            pulumi.set(__self__, "ip_tag_type", ip_tag_type)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="ipTagType")
+    def ip_tag_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP tag type. Example: RoutingPreference.
+        """
+        return pulumi.get(self, "ip_tag_type")
+
+    @ip_tag_type.setter
+    def ip_tag_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_tag_type", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the IP tag associated with the public IP. Example: Internet.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
+
+
+if not MYPY:
+    class IstioCertificateAuthorityArgsDict(TypedDict):
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        plugin: NotRequired[pulumi.Input['IstioPluginCertificateAuthorityArgsDict']]
+        """
+        Plugin certificates information for Service Mesh.
+        """
+elif False:
+    IstioCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 plugin: Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']] = None):
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        :param pulumi.Input['IstioPluginCertificateAuthorityArgs'] plugin: Plugin certificates information for Service Mesh.
+        """
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']]:
+        """
+        Plugin certificates information for Service Mesh.
+        """
+        return pulumi.get(self, "plugin")
+
+    @plugin.setter
+    def plugin(self, value: Optional[pulumi.Input['IstioPluginCertificateAuthorityArgs']]):
+        pulumi.set(self, "plugin", value)
+
+
+if not MYPY:
+    class IstioComponentsArgsDict(TypedDict):
+        """
+        Istio components configuration.
+        """
+        egress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgsDict']]]]
+        """
+        Istio egress gateways.
+        """
+        ingress_gateways: NotRequired[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgsDict']]]]
+        """
+        Istio ingress gateways.
+        """
+elif False:
+    IstioComponentsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioComponentsArgs:
+    def __init__(__self__, *,
+                 egress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]] = None,
+                 ingress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]] = None):
+        """
+        Istio components configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]] egress_gateways: Istio egress gateways.
+        :param pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]] ingress_gateways: Istio ingress gateways.
+        """
+        if egress_gateways is not None:
+            pulumi.set(__self__, "egress_gateways", egress_gateways)
+        if ingress_gateways is not None:
+            pulumi.set(__self__, "ingress_gateways", ingress_gateways)
+
+    @property
+    @pulumi.getter(name="egressGateways")
+    def egress_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]:
+        """
+        Istio egress gateways.
+        """
+        return pulumi.get(self, "egress_gateways")
+
+    @egress_gateways.setter
+    def egress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]):
+        pulumi.set(self, "egress_gateways", value)
+
+    @property
+    @pulumi.getter(name="ingressGateways")
+    def ingress_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]:
+        """
+        Istio ingress gateways.
+        """
+        return pulumi.get(self, "ingress_gateways")
+
+    @ingress_gateways.setter
+    def ingress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]):
+        pulumi.set(self, "ingress_gateways", value)
+
+
+if not MYPY:
+    class IstioEgressGatewayArgsDict(TypedDict):
+        """
+        Istio egress gateway configuration.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable the egress gateway.
+        """
+elif False:
+    IstioEgressGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioEgressGatewayArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        """
+        Istio egress gateway configuration.
+        :param pulumi.Input[bool] enabled: Whether to enable the egress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to enable the egress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class IstioIngressGatewayArgsDict(TypedDict):
+        """
+        Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable the ingress gateway.
+        """
+        mode: pulumi.Input[Union[str, 'IstioIngressGatewayMode']]
+        """
+        Mode of an ingress gateway.
+        """
+elif False:
+    IstioIngressGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioIngressGatewayArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 mode: pulumi.Input[Union[str, 'IstioIngressGatewayMode']]):
+        """
+        Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+        :param pulumi.Input[bool] enabled: Whether to enable the ingress gateway.
+        :param pulumi.Input[Union[str, 'IstioIngressGatewayMode']] mode: Mode of an ingress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to enable the ingress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Union[str, 'IstioIngressGatewayMode']]:
+        """
+        Mode of an ingress gateway.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'IstioIngressGatewayMode']]):
+        pulumi.set(self, "mode", value)
+
+
+if not MYPY:
+    class IstioPluginCertificateAuthorityArgsDict(TypedDict):
+        """
+        Plugin certificates information for Service Mesh.
+        """
+        cert_chain_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Certificate chain object name in Azure Key Vault.
+        """
+        cert_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Intermediate certificate object name in Azure Key Vault.
+        """
+        key_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Intermediate certificate private key object name in Azure Key Vault.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Key Vault.
+        """
+        root_cert_object_name: NotRequired[pulumi.Input[str]]
+        """
+        Root certificate object name in Azure Key Vault.
+        """
+elif False:
+    IstioPluginCertificateAuthorityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioPluginCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 cert_chain_object_name: Optional[pulumi.Input[str]] = None,
+                 cert_object_name: Optional[pulumi.Input[str]] = None,
+                 key_object_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_id: Optional[pulumi.Input[str]] = None,
+                 root_cert_object_name: Optional[pulumi.Input[str]] = None):
+        """
+        Plugin certificates information for Service Mesh.
+        :param pulumi.Input[str] cert_chain_object_name: Certificate chain object name in Azure Key Vault.
+        :param pulumi.Input[str] cert_object_name: Intermediate certificate object name in Azure Key Vault.
+        :param pulumi.Input[str] key_object_name: Intermediate certificate private key object name in Azure Key Vault.
+        :param pulumi.Input[str] key_vault_id: The resource ID of the Key Vault.
+        :param pulumi.Input[str] root_cert_object_name: Root certificate object name in Azure Key Vault.
+        """
+        if cert_chain_object_name is not None:
+            pulumi.set(__self__, "cert_chain_object_name", cert_chain_object_name)
+        if cert_object_name is not None:
+            pulumi.set(__self__, "cert_object_name", cert_object_name)
+        if key_object_name is not None:
+            pulumi.set(__self__, "key_object_name", key_object_name)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if root_cert_object_name is not None:
+            pulumi.set(__self__, "root_cert_object_name", root_cert_object_name)
+
+    @property
+    @pulumi.getter(name="certChainObjectName")
+    def cert_chain_object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_chain_object_name")
+
+    @cert_chain_object_name.setter
+    def cert_chain_object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_chain_object_name", value)
+
+    @property
+    @pulumi.getter(name="certObjectName")
+    def cert_object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_object_name")
+
+    @cert_object_name.setter
+    def cert_object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cert_object_name", value)
+
+    @property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Intermediate certificate private key object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @key_object_name.setter
+    def key_object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_object_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter(name="rootCertObjectName")
+    def root_cert_object_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_cert_object_name")
+
+    @root_cert_object_name.setter
+    def root_cert_object_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "root_cert_object_name", value)
+
+
+if not MYPY:
+    class IstioServiceMeshArgsDict(TypedDict):
+        """
+        Istio service mesh configuration.
+        """
+        certificate_authority: NotRequired[pulumi.Input['IstioCertificateAuthorityArgsDict']]
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        components: NotRequired[pulumi.Input['IstioComponentsArgsDict']]
+        """
+        Istio components configuration.
+        """
+        revisions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+elif False:
+    IstioServiceMeshArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IstioServiceMeshArgs:
+    def __init__(__self__, *,
+                 certificate_authority: Optional[pulumi.Input['IstioCertificateAuthorityArgs']] = None,
+                 components: Optional[pulumi.Input['IstioComponentsArgs']] = None,
+                 revisions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Istio service mesh configuration.
+        :param pulumi.Input['IstioCertificateAuthorityArgs'] certificate_authority: Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        :param pulumi.Input['IstioComponentsArgs'] components: Istio components configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] revisions: The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if revisions is not None:
+            pulumi.set(__self__, "revisions", revisions)
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional[pulumi.Input['IstioCertificateAuthorityArgs']]:
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @certificate_authority.setter
+    def certificate_authority(self, value: Optional[pulumi.Input['IstioCertificateAuthorityArgs']]):
+        pulumi.set(self, "certificate_authority", value)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input['IstioComponentsArgs']]:
+        """
+        Istio components configuration.
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input['IstioComponentsArgs']]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter
+    def revisions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+        return pulumi.get(self, "revisions")
+
+    @revisions.setter
+    def revisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "revisions", value)
 
 
 if not MYPY:
@@ -1382,6 +2682,141 @@ class LinuxOSConfigArgs:
 
 
 if not MYPY:
+    class MaintenanceWindowArgsDict(TypedDict):
+        """
+        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+        """
+        duration_hours: pulumi.Input[int]
+        """
+        Length of maintenance window range from 4 to 24 hours.
+        """
+        schedule: pulumi.Input['ScheduleArgsDict']
+        """
+        Recurrence schedule for the maintenance window.
+        """
+        start_time: pulumi.Input[str]
+        """
+        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        """
+        not_allowed_dates: NotRequired[pulumi.Input[Sequence[pulumi.Input['DateSpanArgsDict']]]]
+        """
+        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        """
+        start_date: NotRequired[pulumi.Input[str]]
+        """
+        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        """
+        utc_offset: NotRequired[pulumi.Input[str]]
+        """
+        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+elif False:
+    MaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 duration_hours: Optional[pulumi.Input[int]] = None,
+                 schedule: pulumi.Input['ScheduleArgs'],
+                 start_time: pulumi.Input[str],
+                 not_allowed_dates: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]] = None,
+                 start_date: Optional[pulumi.Input[str]] = None,
+                 utc_offset: Optional[pulumi.Input[str]] = None):
+        """
+        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+        :param pulumi.Input[int] duration_hours: Length of maintenance window range from 4 to 24 hours.
+        :param pulumi.Input['ScheduleArgs'] schedule: Recurrence schedule for the maintenance window.
+        :param pulumi.Input[str] start_time: The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        :param pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]] not_allowed_dates: Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        :param pulumi.Input[str] start_date: The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        :param pulumi.Input[str] utc_offset: The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+        if duration_hours is None:
+            duration_hours = 24
+        pulumi.set(__self__, "duration_hours", duration_hours)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_time", start_time)
+        if not_allowed_dates is not None:
+            pulumi.set(__self__, "not_allowed_dates", not_allowed_dates)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if utc_offset is not None:
+            pulumi.set(__self__, "utc_offset", utc_offset)
+
+    @property
+    @pulumi.getter(name="durationHours")
+    def duration_hours(self) -> pulumi.Input[int]:
+        """
+        Length of maintenance window range from 4 to 24 hours.
+        """
+        return pulumi.get(self, "duration_hours")
+
+    @duration_hours.setter
+    def duration_hours(self, value: pulumi.Input[int]):
+        pulumi.set(self, "duration_hours", value)
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> pulumi.Input['ScheduleArgs']:
+        """
+        Recurrence schedule for the maintenance window.
+        """
+        return pulumi.get(self, "schedule")
+
+    @schedule.setter
+    def schedule(self, value: pulumi.Input['ScheduleArgs']):
+        pulumi.set(self, "schedule", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="notAllowedDates")
+    def not_allowed_dates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]:
+        """
+        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        """
+        return pulumi.get(self, "not_allowed_dates")
+
+    @not_allowed_dates.setter
+    def not_allowed_dates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DateSpanArgs']]]]):
+        pulumi.set(self, "not_allowed_dates", value)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter(name="utcOffset")
+    def utc_offset(self) -> Optional[pulumi.Input[str]]:
+        """
+        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+        return pulumi.get(self, "utc_offset")
+
+    @utc_offset.setter
+    def utc_offset(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "utc_offset", value)
+
+
+if not MYPY:
     class ManagedClusterAADProfileArgsDict(TypedDict):
         """
         For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
@@ -1721,6 +3156,10 @@ if not MYPY:
         """
         The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
+        capacity_reservation_group_id: NotRequired[pulumi.Input[str]]
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
         count: NotRequired[pulumi.Input[int]]
         """
         Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
@@ -1777,6 +3216,10 @@ if not MYPY:
         """
         The maximum number of pods that can run on a node.
         """
+        message_of_the_day: NotRequired[pulumi.Input[str]]
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        """
         min_count: NotRequired[pulumi.Input[int]]
         """
         The minimum number of nodes for auto-scaling
@@ -1784,6 +3227,10 @@ if not MYPY:
         mode: NotRequired[pulumi.Input[Union[str, 'AgentPoolMode']]]
         """
         A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        """
+        network_profile: NotRequired[pulumi.Input['AgentPoolNetworkProfileArgsDict']]
+        """
+        Network-related settings of an agent pool.
         """
         node_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
@@ -1841,6 +3288,10 @@ if not MYPY:
         """
         The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         """
+        security_profile: NotRequired[pulumi.Input['AgentPoolSecurityProfileArgsDict']]
+        """
+        The security settings of an agent pool.
+        """
         spot_max_price: NotRequired[pulumi.Input[float]]
         """
         Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
@@ -1865,6 +3316,10 @@ if not MYPY:
         """
         If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
+        windows_profile: NotRequired[pulumi.Input['AgentPoolWindowsProfileArgsDict']]
+        """
+        The Windows agent pool's specific profile.
+        """
         workload_runtime: NotRequired[pulumi.Input[Union[str, 'WorkloadRuntime']]]
         """
         Determines the type of workload a node can run.
@@ -1877,6 +3332,7 @@ class ManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  creation_data: Optional[pulumi.Input['CreationDataArgs']] = None,
                  enable_auto_scaling: Optional[pulumi.Input[bool]] = None,
@@ -1891,8 +3347,10 @@ class ManagedClusterAgentPoolProfileArgs:
                  linux_os_config: Optional[pulumi.Input['LinuxOSConfigArgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
+                 message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]] = None,
+                 network_profile: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1907,17 +3365,20 @@ class ManagedClusterAgentPoolProfileArgs:
                  scale_down_mode: Optional[pulumi.Input[Union[str, 'ScaleDownMode']]] = None,
                  scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
                  scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
+                 security_profile: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']] = None,
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
                  upgrade_settings: Optional[pulumi.Input['AgentPoolUpgradeSettingsArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
+                 windows_profile: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']] = None,
                  workload_runtime: Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Windows agent pool names must be 6 characters or less.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param pulumi.Input[str] capacity_reservation_group_id: AKS will associate the specified agent pool with the Capacity Reservation Group.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param pulumi.Input['CreationDataArgs'] creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param pulumi.Input[bool] enable_auto_scaling: Whether to enable auto-scaler
@@ -1932,8 +3393,10 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input['LinuxOSConfigArgs'] linux_os_config: The OS configuration of Linux agent nodes.
         :param pulumi.Input[int] max_count: The maximum number of nodes for auto-scaling
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on a node.
+        :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         :param pulumi.Input[int] min_count: The minimum number of nodes for auto-scaling
         :param pulumi.Input[Union[str, 'AgentPoolMode']] mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param pulumi.Input['AgentPoolNetworkProfileArgs'] network_profile: Network-related settings of an agent pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: The node labels to be persisted across all nodes in agent pool.
         :param pulumi.Input[str] node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -1948,17 +3411,21 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Union[str, 'ScaleDownMode']] scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param pulumi.Input['AgentPoolSecurityProfileArgs'] security_profile: The security settings of an agent pool.
         :param pulumi.Input[float] spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param pulumi.Input[Union[str, 'AgentPoolType']] type: The type of Agent Pool.
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: Settings for upgrading the agentpool
         :param pulumi.Input[str] vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         :param pulumi.Input[str] vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param pulumi.Input['AgentPoolWindowsProfileArgs'] windows_profile: The Windows agent pool's specific profile.
         :param pulumi.Input[Union[str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
         pulumi.set(__self__, "name", name)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if count is not None:
             pulumi.set(__self__, "count", count)
         if creation_data is not None:
@@ -1987,10 +3454,14 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_public_ip_prefix_id is not None:
@@ -2019,6 +3490,8 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
             pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -2031,6 +3504,8 @@ class ManagedClusterAgentPoolProfileArgs:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
 
@@ -2057,6 +3532,18 @@ class ManagedClusterAgentPoolProfileArgs:
     @availability_zones.setter
     def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupID")
+    def capacity_reservation_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
+
+    @capacity_reservation_group_id.setter
+    def capacity_reservation_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_group_id", value)
 
     @property
     @pulumi.getter
@@ -2227,6 +3714,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "max_pods", value)
 
     @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @message_of_the_day.setter
+    def message_of_the_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_of_the_day", value)
+
+    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -2249,6 +3748,18 @@ class ManagedClusterAgentPoolProfileArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'AgentPoolMode']]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]:
+        """
+        Network-related settings of an agent pool.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['AgentPoolNetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
 
     @property
     @pulumi.getter(name="nodeLabels")
@@ -2419,6 +3930,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "scale_set_priority", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]:
+        """
+        The security settings of an agent pool.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['AgentPoolSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[pulumi.Input[float]]:
         """
@@ -2491,6 +4014,18 @@ class ManagedClusterAgentPoolProfileArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]:
+        """
+        The Windows agent pool's specific profile.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @windows_profile.setter
+    def windows_profile(self, value: Optional[pulumi.Input['AgentPoolWindowsProfileArgs']]):
+        pulumi.set(self, "windows_profile", value)
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[pulumi.Input[Union[str, 'WorkloadRuntime']]]:
         """
@@ -2508,6 +4043,10 @@ if not MYPY:
         """
         Auto upgrade profile for a managed cluster.
         """
+        node_os_upgrade_channel: NotRequired[pulumi.Input[Union[str, 'NodeOSUpgradeChannel']]]
+        """
+        Manner in which the OS on your nodes is updated. The default is NodeImage.
+        """
         upgrade_channel: NotRequired[pulumi.Input[Union[str, 'UpgradeChannel']]]
         """
         For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
@@ -2518,13 +4057,29 @@ elif False:
 @pulumi.input_type
 class ManagedClusterAutoUpgradeProfileArgs:
     def __init__(__self__, *,
+                 node_os_upgrade_channel: Optional[pulumi.Input[Union[str, 'NodeOSUpgradeChannel']]] = None,
                  upgrade_channel: Optional[pulumi.Input[Union[str, 'UpgradeChannel']]] = None):
         """
         Auto upgrade profile for a managed cluster.
+        :param pulumi.Input[Union[str, 'NodeOSUpgradeChannel']] node_os_upgrade_channel: Manner in which the OS on your nodes is updated. The default is NodeImage.
         :param pulumi.Input[Union[str, 'UpgradeChannel']] upgrade_channel: For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
+        if node_os_upgrade_channel is not None:
+            pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
         if upgrade_channel is not None:
             pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @property
+    @pulumi.getter(name="nodeOSUpgradeChannel")
+    def node_os_upgrade_channel(self) -> Optional[pulumi.Input[Union[str, 'NodeOSUpgradeChannel']]]:
+        """
+        Manner in which the OS on your nodes is updated. The default is NodeImage.
+        """
+        return pulumi.get(self, "node_os_upgrade_channel")
+
+    @node_os_upgrade_channel.setter
+    def node_os_upgrade_channel(self, value: Optional[pulumi.Input[Union[str, 'NodeOSUpgradeChannel']]]):
+        pulumi.set(self, "node_os_upgrade_channel", value)
 
     @property
     @pulumi.getter(name="upgradeChannel")
@@ -2687,6 +4242,42 @@ class ManagedClusterAzureMonitorProfileArgs:
 
 
 if not MYPY:
+    class ManagedClusterCostAnalysisArgsDict(TypedDict):
+        """
+        The cost analysis configuration for the cluster
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        """
+elif False:
+    ManagedClusterCostAnalysisArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterCostAnalysisArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The cost analysis configuration for the cluster
+        :param pulumi.Input[bool] enabled: The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
     class ManagedClusterHTTPProxyConfigArgsDict(TypedDict):
         """
         Cluster HTTP proxy configuration.
@@ -2787,6 +4378,10 @@ if not MYPY:
         """
         Identity for the managed cluster.
         """
+        delegated_resources: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgsDict']]]]
+        """
+        The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        """
         type: NotRequired[pulumi.Input['ResourceIdentityType']]
         """
         For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
@@ -2801,17 +4396,33 @@ elif False:
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
+                 delegated_resources: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]] = None,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the managed cluster.
+        :param pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         :param pulumi.Input['ResourceIdentityType'] type: For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
+        if delegated_resources is not None:
+            pulumi.set(__self__, "delegated_resources", delegated_resources)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="delegatedResources")
+    def delegated_resources(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]:
+        """
+        The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        """
+        return pulumi.get(self, "delegated_resources")
+
+    @delegated_resources.setter
+    def delegated_resources(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegatedResourceArgs']]]]):
+        pulumi.set(self, "delegated_resources", value)
 
     @property
     @pulumi.getter
@@ -2836,6 +4447,98 @@ class ManagedClusterIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class ManagedClusterIngressProfileWebAppRoutingArgsDict(TypedDict):
+        """
+        Application Routing add-on settings for the ingress profile.
+        """
+        dns_zone_resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable the Application Routing add-on.
+        """
+elif False:
+    ManagedClusterIngressProfileWebAppRoutingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterIngressProfileWebAppRoutingArgs:
+    def __init__(__self__, *,
+                 dns_zone_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Application Routing add-on settings for the ingress profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_zone_resource_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        :param pulumi.Input[bool] enabled: Whether to enable the Application Routing add-on.
+        """
+        if dns_zone_resource_ids is not None:
+            pulumi.set(__self__, "dns_zone_resource_ids", dns_zone_resource_ids)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="dnsZoneResourceIds")
+    def dns_zone_resource_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        """
+        return pulumi.get(self, "dns_zone_resource_ids")
+
+    @dns_zone_resource_ids.setter
+    def dns_zone_resource_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_zone_resource_ids", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the Application Routing add-on.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class ManagedClusterIngressProfileArgsDict(TypedDict):
+        """
+        Ingress profile for the container service cluster.
+        """
+        web_app_routing: NotRequired[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgsDict']]
+        """
+        App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+elif False:
+    ManagedClusterIngressProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterIngressProfileArgs:
+    def __init__(__self__, *,
+                 web_app_routing: Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']] = None):
+        """
+        Ingress profile for the container service cluster.
+        :param pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs'] web_app_routing: App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        if web_app_routing is not None:
+            pulumi.set(__self__, "web_app_routing", web_app_routing)
+
+    @property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']]:
+        """
+        App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        return pulumi.get(self, "web_app_routing")
+
+    @web_app_routing.setter
+    def web_app_routing(self, value: Optional[pulumi.Input['ManagedClusterIngressProfileWebAppRoutingArgs']]):
+        pulumi.set(self, "web_app_routing", value)
 
 
 if not MYPY:
@@ -2979,6 +4682,10 @@ if not MYPY:
         """
         The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         """
+        backend_pool_type: NotRequired[pulumi.Input[Union[str, 'BackendPoolType']]]
+        """
+        The type of the managed inbound Load Balancer BackendPool.
+        """
         effective_outbound_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgsDict']]]]
         """
         The effective outbound IP resources of the cluster load balancer.
@@ -3010,6 +4717,7 @@ elif False:
 class ManagedClusterLoadBalancerProfileArgs:
     def __init__(__self__, *,
                  allocated_outbound_ports: Optional[pulumi.Input[int]] = None,
+                 backend_pool_type: Optional[pulumi.Input[Union[str, 'BackendPoolType']]] = None,
                  effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  enable_multiple_standard_load_balancers: Optional[pulumi.Input[bool]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -3019,6 +4727,7 @@ class ManagedClusterLoadBalancerProfileArgs:
         """
         Profile of the managed cluster load balancer.
         :param pulumi.Input[int] allocated_outbound_ports: The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        :param pulumi.Input[Union[str, 'BackendPoolType']] backend_pool_type: The type of the managed inbound Load Balancer BackendPool.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param pulumi.Input[bool] enable_multiple_standard_load_balancers: Enable multiple standard load balancers per AKS cluster or not.
         :param pulumi.Input[int] idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
@@ -3030,6 +4739,10 @@ class ManagedClusterLoadBalancerProfileArgs:
             allocated_outbound_ports = 0
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+        if backend_pool_type is None:
+            backend_pool_type = 'NodeIPConfiguration'
+        if backend_pool_type is not None:
+            pulumi.set(__self__, "backend_pool_type", backend_pool_type)
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if enable_multiple_standard_load_balancers is not None:
@@ -3056,6 +4769,18 @@ class ManagedClusterLoadBalancerProfileArgs:
     @allocated_outbound_ports.setter
     def allocated_outbound_ports(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "allocated_outbound_ports", value)
+
+    @property
+    @pulumi.getter(name="backendPoolType")
+    def backend_pool_type(self) -> Optional[pulumi.Input[Union[str, 'BackendPoolType']]]:
+        """
+        The type of the managed inbound Load Balancer BackendPool.
+        """
+        return pulumi.get(self, "backend_pool_type")
+
+    @backend_pool_type.setter
+    def backend_pool_type(self, value: Optional[pulumi.Input[Union[str, 'BackendPoolType']]]):
+        pulumi.set(self, "backend_pool_type", value)
 
     @property
     @pulumi.getter(name="effectiveOutboundIPs")
@@ -3169,6 +4894,42 @@ class ManagedClusterManagedOutboundIPProfileArgs:
 
 
 if not MYPY:
+    class ManagedClusterMetricsProfileArgsDict(TypedDict):
+        """
+        The metrics profile for the ManagedCluster.
+        """
+        cost_analysis: NotRequired[pulumi.Input['ManagedClusterCostAnalysisArgsDict']]
+        """
+        The cost analysis configuration for the cluster
+        """
+elif False:
+    ManagedClusterMetricsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterMetricsProfileArgs:
+    def __init__(__self__, *,
+                 cost_analysis: Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']] = None):
+        """
+        The metrics profile for the ManagedCluster.
+        :param pulumi.Input['ManagedClusterCostAnalysisArgs'] cost_analysis: The cost analysis configuration for the cluster
+        """
+        if cost_analysis is not None:
+            pulumi.set(__self__, "cost_analysis", cost_analysis)
+
+    @property
+    @pulumi.getter(name="costAnalysis")
+    def cost_analysis(self) -> Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']]:
+        """
+        The cost analysis configuration for the cluster
+        """
+        return pulumi.get(self, "cost_analysis")
+
+    @cost_analysis.setter
+    def cost_analysis(self, value: Optional[pulumi.Input['ManagedClusterCostAnalysisArgs']]):
+        pulumi.set(self, "cost_analysis", value)
+
+
+if not MYPY:
     class ManagedClusterNATGatewayProfileArgsDict(TypedDict):
         """
         Profile of the managed cluster NAT gateway.
@@ -3244,6 +5005,42 @@ class ManagedClusterNATGatewayProfileArgs:
     @managed_outbound_ip_profile.setter
     def managed_outbound_ip_profile(self, value: Optional[pulumi.Input['ManagedClusterManagedOutboundIPProfileArgs']]):
         pulumi.set(self, "managed_outbound_ip_profile", value)
+
+
+if not MYPY:
+    class ManagedClusterNodeResourceGroupProfileArgsDict(TypedDict):
+        """
+        Node resource group lockdown profile for a managed cluster.
+        """
+        restriction_level: NotRequired[pulumi.Input[Union[str, 'RestrictionLevel']]]
+        """
+        The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+        """
+elif False:
+    ManagedClusterNodeResourceGroupProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterNodeResourceGroupProfileArgs:
+    def __init__(__self__, *,
+                 restriction_level: Optional[pulumi.Input[Union[str, 'RestrictionLevel']]] = None):
+        """
+        Node resource group lockdown profile for a managed cluster.
+        :param pulumi.Input[Union[str, 'RestrictionLevel']] restriction_level: The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+        """
+        if restriction_level is not None:
+            pulumi.set(__self__, "restriction_level", restriction_level)
+
+    @property
+    @pulumi.getter(name="restrictionLevel")
+    def restriction_level(self) -> Optional[pulumi.Input[Union[str, 'RestrictionLevel']]]:
+        """
+        The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+        """
+        return pulumi.get(self, "restriction_level")
+
+    @restriction_level.setter
+    def restriction_level(self, value: Optional[pulumi.Input[Union[str, 'RestrictionLevel']]]):
+        pulumi.set(self, "restriction_level", value)
 
 
 if not MYPY:
@@ -3553,9 +5350,21 @@ if not MYPY:
         """
         Valid values are 'true' and 'false'
         """
+        daemonset_eviction_for_empty_nodes: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
+        daemonset_eviction_for_occupied_nodes: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
         expander: NotRequired[pulumi.Input[Union[str, 'Expander']]]
         """
         If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        """
+        ignore_daemonsets_utilization: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         """
         max_empty_bulk_delete: NotRequired[pulumi.Input[str]]
         """
@@ -3624,7 +5433,10 @@ elif False:
 class ManagedClusterPropertiesAutoScalerProfileArgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[str]] = None,
+                 daemonset_eviction_for_empty_nodes: Optional[pulumi.Input[bool]] = None,
+                 daemonset_eviction_for_occupied_nodes: Optional[pulumi.Input[bool]] = None,
                  expander: Optional[pulumi.Input[Union[str, 'Expander']]] = None,
+                 ignore_daemonsets_utilization: Optional[pulumi.Input[bool]] = None,
                  max_empty_bulk_delete: Optional[pulumi.Input[str]] = None,
                  max_graceful_termination_sec: Optional[pulumi.Input[str]] = None,
                  max_node_provision_time: Optional[pulumi.Input[str]] = None,
@@ -3643,7 +5455,10 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
         """
         Parameters to be applied to the cluster-autoscaler when enabled
         :param pulumi.Input[str] balance_similar_node_groups: Valid values are 'true' and 'false'
+        :param pulumi.Input[bool] daemonset_eviction_for_empty_nodes: If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        :param pulumi.Input[bool] daemonset_eviction_for_occupied_nodes: If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         :param pulumi.Input[Union[str, 'Expander']] expander: If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        :param pulumi.Input[bool] ignore_daemonsets_utilization: If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         :param pulumi.Input[str] max_empty_bulk_delete: The default is 10.
         :param pulumi.Input[str] max_graceful_termination_sec: The default is 600.
         :param pulumi.Input[str] max_node_provision_time: The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
@@ -3662,8 +5477,14 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if daemonset_eviction_for_empty_nodes is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_empty_nodes", daemonset_eviction_for_empty_nodes)
+        if daemonset_eviction_for_occupied_nodes is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_occupied_nodes", daemonset_eviction_for_occupied_nodes)
         if expander is not None:
             pulumi.set(__self__, "expander", expander)
+        if ignore_daemonsets_utilization is not None:
+            pulumi.set(__self__, "ignore_daemonsets_utilization", ignore_daemonsets_utilization)
         if max_empty_bulk_delete is not None:
             pulumi.set(__self__, "max_empty_bulk_delete", max_empty_bulk_delete)
         if max_graceful_termination_sec is not None:
@@ -3708,6 +5529,30 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
         pulumi.set(self, "balance_similar_node_groups", value)
 
     @property
+    @pulumi.getter(name="daemonsetEvictionForEmptyNodes")
+    def daemonset_eviction_for_empty_nodes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_empty_nodes")
+
+    @daemonset_eviction_for_empty_nodes.setter
+    def daemonset_eviction_for_empty_nodes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "daemonset_eviction_for_empty_nodes", value)
+
+    @property
+    @pulumi.getter(name="daemonsetEvictionForOccupiedNodes")
+    def daemonset_eviction_for_occupied_nodes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_occupied_nodes")
+
+    @daemonset_eviction_for_occupied_nodes.setter
+    def daemonset_eviction_for_occupied_nodes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "daemonset_eviction_for_occupied_nodes", value)
+
+    @property
     @pulumi.getter
     def expander(self) -> Optional[pulumi.Input[Union[str, 'Expander']]]:
         """
@@ -3718,6 +5563,18 @@ class ManagedClusterPropertiesAutoScalerProfileArgs:
     @expander.setter
     def expander(self, value: Optional[pulumi.Input[Union[str, 'Expander']]]):
         pulumi.set(self, "expander", value)
+
+    @property
+    @pulumi.getter(name="ignoreDaemonsetsUtilization")
+    def ignore_daemonsets_utilization(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        """
+        return pulumi.get(self, "ignore_daemonsets_utilization")
+
+    @ignore_daemonsets_utilization.setter
+    def ignore_daemonsets_utilization(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_daemonsets_utilization", value)
 
     @property
     @pulumi.getter(name="maxEmptyBulkDelete")
@@ -4540,18 +6397,26 @@ if not MYPY:
         """
         The upgrade to apply to the ManagedClusters.
         """
+        node_image_selection: NotRequired[pulumi.Input['NodeImageSelectionArgsDict']]
+        """
+        The node image upgrade to be applied to the target nodes in update run.
+        """
 elif False:
     ManagedClusterUpdateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterUpdateArgs:
     def __init__(__self__, *,
-                 upgrade: pulumi.Input['ManagedClusterUpgradeSpecArgs']):
+                 upgrade: pulumi.Input['ManagedClusterUpgradeSpecArgs'],
+                 node_image_selection: Optional[pulumi.Input['NodeImageSelectionArgs']] = None):
         """
         The update to be applied to the ManagedClusters.
         :param pulumi.Input['ManagedClusterUpgradeSpecArgs'] upgrade: The upgrade to apply to the ManagedClusters.
+        :param pulumi.Input['NodeImageSelectionArgs'] node_image_selection: The node image upgrade to be applied to the target nodes in update run.
         """
         pulumi.set(__self__, "upgrade", upgrade)
+        if node_image_selection is not None:
+            pulumi.set(__self__, "node_image_selection", node_image_selection)
 
     @property
     @pulumi.getter
@@ -4564,6 +6429,18 @@ class ManagedClusterUpdateArgs:
     @upgrade.setter
     def upgrade(self, value: pulumi.Input['ManagedClusterUpgradeSpecArgs']):
         pulumi.set(self, "upgrade", value)
+
+    @property
+    @pulumi.getter(name="nodeImageSelection")
+    def node_image_selection(self) -> Optional[pulumi.Input['NodeImageSelectionArgs']]:
+        """
+        The node image upgrade to be applied to the target nodes in update run.
+        """
+        return pulumi.get(self, "node_image_selection")
+
+    @node_image_selection.setter
+    def node_image_selection(self, value: Optional[pulumi.Input['NodeImageSelectionArgs']]):
+        pulumi.set(self, "node_image_selection", value)
 
 
 if not MYPY:
@@ -4772,6 +6649,43 @@ class ManagedClusterWorkloadAutoScalerProfileKedaArgs:
 
 
 if not MYPY:
+    class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict(TypedDict):
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable VPA. Default value is false.
+        """
+elif False:
+    ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        :param pulumi.Input[bool] enabled: Whether to enable VPA. Default value is false.
+        """
+        if enabled is None:
+            enabled = False
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to enable VPA. Default value is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
     class ManagedClusterWorkloadAutoScalerProfileArgsDict(TypedDict):
         """
         Workload Auto-scaler profile for the managed cluster.
@@ -4780,19 +6694,27 @@ if not MYPY:
         """
         KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
         """
+        vertical_pod_autoscaler: NotRequired[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict']]
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
 elif False:
     ManagedClusterWorkloadAutoScalerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterWorkloadAutoScalerProfileArgs:
     def __init__(__self__, *,
-                 keda: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']] = None):
+                 keda: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']] = None,
+                 vertical_pod_autoscaler: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']] = None):
         """
         Workload Auto-scaler profile for the managed cluster.
         :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs'] keda: KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs'] vertical_pod_autoscaler: VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
         """
         if keda is not None:
             pulumi.set(__self__, "keda", keda)
+        if vertical_pod_autoscaler is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler", vertical_pod_autoscaler)
 
     @property
     @pulumi.getter
@@ -4806,650 +6728,183 @@ class ManagedClusterWorkloadAutoScalerProfileArgs:
     def keda(self, value: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileKedaArgs']]):
         pulumi.set(self, "keda", value)
 
-
-if not MYPY:
-    class NetworkProfileArgsDict(TypedDict):
-        """
-        Represents the OpenShift networking configuration
-        """
-        management_subnet_cidr: NotRequired[pulumi.Input[str]]
-        """
-        CIDR of subnet used to create PLS needed for management of the cluster
-        """
-        vnet_cidr: NotRequired[pulumi.Input[str]]
-        """
-        CIDR for the OpenShift Vnet.
-        """
-        vnet_id: NotRequired[pulumi.Input[str]]
-        """
-        ID of the Vnet created for OSA cluster.
-        """
-elif False:
-    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class NetworkProfileArgs:
-    def __init__(__self__, *,
-                 management_subnet_cidr: Optional[pulumi.Input[str]] = None,
-                 vnet_cidr: Optional[pulumi.Input[str]] = None,
-                 vnet_id: Optional[pulumi.Input[str]] = None):
-        """
-        Represents the OpenShift networking configuration
-        :param pulumi.Input[str] management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
-        :param pulumi.Input[str] vnet_cidr: CIDR for the OpenShift Vnet.
-        :param pulumi.Input[str] vnet_id: ID of the Vnet created for OSA cluster.
-        """
-        if management_subnet_cidr is not None:
-            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
-        if vnet_cidr is None:
-            vnet_cidr = '10.0.0.0/8'
-        if vnet_cidr is not None:
-            pulumi.set(__self__, "vnet_cidr", vnet_cidr)
-        if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
-
     @property
-    @pulumi.getter(name="managementSubnetCidr")
-    def management_subnet_cidr(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="verticalPodAutoscaler")
+    def vertical_pod_autoscaler(self) -> Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]:
         """
-        CIDR of subnet used to create PLS needed for management of the cluster
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
         """
-        return pulumi.get(self, "management_subnet_cidr")
+        return pulumi.get(self, "vertical_pod_autoscaler")
 
-    @management_subnet_cidr.setter
-    def management_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "management_subnet_cidr", value)
-
-    @property
-    @pulumi.getter(name="vnetCidr")
-    def vnet_cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        CIDR for the OpenShift Vnet.
-        """
-        return pulumi.get(self, "vnet_cidr")
-
-    @vnet_cidr.setter
-    def vnet_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_cidr", value)
-
-    @property
-    @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        ID of the Vnet created for OSA cluster.
-        """
-        return pulumi.get(self, "vnet_id")
-
-    @vnet_id.setter
-    def vnet_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_id", value)
+    @vertical_pod_autoscaler.setter
+    def vertical_pod_autoscaler(self, value: Optional[pulumi.Input['ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs']]):
+        pulumi.set(self, "vertical_pod_autoscaler", value)
 
 
 if not MYPY:
-    class OpenShiftAPIPropertiesArgsDict(TypedDict):
+    class ManagedServiceIdentityArgsDict(TypedDict):
         """
-        Defines further properties on the API.
+        Managed service identity (system assigned and/or user assigned identities)
         """
-        private_api_server: NotRequired[pulumi.Input[bool]]
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
         """
-        Specifies if API server is public or private.
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
 elif False:
-    OpenShiftAPIPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class OpenShiftAPIPropertiesArgs:
+class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 private_api_server: Optional[pulumi.Input[bool]] = None):
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Defines further properties on the API.
-        :param pulumi.Input[bool] private_api_server: Specifies if API server is public or private.
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        if private_api_server is not None:
-            pulumi.set(__self__, "private_api_server", private_api_server)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
-    @pulumi.getter(name="privateApiServer")
-    def private_api_server(self) -> Optional[pulumi.Input[bool]]:
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
-        Specifies if API server is public or private.
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
-        return pulumi.get(self, "private_api_server")
+        return pulumi.get(self, "type")
 
-    @private_api_server.setter
-    def private_api_server(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "private_api_server", value)
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
-    class OpenShiftManagedClusterAADIdentityProviderArgsDict(TypedDict):
+    class NodeImageSelectionArgsDict(TypedDict):
         """
-        Defines the Identity provider for MS AAD.
+        The node image upgrade to be applied to the target nodes in update run.
         """
-        kind: pulumi.Input[str]
+        type: pulumi.Input[Union[str, 'NodeImageSelectionType']]
         """
-        The kind of the provider.
-        Expected value is 'AADIdentityProvider'.
-        """
-        client_id: NotRequired[pulumi.Input[str]]
-        """
-        The clientId password associated with the provider.
-        """
-        customer_admin_group_id: NotRequired[pulumi.Input[str]]
-        """
-        The groupId to be granted cluster admin role.
-        """
-        secret: NotRequired[pulumi.Input[str]]
-        """
-        The secret password associated with the provider.
-        """
-        tenant_id: NotRequired[pulumi.Input[str]]
-        """
-        The tenantId associated with the provider.
+        The node image upgrade type.
         """
 elif False:
-    OpenShiftManagedClusterAADIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
+    NodeImageSelectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class OpenShiftManagedClusterAADIdentityProviderArgs:
+class NodeImageSelectionArgs:
     def __init__(__self__, *,
-                 kind: pulumi.Input[str],
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 customer_admin_group_id: Optional[pulumi.Input[str]] = None,
-                 secret: Optional[pulumi.Input[str]] = None,
-                 tenant_id: Optional[pulumi.Input[str]] = None):
+                 type: pulumi.Input[Union[str, 'NodeImageSelectionType']]):
         """
-        Defines the Identity provider for MS AAD.
-        :param pulumi.Input[str] kind: The kind of the provider.
-               Expected value is 'AADIdentityProvider'.
-        :param pulumi.Input[str] client_id: The clientId password associated with the provider.
-        :param pulumi.Input[str] customer_admin_group_id: The groupId to be granted cluster admin role.
-        :param pulumi.Input[str] secret: The secret password associated with the provider.
-        :param pulumi.Input[str] tenant_id: The tenantId associated with the provider.
+        The node image upgrade to be applied to the target nodes in update run.
+        :param pulumi.Input[Union[str, 'NodeImageSelectionType']] type: The node image upgrade type.
         """
-        pulumi.set(__self__, "kind", 'AADIdentityProvider')
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if customer_admin_group_id is not None:
-            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'NodeImageSelectionType']]:
         """
-        The kind of the provider.
-        Expected value is 'AADIdentityProvider'.
+        The node image upgrade type.
         """
-        return pulumi.get(self, "kind")
+        return pulumi.get(self, "type")
 
-    @kind.setter
-    def kind(self, value: pulumi.Input[str]):
-        pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The clientId password associated with the provider.
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="customerAdminGroupId")
-    def customer_admin_group_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The groupId to be granted cluster admin role.
-        """
-        return pulumi.get(self, "customer_admin_group_id")
-
-    @customer_admin_group_id.setter
-    def customer_admin_group_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "customer_admin_group_id", value)
-
-    @property
-    @pulumi.getter
-    def secret(self) -> Optional[pulumi.Input[str]]:
-        """
-        The secret password associated with the provider.
-        """
-        return pulumi.get(self, "secret")
-
-    @secret.setter
-    def secret(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The tenantId associated with the provider.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_id", value)
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'NodeImageSelectionType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:
-    class OpenShiftManagedClusterAgentPoolProfileArgsDict(TypedDict):
+    class PortRangeArgsDict(TypedDict):
         """
-        Defines the configuration of the OpenShift cluster VMs.
+        The port range.
         """
-        count: pulumi.Input[int]
+        port_end: NotRequired[pulumi.Input[int]]
         """
-        Number of agents (VMs) to host docker containers.
+        The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
         """
-        name: pulumi.Input[str]
+        port_start: NotRequired[pulumi.Input[int]]
         """
-        Unique name of the pool profile in the context of the subscription and resource group.
+        The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
         """
-        vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]
+        protocol: NotRequired[pulumi.Input[Union[str, 'Protocol']]]
         """
-        Size of agent VMs.
-        """
-        os_type: NotRequired[pulumi.Input[Union[str, 'OSType']]]
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        role: NotRequired[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]
-        """
-        Define the role of the AgentPoolProfile.
-        """
-        subnet_cidr: NotRequired[pulumi.Input[str]]
-        """
-        Subnet CIDR for the peering.
+        The network protocol of the port.
         """
 elif False:
-    OpenShiftManagedClusterAgentPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
+    PortRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class OpenShiftManagedClusterAgentPoolProfileArgs:
+class PortRangeArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[int],
-                 name: pulumi.Input[str],
-                 vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
-                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
-                 role: Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]] = None,
-                 subnet_cidr: Optional[pulumi.Input[str]] = None):
+                 port_end: Optional[pulumi.Input[int]] = None,
+                 port_start: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'Protocol']]] = None):
         """
-        Defines the configuration of the OpenShift cluster VMs.
-        :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers.
-        :param pulumi.Input[str] name: Unique name of the pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
-        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']] role: Define the role of the AgentPoolProfile.
-        :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
+        The port range.
+        :param pulumi.Input[int] port_end: The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
+        :param pulumi.Input[int] port_start: The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
+        :param pulumi.Input[Union[str, 'Protocol']] protocol: The network protocol of the port.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if role is not None:
-            pulumi.set(__self__, "role", role)
-        if subnet_cidr is None:
-            subnet_cidr = '10.0.0.0/24'
-        if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
+        """
+        return pulumi.get(self, "port_end")
+
+    @port_end.setter
+    def port_end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_end", value)
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
+        """
+        return pulumi.get(self, "port_start")
+
+    @port_start.setter
+    def port_start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_start", value)
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[int]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'Protocol']]]:
         """
-        Number of agents (VMs) to host docker containers.
+        The network protocol of the port.
         """
-        return pulumi.get(self, "count")
+        return pulumi.get(self, "protocol")
 
-    @count.setter
-    def count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
-        """
-        Unique name of the pool profile in the context of the subscription and resource group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]:
-        """
-        Size of agent VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]):
-        pulumi.set(self, "vm_size", value)
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
-        pulumi.set(self, "os_type", value)
-
-    @property
-    @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]:
-        """
-        Define the role of the AgentPoolProfile.
-        """
-        return pulumi.get(self, "role")
-
-    @role.setter
-    def role(self, value: Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]):
-        pulumi.set(self, "role", value)
-
-    @property
-    @pulumi.getter(name="subnetCidr")
-    def subnet_cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        Subnet CIDR for the peering.
-        """
-        return pulumi.get(self, "subnet_cidr")
-
-    @subnet_cidr.setter
-    def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_cidr", value)
-
-
-if not MYPY:
-    class OpenShiftManagedClusterAuthProfileArgsDict(TypedDict):
-        """
-        Defines all possible authentication profiles for the OpenShift cluster.
-        """
-        identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgsDict']]]]
-        """
-        Type of authentication profile to use.
-        """
-elif False:
-    OpenShiftManagedClusterAuthProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenShiftManagedClusterAuthProfileArgs:
-    def __init__(__self__, *,
-                 identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]] = None):
-        """
-        Defines all possible authentication profiles for the OpenShift cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]] identity_providers: Type of authentication profile to use.
-        """
-        if identity_providers is not None:
-            pulumi.set(__self__, "identity_providers", identity_providers)
-
-    @property
-    @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]:
-        """
-        Type of authentication profile to use.
-        """
-        return pulumi.get(self, "identity_providers")
-
-    @identity_providers.setter
-    def identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenShiftManagedClusterIdentityProviderArgs']]]]):
-        pulumi.set(self, "identity_providers", value)
-
-
-if not MYPY:
-    class OpenShiftManagedClusterIdentityProviderArgsDict(TypedDict):
-        """
-        Defines the configuration of the identity providers to be used in the OpenShift cluster.
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the provider.
-        """
-        provider: NotRequired[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgsDict']]
-        """
-        Configuration of the provider.
-        """
-elif False:
-    OpenShiftManagedClusterIdentityProviderArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenShiftManagedClusterIdentityProviderArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 provider: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']] = None):
-        """
-        Defines the configuration of the identity providers to be used in the OpenShift cluster.
-        :param pulumi.Input[str] name: Name of the provider.
-        :param pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs'] provider: Configuration of the provider.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if provider is not None:
-            pulumi.set(__self__, "provider", provider)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the provider.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]:
-        """
-        Configuration of the provider.
-        """
-        return pulumi.get(self, "provider")
-
-    @provider.setter
-    def provider(self, value: Optional[pulumi.Input['OpenShiftManagedClusterAADIdentityProviderArgs']]):
-        pulumi.set(self, "provider", value)
-
-
-if not MYPY:
-    class OpenShiftManagedClusterMasterPoolProfileArgsDict(TypedDict):
-        """
-        OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        """
-        count: pulumi.Input[int]
-        """
-        Number of masters (VMs) to host docker containers. The default value is 3.
-        """
-        vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]
-        """
-        Size of agent VMs.
-        """
-        api_properties: NotRequired[pulumi.Input['OpenShiftAPIPropertiesArgsDict']]
-        """
-        Defines further properties on the API.
-        """
-        subnet_cidr: NotRequired[pulumi.Input[str]]
-        """
-        Subnet CIDR for the peering.
-        """
-elif False:
-    OpenShiftManagedClusterMasterPoolProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenShiftManagedClusterMasterPoolProfileArgs:
-    def __init__(__self__, *,
-                 count: pulumi.Input[int],
-                 vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
-                 api_properties: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']] = None,
-                 subnet_cidr: Optional[pulumi.Input[str]] = None):
-        """
-        OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
-        :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
-        :param pulumi.Input['OpenShiftAPIPropertiesArgs'] api_properties: Defines further properties on the API.
-        :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
-        """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
-        if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
-
-    @property
-    @pulumi.getter
-    def count(self) -> pulumi.Input[int]:
-        """
-        Number of masters (VMs) to host docker containers. The default value is 3.
-        """
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]:
-        """
-        Size of agent VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @vm_size.setter
-    def vm_size(self, value: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]):
-        pulumi.set(self, "vm_size", value)
-
-    @property
-    @pulumi.getter(name="apiProperties")
-    def api_properties(self) -> Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]:
-        """
-        Defines further properties on the API.
-        """
-        return pulumi.get(self, "api_properties")
-
-    @api_properties.setter
-    def api_properties(self, value: Optional[pulumi.Input['OpenShiftAPIPropertiesArgs']]):
-        pulumi.set(self, "api_properties", value)
-
-    @property
-    @pulumi.getter(name="subnetCidr")
-    def subnet_cidr(self) -> Optional[pulumi.Input[str]]:
-        """
-        Subnet CIDR for the peering.
-        """
-        return pulumi.get(self, "subnet_cidr")
-
-    @subnet_cidr.setter
-    def subnet_cidr(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subnet_cidr", value)
-
-
-if not MYPY:
-    class OpenShiftManagedClusterMonitorProfileArgsDict(TypedDict):
-        """
-        Defines the configuration for Log Analytics integration.
-        """
-        enabled: NotRequired[pulumi.Input[bool]]
-        """
-        If the Log analytics integration should be turned on or off
-        """
-        workspace_resource_id: NotRequired[pulumi.Input[str]]
-        """
-        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
-        """
-elif False:
-    OpenShiftManagedClusterMonitorProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenShiftManagedClusterMonitorProfileArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Defines the configuration for Log Analytics integration.
-        :param pulumi.Input[bool] enabled: If the Log analytics integration should be turned on or off
-        :param pulumi.Input[str] workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If the Log analytics integration should be turned on or off
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="workspaceResourceID")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
-        """
-        return pulumi.get(self, "workspace_resource_id")
-
-    @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "workspace_resource_id", value)
-
-
-if not MYPY:
-    class OpenShiftRouterProfileArgsDict(TypedDict):
-        """
-        Represents an OpenShift router
-        """
-        name: NotRequired[pulumi.Input[str]]
-        """
-        Name of the router profile.
-        """
-elif False:
-    OpenShiftRouterProfileArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenShiftRouterProfileArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Represents an OpenShift router
-        :param pulumi.Input[str] name: Name of the router profile.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the router profile.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'Protocol']]]):
+        pulumi.set(self, "protocol", value)
 
 
 if not MYPY:
@@ -5697,99 +7152,76 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 if not MYPY:
-    class PurchasePlanArgsDict(TypedDict):
+    class RelativeMonthlyScheduleArgsDict(TypedDict):
         """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
         """
-        name: NotRequired[pulumi.Input[str]]
+        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
         """
-        The plan ID.
+        Specifies on which day of the week the maintenance occurs.
         """
-        product: NotRequired[pulumi.Input[str]]
+        interval_months: pulumi.Input[int]
         """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        Specifies the number of months between each set of occurrences.
         """
-        promotion_code: NotRequired[pulumi.Input[str]]
+        week_index: pulumi.Input[Union[str, 'Type']]
         """
-        The promotion code.
-        """
-        publisher: NotRequired[pulumi.Input[str]]
-        """
-        The plan ID.
+        Specifies on which week of the month the dayOfWeek applies.
         """
 elif False:
-    PurchasePlanArgsDict: TypeAlias = Mapping[str, Any]
+    RelativeMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class PurchasePlanArgs:
+class RelativeMonthlyScheduleArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 product: Optional[pulumi.Input[str]] = None,
-                 promotion_code: Optional[pulumi.Input[str]] = None,
-                 publisher: Optional[pulumi.Input[str]] = None):
+                 day_of_week: pulumi.Input[Union[str, 'WeekDay']],
+                 interval_months: pulumi.Input[int],
+                 week_index: pulumi.Input[Union[str, 'Type']]):
         """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-        :param pulumi.Input[str] name: The plan ID.
-        :param pulumi.Input[str] product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        :param pulumi.Input[str] promotion_code: The promotion code.
-        :param pulumi.Input[str] publisher: The plan ID.
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        :param pulumi.Input[Union[str, 'WeekDay']] day_of_week: Specifies on which day of the week the maintenance occurs.
+        :param pulumi.Input[int] interval_months: Specifies the number of months between each set of occurrences.
+        :param pulumi.Input[Union[str, 'Type']] week_index: Specifies on which week of the month the dayOfWeek applies.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if product is not None:
-            pulumi.set(__self__, "product", product)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "interval_months", interval_months)
+        pulumi.set(__self__, "week_index", week_index)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> pulumi.Input[Union[str, 'WeekDay']]:
         """
-        The plan ID.
+        Specifies on which day of the week the maintenance occurs.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "day_of_week")
 
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def product(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        """
-        return pulumi.get(self, "product")
-
-    @product.setter
-    def product(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product", value)
+    @day_of_week.setter
+    def day_of_week(self, value: pulumi.Input[Union[str, 'WeekDay']]):
+        pulumi.set(self, "day_of_week", value)
 
     @property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="intervalMonths")
+    def interval_months(self) -> pulumi.Input[int]:
         """
-        The promotion code.
+        Specifies the number of months between each set of occurrences.
         """
-        return pulumi.get(self, "promotion_code")
+        return pulumi.get(self, "interval_months")
 
-    @promotion_code.setter
-    def promotion_code(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "promotion_code", value)
+    @interval_months.setter
+    def interval_months(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_months", value)
 
     @property
-    @pulumi.getter
-    def publisher(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="weekIndex")
+    def week_index(self) -> pulumi.Input[Union[str, 'Type']]:
         """
-        The plan ID.
+        Specifies on which week of the month the dayOfWeek applies.
         """
-        return pulumi.get(self, "publisher")
+        return pulumi.get(self, "week_index")
 
-    @publisher.setter
-    def publisher(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "publisher", value)
+    @week_index.setter
+    def week_index(self, value: pulumi.Input[Union[str, 'Type']]):
+        pulumi.set(self, "week_index", value)
 
 
 if not MYPY:
@@ -5826,6 +7258,157 @@ class ResourceReferenceArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ScheduleArgsDict(TypedDict):
+        """
+        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+        """
+        absolute_monthly: NotRequired[pulumi.Input['AbsoluteMonthlyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        daily: NotRequired[pulumi.Input['DailyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        relative_monthly: NotRequired[pulumi.Input['RelativeMonthlyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        """
+        weekly: NotRequired[pulumi.Input['WeeklyScheduleArgsDict']]
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+elif False:
+    ScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScheduleArgs:
+    def __init__(__self__, *,
+                 absolute_monthly: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']] = None,
+                 daily: Optional[pulumi.Input['DailyScheduleArgs']] = None,
+                 relative_monthly: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']] = None,
+                 weekly: Optional[pulumi.Input['WeeklyScheduleArgs']] = None):
+        """
+        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+        :param pulumi.Input['AbsoluteMonthlyScheduleArgs'] absolute_monthly: For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        :param pulumi.Input['DailyScheduleArgs'] daily: For schedules like: 'recur every day' or 'recur every 3 days'.
+        :param pulumi.Input['RelativeMonthlyScheduleArgs'] relative_monthly: For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        :param pulumi.Input['WeeklyScheduleArgs'] weekly: For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        if absolute_monthly is not None:
+            pulumi.set(__self__, "absolute_monthly", absolute_monthly)
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if relative_monthly is not None:
+            pulumi.set(__self__, "relative_monthly", relative_monthly)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @property
+    @pulumi.getter(name="absoluteMonthly")
+    def absolute_monthly(self) -> Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]:
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        return pulumi.get(self, "absolute_monthly")
+
+    @absolute_monthly.setter
+    def absolute_monthly(self, value: Optional[pulumi.Input['AbsoluteMonthlyScheduleArgs']]):
+        pulumi.set(self, "absolute_monthly", value)
+
+    @property
+    @pulumi.getter
+    def daily(self) -> Optional[pulumi.Input['DailyScheduleArgs']]:
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        return pulumi.get(self, "daily")
+
+    @daily.setter
+    def daily(self, value: Optional[pulumi.Input['DailyScheduleArgs']]):
+        pulumi.set(self, "daily", value)
+
+    @property
+    @pulumi.getter(name="relativeMonthly")
+    def relative_monthly(self) -> Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]:
+        """
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        """
+        return pulumi.get(self, "relative_monthly")
+
+    @relative_monthly.setter
+    def relative_monthly(self, value: Optional[pulumi.Input['RelativeMonthlyScheduleArgs']]):
+        pulumi.set(self, "relative_monthly", value)
+
+    @property
+    @pulumi.getter
+    def weekly(self) -> Optional[pulumi.Input['WeeklyScheduleArgs']]:
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        return pulumi.get(self, "weekly")
+
+    @weekly.setter
+    def weekly(self, value: Optional[pulumi.Input['WeeklyScheduleArgs']]):
+        pulumi.set(self, "weekly", value)
+
+
+if not MYPY:
+    class ServiceMeshProfileArgsDict(TypedDict):
+        """
+        Service mesh profile for a managed cluster.
+        """
+        mode: pulumi.Input[Union[str, 'ServiceMeshMode']]
+        """
+        Mode of the service mesh.
+        """
+        istio: NotRequired[pulumi.Input['IstioServiceMeshArgsDict']]
+        """
+        Istio service mesh configuration.
+        """
+elif False:
+    ServiceMeshProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceMeshProfileArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[Union[str, 'ServiceMeshMode']],
+                 istio: Optional[pulumi.Input['IstioServiceMeshArgs']] = None):
+        """
+        Service mesh profile for a managed cluster.
+        :param pulumi.Input[Union[str, 'ServiceMeshMode']] mode: Mode of the service mesh.
+        :param pulumi.Input['IstioServiceMeshArgs'] istio: Istio service mesh configuration.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if istio is not None:
+            pulumi.set(__self__, "istio", istio)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[Union[str, 'ServiceMeshMode']]:
+        """
+        Mode of the service mesh.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[Union[str, 'ServiceMeshMode']]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def istio(self) -> Optional[pulumi.Input['IstioServiceMeshArgs']]:
+        """
+        Istio service mesh configuration.
+        """
+        return pulumi.get(self, "istio")
+
+    @istio.setter
+    def istio(self, value: Optional[pulumi.Input['IstioServiceMeshArgs']]):
+        pulumi.set(self, "istio", value)
 
 
 if not MYPY:
@@ -6677,6 +8260,62 @@ class UpdateStageArgs:
 
 
 if not MYPY:
+    class UpgradeOverrideSettingsArgsDict(TypedDict):
+        """
+        Settings for overrides when upgrading a cluster.
+        """
+        force_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        """
+        until: NotRequired[pulumi.Input[str]]
+        """
+        Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+elif False:
+    UpgradeOverrideSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpgradeOverrideSettingsArgs:
+    def __init__(__self__, *,
+                 force_upgrade: Optional[pulumi.Input[bool]] = None,
+                 until: Optional[pulumi.Input[str]] = None):
+        """
+        Settings for overrides when upgrading a cluster.
+        :param pulumi.Input[bool] force_upgrade: Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        :param pulumi.Input[str] until: Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+        if force_upgrade is not None:
+            pulumi.set(__self__, "force_upgrade", force_upgrade)
+        if until is not None:
+            pulumi.set(__self__, "until", until)
+
+    @property
+    @pulumi.getter(name="forceUpgrade")
+    def force_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        """
+        return pulumi.get(self, "force_upgrade")
+
+    @force_upgrade.setter
+    def force_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_upgrade", value)
+
+    @property
+    @pulumi.getter
+    def until(self) -> Optional[pulumi.Input[str]]:
+        """
+        Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+        return pulumi.get(self, "until")
+
+    @until.setter
+    def until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "until", value)
+
+
+if not MYPY:
     class UserAssignedIdentityArgsDict(TypedDict):
         """
         Details about a user assigned identity.
@@ -6750,6 +8389,60 @@ class UserAssignedIdentityArgs:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class WeeklyScheduleArgsDict(TypedDict):
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        day_of_week: pulumi.Input[Union[str, 'WeekDay']]
+        """
+        Specifies on which day of the week the maintenance occurs.
+        """
+        interval_weeks: pulumi.Input[int]
+        """
+        Specifies the number of weeks between each set of occurrences.
+        """
+elif False:
+    WeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WeeklyScheduleArgs:
+    def __init__(__self__, *,
+                 day_of_week: pulumi.Input[Union[str, 'WeekDay']],
+                 interval_weeks: pulumi.Input[int]):
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        :param pulumi.Input[Union[str, 'WeekDay']] day_of_week: Specifies on which day of the week the maintenance occurs.
+        :param pulumi.Input[int] interval_weeks: Specifies the number of weeks between each set of occurrences.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "interval_weeks", interval_weeks)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> pulumi.Input[Union[str, 'WeekDay']]:
+        """
+        Specifies on which day of the week the maintenance occurs.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: pulumi.Input[Union[str, 'WeekDay']]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="intervalWeeks")
+    def interval_weeks(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of weeks between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_weeks")
+
+    @interval_weeks.setter
+    def interval_weeks(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval_weeks", value)
 
 
 if not MYPY:

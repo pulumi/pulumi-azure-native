@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network security perimeter profile resource
-    /// Azure REST API version: 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityPerimeterProfile")]
     public partial class NetworkSecurityPerimeterProfile : global::Pulumi.CustomResource
@@ -78,9 +78,13 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:NspProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Azure REST API version: 2024-02-01-preview.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Azure REST API version: 2024-02-01-preview.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+        /// Azure REST API version: 2024-02-01-preview.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
@@ -99,15 +93,15 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Defines the provider instance errors.
         /// </summary>
-        public readonly Outputs.ProviderInstancePropertiesResponseErrors Errors;
+        public readonly Outputs.ErrorDetailResponse Errors;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource health details
+        /// </summary>
+        public readonly Outputs.HealthResponse Health;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// [currently not in use] Managed service identity(user assigned identities)
-        /// </summary>
-        public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -131,11 +125,11 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetProviderInstanceResult(
-            Outputs.ProviderInstancePropertiesResponseErrors errors,
+            Outputs.ErrorDetailResponse errors,
+
+            Outputs.HealthResponse health,
 
             string id,
-
-            Outputs.UserAssignedServiceIdentityResponse? identity,
 
             string name,
 
@@ -148,8 +142,8 @@ namespace Pulumi.AzureNative.Workloads
             string type)
         {
             Errors = errors;
+            Health = health;
             Id = id;
-            Identity = identity;
             Name = name;
             ProviderSettings = providerSettings;
             ProvisioningState = provisioningState;

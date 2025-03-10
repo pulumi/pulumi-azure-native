@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a VmwareSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getSitesController(args: GetSitesControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,9 +95,7 @@ export interface GetSitesControllerResult {
 }
 /**
  * Get a VmwareSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getSitesControllerOutput(args: GetSitesControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSitesControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

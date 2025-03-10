@@ -27,13 +27,16 @@ class GetOrderItemResult:
     """
     Represents order item resource.
     """
-    def __init__(__self__, address_details=None, id=None, location=None, name=None, order_id=None, order_item_details=None, start_time=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, address_details=None, id=None, identity=None, location=None, name=None, order_id=None, order_item_details=None, provisioning_state=None, start_time=None, system_data=None, tags=None, type=None):
         if address_details and not isinstance(address_details, dict):
             raise TypeError("Expected argument 'address_details' to be a dict")
         pulumi.set(__self__, "address_details", address_details)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -46,6 +49,9 @@ class GetOrderItemResult:
         if order_item_details and not isinstance(order_item_details, dict):
             raise TypeError("Expected argument 'order_item_details' to be a dict")
         pulumi.set(__self__, "order_item_details", order_item_details)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if start_time and not isinstance(start_time, str):
             raise TypeError("Expected argument 'start_time' to be a str")
         pulumi.set(__self__, "start_time", start_time)
@@ -61,7 +67,7 @@ class GetOrderItemResult:
 
     @property
     @pulumi.getter(name="addressDetails")
-    def address_details(self) -> 'outputs.AddressDetailsResponse':
+    def address_details(self) -> Optional['outputs.AddressDetailsResponse']:
         """
         Represents shipping and return address for order item.
         """
@@ -71,9 +77,17 @@ class GetOrderItemResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -108,6 +122,14 @@ class GetOrderItemResult:
         return pulumi.get(self, "order_item_details")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         """
@@ -119,7 +141,7 @@ class GetOrderItemResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Represents resource creation and update time.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -148,10 +170,12 @@ class AwaitableGetOrderItemResult(GetOrderItemResult):
         return GetOrderItemResult(
             address_details=self.address_details,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             order_id=self.order_id,
             order_item_details=self.order_item_details,
+            provisioning_state=self.provisioning_state,
             start_time=self.start_time,
             system_data=self.system_data,
             tags=self.tags,
@@ -164,9 +188,7 @@ def get_order_item(expand: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderItemResult:
     """
     Get an order item.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str expand: $expand is supported on parent device details, device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Parent Device Details for order item provides details on the devices of the product, Device Details for order item provides details on the devices of the child configurations of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -183,10 +205,12 @@ def get_order_item(expand: Optional[str] = None,
     return AwaitableGetOrderItemResult(
         address_details=pulumi.get(__ret__, 'address_details'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         order_id=pulumi.get(__ret__, 'order_id'),
         order_item_details=pulumi.get(__ret__, 'order_item_details'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         start_time=pulumi.get(__ret__, 'start_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -197,9 +221,7 @@ def get_order_item_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderItemResult]:
     """
     Get an order item.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str expand: $expand is supported on parent device details, device details, forward shipping details and reverse shipping details parameters. Each of these can be provided as a comma separated list. Parent Device Details for order item provides details on the devices of the product, Device Details for order item provides details on the devices of the child configurations of the product, Forward and Reverse Shipping details provide forward and reverse shipping details respectively.
@@ -215,10 +237,12 @@ def get_order_item_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     return __ret__.apply(lambda __response__: GetOrderItemResult(
         address_details=pulumi.get(__response__, 'address_details'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         order_id=pulumi.get(__response__, 'order_id'),
         order_item_details=pulumi.get(__response__, 'order_item_details'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         start_time=pulumi.get(__response__, 'start_time'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

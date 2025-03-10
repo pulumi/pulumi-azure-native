@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRouteCircuit resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2018-12-01, 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
@@ -64,6 +62,10 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
      * The CircuitProvisioningState state of the resource.
      */
     public readonly circuitProvisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+     */
+    public readonly enableDirectPortRateLimit!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -149,6 +151,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
             resourceInputs["circuitName"] = args ? args.circuitName : undefined;
             resourceInputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
+            resourceInputs["enableDirectPortRateLimit"] = args ? args.enableDirectPortRateLimit : undefined;
             resourceInputs["expressRoutePort"] = args ? args.expressRoutePort : undefined;
             resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
             resourceInputs["globalReachEnabled"] = args ? args.globalReachEnabled : undefined;
@@ -175,6 +178,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
             resourceInputs["circuitProvisioningState"] = undefined /*out*/;
+            resourceInputs["enableDirectPortRateLimit"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRoutePort"] = undefined /*out*/;
             resourceInputs["gatewayManagerEtag"] = undefined /*out*/;
@@ -228,6 +232,10 @@ export interface ExpressRouteCircuitArgs {
      * The CircuitProvisioningState state of the resource.
      */
     circuitProvisioningState?: pulumi.Input<string>;
+    /**
+     * Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
+     */
+    enableDirectPortRateLimit?: pulumi.Input<boolean>;
     /**
      * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
      */

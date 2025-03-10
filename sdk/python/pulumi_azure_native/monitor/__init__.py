@@ -6,23 +6,46 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_group import *
+from .activity_log_alert import *
+from .autoscale_setting import *
 from .azure_monitor_workspace import *
+from .data_collection_endpoint import *
+from .data_collection_rule import *
+from .data_collection_rule_association import *
+from .diagnostic_setting import *
+from .get_action_group import *
+from .get_activity_log_alert import *
+from .get_autoscale_setting import *
 from .get_azure_monitor_workspace import *
+from .get_data_collection_endpoint import *
+from .get_data_collection_rule import *
+from .get_data_collection_rule_association import *
+from .get_diagnostic_setting import *
+from .get_guest_diagnostics_setting import *
+from .get_guest_diagnostics_settings_association import *
+from .get_log_profile import *
+from .get_management_group_diagnostic_setting import *
+from .get_metric_alert import *
 from .get_pipeline_group import *
+from .get_private_endpoint_connection import *
+from .get_private_link_scope import *
+from .get_private_link_scoped_resource import *
+from .get_scheduled_query_rule import *
+from .get_subscription_diagnostic_setting import *
+from .get_tenant_action_group import *
+from .guest_diagnostics_setting import *
+from .guest_diagnostics_settings_association import *
+from .list_diagnostic_settings_category import *
+from .log_profile import *
+from .management_group_diagnostic_setting import *
+from .metric_alert import *
 from .pipeline_group import *
+from .private_endpoint_connection import *
+from .private_link_scope import *
+from .private_link_scoped_resource import *
+from .scheduled_query_rule import *
+from .subscription_diagnostic_setting import *
+from .tenant_action_group import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.monitor.v20230403 as __v20230403
-    v20230403 = __v20230403
-    import pulumi_azure_native.monitor.v20231001preview as __v20231001preview
-    v20231001preview = __v20231001preview
-    import pulumi_azure_native.monitor.v20241001preview as __v20241001preview
-    v20241001preview = __v20241001preview
-else:
-    v20230403 = _utilities.lazy_import('pulumi_azure_native.monitor.v20230403')
-    v20231001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20231001preview')
-    v20241001preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20241001preview')
-

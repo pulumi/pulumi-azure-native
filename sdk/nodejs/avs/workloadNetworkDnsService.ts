@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DNS Service
- * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
  */
 export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     /**
@@ -61,7 +59,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
      */
     public readonly logLevel!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -77,7 +75,11 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -110,6 +112,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["defaultDnsZone"] = undefined /*out*/;
@@ -121,6 +124,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -143,7 +147,7 @@ export interface WorkloadNetworkDnsServiceArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * NSX DNS Service identifier. Generally the same as the DNS Service's display name
+     * ID of the DNS service.
      */
     dnsServiceId?: pulumi.Input<string>;
     /**

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Confluent.Outputs
 {
 
     /// <summary>
-    /// Record of the environment
+    /// Details of cluster record
     /// </summary>
     [OutputType]
     public sealed class ClusterRecordResponse
     {
         /// <summary>
-        /// Display name of the user
+        /// Display name of the cluster
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Id of the environment
+        /// Id of the cluster
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Type of environment
+        /// Type of cluster
         /// </summary>
         public readonly string? Kind;
         /// <summary>

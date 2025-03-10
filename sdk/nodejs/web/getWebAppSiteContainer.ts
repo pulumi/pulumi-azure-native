@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteContainer(args: GetWebAppSiteContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,9 +106,7 @@ export interface GetWebAppSiteContainerResult {
 }
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteContainerOutput(args: GetWebAppSiteContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -10,11 +10,3 @@ from .get_workspace import *
 from .label_by_workspace import *
 from .workspace import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.easm.v20230401preview as __v20230401preview
-    v20230401preview = __v20230401preview
-else:
-    v20230401preview = _utilities.lazy_import('pulumi_azure_native.easm.v20230401preview')
-

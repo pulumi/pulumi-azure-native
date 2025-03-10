@@ -20,11 +20,3 @@ from .replication_extension import *
 from .vault import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datareplication.v20210216preview as __v20210216preview
-    v20210216preview = __v20210216preview
-else:
-    v20210216preview = _utilities.lazy_import('pulumi_azure_native.datareplication.v20210216preview')
-

@@ -26,6 +26,7 @@ class ConnectionRaiPolicyArgs:
                  properties: pulumi.Input['RaiPolicyPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectionRaiPolicy resource.
@@ -33,12 +34,15 @@ class ConnectionRaiPolicyArgs:
         :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Azure OpenAI Content Filters properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
         :param pulumi.Input[str] rai_policy_name: Name of the Rai Policy.
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if proxy_api_version is not None:
+            pulumi.set(__self__, "proxy_api_version", proxy_api_version)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
 
@@ -91,6 +95,18 @@ class ConnectionRaiPolicyArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
+    @pulumi.getter(name="proxyApiVersion")
+    def proxy_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Api version used by proxy call
+        """
+        return pulumi.get(self, "proxy_api_version")
+
+    @proxy_api_version.setter
+    def proxy_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_api_version", value)
+
+    @property
     @pulumi.getter(name="raiPolicyName")
     def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -110,20 +126,20 @@ class ConnectionRaiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure OpenAI Content Filters resource.
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']] properties: Azure OpenAI Content Filters properties.
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
         :param pulumi.Input[str] rai_policy_name: Name of the Rai Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
@@ -136,9 +152,7 @@ class ConnectionRaiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure OpenAI Content Filters resource.
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectionRaiPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -157,6 +171,7 @@ class ConnectionRaiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['RaiPolicyPropertiesArgs', 'RaiPolicyPropertiesArgsDict']]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  rai_policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -175,6 +190,7 @@ class ConnectionRaiPolicy(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["proxy_api_version"] = proxy_api_version
             __props__.__dict__["rai_policy_name"] = rai_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

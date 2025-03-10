@@ -106,7 +106,7 @@ class GetNspLinkResult:
     @pulumi.getter(name="localInboundProfiles")
     def local_inbound_profiles(self) -> Optional[Sequence[str]]:
         """
-        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         """
         return pulumi.get(self, "local_inbound_profiles")
 
@@ -138,7 +138,7 @@ class GetNspLinkResult:
     @pulumi.getter(name="remoteInboundProfiles")
     def remote_inbound_profiles(self) -> Optional[Sequence[str]]:
         """
-        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         """
         return pulumi.get(self, "remote_inbound_profiles")
 
@@ -211,9 +211,7 @@ def get_nsp_link(link_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspLinkResult:
     """
     Gets the specified NSP link resource.
-    Azure REST API version: 2021-02-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
 
     :param str link_name: The name of the NSP link.
@@ -248,9 +246,7 @@ def get_nsp_link_output(link_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspLinkResult]:
     """
     Gets the specified NSP link resource.
-    Azure REST API version: 2021-02-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    Azure REST API version: 2023-08-01-preview.
 
 
     :param str link_name: The name of the NSP link.

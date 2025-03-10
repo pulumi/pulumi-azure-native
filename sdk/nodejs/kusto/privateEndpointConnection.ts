@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -132,7 +130,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     privateLinkServiceConnectionState: pulumi.Input<inputs.kusto.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

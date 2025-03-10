@@ -281,7 +281,7 @@ class GetVirtualMachineResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -428,9 +428,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Implements virtual machine GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -480,9 +478,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements virtual machine GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str resource_group_name: The Resource Group Name.

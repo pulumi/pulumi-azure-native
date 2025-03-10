@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration information for analysis run.
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getReachabilityAnalysisRun(args: GetReachabilityAnalysisRunArgs, opts?: pulumi.InvokeOptions): Promise<GetReachabilityAnalysisRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,9 +67,7 @@ export interface GetReachabilityAnalysisRunResult {
 }
 /**
  * Configuration information for analysis run.
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getReachabilityAnalysisRunOutput(args: GetReachabilityAnalysisRunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReachabilityAnalysisRunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

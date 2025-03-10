@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The lock information.
-    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockAtResourceLevel")]
     public partial class ManagementLockAtResourceLevel : global::Pulumi.CustomResource

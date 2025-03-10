@@ -63,7 +63,7 @@ class GetInventoryItemResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -119,7 +119,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -127,7 +127,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -164,9 +164,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
     Implements InventoryItem GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -197,9 +195,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Implements InventoryItem GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

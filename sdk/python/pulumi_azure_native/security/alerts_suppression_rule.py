@@ -151,7 +151,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  __props__=None):
         """
         Describes the suppression rule
-        Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+        Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the suppression rule
-        Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
+        Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AlertsSuppressionRuleArgs args: The arguments to use to populate this resource's properties.

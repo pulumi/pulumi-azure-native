@@ -94,9 +94,7 @@ def get_replication_protection_cluster(fabric_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectionClusterResult:
     """
     Gets the details of an ASR replication protection cluster.
-    Azure REST API version: 2024-02-01.
-
-    Other available API versions: 2024-04-01, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str fabric_name: Fabric name.
@@ -127,9 +125,7 @@ def get_replication_protection_cluster_output(fabric_name: Optional[pulumi.Input
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationProtectionClusterResult]:
     """
     Gets the details of an ASR replication protection cluster.
-    Azure REST API version: 2024-02-01.
-
-    Other available API versions: 2024-04-01, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str fabric_name: Fabric name.

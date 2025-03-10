@@ -27,10 +27,13 @@ class GetMobileNetworkResult:
     """
     Mobile network resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, public_land_mobile_network_identifier=None, service_key=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, provisioning_state=None, public_land_mobile_network_identifier=None, public_land_mobile_networks=None, service_key=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -43,6 +46,9 @@ class GetMobileNetworkResult:
         if public_land_mobile_network_identifier and not isinstance(public_land_mobile_network_identifier, dict):
             raise TypeError("Expected argument 'public_land_mobile_network_identifier' to be a dict")
         pulumi.set(__self__, "public_land_mobile_network_identifier", public_land_mobile_network_identifier)
+        if public_land_mobile_networks and not isinstance(public_land_mobile_networks, list):
+            raise TypeError("Expected argument 'public_land_mobile_networks' to be a list")
+        pulumi.set(__self__, "public_land_mobile_networks", public_land_mobile_networks)
         if service_key and not isinstance(service_key, str):
             raise TypeError("Expected argument 'service_key' to be a str")
         pulumi.set(__self__, "service_key", service_key)
@@ -63,6 +69,14 @@ class GetMobileNetworkResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity used to retrieve any private keys used for SUPI concealment from Azure key vault.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -92,9 +106,17 @@ class GetMobileNetworkResult:
     @pulumi.getter(name="publicLandMobileNetworkIdentifier")
     def public_land_mobile_network_identifier(self) -> 'outputs.PlmnIdResponse':
         """
-        The unique public land mobile network identifier for the network. This is made up of the mobile country code and mobile network code, as defined in https://www.itu.int/rec/T-REC-E.212. The values 001-01 and 001-001 can be used for testing and the values 999-99 and 999-999 can be used on internal private networks.
+        The unique public land mobile network identifier for the network. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
         """
         return pulumi.get(self, "public_land_mobile_network_identifier")
+
+    @property
+    @pulumi.getter(name="publicLandMobileNetworks")
+    def public_land_mobile_networks(self) -> Optional[Sequence['outputs.PublicLandMobileNetworkResponse']]:
+        """
+        A list of public land mobile networks including their identifiers. If both 'publicLandMobileNetworks' and 'publicLandMobileNetworkIdentifier' are specified, then the 'publicLandMobileNetworks' will take precedence.
+        """
+        return pulumi.get(self, "public_land_mobile_networks")
 
     @property
     @pulumi.getter(name="serviceKey")
@@ -136,10 +158,12 @@ class AwaitableGetMobileNetworkResult(GetMobileNetworkResult):
             yield self
         return GetMobileNetworkResult(
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             public_land_mobile_network_identifier=self.public_land_mobile_network_identifier,
+            public_land_mobile_networks=self.public_land_mobile_networks,
             service_key=self.service_key,
             system_data=self.system_data,
             tags=self.tags,
@@ -151,9 +175,7 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMobileNetworkResult:
     """
     Gets information about the specified mobile network.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -167,10 +189,12 @@ def get_mobile_network(mobile_network_name: Optional[str] = None,
 
     return AwaitableGetMobileNetworkResult(
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_land_mobile_network_identifier=pulumi.get(__ret__, 'public_land_mobile_network_identifier'),
+        public_land_mobile_networks=pulumi.get(__ret__, 'public_land_mobile_networks'),
         service_key=pulumi.get(__ret__, 'service_key'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -180,9 +204,7 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMobileNetworkResult]:
     """
     Gets information about the specified mobile network.
-    Azure REST API version: 2023-06-01.
-
-    Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -195,10 +217,12 @@ def get_mobile_network_output(mobile_network_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:mobilenetwork:getMobileNetwork', __args__, opts=opts, typ=GetMobileNetworkResult)
     return __ret__.apply(lambda __response__: GetMobileNetworkResult(
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_land_mobile_network_identifier=pulumi.get(__response__, 'public_land_mobile_network_identifier'),
+        public_land_mobile_networks=pulumi.get(__response__, 'public_land_mobile_networks'),
         service_key=pulumi.get(__response__, 'service_key'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

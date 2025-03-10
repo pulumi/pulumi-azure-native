@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        [Input("linuxLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.LinuxLicenseType>? LinuxLicenseType { get; set; }
+
+        /// <summary>
         /// The multi VM group name.
         /// </summary>
         [Input("multiVmGroupName")]
@@ -69,6 +75,24 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("runAsAccountId")]
         public Input<string>? RunAsAccountId { get; set; }
+
+        [Input("seedManagedDiskTags")]
+        private InputList<Inputs.UserCreatedResourceTagArgs>? _seedManagedDiskTags;
+
+        /// <summary>
+        /// The tags for the seed managed disks.
+        /// </summary>
+        public InputList<Inputs.UserCreatedResourceTagArgs> SeedManagedDiskTags
+        {
+            get => _seedManagedDiskTags ?? (_seedManagedDiskTags = new InputList<Inputs.UserCreatedResourceTagArgs>());
+            set => _seedManagedDiskTags = value;
+        }
+
+        /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        [Input("sqlServerLicenseType")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.SqlServerLicenseType>? SqlServerLicenseType { get; set; }
 
         /// <summary>
         /// The target availability set ARM Id.
@@ -88,11 +112,35 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("targetBootDiagnosticsStorageAccountId")]
         public Input<string>? TargetBootDiagnosticsStorageAccountId { get; set; }
 
+        [Input("targetManagedDiskTags")]
+        private InputList<Inputs.UserCreatedResourceTagArgs>? _targetManagedDiskTags;
+
+        /// <summary>
+        /// The tags for the target managed disks.
+        /// </summary>
+        public InputList<Inputs.UserCreatedResourceTagArgs> TargetManagedDiskTags
+        {
+            get => _targetManagedDiskTags ?? (_targetManagedDiskTags = new InputList<Inputs.UserCreatedResourceTagArgs>());
+            set => _targetManagedDiskTags = value;
+        }
+
         /// <summary>
         /// The selected target network ARM Id.
         /// </summary>
         [Input("targetNetworkId")]
         public Input<string>? TargetNetworkId { get; set; }
+
+        [Input("targetNicTags")]
+        private InputList<Inputs.UserCreatedResourceTagArgs>? _targetNicTags;
+
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public InputList<Inputs.UserCreatedResourceTagArgs> TargetNicTags
+        {
+            get => _targetNicTags ?? (_targetNicTags = new InputList<Inputs.UserCreatedResourceTagArgs>());
+            set => _targetNicTags = value;
+        }
 
         /// <summary>
         /// The target proximity placement group Id.
@@ -119,10 +167,28 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TargetVmName { get; set; }
 
         /// <summary>
+        /// The target VM security profile.
+        /// </summary>
+        [Input("targetVmSecurityProfile")]
+        public Input<Inputs.SecurityProfilePropertiesArgs>? TargetVmSecurityProfile { get; set; }
+
+        /// <summary>
         /// The target VM size.
         /// </summary>
         [Input("targetVmSize")]
         public Input<string>? TargetVmSize { get; set; }
+
+        [Input("targetVmTags")]
+        private InputList<Inputs.UserCreatedResourceTagArgs>? _targetVmTags;
+
+        /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public InputList<Inputs.UserCreatedResourceTagArgs> TargetVmTags
+        {
+            get => _targetVmTags ?? (_targetVmTags = new InputList<Inputs.UserCreatedResourceTagArgs>());
+            set => _targetVmTags = value;
+        }
 
         /// <summary>
         /// The selected test network ARM Id.
@@ -135,6 +201,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("testSubnetName")]
         public Input<string>? TestSubnetName { get; set; }
+
+        /// <summary>
+        /// The OS name selected by user.
+        /// </summary>
+        [Input("userSelectedOSName")]
+        public Input<string>? UserSelectedOSName { get; set; }
 
         public InMageRcmEnableProtectionInputArgs()
         {

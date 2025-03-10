@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements resourcePool GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetResourcePoolResult> InvokeAsync(GetResourcePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements resourcePool GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements resourcePool GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetResourcePoolResult> Invoke(GetResourcePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePoolResult>("azure-native:connectedvmwarevsphere:getResourcePool", args ?? new GetResourcePoolInvokeArgs(), options.WithDefaults());
@@ -85,10 +79,18 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     public sealed class GetResourcePoolResult
     {
         /// <summary>
+        /// Gets the max CPU usage across all cores on the pool in MHz.
+        /// </summary>
+        public readonly double CpuCapacityMHz;
+        /// <summary>
         /// Gets or sets CPULimitMHz which specifies a CPU usage limit in MHz.
         /// Utilization will not exceed this limit even if there are available resources.
         /// </summary>
         public readonly double CpuLimitMHz;
+        /// <summary>
+        /// Gets the used CPU usage across all cores on the pool in MHz.
+        /// </summary>
+        public readonly double CpuOverallUsageMHz;
         /// <summary>
         /// Gets or sets CPUReservationMHz which specifies the CPU size in MHz that is guaranteed
         /// to be available.
@@ -104,7 +106,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string CustomResourceName;
         /// <summary>
-        /// Gets or sets the datastore ARM ids.
+        /// Gets the datastore ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> DatastoreIds;
         /// <summary>
@@ -128,10 +130,18 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Gets the total amount of physical memory on the pool in GB.
+        /// </summary>
+        public readonly double MemCapacityGB;
+        /// <summary>
         /// Gets or sets MemLimitMB specifies a memory usage limit in megabytes.
         /// Utilization will not exceed the specified limit even if there are available resources.
         /// </summary>
         public readonly double MemLimitMB;
+        /// <summary>
+        /// Gets the used physical memory on the pool in GB.
+        /// </summary>
+        public readonly double MemOverallUsageGB;
         /// <summary>
         /// Gets or sets MemReservationMB which specifies the guaranteed available memory in
         /// megabytes.
@@ -155,11 +165,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the network ARM ids.
+        /// Gets the network ARM ids.
         /// </summary>
         public readonly ImmutableArray<string> NetworkIds;
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -189,7 +199,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetResourcePoolResult(
+            double cpuCapacityMHz,
+
             double cpuLimitMHz,
+
+            double cpuOverallUsageMHz,
 
             double cpuReservationMHz,
 
@@ -209,7 +223,11 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string location,
 
+            double memCapacityGB,
+
             double memLimitMB,
+
+            double memOverallUsageGB,
 
             double memReservationMB,
 
@@ -237,7 +255,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            CpuCapacityMHz = cpuCapacityMHz;
             CpuLimitMHz = cpuLimitMHz;
+            CpuOverallUsageMHz = cpuOverallUsageMHz;
             CpuReservationMHz = cpuReservationMHz;
             CpuSharesLevel = cpuSharesLevel;
             CustomResourceName = customResourceName;
@@ -247,7 +267,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             InventoryItemId = inventoryItemId;
             Kind = kind;
             Location = location;
+            MemCapacityGB = memCapacityGB;
             MemLimitMB = memLimitMB;
+            MemOverallUsageGB = memOverallUsageGB;
             MemReservationMB = memReservationMB;
             MemSharesLevel = memSharesLevel;
             MoName = moName;

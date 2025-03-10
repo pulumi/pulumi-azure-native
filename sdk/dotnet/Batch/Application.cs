@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about an application in a Batch account.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -47,6 +45,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -156,6 +160,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ApplicationArgs()
         {

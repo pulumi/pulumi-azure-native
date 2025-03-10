@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a private access resource
- * Azure REST API version: 2023-10-27-preview.
- *
- * Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-03-22-preview.
  */
 export function getPrivateAccess(args: GetPrivateAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +51,14 @@ export interface GetPrivateAccessResult {
      */
     readonly privateEndpointConnections: outputs.chaos.PrivateEndpointConnectionResponse[];
     /**
+     * Most recent provisioning state for the given privateAccess resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Public Network Access Control for PrivateAccess resource.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.chaos.SystemDataResponse;
@@ -67,9 +73,7 @@ export interface GetPrivateAccessResult {
 }
 /**
  * Get a private access resource
- * Azure REST API version: 2023-10-27-preview.
- *
- * Other available API versions: 2024-03-22-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-03-22-preview.
  */
 export function getPrivateAccessOutput(args: GetPrivateAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

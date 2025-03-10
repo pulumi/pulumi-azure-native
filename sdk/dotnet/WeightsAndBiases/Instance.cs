@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WeightsAndBiases
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2024-09-18-preview.
+    /// Azure REST API version: 2024-09-18-preview. Prior API version in Azure Native 2.x: 2024-09-18-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:weightsandbiases:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

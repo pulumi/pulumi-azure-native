@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Gets a Kusto cluster principalAssignment.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Task<GetClusterPrincipalAssignmentResult> InvokeAsync(GetClusterPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto cluster principalAssignment.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto cluster principalAssignment.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetClusterPrincipalAssignmentResult> Invoke(GetClusterPrincipalAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterPrincipalAssignmentResult>("azure-native:kusto:getClusterPrincipalAssignment", args ?? new GetClusterPrincipalAssignmentInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.Kusto
         public string PrincipalAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +75,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> PrincipalAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

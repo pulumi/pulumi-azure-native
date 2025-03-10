@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     /// </summary>
     public sealed class VirtualMachineInstancePropertiesSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enable TPM flag
+        /// </summary>
         [Input("enableTPM")]
         public Input<bool>? EnableTPM { get; set; }
 
@@ -24,8 +27,11 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         [Input("securityType")]
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.SecurityTypes>? SecurityType { get; set; }
 
+        /// <summary>
+        /// Uefi settings of the virtual machine instance
+        /// </summary>
         [Input("uefiSettings")]
-        public Input<Inputs.VirtualMachineInstancePropertiesUefiSettingsArgs>? UefiSettings { get; set; }
+        public Input<Inputs.VirtualMachineInstancePropertiesSecurityProfileUefiSettingsArgs>? UefiSettings { get; set; }
 
         public VirtualMachineInstancePropertiesSecurityProfileArgs()
         {

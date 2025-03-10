@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Quota
 {
     /// <summary>
     /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-    /// Azure REST API version: 2023-06-01-preview.
-    /// 
-    /// Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    /// Azure REST API version: 2025-03-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuota")]
     public partial class GroupQuota : global::Pulumi.CustomResource
@@ -24,11 +22,8 @@ namespace Pulumi.AzureNative.Quota
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        /// </summary>
         [Output("properties")]
-        public Output<Outputs.GroupQuotasEntityBaseResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.GroupQuotasEntityResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -106,11 +101,8 @@ namespace Pulumi.AzureNative.Quota
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
 
-        /// <summary>
-        /// Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-        /// </summary>
         [Input("properties")]
-        public Input<Inputs.GroupQuotasEntityBaseArgs>? Properties { get; set; }
+        public Input<Inputs.GroupQuotasEntityPropertiesArgs>? Properties { get; set; }
 
         public GroupQuotaArgs()
         {

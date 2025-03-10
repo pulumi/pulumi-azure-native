@@ -26,6 +26,7 @@ class ProjectEnvironmentTypeArgs:
                  resource_group_name: pulumi.Input[str],
                  creator_role_assignment: Optional[pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] = None,
                  deployment_target_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class ProjectEnvironmentTypeArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs'] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
+        :param pulumi.Input[str] display_name: The display name of the project environment type.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location for the environment type
@@ -51,6 +53,8 @@ class ProjectEnvironmentTypeArgs:
             pulumi.set(__self__, "creator_role_assignment", creator_role_assignment)
         if deployment_target_id is not None:
             pulumi.set(__self__, "deployment_target_id", deployment_target_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
         if environment_type_name is not None:
             pulumi.set(__self__, "environment_type_name", environment_type_name)
         if identity is not None:
@@ -111,6 +115,18 @@ class ProjectEnvironmentTypeArgs:
     @deployment_target_id.setter
     def deployment_target_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "deployment_target_id", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The display name of the project environment type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter(name="environmentTypeName")
@@ -192,6 +208,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
                  deployment_target_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -203,14 +220,13 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an environment type.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
         :param pulumi.Input[str] deployment_target_id: Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
+        :param pulumi.Input[str] display_name: The display name of the project environment type.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: Managed identity properties
         :param pulumi.Input[str] location: The geo-location for the environment type
@@ -228,9 +244,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-
-        Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ProjectEnvironmentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -249,6 +263,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creator_role_assignment: Optional[pulumi.Input[Union['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs', 'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgsDict']]] = None,
                  deployment_target_id: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
                  environment_type_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -268,6 +283,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
 
             __props__.__dict__["creator_role_assignment"] = creator_role_assignment
             __props__.__dict__["deployment_target_id"] = deployment_target_id
+            __props__.__dict__["display_name"] = display_name
             __props__.__dict__["environment_type_name"] = environment_type_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -280,6 +296,7 @@ class ProjectEnvironmentType(pulumi.CustomResource):
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_role_assignments"] = user_role_assignments
+            __props__.__dict__["environment_count"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -310,6 +327,8 @@ class ProjectEnvironmentType(pulumi.CustomResource):
 
         __props__.__dict__["creator_role_assignment"] = None
         __props__.__dict__["deployment_target_id"] = None
+        __props__.__dict__["display_name"] = None
+        __props__.__dict__["environment_count"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -336,6 +355,22 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
         """
         return pulumi.get(self, "deployment_target_id")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The display name of the project environment type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="environmentCount")
+    def environment_count(self) -> pulumi.Output[int]:
+        """
+        The number of environments of this type.
+        """
+        return pulumi.get(self, "environment_count")
 
     @property
     @pulumi.getter

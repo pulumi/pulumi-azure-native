@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read only following database.
- * Azure REST API version: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**
@@ -142,7 +142,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:synapse/v20210601preview:ReadWriteDatabase" }, { type: "azure-native:synapse:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadOnlyFollowingDatabase.__pulumiType, name, resourceInputs, opts);
     }

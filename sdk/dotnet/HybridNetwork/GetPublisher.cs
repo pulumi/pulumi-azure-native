@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified publisher.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetPublisherResult> InvokeAsync(GetPublisherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublisherResult>("azure-native:hybridnetwork:getPublisher", args ?? new GetPublisherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified publisher.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("azure-native:hybridnetwork:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified publisher.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("azure-native:hybridnetwork:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());

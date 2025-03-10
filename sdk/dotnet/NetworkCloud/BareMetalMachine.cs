@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-    /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:BareMetalMachine")]
     public partial class BareMetalMachine : global::Pulumi.CustomResource
@@ -114,6 +112,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The cluster version that has been applied to this machine during deployment or a version update.
+        /// </summary>
+        [Output("machineClusterVersion")]
+        public Output<string?> MachineClusterVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The custom details provided by the customer.
         /// </summary>
         [Output("machineDetails")]
@@ -196,6 +200,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("runtimeProtectionStatus")]
         public Output<Outputs.RuntimeProtectionStatusResponse> RuntimeProtectionStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of statuses that represent secret rotation activity.
+        /// </summary>
+        [Output("secretRotationStatus")]
+        public Output<ImmutableArray<Outputs.SecretRotationStatusResponse>> SecretRotationStatus { get; private set; } = null!;
 
         /// <summary>
         /// The serial number of the bare metal machine.
@@ -327,6 +337,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The cluster version that has been applied to this machine during deployment or a version update.
+        /// </summary>
+        [Input("machineClusterVersion")]
+        public Input<string>? MachineClusterVersion { get; set; }
 
         /// <summary>
         /// The custom details provided by the customer.

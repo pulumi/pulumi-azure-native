@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
-    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("additionalDataDisks")]
         public Output<ImmutableArray<Outputs.VmssDataDiskResponse>> AdditionalDataDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        /// </summary>
+        [Output("additionalNetworkInterfaceConfigurations")]
+        public Output<ImmutableArray<Outputs.AdditionalNetworkInterfaceConfigurationResponse>> AdditionalNetworkInterfaceConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
@@ -35,6 +39,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// </summary>
         [Output("capacities")]
         public Output<ImmutableDictionary<string, string>?> Capacities { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        /// </summary>
+        [Output("computerNamePrefix")]
+        public Output<string?> ComputerNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
@@ -55,6 +65,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string?> DataDiskType { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        /// </summary>
+        [Output("dscpConfigurationId")]
+        public Output<string?> DscpConfigurationId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether the network interface is accelerated networking-enabled.
         /// </summary>
         [Output("enableAcceleratedNetworking")]
@@ -67,10 +83,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<bool?> EnableEncryptionAtHost { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        /// Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         /// </summary>
         [Output("enableNodePublicIP")]
         public Output<bool?> EnableNodePublicIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        /// </summary>
+        [Output("enableNodePublicIPv6")]
+        public Output<bool?> EnableNodePublicIPv6 { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
@@ -133,6 +155,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        /// </summary>
+        [Output("natConfigurations")]
+        public Output<ImmutableArray<Outputs.NodeTypeNatConfigResponse>> NatConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         /// </summary>
         [Output("natGatewayId")]
@@ -163,10 +191,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Output<bool?> SecureBootEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        /// Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        /// </summary>
+        [Output("serviceArtifactReferenceId")]
+        public Output<string?> ServiceArtifactReferenceId { get; private set; } = null!;
 
         /// <summary>
         /// The node type sku.
@@ -388,6 +422,18 @@ namespace Pulumi.AzureNative.ServiceFabric
             set => _additionalDataDisks = value;
         }
 
+        [Input("additionalNetworkInterfaceConfigurations")]
+        private InputList<Inputs.AdditionalNetworkInterfaceConfigurationArgs>? _additionalNetworkInterfaceConfigurations;
+
+        /// <summary>
+        /// Specifies the settings for any additional secondary network interfaces to attach to the node type.
+        /// </summary>
+        public InputList<Inputs.AdditionalNetworkInterfaceConfigurationArgs> AdditionalNetworkInterfaceConfigurations
+        {
+            get => _additionalNetworkInterfaceConfigurations ?? (_additionalNetworkInterfaceConfigurations = new InputList<Inputs.AdditionalNetworkInterfaceConfigurationArgs>());
+            set => _additionalNetworkInterfaceConfigurations = value;
+        }
+
         /// <summary>
         /// The range of ports from which cluster assigned port to Service Fabric applications.
         /// </summary>
@@ -413,6 +459,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
+        /// </summary>
+        [Input("computerNamePrefix")]
+        public Input<string>? ComputerNamePrefix { get; set; }
+
+        /// <summary>
         /// Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
         /// </summary>
         [Input("dataDiskLetter")]
@@ -431,6 +483,12 @@ namespace Pulumi.AzureNative.ServiceFabric
         public InputUnion<string, Pulumi.AzureNative.ServiceFabric.DiskType>? DataDiskType { get; set; }
 
         /// <summary>
+        /// Specifies the resource id of the DSCP configuration to apply to the node type network interface.
+        /// </summary>
+        [Input("dscpConfigurationId")]
+        public Input<string>? DscpConfigurationId { get; set; }
+
+        /// <summary>
         /// Specifies whether the network interface is accelerated networking-enabled.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
@@ -443,10 +501,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<bool>? EnableEncryptionAtHost { get; set; }
 
         /// <summary>
-        /// Specifies whether each node is allocated its own public IP address. This is only supported on secondary node types with custom Load Balancers.
+        /// Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
         /// </summary>
         [Input("enableNodePublicIP")]
         public Input<bool>? EnableNodePublicIP { get; set; }
+
+        /// <summary>
+        /// Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
+        /// </summary>
+        [Input("enableNodePublicIPv6")]
+        public Input<bool>? EnableNodePublicIPv6 { get; set; }
 
         /// <summary>
         /// Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
@@ -508,6 +572,18 @@ namespace Pulumi.AzureNative.ServiceFabric
         [Input("multiplePlacementGroups")]
         public Input<bool>? MultiplePlacementGroups { get; set; }
 
+        [Input("natConfigurations")]
+        private InputList<Inputs.NodeTypeNatConfigArgs>? _natConfigurations;
+
+        /// <summary>
+        /// Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
+        /// </summary>
+        public InputList<Inputs.NodeTypeNatConfigArgs> NatConfigurations
+        {
+            get => _natConfigurations ?? (_natConfigurations = new InputList<Inputs.NodeTypeNatConfigArgs>());
+            set => _natConfigurations = value;
+        }
+
         /// <summary>
         /// Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
         /// </summary>
@@ -557,10 +633,16 @@ namespace Pulumi.AzureNative.ServiceFabric
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the security type of the nodeType. Only TrustedLaunch is currently supported
+        /// Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
         /// </summary>
         [Input("securityType")]
         public InputUnion<string, Pulumi.AzureNative.ServiceFabric.SecurityType>? SecurityType { get; set; }
+
+        /// <summary>
+        /// Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        /// </summary>
+        [Input("serviceArtifactReferenceId")]
+        public Input<string>? ServiceArtifactReferenceId { get; set; }
 
         /// <summary>
         /// The node type sku.

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// Gets the JIT request.
         /// Azure REST API version: 2021-07-01.
-        /// 
-        /// Other available API versions: 2023-12-01-preview.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());

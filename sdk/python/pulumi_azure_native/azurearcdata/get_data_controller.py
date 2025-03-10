@@ -139,9 +139,7 @@ def get_data_controller(data_controller_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataControllerResult:
     """
     Retrieves a dataController resource
-    Azure REST API version: 2023-01-15-preview.
-
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str data_controller_name: The name of the data controller
@@ -167,9 +165,7 @@ def get_data_controller_output(data_controller_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataControllerResult]:
     """
     Retrieves a dataController resource
-    Azure REST API version: 2023-01-15-preview.
-
-    Other available API versions: 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str data_controller_name: The name of the data controller

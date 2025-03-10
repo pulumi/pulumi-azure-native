@@ -275,8 +275,6 @@ def get_task(registry_name: Optional[str] = None,
     Get the properties of a specified task.
     Azure REST API version: 2019-06-01-preview.
 
-    Other available API versions: 2018-09-01, 2019-04-01.
-
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -316,8 +314,6 @@ def get_task_output(registry_name: Optional[pulumi.Input[str]] = None,
     """
     Get the properties of a specified task.
     Azure REST API version: 2019-06-01-preview.
-
-    Other available API versions: 2018-09-01, 2019-04-01.
 
 
     :param str registry_name: The name of the container registry.

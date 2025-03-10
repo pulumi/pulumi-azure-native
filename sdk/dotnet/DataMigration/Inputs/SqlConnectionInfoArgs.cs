@@ -52,6 +52,36 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataMigration.SqlSourcePlatform>? Platform { get; set; }
 
         /// <summary>
+        /// Port for Server
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Represents the ID of an HTTP resource represented by an Azure resource provider.
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// server brand version
+        /// </summary>
+        [Input("serverBrandVersion")]
+        public Input<string>? ServerBrandVersion { get; set; }
+
+        /// <summary>
+        /// name of the server
+        /// </summary>
+        [Input("serverName")]
+        public Input<string>? ServerName { get; set; }
+
+        /// <summary>
+        /// server version
+        /// </summary>
+        [Input("serverVersion")]
+        public Input<string>? ServerVersion { get; set; }
+
+        /// <summary>
         /// Whether to trust the server certificate
         /// </summary>
         [Input("trustServerCertificate")]

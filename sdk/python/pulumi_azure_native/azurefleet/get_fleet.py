@@ -27,7 +27,10 @@ class GetFleetResult:
     """
     An Compute Fleet resource
     """
-    def __init__(__self__, compute_profile=None, id=None, identity=None, location=None, name=None, plan=None, provisioning_state=None, regular_priority_profile=None, spot_priority_profile=None, system_data=None, tags=None, time_created=None, type=None, unique_id=None, vm_sizes_profile=None, zones=None):
+    def __init__(__self__, additional_locations_profile=None, compute_profile=None, id=None, identity=None, location=None, name=None, plan=None, provisioning_state=None, regular_priority_profile=None, spot_priority_profile=None, system_data=None, tags=None, time_created=None, type=None, unique_id=None, vm_attributes=None, vm_sizes_profile=None, zones=None):
+        if additional_locations_profile and not isinstance(additional_locations_profile, dict):
+            raise TypeError("Expected argument 'additional_locations_profile' to be a dict")
+        pulumi.set(__self__, "additional_locations_profile", additional_locations_profile)
         if compute_profile and not isinstance(compute_profile, dict):
             raise TypeError("Expected argument 'compute_profile' to be a dict")
         pulumi.set(__self__, "compute_profile", compute_profile)
@@ -70,12 +73,23 @@ class GetFleetResult:
         if unique_id and not isinstance(unique_id, str):
             raise TypeError("Expected argument 'unique_id' to be a str")
         pulumi.set(__self__, "unique_id", unique_id)
+        if vm_attributes and not isinstance(vm_attributes, dict):
+            raise TypeError("Expected argument 'vm_attributes' to be a dict")
+        pulumi.set(__self__, "vm_attributes", vm_attributes)
         if vm_sizes_profile and not isinstance(vm_sizes_profile, list):
             raise TypeError("Expected argument 'vm_sizes_profile' to be a list")
         pulumi.set(__self__, "vm_sizes_profile", vm_sizes_profile)
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="additionalLocationsProfile")
+    def additional_locations_profile(self) -> Optional['outputs.AdditionalLocationsProfileResponse']:
+        """
+        Represents the configuration for additional locations where Fleet resources may be deployed.
+        """
+        return pulumi.get(self, "additional_locations_profile")
 
     @property
     @pulumi.getter(name="computeProfile")
@@ -190,6 +204,14 @@ class GetFleetResult:
         return pulumi.get(self, "unique_id")
 
     @property
+    @pulumi.getter(name="vmAttributes")
+    def vm_attributes(self) -> Optional['outputs.VMAttributesResponse']:
+        """
+        Attribute based Fleet.
+        """
+        return pulumi.get(self, "vm_attributes")
+
+    @property
     @pulumi.getter(name="vmSizesProfile")
     def vm_sizes_profile(self) -> Sequence['outputs.VmSizeProfileResponse']:
         """
@@ -212,6 +234,7 @@ class AwaitableGetFleetResult(GetFleetResult):
         if False:
             yield self
         return GetFleetResult(
+            additional_locations_profile=self.additional_locations_profile,
             compute_profile=self.compute_profile,
             id=self.id,
             identity=self.identity,
@@ -226,6 +249,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             time_created=self.time_created,
             type=self.type,
             unique_id=self.unique_id,
+            vm_attributes=self.vm_attributes,
             vm_sizes_profile=self.vm_sizes_profile,
             zones=self.zones)
 
@@ -235,9 +259,7 @@ def get_fleet(fleet_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
     Get a Fleet
-    Azure REST API version: 2024-05-01-preview.
-
-    Other available API versions: 2023-11-01-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str fleet_name: The name of the Compute Fleet
@@ -250,6 +272,7 @@ def get_fleet(fleet_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurefleet:getFleet', __args__, opts=opts, typ=GetFleetResult).value
 
     return AwaitableGetFleetResult(
+        additional_locations_profile=pulumi.get(__ret__, 'additional_locations_profile'),
         compute_profile=pulumi.get(__ret__, 'compute_profile'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -264,6 +287,7 @@ def get_fleet(fleet_name: Optional[str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'),
+        vm_attributes=pulumi.get(__ret__, 'vm_attributes'),
         vm_sizes_profile=pulumi.get(__ret__, 'vm_sizes_profile'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
@@ -271,9 +295,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Get a Fleet
-    Azure REST API version: 2024-05-01-preview.
-
-    Other available API versions: 2023-11-01-preview, 2024-11-01.
+    Azure REST API version: 2024-11-01.
 
 
     :param str fleet_name: The name of the Compute Fleet
@@ -285,6 +307,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurefleet:getFleet', __args__, opts=opts, typ=GetFleetResult)
     return __ret__.apply(lambda __response__: GetFleetResult(
+        additional_locations_profile=pulumi.get(__response__, 'additional_locations_profile'),
         compute_profile=pulumi.get(__response__, 'compute_profile'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -299,5 +322,6 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
         time_created=pulumi.get(__response__, 'time_created'),
         type=pulumi.get(__response__, 'type'),
         unique_id=pulumi.get(__response__, 'unique_id'),
+        vm_attributes=pulumi.get(__response__, 'vm_attributes'),
         vm_sizes_profile=pulumi.get(__response__, 'vm_sizes_profile'),
         zones=pulumi.get(__response__, 'zones')))

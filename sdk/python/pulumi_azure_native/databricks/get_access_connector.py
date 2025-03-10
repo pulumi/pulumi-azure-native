@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetAccessConnectorResult:
     """
-    Information about azure databricks accessConnector.
+    Information about Azure Databricks Access Connector.
     """
     def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
@@ -89,7 +89,7 @@ class GetAccessConnectorResult:
     @pulumi.getter
     def properties(self) -> 'outputs.AccessConnectorPropertiesResponse':
         """
-        Azure Databricks accessConnector properties
+        Azure Databricks Access Connector properties
         """
         return pulumi.get(self, "properties")
 
@@ -138,13 +138,11 @@ def get_access_connector(connector_name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessConnectorResult:
     """
-    Gets an azure databricks accessConnector.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+    Gets an Azure Databricks Access Connector.
+    Azure REST API version: 2024-05-01.
 
 
-    :param str connector_name: The name of the azure databricks accessConnector.
+    :param str connector_name: The name of the Azure Databricks Access Connector.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -166,13 +164,11 @@ def get_access_connector_output(connector_name: Optional[pulumi.Input[str]] = No
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessConnectorResult]:
     """
-    Gets an azure databricks accessConnector.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+    Gets an Azure Databricks Access Connector.
+    Azure REST API version: 2024-05-01.
 
 
-    :param str connector_name: The name of the azure databricks accessConnector.
+    :param str connector_name: The name of the Azure Databricks Access Connector.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

@@ -89,6 +89,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             set => _jobs = value;
         }
 
+        /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        [Input("notificationSetting")]
+        public Input<Inputs.NotificationSettingArgs>? NotificationSetting { get; set; }
+
         [Input("outputs")]
         private InputMap<object>? _outputs;
 

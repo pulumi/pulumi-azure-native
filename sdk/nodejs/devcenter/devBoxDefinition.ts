@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2022-11-11-preview, 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
     /**
@@ -92,6 +90,10 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Validation status for the Dev Box Definition.
+     */
+    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
 
     /**
      * Create a DevBoxDefinition resource with the given unique name, arguments, and options.
@@ -132,6 +134,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         } else {
             resourceInputs["activeImageReference"] = undefined /*out*/;
             resourceInputs["hibernateSupport"] = undefined /*out*/;
@@ -146,6 +149,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20220901preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221012preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221111preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230101preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230401:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20231001preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20240201:DevBoxDefinition" }, { type: "azure-native:devcenter/v20240501preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20240601preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20240701preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20240801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20241001preview:DevBoxDefinition" }] };

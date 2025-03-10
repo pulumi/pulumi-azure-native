@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network security perimeter link resource
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
  */
 export class NspLink extends pulumi.CustomResource {
     /**
@@ -50,7 +48,7 @@ export class NspLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     public readonly localInboundProfiles!: pulumi.Output<string[] | undefined>;
     /**
@@ -66,7 +64,7 @@ export class NspLink extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     public readonly remoteInboundProfiles!: pulumi.Output<string[] | undefined>;
     /**
@@ -162,7 +160,7 @@ export interface NspLinkArgs {
      */
     linkName?: pulumi.Input<string>;
     /**
-     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+     * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
     localInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -170,7 +168,7 @@ export interface NspLinkArgs {
      */
     networkSecurityPerimeterName: pulumi.Input<string>;
     /**
-     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+     * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
     remoteInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**

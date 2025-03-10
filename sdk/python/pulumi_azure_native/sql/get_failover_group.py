@@ -178,8 +178,6 @@ def get_failover_group(failover_group_name: Optional[str] = None,
     Gets a failover group.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str failover_group_name: The name of the failover group.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -211,8 +209,6 @@ def get_failover_group_output(failover_group_name: Optional[pulumi.Input[str]] =
     """
     Gets a failover group.
     Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
 
 
     :param str failover_group_name: The name of the failover group.

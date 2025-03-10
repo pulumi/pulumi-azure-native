@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a sandbox custom image
- * Azure REST API version: 2023-08-15.
- *
- * Other available API versions: 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getSandboxCustomImage(args: GetSandboxCustomImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSandboxCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetSandboxCustomImageArgs {
  */
 export interface GetSandboxCustomImageResult {
     /**
+     * The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+     */
+    readonly baseImageName?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -47,9 +49,9 @@ export interface GetSandboxCustomImageResult {
      */
     readonly language: string;
     /**
-     * The version of the language.
+     * The version of the language. Either this property or baseImageName should be specified.
      */
-    readonly languageVersion: string;
+    readonly languageVersion?: string;
     /**
      * The name of the resource
      */
@@ -69,9 +71,7 @@ export interface GetSandboxCustomImageResult {
 }
 /**
  * Returns a sandbox custom image
- * Azure REST API version: 2023-08-15.
- *
- * Other available API versions: 2024-04-13.
+ * Azure REST API version: 2024-04-13.
  */
 export function getSandboxCustomImageOutput(args: GetSandboxCustomImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSandboxCustomImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

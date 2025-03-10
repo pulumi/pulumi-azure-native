@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the archive.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Task<GetArchifeResult> InvokeAsync(GetArchifeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the archive.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the archive.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetArchifeResult> Invoke(GetArchifeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchifeResult>("azure-native:containerregistry:getArchife", args ?? new GetArchifeInvokeArgs(), options.WithDefaults());

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * API connection
- * Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
- *
- * Other available API versions: 2015-08-01-preview.
+ * Azure REST API version: 2016-06-01. Prior API version in Azure Native 2.x: 2016-06-01.
  */
 export class Connection extends pulumi.CustomResource {
     /**

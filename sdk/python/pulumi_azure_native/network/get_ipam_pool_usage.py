@@ -152,9 +152,7 @@ def get_ipam_pool_usage(network_manager_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPoolUsageResult:
     """
     IpamPool usage information.
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -184,9 +182,7 @@ def get_ipam_pool_usage_output(network_manager_name: Optional[pulumi.Input[str]]
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolUsageResult]:
     """
     IpamPool usage information.
-    Azure REST API version: 2024-01-01-preview.
-
-    Other available API versions: 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_manager_name: The name of the network manager.

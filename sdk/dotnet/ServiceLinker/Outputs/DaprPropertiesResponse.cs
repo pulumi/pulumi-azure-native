@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class DaprPropertiesResponse
     {
         /// <summary>
+        /// The direction supported by the dapr binding component
+        /// </summary>
+        public readonly string BindingComponentDirection;
+        /// <summary>
         /// The dapr component type
         /// </summary>
         public readonly string? ComponentType;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// Additional dapr metadata
         /// </summary>
         public readonly ImmutableArray<Outputs.DaprMetadataResponse> Metadata;
+        /// <summary>
+        /// The runtime version supported by the properties
+        /// </summary>
+        public readonly string RuntimeVersion;
         /// <summary>
         /// The dapr component scopes
         /// </summary>
@@ -39,9 +47,13 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
         [OutputConstructor]
         private DaprPropertiesResponse(
+            string bindingComponentDirection,
+
             string? componentType,
 
             ImmutableArray<Outputs.DaprMetadataResponse> metadata,
+
+            string runtimeVersion,
 
             ImmutableArray<string> scopes,
 
@@ -49,8 +61,10 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             string? version)
         {
+            BindingComponentDirection = bindingComponentDirection;
             ComponentType = componentType;
             Metadata = metadata;
+            RuntimeVersion = runtimeVersion;
             Scopes = scopes;
             SecretStoreComponent = secretStoreComponent;
             Version = version;

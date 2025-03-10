@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
  * API to create and delete the schedules.
  *
- * Azure REST API version: 2020-10-01.
+ * Azure REST API version: 2020-10-01. Prior API version in Azure Native 2.x: 2020-10-01.
  */
 export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
     /**

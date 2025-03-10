@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.ErrorInfoResponse MigrationFailureError;
         /// <summary>
-        /// ID tracking current migration operation.
+        /// ID for current migration operation.
         /// </summary>
         public readonly string? MigrationOperationId;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource Id of the target resource (SQL VM or SQL Managed Instance).
+        /// Resource Id of the target resource.
         /// </summary>
         public readonly string? Scope;
         /// <summary>

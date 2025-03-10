@@ -129,8 +129,6 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
     Azure REST API version: 2020-05-01.
 
-    Other available API versions: 2023-01-01.
-
 
     :param str migrate_project_name: Migrate project name.
     :param str resource_group_name: Name of the Azure Resource Group that project is part of.
@@ -155,8 +153,6 @@ def get_migrate_projects_controller_migrate_project_output(migrate_project_name:
     """
     Get information related to a specific migrate project. Returns a json object of type 'migrateProject' as specified in the models section.
     Azure REST API version: 2020-05-01.
-
-    Other available API versions: 2023-01-01.
 
 
     :param str migrate_project_name: Migrate project name.

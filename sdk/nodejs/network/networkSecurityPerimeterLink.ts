@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network security perimeter link resource
- * Azure REST API version: 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterLink extends pulumi.CustomResource {
     /**
@@ -137,7 +137,7 @@ export class NetworkSecurityPerimeterLink extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20210201preview:NspLink" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230701preview:NspLink" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network/v20230801preview:NspLink" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLink" }, { type: "azure-native:network:NspLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterLink.__pulumiType, name, resourceInputs, opts);
     }

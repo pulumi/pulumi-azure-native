@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a workspace active directory admin
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getWorkspaceAadAdmin(args: GetWorkspaceAadAdminArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,8 +63,6 @@ export interface GetWorkspaceAadAdminResult {
 /**
  * Gets a workspace active directory admin
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-06-01-preview.
  */
 export function getWorkspaceAadAdminOutput(args: GetWorkspaceAadAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceAadAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

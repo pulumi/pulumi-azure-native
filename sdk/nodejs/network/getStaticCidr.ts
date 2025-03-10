@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Instance of StaticCidr resource.
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getStaticCidr(args: GetStaticCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,9 +67,7 @@ export interface GetStaticCidrResult {
 }
 /**
  * Instance of StaticCidr resource.
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getStaticCidrOutput(args: GetStaticCidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

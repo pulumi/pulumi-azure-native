@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a packet capture session by name.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a packet capture session by name.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a packet capture session by name.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double? BytesToCapturePerPacket;
         /// <summary>
+        /// The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        /// </summary>
+        public readonly Outputs.PacketCaptureSettingsResponse? CaptureSettings;
+        /// <summary>
+        /// This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        /// </summary>
+        public readonly bool? ContinuousCapture;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -149,6 +151,10 @@ namespace Pulumi.AzureNative.Network
         private GetPacketCaptureResult(
             double? bytesToCapturePerPacket,
 
+            Outputs.PacketCaptureSettingsResponse? captureSettings,
+
+            bool? continuousCapture,
+
             string etag,
 
             ImmutableArray<Outputs.PacketCaptureFilterResponse> filters,
@@ -172,6 +178,8 @@ namespace Pulumi.AzureNative.Network
             double? totalBytesPerSession)
         {
             BytesToCapturePerPacket = bytesToCapturePerPacket;
+            CaptureSettings = captureSettings;
+            ContinuousCapture = continuousCapture;
             Etag = etag;
             Filters = filters;
             Id = id;

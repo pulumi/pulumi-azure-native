@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public static class GetNetworkDevice
     {
         /// <summary>
-        /// Get the Network Device resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Gets the Network Device resource details.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkDeviceResult> InvokeAsync(GetNetworkDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDeviceResult>("azure-native:managednetworkfabric:getNetworkDevice", args ?? new GetNetworkDeviceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the Network Device resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Gets the Network Device resource details.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkDeviceResult> Invoke(GetNetworkDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceResult>("azure-native:managednetworkfabric:getNetworkDevice", args ?? new GetNetworkDeviceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the Network Device resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Gets the Network Device resource details.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkDeviceResult> Invoke(GetNetworkDeviceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDeviceResult>("azure-native:managednetworkfabric:getNetworkDevice", args ?? new GetNetworkDeviceInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkDeviceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Device
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName", required: true)]
         public string NetworkDeviceName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkDeviceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Device
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName", required: true)]
         public Input<string> NetworkDeviceName { get; set; } = null!;
@@ -85,15 +79,23 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkDeviceResult
     {
         /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        public readonly string AdministrativeState;
+        /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// The host Name of the device.
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// The host name of the device.
         /// </summary>
         public readonly string? HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -101,27 +103,35 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Management IPv4 Address.
+        /// </summary>
+        public readonly string ManagementIpv4Address;
+        /// <summary>
+        /// Management IPv6 Address.
+        /// </summary>
+        public readonly string ManagementIpv6Address;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// networkDeviceRole is the device role: Example: CE | ToR.
+        /// NetworkDeviceRole is the device role: Example: CE | ToR.
         /// </summary>
         public readonly string NetworkDeviceRole;
         /// <summary>
         /// Network Device SKU name.
         /// </summary>
-        public readonly string NetworkDeviceSku;
+        public readonly string? NetworkDeviceSku;
         /// <summary>
         /// Reference to network rack resource id.
         /// </summary>
         public readonly string NetworkRackId;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+        /// Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         /// </summary>
         public readonly string SerialNumber;
         /// <summary>
@@ -143,7 +153,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetNetworkDeviceResult(
+            string administrativeState,
+
             string? annotation,
+
+            string configurationState,
 
             string? hostName,
 
@@ -151,11 +165,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string location,
 
+            string managementIpv4Address,
+
+            string managementIpv6Address,
+
             string name,
 
             string networkDeviceRole,
 
-            string networkDeviceSku,
+            string? networkDeviceSku,
 
             string networkRackId,
 
@@ -171,10 +189,14 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string version)
         {
+            AdministrativeState = administrativeState;
             Annotation = annotation;
+            ConfigurationState = configurationState;
             HostName = hostName;
             Id = id;
             Location = location;
+            ManagementIpv4Address = managementIpv4Address;
+            ManagementIpv6Address = managementIpv6Address;
             Name = name;
             NetworkDeviceRole = networkDeviceRole;
             NetworkDeviceSku = networkDeviceSku;

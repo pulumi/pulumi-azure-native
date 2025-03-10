@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 {
     /// <summary>
     /// The DatabaseWatcherProviderHub resource.
-    /// Azure REST API version: 2023-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         [Output("datastore")]
         public Output<Outputs.DatastoreResponse?> Datastore { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        /// </summary>
+        [Output("defaultAlertRuleIdentityResourceId")]
+        public Output<string?> DefaultAlertRuleIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.
@@ -129,6 +133,12 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         [Input("datastore")]
         public Input<Inputs.DatastoreArgs>? Datastore { get; set; }
+
+        /// <summary>
+        /// The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        /// </summary>
+        [Input("defaultAlertRuleIdentityResourceId")]
+        public Input<string>? DefaultAlertRuleIdentityResourceId { get; set; }
 
         /// <summary>
         /// The managed service identities assigned to this resource.

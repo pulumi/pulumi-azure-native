@@ -189,8 +189,6 @@ def get_role_management_policy(role_management_policy_name: Optional[str] = None
     Get the specified role management policy for a resource scope
     Azure REST API version: 2024-09-01-preview.
 
-    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
-
 
     :param str role_management_policy_name: The name (guid) of the role management policy to get.
     :param str scope: The scope of the role management policy.
@@ -220,8 +218,6 @@ def get_role_management_policy_output(role_management_policy_name: Optional[pulu
     """
     Get the specified role management policy for a resource scope
     Azure REST API version: 2024-09-01-preview.
-
-    Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
 
 
     :param str role_management_policy_name: The name (guid) of the role management policy to get.

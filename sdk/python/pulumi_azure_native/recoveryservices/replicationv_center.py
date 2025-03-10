@@ -116,9 +116,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  __props__=None):
         """
         vCenter definition.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
-
-        Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         vCenter definition.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
-
-        Other available API versions: 2021-03-01, 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationvCenterArgs args: The arguments to use to populate this resource's properties.

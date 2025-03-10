@@ -9,38 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Workloads
 {
-    public static class GetSAPVirtualInstance
+    public static class GetSapVirtualInstance
     {
         /// <summary>
         /// Gets a Virtual Instance for SAP solutions resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Task<GetSAPVirtualInstanceResult> InvokeAsync(GetSAPVirtualInstanceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceArgs(), options.WithDefaults());
+        public static Task<GetSapVirtualInstanceResult> InvokeAsync(GetSapVirtualInstanceArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapVirtualInstanceResult>("azure-native:workloads:getSapVirtualInstance", args ?? new GetSapVirtualInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Virtual Instance for SAP solutions resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapVirtualInstanceResult> Invoke(GetSapVirtualInstanceInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceResult>("azure-native:workloads:getSapVirtualInstance", args ?? new GetSapVirtualInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Virtual Instance for SAP solutions resource
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPVirtualInstanceResult> Invoke(GetSAPVirtualInstanceInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPVirtualInstanceResult>("azure-native:workloads:getSAPVirtualInstance", args ?? new GetSAPVirtualInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapVirtualInstanceResult> Invoke(GetSapVirtualInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapVirtualInstanceResult>("azure-native:workloads:getSapVirtualInstance", args ?? new GetSapVirtualInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSAPVirtualInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapVirtualInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -54,13 +48,13 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPVirtualInstanceArgs()
+        public GetSapVirtualInstanceArgs()
         {
         }
-        public static new GetSAPVirtualInstanceArgs Empty => new GetSAPVirtualInstanceArgs();
+        public static new GetSapVirtualInstanceArgs Empty => new GetSapVirtualInstanceArgs();
     }
 
-    public sealed class GetSAPVirtualInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapVirtualInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -74,15 +68,15 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPVirtualInstanceInvokeArgs()
+        public GetSapVirtualInstanceInvokeArgs()
         {
         }
-        public static new GetSAPVirtualInstanceInvokeArgs Empty => new GetSAPVirtualInstanceInvokeArgs();
+        public static new GetSapVirtualInstanceInvokeArgs Empty => new GetSapVirtualInstanceInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetSAPVirtualInstanceResult
+    public sealed class GetSapVirtualInstanceResult
     {
         /// <summary>
         /// Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
@@ -101,13 +95,13 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Health;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        /// The managed service identities assigned to this resource.
         /// </summary>
-        public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
+        public readonly Outputs.SAPVirtualInstanceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -116,6 +110,10 @@ namespace Pulumi.AzureNative.Workloads
         /// Managed resource group configuration
         /// </summary>
         public readonly Outputs.ManagedRGConfigurationResponse? ManagedResourceGroupConfiguration;
+        /// <summary>
+        /// Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+        /// </summary>
+        public readonly string? ManagedResourcesNetworkAccessType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -150,7 +148,7 @@ namespace Pulumi.AzureNative.Workloads
         public readonly string Type;
 
         [OutputConstructor]
-        private GetSAPVirtualInstanceResult(
+        private GetSapVirtualInstanceResult(
             object configuration,
 
             string environment,
@@ -161,11 +159,13 @@ namespace Pulumi.AzureNative.Workloads
 
             string id,
 
-            Outputs.UserAssignedServiceIdentityResponse? identity,
+            Outputs.SAPVirtualInstanceIdentityResponse? identity,
 
             string location,
 
             Outputs.ManagedRGConfigurationResponse? managedResourceGroupConfiguration,
+
+            string? managedResourcesNetworkAccessType,
 
             string name,
 
@@ -191,6 +191,7 @@ namespace Pulumi.AzureNative.Workloads
             Identity = identity;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
+            ManagedResourcesNetworkAccessType = managedResourcesNetworkAccessType;
             Name = name;
             ProvisioningState = provisioningState;
             SapProduct = sapProduct;

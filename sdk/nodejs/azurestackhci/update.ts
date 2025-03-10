@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Update details
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class Update extends pulumi.CustomResource {
     /**
@@ -68,6 +66,10 @@ export class Update extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Minimum Sbe Version of the update.
+     */
+    public readonly minSbeVersionRequired!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -150,6 +152,7 @@ export class Update extends pulumi.CustomResource {
             resourceInputs["healthCheckDate"] = args ? args.healthCheckDate : undefined;
             resourceInputs["installedDate"] = args ? args.installedDate : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minSbeVersionRequired"] = args ? args.minSbeVersionRequired : undefined;
             resourceInputs["notifyMessage"] = args ? args.notifyMessage : undefined;
             resourceInputs["packagePath"] = args ? args.packagePath : undefined;
             resourceInputs["packageSizeInMb"] = args ? args.packageSizeInMb : undefined;
@@ -174,6 +177,7 @@ export class Update extends pulumi.CustomResource {
             resourceInputs["healthCheckDate"] = undefined /*out*/;
             resourceInputs["installedDate"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["minSbeVersionRequired"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notifyMessage"] = undefined /*out*/;
             resourceInputs["packagePath"] = undefined /*out*/;
@@ -232,6 +236,10 @@ export interface UpdateArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Minimum Sbe Version of the update.
+     */
+    minSbeVersionRequired?: pulumi.Input<string>;
     /**
      * Brief message with instructions for updates of AvailabilityType Notify.
      */

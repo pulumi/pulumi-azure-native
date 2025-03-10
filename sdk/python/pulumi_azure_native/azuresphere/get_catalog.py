@@ -27,7 +27,7 @@ class GetCatalogResult:
     """
     An Azure Sphere catalog
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +46,9 @@ class GetCatalogResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        pulumi.set(__self__, "tenant_id", tenant_id)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -99,6 +102,14 @@ class GetCatalogResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Sphere tenant ID associated with the catalog.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -119,6 +130,7 @@ class AwaitableGetCatalogResult(GetCatalogResult):
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -127,9 +139,7 @@ def get_catalog(catalog_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogResult:
     """
     Get a Catalog
-    Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog
@@ -148,15 +158,14 @@ def get_catalog(catalog_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogResult]:
     """
     Get a Catalog
-    Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog
@@ -174,4 +183,5 @@ def get_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
+        tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type')))

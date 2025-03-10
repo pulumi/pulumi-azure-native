@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetworkSecurityGroup resource.
- * Azure REST API version: 2024-02-01-preview.
- *
- * Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
@@ -65,6 +63,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The observed state of Network Security Group
+     */
+    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.NetworkSecurityGroupStatusResponse>;
+    /**
      * A collection of references to logical networks that are currently using this NSG
      */
     public /*out*/ readonly subnets!: pulumi.Output<outputs.azurestackhci.LogicalNetworkArmReferenceResponse[]>;
@@ -104,6 +106,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -114,6 +117,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkInterfaces"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subnets"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

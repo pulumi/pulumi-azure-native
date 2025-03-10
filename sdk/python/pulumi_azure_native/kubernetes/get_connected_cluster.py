@@ -27,19 +27,31 @@ class GetConnectedClusterResult:
     """
     Represents a connected cluster.
     """
-    def __init__(__self__, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, private_link_scope_resource_id=None, private_link_state=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
+    def __init__(__self__, aad_profile=None, agent_public_key_certificate=None, agent_version=None, arc_agent_profile=None, azure_hybrid_benefit=None, connectivity_status=None, distribution=None, distribution_version=None, id=None, identity=None, infrastructure=None, kind=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, miscellaneous_properties=None, name=None, offering=None, private_link_scope_resource_id=None, private_link_state=None, provisioning_state=None, system_data=None, tags=None, total_core_count=None, total_node_count=None, type=None):
+        if aad_profile and not isinstance(aad_profile, dict):
+            raise TypeError("Expected argument 'aad_profile' to be a dict")
+        pulumi.set(__self__, "aad_profile", aad_profile)
         if agent_public_key_certificate and not isinstance(agent_public_key_certificate, str):
             raise TypeError("Expected argument 'agent_public_key_certificate' to be a str")
         pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
+        if arc_agent_profile and not isinstance(arc_agent_profile, dict):
+            raise TypeError("Expected argument 'arc_agent_profile' to be a dict")
+        pulumi.set(__self__, "arc_agent_profile", arc_agent_profile)
+        if azure_hybrid_benefit and not isinstance(azure_hybrid_benefit, str):
+            raise TypeError("Expected argument 'azure_hybrid_benefit' to be a str")
+        pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
         if connectivity_status and not isinstance(connectivity_status, str):
             raise TypeError("Expected argument 'connectivity_status' to be a str")
         pulumi.set(__self__, "connectivity_status", connectivity_status)
         if distribution and not isinstance(distribution, str):
             raise TypeError("Expected argument 'distribution' to be a str")
         pulumi.set(__self__, "distribution", distribution)
+        if distribution_version and not isinstance(distribution_version, str):
+            raise TypeError("Expected argument 'distribution_version' to be a str")
+        pulumi.set(__self__, "distribution_version", distribution_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +61,9 @@ class GetConnectedClusterResult:
         if infrastructure and not isinstance(infrastructure, str):
             raise TypeError("Expected argument 'infrastructure' to be a str")
         pulumi.set(__self__, "infrastructure", infrastructure)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
@@ -61,6 +76,9 @@ class GetConnectedClusterResult:
         if managed_identity_certificate_expiration_time and not isinstance(managed_identity_certificate_expiration_time, str):
             raise TypeError("Expected argument 'managed_identity_certificate_expiration_time' to be a str")
         pulumi.set(__self__, "managed_identity_certificate_expiration_time", managed_identity_certificate_expiration_time)
+        if miscellaneous_properties and not isinstance(miscellaneous_properties, dict):
+            raise TypeError("Expected argument 'miscellaneous_properties' to be a dict")
+        pulumi.set(__self__, "miscellaneous_properties", miscellaneous_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -93,6 +111,14 @@ class GetConnectedClusterResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="aadProfile")
+    def aad_profile(self) -> Optional['outputs.AadProfileResponse']:
+        """
+        AAD profile for the connected cluster.
+        """
+        return pulumi.get(self, "aad_profile")
+
+    @property
     @pulumi.getter(name="agentPublicKeyCertificate")
     def agent_public_key_certificate(self) -> str:
         """
@@ -109,6 +135,22 @@ class GetConnectedClusterResult:
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="arcAgentProfile")
+    def arc_agent_profile(self) -> Optional['outputs.ArcAgentProfileResponse']:
+        """
+        Arc agentry configuration for the provisioned cluster.
+        """
+        return pulumi.get(self, "arc_agent_profile")
+
+    @property
+    @pulumi.getter(name="azureHybridBenefit")
+    def azure_hybrid_benefit(self) -> Optional[str]:
+        """
+        Indicates whether Azure Hybrid Benefit is opted in
+        """
+        return pulumi.get(self, "azure_hybrid_benefit")
+
+    @property
     @pulumi.getter(name="connectivityStatus")
     def connectivity_status(self) -> str:
         """
@@ -123,6 +165,14 @@ class GetConnectedClusterResult:
         The Kubernetes distribution running on this connected cluster.
         """
         return pulumi.get(self, "distribution")
+
+    @property
+    @pulumi.getter(name="distributionVersion")
+    def distribution_version(self) -> Optional[str]:
+        """
+        The Kubernetes distribution version on this connected cluster.
+        """
+        return pulumi.get(self, "distribution_version")
 
     @property
     @pulumi.getter
@@ -147,6 +197,14 @@ class GetConnectedClusterResult:
         The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         """
         return pulumi.get(self, "infrastructure")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The kind of connected cluster.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="kubernetesVersion")
@@ -179,6 +237,14 @@ class GetConnectedClusterResult:
         Expiration time of the managed identity certificate
         """
         return pulumi.get(self, "managed_identity_certificate_expiration_time")
+
+    @property
+    @pulumi.getter(name="miscellaneousProperties")
+    def miscellaneous_properties(self) -> Mapping[str, str]:
+        """
+        More properties related to the Connected Cluster
+        """
+        return pulumi.get(self, "miscellaneous_properties")
 
     @property
     @pulumi.getter
@@ -267,17 +333,23 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
         if False:
             yield self
         return GetConnectedClusterResult(
+            aad_profile=self.aad_profile,
             agent_public_key_certificate=self.agent_public_key_certificate,
             agent_version=self.agent_version,
+            arc_agent_profile=self.arc_agent_profile,
+            azure_hybrid_benefit=self.azure_hybrid_benefit,
             connectivity_status=self.connectivity_status,
             distribution=self.distribution,
+            distribution_version=self.distribution_version,
             id=self.id,
             identity=self.identity,
             infrastructure=self.infrastructure,
+            kind=self.kind,
             kubernetes_version=self.kubernetes_version,
             last_connectivity_time=self.last_connectivity_time,
             location=self.location,
             managed_identity_certificate_expiration_time=self.managed_identity_certificate_expiration_time,
+            miscellaneous_properties=self.miscellaneous_properties,
             name=self.name,
             offering=self.offering,
             private_link_scope_resource_id=self.private_link_scope_resource_id,
@@ -295,9 +367,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedClusterResult:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -310,17 +380,23 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetes:getConnectedCluster', __args__, opts=opts, typ=GetConnectedClusterResult).value
 
     return AwaitableGetConnectedClusterResult(
+        aad_profile=pulumi.get(__ret__, 'aad_profile'),
         agent_public_key_certificate=pulumi.get(__ret__, 'agent_public_key_certificate'),
         agent_version=pulumi.get(__ret__, 'agent_version'),
+        arc_agent_profile=pulumi.get(__ret__, 'arc_agent_profile'),
+        azure_hybrid_benefit=pulumi.get(__ret__, 'azure_hybrid_benefit'),
         connectivity_status=pulumi.get(__ret__, 'connectivity_status'),
         distribution=pulumi.get(__ret__, 'distribution'),
+        distribution_version=pulumi.get(__ret__, 'distribution_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         infrastructure=pulumi.get(__ret__, 'infrastructure'),
+        kind=pulumi.get(__ret__, 'kind'),
         kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
         last_connectivity_time=pulumi.get(__ret__, 'last_connectivity_time'),
         location=pulumi.get(__ret__, 'location'),
         managed_identity_certificate_expiration_time=pulumi.get(__ret__, 'managed_identity_certificate_expiration_time'),
+        miscellaneous_properties=pulumi.get(__ret__, 'miscellaneous_properties'),
         name=pulumi.get(__ret__, 'name'),
         offering=pulumi.get(__ret__, 'offering'),
         private_link_scope_resource_id=pulumi.get(__ret__, 'private_link_scope_resource_id'),
@@ -336,9 +412,7 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedClusterResult]:
     """
     Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-    Azure REST API version: 2022-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-07-15-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
@@ -350,17 +424,23 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetes:getConnectedCluster', __args__, opts=opts, typ=GetConnectedClusterResult)
     return __ret__.apply(lambda __response__: GetConnectedClusterResult(
+        aad_profile=pulumi.get(__response__, 'aad_profile'),
         agent_public_key_certificate=pulumi.get(__response__, 'agent_public_key_certificate'),
         agent_version=pulumi.get(__response__, 'agent_version'),
+        arc_agent_profile=pulumi.get(__response__, 'arc_agent_profile'),
+        azure_hybrid_benefit=pulumi.get(__response__, 'azure_hybrid_benefit'),
         connectivity_status=pulumi.get(__response__, 'connectivity_status'),
         distribution=pulumi.get(__response__, 'distribution'),
+        distribution_version=pulumi.get(__response__, 'distribution_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         infrastructure=pulumi.get(__response__, 'infrastructure'),
+        kind=pulumi.get(__response__, 'kind'),
         kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
         last_connectivity_time=pulumi.get(__response__, 'last_connectivity_time'),
         location=pulumi.get(__response__, 'location'),
         managed_identity_certificate_expiration_time=pulumi.get(__response__, 'managed_identity_certificate_expiration_time'),
+        miscellaneous_properties=pulumi.get(__response__, 'miscellaneous_properties'),
         name=pulumi.get(__response__, 'name'),
         offering=pulumi.get(__response__, 'offering'),
         private_link_scope_resource_id=pulumi.get(__response__, 'private_link_scope_resource_id'),

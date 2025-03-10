@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
     /// <summary>
     /// Gets or sets the PrometheusOS provider properties.
     /// </summary>
-    public sealed class PrometheusOSProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PrometheusOsProviderInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// URL of the Node Exporter endpoint
@@ -46,9 +46,9 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         [Input("sslPreference")]
         public InputUnion<string, Pulumi.AzureNative.Workloads.SslPreference>? SslPreference { get; set; }
 
-        public PrometheusOSProviderInstancePropertiesArgs()
+        public PrometheusOsProviderInstancePropertiesArgs()
         {
         }
-        public static new PrometheusOSProviderInstancePropertiesArgs Empty => new PrometheusOSProviderInstancePropertiesArgs();
+        public static new PrometheusOsProviderInstancePropertiesArgs Empty => new PrometheusOsProviderInstancePropertiesArgs();
     }
 }

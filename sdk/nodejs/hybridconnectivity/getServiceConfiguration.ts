@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details about the service to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getServiceConfiguration(args: GetServiceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,9 +98,7 @@ export interface GetServiceConfigurationResult {
 }
 /**
  * Gets the details about the service to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getServiceConfigurationOutput(args: GetServiceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

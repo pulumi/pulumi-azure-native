@@ -74,7 +74,7 @@ class GetKafkaConfigurationResult:
     @pulumi.getter
     def credentials(self) -> Optional['outputs.CredentialsResponse']:
         """
-        Credentials to access event hub.
+        Credentials to access the event streaming service attached to the purview account.
         """
         return pulumi.get(self, "credentials")
 
@@ -173,9 +173,7 @@ def get_kafka_configuration(account_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaConfigurationResult:
     """
     Gets the kafka configuration for the account
-    Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    Azure REST API version: 2024-04-01-preview.
 
 
     :param str account_name: The name of the account.
@@ -207,9 +205,7 @@ def get_kafka_configuration_output(account_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConfigurationResult]:
     """
     Gets the kafka configuration for the account
-    Azure REST API version: 2021-12-01.
-
-    Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+    Azure REST API version: 2024-04-01-preview.
 
 
     :param str account_name: The name of the account.

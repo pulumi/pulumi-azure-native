@@ -54,15 +54,15 @@ class GetLedgerResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[str]:
+    def location(self) -> str:
         """
-        The Azure location where the Confidential Ledger is running.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -70,7 +70,7 @@ class GetLedgerResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -86,7 +86,7 @@ class GetLedgerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -94,7 +94,7 @@ class GetLedgerResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +102,7 @@ class GetLedgerResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -127,13 +127,11 @@ def get_ledger(ledger_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLedgerResult:
     """
     Retrieves the properties of a Confidential Ledger.
-    Azure REST API version: 2022-05-13.
-
-    Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+    Azure REST API version: 2023-06-28-preview.
 
 
     :param str ledger_name: Name of the Confidential Ledger
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ledgerName'] = ledger_name
@@ -154,13 +152,11 @@ def get_ledger_output(ledger_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Retrieves the properties of a Confidential Ledger.
-    Azure REST API version: 2022-05-13.
-
-    Other available API versions: 2023-01-26-preview, 2023-06-28-preview, 2024-07-09-preview, 2024-09-19-preview.
+    Azure REST API version: 2023-06-28-preview.
 
 
     :param str ledger_name: Name of the Confidential Ledger
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['ledgerName'] = ledger_name

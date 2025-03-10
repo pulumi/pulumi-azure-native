@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string ConnectionState;
         /// <summary>
+        /// The garbage collection properties of the connected registry.
+        /// </summary>
+        public readonly Outputs.GarbageCollectionPropertiesResponse? GarbageCollection;
+        /// <summary>
         /// The resource ID.
         /// </summary>
         public readonly string Id;
@@ -169,6 +167,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string connectionState,
 
+            Outputs.GarbageCollectionPropertiesResponse? garbageCollection,
+
             string id,
 
             string lastActivityTime,
@@ -198,6 +198,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             Activation = activation;
             ClientTokenIds = clientTokenIds;
             ConnectionState = connectionState;
+            GarbageCollection = garbageCollection;
             Id = id;
             LastActivityTime = lastActivityTime;
             Logging = logging;

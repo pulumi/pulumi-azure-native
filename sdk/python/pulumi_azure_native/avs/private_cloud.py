@@ -27,31 +27,42 @@ class PrivateCloudArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  availability: Optional[pulumi.Input['AvailabilityPropertiesArgs']] = None,
+                 dns_zone_type: Optional[pulumi.Input[Union[str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 identity: Optional[pulumi.Input['PrivateCloudIdentityArgs']] = None,
+                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  nsxt_password: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[str]] = None):
+                 vcenter_password: Optional[pulumi.Input[str]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateCloud resource.
         :param pulumi.Input['ManagementClusterArgs'] management_cluster: The default cluster used for management
-        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as
+               well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+               A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['SkuArgs'] sku: The private cloud SKU
+        :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input['AvailabilityPropertiesArgs'] availability: Properties describing how the cloud is distributed across availability zones
+        :param pulumi.Input[Union[str, 'DnsZoneType']] dns_zone_type: The type of DNS zone to use.
         :param pulumi.Input['EncryptionArgs'] encryption: Customer managed key encryption, can be enabled or disabled
-        :param pulumi.Input['PrivateCloudIdentityArgs'] identity: The identity of the private cloud, if configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_network_blocks: Array of additional networks noncontiguous with networkBlock. Networks must be
+               unique and non-overlapping across VNet in your subscription, on-premise, and
+               this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+               (A.B.C.D/X).
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
+        :param pulumi.Input[str] virtual_network_id: Azure resource ID of the virtual network
         """
         pulumi.set(__self__, "management_cluster", management_cluster)
         pulumi.set(__self__, "network_block", network_block)
@@ -59,8 +70,12 @@ class PrivateCloudArgs:
         pulumi.set(__self__, "sku", sku)
         if availability is not None:
             pulumi.set(__self__, "availability", availability)
+        if dns_zone_type is not None:
+            pulumi.set(__self__, "dns_zone_type", dns_zone_type)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if extended_network_blocks is not None:
+            pulumi.set(__self__, "extended_network_blocks", extended_network_blocks)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if identity_sources is not None:
@@ -79,6 +94,8 @@ class PrivateCloudArgs:
             pulumi.set(__self__, "tags", tags)
         if vcenter_password is not None:
             pulumi.set(__self__, "vcenter_password", vcenter_password)
+        if virtual_network_id is not None:
+            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter(name="managementCluster")
@@ -96,7 +113,9 @@ class PrivateCloudArgs:
     @pulumi.getter(name="networkBlock")
     def network_block(self) -> pulumi.Input[str]:
         """
-        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        The block of addresses should be unique across VNet in your subscription as
+        well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        A,B,C,D are between 0 and 255, and X is between 0 and 22
         """
         return pulumi.get(self, "network_block")
 
@@ -120,7 +139,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['SkuArgs']:
         """
-        The private cloud SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
 
@@ -141,6 +160,18 @@ class PrivateCloudArgs:
         pulumi.set(self, "availability", value)
 
     @property
+    @pulumi.getter(name="dnsZoneType")
+    def dns_zone_type(self) -> Optional[pulumi.Input[Union[str, 'DnsZoneType']]]:
+        """
+        The type of DNS zone to use.
+        """
+        return pulumi.get(self, "dns_zone_type")
+
+    @dns_zone_type.setter
+    def dns_zone_type(self, value: Optional[pulumi.Input[Union[str, 'DnsZoneType']]]):
+        pulumi.set(self, "dns_zone_type", value)
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
         """
@@ -153,15 +184,30 @@ class PrivateCloudArgs:
         pulumi.set(self, "encryption", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['PrivateCloudIdentityArgs']]:
+    @pulumi.getter(name="extendedNetworkBlocks")
+    def extended_network_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The identity of the private cloud, if configured.
+        Array of additional networks noncontiguous with networkBlock. Networks must be
+        unique and non-overlapping across VNet in your subscription, on-premise, and
+        this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        (A.B.C.D/X).
+        """
+        return pulumi.get(self, "extended_network_blocks")
+
+    @extended_network_blocks.setter
+    def extended_network_blocks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "extended_network_blocks", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+        """
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['PrivateCloudIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -192,7 +238,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -228,7 +274,7 @@ class PrivateCloudArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -248,6 +294,18 @@ class PrivateCloudArgs:
     def vcenter_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vcenter_password", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure resource ID of the virtual network
+        """
+        return pulumi.get(self, "virtual_network_id")
+
+    @virtual_network_id.setter
+    def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_id", value)
+
 
 class PrivateCloud(pulumi.CustomResource):
     @overload
@@ -255,8 +313,10 @@ class PrivateCloud(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
+                 dns_zone_type: Optional[pulumi.Input[Union[str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['PrivateCloudIdentityArgs', 'PrivateCloudIdentityArgsDict']]] = None,
+                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -268,29 +328,36 @@ class PrivateCloud(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_password: Optional[pulumi.Input[str]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A private cloud resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']] availability: Properties describing how the cloud is distributed across availability zones
+        :param pulumi.Input[Union[str, 'DnsZoneType']] dns_zone_type: The type of DNS zone to use.
         :param pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']] encryption: Customer managed key encryption, can be enabled or disabled
-        :param pulumi.Input[Union['PrivateCloudIdentityArgs', 'PrivateCloudIdentityArgsDict']] identity: The identity of the private cloud, if configured.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_network_blocks: Array of additional networks noncontiguous with networkBlock. Networks must be
+               unique and non-overlapping across VNet in your subscription, on-premise, and
+               this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+               (A.B.C.D/X).
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ManagementClusterArgs', 'ManagementClusterArgsDict']] management_cluster: The default cluster used for management
-        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as
+               well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+               A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The private cloud SKU
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
+        :param pulumi.Input[str] virtual_network_id: Azure resource ID of the virtual network
         """
         ...
     @overload
@@ -300,9 +367,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private cloud resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.
@@ -320,8 +385,10 @@ class PrivateCloud(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability: Optional[pulumi.Input[Union['AvailabilityPropertiesArgs', 'AvailabilityPropertiesArgsDict']]] = None,
+                 dns_zone_type: Optional[pulumi.Input[Union[str, 'DnsZoneType']]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionArgs', 'EncryptionArgsDict']]] = None,
-                 identity: Optional[pulumi.Input[Union['PrivateCloudIdentityArgs', 'PrivateCloudIdentityArgsDict']]] = None,
+                 extended_network_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IdentitySourceArgs', 'IdentitySourceArgsDict']]]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -333,6 +400,7 @@ class PrivateCloud(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vcenter_password: Optional[pulumi.Input[str]] = None,
+                 virtual_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,7 +411,9 @@ class PrivateCloud(pulumi.CustomResource):
             __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
 
             __props__.__dict__["availability"] = availability
+            __props__.__dict__["dns_zone_type"] = dns_zone_type
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["extended_network_blocks"] = extended_network_blocks
             __props__.__dict__["identity"] = identity
             __props__.__dict__["identity_sources"] = identity_sources
             if internet is None:
@@ -366,6 +436,7 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vcenter_password"] = vcenter_password
+            __props__.__dict__["virtual_network_id"] = virtual_network_id
             __props__.__dict__["circuit"] = None
             __props__.__dict__["endpoints"] = None
             __props__.__dict__["external_cloud_links"] = None
@@ -376,6 +447,7 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["provisioning_network"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["secondary_circuit"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vcenter_certificate_thumbprint"] = None
             __props__.__dict__["vmotion_network"] = None
@@ -405,8 +477,10 @@ class PrivateCloud(pulumi.CustomResource):
 
         __props__.__dict__["availability"] = None
         __props__.__dict__["circuit"] = None
+        __props__.__dict__["dns_zone_type"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["endpoints"] = None
+        __props__.__dict__["extended_network_blocks"] = None
         __props__.__dict__["external_cloud_links"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["identity_sources"] = None
@@ -423,10 +497,12 @@ class PrivateCloud(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["secondary_circuit"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vcenter_certificate_thumbprint"] = None
         __props__.__dict__["vcenter_password"] = None
+        __props__.__dict__["virtual_network_id"] = None
         __props__.__dict__["vmotion_network"] = None
         return PrivateCloud(resource_name, opts=opts, __props__=__props__)
 
@@ -447,6 +523,14 @@ class PrivateCloud(pulumi.CustomResource):
         return pulumi.get(self, "circuit")
 
     @property
+    @pulumi.getter(name="dnsZoneType")
+    def dns_zone_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of DNS zone to use.
+        """
+        return pulumi.get(self, "dns_zone_type")
+
+    @property
     @pulumi.getter
     def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
         """
@@ -463,6 +547,17 @@ class PrivateCloud(pulumi.CustomResource):
         return pulumi.get(self, "endpoints")
 
     @property
+    @pulumi.getter(name="extendedNetworkBlocks")
+    def extended_network_blocks(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Array of additional networks noncontiguous with networkBlock. Networks must be
+        unique and non-overlapping across VNet in your subscription, on-premise, and
+        this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
+        (A.B.C.D/X).
+        """
+        return pulumi.get(self, "extended_network_blocks")
+
+    @property
     @pulumi.getter(name="externalCloudLinks")
     def external_cloud_links(self) -> pulumi.Output[Sequence[str]]:
         """
@@ -472,9 +567,9 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.PrivateCloudIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
         """
-        The identity of the private cloud, if configured.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -498,7 +593,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -522,7 +617,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -530,7 +625,9 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="networkBlock")
     def network_block(self) -> pulumi.Output[str]:
         """
-        The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        The block of addresses should be unique across VNet in your subscription as
+        well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
+        A,B,C,D are between 0 and 255, and X is between 0 and 22
         """
         return pulumi.get(self, "network_block")
 
@@ -538,7 +635,8 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="nsxPublicIpQuotaRaised")
     def nsx_public_ip_quota_raised(self) -> pulumi.Output[str]:
         """
-        Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        Flag to indicate whether the private cloud has the quota for provisioned NSX
+        Public IP count raised from 64 to 1024
         """
         return pulumi.get(self, "nsx_public_ip_quota_raised")
 
@@ -578,7 +676,8 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter(name="secondaryCircuit")
     def secondary_circuit(self) -> pulumi.Output[Optional['outputs.CircuitResponse']]:
         """
-        A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        A secondary expressRoute circuit from a separate AZ. Only present in a
+        stretched private cloud
         """
         return pulumi.get(self, "secondary_circuit")
 
@@ -586,15 +685,23 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
-        The private cloud SKU
+        The SKU (Stock Keeping Unit) assigned to this resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -602,7 +709,7 @@ class PrivateCloud(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -621,6 +728,14 @@ class PrivateCloud(pulumi.CustomResource):
         Optionally, set the vCenter admin password when the private cloud is created
         """
         return pulumi.get(self, "vcenter_password")
+
+    @property
+    @pulumi.getter(name="virtualNetworkId")
+    def virtual_network_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Azure resource ID of the virtual network
+        """
+        return pulumi.get(self, "virtual_network_id")
 
     @property
     @pulumi.getter(name="vmotionNetwork")

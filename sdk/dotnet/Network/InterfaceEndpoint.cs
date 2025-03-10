@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Interface endpoint resource.
-    /// Azure REST API version: 2019-02-01.
+    /// Azure REST API version: 2019-02-01. Prior API version in Azure Native 2.x: 2019-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : global::Pulumi.CustomResource
@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200801:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20201101:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210301:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210801:InterfaceEndpoint" },
@@ -136,14 +137,24 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:InterfaceEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230501:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230601:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230601:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230901:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230901:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20231101:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20231101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240101:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240101:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:PrivateEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:InterfaceEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:PrivateEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:PrivateEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

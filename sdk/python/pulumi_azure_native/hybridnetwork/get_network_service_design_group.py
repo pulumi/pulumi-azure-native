@@ -128,9 +128,7 @@ def get_network_service_design_group(network_service_design_group_name: Optional
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkServiceDesignGroupResult:
     """
     Gets information about the specified networkServiceDesign group.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str network_service_design_group_name: The name of the network service design group.
@@ -158,9 +156,7 @@ def get_network_service_design_group_output(network_service_design_group_name: O
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkServiceDesignGroupResult]:
     """
     Gets information about the specified networkServiceDesign group.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str network_service_design_group_name: The name of the network service design group.

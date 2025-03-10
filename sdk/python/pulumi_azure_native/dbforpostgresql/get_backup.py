@@ -128,9 +128,7 @@ def get_backup(backup_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupResult:
     """
     Get specific backup for a given server.
-    Azure REST API version: 2024-03-01-preview.
-
-    Other available API versions: 2024-08-01, 2024-11-01-preview.
+    Azure REST API version: 2024-08-01.
 
 
     :param str backup_name: The name of the backup.
@@ -158,9 +156,7 @@ def get_backup_output(backup_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupResult]:
     """
     Get specific backup for a given server.
-    Azure REST API version: 2024-03-01-preview.
-
-    Other available API versions: 2024-08-01, 2024-11-01-preview.
+    Azure REST API version: 2024-08-01.
 
 
     :param str backup_name: The name of the backup.

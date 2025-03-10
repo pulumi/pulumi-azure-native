@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a SQL virtual machine.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01.
  */
 export function getSqlVirtualMachine(args: GetSqlVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +40,11 @@ export interface GetSqlVirtualMachineArgs {
  */
 export interface GetSqlVirtualMachineResult {
     /**
-     * Assessment Settings.
+     * Additional VM Patching solution enabled on the Virtual Machine
+     */
+    readonly additionalVmPatch: string;
+    /**
+     * SQL best practices Assessment Settings.
      */
     readonly assessmentSettings?: outputs.sqlvirtualmachine.AssessmentSettingsResponse;
     /**
@@ -54,17 +56,25 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly autoPatchingSettings?: outputs.sqlvirtualmachine.AutoPatchingSettingsResponse;
     /**
+     * Enable automatic upgrade of Sql IaaS extension Agent.
+     */
+    readonly enableAutomaticUpgrade?: boolean;
+    /**
      * Resource ID.
      */
     readonly id: string;
     /**
-     * Azure Active Directory identity of the server.
+     * DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
      */
     readonly identity?: outputs.sqlvirtualmachine.ResourceIdentityResponse;
     /**
      * Key vault credential settings.
      */
     readonly keyVaultCredentialSettings?: outputs.sqlvirtualmachine.KeyVaultCredentialSettingsResponse;
+    /**
+     * SQL IaaS Agent least privilege mode.
+     */
+    readonly leastPrivilegeMode?: string;
     /**
      * Resource location.
      */
@@ -73,6 +83,10 @@ export interface GetSqlVirtualMachineResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * Operating System of the current SQL Virtual Machine.
+     */
+    readonly osType: string;
     /**
      * Provisioning state to track the async operation status.
      */
@@ -90,7 +104,7 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly sqlImageSku?: string;
     /**
-     * SQL Server Management type.
+     * SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
      */
     readonly sqlManagement?: string;
     /**
@@ -114,9 +128,17 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Troubleshooting status
+     */
+    readonly troubleshootingStatus: outputs.sqlvirtualmachine.TroubleshootingStatusResponse;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Virtual Machine Identity details used for Sql IaaS extension configurations.
+     */
+    readonly virtualMachineIdentitySettings?: outputs.sqlvirtualmachine.VirtualMachineIdentityResponse;
     /**
      * ARM Resource id of underlying virtual machine created from SQL marketplace image.
      */
@@ -132,9 +154,7 @@ export interface GetSqlVirtualMachineResult {
 }
 /**
  * Gets a SQL virtual machine.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01.
  */
 export function getSqlVirtualMachineOutput(args: GetSqlVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

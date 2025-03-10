@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements VirtualMachineTemplate GET method.
- * Azure REST API version: 2022-05-21-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getVirtualMachineTemplate(args: GetVirtualMachineTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -139,9 +137,7 @@ export interface GetVirtualMachineTemplateResult {
 }
 /**
  * Implements VirtualMachineTemplate GET method.
- * Azure REST API version: 2022-05-21-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+ * Azure REST API version: 2023-04-01-preview.
  */
 export function getVirtualMachineTemplateOutput(args: GetVirtualMachineTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

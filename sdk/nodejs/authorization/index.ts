@@ -339,55 +339,6 @@ utilities.lazyLoad(exports, ["VariableValueAtManagementGroup"], () => require(".
 // Export enums:
 export * from "../types/enums/authorization";
 
-// Export sub-modules:
-import * as v20171001preview from "./v20171001preview";
-import * as v20180501 from "./v20180501";
-import * as v20190601 from "./v20190601";
-import * as v20200301 from "./v20200301";
-import * as v20200301preview from "./v20200301preview";
-import * as v20200401preview from "./v20200401preview";
-import * as v20200501 from "./v20200501";
-import * as v20201001 from "./v20201001";
-import * as v20201001preview from "./v20201001preview";
-import * as v20210601 from "./v20210601";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220401 from "./v20220401";
-import * as v20220501preview from "./v20220501preview";
-import * as v20220601 from "./v20220601";
-import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
-import * as v20230401 from "./v20230401";
-import * as v20240201preview from "./v20240201preview";
-import * as v20240401 from "./v20240401";
-import * as v20240501 from "./v20240501";
-import * as v20240901preview from "./v20240901preview";
-import * as v20250101 from "./v20250101";
-
-export {
-    v20171001preview,
-    v20180501,
-    v20190601,
-    v20200301,
-    v20200301preview,
-    v20200401preview,
-    v20200501,
-    v20201001,
-    v20201001preview,
-    v20210601,
-    v20211201preview,
-    v20220401,
-    v20220501preview,
-    v20220601,
-    v20220701preview,
-    v20220801preview,
-    v20230401,
-    v20240201preview,
-    v20240401,
-    v20240501,
-    v20240901preview,
-    v20250101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

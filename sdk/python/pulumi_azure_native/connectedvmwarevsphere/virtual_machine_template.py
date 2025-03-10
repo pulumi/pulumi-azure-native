@@ -188,9 +188,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Define the virtualMachineTemplate.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,9 +211,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the virtualMachineTemplate.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -474,7 +470,7 @@ class VirtualMachineTemplate(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

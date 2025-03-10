@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the source control configuration of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSourceControl(args: GetWebAppSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,9 +81,7 @@ export interface GetWebAppSourceControlResult {
 }
 /**
  * Description for Gets the source control configuration of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSourceControlOutput(args: GetWebAppSourceControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSourceControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

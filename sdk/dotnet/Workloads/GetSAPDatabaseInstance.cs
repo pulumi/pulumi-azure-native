@@ -9,38 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Workloads
 {
-    public static class GetSAPDatabaseInstance
+    public static class GetSapDatabaseInstance
     {
         /// <summary>
         /// Gets the SAP Database Instance resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Task<GetSAPDatabaseInstanceResult> InvokeAsync(GetSAPDatabaseInstanceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceArgs(), options.WithDefaults());
+        public static Task<GetSapDatabaseInstanceResult> InvokeAsync(GetSapDatabaseInstanceArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSapDatabaseInstanceResult>("azure-native:workloads:getSapDatabaseInstance", args ?? new GetSapDatabaseInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Database Instance resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapDatabaseInstanceResult> Invoke(GetSapDatabaseInstanceInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapDatabaseInstanceResult>("azure-native:workloads:getSapDatabaseInstance", args ?? new GetSapDatabaseInstanceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Database Instance resource.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
-        public static Output<GetSAPDatabaseInstanceResult> Invoke(GetSAPDatabaseInstanceInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSAPDatabaseInstanceResult>("azure-native:workloads:getSAPDatabaseInstance", args ?? new GetSAPDatabaseInstanceInvokeArgs(), options.WithDefaults());
+        public static Output<GetSapDatabaseInstanceResult> Invoke(GetSapDatabaseInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSapDatabaseInstanceResult>("azure-native:workloads:getSapDatabaseInstance", args ?? new GetSapDatabaseInstanceInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetSAPDatabaseInstanceArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapDatabaseInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
@@ -60,13 +54,13 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public string SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPDatabaseInstanceArgs()
+        public GetSapDatabaseInstanceArgs()
         {
         }
-        public static new GetSAPDatabaseInstanceArgs Empty => new GetSAPDatabaseInstanceArgs();
+        public static new GetSapDatabaseInstanceArgs Empty => new GetSapDatabaseInstanceArgs();
     }
 
-    public sealed class GetSAPDatabaseInstanceInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetSapDatabaseInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Database resource name string modeled as parameter for auto generation to work correctly.
@@ -86,15 +80,15 @@ namespace Pulumi.AzureNative.Workloads
         [Input("sapVirtualInstanceName", required: true)]
         public Input<string> SapVirtualInstanceName { get; set; } = null!;
 
-        public GetSAPDatabaseInstanceInvokeArgs()
+        public GetSapDatabaseInstanceInvokeArgs()
         {
         }
-        public static new GetSAPDatabaseInstanceInvokeArgs Empty => new GetSAPDatabaseInstanceInvokeArgs();
+        public static new GetSapDatabaseInstanceInvokeArgs Empty => new GetSapDatabaseInstanceInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetSAPDatabaseInstanceResult
+    public sealed class GetSapDatabaseInstanceResult
     {
         /// <summary>
         /// Database SID name.
@@ -109,7 +103,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly Outputs.SAPVirtualInstanceErrorResponse Errors;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -158,7 +152,7 @@ namespace Pulumi.AzureNative.Workloads
         public readonly ImmutableArray<Outputs.DatabaseVmDetailsResponse> VmDetails;
 
         [OutputConstructor]
-        private GetSAPDatabaseInstanceResult(
+        private GetSapDatabaseInstanceResult(
             string databaseSid,
 
             string databaseType,

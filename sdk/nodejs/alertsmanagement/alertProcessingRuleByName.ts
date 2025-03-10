@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Alert processing rule object containing target scopes, conditions and scheduling logic.
- * Azure REST API version: 2021-08-08.
+ * Azure REST API version: 2021-08-08. Prior API version in Azure Native 2.x: 2021-08-08.
  */
 export class AlertProcessingRuleByName extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement:ActionRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertProcessingRuleByName.__pulumiType, name, resourceInputs, opts);
     }

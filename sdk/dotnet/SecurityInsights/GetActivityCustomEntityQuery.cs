@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets an entity query.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Task<GetActivityCustomEntityQueryResult> InvokeAsync(GetActivityCustomEntityQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActivityCustomEntityQueryResult>("azure-native:securityinsights:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an entity query.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an entity query.
-        /// Azure REST API version: 2023-06-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetActivityCustomEntityQueryResult> Invoke(GetActivityCustomEntityQueryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActivityCustomEntityQueryResult>("azure-native:securityinsights:getActivityCustomEntityQuery", args ?? new GetActivityCustomEntityQueryInvokeArgs(), options.WithDefaults());

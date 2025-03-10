@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
- *
- * Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**

@@ -322,8 +322,6 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
     Gets a streaming endpoint.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -367,8 +365,6 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
     """
     Gets a streaming endpoint.
     Azure REST API version: 2022-11-01.
-
-    Other available API versions: 2018-06-01-preview.
 
 
     :param str account_name: The Media Services account name.

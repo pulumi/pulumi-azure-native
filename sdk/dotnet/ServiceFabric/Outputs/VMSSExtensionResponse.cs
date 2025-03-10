@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
         /// </summary>
         public readonly object? Settings;
         /// <summary>
+        /// Indicates the setup order for the extension.
+        /// </summary>
+        public readonly ImmutableArray<string> SetupOrder;
+        /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".
         /// </summary>
         public readonly string Type;
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 
             object? settings,
 
+            ImmutableArray<string> setupOrder,
+
             string type,
 
             string typeHandlerVersion)
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SetupOrder = setupOrder;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

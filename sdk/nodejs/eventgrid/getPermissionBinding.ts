@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a permission binding.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPermissionBinding(args: GetPermissionBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +65,7 @@ export interface GetPermissionBindingResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to the PermissionBinding resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -82,9 +80,7 @@ export interface GetPermissionBindingResult {
 }
 /**
  * Get properties of a permission binding.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getPermissionBindingOutput(args: GetPermissionBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

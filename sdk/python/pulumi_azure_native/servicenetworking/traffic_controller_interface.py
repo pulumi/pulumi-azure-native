@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['TrafficControllerInterfaceArgs', 'TrafficControllerInterface']
 
@@ -22,18 +23,22 @@ class TrafficControllerInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
+                 security_policy_configurations: Optional[pulumi.Input['SecurityPolicyConfigurationsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TrafficControllerInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['SecurityPolicyConfigurationsArgs'] security_policy_configurations: Security Policy Configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if security_policy_configurations is not None:
+            pulumi.set(__self__, "security_policy_configurations", security_policy_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if traffic_controller_name is not None:
@@ -62,6 +67,18 @@ class TrafficControllerInterfaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="securityPolicyConfigurations")
+    def security_policy_configurations(self) -> Optional[pulumi.Input['SecurityPolicyConfigurationsArgs']]:
+        """
+        Security Policy Configuration
+        """
+        return pulumi.get(self, "security_policy_configurations")
+
+    @security_policy_configurations.setter
+    def security_policy_configurations(self, value: Optional[pulumi.Input['SecurityPolicyConfigurationsArgs']]):
+        pulumi.set(self, "security_policy_configurations", value)
 
     @property
     @pulumi.getter
@@ -95,19 +112,19 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_policy_configurations: Optional[pulumi.Input[Union['SecurityPolicyConfigurationsArgs', 'SecurityPolicyConfigurationsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
-
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['SecurityPolicyConfigurationsArgs', 'SecurityPolicyConfigurationsArgsDict']] security_policy_configurations: Security Policy Configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
         """
@@ -119,9 +136,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
-
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TrafficControllerInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -140,6 +155,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 security_policy_configurations: Optional[pulumi.Input[Union['SecurityPolicyConfigurationsArgs', 'SecurityPolicyConfigurationsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -155,6 +171,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["security_policy_configurations"] = security_policy_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["traffic_controller_name"] = traffic_controller_name
             __props__.__dict__["associations"] = None
@@ -162,6 +179,7 @@ class TrafficControllerInterface(pulumi.CustomResource):
             __props__.__dict__["frontends"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["security_policies"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20231101:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20240501preview:TrafficControllerInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20250101:TrafficControllerInterface")])
@@ -194,6 +212,8 @@ class TrafficControllerInterface(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["security_policies"] = None
+        __props__.__dict__["security_policy_configurations"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -246,6 +266,22 @@ class TrafficControllerInterface(pulumi.CustomResource):
         The status of the last operation.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="securityPolicies")
+    def security_policies(self) -> pulumi.Output[Sequence['outputs.ResourceIdResponse']]:
+        """
+        Security Policies References List
+        """
+        return pulumi.get(self, "security_policies")
+
+    @property
+    @pulumi.getter(name="securityPolicyConfigurations")
+    def security_policy_configurations(self) -> pulumi.Output[Optional['outputs.SecurityPolicyConfigurationsResponse']]:
+        """
+        Security Policy Configuration
+        """
+        return pulumi.get(self, "security_policy_configurations")
 
     @property
     @pulumi.getter(name="systemData")

@@ -27,19 +27,25 @@ class GetVirtualHardDiskResult:
     """
     The virtual hard disk resource definition.
     """
-    def __init__(__self__, block_size_bytes=None, container_id=None, disk_file_format=None, disk_size_gb=None, dynamic=None, extended_location=None, hyper_v_generation=None, id=None, location=None, logical_sector_bytes=None, name=None, physical_sector_bytes=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, block_size_bytes=None, container_id=None, create_from_local=None, disk_file_format=None, disk_size_gb=None, download_url=None, dynamic=None, extended_location=None, hyper_v_generation=None, id=None, location=None, logical_sector_bytes=None, name=None, physical_sector_bytes=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
         if block_size_bytes and not isinstance(block_size_bytes, int):
             raise TypeError("Expected argument 'block_size_bytes' to be a int")
         pulumi.set(__self__, "block_size_bytes", block_size_bytes)
         if container_id and not isinstance(container_id, str):
             raise TypeError("Expected argument 'container_id' to be a str")
         pulumi.set(__self__, "container_id", container_id)
+        if create_from_local and not isinstance(create_from_local, bool):
+            raise TypeError("Expected argument 'create_from_local' to be a bool")
+        pulumi.set(__self__, "create_from_local", create_from_local)
         if disk_file_format and not isinstance(disk_file_format, str):
             raise TypeError("Expected argument 'disk_file_format' to be a str")
         pulumi.set(__self__, "disk_file_format", disk_file_format)
         if disk_size_gb and not isinstance(disk_size_gb, float):
             raise TypeError("Expected argument 'disk_size_gb' to be a float")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if download_url and not isinstance(download_url, str):
+            raise TypeError("Expected argument 'download_url' to be a str")
+        pulumi.set(__self__, "download_url", download_url)
         if dynamic and not isinstance(dynamic, bool):
             raise TypeError("Expected argument 'dynamic' to be a bool")
         pulumi.set(__self__, "dynamic", dynamic)
@@ -83,6 +89,9 @@ class GetVirtualHardDiskResult:
     @property
     @pulumi.getter(name="blockSizeBytes")
     def block_size_bytes(self) -> Optional[int]:
+        """
+        Block size in bytes
+        """
         return pulumi.get(self, "block_size_bytes")
 
     @property
@@ -92,6 +101,14 @@ class GetVirtualHardDiskResult:
         Storage ContainerID of the storage container to be used for VHD
         """
         return pulumi.get(self, "container_id")
+
+    @property
+    @pulumi.getter(name="createFromLocal")
+    def create_from_local(self) -> Optional[bool]:
+        """
+        Boolean indicating whether it is an existing local hard disk or if one should be created.
+        """
+        return pulumi.get(self, "create_from_local")
 
     @property
     @pulumi.getter(name="diskFileFormat")
@@ -108,6 +125,14 @@ class GetVirtualHardDiskResult:
         Size of the disk in GB
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="downloadUrl")
+    def download_url(self) -> Optional[str]:
+        """
+        URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        """
+        return pulumi.get(self, "download_url")
 
     @property
     @pulumi.getter
@@ -137,7 +162,7 @@ class GetVirtualHardDiskResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -152,6 +177,9 @@ class GetVirtualHardDiskResult:
     @property
     @pulumi.getter(name="logicalSectorBytes")
     def logical_sector_bytes(self) -> Optional[int]:
+        """
+        Logical sector in bytes
+        """
         return pulumi.get(self, "logical_sector_bytes")
 
     @property
@@ -165,6 +193,9 @@ class GetVirtualHardDiskResult:
     @property
     @pulumi.getter(name="physicalSectorBytes")
     def physical_sector_bytes(self) -> Optional[int]:
+        """
+        Physical sector in bytes
+        """
         return pulumi.get(self, "physical_sector_bytes")
 
     @property
@@ -216,8 +247,10 @@ class AwaitableGetVirtualHardDiskResult(GetVirtualHardDiskResult):
         return GetVirtualHardDiskResult(
             block_size_bytes=self.block_size_bytes,
             container_id=self.container_id,
+            create_from_local=self.create_from_local,
             disk_file_format=self.disk_file_format,
             disk_size_gb=self.disk_size_gb,
+            download_url=self.download_url,
             dynamic=self.dynamic,
             extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
@@ -238,9 +271,7 @@ def get_virtual_hard_disk(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHardDiskResult:
     """
     Gets a virtual hard disk
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -255,8 +286,10 @@ def get_virtual_hard_disk(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualHardDiskResult(
         block_size_bytes=pulumi.get(__ret__, 'block_size_bytes'),
         container_id=pulumi.get(__ret__, 'container_id'),
+        create_from_local=pulumi.get(__ret__, 'create_from_local'),
         disk_file_format=pulumi.get(__ret__, 'disk_file_format'),
         disk_size_gb=pulumi.get(__ret__, 'disk_size_gb'),
+        download_url=pulumi.get(__ret__, 'download_url'),
         dynamic=pulumi.get(__ret__, 'dynamic'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
@@ -275,9 +308,7 @@ def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHardDiskResult]:
     """
     Gets a virtual hard disk
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -291,8 +322,10 @@ def get_virtual_hard_disk_output(resource_group_name: Optional[pulumi.Input[str]
     return __ret__.apply(lambda __response__: GetVirtualHardDiskResult(
         block_size_bytes=pulumi.get(__response__, 'block_size_bytes'),
         container_id=pulumi.get(__response__, 'container_id'),
+        create_from_local=pulumi.get(__response__, 'create_from_local'),
         disk_file_format=pulumi.get(__response__, 'disk_file_format'),
         disk_size_gb=pulumi.get(__response__, 'disk_size_gb'),
+        download_url=pulumi.get(__response__, 'download_url'),
         dynamic=pulumi.get(__response__, 'dynamic'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),

@@ -9,32 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.IoTOperations
 {
-    public static class GetDataFlowEndpoint
+    public static class GetDataflowEndpoint
     {
         /// <summary>
-        /// Get a DataFlowEndpointResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// Get a DataflowEndpointResource
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
-        public static Task<GetDataFlowEndpointResult> InvokeAsync(GetDataFlowEndpointArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataFlowEndpointResult>("azure-native:iotoperations:getDataFlowEndpoint", args ?? new GetDataFlowEndpointArgs(), options.WithDefaults());
+        public static Task<GetDataflowEndpointResult> InvokeAsync(GetDataflowEndpointArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataflowEndpointResult>("azure-native:iotoperations:getDataflowEndpoint", args ?? new GetDataflowEndpointArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a DataFlowEndpointResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// Get a DataflowEndpointResource
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
-        public static Output<GetDataFlowEndpointResult> Invoke(GetDataFlowEndpointInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowEndpointResult>("azure-native:iotoperations:getDataFlowEndpoint", args ?? new GetDataFlowEndpointInvokeArgs(), options.WithDefaults());
+        public static Output<GetDataflowEndpointResult> Invoke(GetDataflowEndpointInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointResult>("azure-native:iotoperations:getDataflowEndpoint", args ?? new GetDataflowEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get a DataFlowEndpointResource
-        /// Azure REST API version: 2024-07-01-preview.
+        /// Get a DataflowEndpointResource
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
-        public static Output<GetDataFlowEndpointResult> Invoke(GetDataFlowEndpointInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDataFlowEndpointResult>("azure-native:iotoperations:getDataFlowEndpoint", args ?? new GetDataFlowEndpointInvokeArgs(), options.WithDefaults());
+        public static Output<GetDataflowEndpointResult> Invoke(GetDataflowEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataflowEndpointResult>("azure-native:iotoperations:getDataflowEndpoint", args ?? new GetDataflowEndpointInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetDataFlowEndpointArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataflowEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Instance dataflowEndpoint resource
@@ -54,13 +54,13 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public GetDataFlowEndpointArgs()
+        public GetDataflowEndpointArgs()
         {
         }
-        public static new GetDataFlowEndpointArgs Empty => new GetDataFlowEndpointArgs();
+        public static new GetDataflowEndpointArgs Empty => new GetDataflowEndpointArgs();
     }
 
-    public sealed class GetDataFlowEndpointInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class GetDataflowEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of Instance dataflowEndpoint resource
@@ -80,15 +80,15 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public GetDataFlowEndpointInvokeArgs()
+        public GetDataflowEndpointInvokeArgs()
         {
         }
-        public static new GetDataFlowEndpointInvokeArgs Empty => new GetDataFlowEndpointInvokeArgs();
+        public static new GetDataflowEndpointInvokeArgs Empty => new GetDataflowEndpointInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class GetDataFlowEndpointResult
+    public sealed class GetDataflowEndpointResult
     {
         /// <summary>
         /// Edge location of the resource.
@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly Outputs.DataFlowEndpointPropertiesResponse Properties;
+        public readonly Outputs.DataflowEndpointPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -116,14 +116,14 @@ namespace Pulumi.AzureNative.IoTOperations
         public readonly string Type;
 
         [OutputConstructor]
-        private GetDataFlowEndpointResult(
+        private GetDataflowEndpointResult(
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
 
             string name,
 
-            Outputs.DataFlowEndpointPropertiesResponse properties,
+            Outputs.DataflowEndpointPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 

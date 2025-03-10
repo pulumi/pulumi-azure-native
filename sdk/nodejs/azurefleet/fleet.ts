@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Compute Fleet resource
- * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2023-11-01-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === Fleet.__pulumiType;
     }
 
+    /**
+     * Represents the configuration for additional locations where Fleet resources may be deployed.
+     */
+    public readonly additionalLocationsProfile!: pulumi.Output<outputs.azurefleet.AdditionalLocationsProfileResponse | undefined>;
     /**
      * Compute Profile to use for running user's workloads.
      */
@@ -93,6 +95,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
     /**
+     * Attribute based Fleet.
+     */
+    public readonly vmAttributes!: pulumi.Output<outputs.azurefleet.VMAttributesResponse | undefined>;
+    /**
      * List of VM sizes supported for Compute Fleet
      */
     public readonly vmSizesProfile!: pulumi.Output<outputs.azurefleet.VmSizeProfileResponse[]>;
@@ -121,6 +127,7 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.vmSizesProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSizesProfile'");
             }
+            resourceInputs["additionalLocationsProfile"] = args ? args.additionalLocationsProfile : undefined;
             resourceInputs["computeProfile"] = args ? args.computeProfile : undefined;
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -130,6 +137,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["spotPriorityProfile"] = args ? args.spotPriorityProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vmAttributes"] = args ? args.vmAttributes : undefined;
             resourceInputs["vmSizesProfile"] = args ? args.vmSizesProfile : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,6 +147,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalLocationsProfile"] = undefined /*out*/;
             resourceInputs["computeProfile"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -152,6 +161,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["vmAttributes"] = undefined /*out*/;
             resourceInputs["vmSizesProfile"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
@@ -166,6 +176,10 @@ export class Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a Fleet resource.
  */
 export interface FleetArgs {
+    /**
+     * Represents the configuration for additional locations where Fleet resources may be deployed.
+     */
+    additionalLocationsProfile?: pulumi.Input<inputs.azurefleet.AdditionalLocationsProfileArgs>;
     /**
      * Compute Profile to use for running user's workloads.
      */
@@ -202,6 +216,10 @@ export interface FleetArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Attribute based Fleet.
+     */
+    vmAttributes?: pulumi.Input<inputs.azurefleet.VMAttributesArgs>;
     /**
      * List of VM sizes supported for Compute Fleet
      */

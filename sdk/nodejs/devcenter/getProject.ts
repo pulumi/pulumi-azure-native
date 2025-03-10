@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific project.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetProjectArgs {
  */
 export interface GetProjectResult {
     /**
+     * Settings to be used when associating a project with a catalog.
+     */
+    readonly catalogSettings?: outputs.devcenter.ProjectCatalogSettingsResponse;
+    /**
      * Description of the project.
      */
     readonly description?: string;
@@ -49,9 +51,17 @@ export interface GetProjectResult {
      */
     readonly devCenterUri: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The display name of the project.
+     */
+    readonly displayName?: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Managed identity properties
+     */
+    readonly identity?: outputs.devcenter.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -83,9 +93,7 @@ export interface GetProjectResult {
 }
 /**
  * Gets a specific project.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

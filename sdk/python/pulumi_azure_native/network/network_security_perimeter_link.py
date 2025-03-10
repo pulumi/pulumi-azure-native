@@ -149,7 +149,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
                  __props__=None):
         """
         The network security perimeter link resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network security perimeter link resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterLinkArgs args: The arguments to use to populate this resource's properties.
@@ -222,7 +222,7 @@ class NetworkSecurityPerimeterLink(pulumi.CustomResource):
             __props__.__dict__["remote_perimeter_location"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterLink")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspLink"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterLink"), pulumi.Alias(type_="azure-native:network:NspLink")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterLink, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterLink',

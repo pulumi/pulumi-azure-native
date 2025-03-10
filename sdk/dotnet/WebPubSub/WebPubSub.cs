@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// A class represent a resource.
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-    /// 
-    /// Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSub")]
     public partial class WebPubSub : global::Pulumi.CustomResource
@@ -59,19 +57,25 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The kind of the service
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
         /// Live trace configuration of a Microsoft.SignalRService resource.
         /// </summary>
         [Output("liveTraceConfiguration")]
         public Output<Outputs.LiveTraceConfigurationResponse?> LiveTraceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -109,10 +113,26 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<int> PublicPort { get; private set; } = null!;
 
         /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        [Output("regionEndpointEnabled")]
+        public Output<string?> RegionEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource log configuration of a Microsoft.SignalRService resource.
         /// </summary>
         [Output("resourceLogConfiguration")]
         public Output<Outputs.ResourceLogConfigurationResponse?> ResourceLogConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Output("resourceStopped")]
+        public Output<string?> ResourceStopped { get; private set; } = null!;
 
         /// <summary>
         /// The publicly accessible port of the resource which is designed for customer server side usage.
@@ -133,13 +153,19 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<Outputs.ResourceSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// SocketIO settings for the resource
+        /// </summary>
+        [Output("socketIO")]
+        public Output<Outputs.WebPubSubSocketIOSettingsResponse?> SocketIO { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -151,7 +177,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<Outputs.WebPubSubTlsSettingsResponse?> Tls { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -247,13 +273,19 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The kind of the service
+        /// </summary>
+        [Input("kind")]
+        public InputUnion<string, Pulumi.AzureNative.WebPubSub.ServiceKind>? Kind { get; set; }
+
+        /// <summary>
         /// Live trace configuration of a Microsoft.SignalRService resource.
         /// </summary>
         [Input("liveTraceConfiguration")]
         public Input<Inputs.LiveTraceConfigurationArgs>? LiveTraceConfiguration { get; set; }
 
         /// <summary>
-        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -273,7 +305,15 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// This property is replica specific. Disable the regional endpoint without replica is not allowed.
+        /// </summary>
+        [Input("regionEndpointEnabled")]
+        public Input<string>? RegionEndpointEnabled { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -291,16 +331,30 @@ namespace Pulumi.AzureNative.WebPubSub
         public Input<string>? ResourceName { get; set; }
 
         /// <summary>
+        /// Stop or start the resource.  Default to "False".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        [Input("resourceStopped")]
+        public Input<string>? ResourceStopped { get; set; }
+
+        /// <summary>
         /// The billing information of the resource.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.ResourceSkuArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// SocketIO settings for the resource
+        /// </summary>
+        [Input("socketIO")]
+        public Input<Inputs.WebPubSubSocketIOSettingsArgs>? SocketIO { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags of the service which is a list of key value pairs that describe the resource.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -319,6 +373,8 @@ namespace Pulumi.AzureNative.WebPubSub
             DisableAadAuth = false;
             DisableLocalAuth = false;
             PublicNetworkAccess = "Enabled";
+            RegionEndpointEnabled = "Enabled";
+            ResourceStopped = "false";
         }
         public static new WebPubSubArgs Empty => new WebPubSubArgs();
     }

@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations
 {
     /// <summary>
     /// Instance dataflowEndpoint resource
-    /// Azure REST API version: 2024-07-01-preview.
+    /// Azure REST API version: 2024-11-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:iotoperations:DataFlowEndpoint")]
-    public partial class DataFlowEndpoint : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:iotoperations:DataflowEndpoint")]
+    public partial class DataflowEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Edge location of the resource.
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataFlowEndpointPropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataflowEndpointPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -48,19 +48,19 @@ namespace Pulumi.AzureNative.IoTOperations
 
 
         /// <summary>
-        /// Create a DataFlowEndpoint resource with the given unique name, arguments, and options.
+        /// Create a DataflowEndpoint resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataFlowEndpoint(string name, DataFlowEndpointArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:iotoperations:DataFlowEndpoint", name, args ?? new DataFlowEndpointArgs(), MakeResourceOptions(options, ""))
+        public DataflowEndpoint(string name, DataflowEndpointArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:iotoperations:DataflowEndpoint", name, args ?? new DataflowEndpointArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private DataFlowEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:iotoperations:DataFlowEndpoint", name, null, MakeResourceOptions(options, id))
+        private DataflowEndpoint(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:iotoperations:DataflowEndpoint", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,11 @@ namespace Pulumi.AzureNative.IoTOperations
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataFlowEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataFlowEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataFlowEndpoint" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataFlowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataflowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataflowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataflowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataflowEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataFlowEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,20 +85,20 @@ namespace Pulumi.AzureNative.IoTOperations
             return merged;
         }
         /// <summary>
-        /// Get an existing DataFlowEndpoint resource's state with the given name, ID, and optional extra
+        /// Get an existing DataflowEndpoint resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DataFlowEndpoint Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static DataflowEndpoint Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DataFlowEndpoint(name, id, options);
+            return new DataflowEndpoint(name, id, options);
         }
     }
 
-    public sealed class DataFlowEndpointArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Instance dataflowEndpoint resource
@@ -120,7 +122,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.DataFlowEndpointPropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.DataflowEndpointPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -128,9 +130,9 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public DataFlowEndpointArgs()
+        public DataflowEndpointArgs()
         {
         }
-        public static new DataFlowEndpointArgs Empty => new DataFlowEndpointArgs();
+        public static new DataflowEndpointArgs Empty => new DataflowEndpointArgs();
     }
 }

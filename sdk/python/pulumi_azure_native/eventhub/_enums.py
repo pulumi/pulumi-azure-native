@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AccessRights',
     'ApplicationGroupPolicyType',
+    'CaptureIdentityType',
     'CleanupPolicyRetentionDescription',
     'ClusterSkuName',
     'DefaultAction',
@@ -40,6 +41,14 @@ class ApplicationGroupPolicyType(str, Enum):
     Application Group Policy types
     """
     THROTTLING_POLICY = "ThrottlingPolicy"
+
+
+class CaptureIdentityType(str, Enum):
+    """
+    Type of Azure Active Directory Managed Identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class CleanupPolicyRetentionDescription(str, Enum):

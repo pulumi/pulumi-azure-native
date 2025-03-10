@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class AddressDetailsResponse
     {
         /// <summary>
-        /// Customer address and contact details. It should be address resource
+        /// Customer address and contact details.
         /// </summary>
         public readonly Outputs.AddressPropertiesResponse ForwardAddress;
         /// <summary>
-        /// Return shipping address
+        /// Return shipping address.
         /// </summary>
         public readonly Outputs.AddressPropertiesResponse ReturnAddress;
 

@@ -27,7 +27,7 @@ class GetPlanMemberResult:
     """
     Represents a devcenter plan member resource.
     """
-    def __init__(__self__, id=None, member_id=None, member_type=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, member_id=None, member_type=None, name=None, provisioning_state=None, sync_status=None, system_data=None, tags=None, tier=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,12 +43,18 @@ class GetPlanMemberResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sync_status and not isinstance(sync_status, dict):
+            raise TypeError("Expected argument 'sync_status' to be a dict")
+        pulumi.set(__self__, "sync_status", sync_status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tier and not isinstance(tier, str):
+            raise TypeError("Expected argument 'tier' to be a str")
+        pulumi.set(__self__, "tier", tier)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -94,6 +100,14 @@ class GetPlanMemberResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="syncStatus")
+    def sync_status(self) -> 'outputs.PlanMemberSyncStatusResponse':
+        """
+        The sync status of the member.
+        """
+        return pulumi.get(self, "sync_status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -108,6 +122,14 @@ class GetPlanMemberResult:
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        The tier of the member.
+        """
+        return pulumi.get(self, "tier")
 
     @property
     @pulumi.getter
@@ -129,8 +151,10 @@ class AwaitableGetPlanMemberResult(GetPlanMemberResult):
             member_type=self.member_type,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            sync_status=self.sync_status,
             system_data=self.system_data,
             tags=self.tags,
+            tier=self.tier,
             type=self.type)
 
 
@@ -140,9 +164,7 @@ def get_plan_member(member_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanMemberResult:
     """
     Gets a devcenter plan member.
-    Azure REST API version: 2024-05-01-preview.
-
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str member_name: The name of a devcenter plan member.
@@ -162,8 +184,10 @@ def get_plan_member(member_name: Optional[str] = None,
         member_type=pulumi.get(__ret__, 'member_type'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sync_status=pulumi.get(__ret__, 'sync_status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'))
 def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
                            plan_name: Optional[pulumi.Input[str]] = None,
@@ -171,9 +195,7 @@ def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanMemberResult]:
     """
     Gets a devcenter plan member.
-    Azure REST API version: 2024-05-01-preview.
-
-    Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str member_name: The name of a devcenter plan member.
@@ -192,6 +214,8 @@ def get_plan_member_output(member_name: Optional[pulumi.Input[str]] = None,
         member_type=pulumi.get(__response__, 'member_type'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sync_status=pulumi.get(__response__, 'sync_status'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
+        tier=pulumi.get(__response__, 'tier'),
         type=pulumi.get(__response__, 'type')))

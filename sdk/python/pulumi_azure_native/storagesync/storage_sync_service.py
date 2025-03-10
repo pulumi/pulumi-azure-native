@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 
@@ -22,19 +23,25 @@ __all__ = ['StorageSyncServiceArgs', 'StorageSyncService']
 class StorageSyncServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_identity: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a StorageSyncService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
-        :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] use_identity: Use Identity authorization when customer have finished setup RBAC permissions.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if incoming_traffic_policy is not None:
             pulumi.set(__self__, "incoming_traffic_policy", incoming_traffic_policy)
         if location is not None:
@@ -43,6 +50,8 @@ class StorageSyncServiceArgs:
             pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if use_identity is not None:
+            pulumi.set(__self__, "use_identity", use_identity)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -55,6 +64,18 @@ class StorageSyncServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="incomingTrafficPolicy")
@@ -72,7 +93,7 @@ class StorageSyncServiceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -96,7 +117,7 @@ class StorageSyncServiceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -104,31 +125,45 @@ class StorageSyncServiceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="useIdentity")
+    def use_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use Identity authorization when customer have finished setup RBAC permissions.
+        """
+        return pulumi.get(self, "use_identity")
+
+    @use_identity.setter
+    def use_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_identity", value)
+
 
 class StorageSyncService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_identity: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Storage Sync Service object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[Union[str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
-        :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[bool] use_identity: Use Identity authorization when customer have finished setup RBAC permissions.
         """
         ...
     @overload
@@ -138,9 +173,7 @@ class StorageSyncService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage Sync Service object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.
@@ -157,11 +190,13 @@ class StorageSyncService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  incoming_traffic_policy: Optional[pulumi.Input[Union[str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 use_identity: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,6 +206,7 @@ class StorageSyncService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StorageSyncServiceArgs.__new__(StorageSyncServiceArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["incoming_traffic_policy"] = incoming_traffic_policy
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -178,6 +214,7 @@ class StorageSyncService(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["use_identity"] = use_identity
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
             __props__.__dict__["name"] = None
@@ -211,6 +248,7 @@ class StorageSyncService(pulumi.CustomResource):
 
         __props__ = StorageSyncServiceArgs.__new__(StorageSyncServiceArgs)
 
+        __props__.__dict__["identity"] = None
         __props__.__dict__["incoming_traffic_policy"] = None
         __props__.__dict__["last_operation_name"] = None
         __props__.__dict__["last_workflow_id"] = None
@@ -223,7 +261,16 @@ class StorageSyncService(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_identity"] = None
         return StorageSyncService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="incomingTrafficPolicy")
@@ -320,4 +367,12 @@ class StorageSyncService(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useIdentity")
+    def use_identity(self) -> pulumi.Output[bool]:
+        """
+        Use Identity authorization when customer have finished setup RBAC permissions.
+        """
+        return pulumi.get(self, "use_identity")
 

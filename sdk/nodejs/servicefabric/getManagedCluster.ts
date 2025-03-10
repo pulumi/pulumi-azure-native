@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,6 +95,10 @@ export interface GetManagedClusterResult {
      */
     readonly clusterUpgradeMode?: string;
     /**
+     * Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
+     */
+    readonly ddosProtectionPlanId?: string;
+    /**
      * The cluster dns name.
      */
     readonly dnsName: string;
@@ -104,6 +106,10 @@ export interface GetManagedClusterResult {
      * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
      */
     readonly enableAutoOSUpgrade?: boolean;
+    /**
+     * If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
+     */
+    readonly enableHttpGatewayExclusiveAuthMode?: boolean;
     /**
      * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
      */
@@ -129,13 +135,17 @@ export interface GetManagedClusterResult {
      */
     readonly httpGatewayConnectionPort?: number;
     /**
+     * The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
+     */
+    readonly httpGatewayTokenAuthConnectionPort?: number;
+    /**
      * Azure resource identifier.
      */
     readonly id: string;
     /**
      * The list of IP tags associated with the default public IP address of the cluster.
      */
-    readonly ipTags?: outputs.servicefabric.IPTagResponse[];
+    readonly ipTags?: outputs.servicefabric.IpTagResponse[];
     /**
      * The IPv4 address associated with the public load balancer of the cluster.
      */
@@ -165,9 +175,13 @@ export interface GetManagedClusterResult {
      */
     readonly provisioningState: string;
     /**
-     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     * Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
      */
     readonly publicIPPrefixId?: string;
+    /**
+     * Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
+     */
+    readonly publicIPv6PrefixId?: string;
     /**
      * Service endpoints for subnets in the cluster.
      */
@@ -193,6 +207,10 @@ export interface GetManagedClusterResult {
      */
     readonly type: string;
     /**
+     * The policy to use when upgrading the cluster.
+     */
+    readonly upgradeDescription?: outputs.servicefabric.ClusterUpgradePolicyResponse;
+    /**
      * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
      */
     readonly useCustomVnet?: boolean;
@@ -207,9 +225,7 @@ export interface GetManagedClusterResult {
 }
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2020-01-01-preview, 2022-01-01, 2022-10-01-preview, 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

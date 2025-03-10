@@ -105,7 +105,10 @@ class GetNamespaceResult:
     @pulumi.getter(name="isZoneRedundant")
     def is_zone_redundant(self) -> Optional[bool]:
         """
-        Allows the user to specify if the service is zone-redundant. This is a required property and user needs to specify this value explicitly.
+        This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
+        property is not specified explicitly by the user, its default value depends on the following conditions:
+            a. For Availability Zones enabled regions - The default property value would be true.
+            b. For non-Availability Zones enabled regions - The default property value would be false.
         Once specified, this property cannot be updated.
         """
         return pulumi.get(self, "is_zone_redundant")
@@ -137,6 +140,9 @@ class GetNamespaceResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -168,7 +174,7 @@ class GetNamespaceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to the namespace resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -234,9 +240,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Get properties of a namespace.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.
@@ -270,9 +274,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Get properties of a namespace.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.

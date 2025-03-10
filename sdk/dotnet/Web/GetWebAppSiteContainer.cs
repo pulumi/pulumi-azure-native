@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppSiteContainerResult> InvokeAsync(GetWebAppSiteContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSiteContainerResult> Invoke(GetWebAppSiteContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerResult>("azure-native:web:getWebAppSiteContainer", args ?? new GetWebAppSiteContainerInvokeArgs(), options.WithDefaults());

@@ -92,9 +92,7 @@ def get_storage_task_assignment(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageTaskAssignmentResult:
     """
     Get the storage task assignment properties
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -119,9 +117,7 @@ def get_storage_task_assignment_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskAssignmentResult]:
     """
     Get the storage task assignment properties
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

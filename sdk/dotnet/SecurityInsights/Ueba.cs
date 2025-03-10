@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Settings with single toggle.
-    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview.
+    /// Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Ueba")]
     public partial class Ueba : global::Pulumi.CustomResource
@@ -85,10 +85,15 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:IPSyncer" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EntityAnalytics" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Ueba" },
@@ -103,16 +108,46 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230901preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231001preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20231201preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240101preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240401preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:EyesOn" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:Ueba" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:Ueba" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EntityAnalytics" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights:EyesOn" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

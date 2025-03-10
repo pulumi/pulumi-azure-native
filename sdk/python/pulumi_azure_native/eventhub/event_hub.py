@@ -29,7 +29,8 @@ class EventHubArgs:
                  message_retention_in_days: Optional[pulumi.Input[float]] = None,
                  partition_count: Optional[pulumi.Input[float]] = None,
                  retention_description: Optional[pulumi.Input['RetentionDescriptionArgs']] = None,
-                 status: Optional[pulumi.Input['EntityStatus']] = None):
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventHub resource.
         :param pulumi.Input[str] namespace_name: The Namespace name
@@ -40,6 +41,7 @@ class EventHubArgs:
         :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input['RetentionDescriptionArgs'] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
+        :param pulumi.Input[str] user_metadata: Gets and Sets Metadata of User.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -55,6 +57,8 @@ class EventHubArgs:
             pulumi.set(__self__, "retention_description", retention_description)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if user_metadata is not None:
+            pulumi.set(__self__, "user_metadata", user_metadata)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -152,6 +156,18 @@ class EventHubArgs:
     def status(self, value: Optional[pulumi.Input['EntityStatus']]):
         pulumi.set(self, "status", value)
 
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
+
+    @user_metadata.setter
+    def user_metadata(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_metadata", value)
+
 
 class EventHub(pulumi.CustomResource):
     @overload
@@ -166,12 +182,11 @@ class EventHub(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Single item in List or Get Event Hub operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,6 +198,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']] retention_description: Event Hub retention settings
         :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
+        :param pulumi.Input[str] user_metadata: Gets and Sets Metadata of User.
         """
         ...
     @overload
@@ -192,9 +208,7 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Event Hub operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +233,7 @@ class EventHub(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
                  status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -240,6 +255,7 @@ class EventHub(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_description"] = retention_description
             __props__.__dict__["status"] = status
+            __props__.__dict__["user_metadata"] = user_metadata
             __props__.__dict__["created_at"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
@@ -283,6 +299,7 @@ class EventHub(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["user_metadata"] = None
         return EventHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -380,4 +397,12 @@ class EventHub(pulumi.CustomResource):
         The exact time the message was updated.
         """
         return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="userMetadata")
+    def user_metadata(self) -> pulumi.Output[Optional[str]]:
+        """
+        Gets and Sets Metadata of User.
+        """
+        return pulumi.get(self, "user_metadata")
 

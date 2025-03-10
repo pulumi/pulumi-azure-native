@@ -9,33 +9,33 @@ import * as utilities from "../utilities";
 
 /**
  * Instance dataflowEndpoint resource
- * Azure REST API version: 2024-07-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
-export class DataFlowEndpoint extends pulumi.CustomResource {
+export class DataflowEndpoint extends pulumi.CustomResource {
     /**
-     * Get an existing DataFlowEndpoint resource's state with the given name, ID, and optional extra
+     * Get an existing DataflowEndpoint resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataFlowEndpoint {
-        return new DataFlowEndpoint(name, undefined as any, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataflowEndpoint {
+        return new DataflowEndpoint(name, undefined as any, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:iotoperations:DataFlowEndpoint';
+    public static readonly __pulumiType = 'azure-native:iotoperations:DataflowEndpoint';
 
     /**
-     * Returns true if the given object is an instance of DataFlowEndpoint.  This is designed to work even
+     * Returns true if the given object is an instance of DataflowEndpoint.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DataFlowEndpoint {
+    public static isInstance(obj: any): obj is DataflowEndpoint {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DataFlowEndpoint.__pulumiType;
+        return obj['__pulumiType'] === DataflowEndpoint.__pulumiType;
     }
 
     /**
@@ -49,7 +49,7 @@ export class DataFlowEndpoint extends pulumi.CustomResource {
     /**
      * The resource-specific properties for this resource.
      */
-    public readonly properties!: pulumi.Output<outputs.iotoperations.DataFlowEndpointPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.iotoperations.DataflowEndpointPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -60,13 +60,13 @@ export class DataFlowEndpoint extends pulumi.CustomResource {
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
-     * Create a DataFlowEndpoint resource with the given unique name, arguments, and options.
+     * Create a DataflowEndpoint resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DataFlowEndpointArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DataflowEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -82,7 +82,7 @@ export class DataFlowEndpoint extends pulumi.CustomResource {
             resourceInputs["dataflowEndpointName"] = args ? args.dataflowEndpointName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.dataFlowEndpointPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.dataflowEndpointPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -95,16 +95,16 @@ export class DataFlowEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowEndpoint" }, { type: "azure-native:iotoperations/v20240815preview:DataFlowEndpoint" }, { type: "azure-native:iotoperations/v20240915preview:DataFlowEndpoint" }, { type: "azure-native:iotoperations/v20241101:DataFlowEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:DataFlowEndpoint" }, { type: "azure-native:iotoperations/v20240701preview:DataflowEndpoint" }, { type: "azure-native:iotoperations/v20240815preview:DataflowEndpoint" }, { type: "azure-native:iotoperations/v20240915preview:DataflowEndpoint" }, { type: "azure-native:iotoperations/v20241101:DataflowEndpoint" }, { type: "azure-native:iotoperations:DataFlowEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataFlowEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(DataflowEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * The set of arguments for constructing a DataFlowEndpoint resource.
+ * The set of arguments for constructing a DataflowEndpoint resource.
  */
-export interface DataFlowEndpointArgs {
+export interface DataflowEndpointArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */
@@ -120,7 +120,7 @@ export interface DataFlowEndpointArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.DataFlowEndpointPropertiesArgs>;
+    properties?: pulumi.Input<inputs.iotoperations.DataflowEndpointPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

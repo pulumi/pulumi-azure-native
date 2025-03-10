@@ -114,9 +114,7 @@ def get_deployment_at_tenant_scope(deployment_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtTenantScopeResult:
     """
     Gets a deployment.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -137,9 +135,7 @@ def get_deployment_at_tenant_scope_output(deployment_name: Optional[pulumi.Input
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentAtTenantScopeResult]:
     """
     Gets a deployment.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str deployment_name: The name of the deployment.

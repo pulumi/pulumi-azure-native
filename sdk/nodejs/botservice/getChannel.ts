@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * Azure REST API version: 2022-09-15.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview.
  */
 export function getChannel(args: GetChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +82,7 @@ export interface GetChannelResult {
 }
 /**
  * Returns a BotService Channel registration specified by the parameters.
- * Azure REST API version: 2022-09-15.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview.
  */
 export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

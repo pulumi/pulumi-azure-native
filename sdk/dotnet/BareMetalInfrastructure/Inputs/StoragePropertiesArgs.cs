@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure.Inputs
 {
 
     /// <summary>
-    /// described the storage properties of the azure baremetalstorage instance
+    /// described the storage properties of the azure bare metal storage instance
     /// </summary>
     public sealed class StoragePropertiesArgs : global::Pulumi.ResourceArgs
     {

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container Apps Job Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<ListJobSecretsResult> InvokeAsync(ListJobSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListJobSecretsResult>("azure-native:app:listJobSecrets", args ?? new ListJobSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container Apps Job Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<ListJobSecretsResult> Invoke(ListJobSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobSecretsResult>("azure-native:app:listJobSecrets", args ?? new ListJobSecretsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container Apps Job Secrets Collection ARM resource.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<ListJobSecretsResult> Invoke(ListJobSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListJobSecretsResult>("azure-native:app:listJobSecrets", args ?? new ListJobSecretsInvokeArgs(), options.WithDefaults());

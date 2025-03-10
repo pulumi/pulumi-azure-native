@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An export resource.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01.
- *
- * Other available API versions: 2019-10-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -56,6 +54,14 @@ export class Export extends pulumi.CustomResource {
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     public readonly format!: pulumi.Output<string | undefined>;
+    /**
+     * The managed identity associated with Export
+     */
+    public readonly identity!: pulumi.Output<outputs.costmanagement.SystemAssignedServiceIdentityResponse | undefined>;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -106,6 +112,8 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["exportName"] = args ? args.exportName : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["partitionData"] = args ? args.partitionData : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
@@ -118,6 +126,8 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["deliveryInfo"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
             resourceInputs["partitionData"] = undefined /*out*/;
@@ -156,6 +166,14 @@ export interface ExportArgs {
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    /**
+     * The managed identity associated with Export
+     */
+    identity?: pulumi.Input<inputs.costmanagement.SystemAssignedServiceIdentityArgs>;
+    /**
+     * The location of the Export's managed identity. Only required when utilizing managed identity.
+     */
+    location?: pulumi.Input<string>;
     /**
      * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
      */

@@ -25,6 +25,7 @@ __all__ = [
     'BillingProfilePropertiesResponseIndirectRelationshipInfo',
     'BillingProfilePropertiesResponseShipTo',
     'BillingProfilePropertiesResponseSoldTo',
+    'BillingRoleAssignmentPropertiesResponse',
     'InvoiceSectionPropertiesResponse',
     'InvoiceSectionWithCreateSubPermissionResponse',
     'PaymentTermResponse',
@@ -148,10 +149,10 @@ class AzurePlanResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "skuDescription":
-            suggest = "sku_description"
-        elif key == "productId":
+        if key == "productId":
             suggest = "product_id"
+        elif key == "skuDescription":
+            suggest = "sku_description"
         elif key == "skuId":
             suggest = "sku_id"
 
@@ -167,28 +168,21 @@ class AzurePlanResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 sku_description: str,
                  product_id: Optional[str] = None,
+                 sku_description: Optional[str] = None,
                  sku_id: Optional[str] = None):
         """
         Details of the Azure plan.
-        :param str sku_description: The sku description.
         :param str product_id: The ID that uniquely identifies a product.
-        :param str sku_id: The sku id.
+        :param str sku_description: The sku description.
+        :param str sku_id: The ID that uniquely identifies a sku.
         """
-        pulumi.set(__self__, "sku_description", sku_description)
         if product_id is not None:
             pulumi.set(__self__, "product_id", product_id)
+        if sku_description is not None:
+            pulumi.set(__self__, "sku_description", sku_description)
         if sku_id is not None:
             pulumi.set(__self__, "sku_id", sku_id)
-
-    @property
-    @pulumi.getter(name="skuDescription")
-    def sku_description(self) -> str:
-        """
-        The sku description.
-        """
-        return pulumi.get(self, "sku_description")
 
     @property
     @pulumi.getter(name="productId")
@@ -199,10 +193,18 @@ class AzurePlanResponse(dict):
         return pulumi.get(self, "product_id")
 
     @property
+    @pulumi.getter(name="skuDescription")
+    def sku_description(self) -> Optional[str]:
+        """
+        The sku description.
+        """
+        return pulumi.get(self, "sku_description")
+
+    @property
     @pulumi.getter(name="skuId")
     def sku_id(self) -> Optional[str]:
         """
-        The sku id.
+        The ID that uniquely identifies a sku.
         """
         return pulumi.get(self, "sku_id")
 
@@ -1357,6 +1359,426 @@ class BillingProfilePropertiesResponseSoldTo(dict):
 
 
 @pulumi.output_type
+class BillingRoleAssignmentPropertiesResponse(dict):
+    """
+    The properties of the billing role assignment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingAccountDisplayName":
+            suggest = "billing_account_display_name"
+        elif key == "billingAccountId":
+            suggest = "billing_account_id"
+        elif key == "billingProfileDisplayName":
+            suggest = "billing_profile_display_name"
+        elif key == "billingProfileId":
+            suggest = "billing_profile_id"
+        elif key == "billingRequestId":
+            suggest = "billing_request_id"
+        elif key == "createdByPrincipalId":
+            suggest = "created_by_principal_id"
+        elif key == "createdByPrincipalPuid":
+            suggest = "created_by_principal_puid"
+        elif key == "createdByPrincipalTenantId":
+            suggest = "created_by_principal_tenant_id"
+        elif key == "createdByUserEmailAddress":
+            suggest = "created_by_user_email_address"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "customerDisplayName":
+            suggest = "customer_display_name"
+        elif key == "customerId":
+            suggest = "customer_id"
+        elif key == "invoiceSectionDisplayName":
+            suggest = "invoice_section_display_name"
+        elif key == "invoiceSectionId":
+            suggest = "invoice_section_id"
+        elif key == "modifiedByPrincipalId":
+            suggest = "modified_by_principal_id"
+        elif key == "modifiedByPrincipalPuid":
+            suggest = "modified_by_principal_puid"
+        elif key == "modifiedByPrincipalTenantId":
+            suggest = "modified_by_principal_tenant_id"
+        elif key == "modifiedByUserEmailAddress":
+            suggest = "modified_by_user_email_address"
+        elif key == "modifiedOn":
+            suggest = "modified_on"
+        elif key == "principalDisplayName":
+            suggest = "principal_display_name"
+        elif key == "principalTenantName":
+            suggest = "principal_tenant_name"
+        elif key == "principalType":
+            suggest = "principal_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "roleDefinitionId":
+            suggest = "role_definition_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "principalPuid":
+            suggest = "principal_puid"
+        elif key == "principalTenantId":
+            suggest = "principal_tenant_id"
+        elif key == "userAuthenticationType":
+            suggest = "user_authentication_type"
+        elif key == "userEmailAddress":
+            suggest = "user_email_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BillingRoleAssignmentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BillingRoleAssignmentPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BillingRoleAssignmentPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_account_display_name: str,
+                 billing_account_id: str,
+                 billing_profile_display_name: str,
+                 billing_profile_id: str,
+                 billing_request_id: str,
+                 created_by_principal_id: str,
+                 created_by_principal_puid: str,
+                 created_by_principal_tenant_id: str,
+                 created_by_user_email_address: str,
+                 created_on: str,
+                 customer_display_name: str,
+                 customer_id: str,
+                 invoice_section_display_name: str,
+                 invoice_section_id: str,
+                 modified_by_principal_id: str,
+                 modified_by_principal_puid: str,
+                 modified_by_principal_tenant_id: str,
+                 modified_by_user_email_address: str,
+                 modified_on: str,
+                 principal_display_name: str,
+                 principal_tenant_name: str,
+                 principal_type: str,
+                 provisioning_state: str,
+                 role_definition_id: str,
+                 principal_id: Optional[str] = None,
+                 principal_puid: Optional[str] = None,
+                 principal_tenant_id: Optional[str] = None,
+                 scope: Optional[str] = None,
+                 user_authentication_type: Optional[str] = None,
+                 user_email_address: Optional[str] = None):
+        """
+        The properties of the billing role assignment.
+        :param str billing_account_display_name: The name of the billing account.
+        :param str billing_account_id: The fully qualified ID that uniquely identifies a billing account.
+        :param str billing_profile_display_name: The name of the billing profile.
+        :param str billing_profile_id: The fully qualified ID that uniquely identifies a billing profile.
+        :param str billing_request_id: The ID of the billing request that was created for the role assignment. This is only applicable to cross tenant role assignments or role assignments created through the billing request.
+        :param str created_by_principal_id: The object ID of the user who created the role assignment.
+        :param str created_by_principal_puid: The principal PUID of the user who created the role assignment.
+        :param str created_by_principal_tenant_id: The tenant Id of the user who created the role assignment.
+        :param str created_by_user_email_address: The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param str created_on: The date the role assignment was created.
+        :param str customer_display_name: The name of the customer.
+        :param str customer_id: The fully qualified ID that uniquely identifies a customer.
+        :param str invoice_section_display_name: The name of the invoice section.
+        :param str invoice_section_id: The fully qualified ID that uniquely identifies an invoice section.
+        :param str modified_by_principal_id: The principal PUID of the user who modified the role assignment.
+        :param str modified_by_principal_puid: The principal PUID of the user who modified the role assignment.
+        :param str modified_by_principal_tenant_id: The tenant Id of the user who modified the role assignment.
+        :param str modified_by_user_email_address: The email address of the user who modified the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param str modified_on: The date the role assignment was modified.
+        :param str principal_display_name: The display name of the principal to whom the role was assigned.
+        :param str principal_tenant_name: The friendly name of the tenant of the user to whom the role was assigned. This will be 'Primary Tenant' for the primary tenant of the billing account.
+        :param str principal_type: The type of a role Assignment.
+        :param str provisioning_state: The provisioning state of the resource during a long-running operation.
+        :param str role_definition_id: The ID of the role definition.
+        :param str principal_id: The object id of the user to whom the role was assigned.
+        :param str principal_puid: The principal PUID of the user to whom the role was assigned.
+        :param str principal_tenant_id: The principal tenant id of the user to whom the role was assigned.
+        :param str scope: The scope at which the role was assigned.
+        :param str user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param str user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        pulumi.set(__self__, "billing_account_display_name", billing_account_display_name)
+        pulumi.set(__self__, "billing_account_id", billing_account_id)
+        pulumi.set(__self__, "billing_profile_display_name", billing_profile_display_name)
+        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
+        pulumi.set(__self__, "billing_request_id", billing_request_id)
+        pulumi.set(__self__, "created_by_principal_id", created_by_principal_id)
+        pulumi.set(__self__, "created_by_principal_puid", created_by_principal_puid)
+        pulumi.set(__self__, "created_by_principal_tenant_id", created_by_principal_tenant_id)
+        pulumi.set(__self__, "created_by_user_email_address", created_by_user_email_address)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "customer_display_name", customer_display_name)
+        pulumi.set(__self__, "customer_id", customer_id)
+        pulumi.set(__self__, "invoice_section_display_name", invoice_section_display_name)
+        pulumi.set(__self__, "invoice_section_id", invoice_section_id)
+        pulumi.set(__self__, "modified_by_principal_id", modified_by_principal_id)
+        pulumi.set(__self__, "modified_by_principal_puid", modified_by_principal_puid)
+        pulumi.set(__self__, "modified_by_principal_tenant_id", modified_by_principal_tenant_id)
+        pulumi.set(__self__, "modified_by_user_email_address", modified_by_user_email_address)
+        pulumi.set(__self__, "modified_on", modified_on)
+        pulumi.set(__self__, "principal_display_name", principal_display_name)
+        pulumi.set(__self__, "principal_tenant_name", principal_tenant_name)
+        pulumi.set(__self__, "principal_type", principal_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if principal_puid is not None:
+            pulumi.set(__self__, "principal_puid", principal_puid)
+        if principal_tenant_id is not None:
+            pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if user_authentication_type is not None:
+            pulumi.set(__self__, "user_authentication_type", user_authentication_type)
+        if user_email_address is not None:
+            pulumi.set(__self__, "user_email_address", user_email_address)
+
+    @property
+    @pulumi.getter(name="billingAccountDisplayName")
+    def billing_account_display_name(self) -> str:
+        """
+        The name of the billing account.
+        """
+        return pulumi.get(self, "billing_account_display_name")
+
+    @property
+    @pulumi.getter(name="billingAccountId")
+    def billing_account_id(self) -> str:
+        """
+        The fully qualified ID that uniquely identifies a billing account.
+        """
+        return pulumi.get(self, "billing_account_id")
+
+    @property
+    @pulumi.getter(name="billingProfileDisplayName")
+    def billing_profile_display_name(self) -> str:
+        """
+        The name of the billing profile.
+        """
+        return pulumi.get(self, "billing_profile_display_name")
+
+    @property
+    @pulumi.getter(name="billingProfileId")
+    def billing_profile_id(self) -> str:
+        """
+        The fully qualified ID that uniquely identifies a billing profile.
+        """
+        return pulumi.get(self, "billing_profile_id")
+
+    @property
+    @pulumi.getter(name="billingRequestId")
+    def billing_request_id(self) -> str:
+        """
+        The ID of the billing request that was created for the role assignment. This is only applicable to cross tenant role assignments or role assignments created through the billing request.
+        """
+        return pulumi.get(self, "billing_request_id")
+
+    @property
+    @pulumi.getter(name="createdByPrincipalId")
+    def created_by_principal_id(self) -> str:
+        """
+        The object ID of the user who created the role assignment.
+        """
+        return pulumi.get(self, "created_by_principal_id")
+
+    @property
+    @pulumi.getter(name="createdByPrincipalPuid")
+    def created_by_principal_puid(self) -> str:
+        """
+        The principal PUID of the user who created the role assignment.
+        """
+        return pulumi.get(self, "created_by_principal_puid")
+
+    @property
+    @pulumi.getter(name="createdByPrincipalTenantId")
+    def created_by_principal_tenant_id(self) -> str:
+        """
+        The tenant Id of the user who created the role assignment.
+        """
+        return pulumi.get(self, "created_by_principal_tenant_id")
+
+    @property
+    @pulumi.getter(name="createdByUserEmailAddress")
+    def created_by_user_email_address(self) -> str:
+        """
+        The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "created_by_user_email_address")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date the role assignment was created.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="customerDisplayName")
+    def customer_display_name(self) -> str:
+        """
+        The name of the customer.
+        """
+        return pulumi.get(self, "customer_display_name")
+
+    @property
+    @pulumi.getter(name="customerId")
+    def customer_id(self) -> str:
+        """
+        The fully qualified ID that uniquely identifies a customer.
+        """
+        return pulumi.get(self, "customer_id")
+
+    @property
+    @pulumi.getter(name="invoiceSectionDisplayName")
+    def invoice_section_display_name(self) -> str:
+        """
+        The name of the invoice section.
+        """
+        return pulumi.get(self, "invoice_section_display_name")
+
+    @property
+    @pulumi.getter(name="invoiceSectionId")
+    def invoice_section_id(self) -> str:
+        """
+        The fully qualified ID that uniquely identifies an invoice section.
+        """
+        return pulumi.get(self, "invoice_section_id")
+
+    @property
+    @pulumi.getter(name="modifiedByPrincipalId")
+    def modified_by_principal_id(self) -> str:
+        """
+        The principal PUID of the user who modified the role assignment.
+        """
+        return pulumi.get(self, "modified_by_principal_id")
+
+    @property
+    @pulumi.getter(name="modifiedByPrincipalPuid")
+    def modified_by_principal_puid(self) -> str:
+        """
+        The principal PUID of the user who modified the role assignment.
+        """
+        return pulumi.get(self, "modified_by_principal_puid")
+
+    @property
+    @pulumi.getter(name="modifiedByPrincipalTenantId")
+    def modified_by_principal_tenant_id(self) -> str:
+        """
+        The tenant Id of the user who modified the role assignment.
+        """
+        return pulumi.get(self, "modified_by_principal_tenant_id")
+
+    @property
+    @pulumi.getter(name="modifiedByUserEmailAddress")
+    def modified_by_user_email_address(self) -> str:
+        """
+        The email address of the user who modified the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "modified_by_user_email_address")
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> str:
+        """
+        The date the role assignment was modified.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @property
+    @pulumi.getter(name="principalDisplayName")
+    def principal_display_name(self) -> str:
+        """
+        The display name of the principal to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_display_name")
+
+    @property
+    @pulumi.getter(name="principalTenantName")
+    def principal_tenant_name(self) -> str:
+        """
+        The friendly name of the tenant of the user to whom the role was assigned. This will be 'Primary Tenant' for the primary tenant of the billing account.
+        """
+        return pulumi.get(self, "principal_tenant_name")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> str:
+        """
+        The type of a role Assignment.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource during a long-running operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> str:
+        """
+        The ID of the role definition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The object id of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="principalPuid")
+    def principal_puid(self) -> Optional[str]:
+        """
+        The principal PUID of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_puid")
+
+    @property
+    @pulumi.getter(name="principalTenantId")
+    def principal_tenant_id(self) -> Optional[str]:
+        """
+        The principal tenant id of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_tenant_id")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[str]:
+        """
+        The scope at which the role was assigned.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="userAuthenticationType")
+    def user_authentication_type(self) -> Optional[str]:
+        """
+        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "user_authentication_type")
+
+    @property
+    @pulumi.getter(name="userEmailAddress")
+    def user_email_address(self) -> Optional[str]:
+        """
+        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "user_email_address")
+
+
+@pulumi.output_type
 class InvoiceSectionPropertiesResponse(dict):
     """
     An invoice section.
@@ -1486,22 +1908,22 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
                  billing_profile_status: str,
                  billing_profile_status_reason_code: str,
                  billing_profile_system_id: str,
+                 enabled_azure_plans: Sequence['outputs.AzurePlanResponse'],
                  invoice_section_display_name: str,
                  invoice_section_id: str,
-                 invoice_section_system_id: str,
-                 enabled_azure_plans: Optional[Sequence['outputs.AzurePlanResponse']] = None):
+                 invoice_section_system_id: str):
         """
         Invoice section properties with create subscription permission.
-        :param str billing_profile_display_name: The name of the billing profile for the invoice section.
-        :param str billing_profile_id: The ID of the billing profile for the invoice section.
+        :param str billing_profile_display_name: The name of the billing profile.
+        :param str billing_profile_id: The fully qualified ID that uniquely identifies a billing profile.
         :param str billing_profile_spending_limit: The billing profile spending limit.
         :param str billing_profile_status: The status of the billing profile.
         :param str billing_profile_status_reason_code: Reason for the specified billing profile status.
         :param str billing_profile_system_id: The system generated unique identifier for a billing profile.
-        :param str invoice_section_display_name: The name of the invoice section.
-        :param str invoice_section_id: The ID of the invoice section.
-        :param str invoice_section_system_id: The system generated unique identifier for an invoice section.
         :param Sequence['AzurePlanResponse'] enabled_azure_plans: Enabled azure plans for the associated billing profile.
+        :param str invoice_section_display_name: The name of the invoice section.
+        :param str invoice_section_id: The fully qualified ID that uniquely identifies an invoice section.
+        :param str invoice_section_system_id: The system generated unique identifier for an invoice section.
         """
         pulumi.set(__self__, "billing_profile_display_name", billing_profile_display_name)
         pulumi.set(__self__, "billing_profile_id", billing_profile_id)
@@ -1509,17 +1931,16 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         pulumi.set(__self__, "billing_profile_status", billing_profile_status)
         pulumi.set(__self__, "billing_profile_status_reason_code", billing_profile_status_reason_code)
         pulumi.set(__self__, "billing_profile_system_id", billing_profile_system_id)
+        pulumi.set(__self__, "enabled_azure_plans", enabled_azure_plans)
         pulumi.set(__self__, "invoice_section_display_name", invoice_section_display_name)
         pulumi.set(__self__, "invoice_section_id", invoice_section_id)
         pulumi.set(__self__, "invoice_section_system_id", invoice_section_system_id)
-        if enabled_azure_plans is not None:
-            pulumi.set(__self__, "enabled_azure_plans", enabled_azure_plans)
 
     @property
     @pulumi.getter(name="billingProfileDisplayName")
     def billing_profile_display_name(self) -> str:
         """
-        The name of the billing profile for the invoice section.
+        The name of the billing profile.
         """
         return pulumi.get(self, "billing_profile_display_name")
 
@@ -1527,7 +1948,7 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
     @pulumi.getter(name="billingProfileId")
     def billing_profile_id(self) -> str:
         """
-        The ID of the billing profile for the invoice section.
+        The fully qualified ID that uniquely identifies a billing profile.
         """
         return pulumi.get(self, "billing_profile_id")
 
@@ -1564,6 +1985,14 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         return pulumi.get(self, "billing_profile_system_id")
 
     @property
+    @pulumi.getter(name="enabledAzurePlans")
+    def enabled_azure_plans(self) -> Sequence['outputs.AzurePlanResponse']:
+        """
+        Enabled azure plans for the associated billing profile.
+        """
+        return pulumi.get(self, "enabled_azure_plans")
+
+    @property
     @pulumi.getter(name="invoiceSectionDisplayName")
     def invoice_section_display_name(self) -> str:
         """
@@ -1575,7 +2004,7 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
     @pulumi.getter(name="invoiceSectionId")
     def invoice_section_id(self) -> str:
         """
-        The ID of the invoice section.
+        The fully qualified ID that uniquely identifies an invoice section.
         """
         return pulumi.get(self, "invoice_section_id")
 
@@ -1586,14 +2015,6 @@ class InvoiceSectionWithCreateSubPermissionResponse(dict):
         The system generated unique identifier for an invoice section.
         """
         return pulumi.get(self, "invoice_section_system_id")
-
-    @property
-    @pulumi.getter(name="enabledAzurePlans")
-    def enabled_azure_plans(self) -> Optional[Sequence['outputs.AzurePlanResponse']]:
-        """
-        Enabled azure plans for the associated billing profile.
-        """
-        return pulumi.get(self, "enabled_azure_plans")
 
 
 @pulumi.output_type

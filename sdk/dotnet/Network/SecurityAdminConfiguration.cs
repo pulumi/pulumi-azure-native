@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the security admin configuration
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-    /// 
-    /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource
@@ -41,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        /// </summary>
+        [Output("networkGroupAddressSpaceAggregationOption")]
+        public Output<string?> NetworkGroupAddressSpaceAggregationOption { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -156,6 +160,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        /// </summary>
+        [Input("networkGroupAddressSpaceAggregationOption")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AddressSpaceAggregationOption>? NetworkGroupAddressSpaceAggregationOption { get; set; }
 
         /// <summary>
         /// The name of the network manager.

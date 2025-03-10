@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP resource association resource
- * Azure REST API version: 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
     /**
@@ -117,7 +117,7 @@ export class NetworkSecurityPerimeterAssociation extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20210201preview:NspAssociation" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230701preview:NspAssociation" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network/v20230801preview:NspAssociation" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAssociation" }, { type: "azure-native:network:NspAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterAssociation.__pulumiType, name, resourceInputs, opts);
     }

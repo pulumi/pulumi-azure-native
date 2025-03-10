@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * List allowed upgrade plans for application.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function listApplicationAllowedUpgradePlans(args: ListApplicationAllowedUpgradePlansArgs, opts?: pulumi.InvokeOptions): Promise<ListApplicationAllowedUpgradePlansResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,8 +42,6 @@ export interface ListApplicationAllowedUpgradePlansResult {
 /**
  * List allowed upgrade plans for application.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function listApplicationAllowedUpgradePlansOutput(args: ListApplicationAllowedUpgradePlansOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListApplicationAllowedUpgradePlansResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The registration definition.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2019-09-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class RegistrationDefinition extends pulumi.CustomResource {
     /**

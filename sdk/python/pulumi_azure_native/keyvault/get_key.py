@@ -83,7 +83,7 @@ class GetKeyResult:
     @pulumi.getter(name="curveName")
     def curve_name(self) -> Optional[str]:
         """
-        The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         """
         return pulumi.get(self, "curve_name")
 
@@ -104,7 +104,7 @@ class GetKeyResult:
     @pulumi.getter(name="keySize")
     def key_size(self) -> Optional[int]:
         """
-        The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         """
         return pulumi.get(self, "key_size")
 
@@ -209,9 +209,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Gets the current version of the specified key from the specified key vault.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Azure REST API version: 2024-11-01.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -246,9 +244,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets the current version of the specified key from the specified key vault.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+    Azure REST API version: 2024-11-01.
 
 
     :param str key_name: The name of the key to be retrieved.

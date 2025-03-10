@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an ApplicationGroup for a Namespace.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,9 +74,7 @@ export interface GetApplicationGroupResult {
 }
 /**
  * Gets an ApplicationGroup for a Namespace.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

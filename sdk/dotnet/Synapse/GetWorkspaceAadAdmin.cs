@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace active directory admin
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Task<GetWorkspaceAadAdminResult> InvokeAsync(GetWorkspaceAadAdminArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace active directory admin
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Gets a workspace active directory admin
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceAadAdminResult> Invoke(GetWorkspaceAadAdminInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceAadAdminResult>("azure-native:synapse:getWorkspaceAadAdmin", args ?? new GetWorkspaceAadAdminInvokeArgs(), options.WithDefaults());

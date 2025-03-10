@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A long term retention policy.
-    /// Azure REST API version: 2022-11-01-preview.
-    /// 
-    /// Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedInstanceLongTermRetentionPolicy")]
     public partial class ManagedInstanceLongTermRetentionPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Output("backupStorageAccessTier")]
+        public Output<string?> BackupStorageAccessTier { get; private set; } = null!;
+
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.
         /// </summary>
@@ -109,6 +113,12 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class ManagedInstanceLongTermRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The BackupStorageAccessTier for the LTR backups
+        /// </summary>
+        [Input("backupStorageAccessTier")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.BackupStorageAccessTier>? BackupStorageAccessTier { get; set; }
+
         /// <summary>
         /// The name of the database.
         /// </summary>

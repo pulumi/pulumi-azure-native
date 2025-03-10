@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a snapshot.
- * Azure REST API version: 2022-07-02.
- *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Azure REST API version: 2024-03-02.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -163,9 +161,7 @@ export interface GetSnapshotResult {
 }
 /**
  * Gets information about a snapshot.
- * Azure REST API version: 2022-07-02.
- *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Azure REST API version: 2024-03-02.
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

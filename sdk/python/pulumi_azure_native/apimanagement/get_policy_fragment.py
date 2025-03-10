@@ -116,9 +116,7 @@ def get_policy_fragment(format: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyFragmentResult:
     """
     Gets a policy fragment.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str format: Policy fragment content format.
@@ -148,9 +146,7 @@ def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyFragmentResult]:
     """
     Gets a policy fragment.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str format: Policy fragment content format.

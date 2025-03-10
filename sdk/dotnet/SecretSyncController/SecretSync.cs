@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecretSyncController
 {
     /// <summary>
     /// The SecretSync resource.
-    /// Azure REST API version: 2024-08-21-preview.
+    /// Azure REST API version: 2024-08-21-preview. Prior API version in Azure Native 2.x: 2024-08-21-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:secretsynccontroller:SecretSync")]
     public partial class SecretSync : global::Pulumi.CustomResource

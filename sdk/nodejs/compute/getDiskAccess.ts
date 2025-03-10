@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a disk access resource.
- * Azure REST API version: 2022-07-02.
- *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Azure REST API version: 2024-03-02.
  */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,9 +73,7 @@ export interface GetDiskAccessResult {
 }
 /**
  * Gets information about a disk access resource.
- * Azure REST API version: 2022-07-02.
- *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Azure REST API version: 2024-03-02.
  */
 export function getDiskAccessOutput(args: GetDiskAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiskAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

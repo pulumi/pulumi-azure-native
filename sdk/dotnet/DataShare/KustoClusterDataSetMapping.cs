@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A Kusto cluster data set mapping
-    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:KustoClusterDataSetMapping")]
     public partial class KustoClusterDataSetMapping : global::Pulumi.CustomResource
@@ -106,8 +106,32 @@ namespace Pulumi.AzureNative.DataShare
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoClusterDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoClusterDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoClusterDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoClusterDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobContainerDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:BlobFolderDataSetMapping" },
                     new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoClusterDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoDatabaseDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:KustoTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDBTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDWTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FileSystemDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobContainerDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:BlobFolderDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoDatabaseDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:KustoTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDBTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SqlDWTableDataSetMapping" },
+                    new global::Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -95,8 +95,6 @@ def get_workspace_tag_api_link(api_link_id: Optional[str] = None,
     Gets the API link for the tag.
     Azure REST API version: 2022-09-01-preview.
 
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
-
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -127,8 +125,6 @@ def get_workspace_tag_api_link_output(api_link_id: Optional[pulumi.Input[str]] =
     """
     Gets the API link for the tag.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str api_link_id: Tag-API link identifier. Must be unique in the current API Management service instance.

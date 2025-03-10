@@ -25,24 +25,42 @@ __all__ = [
 @pulumi.output_type
 class GetAccessControlListResult:
     """
-    The AccessControlList resource definition.
+    The Access Control List resource definition.
     """
-    def __init__(__self__, address_family=None, annotation=None, conditions=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
-        if address_family and not isinstance(address_family, str):
-            raise TypeError("Expected argument 'address_family' to be a str")
-        pulumi.set(__self__, "address_family", address_family)
+    def __init__(__self__, acls_url=None, administrative_state=None, annotation=None, configuration_state=None, configuration_type=None, default_action=None, dynamic_match_configurations=None, id=None, last_synced_time=None, location=None, match_configurations=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if acls_url and not isinstance(acls_url, str):
+            raise TypeError("Expected argument 'acls_url' to be a str")
+        pulumi.set(__self__, "acls_url", acls_url)
+        if administrative_state and not isinstance(administrative_state, str):
+            raise TypeError("Expected argument 'administrative_state' to be a str")
+        pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if conditions and not isinstance(conditions, list):
-            raise TypeError("Expected argument 'conditions' to be a list")
-        pulumi.set(__self__, "conditions", conditions)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if configuration_type and not isinstance(configuration_type, str):
+            raise TypeError("Expected argument 'configuration_type' to be a str")
+        pulumi.set(__self__, "configuration_type", configuration_type)
+        if default_action and not isinstance(default_action, str):
+            raise TypeError("Expected argument 'default_action' to be a str")
+        pulumi.set(__self__, "default_action", default_action)
+        if dynamic_match_configurations and not isinstance(dynamic_match_configurations, list):
+            raise TypeError("Expected argument 'dynamic_match_configurations' to be a list")
+        pulumi.set(__self__, "dynamic_match_configurations", dynamic_match_configurations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if last_synced_time and not isinstance(last_synced_time, str):
+            raise TypeError("Expected argument 'last_synced_time' to be a str")
+        pulumi.set(__self__, "last_synced_time", last_synced_time)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if match_configurations and not isinstance(match_configurations, list):
+            raise TypeError("Expected argument 'match_configurations' to be a list")
+        pulumi.set(__self__, "match_configurations", match_configurations)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -60,12 +78,20 @@ class GetAccessControlListResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="addressFamily")
-    def address_family(self) -> str:
+    @pulumi.getter(name="aclsUrl")
+    def acls_url(self) -> Optional[str]:
         """
-        IP address family. Example: ipv4 | ipv6.
+        Access Control List file URL.
         """
-        return pulumi.get(self, "address_family")
+        return pulumi.get(self, "acls_url")
+
+    @property
+    @pulumi.getter(name="administrativeState")
+    def administrative_state(self) -> str:
+        """
+        Administrative state of the resource.
+        """
+        return pulumi.get(self, "administrative_state")
 
     @property
     @pulumi.getter
@@ -76,20 +102,52 @@ class GetAccessControlListResult:
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter
-    def conditions(self) -> Sequence['outputs.AccessControlListConditionPropertiesResponse']:
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
         """
-        Access Control List conditions.
+        Configuration state of the resource.
         """
-        return pulumi.get(self, "conditions")
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> str:
+        """
+        Input method to configure Access Control List.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="dynamicMatchConfigurations")
+    def dynamic_match_configurations(self) -> Optional[Sequence['outputs.CommonDynamicMatchConfigurationResponse']]:
+        """
+        List of dynamic match configurations.
+        """
+        return pulumi.get(self, "dynamic_match_configurations")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastSyncedTime")
+    def last_synced_time(self) -> str:
+        """
+        The last synced timestamp.
+        """
+        return pulumi.get(self, "last_synced_time")
 
     @property
     @pulumi.getter
@@ -98,6 +156,14 @@ class GetAccessControlListResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="matchConfigurations")
+    def match_configurations(self) -> Optional[Sequence['outputs.AccessControlListMatchConfigurationResponse']]:
+        """
+        List of match configurations.
+        """
+        return pulumi.get(self, "match_configurations")
 
     @property
     @pulumi.getter
@@ -111,7 +177,7 @@ class GetAccessControlListResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -146,11 +212,17 @@ class AwaitableGetAccessControlListResult(GetAccessControlListResult):
         if False:
             yield self
         return GetAccessControlListResult(
-            address_family=self.address_family,
+            acls_url=self.acls_url,
+            administrative_state=self.administrative_state,
             annotation=self.annotation,
-            conditions=self.conditions,
+            configuration_state=self.configuration_state,
+            configuration_type=self.configuration_type,
+            default_action=self.default_action,
+            dynamic_match_configurations=self.dynamic_match_configurations,
             id=self.id,
+            last_synced_time=self.last_synced_time,
             location=self.location,
+            match_configurations=self.match_configurations,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -163,12 +235,10 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessControlListResult:
     """
     Implements Access Control List GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str access_control_list_name: Name of the Access Control List
+    :param str access_control_list_name: Name of the Access Control List.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -178,11 +248,17 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getAccessControlList', __args__, opts=opts, typ=GetAccessControlListResult).value
 
     return AwaitableGetAccessControlListResult(
-        address_family=pulumi.get(__ret__, 'address_family'),
+        acls_url=pulumi.get(__ret__, 'acls_url'),
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
-        conditions=pulumi.get(__ret__, 'conditions'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        configuration_type=pulumi.get(__ret__, 'configuration_type'),
+        default_action=pulumi.get(__ret__, 'default_action'),
+        dynamic_match_configurations=pulumi.get(__ret__, 'dynamic_match_configurations'),
         id=pulumi.get(__ret__, 'id'),
+        last_synced_time=pulumi.get(__ret__, 'last_synced_time'),
         location=pulumi.get(__ret__, 'location'),
+        match_configurations=pulumi.get(__ret__, 'match_configurations'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -193,12 +269,10 @@ def get_access_control_list_output(access_control_list_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessControlListResult]:
     """
     Implements Access Control List GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str access_control_list_name: Name of the Access Control List
+    :param str access_control_list_name: Name of the Access Control List.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -207,11 +281,17 @@ def get_access_control_list_output(access_control_list_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getAccessControlList', __args__, opts=opts, typ=GetAccessControlListResult)
     return __ret__.apply(lambda __response__: GetAccessControlListResult(
-        address_family=pulumi.get(__response__, 'address_family'),
+        acls_url=pulumi.get(__response__, 'acls_url'),
+        administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
-        conditions=pulumi.get(__response__, 'conditions'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        configuration_type=pulumi.get(__response__, 'configuration_type'),
+        default_action=pulumi.get(__response__, 'default_action'),
+        dynamic_match_configurations=pulumi.get(__response__, 'dynamic_match_configurations'),
         id=pulumi.get(__response__, 'id'),
+        last_synced_time=pulumi.get(__response__, 'last_synced_time'),
         location=pulumi.get(__response__, 'location'),
+        match_configurations=pulumi.get(__response__, 'match_configurations'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),

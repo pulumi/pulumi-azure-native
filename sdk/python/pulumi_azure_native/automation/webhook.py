@@ -201,9 +201,7 @@ class Webhook(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the webhook type.
-        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
-
-        Other available API versions: 2023-05-15-preview, 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2015-10-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,9 +224,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the webhook type.
-        Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
-
-        Other available API versions: 2023-05-15-preview, 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2015-10-31.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -285,6 +281,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["last_invoked_time"] = None
             __props__.__dict__["last_modified_by"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20151031:Webhook"), pulumi.Alias(type_="azure-native:automation/v20230515preview:Webhook"), pulumi.Alias(type_="azure-native:automation/v20241023:Webhook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -321,6 +318,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["parameters"] = None
         __props__.__dict__["run_on"] = None
         __props__.__dict__["runbook"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["uri"] = None
         return Webhook(resource_name, opts=opts, __props__=__props__)
@@ -414,10 +412,18 @@ class Webhook(pulumi.CustomResource):
         return pulumi.get(self, "runbook")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

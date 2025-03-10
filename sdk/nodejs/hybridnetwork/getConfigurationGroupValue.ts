@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified hybrid configuration group values.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getConfigurationGroupValue(args: GetConfigurationGroupValueArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationGroupValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,9 +65,7 @@ export interface GetConfigurationGroupValueResult {
 }
 /**
  * Gets information about the specified hybrid configuration group values.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getConfigurationGroupValueOutput(args: GetConfigurationGroupValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationGroupValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

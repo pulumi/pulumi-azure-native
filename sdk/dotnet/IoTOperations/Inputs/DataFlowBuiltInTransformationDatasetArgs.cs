@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation dataset properties
+    /// Dataflow BuiltIn Transformation dataset properties
     /// </summary>
-    public sealed class DataFlowBuiltInTransformationDatasetArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowBuiltInTransformationDatasetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user provided optional description of the dataset.
@@ -51,9 +51,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("schemaRef")]
         public Input<string>? SchemaRef { get; set; }
 
-        public DataFlowBuiltInTransformationDatasetArgs()
+        public DataflowBuiltInTransformationDatasetArgs()
         {
         }
-        public static new DataFlowBuiltInTransformationDatasetArgs Empty => new DataFlowBuiltInTransformationDatasetArgs();
+        public static new DataflowBuiltInTransformationDatasetArgs Empty => new DataflowBuiltInTransformationDatasetArgs();
     }
 }

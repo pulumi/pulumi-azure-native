@@ -24,6 +24,7 @@ class ContentPackageArgs:
     def __init__(__self__, *,
                  content_id: pulumi.Input[str],
                  content_kind: pulumi.Input[Union[str, 'PackageKind']],
+                 content_product_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  version: pulumi.Input[str],
@@ -35,6 +36,7 @@ class ContentPackageArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  icon: Optional[pulumi.Input[str]] = None,
+                 is_deprecated: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_featured: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_new: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_preview: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
@@ -48,8 +50,9 @@ class ContentPackageArgs:
                  threat_analysis_techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ContentPackage resource.
-        :param pulumi.Input[str] content_id: The package id
+        :param pulumi.Input[str] content_id: The content id of the package
         :param pulumi.Input[Union[str, 'PackageKind']] content_kind: The package kind
+        :param pulumi.Input[str] content_product_id: Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
         :param pulumi.Input[str] display_name: The display name of the package
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] version: the latest version number of the package
@@ -61,6 +64,7 @@ class ContentPackageArgs:
         :param pulumi.Input[str] description: The description of the package
         :param pulumi.Input[str] first_publish_date: first publish date package item
         :param pulumi.Input[str] icon: the icon identifier. this id can later be fetched from the content metadata
+        :param pulumi.Input[Union[str, 'Flag']] is_deprecated: Flag indicates if this template is deprecated
         :param pulumi.Input[Union[str, 'Flag']] is_featured: Flag indicates if this package is among the featured list.
         :param pulumi.Input[Union[str, 'Flag']] is_new: Flag indicates if this is a newly published package.
         :param pulumi.Input[Union[str, 'Flag']] is_preview: Flag indicates if this package is in preview.
@@ -75,6 +79,7 @@ class ContentPackageArgs:
         """
         pulumi.set(__self__, "content_id", content_id)
         pulumi.set(__self__, "content_kind", content_kind)
+        pulumi.set(__self__, "content_product_id", content_product_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "version", version)
@@ -93,6 +98,8 @@ class ContentPackageArgs:
             pulumi.set(__self__, "first_publish_date", first_publish_date)
         if icon is not None:
             pulumi.set(__self__, "icon", icon)
+        if is_deprecated is not None:
+            pulumi.set(__self__, "is_deprecated", is_deprecated)
         if is_featured is not None:
             pulumi.set(__self__, "is_featured", is_featured)
         if is_new is not None:
@@ -120,7 +127,7 @@ class ContentPackageArgs:
     @pulumi.getter(name="contentId")
     def content_id(self) -> pulumi.Input[str]:
         """
-        The package id
+        The content id of the package
         """
         return pulumi.get(self, "content_id")
 
@@ -139,6 +146,18 @@ class ContentPackageArgs:
     @content_kind.setter
     def content_kind(self, value: pulumi.Input[Union[str, 'PackageKind']]):
         pulumi.set(self, "content_kind", value)
+
+    @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> pulumi.Input[str]:
+        """
+        Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        """
+        return pulumi.get(self, "content_product_id")
+
+    @content_product_id.setter
+    def content_product_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_product_id", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -271,6 +290,18 @@ class ContentPackageArgs:
     @icon.setter
     def icon(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "icon", value)
+
+    @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> Optional[pulumi.Input[Union[str, 'Flag']]]:
+        """
+        Flag indicates if this template is deprecated
+        """
+        return pulumi.get(self, "is_deprecated")
+
+    @is_deprecated.setter
+    def is_deprecated(self, value: Optional[pulumi.Input[Union[str, 'Flag']]]):
+        pulumi.set(self, "is_deprecated", value)
 
     @property
     @pulumi.getter(name="isFeatured")
@@ -414,12 +445,14 @@ class ContentPackage(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
+                 content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  icon: Optional[pulumi.Input[str]] = None,
+                 is_deprecated: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_featured: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_new: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_preview: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
@@ -437,22 +470,22 @@ class ContentPackage(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Package in Azure Security Insights.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['MetadataAuthorArgs', 'MetadataAuthorArgsDict']] author: The author of the package
         :param pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']] categories: The categories of the package
-        :param pulumi.Input[str] content_id: The package id
+        :param pulumi.Input[str] content_id: The content id of the package
         :param pulumi.Input[Union[str, 'PackageKind']] content_kind: The package kind
+        :param pulumi.Input[str] content_product_id: Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
         :param pulumi.Input[str] content_schema_version: The version of the content schema.
         :param pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']] dependencies: The support tier of the package
         :param pulumi.Input[str] description: The description of the package
         :param pulumi.Input[str] display_name: The display name of the package
         :param pulumi.Input[str] first_publish_date: first publish date package item
         :param pulumi.Input[str] icon: the icon identifier. this id can later be fetched from the content metadata
+        :param pulumi.Input[Union[str, 'Flag']] is_deprecated: Flag indicates if this template is deprecated
         :param pulumi.Input[Union[str, 'Flag']] is_featured: Flag indicates if this package is among the featured list.
         :param pulumi.Input[Union[str, 'Flag']] is_new: Flag indicates if this is a newly published package.
         :param pulumi.Input[Union[str, 'Flag']] is_preview: Flag indicates if this package is in preview.
@@ -476,9 +509,7 @@ class ContentPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Package in Azure Security Insights.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ContentPackageArgs args: The arguments to use to populate this resource's properties.
@@ -499,12 +530,14 @@ class ContentPackage(pulumi.CustomResource):
                  categories: Optional[pulumi.Input[Union['MetadataCategoriesArgs', 'MetadataCategoriesArgsDict']]] = None,
                  content_id: Optional[pulumi.Input[str]] = None,
                  content_kind: Optional[pulumi.Input[Union[str, 'PackageKind']]] = None,
+                 content_product_id: Optional[pulumi.Input[str]] = None,
                  content_schema_version: Optional[pulumi.Input[str]] = None,
                  dependencies: Optional[pulumi.Input[Union['MetadataDependenciesArgs', 'MetadataDependenciesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  first_publish_date: Optional[pulumi.Input[str]] = None,
                  icon: Optional[pulumi.Input[str]] = None,
+                 is_deprecated: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_featured: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_new: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
                  is_preview: Optional[pulumi.Input[Union[str, 'Flag']]] = None,
@@ -536,6 +569,9 @@ class ContentPackage(pulumi.CustomResource):
             if content_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'content_kind'")
             __props__.__dict__["content_kind"] = content_kind
+            if content_product_id is None and not opts.urn:
+                raise TypeError("Missing required property 'content_product_id'")
+            __props__.__dict__["content_product_id"] = content_product_id
             __props__.__dict__["content_schema_version"] = content_schema_version
             __props__.__dict__["dependencies"] = dependencies
             __props__.__dict__["description"] = description
@@ -544,6 +580,7 @@ class ContentPackage(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["first_publish_date"] = first_publish_date
             __props__.__dict__["icon"] = icon
+            __props__.__dict__["is_deprecated"] = is_deprecated
             __props__.__dict__["is_featured"] = is_featured
             __props__.__dict__["is_new"] = is_new
             __props__.__dict__["is_preview"] = is_preview
@@ -596,6 +633,7 @@ class ContentPackage(pulumi.CustomResource):
         __props__.__dict__["categories"] = None
         __props__.__dict__["content_id"] = None
         __props__.__dict__["content_kind"] = None
+        __props__.__dict__["content_product_id"] = None
         __props__.__dict__["content_schema_version"] = None
         __props__.__dict__["dependencies"] = None
         __props__.__dict__["description"] = None
@@ -603,6 +641,7 @@ class ContentPackage(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["first_publish_date"] = None
         __props__.__dict__["icon"] = None
+        __props__.__dict__["is_deprecated"] = None
         __props__.__dict__["is_featured"] = None
         __props__.__dict__["is_new"] = None
         __props__.__dict__["is_preview"] = None
@@ -639,7 +678,7 @@ class ContentPackage(pulumi.CustomResource):
     @pulumi.getter(name="contentId")
     def content_id(self) -> pulumi.Output[str]:
         """
-        The package id
+        The content id of the package
         """
         return pulumi.get(self, "content_id")
 
@@ -650,6 +689,14 @@ class ContentPackage(pulumi.CustomResource):
         The package kind
         """
         return pulumi.get(self, "content_kind")
+
+    @property
+    @pulumi.getter(name="contentProductId")
+    def content_product_id(self) -> pulumi.Output[str]:
+        """
+        Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+        """
+        return pulumi.get(self, "content_product_id")
 
     @property
     @pulumi.getter(name="contentSchemaVersion")
@@ -706,6 +753,14 @@ class ContentPackage(pulumi.CustomResource):
         the icon identifier. this id can later be fetched from the content metadata
         """
         return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter(name="isDeprecated")
+    def is_deprecated(self) -> pulumi.Output[Optional[str]]:
+        """
+        Flag indicates if this template is deprecated
+        """
+        return pulumi.get(self, "is_deprecated")
 
     @property
     @pulumi.getter(name="isFeatured")

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetServerTrustCertificateResult> InvokeAsync(GetServerTrustCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerTrustCertificateResult> Invoke(GetServerTrustCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetServerTrustCertificateResult> Invoke(GetServerTrustCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerTrustCertificateResult>("azure-native:sql:getServerTrustCertificate", args ?? new GetServerTrustCertificateInvokeArgs(), options.WithDefaults());

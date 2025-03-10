@@ -324,8 +324,6 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
     Gets details of the Flux Configuration.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
-
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -375,8 +373,6 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
     """
     Gets details of the Flux Configuration.
     Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
 
 
     :param str cluster_name: The name of the kubernetes cluster.

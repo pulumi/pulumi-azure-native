@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Task<GetServiceConfigurationResult> InvokeAsync(GetServiceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());

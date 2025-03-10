@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account partner.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountPartnerResult> InvokeAsync(GetIntegrationAccountPartnerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountPartnerResult>("azure-native:logic:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account partner.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountPartnerResult> Invoke(GetIntegrationAccountPartnerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountPartnerResult>("azure-native:logic:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account partner.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountPartnerResult> Invoke(GetIntegrationAccountPartnerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountPartnerResult>("azure-native:logic:getIntegrationAccountPartner", args ?? new GetIntegrationAccountPartnerInvokeArgs(), options.WithDefaults());

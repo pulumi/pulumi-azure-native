@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  */
 export class InferenceEndpoint extends pulumi.CustomResource {
     /**
@@ -101,7 +99,7 @@ export class InferenceEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inferenceEndpointProperties"] = args ? args.inferenceEndpointProperties : undefined;
+            resourceInputs["inferenceEndpointProperties"] = args ? (args.inferenceEndpointProperties ? pulumi.output(args.inferenceEndpointProperties).apply(inputs.machinelearningservices.inferenceEndpointArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["poolName"] = args ? args.poolName : undefined;

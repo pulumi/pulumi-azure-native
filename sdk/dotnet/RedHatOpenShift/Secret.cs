@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// Secret represents a secret.
-    /// Azure REST API version: 2022-09-04.
-    /// 
-    /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+    /// Azure REST API version: 2023-11-22. Prior API version in Azure Native 2.x: 2022-09-04.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

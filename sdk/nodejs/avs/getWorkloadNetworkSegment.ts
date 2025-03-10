@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * NSX Segment
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Get a WorkloadNetworkSegment
+ * Azure REST API version: 2023-09-01.
  */
 export function getWorkloadNetworkSegment(args: GetWorkloadNetworkSegmentArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkSegmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -32,7 +30,7 @@ export interface GetWorkloadNetworkSegmentArgs {
      */
     resourceGroupName: string;
     /**
-     * NSX Segment identifier. Generally the same as the Segment's display name
+     * The ID of the NSX Segment
      */
     segmentId: string;
 }
@@ -50,11 +48,11 @@ export interface GetWorkloadNetworkSegmentResult {
      */
     readonly displayName?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -78,15 +76,17 @@ export interface GetWorkloadNetworkSegmentResult {
      */
     readonly subnet?: outputs.avs.WorkloadNetworkSegmentSubnetResponse;
     /**
-     * Resource type.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.avs.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * NSX Segment
- * Azure REST API version: 2022-05-01.
- *
- * Other available API versions: 2023-03-01, 2023-09-01.
+ * Get a WorkloadNetworkSegment
+ * Azure REST API version: 2023-09-01.
  */
 export function getWorkloadNetworkSegmentOutput(args: GetWorkloadNetworkSegmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkSegmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,7 +107,7 @@ export interface GetWorkloadNetworkSegmentOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * NSX Segment identifier. Generally the same as the Segment's display name
+     * The ID of the NSX Segment
      */
     segmentId: pulumi.Input<string>;
 }

@@ -152,9 +152,7 @@ def get_fqdn_list_local_rulestack(local_rulestack_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFqdnListLocalRulestackResult:
     """
     Get a FqdnListLocalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name
@@ -184,9 +182,7 @@ def get_fqdn_list_local_rulestack_output(local_rulestack_name: Optional[pulumi.I
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFqdnListLocalRulestackResult]:
     """
     Get a FqdnListLocalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str local_rulestack_name: LocalRulestack resource name

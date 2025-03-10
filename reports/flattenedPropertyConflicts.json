@@ -1,4 +1,32 @@
 {
+  "azure-native:applicationinsights/v20150501:Workbook": {
+    "properties.kind": {}
+  },
+  "azure-native:applicationinsights/v20180501preview:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
+  "azure-native:applicationinsights:ProactiveDetectionConfiguration": {
+    "properties.name": {}
+  },
+  "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
+  "azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById": {
+    "range.type": {}
+  },
+  "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById": {
+    "range.type": {},
+    "scope.principalType": {}
+  },
   "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById": {
     "range.type": {}
   },
@@ -47,13 +75,13 @@
     "totalBudget.currency": {},
     "totalBudget.value": {}
   },
-  "azure-native:insights/v20150501:Workbook": {
-    "properties.kind": {}
-  },
-  "azure-native:insights/v20180501preview:ProactiveDetectionConfiguration": {
+  "azure-native:monitor/v20210501preview:AutoscaleSetting": {
     "properties.name": {}
   },
-  "azure-native:insights:ProactiveDetectionConfiguration": {
+  "azure-native:netapp/v20201201:BackupPolicy": {
+    "properties.name": {}
+  },
+  "azure-native:netapp/v20210201:BackupPolicy": {
     "properties.name": {}
   },
   "azure-native:netapp/v20210401:BackupPolicy": {
@@ -62,11 +90,150 @@
   "azure-native:netapp/v20210401preview:BackupPolicy": {
     "properties.name": {}
   },
+  "azure-native:netapp/v20210601:BackupPolicy": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20180801:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20180801:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181001:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181001:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181101:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181101:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181201:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20181201:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190201:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190201:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190401:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190401:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190601:P2sVpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190601:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
   "azure-native:network/v20190701:P2sVpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}
   },
   "azure-native:network/v20190701:VirtualWan": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190801:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20190901:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20191101:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20191201:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200301:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200401:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200601:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200701:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20200801:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20201101:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20210201:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20210301:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20210501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20210801:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20220101:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20220501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20220701:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20220901:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20221101:VpnServerConfiguration": {
     "properties.etag": {},
     "properties.name": {}
   },

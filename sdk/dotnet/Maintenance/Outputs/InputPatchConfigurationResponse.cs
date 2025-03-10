@@ -21,14 +21,6 @@ namespace Pulumi.AzureNative.Maintenance.Outputs
         /// </summary>
         public readonly Outputs.InputLinuxParametersResponse? LinuxParameters;
         /// <summary>
-        /// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TaskPropertiesResponse> PostTasks;
-        /// <summary>
-        /// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TaskPropertiesResponse> PreTasks;
-        /// <summary>
         /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         /// </summary>
         public readonly string? RebootSetting;
@@ -41,17 +33,11 @@ namespace Pulumi.AzureNative.Maintenance.Outputs
         private InputPatchConfigurationResponse(
             Outputs.InputLinuxParametersResponse? linuxParameters,
 
-            ImmutableArray<Outputs.TaskPropertiesResponse> postTasks,
-
-            ImmutableArray<Outputs.TaskPropertiesResponse> preTasks,
-
             string? rebootSetting,
 
             Outputs.InputWindowsParametersResponse? windowsParameters)
         {
             LinuxParameters = linuxParameters;
-            PostTasks = postTasks;
-            PreTasks = preTasks;
             RebootSetting = rebootSetting;
             WindowsParameters = windowsParameters;
         }

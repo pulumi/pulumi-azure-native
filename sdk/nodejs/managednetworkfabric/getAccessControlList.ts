@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements Access Control List GET method.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getAccessControlList(args: GetAccessControlListArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getAccessControlList(args: GetAccessControlListArgs, opts?: pulu
 
 export interface GetAccessControlListArgs {
     /**
-     * Name of the Access Control List
+     * Name of the Access Control List.
      */
     accessControlListName: string;
     /**
@@ -33,35 +31,59 @@ export interface GetAccessControlListArgs {
 }
 
 /**
- * The AccessControlList resource definition.
+ * The Access Control List resource definition.
  */
 export interface GetAccessControlListResult {
     /**
-     * IP address family. Example: ipv4 | ipv6.
+     * Access Control List file URL.
      */
-    readonly addressFamily: string;
+    readonly aclsUrl?: string;
+    /**
+     * Administrative state of the resource.
+     */
+    readonly administrativeState: string;
     /**
      * Switch configuration description.
      */
     readonly annotation?: string;
     /**
-     * Access Control List conditions.
+     * Configuration state of the resource.
      */
-    readonly conditions: outputs.managednetworkfabric.AccessControlListConditionPropertiesResponse[];
+    readonly configurationState: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Input method to configure Access Control List.
+     */
+    readonly configurationType: string;
+    /**
+     * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+     */
+    readonly defaultAction?: string;
+    /**
+     * List of dynamic match configurations.
+     */
+    readonly dynamicMatchConfigurations?: outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The last synced timestamp.
+     */
+    readonly lastSyncedTime: string;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
+     * List of match configurations.
+     */
+    readonly matchConfigurations?: outputs.managednetworkfabric.AccessControlListMatchConfigurationResponse[];
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -79,9 +101,7 @@ export interface GetAccessControlListResult {
 }
 /**
  * Implements Access Control List GET method.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getAccessControlListOutput(args: GetAccessControlListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessControlListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +113,7 @@ export function getAccessControlListOutput(args: GetAccessControlListOutputArgs,
 
 export interface GetAccessControlListOutputArgs {
     /**
-     * Name of the Access Control List
+     * Name of the Access Control List.
      */
     accessControlListName: pulumi.Input<string>;
     /**

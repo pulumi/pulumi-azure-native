@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the HybridIdentityMetadata.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
@@ -49,7 +47,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -57,7 +55,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
      */
     public readonly publicKey!: pulumi.Output<string | undefined>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**

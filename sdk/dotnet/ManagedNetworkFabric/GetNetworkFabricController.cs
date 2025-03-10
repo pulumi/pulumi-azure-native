@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkFabricControllerResult> InvokeAsync(GetNetworkFabricControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkFabricControllerResult>("azure-native:managednetworkfabric:getNetworkFabricController", args ?? new GetNetworkFabricControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkFabricControllerResult> Invoke(GetNetworkFabricControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricControllerResult>("azure-native:managednetworkfabric:getNetworkFabricController", args ?? new GetNetworkFabricControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Shows the provisioning status of Network Fabric Controller.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkFabricControllerResult> Invoke(GetNetworkFabricControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkFabricControllerResult>("azure-native:managednetworkfabric:getNetworkFabricController", args ?? new GetNetworkFabricControllerInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkFabricControllerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Fabric Controller
+        /// Name of the Network Fabric Controller.
         /// </summary>
         [Input("networkFabricControllerName", required: true)]
         public string NetworkFabricControllerName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkFabricControllerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Network Fabric Controller
+        /// Name of the Network Fabric Controller.
         /// </summary>
         [Input("networkFabricControllerName", required: true)]
         public Input<string> NetworkFabricControllerName { get; set; } = null!;
@@ -89,7 +83,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -99,7 +93,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// InfrastructureServices IP ranges.
         /// </summary>
-        public readonly Outputs.InfrastructureServicesResponse InfrastructureServices;
+        public readonly Outputs.ControllerServicesResponse InfrastructureServices;
         /// <summary>
         /// IPv4 Network Fabric Controller Address Space.
         /// </summary>
@@ -108,6 +102,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// IPv6 Network Fabric Controller Address Space.
         /// </summary>
         public readonly string? Ipv6AddressSpace;
+        /// <summary>
+        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        /// </summary>
+        public readonly string? IsWorkloadManagementNetworkEnabled;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -125,9 +123,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly ImmutableArray<string> NetworkFabricIds;
         /// <summary>
-        /// The Operational Status would always be NULL. Look only in to the Provisioning state for the latest status.
+        /// Network Fabric Controller SKU.
         /// </summary>
-        public readonly string OperationalState;
+        public readonly string? NfcSku;
         /// <summary>
         /// Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
         /// </summary>
@@ -141,6 +139,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// List of tenant InternetGateway resource IDs
+        /// </summary>
+        public readonly ImmutableArray<string> TenantInternetGatewayIds;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -149,13 +151,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressRouteConnectionInformationResponse> WorkloadExpressRouteConnections;
         /// <summary>
-        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints. This is used for the backward compatibility.
         /// </summary>
         public readonly bool WorkloadManagementNetwork;
         /// <summary>
         /// WorkloadServices IP ranges.
         /// </summary>
-        public readonly Outputs.WorkloadServicesResponse WorkloadServices;
+        public readonly Outputs.ControllerServicesResponse WorkloadServices;
 
         [OutputConstructor]
         private GetNetworkFabricControllerResult(
@@ -165,11 +167,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             ImmutableArray<Outputs.ExpressRouteConnectionInformationResponse> infrastructureExpressRouteConnections,
 
-            Outputs.InfrastructureServicesResponse infrastructureServices,
+            Outputs.ControllerServicesResponse infrastructureServices,
 
             string? ipv4AddressSpace,
 
             string? ipv6AddressSpace,
+
+            string? isWorkloadManagementNetworkEnabled,
 
             string location,
 
@@ -179,7 +183,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             ImmutableArray<string> networkFabricIds,
 
-            string operationalState,
+            string? nfcSku,
 
             string provisioningState,
 
@@ -187,13 +191,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableArray<string> tenantInternetGatewayIds,
+
             string type,
 
             ImmutableArray<Outputs.ExpressRouteConnectionInformationResponse> workloadExpressRouteConnections,
 
             bool workloadManagementNetwork,
 
-            Outputs.WorkloadServicesResponse workloadServices)
+            Outputs.ControllerServicesResponse workloadServices)
         {
             Annotation = annotation;
             Id = id;
@@ -201,14 +207,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             InfrastructureServices = infrastructureServices;
             Ipv4AddressSpace = ipv4AddressSpace;
             Ipv6AddressSpace = ipv6AddressSpace;
+            IsWorkloadManagementNetworkEnabled = isWorkloadManagementNetworkEnabled;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             Name = name;
             NetworkFabricIds = networkFabricIds;
-            OperationalState = operationalState;
+            NfcSku = nfcSku;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;
+            TenantInternetGatewayIds = tenantInternetGatewayIds;
             Type = type;
             WorkloadExpressRouteConnections = workloadExpressRouteConnections;
             WorkloadManagementNetwork = workloadManagementNetwork;

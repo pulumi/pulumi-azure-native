@@ -202,9 +202,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account map.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,9 +225,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account map.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountMapArgs args: The arguments to use to populate this resource's properties.
@@ -286,7 +282,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountMap")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20160601:Map"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountMap"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountMap")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountMap, __self__).__init__(
             'azure-native:logic:IntegrationAccountMap',

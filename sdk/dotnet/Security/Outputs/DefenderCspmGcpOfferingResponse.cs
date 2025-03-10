@@ -17,23 +17,58 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderCspmGcpOfferingResponse
     {
         /// <summary>
+        /// GCP Defenders CSPM Permissions Management OIDC (Open ID connect) connection configurations
+        /// </summary>
+        public readonly Outputs.DefenderCspmGcpOfferingResponseCiemDiscovery? CiemDiscovery;
+        /// <summary>
+        /// The Microsoft Defender Data Sensitivity discovery configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmGcpOfferingResponseDataSensitivityDiscovery? DataSensitivityDiscovery;
+        /// <summary>
         /// The offering description.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The Microsoft Defender Container agentless discovery configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        /// <summary>
+        /// The Microsoft Defender Container image assessment configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmGcpOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmGcp'.
         /// </summary>
         public readonly string OfferingType;
+        /// <summary>
+        /// The Microsoft Defender for CSPM VM scanning configuration
+        /// </summary>
+        public readonly Outputs.DefenderCspmGcpOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderCspmGcpOfferingResponse(
+            Outputs.DefenderCspmGcpOfferingResponseCiemDiscovery? ciemDiscovery,
+
+            Outputs.DefenderCspmGcpOfferingResponseDataSensitivityDiscovery? dataSensitivityDiscovery,
+
             string description,
 
-            string offeringType)
+            Outputs.DefenderCspmGcpOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+
+            Outputs.DefenderCspmGcpOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+
+            string offeringType,
+
+            Outputs.DefenderCspmGcpOfferingResponseVmScanners? vmScanners)
         {
+            CiemDiscovery = ciemDiscovery;
+            DataSensitivityDiscovery = dataSensitivityDiscovery;
             Description = description;
+            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersImageAssessment = mdcContainersImageAssessment;
             OfferingType = offeringType;
+            VmScanners = vmScanners;
         }
     }
 }

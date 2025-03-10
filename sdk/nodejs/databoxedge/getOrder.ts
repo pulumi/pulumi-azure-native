@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getOrder(args: GetOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,9 +93,7 @@ export interface GetOrderResult {
 }
 /**
  * The order details.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getOrderOutput(args: GetOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

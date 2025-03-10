@@ -12,12 +12,16 @@ __all__ = [
     'AlertRuleKind',
     'AlertSeverity',
     'AttackTactic',
+    'AutomationRuleBooleanConditionSupportedOperator',
     'AutomationRulePropertyArrayChangedConditionSupportedArrayType',
     'AutomationRulePropertyArrayChangedConditionSupportedChangeType',
+    'AutomationRulePropertyArrayConditionSupportedArrayConditionType',
+    'AutomationRulePropertyArrayConditionSupportedArrayType',
     'AutomationRulePropertyChangedConditionSupportedChangedType',
     'AutomationRulePropertyChangedConditionSupportedPropertyType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
+    'CcpAuthType',
     'ConditionType',
     'ConfigurationType',
     'ContentType',
@@ -36,6 +40,7 @@ __all__ = [
     'FileFormat',
     'FileImportContentType',
     'Flag',
+    'HttpMethodVerb',
     'HttpsConfigurationType',
     'HypothesisStatus',
     'IncidentClassification',
@@ -57,13 +62,15 @@ __all__ = [
     'PackageKind',
     'ProviderPermissionsScope',
     'RepoType',
+    'RepositoryAccessKind',
+    'RestApiPollerRequestPagingKind',
     'SapAuthenticationType',
     'SecretSource',
     'SecurityMLAnalyticsSettingsKind',
     'SettingKind',
     'SettingsStatus',
-    'Source',
     'SourceKind',
+    'SourceType',
     'Status',
     'SupportTier',
     'SystemConfigurationConnectorType',
@@ -88,6 +95,10 @@ class ActionType(str, Enum):
     RUN_PLAYBOOK = "RunPlaybook"
     """
     Run a playbook on an object
+    """
+    ADD_INCIDENT_TASK = "AddIncidentTask"
+    """
+    Add a task to an incident object
     """
 
 
@@ -208,6 +219,20 @@ class AttackTactic(str, Enum):
     INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
 
 
+class AutomationRuleBooleanConditionSupportedOperator(str, Enum):
+    """
+    Describes a boolean condition operator.
+    """
+    AND_ = "And"
+    """
+    Evaluates as true if all the item conditions are evaluated as true
+    """
+    OR_ = "Or"
+    """
+    Evaluates as true if at least one of the item conditions are evaluated as true
+    """
+
+
 class AutomationRulePropertyArrayChangedConditionSupportedArrayType(str, Enum):
     ALERTS = "Alerts"
     """
@@ -231,6 +256,30 @@ class AutomationRulePropertyArrayChangedConditionSupportedChangeType(str, Enum):
     ADDED = "Added"
     """
     Evaluate the condition on items added to the array
+    """
+
+
+class AutomationRulePropertyArrayConditionSupportedArrayConditionType(str, Enum):
+    """
+    Describes an array condition evaluation type.
+    """
+    ANY_ITEM = "AnyItem"
+    """
+    Evaluate the condition as true if any item fulfills it
+    """
+
+
+class AutomationRulePropertyArrayConditionSupportedArrayType(str, Enum):
+    """
+    Describes an array condition evaluated array type.
+    """
+    CUSTOM_DETAILS = "CustomDetails"
+    """
+    Evaluate the condition on the custom detail keys
+    """
+    CUSTOM_DETAIL_VALUES = "CustomDetailValues"
+    """
+    Evaluate the condition on a custom detail's values
     """
 
 
@@ -334,6 +383,14 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     INCIDENT_UPDATED_BY_SOURCE = "IncidentUpdatedBySource"
     """
     The update source of the incident
+    """
+    INCIDENT_CUSTOM_DETAILS_KEY = "IncidentCustomDetailsKey"
+    """
+    The incident custom detail key
+    """
+    INCIDENT_CUSTOM_DETAILS_VALUE = "IncidentCustomDetailsValue"
+    """
+    The incident custom detail value
     """
     ACCOUNT_AAD_TENANT_ID = "AccountAadTenantId"
     """
@@ -525,10 +582,31 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
 
 
+class CcpAuthType(str, Enum):
+    """
+    The auth type
+    """
+    BASIC = "Basic"
+    API_KEY = "APIKey"
+    O_AUTH2 = "OAuth2"
+    AWS = "AWS"
+    GCP = "GCP"
+    SESSION = "Session"
+    JWT_TOKEN = "JwtToken"
+    GIT_HUB = "GitHub"
+    SERVICE_BUS = "ServiceBus"
+    ORACLE = "Oracle"
+    NONE = "None"
+
+
 class ConditionType(str, Enum):
     PROPERTY = "Property"
     """
     Evaluate an object property value
+    """
+    PROPERTY_ARRAY = "PropertyArray"
+    """
+    Evaluate an object array property value
     """
     PROPERTY_CHANGED = "PropertyChanged"
     """
@@ -537,6 +615,10 @@ class ConditionType(str, Enum):
     PROPERTY_ARRAY_CHANGED = "PropertyArrayChanged"
     """
     Evaluate an object array property changed value
+    """
+    BOOLEAN = "Boolean"
+    """
+    Apply a boolean operator (e.g AND, OR) to conditions
     """
 
 
@@ -577,10 +659,13 @@ class DataConnectorKind(str, Enum):
     AZURE_SECURITY_CENTER = "AzureSecurityCenter"
     MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
     THREAT_INTELLIGENCE = "ThreatIntelligence"
+    MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
+    PREMIUM_MICROSOFT_DEFENDER_FOR_THREAT_INTELLIGENCE = "PremiumMicrosoftDefenderForThreatIntelligence"
     OFFICE365 = "Office365"
     AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
     AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
     MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
+    REST_API_POLLER = "RestApiPoller"
 
 
 class DataTypeState(str, Enum):
@@ -873,6 +958,16 @@ class Flag(str, Enum):
     FALSE = "false"
 
 
+class HttpMethodVerb(str, Enum):
+    """
+    The HTTP method, default value GET.
+    """
+    GET = "GET"
+    POST = "POST"
+    PUT = "PUT"
+    DELETE = "DELETE"
+
+
 class HttpsConfigurationType(str, Enum):
     """
     Represents the types of HTTPS configuration to connect to the SapControl service.
@@ -976,6 +1071,9 @@ class IncidentStatus(str, Enum):
 
 
 class IncidentTaskStatus(str, Enum):
+    """
+    The status of the task
+    """
     NEW = "New"
     """
     A new task
@@ -1184,6 +1282,28 @@ class RepoType(str, Enum):
     DEV_OPS = "DevOps"
 
 
+class RepositoryAccessKind(str, Enum):
+    """
+    The kind of repository access credentials
+    """
+    O_AUTH = "OAuth"
+    PAT = "PAT"
+    APP = "App"
+
+
+class RestApiPollerRequestPagingKind(str, Enum):
+    """
+    Type of paging
+    """
+    LINK_HEADER = "LinkHeader"
+    NEXT_PAGE_TOKEN = "NextPageToken"
+    NEXT_PAGE_URL = "NextPageUrl"
+    PERSISTENT_TOKEN = "PersistentToken"
+    PERSISTENT_LINK_HEADER = "PersistentLinkHeader"
+    OFFSET = "Offset"
+    COUNT_BASED_PAGING = "CountBasedPaging"
+
+
 class SapAuthenticationType(str, Enum):
     """
     The authentication type to SAP.
@@ -1232,14 +1352,6 @@ class SettingsStatus(str, Enum):
     """
 
 
-class Source(str, Enum):
-    """
-    The source of the watchlist
-    """
-    LOCAL_FILE = "Local file"
-    REMOTE_STORAGE = "Remote storage"
-
-
 class SourceKind(str, Enum):
     """
     Source type of the content
@@ -1250,6 +1362,20 @@ class SourceKind(str, Enum):
     SOURCE_REPOSITORY = "SourceRepository"
 
 
+class SourceType(str, Enum):
+    """
+    The sourceType of the watchlist
+    """
+    LOCAL_FILE = "Local file"
+    """
+    The source from local file.
+    """
+    REMOTE_STORAGE = "Remote storage"
+    """
+    The source from remote storage.
+    """
+
+
 class Status(str, Enum):
     """
     The status of the hunt.
@@ -1257,6 +1383,8 @@ class Status(str, Enum):
     NEW = "New"
     ACTIVE = "Active"
     CLOSED = "Closed"
+    BACKLOG = "Backlog"
+    APPROVED = "Approved"
 
 
 class SupportTier(str, Enum):

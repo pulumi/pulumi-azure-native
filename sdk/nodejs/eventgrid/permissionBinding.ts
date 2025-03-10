@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Permission binding resource.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class PermissionBinding extends pulumi.CustomResource {
     /**
@@ -62,7 +60,7 @@ export class PermissionBinding extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to the PermissionBinding resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**

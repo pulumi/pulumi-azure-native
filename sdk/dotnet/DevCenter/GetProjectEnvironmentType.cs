@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a project environment type.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetProjectEnvironmentTypeResult> InvokeAsync(GetProjectEnvironmentTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectEnvironmentTypeResult>("azure-native:devcenter:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a project environment type.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure-native:devcenter:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a project environment type.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetProjectEnvironmentTypeResult> Invoke(GetProjectEnvironmentTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectEnvironmentTypeResult>("azure-native:devcenter:getProjectEnvironmentType", args ?? new GetProjectEnvironmentTypeInvokeArgs(), options.WithDefaults());
@@ -105,7 +99,15 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string? DeploymentTargetId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The display name of the project environment type.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The number of environments of this type.
+        /// </summary>
+        public readonly int EnvironmentCount;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -151,6 +153,10 @@ namespace Pulumi.AzureNative.DevCenter
 
             string? deploymentTargetId,
 
+            string? displayName,
+
+            int environmentCount,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -173,6 +179,8 @@ namespace Pulumi.AzureNative.DevCenter
         {
             CreatorRoleAssignment = creatorRoleAssignment;
             DeploymentTargetId = deploymentTargetId;
+            DisplayName = displayName;
+            EnvironmentCount = environmentCount;
             Id = id;
             Identity = identity;
             Location = location;

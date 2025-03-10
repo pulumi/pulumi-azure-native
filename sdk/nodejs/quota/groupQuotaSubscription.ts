@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+ * Azure REST API version: 2025-03-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class GroupQuotaSubscription extends pulumi.CustomResource {
     /**

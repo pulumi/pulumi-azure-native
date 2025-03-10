@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.Databricks
     public static class GetAccessConnector
     {
         /// <summary>
-        /// Gets an azure databricks accessConnector.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+        /// Gets an Azure Databricks Access Connector.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an azure databricks accessConnector.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+        /// Gets an Azure Databricks Access Connector.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets an azure databricks accessConnector.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+        /// Gets an Azure Databricks Access Connector.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class GetAccessConnectorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the azure databricks accessConnector.
+        /// The name of the Azure Databricks Access Connector.
         /// </summary>
         [Input("connectorName", required: true)]
         public string ConnectorName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.Databricks
     public sealed class GetAccessConnectorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the azure databricks accessConnector.
+        /// The name of the Azure Databricks Access Connector.
         /// </summary>
         [Input("connectorName", required: true)]
         public Input<string> ConnectorName { get; set; } = null!;
@@ -101,7 +95,7 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure Databricks accessConnector properties
+        /// Azure Databricks Access Connector properties
         /// </summary>
         public readonly Outputs.AccessConnectorPropertiesResponse Properties;
         /// <summary>

@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetKubernetesRoleResult> InvokeAsync(GetKubernetesRoleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific role by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetKubernetesRoleResult> Invoke(GetKubernetesRoleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesRoleResult>("azure-native:databoxedge:getKubernetesRole", args ?? new GetKubernetesRoleInvokeArgs(), options.WithDefaults());

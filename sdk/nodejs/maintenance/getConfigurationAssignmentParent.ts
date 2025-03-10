@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get configuration for resource.
- * Azure REST API version: 2022-11-01-preview.
- *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Get configuration assignment for resource..
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getConfigurationAssignmentParent(args: GetConfigurationAssignmentParentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationAssignmentParentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -62,6 +60,10 @@ export interface GetConfigurationAssignmentParentArgs {
  */
 export interface GetConfigurationAssignmentParentResult {
     /**
+     * Properties of the configuration assignment
+     */
+    readonly filter?: outputs.maintenance.ConfigurationAssignmentFilterPropertiesResponse;
+    /**
      * Fully qualified identifier of the resource
      */
     readonly id: string;
@@ -91,10 +93,8 @@ export interface GetConfigurationAssignmentParentResult {
     readonly type: string;
 }
 /**
- * Get configuration for resource.
- * Azure REST API version: 2022-11-01-preview.
- *
- * Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+ * Get configuration assignment for resource..
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getConfigurationAssignmentParentOutput(args: GetConfigurationAssignmentParentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationAssignmentParentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

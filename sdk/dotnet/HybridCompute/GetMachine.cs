@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// Azure REST API version: 2022-12-27.
-        /// 
-        /// Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Task<GetMachineResult> InvokeAsync(GetMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// Azure REST API version: 2022-12-27.
-        /// 
-        /// Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a hybrid machine.
-        /// Azure REST API version: 2022-12-27.
-        /// 
-        /// Other available API versions: 2020-08-02, 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Output<GetMachineResult> Invoke(GetMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineResult>("azure-native:hybridcompute:getMachine", args ?? new GetMachineInvokeArgs(), options.WithDefaults());
@@ -153,9 +147,17 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
+        /// Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
         /// The time of the last status change.
         /// </summary>
         public readonly string LastStatusChange;
+        /// <summary>
+        /// Specifies the License related properties for a machine.
+        /// </summary>
+        public readonly Outputs.LicenseProfileMachineInstanceViewResponse? LicenseProfile;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -176,6 +178,14 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Information about the network the machine is on.
+        /// </summary>
+        public readonly Outputs.NetworkProfileResponse NetworkProfile;
+        /// <summary>
+        /// The edition of the Operating System.
+        /// </summary>
+        public readonly string OsEdition;
         /// <summary>
         /// The Operating System running on the hybrid machine.
         /// </summary>
@@ -271,7 +281,11 @@ namespace Pulumi.AzureNative.HybridCompute
 
             Outputs.IdentityResponse? identity,
 
+            string? kind,
+
             string lastStatusChange,
+
+            Outputs.LicenseProfileMachineInstanceViewResponse? licenseProfile,
 
             string location,
 
@@ -282,6 +296,10 @@ namespace Pulumi.AzureNative.HybridCompute
             string? mssqlDiscovered,
 
             string name,
+
+            Outputs.NetworkProfileResponse networkProfile,
+
+            string osEdition,
 
             string osName,
 
@@ -329,12 +347,16 @@ namespace Pulumi.AzureNative.HybridCompute
             Extensions = extensions;
             Id = id;
             Identity = identity;
+            Kind = kind;
             LastStatusChange = lastStatusChange;
+            LicenseProfile = licenseProfile;
             Location = location;
             LocationData = locationData;
             MachineFqdn = machineFqdn;
             MssqlDiscovered = mssqlDiscovered;
             Name = name;
+            NetworkProfile = networkProfile;
+            OsEdition = osEdition;
             OsName = osName;
             OsProfile = osProfile;
             OsSku = osSku;

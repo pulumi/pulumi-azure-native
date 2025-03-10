@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Method to get a Hyper-V cluster.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getHypervClusterControllerCluster(args: GetHypervClusterControllerClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervClusterControllerClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,9 +94,7 @@ export interface GetHypervClusterControllerClusterResult {
 }
 /**
  * Method to get a Hyper-V cluster.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getHypervClusterControllerClusterOutput(args: GetHypervClusterControllerClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervClusterControllerClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

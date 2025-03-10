@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());

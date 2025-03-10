@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Retrieves information about a virtual machine instance.
         /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-07, 2024-06-01.
         /// </summary>
         public static Task<GetVirtualMachineInstanceResult> InvokeAsync(GetVirtualMachineInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineInstanceResult>("azure-native:scvmm:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Retrieves information about a virtual machine instance.
         /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-07, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:scvmm:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Retrieves information about a virtual machine instance.
         /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-07, 2024-06-01.
         /// </summary>
         public static Output<GetVirtualMachineInstanceResult> Invoke(GetVirtualMachineInstanceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineInstanceResult>("azure-native:scvmm:getVirtualMachineInstance", args ?? new GetVirtualMachineInstanceInvokeArgs(), options.WithDefaults());

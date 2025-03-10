@@ -129,7 +129,7 @@ def get_eyes_on(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEyesOnResult:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,7 +157,7 @@ def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEyesOnResult]:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

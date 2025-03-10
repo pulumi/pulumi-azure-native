@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the configuration identified by configuration name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getDscConfiguration(args: GetDscConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDscConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -108,9 +106,7 @@ export interface GetDscConfigurationResult {
 }
 /**
  * Retrieve the configuration identified by configuration name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getDscConfigurationOutput(args: GetDscConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDscConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

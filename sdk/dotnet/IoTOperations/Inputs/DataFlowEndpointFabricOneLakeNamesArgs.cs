@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
     /// <summary>
     /// Microsoft Fabric endpoint Names properties
     /// </summary>
-    public sealed class DataFlowEndpointFabricOneLakeNamesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointFabricOneLakeNamesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Lakehouse name.
@@ -27,9 +27,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
 
-        public DataFlowEndpointFabricOneLakeNamesArgs()
+        public DataflowEndpointFabricOneLakeNamesArgs()
         {
         }
-        public static new DataFlowEndpointFabricOneLakeNamesArgs Empty => new DataFlowEndpointFabricOneLakeNamesArgs();
+        public static new DataflowEndpointFabricOneLakeNamesArgs Empty => new DataflowEndpointFabricOneLakeNamesArgs();
     }
 }

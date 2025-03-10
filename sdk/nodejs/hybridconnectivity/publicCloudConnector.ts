@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Public Cloud Connector
- * Azure REST API version: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
  */
 export class PublicCloudConnector extends pulumi.CustomResource {
     /**

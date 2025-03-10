@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Instance of Pool resource.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetIpamPoolResult> InvokeAsync(GetIpamPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpamPoolResult>("azure-native:network:getIpamPool", args ?? new GetIpamPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Pool resource.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("azure-native:network:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Pool resource.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("azure-native:network:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());

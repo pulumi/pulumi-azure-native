@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 {
     /// <summary>
     /// Access policies help define the authentication rules, and control access to specific video resources.
-    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
+    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

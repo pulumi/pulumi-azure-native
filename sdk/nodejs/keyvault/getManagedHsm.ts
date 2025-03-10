@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified managed HSM Pool.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
 export function getManagedHsm(args: GetManagedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetManagedHsmResult {
      * The Azure Resource Manager resource ID for the managed HSM Pool.
      */
     readonly id: string;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    readonly identity?: outputs.keyvault.ManagedServiceIdentityResponse;
     /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
@@ -71,9 +73,7 @@ export interface GetManagedHsmResult {
 }
 /**
  * Gets the specified managed HSM Pool.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+ * Azure REST API version: 2024-11-01.
  */
 export function getManagedHsmOutput(args: GetManagedHsmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHsmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

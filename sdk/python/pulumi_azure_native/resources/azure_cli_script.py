@@ -343,7 +343,7 @@ class AzureCliScript(pulumi.CustomResource):
                  __props__=None):
         """
         Object model for the Azure CLI script.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,7 +375,7 @@ class AzureCliScript(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Object model for the Azure CLI script.
-        Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param AzureCliScriptArgs args: The arguments to use to populate this resource's properties.
@@ -455,7 +455,7 @@ class AzureCliScript(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzureCliScript")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20191001preview:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20201001:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzureCliScript"), pulumi.Alias(type_="azure-native:resources/v20230801:AzurePowerShellScript"), pulumi.Alias(type_="azure-native:resources:AzurePowerShellScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AzureCliScript, __self__).__init__(
             'azure-native:resources:AzureCliScript',

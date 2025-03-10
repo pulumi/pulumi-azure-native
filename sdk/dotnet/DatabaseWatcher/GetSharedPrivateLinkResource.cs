@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     {
         /// <summary>
         /// Get a SharedPrivateLinkResource
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetSharedPrivateLinkResourceResult> InvokeAsync(GetSharedPrivateLinkResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SharedPrivateLinkResource
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SharedPrivateLinkResource
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetSharedPrivateLinkResourceResult> Invoke(GetSharedPrivateLinkResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharedPrivateLinkResourceResult>("azure-native:databasewatcher:getSharedPrivateLinkResource", args ?? new GetSharedPrivateLinkResourceInvokeArgs(), options.WithDefaults());
@@ -105,7 +99,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public readonly string GroupId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

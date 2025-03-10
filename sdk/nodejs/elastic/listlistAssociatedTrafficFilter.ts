@@ -9,25 +9,23 @@ import * as utilities from "../utilities";
 
 /**
  * List of elastic traffic filters in the account
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
-export function listlistAssociatedTrafficFilter(args: ListlistAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListlistAssociatedTrafficFilterResult> {
+export function listListAssociatedTrafficFilter(args: ListListAssociatedTrafficFilterArgs, opts?: pulumi.InvokeOptions): Promise<ListListAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("azure-native:elastic:listlistAssociatedTrafficFilter", {
+    return pulumi.runtime.invoke("azure-native:elastic:listListAssociatedTrafficFilter", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListlistAssociatedTrafficFilterArgs {
+export interface ListListAssociatedTrafficFilterArgs {
     /**
      * Monitor resource name
      */
     monitorName: string;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -35,7 +33,7 @@ export interface ListlistAssociatedTrafficFilterArgs {
 /**
  * List of elastic traffic filters in the account
  */
-export interface ListlistAssociatedTrafficFilterResult {
+export interface ListListAssociatedTrafficFilterResult {
     /**
      * List of elastic traffic filters in the account
      */
@@ -43,25 +41,23 @@ export interface ListlistAssociatedTrafficFilterResult {
 }
 /**
  * List of elastic traffic filters in the account
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
-export function listlistAssociatedTrafficFilterOutput(args: ListlistAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListlistAssociatedTrafficFilterResult> {
+export function listListAssociatedTrafficFilterOutput(args: ListListAssociatedTrafficFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListListAssociatedTrafficFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invokeOutput("azure-native:elastic:listlistAssociatedTrafficFilter", {
+    return pulumi.runtime.invokeOutput("azure-native:elastic:listListAssociatedTrafficFilter", {
         "monitorName": args.monitorName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
-export interface ListlistAssociatedTrafficFilterOutputArgs {
+export interface ListListAssociatedTrafficFilterOutputArgs {
     /**
      * Monitor resource name
      */
     monitorName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

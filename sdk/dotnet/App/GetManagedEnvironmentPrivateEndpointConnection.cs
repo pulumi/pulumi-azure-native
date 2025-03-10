@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2024-02-02-preview.
-        /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Task<GetManagedEnvironmentPrivateEndpointConnectionResult> InvokeAsync(GetManagedEnvironmentPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2024-02-02-preview.
-        /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2024-02-02-preview.
-        /// 
-        /// Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetManagedEnvironmentPrivateEndpointConnectionResult> Invoke(GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentPrivateEndpointConnectionResult>("azure-native:app:getManagedEnvironmentPrivateEndpointConnection", args ?? new GetManagedEnvironmentPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

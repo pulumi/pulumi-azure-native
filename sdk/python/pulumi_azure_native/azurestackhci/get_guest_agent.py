@@ -27,13 +27,10 @@ class GetGuestAgentResult:
     """
     Defines the GuestAgent.
     """
-    def __init__(__self__, credentials=None, http_proxy_config=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, system_data=None, type=None):
+    def __init__(__self__, credentials=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, system_data=None, type=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
-        if http_proxy_config and not isinstance(http_proxy_config, dict):
-            raise TypeError("Expected argument 'http_proxy_config' to be a dict")
-        pulumi.set(__self__, "http_proxy_config", http_proxy_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -65,18 +62,10 @@ class GetGuestAgentResult:
         return pulumi.get(self, "credentials")
 
     @property
-    @pulumi.getter(name="httpProxyConfig")
-    def http_proxy_config(self) -> Optional['outputs.HttpProxyConfigurationResponse']:
-        """
-        HTTP Proxy configuration for the VM.
-        """
-        return pulumi.get(self, "http_proxy_config")
-
-    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -100,7 +89,7 @@ class GetGuestAgentResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state.
+        Provisioning state of the virtual machine instance.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -136,7 +125,6 @@ class AwaitableGetGuestAgentResult(GetGuestAgentResult):
             yield self
         return GetGuestAgentResult(
             credentials=self.credentials,
-            http_proxy_config=self.http_proxy_config,
             id=self.id,
             name=self.name,
             provisioning_action=self.provisioning_action,
@@ -146,31 +134,22 @@ class AwaitableGetGuestAgentResult(GetGuestAgentResult):
             type=self.type)
 
 
-def get_guest_agent(name: Optional[str] = None,
-                    resource_group_name: Optional[str] = None,
-                    virtual_machine_name: Optional[str] = None,
+def get_guest_agent(resource_uri: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
-    :param str name: Name of the GuestAgent.
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str virtual_machine_name: Name of the vm.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineName'] = virtual_machine_name
+    __args__['resourceUri'] = resource_uri
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult).value
 
     return AwaitableGetGuestAgentResult(
         credentials=pulumi.get(__ret__, 'credentials'),
-        http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_action=pulumi.get(__ret__, 'provisioning_action'),
@@ -178,30 +157,21 @@ def get_guest_agent(name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
-                           resource_group_name: Optional[pulumi.Input[str]] = None,
-                           virtual_machine_name: Optional[pulumi.Input[str]] = None,
+def get_guest_agent_output(resource_uri: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
-    :param str name: Name of the GuestAgent.
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str virtual_machine_name: Name of the vm.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
-    __args__['resourceGroupName'] = resource_group_name
-    __args__['virtualMachineName'] = virtual_machine_name
+    __args__['resourceUri'] = resource_uri
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult)
     return __ret__.apply(lambda __response__: GetGuestAgentResult(
         credentials=pulumi.get(__response__, 'credentials'),
-        http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_action=pulumi.get(__response__, 'provisioning_action'),

@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.Monitor
     public static class GetAzureMonitorWorkspace
     {
         /// <summary>
-        /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Returns the specific Azure Monitor workspace
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetAzureMonitorWorkspaceResult> InvokeAsync(GetAzureMonitorWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Returns the specific Azure Monitor workspace
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the specified Azure Monitor Workspace
-        /// Azure REST API version: 2023-04-03.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
+        /// Returns the specific Azure Monitor workspace
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetAzureMonitorWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor Workspace. The name is case insensitive
+        /// The name of the Azure Monitor workspace. The name is case insensitive.
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public string AzureMonitorWorkspaceName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetAzureMonitorWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor Workspace. The name is case insensitive
+        /// The name of the Azure Monitor workspace. The name is case insensitive.
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;
@@ -85,19 +79,19 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetAzureMonitorWorkspaceResult
     {
         /// <summary>
-        /// The immutable Id of the Azure Monitor Workspace. This property is read-only.
+        /// The immutable ID of the Azure Monitor workspace. This property is read-only.
         /// </summary>
         public readonly string AccountId;
         /// <summary>
         /// The Data Collection Rule and Endpoint used for ingestion by default.
         /// </summary>
-        public readonly Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings DefaultIngestionSettings;
+        public readonly Outputs.IngestionSettingsResponse DefaultIngestionSettings;
         /// <summary>
         /// Resource entity tag (ETag)
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -105,25 +99,25 @@ namespace Pulumi.AzureNative.Monitor
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Properties related to the metrics container in the Azure Monitor Workspace
+        /// Information about metrics for the Azure Monitor workspace
         /// </summary>
-        public readonly Outputs.AzureMonitorWorkspaceResponseMetrics Metrics;
+        public readonly Outputs.MetricsResponse? Metrics;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections
+        /// List of private endpoint connections.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
+        /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
+        /// Gets or sets allow or disallow public network access to workspace
         /// </summary>
-        public readonly string? PublicNetworkAccess;
+        public readonly string PublicNetworkAccess;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -141,7 +135,7 @@ namespace Pulumi.AzureNative.Monitor
         private GetAzureMonitorWorkspaceResult(
             string accountId,
 
-            Outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings defaultIngestionSettings,
+            Outputs.IngestionSettingsResponse defaultIngestionSettings,
 
             string etag,
 
@@ -149,7 +143,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string location,
 
-            Outputs.AzureMonitorWorkspaceResponseMetrics metrics,
+            Outputs.MetricsResponse? metrics,
 
             string name,
 
@@ -157,7 +151,7 @@ namespace Pulumi.AzureNative.Monitor
 
             string provisioningState,
 
-            string? publicNetworkAccess,
+            string publicNetworkAccess,
 
             Outputs.SystemDataResponse systemData,
 

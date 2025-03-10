@@ -27,6 +27,7 @@ class BackendArgs:
                  service_name: pulumi.Input[str],
                  url: pulumi.Input[str],
                  backend_id: Optional[pulumi.Input[str]] = None,
+                 circuit_breaker: Optional[pulumi.Input['BackendCircuitBreakerArgs']] = None,
                  credentials: Optional[pulumi.Input['BackendCredentialsContractArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['BackendPropertiesArgs']] = None,
@@ -41,6 +42,7 @@ class BackendArgs:
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] url: Runtime Url of the Backend.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+        :param pulumi.Input['BackendCircuitBreakerArgs'] circuit_breaker: Backend Circuit Breaker Configuration
         :param pulumi.Input['BackendCredentialsContractArgs'] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
         :param pulumi.Input['BackendPropertiesArgs'] properties: Backend Properties contract
@@ -55,6 +57,8 @@ class BackendArgs:
         pulumi.set(__self__, "url", url)
         if backend_id is not None:
             pulumi.set(__self__, "backend_id", backend_id)
+        if circuit_breaker is not None:
+            pulumi.set(__self__, "circuit_breaker", circuit_breaker)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if description is not None:
@@ -129,6 +133,18 @@ class BackendArgs:
     @backend_id.setter
     def backend_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "backend_id", value)
+
+    @property
+    @pulumi.getter(name="circuitBreaker")
+    def circuit_breaker(self) -> Optional[pulumi.Input['BackendCircuitBreakerArgs']]:
+        """
+        Backend Circuit Breaker Configuration
+        """
+        return pulumi.get(self, "circuit_breaker")
+
+    @circuit_breaker.setter
+    def circuit_breaker(self, value: Optional[pulumi.Input['BackendCircuitBreakerArgs']]):
+        pulumi.set(self, "circuit_breaker", value)
 
     @property
     @pulumi.getter
@@ -221,6 +237,7 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_id: Optional[pulumi.Input[str]] = None,
+                 circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
@@ -235,13 +252,12 @@ class Backend(pulumi.CustomResource):
                  __props__=None):
         """
         Backend details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
+        :param pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']] circuit_breaker: Backend Circuit Breaker Configuration
         :param pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[str] description: Backend Description.
         :param pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']] properties: Backend Properties contract
@@ -262,9 +278,7 @@ class Backend(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backend details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2018-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param BackendArgs args: The arguments to use to populate this resource's properties.
@@ -282,6 +296,7 @@ class Backend(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_id: Optional[pulumi.Input[str]] = None,
+                 circuit_breaker: Optional[pulumi.Input[Union['BackendCircuitBreakerArgs', 'BackendCircuitBreakerArgsDict']]] = None,
                  credentials: Optional[pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']]] = None,
@@ -303,6 +318,7 @@ class Backend(pulumi.CustomResource):
             __props__ = BackendArgs.__new__(BackendArgs)
 
             __props__.__dict__["backend_id"] = backend_id
+            __props__.__dict__["circuit_breaker"] = circuit_breaker
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["properties"] = properties
@@ -348,6 +364,7 @@ class Backend(pulumi.CustomResource):
 
         __props__ = BackendArgs.__new__(BackendArgs)
 
+        __props__.__dict__["circuit_breaker"] = None
         __props__.__dict__["credentials"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
@@ -360,6 +377,14 @@ class Backend(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["url"] = None
         return Backend(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="circuitBreaker")
+    def circuit_breaker(self) -> pulumi.Output[Optional['outputs.BackendCircuitBreakerResponse']]:
+        """
+        Backend Circuit Breaker Configuration
+        """
+        return pulumi.get(self, "circuit_breaker")
 
     @property
     @pulumi.getter

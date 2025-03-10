@@ -197,9 +197,7 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterFeatureResult:
     """
     Get properties of the provided the Kubernetes cluster feature.
-    Azure REST API version: 2024-06-01-preview.
-
-    Other available API versions: 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str feature_name: The name of the feature.
@@ -233,9 +231,7 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterFeatureResult]:
     """
     Get properties of the provided the Kubernetes cluster feature.
-    Azure REST API version: 2024-06-01-preview.
-
-    Other available API versions: 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str feature_name: The name of the feature.

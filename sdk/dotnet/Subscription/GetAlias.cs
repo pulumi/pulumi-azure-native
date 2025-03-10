@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Subscription
     {
         /// <summary>
         /// Get Alias Subscription.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2024-08-01-preview.
+        /// Azure REST API version: 2024-08-01-preview.
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Alias Subscription.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2024-08-01-preview.
+        /// Azure REST API version: 2024-08-01-preview.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Alias Subscription.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2024-08-01-preview.
+        /// Azure REST API version: 2024-08-01-preview.
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("azure-native:subscription:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());

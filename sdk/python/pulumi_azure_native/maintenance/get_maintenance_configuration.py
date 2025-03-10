@@ -27,7 +27,7 @@ class GetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
     """
-    def __init__(__self__, duration=None, expiration_date_time=None, extension_properties=None, id=None, install_patches=None, location=None, maintenance_scope=None, name=None, namespace=None, overrides=None, recur_every=None, start_date_time=None, system_data=None, tags=None, time_zone=None, type=None, visibility=None):
+    def __init__(__self__, duration=None, expiration_date_time=None, extension_properties=None, id=None, install_patches=None, location=None, maintenance_scope=None, name=None, namespace=None, recur_every=None, start_date_time=None, system_data=None, tags=None, time_zone=None, type=None, visibility=None):
         if duration and not isinstance(duration, str):
             raise TypeError("Expected argument 'duration' to be a str")
         pulumi.set(__self__, "duration", duration)
@@ -55,9 +55,6 @@ class GetMaintenanceConfigurationResult:
         if namespace and not isinstance(namespace, str):
             raise TypeError("Expected argument 'namespace' to be a str")
         pulumi.set(__self__, "namespace", namespace)
-        if overrides and not isinstance(overrides, list):
-            raise TypeError("Expected argument 'overrides' to be a list")
-        pulumi.set(__self__, "overrides", overrides)
         if recur_every and not isinstance(recur_every, str):
             raise TypeError("Expected argument 'recur_every' to be a str")
         pulumi.set(__self__, "recur_every", recur_every)
@@ -153,14 +150,6 @@ class GetMaintenanceConfigurationResult:
         return pulumi.get(self, "namespace")
 
     @property
-    @pulumi.getter
-    def overrides(self) -> Optional[Sequence['outputs.MaintenanceOverridePropertiesResponse']]:
-        """
-        Override Properties for the maintenance Configuration.
-        """
-        return pulumi.get(self, "overrides")
-
-    @property
     @pulumi.getter(name="recurEvery")
     def recur_every(self) -> Optional[str]:
         """
@@ -232,7 +221,6 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
             maintenance_scope=self.maintenance_scope,
             name=self.name,
             namespace=self.namespace,
-            overrides=self.overrides,
             recur_every=self.recur_every,
             start_date_time=self.start_date_time,
             system_data=self.system_data,
@@ -247,9 +235,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: Resource Group Name
@@ -271,7 +257,6 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
         maintenance_scope=pulumi.get(__ret__, 'maintenance_scope'),
         name=pulumi.get(__ret__, 'name'),
         namespace=pulumi.get(__ret__, 'namespace'),
-        overrides=pulumi.get(__ret__, 'overrides'),
         recur_every=pulumi.get(__ret__, 'recur_every'),
         start_date_time=pulumi.get(__ret__, 'start_date_time'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -284,9 +269,7 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
     Maintenance configuration record type
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: Resource Group Name
@@ -307,7 +290,6 @@ def get_maintenance_configuration_output(resource_group_name: Optional[pulumi.In
         maintenance_scope=pulumi.get(__response__, 'maintenance_scope'),
         name=pulumi.get(__response__, 'name'),
         namespace=pulumi.get(__response__, 'namespace'),
-        overrides=pulumi.get(__response__, 'overrides'),
         recur_every=pulumi.get(__response__, 'recur_every'),
         start_date_time=pulumi.get(__response__, 'start_date_time'),
         system_data=pulumi.get(__response__, 'system_data'),

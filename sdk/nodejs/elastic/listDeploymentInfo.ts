@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListDeploymentInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -27,7 +25,7 @@ export interface ListDeploymentInfoArgs {
      */
     monitorName: string;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -44,6 +42,10 @@ export interface ListDeploymentInfoResult {
      * Disk capacity of the elasticsearch in Elastic cloud deployment.
      */
     readonly diskCapacity: string;
+    /**
+     * Elasticsearch endpoint in Elastic cloud deployment. This is either the aliased_endpoint if available, or the service_url otherwise.
+     */
+    readonly elasticsearchEndPoint: string;
     /**
      * Marketplace SaaS Info of the resource.
      */
@@ -63,9 +65,7 @@ export interface ListDeploymentInfoResult {
 }
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListDeploymentInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,7 +81,7 @@ export interface ListDeploymentInfoOutputArgs {
      */
     monitorName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

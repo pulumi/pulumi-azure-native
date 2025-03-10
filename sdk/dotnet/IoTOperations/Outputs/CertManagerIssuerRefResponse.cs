@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// <summary>
         /// group of issuer.
         /// </summary>
-        public readonly string ApiGroup;
+        public readonly string Group;
         /// <summary>
         /// kind of issuer (Issuer or ClusterIssuer).
         /// </summary>
@@ -31,13 +31,13 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
         [OutputConstructor]
         private CertManagerIssuerRefResponse(
-            string apiGroup,
+            string group,
 
             string kind,
 
             string name)
         {
-            ApiGroup = apiGroup;
+            Group = group;
             Kind = kind;
             Name = name;
         }

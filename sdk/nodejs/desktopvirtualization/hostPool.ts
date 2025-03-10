@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a HostPool definition.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
- *
- * Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
  */
 export class HostPool extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly agentUpdate!: pulumi.Output<outputs.desktopvirtualization.AgentUpdatePropertiesResponse | undefined>;
     /**
+     * List of App Attach Package links.
+     */
+    public /*out*/ readonly appAttachPackageReferences!: pulumi.Output<string[]>;
+    /**
      * List of applicationGroup links.
      */
     public /*out*/ readonly applicationGroupReferences!: pulumi.Output<string[]>;
@@ -74,7 +76,7 @@ export class HostPool extends pulumi.CustomResource {
     public readonly hostPoolType!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -84,7 +86,7 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
@@ -110,6 +112,14 @@ export class HostPool extends pulumi.CustomResource {
      * The type of preferred application group type, default to Desktop Application Group
      */
     public readonly preferredAppGroupType!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connection associated with the specified resource
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The registration info of HostPool.
      */
@@ -140,7 +150,7 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly startVMOnConnect!: pulumi.Output<boolean | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -198,6 +208,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ring"] = args ? args.ring : undefined;
@@ -210,15 +221,18 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
             resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
+            resourceInputs["appAttachPackageReferences"] = undefined /*out*/;
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["cloudPcResource"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["agentUpdate"] = undefined /*out*/;
+            resourceInputs["appAttachPackageReferences"] = undefined /*out*/;
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["cloudPcResource"] = undefined /*out*/;
             resourceInputs["customRdpProperty"] = undefined /*out*/;
@@ -237,6 +251,8 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["preferredAppGroupType"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["registrationInfo"] = undefined /*out*/;
             resourceInputs["ring"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
@@ -288,7 +304,7 @@ export interface HostPoolArgs {
     hostPoolType: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
     identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
-     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+     * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
     kind?: pulumi.Input<string>;
     /**
@@ -316,6 +332,10 @@ export interface HostPoolArgs {
      * The type of preferred application group type, default to Desktop Application Group
      */
     preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.PreferredAppGroupType>;
+    /**
+     * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.HostpoolPublicNetworkAccess>;
     /**
      * The registration info of HostPool.
      */

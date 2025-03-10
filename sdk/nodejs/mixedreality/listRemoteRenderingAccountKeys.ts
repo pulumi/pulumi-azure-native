@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List Both of the 2 Keys of a Remote Rendering Account
- * Azure REST API version: 2021-01-01.
- *
- * Other available API versions: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function listRemoteRenderingAccountKeys(args: ListRemoteRenderingAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListRemoteRenderingAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,9 +42,7 @@ export interface ListRemoteRenderingAccountKeysResult {
 }
 /**
  * List Both of the 2 Keys of a Remote Rendering Account
- * Azure REST API version: 2021-01-01.
- *
- * Other available API versions: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function listRemoteRenderingAccountKeysOutput(args: ListRemoteRenderingAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListRemoteRenderingAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

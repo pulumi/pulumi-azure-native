@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ElasticSan
     {
         /// <summary>
         /// Get a Volume Snapshot.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVolumeSnapshotResult> InvokeAsync(GetVolumeSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Volume Snapshot.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Volume Snapshot.
-        /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:elasticsan:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a devcenter resource.
-    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource
@@ -23,6 +21,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("devCenterUri")]
         public Output<string> DevCenterUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the devcenter.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Managed identity properties
@@ -41,6 +51,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Dev Center settings to be used when associating a project with a catalog.
+        /// </summary>
+        [Output("projectCatalogSettings")]
+        public Output<Outputs.DevCenterProjectCatalogSettingsResponse?> ProjectCatalogSettings { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -135,6 +151,18 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string>? DevCenterName { get; set; }
 
         /// <summary>
+        /// The display name of the devcenter.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// Managed identity properties
         /// </summary>
         [Input("identity")]
@@ -145,6 +173,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Dev Center settings to be used when associating a project with a catalog.
+        /// </summary>
+        [Input("projectCatalogSettings")]
+        public Input<Inputs.DevCenterProjectCatalogSettingsArgs>? ProjectCatalogSettings { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

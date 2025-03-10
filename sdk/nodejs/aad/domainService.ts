@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+ * Azure REST API version: 2022-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
  */
 export class DomainService extends pulumi.CustomResource {
     /**

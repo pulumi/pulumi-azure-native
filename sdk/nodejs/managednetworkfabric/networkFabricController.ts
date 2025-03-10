@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The NetworkFabricController resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * The Network Fabric Controller resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class NetworkFabricController extends pulumi.CustomResource {
     /**
@@ -51,7 +49,7 @@ export class NetworkFabricController extends pulumi.CustomResource {
     /**
      * InfrastructureServices IP ranges.
      */
-    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.InfrastructureServicesResponse>;
+    public /*out*/ readonly infrastructureServices!: pulumi.Output<outputs.managednetworkfabric.ControllerServicesResponse>;
     /**
      * IPv4 Network Fabric Controller Address Space.
      */
@@ -60,6 +58,10 @@ export class NetworkFabricController extends pulumi.CustomResource {
      * IPv6 Network Fabric Controller Address Space.
      */
     public readonly ipv6AddressSpace!: pulumi.Output<string | undefined>;
+    /**
+     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+     */
+    public readonly isWorkloadManagementNetworkEnabled!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -77,9 +79,9 @@ export class NetworkFabricController extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkFabricIds!: pulumi.Output<string[]>;
     /**
-     * The Operational Status would always be NULL. Look only in to the Provisioning state for the latest status.
+     * Network Fabric Controller SKU.
      */
-    public /*out*/ readonly operationalState!: pulumi.Output<string>;
+    public readonly nfcSku!: pulumi.Output<string | undefined>;
     /**
      * Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
      */
@@ -93,6 +95,10 @@ export class NetworkFabricController extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * List of tenant InternetGateway resource IDs
+     */
+    public /*out*/ readonly tenantInternetGatewayIds!: pulumi.Output<string[]>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -101,13 +107,13 @@ export class NetworkFabricController extends pulumi.CustomResource {
      */
     public readonly workloadExpressRouteConnections!: pulumi.Output<outputs.managednetworkfabric.ExpressRouteConnectionInformationResponse[] | undefined>;
     /**
-     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints. This is used for the backward compatibility.
      */
     public /*out*/ readonly workloadManagementNetwork!: pulumi.Output<boolean>;
     /**
      * WorkloadServices IP ranges.
      */
-    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.WorkloadServicesResponse>;
+    public /*out*/ readonly workloadServices!: pulumi.Output<outputs.managednetworkfabric.ControllerServicesResponse>;
 
     /**
      * Create a NetworkFabricController resource with the given unique name, arguments, and options.
@@ -125,20 +131,22 @@ export class NetworkFabricController extends pulumi.CustomResource {
             }
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["infrastructureExpressRouteConnections"] = args ? args.infrastructureExpressRouteConnections : undefined;
-            resourceInputs["ipv4AddressSpace"] = args ? args.ipv4AddressSpace : undefined;
-            resourceInputs["ipv6AddressSpace"] = args ? args.ipv6AddressSpace : undefined;
+            resourceInputs["ipv4AddressSpace"] = (args ? args.ipv4AddressSpace : undefined) ?? "10.0.0.0/19";
+            resourceInputs["ipv6AddressSpace"] = (args ? args.ipv6AddressSpace : undefined) ?? "FC00::/59";
+            resourceInputs["isWorkloadManagementNetworkEnabled"] = (args ? args.isWorkloadManagementNetworkEnabled : undefined) ?? "True";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
             resourceInputs["networkFabricControllerName"] = args ? args.networkFabricControllerName : undefined;
+            resourceInputs["nfcSku"] = (args ? args.nfcSku : undefined) ?? "Standard";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workloadExpressRouteConnections"] = args ? args.workloadExpressRouteConnections : undefined;
             resourceInputs["infrastructureServices"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFabricIds"] = undefined /*out*/;
-            resourceInputs["operationalState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantInternetGatewayIds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workloadManagementNetwork"] = undefined /*out*/;
             resourceInputs["workloadServices"] = undefined /*out*/;
@@ -148,14 +156,16 @@ export class NetworkFabricController extends pulumi.CustomResource {
             resourceInputs["infrastructureServices"] = undefined /*out*/;
             resourceInputs["ipv4AddressSpace"] = undefined /*out*/;
             resourceInputs["ipv6AddressSpace"] = undefined /*out*/;
+            resourceInputs["isWorkloadManagementNetworkEnabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedResourceGroupConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFabricIds"] = undefined /*out*/;
-            resourceInputs["operationalState"] = undefined /*out*/;
+            resourceInputs["nfcSku"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantInternetGatewayIds"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workloadExpressRouteConnections"] = undefined /*out*/;
             resourceInputs["workloadManagementNetwork"] = undefined /*out*/;
@@ -189,6 +199,10 @@ export interface NetworkFabricControllerArgs {
      */
     ipv6AddressSpace?: pulumi.Input<string>;
     /**
+     * A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+     */
+    isWorkloadManagementNetworkEnabled?: pulumi.Input<string | enums.managednetworkfabric.IsWorkloadManagementNetworkEnabled>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -197,9 +211,13 @@ export interface NetworkFabricControllerArgs {
      */
     managedResourceGroupConfiguration?: pulumi.Input<inputs.managednetworkfabric.ManagedResourceGroupConfigurationArgs>;
     /**
-     * Name of the Network Fabric Controller
+     * Name of the Network Fabric Controller.
      */
     networkFabricControllerName?: pulumi.Input<string>;
+    /**
+     * Network Fabric Controller SKU.
+     */
+    nfcSku?: pulumi.Input<string | enums.managednetworkfabric.NfcSku>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

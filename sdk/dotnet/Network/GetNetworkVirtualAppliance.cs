@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
@@ -141,6 +135,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> InboundSecurityRules;
         /// <summary>
+        /// List of Resource Uri of Public IPs for Internet Ingress Scenario.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InternetIngressPublicIpsPropertiesResponse> InternetIngressPublicIps;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -148,6 +146,10 @@ namespace Pulumi.AzureNative.Network
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network Profile containing configurations for Public and Private NIC.
+        /// </summary>
+        public readonly Outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile? NetworkProfile;
         /// <summary>
         /// Network Virtual Appliance SKU.
         /// </summary>
@@ -176,6 +178,10 @@ namespace Pulumi.AzureNative.Network
         /// VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         /// </summary>
         public readonly double? VirtualApplianceAsn;
+        /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualApplianceConnections;
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
@@ -213,9 +219,13 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.SubResourceResponse> inboundSecurityRules,
 
+            ImmutableArray<Outputs.InternetIngressPublicIpsPropertiesResponse> internetIngressPublicIps,
+
             string? location,
 
             string name,
+
+            Outputs.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile? networkProfile,
 
             Outputs.VirtualApplianceSkuPropertiesResponse? nvaSku,
 
@@ -230,6 +240,8 @@ namespace Pulumi.AzureNative.Network
             string type,
 
             double? virtualApplianceAsn,
+
+            ImmutableArray<Outputs.SubResourceResponse> virtualApplianceConnections,
 
             ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
@@ -248,8 +260,10 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Identity = identity;
             InboundSecurityRules = inboundSecurityRules;
+            InternetIngressPublicIps = internetIngressPublicIps;
             Location = location;
             Name = name;
+            NetworkProfile = networkProfile;
             NvaSku = nvaSku;
             PartnerManagedResource = partnerManagedResource;
             ProvisioningState = provisioningState;
@@ -257,6 +271,7 @@ namespace Pulumi.AzureNative.Network
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;
+            VirtualApplianceConnections = virtualApplianceConnections;
             VirtualApplianceNics = virtualApplianceNics;
             VirtualApplianceSites = virtualApplianceSites;
             VirtualHub = virtualHub;

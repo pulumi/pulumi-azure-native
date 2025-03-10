@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetConnectionDeploymentResult> InvokeAsync(GetConnectionDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetConnectionDeploymentResult> Invoke(GetConnectionDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionDeploymentResult>("azure-native:machinelearningservices:getConnectionDeployment", args ?? new GetConnectionDeploymentInvokeArgs(), options.WithDefaults());
@@ -116,8 +110,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.EndpointDeploymentResourcePropertiesResponse Properties;
-        public readonly Outputs.CognitiveServicesSkuResponse? Sku;
+        public readonly object Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -133,9 +126,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.EndpointDeploymentResourcePropertiesResponse properties,
-
-            Outputs.CognitiveServicesSkuResponse? sku,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -144,7 +135,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Id = id;
             Name = name;
             Properties = properties;
-            Sku = sku;
             SystemData = systemData;
             Type = type;
         }

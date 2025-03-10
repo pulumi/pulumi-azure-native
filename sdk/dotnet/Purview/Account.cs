@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// Account resource
-    /// Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
-    /// 
-    /// Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    /// Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -25,8 +23,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<Outputs.AccountPropertiesResponseAccountStatus> AccountStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud connectors.
-        /// External cloud identifier used as part of scanning configuration.
+        /// External Cloud Service connectors
         /// </summary>
         [Output("cloudConnectors")]
         public Output<Outputs.CloudConnectorsResponse?> CloudConnectors { get; private set; } = null!;
@@ -50,6 +47,12 @@ namespace Pulumi.AzureNative.Purview
         public Output<string> CreatedByObjectId { get; private set; } = null!;
 
         /// <summary>
+        /// Gets the default domain in the account.
+        /// </summary>
+        [Output("defaultDomain")]
+        public Output<string> DefaultDomain { get; private set; } = null!;
+
+        /// <summary>
         /// The URIs that are the public endpoints of the account.
         /// </summary>
         [Output("endpoints")]
@@ -62,10 +65,16 @@ namespace Pulumi.AzureNative.Purview
         public Output<string> FriendlyName { get; private set; } = null!;
 
         /// <summary>
-        /// Identity Info on the tracked resource
+        /// The Managed Identity of the resource
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Ingestion Storage Account Info
+        /// </summary>
+        [Output("ingestionStorage")]
+        public Output<Outputs.IngestionStorageResponse?> IngestionStorage { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -74,7 +83,7 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         /// </summary>
         [Output("managedEventHubState")]
         public Output<string?> ManagedEventHubState { get; private set; } = null!;
@@ -96,6 +105,12 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         [Output("managedResourcesPublicNetworkAccess")]
         public Output<string?> ManagedResourcesPublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the Merge Info.
+        /// </summary>
+        [Output("mergeInfo")]
+        public Output<Outputs.AccountMergeInfoResponse?> MergeInfo { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the name.
@@ -125,7 +140,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the Sku.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.AccountResponseSku> Sku { get; private set; } = null!;
+        public Output<Outputs.AccountResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -138,6 +153,12 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the state of tenant endpoint.
+        /// </summary>
+        [Output("tenantEndpointState")]
+        public Output<string?> TenantEndpointState { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the type.
@@ -205,10 +226,16 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Identity Info on the tracked resource
+        /// The Managed Identity of the resource
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Ingestion Storage Account Info
+        /// </summary>
+        [Input("ingestionStorage")]
+        public Input<Inputs.IngestionStorageArgs>? IngestionStorage { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
@@ -217,7 +244,7 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
         /// </summary>
         [Input("managedEventHubState")]
         public InputUnion<string, Pulumi.AzureNative.Purview.ManagedEventHubState>? ManagedEventHubState { get; set; }
@@ -232,7 +259,7 @@ namespace Pulumi.AzureNative.Purview
         /// Gets or sets the public network access for managed resources.
         /// </summary>
         [Input("managedResourcesPublicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.Purview.ManagedResourcesPublicNetworkAccess>? ManagedResourcesPublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.PublicNetworkAccess>? ManagedResourcesPublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Gets or sets the public network access.
@@ -246,6 +273,12 @@ namespace Pulumi.AzureNative.Purview
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Gets or sets the Sku.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.AccountSkuArgs>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -257,6 +290,12 @@ namespace Pulumi.AzureNative.Purview
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Gets or sets the state of tenant endpoint.
+        /// </summary>
+        [Input("tenantEndpointState")]
+        public InputUnion<string, Pulumi.AzureNative.Purview.TenantEndpointState>? TenantEndpointState { get; set; }
 
         public AccountArgs()
         {

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about a pool.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -62,9 +60,6 @@ namespace Pulumi.AzureNative.Batch
         [Output("currentNodeCommunicationMode")]
         public Output<string> CurrentNodeCommunicationMode { get; private set; } = null!;
 
-        /// <summary>
-        /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.DeploymentConfigurationResponse?> DeploymentConfiguration { get; private set; } = null!;
 
@@ -135,6 +130,12 @@ namespace Pulumi.AzureNative.Batch
         public Output<Outputs.ResizeOperationStatusResponse> ResizeOperationStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        /// </summary>
+        [Output("resourceTags")]
+        public Output<ImmutableDictionary<string, string>?> ResourceTags { get; private set; } = null!;
+
+        /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
         [Output("scaleSettings")]
@@ -145,6 +146,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Output("startTask")]
         public Output<Outputs.StartTaskResponse?> StartTask { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// If omitted, the default value is Default.
@@ -170,11 +177,17 @@ namespace Pulumi.AzureNative.Batch
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes an upgrade policy - automatic, manual, or rolling.
+        /// </summary>
+        [Output("upgradePolicy")]
+        public Output<Outputs.UpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
+
         [Output("userAccounts")]
         public Output<ImmutableArray<Outputs.UserAccountResponse>> UserAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         /// </summary>
         [Output("vmSize")]
         public Output<string?> VmSize { get; private set; } = null!;
@@ -287,9 +300,6 @@ namespace Pulumi.AzureNative.Batch
             set => _certificates = value;
         }
 
-        /// <summary>
-        /// Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-        /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.DeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
 
@@ -353,6 +363,18 @@ namespace Pulumi.AzureNative.Batch
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("resourceTags")]
+        private InputMap<string>? _resourceTags;
+
+        /// <summary>
+        /// The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+        /// </summary>
+        public InputMap<string> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputMap<string>());
+            set => _resourceTags = value;
+        }
+
         /// <summary>
         /// Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         /// </summary>
@@ -364,6 +386,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("startTask")]
         public Input<Inputs.StartTaskArgs>? StartTask { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags of the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// If omitted, the default value is Default.
@@ -383,6 +417,12 @@ namespace Pulumi.AzureNative.Batch
         [Input("taskSlotsPerNode")]
         public Input<int>? TaskSlotsPerNode { get; set; }
 
+        /// <summary>
+        /// Describes an upgrade policy - automatic, manual, or rolling.
+        /// </summary>
+        [Input("upgradePolicy")]
+        public Input<Inputs.UpgradePolicyArgs>? UpgradePolicy { get; set; }
+
         [Input("userAccounts")]
         private InputList<Inputs.UserAccountArgs>? _userAccounts;
         public InputList<Inputs.UserAccountArgs> UserAccounts
@@ -392,7 +432,7 @@ namespace Pulumi.AzureNative.Batch
         }
 
         /// <summary>
-        /// For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lab resource.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -72,6 +70,10 @@ export class Lab extends pulumi.CustomResource {
      * Current provisioning state of the lab.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Error details of last operation done on lab.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * The lab user list management profile.
      */
@@ -146,6 +148,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -158,6 +161,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["rosterProfile"] = undefined /*out*/;
             resourceInputs["securityProfile"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -168,7 +172,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:Lab" }, { type: "azure-native:labservices/v20211115preview:Lab" }, { type: "azure-native:labservices/v20220801:Lab" }, { type: "azure-native:labservices/v20230607:Lab" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:Lab" }, { type: "azure-native:labservices/v20211001preview:Lab" }, { type: "azure-native:labservices/v20211115preview:Lab" }, { type: "azure-native:labservices/v20220801:Lab" }, { type: "azure-native:labservices/v20230607:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, resourceInputs, opts);
     }

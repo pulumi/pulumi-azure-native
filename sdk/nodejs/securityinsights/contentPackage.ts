@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Package in Azure Security Insights.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class ContentPackage extends pulumi.CustomResource {
     /**
@@ -49,13 +47,17 @@ export class ContentPackage extends pulumi.CustomResource {
      */
     public readonly categories!: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
     /**
-     * The package id
+     * The content id of the package
      */
     public readonly contentId!: pulumi.Output<string>;
     /**
      * The package kind
      */
     public readonly contentKind!: pulumi.Output<string>;
+    /**
+     * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+     */
+    public readonly contentProductId!: pulumi.Output<string>;
     /**
      * The version of the content schema.
      */
@@ -84,6 +86,10 @@ export class ContentPackage extends pulumi.CustomResource {
      * the icon identifier. this id can later be fetched from the content metadata
      */
     public readonly icon!: pulumi.Output<string | undefined>;
+    /**
+     * Flag indicates if this template is deprecated
+     */
+    public readonly isDeprecated!: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this package is among the featured list.
      */
@@ -158,6 +164,9 @@ export class ContentPackage extends pulumi.CustomResource {
             if ((!args || args.contentKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
+            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'contentProductId'");
+            }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -174,12 +183,14 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["categories"] = args ? args.categories : undefined;
             resourceInputs["contentId"] = args ? args.contentId : undefined;
             resourceInputs["contentKind"] = args ? args.contentKind : undefined;
+            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
             resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
             resourceInputs["dependencies"] = args ? args.dependencies : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
             resourceInputs["icon"] = args ? args.icon : undefined;
+            resourceInputs["isDeprecated"] = args ? args.isDeprecated : undefined;
             resourceInputs["isFeatured"] = args ? args.isFeatured : undefined;
             resourceInputs["isNew"] = args ? args.isNew : undefined;
             resourceInputs["isPreview"] = args ? args.isPreview : undefined;
@@ -203,6 +214,7 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["contentId"] = undefined /*out*/;
             resourceInputs["contentKind"] = undefined /*out*/;
+            resourceInputs["contentProductId"] = undefined /*out*/;
             resourceInputs["contentSchemaVersion"] = undefined /*out*/;
             resourceInputs["dependencies"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -210,6 +222,7 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["firstPublishDate"] = undefined /*out*/;
             resourceInputs["icon"] = undefined /*out*/;
+            resourceInputs["isDeprecated"] = undefined /*out*/;
             resourceInputs["isFeatured"] = undefined /*out*/;
             resourceInputs["isNew"] = undefined /*out*/;
             resourceInputs["isPreview"] = undefined /*out*/;
@@ -245,13 +258,17 @@ export interface ContentPackageArgs {
      */
     categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
     /**
-     * The package id
+     * The content id of the package
      */
     contentId: pulumi.Input<string>;
     /**
      * The package kind
      */
     contentKind: pulumi.Input<string | enums.securityinsights.PackageKind>;
+    /**
+     * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
+     */
+    contentProductId: pulumi.Input<string>;
     /**
      * The version of the content schema.
      */
@@ -276,6 +293,10 @@ export interface ContentPackageArgs {
      * the icon identifier. this id can later be fetched from the content metadata
      */
     icon?: pulumi.Input<string>;
+    /**
+     * Flag indicates if this template is deprecated
+     */
+    isDeprecated?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * Flag indicates if this package is among the featured list.
      */

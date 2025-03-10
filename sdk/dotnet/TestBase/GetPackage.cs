@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:testbase:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.TestBase
         public string PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -75,7 +69,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -103,19 +97,35 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The file path of the package.
         /// </summary>
-        public readonly string BlobPath;
+        public readonly string? BlobPath;
         /// <summary>
-        /// Resource Etag.
+        /// The id of draft package. Used to create or update this package from a draft package.
         /// </summary>
-        public readonly string Etag;
+        public readonly string? DraftPackageId;
+        /// <summary>
+        /// The list of first party applications to test along with user application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirstPartyAppDefinitionResponse> FirstPartyApps;
         /// <summary>
         /// The flighting ring for feature update.
         /// </summary>
-        public readonly string FlightingRing;
+        public readonly string? FlightingRing;
         /// <summary>
-        /// Resource ID.
+        /// The list of gallery apps to test along with user application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryAppDefinitionResponse> GalleryApps;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies the baseline os and target os for inplace upgrade.
+        /// </summary>
+        public readonly Outputs.InplaceUpgradeOSInfoResponse? InplaceUpgradeOSPair;
+        /// <summary>
+        /// The metadata of Intune enrollment.
+        /// </summary>
+        public readonly Outputs.IntuneEnrollmentMetadataResponse? IntuneEnrollmentMetadata;
         /// <summary>
         /// Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
         /// </summary>
@@ -129,7 +139,7 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -141,11 +151,11 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The tags of the resource.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -153,7 +163,7 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly ImmutableArray<Outputs.TargetOSInfoResponse> TargetOSList;
         /// <summary>
-        /// OOB, functional or both. Mapped to the data in 'tests' property.
+        /// OOB, functional or flow driven. Mapped to the data in 'tests' property.
         /// </summary>
         public readonly ImmutableArray<string> TestTypes;
         /// <summary>
@@ -161,7 +171,7 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly ImmutableArray<Outputs.TestResponse> Tests;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -177,13 +187,21 @@ namespace Pulumi.AzureNative.TestBase
         private GetPackageResult(
             string applicationName,
 
-            string blobPath,
+            string? blobPath,
 
-            string etag,
+            string? draftPackageId,
 
-            string flightingRing,
+            ImmutableArray<Outputs.FirstPartyAppDefinitionResponse> firstPartyApps,
+
+            string? flightingRing,
+
+            ImmutableArray<Outputs.GalleryAppDefinitionResponse> galleryApps,
 
             string id,
+
+            Outputs.InplaceUpgradeOSInfoResponse? inplaceUpgradeOSPair,
+
+            Outputs.IntuneEnrollmentMetadataResponse? intuneEnrollmentMetadata,
 
             bool isEnabled,
 
@@ -215,9 +233,13 @@ namespace Pulumi.AzureNative.TestBase
         {
             ApplicationName = applicationName;
             BlobPath = blobPath;
-            Etag = etag;
+            DraftPackageId = draftPackageId;
+            FirstPartyApps = firstPartyApps;
             FlightingRing = flightingRing;
+            GalleryApps = galleryApps;
             Id = id;
+            InplaceUpgradeOSPair = inplaceUpgradeOSPair;
+            IntuneEnrollmentMetadata = intuneEnrollmentMetadata;
             IsEnabled = isEnabled;
             LastModifiedTime = lastModifiedTime;
             Location = location;

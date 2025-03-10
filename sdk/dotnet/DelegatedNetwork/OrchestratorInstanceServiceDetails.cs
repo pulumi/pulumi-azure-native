@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DelegatedNetwork
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
-    /// Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
-    /// 
-    /// Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    /// Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource

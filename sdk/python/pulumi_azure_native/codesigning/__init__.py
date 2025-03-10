@@ -12,14 +12,3 @@ from .get_certificate_profile import *
 from .get_code_signing_account import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.codesigning.v20240205preview as __v20240205preview
-    v20240205preview = __v20240205preview
-    import pulumi_azure_native.codesigning.v20240930preview as __v20240930preview
-    v20240930preview = __v20240930preview
-else:
-    v20240205preview = _utilities.lazy_import('pulumi_azure_native.codesigning.v20240205preview')
-    v20240930preview = _utilities.lazy_import('pulumi_azure_native.codesigning.v20240930preview')
-

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified role management policy assignment for a resource scope
- * Azure REST API version: 2020-10-01.
- *
- * Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2024-09-01-preview.
  */
 export function getRoleManagementPolicyAssignment(args: GetRoleManagementPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,7 +37,7 @@ export interface GetRoleManagementPolicyAssignmentResult {
     /**
      * The readonly computed rule applied to the policy.
      */
-    readonly effectiveRules: (outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse)[];
+    readonly effectiveRules: (outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[];
     /**
      * The role management policy Id.
      */
@@ -71,9 +69,7 @@ export interface GetRoleManagementPolicyAssignmentResult {
 }
 /**
  * Get the specified role management policy assignment for a resource scope
- * Azure REST API version: 2020-10-01.
- *
- * Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2024-09-01-preview.
  */
 export function getRoleManagementPolicyAssignmentOutput(args: GetRoleManagementPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleManagementPolicyAssignmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

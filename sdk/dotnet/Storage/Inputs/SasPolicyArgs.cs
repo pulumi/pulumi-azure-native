@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class SasPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SAS expiration action. Can only be Log.
+        /// The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         /// </summary>
         [Input("expirationAction", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Storage.ExpirationAction> ExpirationAction { get; set; } = null!;

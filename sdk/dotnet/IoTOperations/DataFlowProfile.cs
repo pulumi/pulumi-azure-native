@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations
 {
     /// <summary>
     /// Instance dataflowProfile resource
-    /// Azure REST API version: 2024-07-01-preview.
+    /// Azure REST API version: 2024-11-01.
     /// </summary>
-    [AzureNativeResourceType("azure-native:iotoperations:DataFlowProfile")]
-    public partial class DataFlowProfile : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:iotoperations:DataflowProfile")]
+    public partial class DataflowProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Edge location of the resource.
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// The resource-specific properties for this resource.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.DataFlowProfilePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.DataflowProfilePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -48,19 +48,19 @@ namespace Pulumi.AzureNative.IoTOperations
 
 
         /// <summary>
-        /// Create a DataFlowProfile resource with the given unique name, arguments, and options.
+        /// Create a DataflowProfile resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataFlowProfile(string name, DataFlowProfileArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:iotoperations:DataFlowProfile", name, args ?? new DataFlowProfileArgs(), MakeResourceOptions(options, ""))
+        public DataflowProfile(string name, DataflowProfileArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:iotoperations:DataflowProfile", name, args ?? new DataflowProfileArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private DataFlowProfile(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:iotoperations:DataFlowProfile", name, null, MakeResourceOptions(options, id))
+        private DataflowProfile(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:iotoperations:DataflowProfile", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -72,9 +72,11 @@ namespace Pulumi.AzureNative.IoTOperations
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataFlowProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataFlowProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataFlowProfile" },
-                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataFlowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240701preview:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240815preview:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20240915preview:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations/v20241101:DataflowProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:iotoperations:DataFlowProfile" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -83,20 +85,20 @@ namespace Pulumi.AzureNative.IoTOperations
             return merged;
         }
         /// <summary>
-        /// Get an existing DataFlowProfile resource's state with the given name, ID, and optional extra
+        /// Get an existing DataflowProfile resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static DataFlowProfile Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static DataflowProfile Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new DataFlowProfile(name, id, options);
+            return new DataflowProfile(name, id, options);
         }
     }
 
-    public sealed class DataFlowProfileArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Instance dataflowProfile resource
@@ -120,7 +122,7 @@ namespace Pulumi.AzureNative.IoTOperations
         /// The resource-specific properties for this resource.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.DataFlowProfilePropertiesArgs>? Properties { get; set; }
+        public Input<Inputs.DataflowProfilePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -128,9 +130,9 @@ namespace Pulumi.AzureNative.IoTOperations
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public DataFlowProfileArgs()
+        public DataflowProfileArgs()
         {
         }
-        public static new DataFlowProfileArgs Empty => new DataFlowProfileArgs();
+        public static new DataflowProfileArgs Empty => new DataflowProfileArgs();
     }
 }

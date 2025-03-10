@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the metadata schema.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Task<GetMetadataSchemaResult> InvokeAsync(GetMetadataSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataSchemaResult>("azure-native:apicenter:getMetadataSchema", args ?? new GetMetadataSchemaArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the metadata schema.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetMetadataSchemaResult> Invoke(GetMetadataSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSchemaResult>("azure-native:apicenter:getMetadataSchema", args ?? new GetMetadataSchemaInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// Returns details of the metadata schema.
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
         /// </summary>
         public static Output<GetMetadataSchemaResult> Invoke(GetMetadataSchemaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataSchemaResult>("azure-native:apicenter:getMetadataSchema", args ?? new GetMetadataSchemaInvokeArgs(), options.WithDefaults());

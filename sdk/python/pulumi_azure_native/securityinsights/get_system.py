@@ -147,9 +147,7 @@ def get_system(agent_resource_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemResult:
     """
     Gets the system.
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name
@@ -182,9 +180,7 @@ def get_system_output(agent_resource_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemResult]:
     """
     Gets the system.
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str agent_resource_name: Business Application Agent Name

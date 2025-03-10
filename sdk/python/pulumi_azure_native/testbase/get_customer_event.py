@@ -59,7 +59,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -67,7 +67,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +83,7 @@ class GetCustomerEventResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -91,7 +91,7 @@ class GetCustomerEventResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -116,13 +116,11 @@ def get_customer_event(customer_event_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerEventResult:
     """
     Gets a Test Base CustomerEvent.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -145,13 +143,11 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerEventResult]:
     """
     Gets a Test Base CustomerEvent.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()

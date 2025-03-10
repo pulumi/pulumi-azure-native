@@ -27,13 +27,16 @@ class GetNamespaceTopicEventSubscriptionResult:
     """
     Event Subscription.
     """
-    def __init__(__self__, delivery_configuration=None, event_delivery_schema=None, filters_configuration=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, delivery_configuration=None, event_delivery_schema=None, expiration_time_utc=None, filters_configuration=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if delivery_configuration and not isinstance(delivery_configuration, dict):
             raise TypeError("Expected argument 'delivery_configuration' to be a dict")
         pulumi.set(__self__, "delivery_configuration", delivery_configuration)
         if event_delivery_schema and not isinstance(event_delivery_schema, str):
             raise TypeError("Expected argument 'event_delivery_schema' to be a str")
         pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+        if expiration_time_utc and not isinstance(expiration_time_utc, str):
+            raise TypeError("Expected argument 'expiration_time_utc' to be a str")
+        pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
         if filters_configuration and not isinstance(filters_configuration, dict):
             raise TypeError("Expected argument 'filters_configuration' to be a dict")
         pulumi.set(__self__, "filters_configuration", filters_configuration)
@@ -68,6 +71,14 @@ class GetNamespaceTopicEventSubscriptionResult:
         The event delivery schema for the event subscription.
         """
         return pulumi.get(self, "event_delivery_schema")
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[str]:
+        """
+        Expiration time of the event subscription.
+        """
+        return pulumi.get(self, "expiration_time_utc")
 
     @property
     @pulumi.getter(name="filtersConfiguration")
@@ -105,7 +116,7 @@ class GetNamespaceTopicEventSubscriptionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -126,6 +137,7 @@ class AwaitableGetNamespaceTopicEventSubscriptionResult(GetNamespaceTopicEventSu
         return GetNamespaceTopicEventSubscriptionResult(
             delivery_configuration=self.delivery_configuration,
             event_delivery_schema=self.event_delivery_schema,
+            expiration_time_utc=self.expiration_time_utc,
             filters_configuration=self.filters_configuration,
             id=self.id,
             name=self.name,
@@ -141,12 +153,10 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceTopicEventSubscriptionResult:
     """
     Get properties of an event subscription of a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
-    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str namespace_name: Name of the namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the namespace topic.
@@ -162,6 +172,7 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
     return AwaitableGetNamespaceTopicEventSubscriptionResult(
         delivery_configuration=pulumi.get(__ret__, 'delivery_configuration'),
         event_delivery_schema=pulumi.get(__ret__, 'event_delivery_schema'),
+        expiration_time_utc=pulumi.get(__ret__, 'expiration_time_utc'),
         filters_configuration=pulumi.get(__ret__, 'filters_configuration'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -175,12 +186,10 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionResult]:
     """
     Get properties of an event subscription of a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
-    :param str event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+    :param str event_subscription_name: Name of the event subscription to be found.
     :param str namespace_name: Name of the namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     :param str topic_name: Name of the namespace topic.
@@ -195,6 +204,7 @@ def get_namespace_topic_event_subscription_output(event_subscription_name: Optio
     return __ret__.apply(lambda __response__: GetNamespaceTopicEventSubscriptionResult(
         delivery_configuration=pulumi.get(__response__, 'delivery_configuration'),
         event_delivery_schema=pulumi.get(__response__, 'event_delivery_schema'),
+        expiration_time_utc=pulumi.get(__response__, 'expiration_time_utc'),
         filters_configuration=pulumi.get(__response__, 'filters_configuration'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Service Account Token for BrokerAuthentication
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointAuthenticationServiceAccountTokenResponse
+    public sealed class DataflowEndpointAuthenticationServiceAccountTokenResponse
     {
         /// <summary>
         /// Audience of the service account. Optional, defaults to the broker internal service account audience.
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string Audience;
 
         [OutputConstructor]
-        private DataFlowEndpointAuthenticationServiceAccountTokenResponse(string audience)
+        private DataflowEndpointAuthenticationServiceAccountTokenResponse(string audience)
         {
             Audience = audience;
         }

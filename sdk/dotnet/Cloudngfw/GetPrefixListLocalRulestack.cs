@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get a PrefixListResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<GetPrefixListLocalRulestackResult> InvokeAsync(GetPrefixListLocalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListLocalRulestackResult>("azure-native:cloudngfw:getPrefixListLocalRulestack", args ?? new GetPrefixListLocalRulestackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PrefixListResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetPrefixListLocalRulestackResult> Invoke(GetPrefixListLocalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixListLocalRulestackResult>("azure-native:cloudngfw:getPrefixListLocalRulestack", args ?? new GetPrefixListLocalRulestackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a PrefixListResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetPrefixListLocalRulestackResult> Invoke(GetPrefixListLocalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrefixListLocalRulestackResult>("azure-native:cloudngfw:getPrefixListLocalRulestack", args ?? new GetPrefixListLocalRulestackInvokeArgs(), options.WithDefaults());

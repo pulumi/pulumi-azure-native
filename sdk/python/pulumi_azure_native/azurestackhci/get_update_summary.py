@@ -27,7 +27,13 @@ class GetUpdateSummaryResult:
     """
     Get the update summaries for the cluster
     """
-    def __init__(__self__, current_version=None, hardware_model=None, health_check_date=None, id=None, last_checked=None, last_updated=None, location=None, name=None, oem_family=None, provisioning_state=None, state=None, system_data=None, type=None):
+    def __init__(__self__, current_oem_version=None, current_sbe_version=None, current_version=None, hardware_model=None, health_check_date=None, id=None, last_checked=None, last_updated=None, location=None, name=None, oem_family=None, provisioning_state=None, state=None, system_data=None, type=None):
+        if current_oem_version and not isinstance(current_oem_version, str):
+            raise TypeError("Expected argument 'current_oem_version' to be a str")
+        pulumi.set(__self__, "current_oem_version", current_oem_version)
+        if current_sbe_version and not isinstance(current_sbe_version, str):
+            raise TypeError("Expected argument 'current_sbe_version' to be a str")
+        pulumi.set(__self__, "current_sbe_version", current_sbe_version)
         if current_version and not isinstance(current_version, str):
             raise TypeError("Expected argument 'current_version' to be a str")
         pulumi.set(__self__, "current_version", current_version)
@@ -67,6 +73,22 @@ class GetUpdateSummaryResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="currentOemVersion")
+    def current_oem_version(self) -> Optional[str]:
+        """
+        Current OEM Version.
+        """
+        return pulumi.get(self, "current_oem_version")
+
+    @property
+    @pulumi.getter(name="currentSbeVersion")
+    def current_sbe_version(self) -> Optional[str]:
+        """
+        Current Sbe version of the stamp.
+        """
+        return pulumi.get(self, "current_sbe_version")
 
     @property
     @pulumi.getter(name="currentVersion")
@@ -179,6 +201,8 @@ class AwaitableGetUpdateSummaryResult(GetUpdateSummaryResult):
         if False:
             yield self
         return GetUpdateSummaryResult(
+            current_oem_version=self.current_oem_version,
+            current_sbe_version=self.current_sbe_version,
             current_version=self.current_version,
             hardware_model=self.hardware_model,
             health_check_date=self.health_check_date,
@@ -199,9 +223,7 @@ def get_update_summary(cluster_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUpdateSummaryResult:
     """
     Get all Update summaries under the HCI cluster
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -214,6 +236,8 @@ def get_update_summary(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getUpdateSummary', __args__, opts=opts, typ=GetUpdateSummaryResult).value
 
     return AwaitableGetUpdateSummaryResult(
+        current_oem_version=pulumi.get(__ret__, 'current_oem_version'),
+        current_sbe_version=pulumi.get(__ret__, 'current_sbe_version'),
         current_version=pulumi.get(__ret__, 'current_version'),
         hardware_model=pulumi.get(__ret__, 'hardware_model'),
         health_check_date=pulumi.get(__ret__, 'health_check_date'),
@@ -232,9 +256,7 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUpdateSummaryResult]:
     """
     Get all Update summaries under the HCI cluster
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -246,6 +268,8 @@ def get_update_summary_output(cluster_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getUpdateSummary', __args__, opts=opts, typ=GetUpdateSummaryResult)
     return __ret__.apply(lambda __response__: GetUpdateSummaryResult(
+        current_oem_version=pulumi.get(__response__, 'current_oem_version'),
+        current_sbe_version=pulumi.get(__response__, 'current_sbe_version'),
         current_version=pulumi.get(__response__, 'current_version'),
         hardware_model=pulumi.get(__response__, 'hardware_model'),
         health_check_date=pulumi.get(__response__, 'health_check_date'),

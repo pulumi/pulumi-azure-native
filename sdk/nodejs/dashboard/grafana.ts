@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The grafana resource type.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2022-05-01-preview.
- *
- * Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class Grafana extends pulumi.CustomResource {
     /**
@@ -89,7 +87,7 @@ export class Grafana extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.dashboard.managedGrafanaPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;

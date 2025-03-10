@@ -74,7 +74,7 @@ class GetGraphQueryResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        This will be used to handle Optimistic Concurrency.
+        This will be used to handle Optimistic Concurrency. If not present, it will always overwrite the existing resource without checking conflict.
         """
         return pulumi.get(self, "etag")
 
@@ -88,7 +88,7 @@ class GetGraphQueryResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         The location of the resource
         """
@@ -122,7 +122,7 @@ class GetGraphQueryResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -175,12 +175,10 @@ def get_graph_query(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQueryResult:
     """
     Get a single graph query by its resourceName.
-    Azure REST API version: 2020-04-01-preview.
-
-    Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Graph Query resource.
     """
     __args__ = dict()
@@ -206,12 +204,10 @@ def get_graph_query_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQueryResult]:
     """
     Get a single graph query by its resourceName.
-    Azure REST API version: 2020-04-01-preview.
-
-    Other available API versions: 2018-09-01-preview, 2019-04-01, 2021-03-01, 2022-10-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Graph Query resource.
     """
     __args__ = dict()

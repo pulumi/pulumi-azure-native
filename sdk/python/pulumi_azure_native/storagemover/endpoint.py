@@ -22,13 +22,13 @@ __all__ = ['EndpointArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs']],
+                 properties: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']],
                  resource_group_name: pulumi.Input[str],
                  storage_mover_name: pulumi.Input[str],
                  endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs']] properties: The resource specific properties for the Storage Mover resource.
+        :param pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']] properties: The resource specific properties for the Storage Mover resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
         :param pulumi.Input[str] endpoint_name: The name of the Endpoint resource.
@@ -41,14 +41,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']]:
         """
         The resource specific properties for the Storage Mover resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -94,20 +94,18 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The Endpoint resource, which contains information about file sources and targets.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: The name of the Endpoint resource.
-        :param pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict']]] properties: The resource specific properties for the Storage Mover resource.
+        :param pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]] properties: The resource specific properties for the Storage Mover resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
         """
@@ -119,9 +117,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Endpoint resource, which contains information about file sources and targets.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -139,7 +135,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict']]]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['AzureStorageBlobContainerEndpointPropertiesArgs', 'AzureStorageBlobContainerEndpointPropertiesArgsDict'], Union['AzureStorageSmbFileShareEndpointPropertiesArgs', 'AzureStorageSmbFileShareEndpointPropertiesArgsDict'], Union['NfsMountEndpointPropertiesArgs', 'NfsMountEndpointPropertiesArgsDict'], Union['SmbMountEndpointPropertiesArgs', 'SmbMountEndpointPropertiesArgsDict']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -214,7 +210,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

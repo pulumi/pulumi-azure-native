@@ -599,9 +599,7 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppAuthSettingsSlotResult:
     """
     Description for Gets the Authentication/Authorization settings of an app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -664,9 +662,7 @@ def list_web_app_auth_settings_slot_output(name: Optional[pulumi.Input[str]] = N
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppAuthSettingsSlotResult]:
     """
     Description for Gets the Authentication/Authorization settings of an app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.

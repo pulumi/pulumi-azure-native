@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP association by name.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspAssociation(args: GetNspAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetNspAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +82,7 @@ export interface GetNspAssociationResult {
 }
 /**
  * Gets the specified NSP association by name.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspAssociationOutput(args: GetNspAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

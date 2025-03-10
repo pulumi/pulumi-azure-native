@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns the specified Azure Monitor Workspace
- * Azure REST API version: 2023-04-03.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Returns the specific Azure Monitor workspace
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opt
 
 export interface GetAzureMonitorWorkspaceArgs {
     /**
-     * The name of the Azure Monitor Workspace. The name is case insensitive
+     * The name of the Azure Monitor workspace. The name is case insensitive.
      */
     azureMonitorWorkspaceName: string;
     /**
@@ -33,23 +31,23 @@ export interface GetAzureMonitorWorkspaceArgs {
 }
 
 /**
- * An Azure Monitor Workspace definition
+ * An Azure Monitor Workspace definition.
  */
 export interface GetAzureMonitorWorkspaceResult {
     /**
-     * The immutable Id of the Azure Monitor Workspace. This property is read-only.
+     * The immutable ID of the Azure Monitor workspace. This property is read-only.
      */
     readonly accountId: string;
     /**
      * The Data Collection Rule and Endpoint used for ingestion by default.
      */
-    readonly defaultIngestionSettings: outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings;
+    readonly defaultIngestionSettings: outputs.monitor.IngestionSettingsResponse;
     /**
      * Resource entity tag (ETag)
      */
     readonly etag: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -57,25 +55,25 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly location: string;
     /**
-     * Properties related to the metrics container in the Azure Monitor Workspace
+     * Information about metrics for the Azure Monitor workspace
      */
-    readonly metrics: outputs.monitor.AzureMonitorWorkspaceResponseMetrics;
+    readonly metrics?: outputs.monitor.MetricsResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of private endpoint connections
+     * List of private endpoint connections.
      */
     readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
     /**
-     * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
+     * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
      */
     readonly provisioningState: string;
     /**
-     * Gets or sets allow or disallow public network access to Azure Monitor Workspace
+     * Gets or sets allow or disallow public network access to workspace
      */
-    readonly publicNetworkAccess?: string;
+    readonly publicNetworkAccess: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -90,10 +88,8 @@ export interface GetAzureMonitorWorkspaceResult {
     readonly type: string;
 }
 /**
- * Returns the specified Azure Monitor Workspace
- * Azure REST API version: 2023-04-03.
- *
- * Other available API versions: 2023-10-01-preview.
+ * Returns the specific Azure Monitor workspace
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,7 +101,7 @@ export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOut
 
 export interface GetAzureMonitorWorkspaceOutputArgs {
     /**
-     * The name of the Azure Monitor Workspace. The name is case insensitive
+     * The name of the Azure Monitor workspace. The name is case insensitive.
      */
     azureMonitorWorkspaceName: pulumi.Input<string>;
     /**

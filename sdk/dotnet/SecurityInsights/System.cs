@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Describes the system within the agent.
-    /// Azure REST API version: 2024-04-01-preview.
-    /// 
-    /// Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+    /// Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:System")]
     public partial class System : global::Pulumi.CustomResource

@@ -11,27 +11,21 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
+    /// DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
     /// </summary>
-    public sealed class DataFlowEndpointPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowEndpointPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Authentication configuration.
-        /// </summary>
-        [Input("authentication", required: true)]
-        public Input<Inputs.DataFlowEndpointAuthenticationArgs> Authentication { get; set; } = null!;
-
         /// <summary>
         /// Azure Data Explorer endpoint.
         /// </summary>
         [Input("dataExplorerSettings")]
-        public Input<Inputs.DataFlowEndpointDataExplorerArgs>? DataExplorerSettings { get; set; }
+        public Input<Inputs.DataflowEndpointDataExplorerArgs>? DataExplorerSettings { get; set; }
 
         /// <summary>
         /// Azure Data Lake endpoint.
         /// </summary>
         [Input("dataLakeStorageSettings")]
-        public Input<Inputs.DataFlowEndpointDataLakeStorageArgs>? DataLakeStorageSettings { get; set; }
+        public Input<Inputs.DataflowEndpointDataLakeStorageArgs>? DataLakeStorageSettings { get; set; }
 
         /// <summary>
         /// Endpoint Type.
@@ -43,29 +37,29 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// Microsoft Fabric endpoint.
         /// </summary>
         [Input("fabricOneLakeSettings")]
-        public Input<Inputs.DataFlowEndpointFabricOneLakeArgs>? FabricOneLakeSettings { get; set; }
+        public Input<Inputs.DataflowEndpointFabricOneLakeArgs>? FabricOneLakeSettings { get; set; }
 
         /// <summary>
         /// Kafka endpoint.
         /// </summary>
         [Input("kafkaSettings")]
-        public Input<Inputs.DataFlowEndpointKafkaArgs>? KafkaSettings { get; set; }
+        public Input<Inputs.DataflowEndpointKafkaArgs>? KafkaSettings { get; set; }
 
         /// <summary>
         /// Local persistent volume endpoint.
         /// </summary>
         [Input("localStorageSettings")]
-        public Input<Inputs.DataFlowEndpointLocalStorageArgs>? LocalStorageSettings { get; set; }
+        public Input<Inputs.DataflowEndpointLocalStorageArgs>? LocalStorageSettings { get; set; }
 
         /// <summary>
         /// Broker endpoint.
         /// </summary>
         [Input("mqttSettings")]
-        public Input<Inputs.DataFlowEndpointMqttArgs>? MqttSettings { get; set; }
+        public Input<Inputs.DataflowEndpointMqttArgs>? MqttSettings { get; set; }
 
-        public DataFlowEndpointPropertiesArgs()
+        public DataflowEndpointPropertiesArgs()
         {
         }
-        public static new DataFlowEndpointPropertiesArgs Empty => new DataFlowEndpointPropertiesArgs();
+        public static new DataflowEndpointPropertiesArgs Empty => new DataflowEndpointPropertiesArgs();
     }
 }

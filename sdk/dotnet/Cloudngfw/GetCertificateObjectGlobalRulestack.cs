@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<GetCertificateObjectGlobalRulestackResult> InvokeAsync(GetCertificateObjectGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetCertificateObjectGlobalRulestackResult> Invoke(GetCertificateObjectGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CertificateObjectGlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetCertificateObjectGlobalRulestackResult> Invoke(GetCertificateObjectGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateObjectGlobalRulestackResult>("azure-native:cloudngfw:getCertificateObjectGlobalRulestack", args ?? new GetCertificateObjectGlobalRulestackInvokeArgs(), options.WithDefaults());

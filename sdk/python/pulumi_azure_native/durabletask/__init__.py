@@ -11,11 +11,3 @@ from .scheduler import *
 from .task_hub import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.durabletask.v20241001preview as __v20241001preview
-    v20241001preview = __v20241001preview
-else:
-    v20241001preview = _utilities.lazy_import('pulumi_azure_native.durabletask.v20241001preview')
-

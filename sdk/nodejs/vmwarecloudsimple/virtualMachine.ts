@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual machine model
- * Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+ * Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

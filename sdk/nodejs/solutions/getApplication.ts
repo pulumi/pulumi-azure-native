@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the managed application.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -144,8 +142,6 @@ export interface GetApplicationResult {
 /**
  * Gets the managed application.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

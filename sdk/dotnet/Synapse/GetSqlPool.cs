@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get SQL pool properties
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Task<GetSqlPoolResult> InvokeAsync(GetSqlPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolResult>("azure-native:synapse:getSqlPool", args ?? new GetSqlPoolArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get SQL pool properties
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlPoolResult> Invoke(GetSqlPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get SQL pool properties
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetSqlPoolResult> Invoke(GetSqlPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolResult>("azure-native:synapse:getSqlPool", args ?? new GetSqlPoolInvokeArgs(), options.WithDefaults());

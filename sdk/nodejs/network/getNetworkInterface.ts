@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network interface.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +47,10 @@ export interface GetNetworkInterfaceResult {
      * Auxiliary sku of Network Interface resource.
      */
     readonly auxiliarySku?: string;
+    /**
+     * Whether default outbound connectivity for nic was configured or not.
+     */
+    readonly defaultOutboundConnectivityEnabled: boolean;
     /**
      * Indicates whether to disable tcp state tracking.
      */
@@ -160,9 +162,7 @@ export interface GetNetworkInterfaceResult {
 }
 /**
  * Gets information about the specified network interface.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2018-07-01, 2019-02-01, 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getNetworkInterfaceOutput(args: GetNetworkInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -24,21 +24,25 @@ class TestBaseAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['TestBaseAccountSKUArgs'],
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TestBaseAccount resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['TestBaseAccountSKUArgs'] sku: The SKU of the Test Base Account.
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The identity of the testBaseAccount.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[bool] restore: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if restore is not None:
@@ -52,7 +56,7 @@ class TestBaseAccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -71,6 +75,18 @@ class TestBaseAccountArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['TestBaseAccountSKUArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+        """
+        The identity of the testBaseAccount.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -100,7 +116,7 @@ class TestBaseAccountArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -126,6 +142,7 @@ class TestBaseAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
@@ -135,17 +152,16 @@ class TestBaseAccount(pulumi.CustomResource):
                  __props__=None):
         """
         The Test Base Account resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The identity of the testBaseAccount.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] restore: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
         :param pulumi.Input[Union['TestBaseAccountSKUArgs', 'TestBaseAccountSKUArgsDict']] sku: The SKU of the Test Base Account.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         """
         ...
@@ -156,9 +172,7 @@ class TestBaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Account resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TestBaseAccountArgs args: The arguments to use to populate this resource's properties.
@@ -175,6 +189,7 @@ class TestBaseAccount(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore: Optional[pulumi.Input[bool]] = None,
@@ -190,6 +205,7 @@ class TestBaseAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TestBaseAccountArgs.__new__(TestBaseAccountArgs)
 
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -201,7 +217,6 @@ class TestBaseAccount(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["test_base_account_name"] = test_base_account_name
             __props__.__dict__["access_level"] = None
-            __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -231,7 +246,7 @@ class TestBaseAccount(pulumi.CustomResource):
         __props__ = TestBaseAccountArgs.__new__(TestBaseAccountArgs)
 
         __props__.__dict__["access_level"] = None
-        __props__.__dict__["etag"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -251,11 +266,11 @@ class TestBaseAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
         """
-        Resource Etag.
+        The identity of the testBaseAccount.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -269,7 +284,7 @@ class TestBaseAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -293,7 +308,7 @@ class TestBaseAccount(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -301,7 +316,7 @@ class TestBaseAccount(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -309,7 +324,7 @@ class TestBaseAccount(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker/listener resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
  */
 export class BrokerListener extends pulumi.CustomResource {
     /**

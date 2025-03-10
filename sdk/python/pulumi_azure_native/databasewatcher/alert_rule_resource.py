@@ -163,9 +163,7 @@ class AlertRuleResource(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-07-19-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-07-19-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,9 +184,7 @@ class AlertRuleResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2024-07-19-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-07-19-preview.
 
         :param str resource_name: The name of the resource.
         :param AlertRuleResourceArgs args: The arguments to use to populate this resource's properties.

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Get the Network Interface resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("azure-native:managednetworkfabric:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Network Interface resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:managednetworkfabric:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Network Interface resource details.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("azure-native:managednetworkfabric:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithDefaults());
@@ -43,13 +37,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the NetworkDevice
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName", required: true)]
         public string NetworkDeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkInterfaceName
+        /// Name of the Network Interface.
         /// </summary>
         [Input("networkInterfaceName", required: true)]
         public string NetworkInterfaceName { get; set; } = null!;
@@ -69,13 +63,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the NetworkDevice
+        /// Name of the Network Device.
         /// </summary>
         [Input("networkDeviceName", required: true)]
         public Input<string> NetworkDeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the NetworkInterfaceName
+        /// Name of the Network Interface.
         /// </summary>
         [Input("networkInterfaceName", required: true)]
         public Input<string> NetworkInterfaceName { get; set; } = null!;
@@ -97,7 +91,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
-        /// administrativeState of the network interface. Example: Enabled | Disabled.
+        /// Administrative state of the resource.
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
@@ -105,11 +99,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// The arm resource id of the interface or compute server its connected to.
+        /// The ARM resource id of the interface or compute server its connected to.
         /// </summary>
         public readonly string ConnectedTo;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,11 +111,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string InterfaceType;
         /// <summary>
-        /// ipv4Address.
+        /// IPv4Address of the interface.
         /// </summary>
         public readonly string Ipv4Address;
         /// <summary>
-        /// ipv6Address.
+        /// IPv6Address of the interface.
         /// </summary>
         public readonly string Ipv6Address;
         /// <summary>
@@ -129,11 +123,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// physicalIdentifier of the network interface.
+        /// Physical Identifier of the network interface.
         /// </summary>
         public readonly string PhysicalIdentifier;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -81,6 +79,10 @@ export interface GetContainerAppResult {
      */
     readonly location: string;
     /**
+     * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+     */
+    readonly managedBy?: string;
+    /**
      * Deprecated. Resource ID of the Container App's environment.
      */
     readonly managedEnvironmentId?: string;
@@ -113,15 +115,13 @@ export interface GetContainerAppResult {
      */
     readonly type: string;
     /**
-     * Workload profile type to pin for container app execution.
+     * Workload profile name to pin for container app execution.
      */
-    readonly workloadProfileType?: string;
+    readonly workloadProfileName?: string;
 }
 /**
  * Container App.
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

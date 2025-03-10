@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.App.Inputs
         public Input<string>? ContextPath { get; set; }
 
         /// <summary>
+        /// One time Github PAT to configure github environment
+        /// </summary>
+        [Input("githubPersonalAccessToken")]
+        public Input<string>? GithubPersonalAccessToken { get; set; }
+
+        /// <summary>
         /// Image name
         /// </summary>
         [Input("image")]

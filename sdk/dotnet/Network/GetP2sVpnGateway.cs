@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a virtual wan p2s vpn gateway.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetP2sVpnGatewayResult> InvokeAsync(GetP2sVpnGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetP2sVpnGatewayResult>("azure-native:network:getP2sVpnGateway", args ?? new GetP2sVpnGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a virtual wan p2s vpn gateway.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetP2sVpnGatewayResult> Invoke(GetP2sVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayResult>("azure-native:network:getP2sVpnGateway", args ?? new GetP2sVpnGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a virtual wan p2s vpn gateway.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetP2sVpnGatewayResult> Invoke(GetP2sVpnGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetP2sVpnGatewayResult>("azure-native:network:getP2sVpnGateway", args ?? new GetP2sVpnGatewayInvokeArgs(), options.WithDefaults());

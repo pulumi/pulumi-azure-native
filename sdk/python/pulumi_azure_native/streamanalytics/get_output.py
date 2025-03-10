@@ -154,8 +154,6 @@ def get_output(job_name: Optional[str] = None,
     Gets details about the specified output.
     Azure REST API version: 2020-03-01.
 
-    Other available API versions: 2021-10-01-preview.
-
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.
@@ -185,8 +183,6 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     """
     Gets details about the specified output.
     Azure REST API version: 2020-03-01.
-
-    Other available API versions: 2021-10-01-preview.
 
 
     :param str job_name: The name of the streaming job.

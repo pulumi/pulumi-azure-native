@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDisasterRecoveryConfig(args: GetDisasterRecoveryConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,9 +82,7 @@ export interface GetDisasterRecoveryConfigResult {
 }
 /**
  * Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getDisasterRecoveryConfigOutput(args: GetDisasterRecoveryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDisasterRecoveryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

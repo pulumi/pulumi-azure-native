@@ -115,10 +115,8 @@ class FrontendsInterface(pulumi.CustomResource):
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Frontend Subresource of Traffic Controller.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
-
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        Frontend Sub Resource of Traffic Controller.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,10 +133,8 @@ class FrontendsInterface(pulumi.CustomResource):
                  args: FrontendsInterfaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Frontend Subresource of Traffic Controller.
-        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
-
-        Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+        Frontend Sub Resource of Traffic Controller.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FrontendsInterfaceArgs args: The arguments to use to populate this resource's properties.

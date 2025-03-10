@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an API Management gateway config connection resource description.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  */
 export function getApiGatewayConfigConnection(args: GetApiGatewayConfigConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetApiGatewayConfigConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,9 +71,7 @@ export interface GetApiGatewayConfigConnectionResult {
 }
 /**
  * Gets an API Management gateway config connection resource description.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  */
 export function getApiGatewayConfigConnectionOutput(args: GetApiGatewayConfigConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiGatewayConfigConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

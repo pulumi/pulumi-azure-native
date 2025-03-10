@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of an ASR replication protected item.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getReplicationProtectedItem(args: GetReplicationProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,9 +72,7 @@ export interface GetReplicationProtectedItemResult {
 }
 /**
  * Gets the details of an ASR replication protected item.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getReplicationProtectedItemOutput(args: GetReplicationProtectedItemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationProtectedItemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

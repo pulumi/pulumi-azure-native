@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ApiCenter
 {
     /// <summary>
     /// API deployment entity.
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-03-15-preview, 2024-06-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apicenter:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

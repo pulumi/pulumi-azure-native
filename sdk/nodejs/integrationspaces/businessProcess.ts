@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A business process under application.
- * Azure REST API version: 2023-11-14-preview.
+ * Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
  */
 export class BusinessProcess extends pulumi.CustomResource {
     /**

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account map.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  */
 export class IntegrationAccountMap extends pulumi.CustomResource {
     /**
@@ -139,7 +137,7 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20160601:IntegrationAccountMap" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20190501:IntegrationAccountMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20160601:IntegrationAccountMap" }, { type: "azure-native:logic/v20160601:Map" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountMap" }, { type: "azure-native:logic/v20190501:IntegrationAccountMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IntegrationAccountMap.__pulumiType, name, resourceInputs, opts);
     }

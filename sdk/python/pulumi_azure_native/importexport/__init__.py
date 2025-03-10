@@ -11,11 +11,3 @@ from .job import *
 from .list_bit_locker_key import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.importexport.v20210101 as __v20210101
-    v20210101 = __v20210101
-else:
-    v20210101 = _utilities.lazy_import('pulumi_azure_native.importexport.v20210101')
-

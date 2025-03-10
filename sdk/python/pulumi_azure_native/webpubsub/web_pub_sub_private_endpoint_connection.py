@@ -29,10 +29,10 @@ class WebPubSubPrivateEndpointConnectionArgs:
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None):
         """
         The set of arguments for constructing a WebPubSubPrivateEndpointConnection resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -48,7 +48,7 @@ class WebPubSubPrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -84,7 +84,7 @@ class WebPubSubPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection
+        The name of the private endpoint connection associated with the Azure resource.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -118,16 +118,14 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection to an azure resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PrivateEndpointArgs', 'PrivateEndpointArgsDict']] private_endpoint: Private endpoint
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: Connection state of the private endpoint connection
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
         ...
@@ -138,9 +136,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection to an azure resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param WebPubSubPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -230,7 +226,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -262,7 +258,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -270,7 +266,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

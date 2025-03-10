@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified networkServiceDesign group.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getNetworkServiceDesignGroup(args: GetNetworkServiceDesignGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkServiceDesignGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +70,7 @@ export interface GetNetworkServiceDesignGroupResult {
 }
 /**
  * Gets information about the specified networkServiceDesign group.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getNetworkServiceDesignGroupOutput(args: GetNetworkServiceDesignGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkServiceDesignGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

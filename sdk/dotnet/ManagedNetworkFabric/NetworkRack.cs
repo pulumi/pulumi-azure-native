@@ -10,10 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The NetworkRack resource definition.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// The Network Rack resource definition.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkRack")]
     public partial class NetworkRack : global::Pulumi.CustomResource
@@ -37,13 +35,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of network device ARM resource ids.
+        /// List of network device ARM resource IDs.
         /// </summary>
         [Output("networkDevices")]
         public Output<ImmutableArray<string>> NetworkDevices { get; private set; } = null!;
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM resource ID of the Network Fabric.
         /// </summary>
         [Output("networkFabricId")]
         public Output<string> NetworkFabricId { get; private set; } = null!;
@@ -51,11 +49,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Network Rack SKU name.
         /// </summary>
-        [Output("networkRackSku")]
-        public Output<string> NetworkRackSku { get; private set; } = null!;
+        [Output("networkRackType")]
+        public Output<string?> NetworkRackType { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -141,13 +139,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM resource ID of the Network Fabric.
         /// </summary>
         [Input("networkFabricId", required: true)]
         public Input<string> NetworkFabricId { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Network Rack
+        /// Name of the Network Rack.
         /// </summary>
         [Input("networkRackName")]
         public Input<string>? NetworkRackName { get; set; }
@@ -155,8 +153,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Network Rack SKU name.
         /// </summary>
-        [Input("networkRackSku", required: true)]
-        public Input<string> NetworkRackSku { get; set; } = null!;
+        [Input("networkRackType")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.NetworkRackType>? NetworkRackType { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

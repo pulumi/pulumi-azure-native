@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP access rule resource
- * Azure REST API version: 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
  */
 export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
     /**
@@ -145,7 +145,7 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20210201preview:NspAccessRule" }, { type: "azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230701preview:NspAccessRule" }, { type: "azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network/v20230801preview:NspAccessRule" }, { type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule" }, { type: "azure-native:network:NspAccessRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterAccessRule.__pulumiType, name, resourceInputs, opts);
     }

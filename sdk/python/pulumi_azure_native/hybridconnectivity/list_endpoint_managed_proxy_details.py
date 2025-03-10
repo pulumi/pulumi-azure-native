@@ -70,9 +70,7 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointManagedProxyDetailsResult:
     """
     Fetches the managed proxy details
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
@@ -101,9 +99,7 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
     Fetches the managed proxy details
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.

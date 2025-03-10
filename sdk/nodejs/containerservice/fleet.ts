@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Fleet resource.
- * Azure REST API version: 2023-03-15-preview.
- *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
  */
 export class Fleet extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class Fleet extends pulumi.CustomResource {
      * The FleetHubProfile configures the Fleet's hub.
      */
     public readonly hubProfile!: pulumi.Output<outputs.containerservice.FleetHubProfileResponse | undefined>;
+    /**
+     * Managed identity.
+     */
+    public readonly identity!: pulumi.Output<outputs.containerservice.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -89,6 +91,7 @@ export class Fleet extends pulumi.CustomResource {
             }
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["hubProfile"] = args ? args.hubProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -100,6 +103,7 @@ export class Fleet extends pulumi.CustomResource {
         } else {
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["hubProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -126,6 +130,10 @@ export interface FleetArgs {
      * The FleetHubProfile configures the Fleet's hub.
      */
     hubProfile?: pulumi.Input<inputs.containerservice.FleetHubProfileArgs>;
+    /**
+     * Managed identity.
+     */
+    identity?: pulumi.Input<inputs.containerservice.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

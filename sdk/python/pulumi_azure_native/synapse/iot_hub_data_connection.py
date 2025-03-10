@@ -266,7 +266,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an iot hub data connection.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,7 +294,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an iot hub data connection.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -368,7 +368,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:synapse/v20210401preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:EventHubDataConnection"), pulumi.Alias(type_="azure-native:synapse/v20210601preview:IotHubDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventGridDataConnection"), pulumi.Alias(type_="azure-native:synapse:EventHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubDataConnection, __self__).__init__(
             'azure-native:synapse:IotHubDataConnection',

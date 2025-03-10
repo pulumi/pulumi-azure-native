@@ -116,9 +116,7 @@ class InventoryItem(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the inventory item.
-        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class InventoryItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the inventory item.
-        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

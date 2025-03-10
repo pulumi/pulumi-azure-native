@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get an app attach package.
-        /// Azure REST API version: 2023-10-04-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Task<GetAppAttachPackageResult> InvokeAsync(GetAppAttachPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppAttachPackageResult>("azure-native:desktopvirtualization:getAppAttachPackage", args ?? new GetAppAttachPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an app attach package.
-        /// Azure REST API version: 2023-10-04-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetAppAttachPackageResult> Invoke(GetAppAttachPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppAttachPackageResult>("azure-native:desktopvirtualization:getAppAttachPackage", args ?? new GetAppAttachPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an app attach package.
-        /// Azure REST API version: 2023-10-04-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetAppAttachPackageResult> Invoke(GetAppAttachPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppAttachPackageResult>("azure-native:desktopvirtualization:getAppAttachPackage", args ?? new GetAppAttachPackageInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetAppAttachPackageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName", required: true)]
         public string AppAttachPackageName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetAppAttachPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the App Attach package arm object
+        /// The name of the App Attach package
         /// </summary>
         [Input("appAttachPackageName", required: true)]
         public Input<string> AppAttachPackageName { get; set; } = null!;
@@ -85,38 +79,23 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetAppAttachPackageResult
     {
         /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
-        /// </summary>
-        public readonly string Etag;
-        /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? Identity;
-        /// <summary>
-        /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
-        /// </summary>
-        public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
-        /// <summary>
-        /// The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
-        /// </summary>
-        public readonly string? ManagedBy;
+        public readonly string Location;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
         /// Detailed properties for App Attach Package
         /// </summary>
         public readonly Outputs.AppAttachPackagePropertiesResponse Properties;
-        public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -130,25 +109,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetAppAttachPackageResult(
-            string etag,
-
             string id,
 
-            Outputs.ResourceModelWithAllowedPropertySetResponseIdentity? identity,
-
-            string? kind,
-
-            string? location,
-
-            string? managedBy,
+            string location,
 
             string name,
 
-            Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
-
             Outputs.AppAttachPackagePropertiesResponse properties,
-
-            Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -156,16 +123,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string type)
         {
-            Etag = etag;
             Id = id;
-            Identity = identity;
-            Kind = kind;
             Location = location;
-            ManagedBy = managedBy;
             Name = name;
-            Plan = plan;
             Properties = properties;
-            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

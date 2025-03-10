@@ -128,9 +128,7 @@ def get_artifact_store(artifact_store_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactStoreResult:
     """
     Gets information about the specified artifact store.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.
@@ -158,9 +156,7 @@ def get_artifact_store_output(artifact_store_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArtifactStoreResult]:
     """
     Gets information about the specified artifact store.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str artifact_store_name: The name of the artifact store.

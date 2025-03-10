@@ -17,10 +17,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['ClusterInitArgs', 'Cluster']
+__all__ = ['ClusterArgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterInitArgs:
+class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
@@ -254,9 +254,7 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         Cluster details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,21 +276,19 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterInitArgs,
+                 args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cluster details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01.
-
-        Other available API versions: 2022-01-01, 2022-09-01, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
-        :param ClusterInitArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -321,7 +317,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterInitArgs.__new__(ClusterInitArgs)
+            __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["aad_application_object_id"] = aad_application_object_id
             __props__.__dict__["aad_client_id"] = aad_client_id
@@ -342,12 +338,16 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["user_assigned_identities"] = user_assigned_identities
             __props__.__dict__["billing_model"] = None
             __props__.__dict__["cloud_id"] = None
+            __props__.__dict__["connectivity_status"] = None
+            __props__.__dict__["isolated_vm_attestation_configuration"] = None
             __props__.__dict__["last_billing_timestamp"] = None
             __props__.__dict__["last_sync_timestamp"] = None
+            __props__.__dict__["log_collection_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_id"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["registration_timestamp"] = None
+            __props__.__dict__["remote_support_properties"] = None
             __props__.__dict__["reported_properties"] = None
             __props__.__dict__["resource_provider_object_id"] = None
             __props__.__dict__["service_endpoint"] = None
@@ -377,7 +377,7 @@ class Cluster(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ClusterInitArgs.__new__(ClusterInitArgs)
+        __props__ = ClusterArgs.__new__(ClusterArgs)
 
         __props__.__dict__["aad_application_object_id"] = None
         __props__.__dict__["aad_client_id"] = None
@@ -386,14 +386,18 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["billing_model"] = None
         __props__.__dict__["cloud_id"] = None
         __props__.__dict__["cloud_management_endpoint"] = None
+        __props__.__dict__["connectivity_status"] = None
         __props__.__dict__["desired_properties"] = None
+        __props__.__dict__["isolated_vm_attestation_configuration"] = None
         __props__.__dict__["last_billing_timestamp"] = None
         __props__.__dict__["last_sync_timestamp"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["log_collection_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["registration_timestamp"] = None
+        __props__.__dict__["remote_support_properties"] = None
         __props__.__dict__["reported_properties"] = None
         __props__.__dict__["resource_provider_object_id"] = None
         __props__.__dict__["service_endpoint"] = None
@@ -464,12 +468,28 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "cloud_management_endpoint")
 
     @property
+    @pulumi.getter(name="connectivityStatus")
+    def connectivity_status(self) -> pulumi.Output[str]:
+        """
+        Overall connectivity status for the cluster resource.
+        """
+        return pulumi.get(self, "connectivity_status")
+
+    @property
     @pulumi.getter(name="desiredProperties")
     def desired_properties(self) -> pulumi.Output[Optional['outputs.ClusterDesiredPropertiesResponse']]:
         """
         Desired properties of the cluster.
         """
         return pulumi.get(self, "desired_properties")
+
+    @property
+    @pulumi.getter(name="isolatedVmAttestationConfiguration")
+    def isolated_vm_attestation_configuration(self) -> pulumi.Output['outputs.IsolatedVmAttestationConfigurationResponse']:
+        """
+        Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
+        """
+        return pulumi.get(self, "isolated_vm_attestation_configuration")
 
     @property
     @pulumi.getter(name="lastBillingTimestamp")
@@ -494,6 +514,14 @@ class Cluster(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logCollectionProperties")
+    def log_collection_properties(self) -> pulumi.Output[Optional['outputs.LogCollectionPropertiesResponse']]:
+        """
+        Log Collection properties of the cluster.
+        """
+        return pulumi.get(self, "log_collection_properties")
 
     @property
     @pulumi.getter
@@ -526,6 +554,14 @@ class Cluster(pulumi.CustomResource):
         First cluster sync timestamp.
         """
         return pulumi.get(self, "registration_timestamp")
+
+    @property
+    @pulumi.getter(name="remoteSupportProperties")
+    def remote_support_properties(self) -> pulumi.Output[Optional['outputs.RemoteSupportPropertiesResponse']]:
+        """
+        RemoteSupport properties of the cluster.
+        """
+        return pulumi.get(self, "remote_support_properties")
 
     @property
     @pulumi.getter(name="reportedProperties")

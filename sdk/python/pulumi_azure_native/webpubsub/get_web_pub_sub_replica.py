@@ -27,7 +27,7 @@ class GetWebPubSubReplicaResult:
     """
     A class represent a replica resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, resource_stopped=None, sku=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,12 @@ class GetWebPubSubReplicaResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if region_endpoint_enabled and not isinstance(region_endpoint_enabled, str):
+            raise TypeError("Expected argument 'region_endpoint_enabled' to be a str")
+        pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+        if resource_stopped and not isinstance(resource_stopped, str):
+            raise TypeError("Expected argument 'resource_stopped' to be a str")
+        pulumi.set(__self__, "resource_stopped", resource_stopped)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -86,6 +92,25 @@ class GetWebPubSubReplicaResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[str]:
+        """
+        Enable or disable the regional endpoint. Default to "Enabled".
+        When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
+    @pulumi.getter(name="resourceStopped")
+    def resource_stopped(self) -> Optional[str]:
+        """
+        Stop or start the resource.  Default to "false".
+        When it's true, the data plane of the resource is shutdown.
+        When it's false, the data plane of the resource is started.
+        """
+        return pulumi.get(self, "resource_stopped")
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceSkuResponse']:
         """
@@ -128,6 +153,8 @@ class AwaitableGetWebPubSubReplicaResult(GetWebPubSubReplicaResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            region_endpoint_enabled=self.region_endpoint_enabled,
+            resource_stopped=self.resource_stopped,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
@@ -140,9 +167,7 @@ def get_web_pub_sub_replica(replica_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubReplicaResult:
     """
     Get the replica and its properties.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str replica_name: The name of the replica.
@@ -161,6 +186,8 @@ def get_web_pub_sub_replica(replica_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        region_endpoint_enabled=pulumi.get(__ret__, 'region_endpoint_enabled'),
+        resource_stopped=pulumi.get(__ret__, 'resource_stopped'),
         sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -171,9 +198,7 @@ def get_web_pub_sub_replica_output(replica_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebPubSubReplicaResult]:
     """
     Get the replica and its properties.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str replica_name: The name of the replica.
@@ -191,6 +216,8 @@ def get_web_pub_sub_replica_output(replica_name: Optional[pulumi.Input[str]] = N
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        region_endpoint_enabled=pulumi.get(__response__, 'region_endpoint_enabled'),
+        resource_stopped=pulumi.get(__response__, 'resource_stopped'),
         sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

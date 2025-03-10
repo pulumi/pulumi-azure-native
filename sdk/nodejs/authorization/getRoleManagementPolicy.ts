@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get the specified role management policy for a resource scope
  * Azure REST API version: 2024-09-01-preview.
- *
- * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
  */
 export function getRoleManagementPolicy(args: GetRoleManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,8 +86,6 @@ export interface GetRoleManagementPolicyResult {
 /**
  * Get the specified role management policy for a resource scope
  * Azure REST API version: 2024-09-01-preview.
- *
- * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
  */
 export function getRoleManagementPolicyOutput(args: GetRoleManagementPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleManagementPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

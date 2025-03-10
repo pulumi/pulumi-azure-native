@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
- * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01.
- *
- * Other available API versions: 2018-05-01, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Azure REST API version: 2024-07-01-preview. Prior API version in Azure Native 2.x: 2021-02-01.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    public readonly identity!: pulumi.Output<outputs.maps.ManagedServiceIdentityResponse | undefined>;
+    /**
      * Get or Set Kind property.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -61,7 +63,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.maps.SkuResponse>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.maps.SystemDataResponse>;
     /**
@@ -91,6 +93,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.maps.mapsAccountPropertiesArgsProvideDefaults) : undefined) : undefined;
@@ -101,6 +104,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -125,6 +129,10 @@ export interface AccountArgs {
      * The name of the Maps Account.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * Managed service identity (system assigned and/or user assigned identities)
+     */
+    identity?: pulumi.Input<inputs.maps.ManagedServiceIdentityArgs>;
     /**
      * Get or Set Kind property.
      */

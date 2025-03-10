@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Edge device resource
-    /// Azure REST API version: 2023-08-01-preview.
-    /// 
-    /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:DeploymentSetting")]
     public partial class DeploymentSetting : global::Pulumi.CustomResource
@@ -43,6 +41,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The intended operation for a cluster.
+        /// </summary>
+        [Output("operationType")]
+        public Output<string?> OperationType { get; private set; } = null!;
+
+        /// <summary>
         /// DeploymentSetting provisioning state
         /// </summary>
         [Output("provisioningState")]
@@ -52,7 +56,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Deployment Status reported from cluster.
         /// </summary>
         [Output("reportedProperties")]
-        public Output<Outputs.ReportedPropertiesResponse> ReportedProperties { get; private set; } = null!;
+        public Output<Outputs.EceReportedPropertiesResponse> ReportedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -158,6 +162,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string>? DeploymentSettingsName { get; set; }
 
         /// <summary>
+        /// The intended operation for a cluster.
+        /// </summary>
+        [Input("operationType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.OperationType>? OperationType { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -165,6 +175,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         public DeploymentSettingArgs()
         {
+            OperationType = "ClusterProvisioning";
         }
         public static new DeploymentSettingArgs Empty => new DeploymentSettingArgs();
     }

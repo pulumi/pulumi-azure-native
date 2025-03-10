@@ -130,9 +130,7 @@ def get_management_group(expand: Optional[str] = None,
     """
     Get the details of the management group.
 
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
@@ -164,9 +162,7 @@ def get_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     """
     Get the details of the management group.
 
-    Azure REST API version: 2021-04-01.
-
-    Other available API versions: 2023-04-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str expand: The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
 {
     /// <summary>
     /// A private endpoint connection
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-    /// 
-    /// Other available API versions: 2018-06-01-privatepreview.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

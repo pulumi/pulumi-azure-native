@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get specified Update
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getUpdate(args: GetUpdateArgs, opts?: pulumi.InvokeOptions): Promise<GetUpdateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +72,10 @@ export interface GetUpdateResult {
      */
     readonly location?: string;
     /**
+     * Minimum Sbe Version of the update.
+     */
+    readonly minSbeVersionRequired?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -132,9 +134,7 @@ export interface GetUpdateResult {
 }
 /**
  * Get specified Update
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getUpdateOutput(args: GetUpdateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUpdateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

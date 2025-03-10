@@ -27,7 +27,7 @@ class GetSecurityAdminConfigurationResult:
     """
     Defines the security admin configuration
     """
-    def __init__(__self__, apply_on_network_intent_policy_based_services=None, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, apply_on_network_intent_policy_based_services=None, description=None, etag=None, id=None, name=None, network_group_address_space_aggregation_option=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if apply_on_network_intent_policy_based_services and not isinstance(apply_on_network_intent_policy_based_services, list):
             raise TypeError("Expected argument 'apply_on_network_intent_policy_based_services' to be a list")
         pulumi.set(__self__, "apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
@@ -43,6 +43,9 @@ class GetSecurityAdminConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_group_address_space_aggregation_option and not isinstance(network_group_address_space_aggregation_option, str):
+            raise TypeError("Expected argument 'network_group_address_space_aggregation_option' to be a str")
+        pulumi.set(__self__, "network_group_address_space_aggregation_option", network_group_address_space_aggregation_option)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -97,6 +100,14 @@ class GetSecurityAdminConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkGroupAddressSpaceAggregationOption")
+    def network_group_address_space_aggregation_option(self) -> Optional[str]:
+        """
+        Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        """
+        return pulumi.get(self, "network_group_address_space_aggregation_option")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -140,6 +151,7 @@ class AwaitableGetSecurityAdminConfigurationResult(GetSecurityAdminConfiguration
             etag=self.etag,
             id=self.id,
             name=self.name,
+            network_group_address_space_aggregation_option=self.network_group_address_space_aggregation_option,
             provisioning_state=self.provisioning_state,
             resource_guid=self.resource_guid,
             system_data=self.system_data,
@@ -152,9 +164,7 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityAdminConfigurationResult:
     """
     Retrieves a network manager security admin configuration.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -174,6 +184,7 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        network_group_address_space_aggregation_option=pulumi.get(__ret__, 'network_group_address_space_aggregation_option'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -184,9 +195,7 @@ def get_security_admin_configuration_output(configuration_name: Optional[pulumi.
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityAdminConfigurationResult]:
     """
     Retrieves a network manager security admin configuration.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
@@ -205,6 +214,7 @@ def get_security_admin_configuration_output(configuration_name: Optional[pulumi.
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        network_group_address_space_aggregation_option=pulumi.get(__response__, 'network_group_address_space_aggregation_option'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),
         system_data=pulumi.get(__response__, 'system_data'),

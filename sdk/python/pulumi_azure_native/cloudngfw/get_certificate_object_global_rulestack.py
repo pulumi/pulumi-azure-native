@@ -163,9 +163,7 @@ def get_certificate_object_global_rulestack(global_rulestack_name: Optional[str]
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateObjectGlobalRulestackResult:
     """
     Get a CertificateObjectGlobalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -193,9 +191,7 @@ def get_certificate_object_global_rulestack_output(global_rulestack_name: Option
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateObjectGlobalRulestackResult]:
     """
     Get a CertificateObjectGlobalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name

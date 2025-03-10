@@ -141,9 +141,7 @@ def get_sender_username(domain_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSenderUsernameResult:
     """
     Get a valid sender username for a domains resource.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.
@@ -175,9 +173,7 @@ def get_sender_username_output(domain_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSenderUsernameResult]:
     """
     Get a valid sender username for a domains resource.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.

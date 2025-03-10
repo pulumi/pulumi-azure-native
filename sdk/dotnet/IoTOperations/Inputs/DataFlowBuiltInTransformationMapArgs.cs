@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation map properties
+    /// Dataflow BuiltIn Transformation map properties
     /// </summary>
-    public sealed class DataFlowBuiltInTransformationMapArgs : global::Pulumi.ResourceArgs
+    public sealed class DataflowBuiltInTransformationMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user provided optional description of the mapping function.
@@ -49,11 +49,11 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         /// Type of transformation.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataFlowMappingType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.IoTOperations.DataflowMappingType>? Type { get; set; }
 
-        public DataFlowBuiltInTransformationMapArgs()
+        public DataflowBuiltInTransformationMapArgs()
         {
         }
-        public static new DataFlowBuiltInTransformationMapArgs Empty => new DataFlowBuiltInTransformationMapArgs();
+        public static new DataflowBuiltInTransformationMapArgs Empty => new DataflowBuiltInTransformationMapArgs();
     }
 }

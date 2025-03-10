@@ -130,8 +130,6 @@ def get_sql_server_availability_group(availability_group_name: Optional[str] = N
     Retrieves an Arc Sql Server availability group.
     Azure REST API version: 2024-01-01.
 
-    Other available API versions: 2024-05-01-preview.
-
 
     :param str availability_group_name: Name of SQL Availability Group
     :param str resource_group_name: The name of the Azure resource group
@@ -159,8 +157,6 @@ def get_sql_server_availability_group_output(availability_group_name: Optional[p
     """
     Retrieves an Arc Sql Server availability group.
     Azure REST API version: 2024-01-01.
-
-    Other available API versions: 2024-05-01-preview.
 
 
     :param str availability_group_name: Name of SQL Availability Group

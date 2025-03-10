@@ -21,6 +21,7 @@ __all__ = [
     'AccountImmutabilityPolicyPropertiesResponse',
     'ActiveDirectoryPropertiesResponse',
     'AzureFilesIdentityBasedAuthenticationResponse',
+    'BlobInventoryCreationTimeResponse',
     'BlobInventoryPolicyDefinitionResponse',
     'BlobInventoryPolicyFilterResponse',
     'BlobInventoryPolicyRuleResponse',
@@ -44,6 +45,7 @@ __all__ = [
     'ExecutionTargetResponse',
     'ExecutionTriggerResponse',
     'ExtendedLocationResponse',
+    'FileSharePropertiesResponseFileSharePaidBursting',
     'GeoReplicationStatsResponse',
     'IPRuleResponse',
     'IdentityResponse',
@@ -66,6 +68,7 @@ __all__ = [
     'MultichannelResponse',
     'NetworkRuleSetResponse',
     'ObjectReplicationPolicyFilterResponse',
+    'ObjectReplicationPolicyPropertiesResponseMetrics',
     'ObjectReplicationPolicyRuleResponse',
     'PermissionScopeResponse',
     'PrivateEndpointConnectionResponse',
@@ -432,6 +435,46 @@ class AzureFilesIdentityBasedAuthenticationResponse(dict):
 
 
 @pulumi.output_type
+class BlobInventoryCreationTimeResponse(dict):
+    """
+    This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastNDays":
+            suggest = "last_n_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BlobInventoryCreationTimeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BlobInventoryCreationTimeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BlobInventoryCreationTimeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_n_days: Optional[int] = None):
+        """
+        This property defines the creation time based filtering condition. Blob Inventory schema parameter 'Creation-Time' is mandatory with this filter.
+        :param int last_n_days: When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+        """
+        if last_n_days is not None:
+            pulumi.set(__self__, "last_n_days", last_n_days)
+
+    @property
+    @pulumi.getter(name="lastNDays")
+    def last_n_days(self) -> Optional[int]:
+        """
+        When set the policy filters the objects that are created in the last N days. Where N is an integer value between 1 to 36500.
+        """
+        return pulumi.get(self, "last_n_days")
+
+
+@pulumi.output_type
 class BlobInventoryPolicyDefinitionResponse(dict):
     """
     An object that defines the blob inventory rule.
@@ -527,6 +570,8 @@ class BlobInventoryPolicyFilterResponse(dict):
         suggest = None
         if key == "blobTypes":
             suggest = "blob_types"
+        elif key == "creationTime":
+            suggest = "creation_time"
         elif key == "excludePrefix":
             suggest = "exclude_prefix"
         elif key == "includeBlobVersions":
@@ -551,6 +596,7 @@ class BlobInventoryPolicyFilterResponse(dict):
 
     def __init__(__self__, *,
                  blob_types: Optional[Sequence[str]] = None,
+                 creation_time: Optional['outputs.BlobInventoryCreationTimeResponse'] = None,
                  exclude_prefix: Optional[Sequence[str]] = None,
                  include_blob_versions: Optional[bool] = None,
                  include_deleted: Optional[bool] = None,
@@ -559,6 +605,7 @@ class BlobInventoryPolicyFilterResponse(dict):
         """
         An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
         :param Sequence[str] blob_types: An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
+        :param 'BlobInventoryCreationTimeResponse' creation_time: This property is used to filter objects based on the object creation time
         :param Sequence[str] exclude_prefix: An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
         :param bool include_blob_versions: Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         :param bool include_deleted: For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
@@ -567,6 +614,8 @@ class BlobInventoryPolicyFilterResponse(dict):
         """
         if blob_types is not None:
             pulumi.set(__self__, "blob_types", blob_types)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
         if exclude_prefix is not None:
             pulumi.set(__self__, "exclude_prefix", exclude_prefix)
         if include_blob_versions is not None:
@@ -585,6 +634,14 @@ class BlobInventoryPolicyFilterResponse(dict):
         An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         """
         return pulumi.get(self, "blob_types")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional['outputs.BlobInventoryCreationTimeResponse']:
+        """
+        This property is used to filter objects based on the object creation time
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="excludePrefix")
@@ -1929,6 +1986,74 @@ class ExtendedLocationResponse(dict):
 
 
 @pulumi.output_type
+class FileSharePropertiesResponseFileSharePaidBursting(dict):
+    """
+    File Share Paid Bursting properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "paidBurstingEnabled":
+            suggest = "paid_bursting_enabled"
+        elif key == "paidBurstingMaxBandwidthMibps":
+            suggest = "paid_bursting_max_bandwidth_mibps"
+        elif key == "paidBurstingMaxIops":
+            suggest = "paid_bursting_max_iops"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSharePropertiesResponseFileSharePaidBursting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSharePropertiesResponseFileSharePaidBursting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSharePropertiesResponseFileSharePaidBursting.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 paid_bursting_enabled: Optional[bool] = None,
+                 paid_bursting_max_bandwidth_mibps: Optional[int] = None,
+                 paid_bursting_max_iops: Optional[int] = None):
+        """
+        File Share Paid Bursting properties.
+        :param bool paid_bursting_enabled: Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
+        :param int paid_bursting_max_bandwidth_mibps: The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
+        :param int paid_bursting_max_iops: The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
+        """
+        if paid_bursting_enabled is not None:
+            pulumi.set(__self__, "paid_bursting_enabled", paid_bursting_enabled)
+        if paid_bursting_max_bandwidth_mibps is not None:
+            pulumi.set(__self__, "paid_bursting_max_bandwidth_mibps", paid_bursting_max_bandwidth_mibps)
+        if paid_bursting_max_iops is not None:
+            pulumi.set(__self__, "paid_bursting_max_iops", paid_bursting_max_iops)
+
+    @property
+    @pulumi.getter(name="paidBurstingEnabled")
+    def paid_bursting_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether paid bursting is enabled for the share. This property is only for file shares created under Files Provisioned v1 SSD account type.
+        """
+        return pulumi.get(self, "paid_bursting_enabled")
+
+    @property
+    @pulumi.getter(name="paidBurstingMaxBandwidthMibps")
+    def paid_bursting_max_bandwidth_mibps(self) -> Optional[int]:
+        """
+        The maximum paid bursting bandwidth for the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 10340 which is the maximum allowed bandwidth for a share.
+        """
+        return pulumi.get(self, "paid_bursting_max_bandwidth_mibps")
+
+    @property
+    @pulumi.getter(name="paidBurstingMaxIops")
+    def paid_bursting_max_iops(self) -> Optional[int]:
+        """
+        The maximum paid bursting IOPS for the share. This property is only for file shares created under Files Provisioned v1 SSD account type. The maximum allowed value is 102400 which is the maximum allowed IOPS for a share.
+        """
+        return pulumi.get(self, "paid_bursting_max_iops")
+
+
+@pulumi.output_type
 class GeoReplicationStatsResponse(dict):
     """
     Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
@@ -1938,8 +2063,14 @@ class GeoReplicationStatsResponse(dict):
         suggest = None
         if key == "canFailover":
             suggest = "can_failover"
+        elif key == "canPlannedFailover":
+            suggest = "can_planned_failover"
         elif key == "lastSyncTime":
             suggest = "last_sync_time"
+        elif key == "postFailoverRedundancy":
+            suggest = "post_failover_redundancy"
+        elif key == "postPlannedFailoverRedundancy":
+            suggest = "post_planned_failover_redundancy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GeoReplicationStatsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1954,16 +2085,25 @@ class GeoReplicationStatsResponse(dict):
 
     def __init__(__self__, *,
                  can_failover: bool,
+                 can_planned_failover: bool,
                  last_sync_time: str,
+                 post_failover_redundancy: str,
+                 post_planned_failover_redundancy: str,
                  status: str):
         """
         Statistics related to replication for storage account's Blob, Table, Queue and File services. It is only available when geo-redundant replication is enabled for the storage account.
         :param bool can_failover: A boolean flag which indicates whether or not account failover is supported for the account.
+        :param bool can_planned_failover: A boolean flag which indicates whether or not planned account failover is supported for the account.
         :param str last_sync_time: All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
+        :param str post_failover_redundancy: The redundancy type of the account after an account failover is performed.
+        :param str post_planned_failover_redundancy: The redundancy type of the account after a planned account failover is performed.
         :param str status: The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
         """
         pulumi.set(__self__, "can_failover", can_failover)
+        pulumi.set(__self__, "can_planned_failover", can_planned_failover)
         pulumi.set(__self__, "last_sync_time", last_sync_time)
+        pulumi.set(__self__, "post_failover_redundancy", post_failover_redundancy)
+        pulumi.set(__self__, "post_planned_failover_redundancy", post_planned_failover_redundancy)
         pulumi.set(__self__, "status", status)
 
     @property
@@ -1975,12 +2115,36 @@ class GeoReplicationStatsResponse(dict):
         return pulumi.get(self, "can_failover")
 
     @property
+    @pulumi.getter(name="canPlannedFailover")
+    def can_planned_failover(self) -> bool:
+        """
+        A boolean flag which indicates whether or not planned account failover is supported for the account.
+        """
+        return pulumi.get(self, "can_planned_failover")
+
+    @property
     @pulumi.getter(name="lastSyncTime")
     def last_sync_time(self) -> str:
         """
         All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
         """
         return pulumi.get(self, "last_sync_time")
+
+    @property
+    @pulumi.getter(name="postFailoverRedundancy")
+    def post_failover_redundancy(self) -> str:
+        """
+        The redundancy type of the account after an account failover is performed.
+        """
+        return pulumi.get(self, "post_failover_redundancy")
+
+    @property
+    @pulumi.getter(name="postPlannedFailoverRedundancy")
+    def post_planned_failover_redundancy(self) -> str:
+        """
+        The redundancy type of the account after a planned account failover is performed.
+        """
+        return pulumi.get(self, "post_planned_failover_redundancy")
 
     @property
     @pulumi.getter
@@ -3369,6 +3533,29 @@ class ObjectReplicationPolicyFilterResponse(dict):
 
 
 @pulumi.output_type
+class ObjectReplicationPolicyPropertiesResponseMetrics(dict):
+    """
+    Optional. The object replication policy metrics feature options.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Optional. The object replication policy metrics feature options.
+        :param bool enabled: Indicates whether object replication metrics feature is enabled for the policy.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether object replication metrics feature is enabled for the policy.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ObjectReplicationPolicyRuleResponse(dict):
     """
     The replication policy rule between two containers.
@@ -3470,7 +3657,7 @@ class PermissionScopeResponse(dict):
                  resource_name: str,
                  service: str):
         """
-        :param str permissions: The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        :param str permissions: The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         :param str resource_name: The name of resource, normally the container name or the file share name, used by the local user.
         :param str service: The service used by the local user, e.g. blob, file.
         """
@@ -3482,7 +3669,7 @@ class PermissionScopeResponse(dict):
     @pulumi.getter
     def permissions(self) -> str:
         """
-        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), and Create (c).
+        The permissions for the local user. Possible values include: Read (r), Write (w), Delete (d), List (l), Create (c), Modify Ownership (o), and Modify Permissions (p).
         """
         return pulumi.get(self, "permissions")
 
@@ -3988,7 +4175,7 @@ class SasPolicyResponse(dict):
                  sas_expiration_period: str):
         """
         SasPolicy assigned to the storage account.
-        :param str expiration_action: The SAS expiration action. Can only be Log.
+        :param str expiration_action: The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         :param str sas_expiration_period: The SAS expiration period, DD.HH:MM:SS.
         """
         if expiration_action is None:
@@ -4000,7 +4187,7 @@ class SasPolicyResponse(dict):
     @pulumi.getter(name="expirationAction")
     def expiration_action(self) -> str:
         """
-        The SAS expiration action. Can only be Log.
+        The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
         """
         return pulumi.get(self, "expiration_action")
 

@@ -28,7 +28,7 @@ class DisasterRecoveryConfigArgs:
         """
         The set of arguments for constructing a DisasterRecoveryConfig resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name
         :param pulumi.Input[str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
@@ -58,7 +58,7 @@ class DisasterRecoveryConfigArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -116,9 +116,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +124,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         :param pulumi.Input[str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -136,9 +134,7 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

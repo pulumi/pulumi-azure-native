@@ -200,9 +200,7 @@ def get_hyperv_cluster_controller_cluster(cluster_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHypervClusterControllerClusterResult:
     """
     Method to get a Hyper-V cluster.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str cluster_name:  Cluster ARM name
@@ -236,9 +234,7 @@ def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.I
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervClusterControllerClusterResult]:
     """
     Method to get a Hyper-V cluster.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str cluster_name:  Cluster ARM name

@@ -33,6 +33,7 @@ class ApplicationGroupArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetPlanArgs']] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -43,9 +44,10 @@ class ApplicationGroupArgs:
         :param pulumi.Input[str] application_group_name: The name of the application group
         :param pulumi.Input[str] description: Description of ApplicationGroup.
         :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        :param pulumi.Input[bool] show_in_feed: Boolean representing whether the applicationGroup is show in the feed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "application_group_type", application_group_type)
@@ -67,6 +69,8 @@ class ApplicationGroupArgs:
             pulumi.set(__self__, "managed_by", managed_by)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
+        if show_in_feed is not None:
+            pulumi.set(__self__, "show_in_feed", show_in_feed)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -157,7 +161,7 @@ class ApplicationGroupArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
@@ -199,6 +203,18 @@ class ApplicationGroupArgs:
         pulumi.set(self, "plan", value)
 
     @property
+    @pulumi.getter(name="showInFeed")
+    def show_in_feed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean representing whether the applicationGroup is show in the feed.
+        """
+        return pulumi.get(self, "show_in_feed")
+
+    @show_in_feed.setter
+    def show_in_feed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "show_in_feed", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceModelWithAllowedPropertySetSkuArgs']]:
         return pulumi.get(self, "sku")
@@ -236,14 +252,13 @@ class ApplicationGroup(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a ApplicationGroup definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,10 +267,11 @@ class ApplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of ApplicationGroup.
         :param pulumi.Input[str] friendly_name: Friendly name of ApplicationGroup.
         :param pulumi.Input[str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
-        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] show_in_feed: Boolean representing whether the applicationGroup is show in the feed.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -266,9 +282,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a ApplicationGroup definition.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2022-04-01-preview, 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -296,6 +310,7 @@ class ApplicationGroup(pulumi.CustomResource):
                  managed_by: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetPlanArgs', 'ResourceModelWithAllowedPropertySetPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 show_in_feed: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[Union['ResourceModelWithAllowedPropertySetSkuArgs', 'ResourceModelWithAllowedPropertySetSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -324,6 +339,7 @@ class ApplicationGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["show_in_feed"] = show_in_feed
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cloud_pc_resource"] = None
@@ -370,6 +386,7 @@ class ApplicationGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["object_id"] = None
         __props__.__dict__["plan"] = None
+        __props__.__dict__["show_in_feed"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -434,13 +451,13 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
+        Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
@@ -476,6 +493,14 @@ class ApplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "plan")
 
     @property
+    @pulumi.getter(name="showInFeed")
+    def show_in_feed(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean representing whether the applicationGroup is show in the feed.
+        """
+        return pulumi.get(self, "show_in_feed")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']]:
         return pulumi.get(self, "sku")
@@ -484,7 +509,7 @@ class ApplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

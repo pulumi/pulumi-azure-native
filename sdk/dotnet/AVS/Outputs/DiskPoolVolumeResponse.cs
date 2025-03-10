@@ -21,7 +21,8 @@ namespace Pulumi.AzureNative.AVS.Outputs
         /// </summary>
         public readonly string LunName;
         /// <summary>
-        /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+        /// Mode that describes whether the LUN has to be mounted as a datastore or
+        /// attached as a LUN
         /// </summary>
         public readonly string? MountOption;
         /// <summary>

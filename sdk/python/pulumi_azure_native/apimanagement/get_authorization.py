@@ -141,9 +141,7 @@ def get_authorization(authorization_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationResult:
     """
     Gets the details of the authorization specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authorization_id: Identifier of the authorization.
@@ -175,9 +173,7 @@ def get_authorization_output(authorization_id: Optional[pulumi.Input[str]] = Non
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationResult]:
     """
     Gets the details of the authorization specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authorization_id: Identifier of the authorization.

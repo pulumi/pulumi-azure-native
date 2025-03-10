@@ -27,13 +27,13 @@ class GetGalleryImageResult:
     """
     The gallery images resource definition.
     """
-    def __init__(__self__, cloud_init_data_source=None, container_name=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, image_path=None, location=None, name=None, os_type=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, cloud_init_data_source=None, container_id=None, extended_location=None, hyper_v_generation=None, id=None, identifier=None, image_path=None, location=None, name=None, os_type=None, provisioning_state=None, source_virtual_machine_id=None, status=None, system_data=None, tags=None, type=None, version=None, vm_image_repository_credentials=None):
         if cloud_init_data_source and not isinstance(cloud_init_data_source, str):
             raise TypeError("Expected argument 'cloud_init_data_source' to be a str")
         pulumi.set(__self__, "cloud_init_data_source", cloud_init_data_source)
-        if container_name and not isinstance(container_name, str):
-            raise TypeError("Expected argument 'container_name' to be a str")
-        pulumi.set(__self__, "container_name", container_name)
+        if container_id and not isinstance(container_id, str):
+            raise TypeError("Expected argument 'container_id' to be a str")
+        pulumi.set(__self__, "container_id", container_id)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -61,6 +61,9 @@ class GetGalleryImageResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if source_virtual_machine_id and not isinstance(source_virtual_machine_id, str):
+            raise TypeError("Expected argument 'source_virtual_machine_id' to be a str")
+        pulumi.set(__self__, "source_virtual_machine_id", source_virtual_machine_id)
         if status and not isinstance(status, dict):
             raise TypeError("Expected argument 'status' to be a dict")
         pulumi.set(__self__, "status", status)
@@ -76,6 +79,9 @@ class GetGalleryImageResult:
         if version and not isinstance(version, dict):
             raise TypeError("Expected argument 'version' to be a dict")
         pulumi.set(__self__, "version", version)
+        if vm_image_repository_credentials and not isinstance(vm_image_repository_credentials, dict):
+            raise TypeError("Expected argument 'vm_image_repository_credentials' to be a dict")
+        pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
 
     @property
     @pulumi.getter(name="cloudInitDataSource")
@@ -86,12 +92,12 @@ class GetGalleryImageResult:
         return pulumi.get(self, "cloud_init_data_source")
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[str]:
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> Optional[str]:
         """
-        Container Name for storage container
+        Storage ContainerID of the storage container to be used for gallery image
         """
-        return pulumi.get(self, "container_name")
+        return pulumi.get(self, "container_id")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -113,7 +119,7 @@ class GetGalleryImageResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -151,7 +157,7 @@ class GetGalleryImageResult:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
+    def os_type(self) -> str:
         """
         Operating system type that the gallery image uses [Windows, Linux]
         """
@@ -164,6 +170,14 @@ class GetGalleryImageResult:
         Provisioning state of the gallery image.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceVirtualMachineId")
+    def source_virtual_machine_id(self) -> Optional[str]:
+        """
+        Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+        """
+        return pulumi.get(self, "source_virtual_machine_id")
 
     @property
     @pulumi.getter
@@ -205,6 +219,14 @@ class GetGalleryImageResult:
         """
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="vmImageRepositoryCredentials")
+    def vm_image_repository_credentials(self) -> Optional['outputs.VmImageRepositoryCredentialsResponse']:
+        """
+        The credentials used to login to the image repository that has access to the specified image
+        """
+        return pulumi.get(self, "vm_image_repository_credentials")
+
 
 class AwaitableGetGalleryImageResult(GetGalleryImageResult):
     # pylint: disable=using-constant-test
@@ -213,7 +235,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             yield self
         return GetGalleryImageResult(
             cloud_init_data_source=self.cloud_init_data_source,
-            container_name=self.container_name,
+            container_id=self.container_id,
             extended_location=self.extended_location,
             hyper_v_generation=self.hyper_v_generation,
             id=self.id,
@@ -223,11 +245,13 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             name=self.name,
             os_type=self.os_type,
             provisioning_state=self.provisioning_state,
+            source_virtual_machine_id=self.source_virtual_machine_id,
             status=self.status,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            version=self.version)
+            version=self.version,
+            vm_image_repository_credentials=self.vm_image_repository_credentials)
 
 
 def get_gallery_image(gallery_image_name: Optional[str] = None,
@@ -235,9 +259,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Gets a gallery image
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str gallery_image_name: Name of the gallery image
@@ -251,7 +273,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
 
     return AwaitableGetGalleryImageResult(
         cloud_init_data_source=pulumi.get(__ret__, 'cloud_init_data_source'),
-        container_name=pulumi.get(__ret__, 'container_name'),
+        container_id=pulumi.get(__ret__, 'container_id'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
         id=pulumi.get(__ret__, 'id'),
@@ -261,19 +283,19 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         os_type=pulumi.get(__ret__, 'os_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_virtual_machine_id=pulumi.get(__ret__, 'source_virtual_machine_id'),
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
-        version=pulumi.get(__ret__, 'version'))
+        version=pulumi.get(__ret__, 'version'),
+        vm_image_repository_credentials=pulumi.get(__ret__, 'vm_image_repository_credentials'))
 def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Gets a gallery image
-    Azure REST API version: 2022-12-15-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    Azure REST API version: 2025-02-01-preview.
 
 
     :param str gallery_image_name: Name of the gallery image
@@ -286,7 +308,7 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:azurestackhci:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult)
     return __ret__.apply(lambda __response__: GetGalleryImageResult(
         cloud_init_data_source=pulumi.get(__response__, 'cloud_init_data_source'),
-        container_name=pulumi.get(__response__, 'container_name'),
+        container_id=pulumi.get(__response__, 'container_id'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         hyper_v_generation=pulumi.get(__response__, 'hyper_v_generation'),
         id=pulumi.get(__response__, 'id'),
@@ -296,8 +318,10 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
         name=pulumi.get(__response__, 'name'),
         os_type=pulumi.get(__response__, 'os_type'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        source_virtual_machine_id=pulumi.get(__response__, 'source_virtual_machine_id'),
         status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
-        version=pulumi.get(__response__, 'version')))
+        version=pulumi.get(__response__, 'version'),
+        vm_image_repository_credentials=pulumi.get(__response__, 'vm_image_repository_credentials')))

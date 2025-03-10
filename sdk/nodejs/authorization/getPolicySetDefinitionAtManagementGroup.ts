@@ -9,19 +9,22 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicySetDefinitionAtManagementGroup(args: GetPolicySetDefinitionAtManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupId": args.managementGroupId,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionAtManagementGroupArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: string;
     /**
      * The ID of the management group.
      */
@@ -69,7 +72,7 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
      */
     readonly policyDefinitions: outputs.authorization.PolicyDefinitionReferenceResponse[];
     /**
-     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     readonly policyType?: string;
     /**
@@ -80,22 +83,33 @@ export interface GetPolicySetDefinitionAtManagementGroupResult {
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     readonly type: string;
+    /**
+     * The policy set definition version in #.#.# format.
+     */
+    readonly version?: string;
+    /**
+     * A list of available versions for this policy set definition.
+     */
+    readonly versions?: string[];
 }
 /**
  * This operation retrieves the policy set definition in the given management group with the given name.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01.
  */
 export function getPolicySetDefinitionAtManagementGroupOutput(args: GetPolicySetDefinitionAtManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionAtManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinitionAtManagementGroup", {
+        "expand": args.expand,
         "managementGroupId": args.managementGroupId,
         "policySetDefinitionName": args.policySetDefinitionName,
     }, opts);
 }
 
 export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {
+    /**
+     * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The ID of the management group.
      */

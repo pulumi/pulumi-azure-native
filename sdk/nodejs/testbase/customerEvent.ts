@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Customer Notification Event resource.
- * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
  */
 export class CustomerEvent extends pulumi.CustomResource {
     /**
@@ -45,7 +43,7 @@ export class CustomerEvent extends pulumi.CustomResource {
      */
     public readonly eventName!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -53,11 +51,11 @@ export class CustomerEvent extends pulumi.CustomResource {
      */
     public readonly receivers!: pulumi.Output<outputs.testbase.NotificationEventReceiverResponse[]>;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -123,7 +121,7 @@ export interface CustomerEventArgs {
      */
     receivers: pulumi.Input<pulumi.Input<inputs.testbase.NotificationEventReceiverArgs>[]>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

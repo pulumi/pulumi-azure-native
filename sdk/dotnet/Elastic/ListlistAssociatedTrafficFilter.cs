@@ -9,38 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Elastic
 {
-    public static class ListlistAssociatedTrafficFilter
+    public static class ListListAssociatedTrafficFilter
     {
         /// <summary>
         /// List of elastic traffic filters in the account
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
-        public static Task<ListlistAssociatedTrafficFilterResult> InvokeAsync(ListlistAssociatedTrafficFilterArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<ListlistAssociatedTrafficFilterResult>("azure-native:elastic:listlistAssociatedTrafficFilter", args ?? new ListlistAssociatedTrafficFilterArgs(), options.WithDefaults());
+        public static Task<ListListAssociatedTrafficFilterResult> InvokeAsync(ListListAssociatedTrafficFilterArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<ListListAssociatedTrafficFilterResult>("azure-native:elastic:listListAssociatedTrafficFilter", args ?? new ListListAssociatedTrafficFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of elastic traffic filters in the account
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
-        public static Output<ListlistAssociatedTrafficFilterResult> Invoke(ListlistAssociatedTrafficFilterInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<ListlistAssociatedTrafficFilterResult>("azure-native:elastic:listlistAssociatedTrafficFilter", args ?? new ListlistAssociatedTrafficFilterInvokeArgs(), options.WithDefaults());
+        public static Output<ListListAssociatedTrafficFilterResult> Invoke(ListListAssociatedTrafficFilterInvokeArgs args, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListAssociatedTrafficFilterResult>("azure-native:elastic:listListAssociatedTrafficFilter", args ?? new ListListAssociatedTrafficFilterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of elastic traffic filters in the account
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
-        public static Output<ListlistAssociatedTrafficFilterResult> Invoke(ListlistAssociatedTrafficFilterInvokeArgs args, InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<ListlistAssociatedTrafficFilterResult>("azure-native:elastic:listlistAssociatedTrafficFilter", args ?? new ListlistAssociatedTrafficFilterInvokeArgs(), options.WithDefaults());
+        public static Output<ListListAssociatedTrafficFilterResult> Invoke(ListListAssociatedTrafficFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListAssociatedTrafficFilterResult>("azure-native:elastic:listListAssociatedTrafficFilter", args ?? new ListListAssociatedTrafficFilterInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class ListlistAssociatedTrafficFilterArgs : global::Pulumi.InvokeArgs
+    public sealed class ListListAssociatedTrafficFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -49,18 +43,18 @@ namespace Pulumi.AzureNative.Elastic
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
-        public ListlistAssociatedTrafficFilterArgs()
+        public ListListAssociatedTrafficFilterArgs()
         {
         }
-        public static new ListlistAssociatedTrafficFilterArgs Empty => new ListlistAssociatedTrafficFilterArgs();
+        public static new ListListAssociatedTrafficFilterArgs Empty => new ListListAssociatedTrafficFilterArgs();
     }
 
-    public sealed class ListlistAssociatedTrafficFilterInvokeArgs : global::Pulumi.InvokeArgs
+    public sealed class ListListAssociatedTrafficFilterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Monitor resource name
@@ -69,20 +63,20 @@ namespace Pulumi.AzureNative.Elastic
         public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public ListlistAssociatedTrafficFilterInvokeArgs()
+        public ListListAssociatedTrafficFilterInvokeArgs()
         {
         }
-        public static new ListlistAssociatedTrafficFilterInvokeArgs Empty => new ListlistAssociatedTrafficFilterInvokeArgs();
+        public static new ListListAssociatedTrafficFilterInvokeArgs Empty => new ListListAssociatedTrafficFilterInvokeArgs();
     }
 
 
     [OutputType]
-    public sealed class ListlistAssociatedTrafficFilterResult
+    public sealed class ListListAssociatedTrafficFilterResult
     {
         /// <summary>
         /// List of elastic traffic filters in the account
@@ -90,7 +84,7 @@ namespace Pulumi.AzureNative.Elastic
         public readonly ImmutableArray<Outputs.ElasticTrafficFilterResponse> Rulesets;
 
         [OutputConstructor]
-        private ListlistAssociatedTrafficFilterResult(ImmutableArray<Outputs.ElasticTrafficFilterResponse> rulesets)
+        private ListListAssociatedTrafficFilterResult(ImmutableArray<Outputs.ElasticTrafficFilterResponse> rulesets)
         {
             Rulesets = rulesets;
         }

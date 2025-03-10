@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Task<GetFileResult> InvokeAsync(GetFileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileArgs(), options.WithDefaults());
 
         /// <summary>
         /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The files resource is a nested, proxy-only resource representing a file stored under the project resource. This method retrieves information about a file.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetFileResult> Invoke(GetFileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileResult>("azure-native:datamigration:getFile", args ?? new GetFileInvokeArgs(), options.WithDefaults());

@@ -27,22 +27,34 @@ class GetPackageResult:
     """
     The Test Base Package resource.
     """
-    def __init__(__self__, application_name=None, blob_path=None, etag=None, flighting_ring=None, id=None, is_enabled=None, last_modified_time=None, location=None, name=None, package_status=None, provisioning_state=None, system_data=None, tags=None, target_os_list=None, test_types=None, tests=None, type=None, validation_results=None, version=None):
+    def __init__(__self__, application_name=None, blob_path=None, draft_package_id=None, first_party_apps=None, flighting_ring=None, gallery_apps=None, id=None, inplace_upgrade_os_pair=None, intune_enrollment_metadata=None, is_enabled=None, last_modified_time=None, location=None, name=None, package_status=None, provisioning_state=None, system_data=None, tags=None, target_os_list=None, test_types=None, tests=None, type=None, validation_results=None, version=None):
         if application_name and not isinstance(application_name, str):
             raise TypeError("Expected argument 'application_name' to be a str")
         pulumi.set(__self__, "application_name", application_name)
         if blob_path and not isinstance(blob_path, str):
             raise TypeError("Expected argument 'blob_path' to be a str")
         pulumi.set(__self__, "blob_path", blob_path)
-        if etag and not isinstance(etag, str):
-            raise TypeError("Expected argument 'etag' to be a str")
-        pulumi.set(__self__, "etag", etag)
+        if draft_package_id and not isinstance(draft_package_id, str):
+            raise TypeError("Expected argument 'draft_package_id' to be a str")
+        pulumi.set(__self__, "draft_package_id", draft_package_id)
+        if first_party_apps and not isinstance(first_party_apps, list):
+            raise TypeError("Expected argument 'first_party_apps' to be a list")
+        pulumi.set(__self__, "first_party_apps", first_party_apps)
         if flighting_ring and not isinstance(flighting_ring, str):
             raise TypeError("Expected argument 'flighting_ring' to be a str")
         pulumi.set(__self__, "flighting_ring", flighting_ring)
+        if gallery_apps and not isinstance(gallery_apps, list):
+            raise TypeError("Expected argument 'gallery_apps' to be a list")
+        pulumi.set(__self__, "gallery_apps", gallery_apps)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if inplace_upgrade_os_pair and not isinstance(inplace_upgrade_os_pair, dict):
+            raise TypeError("Expected argument 'inplace_upgrade_os_pair' to be a dict")
+        pulumi.set(__self__, "inplace_upgrade_os_pair", inplace_upgrade_os_pair)
+        if intune_enrollment_metadata and not isinstance(intune_enrollment_metadata, dict):
+            raise TypeError("Expected argument 'intune_enrollment_metadata' to be a dict")
+        pulumi.set(__self__, "intune_enrollment_metadata", intune_enrollment_metadata)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -96,35 +108,67 @@ class GetPackageResult:
 
     @property
     @pulumi.getter(name="blobPath")
-    def blob_path(self) -> str:
+    def blob_path(self) -> Optional[str]:
         """
         The file path of the package.
         """
         return pulumi.get(self, "blob_path")
 
     @property
-    @pulumi.getter
-    def etag(self) -> str:
+    @pulumi.getter(name="draftPackageId")
+    def draft_package_id(self) -> Optional[str]:
         """
-        Resource Etag.
+        The id of draft package. Used to create or update this package from a draft package.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "draft_package_id")
+
+    @property
+    @pulumi.getter(name="firstPartyApps")
+    def first_party_apps(self) -> Optional[Sequence['outputs.FirstPartyAppDefinitionResponse']]:
+        """
+        The list of first party applications to test along with user application.
+        """
+        return pulumi.get(self, "first_party_apps")
 
     @property
     @pulumi.getter(name="flightingRing")
-    def flighting_ring(self) -> str:
+    def flighting_ring(self) -> Optional[str]:
         """
         The flighting ring for feature update.
         """
         return pulumi.get(self, "flighting_ring")
 
     @property
+    @pulumi.getter(name="galleryApps")
+    def gallery_apps(self) -> Sequence['outputs.GalleryAppDefinitionResponse']:
+        """
+        The list of gallery apps to test along with user application.
+        """
+        return pulumi.get(self, "gallery_apps")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="inplaceUpgradeOSPair")
+    def inplace_upgrade_os_pair(self) -> Optional['outputs.InplaceUpgradeOSInfoResponse']:
+        """
+        Specifies the baseline os and target os for inplace upgrade.
+        """
+        return pulumi.get(self, "inplace_upgrade_os_pair")
+
+    @property
+    @pulumi.getter(name="intuneEnrollmentMetadata")
+    def intune_enrollment_metadata(self) -> Optional['outputs.IntuneEnrollmentMetadataResponse']:
+        """
+        The metadata of Intune enrollment.
+        """
+        return pulumi.get(self, "intune_enrollment_metadata")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -154,7 +198,7 @@ class GetPackageResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -178,7 +222,7 @@ class GetPackageResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -186,13 +230,13 @@ class GetPackageResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetOSList")
-    def target_os_list(self) -> Sequence['outputs.TargetOSInfoResponse']:
+    def target_os_list(self) -> Optional[Sequence['outputs.TargetOSInfoResponse']]:
         """
         Specifies the target OSs of specific OS Update types.
         """
@@ -202,13 +246,13 @@ class GetPackageResult:
     @pulumi.getter(name="testTypes")
     def test_types(self) -> Sequence[str]:
         """
-        OOB, functional or both. Mapped to the data in 'tests' property.
+        OOB, functional or flow driven. Mapped to the data in 'tests' property.
         """
         return pulumi.get(self, "test_types")
 
     @property
     @pulumi.getter
-    def tests(self) -> Sequence['outputs.TestResponse']:
+    def tests(self) -> Optional[Sequence['outputs.TestResponse']]:
         """
         The detailed test information.
         """
@@ -218,7 +262,7 @@ class GetPackageResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -247,9 +291,13 @@ class AwaitableGetPackageResult(GetPackageResult):
         return GetPackageResult(
             application_name=self.application_name,
             blob_path=self.blob_path,
-            etag=self.etag,
+            draft_package_id=self.draft_package_id,
+            first_party_apps=self.first_party_apps,
             flighting_ring=self.flighting_ring,
+            gallery_apps=self.gallery_apps,
             id=self.id,
+            inplace_upgrade_os_pair=self.inplace_upgrade_os_pair,
+            intune_enrollment_metadata=self.intune_enrollment_metadata,
             is_enabled=self.is_enabled,
             last_modified_time=self.last_modified_time,
             location=self.location,
@@ -272,13 +320,11 @@ def get_package(package_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
     Gets a Test Base Package.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -291,9 +337,13 @@ def get_package(package_name: Optional[str] = None,
     return AwaitableGetPackageResult(
         application_name=pulumi.get(__ret__, 'application_name'),
         blob_path=pulumi.get(__ret__, 'blob_path'),
-        etag=pulumi.get(__ret__, 'etag'),
+        draft_package_id=pulumi.get(__ret__, 'draft_package_id'),
+        first_party_apps=pulumi.get(__ret__, 'first_party_apps'),
         flighting_ring=pulumi.get(__ret__, 'flighting_ring'),
+        gallery_apps=pulumi.get(__ret__, 'gallery_apps'),
         id=pulumi.get(__ret__, 'id'),
+        inplace_upgrade_os_pair=pulumi.get(__ret__, 'inplace_upgrade_os_pair'),
+        intune_enrollment_metadata=pulumi.get(__ret__, 'intune_enrollment_metadata'),
         is_enabled=pulumi.get(__ret__, 'is_enabled'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         location=pulumi.get(__ret__, 'location'),
@@ -314,13 +364,11 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Gets a Test Base Package.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
     __args__ = dict()
@@ -332,9 +380,13 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetPackageResult(
         application_name=pulumi.get(__response__, 'application_name'),
         blob_path=pulumi.get(__response__, 'blob_path'),
-        etag=pulumi.get(__response__, 'etag'),
+        draft_package_id=pulumi.get(__response__, 'draft_package_id'),
+        first_party_apps=pulumi.get(__response__, 'first_party_apps'),
         flighting_ring=pulumi.get(__response__, 'flighting_ring'),
+        gallery_apps=pulumi.get(__response__, 'gallery_apps'),
         id=pulumi.get(__response__, 'id'),
+        inplace_upgrade_os_pair=pulumi.get(__response__, 'inplace_upgrade_os_pair'),
+        intune_enrollment_metadata=pulumi.get(__response__, 'intune_enrollment_metadata'),
         is_enabled=pulumi.get(__response__, 'is_enabled'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         location=pulumi.get(__response__, 'location'),

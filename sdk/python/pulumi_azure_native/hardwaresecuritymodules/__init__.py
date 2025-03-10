@@ -14,20 +14,3 @@ from .get_cloud_hsm_cluster_private_endpoint_connection import *
 from .get_dedicated_hsm import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hardwaresecuritymodules.v20211130 as __v20211130
-    v20211130 = __v20211130
-    import pulumi_azure_native.hardwaresecuritymodules.v20220831preview as __v20220831preview
-    v20220831preview = __v20220831preview
-    import pulumi_azure_native.hardwaresecuritymodules.v20231210preview as __v20231210preview
-    v20231210preview = __v20231210preview
-    import pulumi_azure_native.hardwaresecuritymodules.v20240630preview as __v20240630preview
-    v20240630preview = __v20240630preview
-else:
-    v20211130 = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20211130')
-    v20220831preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20220831preview')
-    v20231210preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20231210preview')
-    v20240630preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20240630preview')
-

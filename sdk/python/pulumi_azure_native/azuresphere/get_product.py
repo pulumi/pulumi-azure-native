@@ -49,7 +49,7 @@ class GetProductResult:
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> Optional[str]:
         """
         Description of the product
         """
@@ -116,9 +116,7 @@ def get_product(catalog_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-    Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog
@@ -145,9 +143,7 @@ def get_product_output(catalog_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
-    Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str catalog_name: Name of catalog

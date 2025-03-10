@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified NSP access rule by name.
-        /// Azure REST API version: 2021-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01-preview.
         /// </summary>
         public static Task<GetNspAccessRuleResult> InvokeAsync(GetNspAccessRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNspAccessRuleResult>("azure-native:network:getNspAccessRule", args ?? new GetNspAccessRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP access rule by name.
-        /// Azure REST API version: 2021-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01-preview.
         /// </summary>
         public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified NSP access rule by name.
-        /// Azure REST API version: 2021-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+        /// Azure REST API version: 2023-08-01-preview.
         /// </summary>
         public static Output<GetNspAccessRuleResult> Invoke(GetNspAccessRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNspAccessRuleResult>("azure-native:network:getNspAccessRule", args ?? new GetNspAccessRuleInvokeArgs(), options.WithDefaults());
@@ -149,6 +143,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Inbound rules service tag names.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceTags;
+        /// <summary>
         /// List of subscription ids
         /// </summary>
         public readonly ImmutableArray<Outputs.SubscriptionIdResponse> Subscriptions;
@@ -183,6 +181,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            ImmutableArray<string> serviceTags,
+
             ImmutableArray<Outputs.SubscriptionIdResponse> subscriptions,
 
             ImmutableDictionary<string, string>? tags,
@@ -199,6 +199,7 @@ namespace Pulumi.AzureNative.Network
             NetworkSecurityPerimeters = networkSecurityPerimeters;
             PhoneNumbers = phoneNumbers;
             ProvisioningState = provisioningState;
+            ServiceTags = serviceTags;
             Subscriptions = subscriptions;
             Tags = tags;
             Type = type;

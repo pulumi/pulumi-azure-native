@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['AuthorizationArgs', 'Authorization']
 
@@ -25,9 +26,9 @@ class AuthorizationArgs:
                  express_route_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authorization resource.
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+        :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization
         :param pulumi.Input[str] express_route_id: The ID of the ExpressRoute Circuit
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
@@ -41,7 +42,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="privateCloudName")
     def private_cloud_name(self) -> pulumi.Input[str]:
         """
-        The name of the private cloud.
+        Name of the private cloud
         """
         return pulumi.get(self, "private_cloud_name")
 
@@ -65,7 +66,7 @@ class AuthorizationArgs:
     @pulumi.getter(name="authorizationName")
     def authorization_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the ExpressRoute Circuit Authorization in the private cloud
+        Name of the ExpressRoute Circuit Authorization
         """
         return pulumi.get(self, "authorization_name")
 
@@ -98,15 +99,13 @@ class Authorization(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoute Circuit Authorization
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization in the private cloud
+        :param pulumi.Input[str] authorization_name: Name of the ExpressRoute Circuit Authorization
         :param pulumi.Input[str] express_route_id: The ID of the ExpressRoute Circuit
-        :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
+        :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
@@ -117,9 +116,7 @@ class Authorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoute Circuit Authorization
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +158,7 @@ class Authorization(pulumi.CustomResource):
             __props__.__dict__["express_route_authorization_key"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200320:Authorization"), pulumi.Alias(type_="azure-native:avs/v20200717preview:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210101preview:Authorization"), pulumi.Alias(type_="azure-native:avs/v20210601:Authorization"), pulumi.Alias(type_="azure-native:avs/v20211201:Authorization"), pulumi.Alias(type_="azure-native:avs/v20220501:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230301:Authorization"), pulumi.Alias(type_="azure-native:avs/v20230901:Authorization")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -191,6 +189,7 @@ class Authorization(pulumi.CustomResource):
         __props__.__dict__["express_route_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Authorization(resource_name, opts=opts, __props__=__props__)
 
@@ -222,7 +221,7 @@ class Authorization(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -230,15 +229,23 @@ class Authorization(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The state of the  ExpressRoute Circuit Authorization provisioning
+        The state of the ExpressRoute Circuit Authorization provisioning
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

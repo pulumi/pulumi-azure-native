@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Artifact store properties.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class ArtifactStore extends pulumi.CustomResource {
     /**

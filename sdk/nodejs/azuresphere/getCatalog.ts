@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Catalog
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,15 +59,17 @@ export interface GetCatalogResult {
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The Azure Sphere tenant ID associated with the catalog.
+     */
+    readonly tenantId: string;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get a Catalog
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

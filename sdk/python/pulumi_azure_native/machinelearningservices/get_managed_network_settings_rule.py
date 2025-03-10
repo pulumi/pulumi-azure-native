@@ -103,10 +103,8 @@ def get_managed_network_settings_rule(resource_group_name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedNetworkSettingsRuleResult:
     """
-    Gets an outbound rule from the managed network of a machine learning workspace.
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -131,10 +129,8 @@ def get_managed_network_settings_rule_output(resource_group_name: Optional[pulum
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkSettingsRuleResult]:
     """
-    Gets an outbound rule from the managed network of a machine learning workspace.
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+    Azure REST API version: 2024-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

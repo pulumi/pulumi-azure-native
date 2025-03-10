@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified pool.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,9 +63,6 @@ export interface GetPoolResult {
     readonly currentDedicatedNodes: number;
     readonly currentLowPriorityNodes: number;
     readonly currentNodeCommunicationMode: string;
-    /**
-     * Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
-     */
     readonly deploymentConfiguration?: outputs.batch.DeploymentConfigurationResponse;
     /**
      * The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
@@ -116,6 +111,10 @@ export interface GetPoolResult {
      */
     readonly resizeOperationStatus: outputs.batch.ResizeOperationStatusResponse;
     /**
+     * The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
+     */
+    readonly resourceTags?: {[key: string]: string};
+    /**
      * Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
      */
     readonly scaleSettings?: outputs.batch.ScaleSettingsResponse;
@@ -123,6 +122,10 @@ export interface GetPoolResult {
      * In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
      */
     readonly startTask?: outputs.batch.StartTaskResponse;
+    /**
+     * The tags of the resource.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * If omitted, the default value is Default.
      */
@@ -139,17 +142,19 @@ export interface GetPoolResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Describes an upgrade policy - automatic, manual, or rolling.
+     */
+    readonly upgradePolicy?: outputs.batch.UpgradePolicyResponse;
     readonly userAccounts?: outputs.batch.UserAccountResponse[];
     /**
-     * For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     * For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */
     readonly vmSize?: string;
 }
 /**
  * Gets information about the specified pool.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific curation profile.
- * Azure REST API version: 2024-08-01-preview.
- *
- * Other available API versions: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getCurationProfile(args: GetCurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetCurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -72,9 +70,7 @@ export interface GetCurationProfileResult {
 }
 /**
  * Gets a specific curation profile.
- * Azure REST API version: 2024-08-01-preview.
- *
- * Other available API versions: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview.
  */
 export function getCurationProfileOutput(args: GetCurationProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurationProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

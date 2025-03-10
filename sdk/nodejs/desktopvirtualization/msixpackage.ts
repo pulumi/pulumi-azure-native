@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for MSIX Package properties.
- * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
- *
- * Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+ * Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**
@@ -85,7 +83,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public readonly packageRelativePath!: pulumi.Output<string | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
@@ -93,7 +91,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml. 
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -211,7 +209,7 @@ export interface MSIXPackageArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Package Version found in the appxmanifest.xml. 
+     * Package version found in the appxmanifest.xml. 
      */
     version?: pulumi.Input<string>;
 }

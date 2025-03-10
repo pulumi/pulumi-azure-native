@@ -30,7 +30,7 @@ class SignalRCustomCertificateArgs:
         The set of arguments for constructing a SignalRCustomCertificate resource.
         :param pulumi.Input[str] key_vault_base_uri: Base uri of the KeyVault that stores certificate.
         :param pulumi.Input[str] key_vault_secret_name: Certificate secret name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the resource.
         :param pulumi.Input[str] certificate_name: Custom certificate name
         :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
@@ -72,7 +72,7 @@ class SignalRCustomCertificateArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -131,9 +131,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         A custom certificate.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
-
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -141,7 +139,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_base_uri: Base uri of the KeyVault that stores certificate.
         :param pulumi.Input[str] key_vault_secret_name: Certificate secret name.
         :param pulumi.Input[str] key_vault_secret_version: Certificate secret version.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
         ...
@@ -152,9 +150,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A custom certificate.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
-
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param SignalRCustomCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -265,7 +261,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -281,7 +277,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -289,7 +285,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

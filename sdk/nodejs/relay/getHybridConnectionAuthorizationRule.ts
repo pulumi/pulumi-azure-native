@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid connection authorization rule for a hybrid connection by name.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getHybridConnectionAuthorizationRule(args: GetHybridConnectionAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,9 +71,7 @@ export interface GetHybridConnectionAuthorizationRuleResult {
 }
 /**
  * Hybrid connection authorization rule for a hybrid connection by name.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getHybridConnectionAuthorizationRuleOutput(args: GetHybridConnectionAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridConnectionAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

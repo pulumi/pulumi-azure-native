@@ -27,7 +27,7 @@ class GetTrafficControllerInterfaceResult:
     """
     Concrete tracked resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, associations=None, configuration_endpoints=None, frontends=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, associations=None, configuration_endpoints=None, frontends=None, id=None, location=None, name=None, provisioning_state=None, security_policies=None, security_policy_configurations=None, system_data=None, tags=None, type=None):
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         pulumi.set(__self__, "associations", associations)
@@ -49,6 +49,12 @@ class GetTrafficControllerInterfaceResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if security_policies and not isinstance(security_policies, list):
+            raise TypeError("Expected argument 'security_policies' to be a list")
+        pulumi.set(__self__, "security_policies", security_policies)
+        if security_policy_configurations and not isinstance(security_policy_configurations, dict):
+            raise TypeError("Expected argument 'security_policy_configurations' to be a dict")
+        pulumi.set(__self__, "security_policy_configurations", security_policy_configurations)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -116,6 +122,22 @@ class GetTrafficControllerInterfaceResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="securityPolicies")
+    def security_policies(self) -> Sequence['outputs.ResourceIdResponse']:
+        """
+        Security Policies References List
+        """
+        return pulumi.get(self, "security_policies")
+
+    @property
+    @pulumi.getter(name="securityPolicyConfigurations")
+    def security_policy_configurations(self) -> Optional['outputs.SecurityPolicyConfigurationsResponse']:
+        """
+        Security Policy Configuration
+        """
+        return pulumi.get(self, "security_policy_configurations")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -153,6 +175,8 @@ class AwaitableGetTrafficControllerInterfaceResult(GetTrafficControllerInterface
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            security_policies=self.security_policies,
+            security_policy_configurations=self.security_policy_configurations,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -163,9 +187,7 @@ def get_traffic_controller_interface(resource_group_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrafficControllerInterfaceResult:
     """
     Get a TrafficController
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -185,6 +207,8 @@ def get_traffic_controller_interface(resource_group_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        security_policies=pulumi.get(__ret__, 'security_policies'),
+        security_policy_configurations=pulumi.get(__ret__, 'security_policy_configurations'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -193,9 +217,7 @@ def get_traffic_controller_interface_output(resource_group_name: Optional[pulumi
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficControllerInterfaceResult]:
     """
     Get a TrafficController
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -214,6 +236,8 @@ def get_traffic_controller_interface_output(resource_group_name: Optional[pulumi
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        security_policies=pulumi.get(__response__, 'security_policies'),
+        security_policy_configurations=pulumi.get(__response__, 'security_policy_configurations'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

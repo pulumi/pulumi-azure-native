@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.AzureSphere
 {
     /// <summary>
     /// An image resource belonging to a catalog resource.
-    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuresphere:Image")]
     public partial class Image : global::Pulumi.CustomResource

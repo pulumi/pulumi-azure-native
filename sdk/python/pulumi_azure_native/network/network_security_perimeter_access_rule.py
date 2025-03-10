@@ -270,7 +270,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
                  __props__=None):
         """
         The NSP access rule resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +297,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP access rule resource
-        Azure REST API version: 2024-06-01-preview.
+        Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAccessRuleArgs args: The arguments to use to populate this resource's properties.
@@ -361,7 +361,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
             __props__.__dict__["network_security_perimeters"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network:NspAccessRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterAccessRule, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterAccessRule',

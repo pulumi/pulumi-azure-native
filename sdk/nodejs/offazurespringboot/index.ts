@@ -39,15 +39,6 @@ utilities.lazyLoad(exports, ["Springbootsite"], () => require("./springbootsite"
 // Export enums:
 export * from "../types/enums/offazurespringboot";
 
-// Export sub-modules:
-import * as v20230101preview from "./v20230101preview";
-import * as v20240401preview from "./v20240401preview";
-
-export {
-    v20230101preview,
-    v20240401preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

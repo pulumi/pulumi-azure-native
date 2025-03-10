@@ -99,9 +99,7 @@ class Registration(pulumi.CustomResource):
                  __props__=None):
         """
         Registration information.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
-
-        Other available API versions: 2020-06-01-preview.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,9 +116,7 @@ class Registration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registration information.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
-
-        Other available API versions: 2020-06-01-preview.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param RegistrationArgs args: The arguments to use to populate this resource's properties.

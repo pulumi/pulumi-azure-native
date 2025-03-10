@@ -127,9 +127,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDashboardResult:
     """
     Gets the Dashboard.
-    Azure REST API version: 2020-09-01-preview.
-
-    Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str dashboard_name: The name of the dashboard.
@@ -154,9 +152,7 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Gets the Dashboard.
-    Azure REST API version: 2020-09-01-preview.
-
-    Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str dashboard_name: The name of the dashboard.

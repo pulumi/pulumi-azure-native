@@ -14,8 +14,12 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Azure Data Lake endpoint properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointDataLakeStorageResponse
+    public sealed class DataflowEndpointDataLakeStorageResponse
     {
+        /// <summary>
+        /// Authentication configuration. NOTE - only authentication property is allowed per entry.
+        /// </summary>
+        public readonly Outputs.DataflowEndpointDataLakeStorageAuthenticationResponse Authentication;
         /// <summary>
         /// Azure Data Lake endpoint batching configuration.
         /// </summary>
@@ -26,11 +30,14 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string Host;
 
         [OutputConstructor]
-        private DataFlowEndpointDataLakeStorageResponse(
+        private DataflowEndpointDataLakeStorageResponse(
+            Outputs.DataflowEndpointDataLakeStorageAuthenticationResponse authentication,
+
             Outputs.BatchingConfigurationResponse? batching,
 
             string host)
         {
+            Authentication = authentication;
             Batching = batching;
             Host = host;
         }

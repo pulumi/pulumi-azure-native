@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a machine pool
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devcenter:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a machine pool
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devcenter:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a machine pool
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-02-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devcenter:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -97,9 +91,17 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetPoolResult
     {
         /// <summary>
+        /// Indicates the number of provisioned Dev Boxes in this pool.
+        /// </summary>
+        public readonly int DevBoxCount;
+        /// <summary>
         /// Name of a Dev Box definition in parent Project of this Pool
         /// </summary>
         public readonly string DevBoxDefinitionName;
+        /// <summary>
+        /// The display name of the pool.
+        /// </summary>
+        public readonly string? DisplayName;
         /// <summary>
         /// Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
         /// </summary>
@@ -109,7 +111,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthStatusDetailResponse> HealthStatusDetails;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -125,6 +127,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The regions of the managed virtual network (required when managedNetworkType is Managed).
+        /// </summary>
+        public readonly ImmutableArray<string> ManagedVirtualNetworkRegions;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -136,6 +142,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// The provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+        /// </summary>
+        public readonly string? SingleSignOnStatus;
         /// <summary>
         /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
         /// </summary>
@@ -152,10 +162,18 @@ namespace Pulumi.AzureNative.DevCenter
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+        /// </summary>
+        public readonly string? VirtualNetworkType;
 
         [OutputConstructor]
         private GetPoolResult(
+            int devBoxCount,
+
             string devBoxDefinitionName,
+
+            string? displayName,
 
             string healthStatus,
 
@@ -169,11 +187,15 @@ namespace Pulumi.AzureNative.DevCenter
 
             string location,
 
+            ImmutableArray<string> managedVirtualNetworkRegions,
+
             string name,
 
             string networkConnectionName,
 
             string provisioningState,
+
+            string? singleSignOnStatus,
 
             Outputs.StopOnDisconnectConfigurationResponse? stopOnDisconnect,
 
@@ -181,22 +203,29 @@ namespace Pulumi.AzureNative.DevCenter
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? virtualNetworkType)
         {
+            DevBoxCount = devBoxCount;
             DevBoxDefinitionName = devBoxDefinitionName;
+            DisplayName = displayName;
             HealthStatus = healthStatus;
             HealthStatusDetails = healthStatusDetails;
             Id = id;
             LicenseType = licenseType;
             LocalAdministrator = localAdministrator;
             Location = location;
+            ManagedVirtualNetworkRegions = managedVirtualNetworkRegions;
             Name = name;
             NetworkConnectionName = networkConnectionName;
             ProvisioningState = provisioningState;
+            SingleSignOnStatus = singleSignOnStatus;
             StopOnDisconnect = stopOnDisconnect;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            VirtualNetworkType = virtualNetworkType;
         }
     }
 }

@@ -128,9 +128,7 @@ def get_fleet_update_strategy(fleet_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetUpdateStrategyResult:
     """
     Get a FleetUpdateStrategy
-    Azure REST API version: 2023-08-15-preview.
-
-    Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -158,9 +156,7 @@ def get_fleet_update_strategy_output(fleet_name: Optional[pulumi.Input[str]] = N
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetUpdateStrategyResult]:
     """
     Get a FleetUpdateStrategy
-    Azure REST API version: 2023-08-15-preview.
-
-    Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.

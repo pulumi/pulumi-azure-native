@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class FileShare extends pulumi.CustomResource {
     /**
@@ -69,6 +67,14 @@ export class FileShare extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * File Share Paid Bursting properties.
+     */
+    public readonly fileSharePaidBursting!: pulumi.Output<outputs.storage.FileSharePropertiesResponseFileSharePaidBursting | undefined>;
+    /**
+     * The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    public /*out*/ readonly includedBurstIops!: pulumi.Output<number>;
+    /**
      * Returns the date and time the share was last modified.
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
@@ -85,6 +91,10 @@ export class FileShare extends pulumi.CustomResource {
      */
     public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
     /**
+     * The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    public /*out*/ readonly maxBurstCreditsForIops!: pulumi.Output<number>;
+    /**
      * A name-value pair to associate with the share as metadata.
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -92,6 +102,26 @@ export class FileShare extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    public /*out*/ readonly nextAllowedProvisionedBandwidthDowngradeTime!: pulumi.Output<string>;
+    /**
+     * Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+     */
+    public /*out*/ readonly nextAllowedProvisionedIopsDowngradeTime!: pulumi.Output<string>;
+    /**
+     * Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
+     */
+    public /*out*/ readonly nextAllowedQuotaDowngradeTime!: pulumi.Output<string>;
+    /**
+     * The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+     */
+    public readonly provisionedBandwidthMibps!: pulumi.Output<number | undefined>;
+    /**
+     * The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+     */
+    public readonly provisionedIops!: pulumi.Output<number | undefined>;
     /**
      * Remaining retention days for share that was soft deleted.
      */
@@ -101,7 +131,7 @@ export class FileShare extends pulumi.CustomResource {
      */
     public readonly rootSquash!: pulumi.Output<string | undefined>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+     * The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
      */
     public readonly shareQuota!: pulumi.Output<number | undefined>;
     /**
@@ -146,7 +176,10 @@ export class FileShare extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
             resourceInputs["expand"] = args ? args.expand : undefined;
+            resourceInputs["fileSharePaidBursting"] = args ? args.fileSharePaidBursting : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["provisionedBandwidthMibps"] = args ? args.provisionedBandwidthMibps : undefined;
+            resourceInputs["provisionedIops"] = args ? args.provisionedIops : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
             resourceInputs["shareName"] = args ? args.shareName : undefined;
@@ -157,11 +190,16 @@ export class FileShare extends pulumi.CustomResource {
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["includedBurstIops"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["leaseDuration"] = undefined /*out*/;
             resourceInputs["leaseState"] = undefined /*out*/;
             resourceInputs["leaseStatus"] = undefined /*out*/;
+            resourceInputs["maxBurstCreditsForIops"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextAllowedProvisionedBandwidthDowngradeTime"] = undefined /*out*/;
+            resourceInputs["nextAllowedProvisionedIopsDowngradeTime"] = undefined /*out*/;
+            resourceInputs["nextAllowedQuotaDowngradeTime"] = undefined /*out*/;
             resourceInputs["remainingRetentionDays"] = undefined /*out*/;
             resourceInputs["shareUsageBytes"] = undefined /*out*/;
             resourceInputs["snapshotTime"] = undefined /*out*/;
@@ -175,12 +213,20 @@ export class FileShare extends pulumi.CustomResource {
             resourceInputs["deletedTime"] = undefined /*out*/;
             resourceInputs["enabledProtocols"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fileSharePaidBursting"] = undefined /*out*/;
+            resourceInputs["includedBurstIops"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["leaseDuration"] = undefined /*out*/;
             resourceInputs["leaseState"] = undefined /*out*/;
             resourceInputs["leaseStatus"] = undefined /*out*/;
+            resourceInputs["maxBurstCreditsForIops"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextAllowedProvisionedBandwidthDowngradeTime"] = undefined /*out*/;
+            resourceInputs["nextAllowedProvisionedIopsDowngradeTime"] = undefined /*out*/;
+            resourceInputs["nextAllowedQuotaDowngradeTime"] = undefined /*out*/;
+            resourceInputs["provisionedBandwidthMibps"] = undefined /*out*/;
+            resourceInputs["provisionedIops"] = undefined /*out*/;
             resourceInputs["remainingRetentionDays"] = undefined /*out*/;
             resourceInputs["rootSquash"] = undefined /*out*/;
             resourceInputs["shareQuota"] = undefined /*out*/;
@@ -218,9 +264,21 @@ export interface FileShareArgs {
      */
     expand?: pulumi.Input<string>;
     /**
+     * File Share Paid Bursting properties.
+     */
+    fileSharePaidBursting?: pulumi.Input<inputs.storage.FileSharePropertiesFileSharePaidBurstingArgs>;
+    /**
      * A name-value pair to associate with the share as metadata.
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+     */
+    provisionedBandwidthMibps?: pulumi.Input<number>;
+    /**
+     * The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+     */
+    provisionedIops?: pulumi.Input<number>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -234,7 +292,7 @@ export interface FileShareArgs {
      */
     shareName?: pulumi.Input<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+     * The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
      */
     shareQuota?: pulumi.Input<number>;
     /**

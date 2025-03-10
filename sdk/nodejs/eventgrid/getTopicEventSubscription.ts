@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of an event subscription of a topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getTopicEventSubscription(args: GetTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +22,7 @@ export function getTopicEventSubscription(args: GetTopicEventSubscriptionArgs, o
 
 export interface GetTopicEventSubscriptionArgs {
     /**
-     * Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: string;
     /**
@@ -32,13 +30,13 @@ export interface GetTopicEventSubscriptionArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of the partner topic.
+     * Name of the topic.
      */
     topicName: string;
 }
 
 /**
- * Event Subscription
+ * Event Subscription.
  */
 export interface GetTopicEventSubscriptionResult {
     /**
@@ -60,7 +58,7 @@ export interface GetTopicEventSubscriptionResult {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
+    readonly destination?: outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.MonitorAlertEventSubscriptionDestinationResponse | outputs.eventgrid.NamespaceTopicEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -94,7 +92,7 @@ export interface GetTopicEventSubscriptionResult {
      */
     readonly retryPolicy?: outputs.eventgrid.RetryPolicyResponse;
     /**
-     * The system metadata relating to Event Subscription resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -108,9 +106,7 @@ export interface GetTopicEventSubscriptionResult {
 }
 /**
  * Get properties of an event subscription of a topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -123,7 +119,7 @@ export function getTopicEventSubscriptionOutput(args: GetTopicEventSubscriptionO
 
 export interface GetTopicEventSubscriptionOutputArgs {
     /**
-     * Name of the event subscription to be found. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription to be found.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**
@@ -131,7 +127,7 @@ export interface GetTopicEventSubscriptionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of the partner topic.
+     * Name of the topic.
      */
     topicName: pulumi.Input<string>;
 }

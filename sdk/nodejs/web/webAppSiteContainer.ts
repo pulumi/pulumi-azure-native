@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container of a site
- * Azure REST API version: 2023-12-01.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-12-01.
  */
 export class WebAppSiteContainer extends pulumi.CustomResource {
     /**

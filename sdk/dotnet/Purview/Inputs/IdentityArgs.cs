@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Purview.Inputs
         /// Identity Type
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Purview.Type>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.ManagedIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputList<string>? _userAssignedIdentities;

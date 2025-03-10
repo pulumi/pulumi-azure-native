@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+ * Azure REST API version: 2025-03-01.
  */
 export function getGroupQuota(args: GetGroupQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,10 +42,7 @@ export interface GetGroupQuotaResult {
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
-     */
-    readonly properties: outputs.quota.GroupQuotasEntityBaseResponse;
+    readonly properties: outputs.quota.GroupQuotasEntityResponseProperties;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -59,9 +54,7 @@ export interface GetGroupQuotaResult {
 }
 /**
  * Gets the GroupQuotas for the name passed. It will return the GroupQuotas properties only. The details on group quota can be access from the group quota APIs.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+ * Azure REST API version: 2025-03-01.
  */
 export function getGroupQuotaOutput(args: GetGroupQuotaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupQuotaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview.
- *
- * Other available API versions: 2023-06-07.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class LabPlan extends pulumi.CustomResource {
     /**
@@ -77,6 +75,10 @@ export class LabPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Error details of last operation done on lab plan.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
+    /**
      * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
      */
     public readonly sharedGalleryId!: pulumi.Output<string | undefined>;
@@ -125,6 +127,7 @@ export class LabPlan extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -137,6 +140,7 @@ export class LabPlan extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["sharedGalleryId"] = undefined /*out*/;
             resourceInputs["supportInfo"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

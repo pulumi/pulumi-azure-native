@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about a network service design version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetNetworkServiceDesignVersionResult> InvokeAsync(GetNetworkServiceDesignVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkServiceDesignVersionResult>("azure-native:hybridnetwork:getNetworkServiceDesignVersion", args ?? new GetNetworkServiceDesignVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network service design version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkServiceDesignVersionResult> Invoke(GetNetworkServiceDesignVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignVersionResult>("azure-native:hybridnetwork:getNetworkServiceDesignVersion", args ?? new GetNetworkServiceDesignVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a network service design version.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetNetworkServiceDesignVersionResult> Invoke(GetNetworkServiceDesignVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkServiceDesignVersionResult>("azure-native:hybridnetwork:getNetworkServiceDesignVersion", args ?? new GetNetworkServiceDesignVersionInvokeArgs(), options.WithDefaults());

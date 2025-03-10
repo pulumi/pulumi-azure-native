@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.TestBase.Outputs
     {
         public readonly string? CreateTimeStamp;
         public readonly string? ExpirationTimeStamp;
+        public readonly string? FreeHourStatus;
+        public readonly string? FreeHourType;
         public readonly double? IncrementalFreeHours;
         public readonly double? RemainingFreeHours;
 
@@ -24,12 +26,18 @@ namespace Pulumi.AzureNative.TestBase.Outputs
 
             string? expirationTimeStamp,
 
+            string? freeHourStatus,
+
+            string? freeHourType,
+
             double? incrementalFreeHours,
 
             double? remainingFreeHours)
         {
             CreateTimeStamp = createTimeStamp;
             ExpirationTimeStamp = expirationTimeStamp;
+            FreeHourStatus = freeHourStatus;
+            FreeHourType = freeHourType;
             IncrementalFreeHours = incrementalFreeHours;
             RemainingFreeHours = remainingFreeHours;
         }

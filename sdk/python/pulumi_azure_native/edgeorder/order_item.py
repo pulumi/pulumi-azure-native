@@ -22,45 +22,38 @@ __all__ = ['OrderItemArgs', 'OrderItem']
 @pulumi.input_type
 class OrderItemArgs:
     def __init__(__self__, *,
-                 address_details: pulumi.Input['AddressDetailsArgs'],
                  order_id: pulumi.Input[str],
                  order_item_details: pulumi.Input['OrderItemDetailsArgs'],
                  resource_group_name: pulumi.Input[str],
+                 address_details: Optional[pulumi.Input['AddressDetailsArgs']] = None,
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  order_item_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OrderItem resource.
-        :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order item.
         :param pulumi.Input[str] order_id: Id of the order to which order item belongs to.
         :param pulumi.Input['OrderItemDetailsArgs'] order_item_details: Represents order item details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order item.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] order_item_name: The name of the order item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "address_details", address_details)
         pulumi.set(__self__, "order_id", order_id)
         pulumi.set(__self__, "order_item_details", order_item_details)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if address_details is not None:
+            pulumi.set(__self__, "address_details", address_details)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if order_item_name is not None:
             pulumi.set(__self__, "order_item_name", order_item_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="addressDetails")
-    def address_details(self) -> pulumi.Input['AddressDetailsArgs']:
-        """
-        Represents shipping and return address for order item.
-        """
-        return pulumi.get(self, "address_details")
-
-    @address_details.setter
-    def address_details(self, value: pulumi.Input['AddressDetailsArgs']):
-        pulumi.set(self, "address_details", value)
 
     @property
     @pulumi.getter(name="orderId")
@@ -97,6 +90,30 @@ class OrderItemArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="addressDetails")
+    def address_details(self) -> Optional[pulumi.Input['AddressDetailsArgs']]:
+        """
+        Represents shipping and return address for order item.
+        """
+        return pulumi.get(self, "address_details")
+
+    @address_details.setter
+    def address_details(self, value: Optional[pulumi.Input['AddressDetailsArgs']]):
+        pulumi.set(self, "address_details", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -141,6 +158,7 @@ class OrderItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_details: Optional[pulumi.Input[Union['AddressDetailsArgs', 'AddressDetailsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  order_id: Optional[pulumi.Input[str]] = None,
                  order_item_details: Optional[pulumi.Input[Union['OrderItemDetailsArgs', 'OrderItemDetailsArgsDict']]] = None,
@@ -150,13 +168,12 @@ class OrderItem(pulumi.CustomResource):
                  __props__=None):
         """
         Represents order item resource.
-        Azure REST API version: 2022-05-01-preview.
-
-        Other available API versions: 2024-02-01.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AddressDetailsArgs', 'AddressDetailsArgsDict']] address_details: Represents shipping and return address for order item.
+        :param pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']] identity: Msi identity of the resource
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] order_id: Id of the order to which order item belongs to.
         :param pulumi.Input[Union['OrderItemDetailsArgs', 'OrderItemDetailsArgsDict']] order_item_details: Represents order item details.
@@ -172,9 +189,7 @@ class OrderItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents order item resource.
-        Azure REST API version: 2022-05-01-preview.
-
-        Other available API versions: 2024-02-01.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param OrderItemArgs args: The arguments to use to populate this resource's properties.
@@ -192,6 +207,7 @@ class OrderItem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_details: Optional[pulumi.Input[Union['AddressDetailsArgs', 'AddressDetailsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  order_id: Optional[pulumi.Input[str]] = None,
                  order_item_details: Optional[pulumi.Input[Union['OrderItemDetailsArgs', 'OrderItemDetailsArgsDict']]] = None,
@@ -207,9 +223,8 @@ class OrderItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrderItemArgs.__new__(OrderItemArgs)
 
-            if address_details is None and not opts.urn:
-                raise TypeError("Missing required property 'address_details'")
             __props__.__dict__["address_details"] = address_details
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if order_id is None and not opts.urn:
                 raise TypeError("Missing required property 'order_id'")
@@ -223,10 +238,11 @@ class OrderItem(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:OrderItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:OrderItemByName"), pulumi.Alias(type_="azure-native:edgeorder/v20220501preview:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder/v20240201:OrderItem"), pulumi.Alias(type_="azure-native:edgeorder:OrderItemByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrderItem, __self__).__init__(
             'azure-native:edgeorder:OrderItem',
@@ -251,10 +267,12 @@ class OrderItem(pulumi.CustomResource):
         __props__ = OrderItemArgs.__new__(OrderItemArgs)
 
         __props__.__dict__["address_details"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["order_id"] = None
         __props__.__dict__["order_item_details"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["start_time"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -263,11 +281,19 @@ class OrderItem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="addressDetails")
-    def address_details(self) -> pulumi.Output['outputs.AddressDetailsResponse']:
+    def address_details(self) -> pulumi.Output[Optional['outputs.AddressDetailsResponse']]:
         """
         Represents shipping and return address for order item.
         """
         return pulumi.get(self, "address_details")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+        """
+        Msi identity of the resource
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -302,6 +328,14 @@ class OrderItem(pulumi.CustomResource):
         return pulumi.get(self, "order_item_details")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Output[str]:
         """
@@ -313,7 +347,7 @@ class OrderItem(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Represents resource creation and update time.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

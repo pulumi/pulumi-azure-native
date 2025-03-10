@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// DataFlow BuiltIn Transformation map properties
+    /// Dataflow BuiltIn Transformation map properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowBuiltInTransformationMapResponse
+    public sealed class DataflowBuiltInTransformationMapResponse
     {
         /// <summary>
         /// A user provided optional description of the mapping function.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string? Type;
 
         [OutputConstructor]
-        private DataFlowBuiltInTransformationMapResponse(
+        private DataflowBuiltInTransformationMapResponse(
             string? description,
 
             string? expression,

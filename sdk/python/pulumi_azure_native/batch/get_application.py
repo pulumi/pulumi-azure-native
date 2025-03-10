@@ -26,7 +26,7 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, id=None, name=None, type=None):
+    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, id=None, name=None, tags=None, type=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
         pulumi.set(__self__, "allow_updates", allow_updates)
@@ -45,6 +45,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -99,6 +102,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags of the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource.
@@ -118,6 +129,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
+            tags=self.tags,
             type=self.type)
 
 
@@ -127,9 +139,7 @@ def get_application(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Gets information about the specified application.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -150,6 +160,7 @@ def get_application(account_name: Optional[str] = None,
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            application_name: Optional[pulumi.Input[str]] = None,
@@ -157,9 +168,7 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets information about the specified application.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+    Azure REST API version: 2024-07-01.
 
 
     :param str account_name: The name of the Batch account.
@@ -179,4 +188,5 @@ def get_application_output(account_name: Optional[pulumi.Input[str]] = None,
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Azure AD for customers resource.
- * Azure REST API version: 2023-05-17-preview.
+ * Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2023-05-17-preview.
  */
 export class CIAMTenant extends pulumi.CustomResource {
     /**

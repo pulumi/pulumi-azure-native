@@ -16,10 +16,10 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
     public sealed class X509CredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        /// The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         /// </summary>
-        [Input("certificateReference", required: true)]
-        public Input<string> CertificateReference { get; set; } = null!;
+        [Input("certificateSecretName", required: true)]
+        public Input<string> CertificateSecretName { get; set; } = null!;
 
         public X509CredentialsArgs()
         {

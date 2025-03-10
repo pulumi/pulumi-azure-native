@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get the details of a Streaming Locator in the Media Services account
  * Azure REST API version: 2023-01-01.
- *
- * Other available API versions: 2018-03-30-preview.
  */
 export function getStreamingLocator(args: GetStreamingLocatorArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingLocatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -101,8 +99,6 @@ export interface GetStreamingLocatorResult {
 /**
  * Get the details of a Streaming Locator in the Media Services account
  * Azure REST API version: 2023-01-01.
- *
- * Other available API versions: 2018-03-30-preview.
  */
 export function getStreamingLocatorOutput(args: GetStreamingLocatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingLocatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

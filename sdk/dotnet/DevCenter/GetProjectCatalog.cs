@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets an associated project catalog.
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Task<GetProjectCatalogResult> InvokeAsync(GetProjectCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectCatalogResult>("azure-native:devcenter:getProjectCatalog", args ?? new GetProjectCatalogArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets an associated project catalog.
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogResult> Invoke(GetProjectCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogResult>("azure-native:devcenter:getProjectCatalog", args ?? new GetProjectCatalogInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Gets an associated project catalog.
         /// Azure REST API version: 2024-02-01.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
         /// </summary>
         public static Output<GetProjectCatalogResult> Invoke(GetProjectCatalogInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectCatalogResult>("azure-native:devcenter:getProjectCatalog", args ?? new GetProjectCatalogInvokeArgs(), options.WithDefaults());

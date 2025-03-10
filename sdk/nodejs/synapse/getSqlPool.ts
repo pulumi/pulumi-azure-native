@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get SQL pool properties
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getSqlPool(args: GetSqlPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -105,8 +103,6 @@ export interface GetSqlPoolResult {
 /**
  * Get SQL pool properties
  * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
  */
 export function getSqlPoolOutput(args: GetSqlPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

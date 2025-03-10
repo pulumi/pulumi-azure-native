@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get ownership identifier for domain
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,9 +59,7 @@ export interface GetDomainOwnershipIdentifierResult {
 }
 /**
  * Description for Get ownership identifier for domain
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

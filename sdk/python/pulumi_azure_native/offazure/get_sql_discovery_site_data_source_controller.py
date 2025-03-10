@@ -117,9 +117,7 @@ def get_sql_discovery_site_data_source_controller(discovery_site_data_source_nam
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDiscoverySiteDataSourceControllerResult:
     """
     Get a SqlDiscoverySiteDataSource
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: SQL Discovery site data source name.
@@ -149,9 +147,7 @@ def get_sql_discovery_site_data_source_controller_output(discovery_site_data_sou
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlDiscoverySiteDataSourceControllerResult]:
     """
     Get a SqlDiscoverySiteDataSource
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: SQL Discovery site data source name.

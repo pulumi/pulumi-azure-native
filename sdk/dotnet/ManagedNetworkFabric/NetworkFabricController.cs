@@ -10,10 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
-    /// The NetworkFabricController resource definition.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// The Network Fabric Controller resource definition.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkFabricController")]
     public partial class NetworkFabricController : global::Pulumi.CustomResource
@@ -34,7 +32,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// InfrastructureServices IP ranges.
         /// </summary>
         [Output("infrastructureServices")]
-        public Output<Outputs.InfrastructureServicesResponse> InfrastructureServices { get; private set; } = null!;
+        public Output<Outputs.ControllerServicesResponse> InfrastructureServices { get; private set; } = null!;
 
         /// <summary>
         /// IPv4 Network Fabric Controller Address Space.
@@ -47,6 +45,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Output("ipv6AddressSpace")]
         public Output<string?> Ipv6AddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        /// </summary>
+        [Output("isWorkloadManagementNetworkEnabled")]
+        public Output<string?> IsWorkloadManagementNetworkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -73,10 +77,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<ImmutableArray<string>> NetworkFabricIds { get; private set; } = null!;
 
         /// <summary>
-        /// The Operational Status would always be NULL. Look only in to the Provisioning state for the latest status.
+        /// Network Fabric Controller SKU.
         /// </summary>
-        [Output("operationalState")]
-        public Output<string> OperationalState { get; private set; } = null!;
+        [Output("nfcSku")]
+        public Output<string?> NfcSku { get; private set; } = null!;
 
         /// <summary>
         /// Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
@@ -97,6 +101,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// List of tenant InternetGateway resource IDs
+        /// </summary>
+        [Output("tenantInternetGatewayIds")]
+        public Output<ImmutableArray<string>> TenantInternetGatewayIds { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -109,7 +119,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<ImmutableArray<Outputs.ExpressRouteConnectionInformationResponse>> WorkloadExpressRouteConnections { get; private set; } = null!;
 
         /// <summary>
-        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints. This is used for the backward compatibility.
         /// </summary>
         [Output("workloadManagementNetwork")]
         public Output<bool> WorkloadManagementNetwork { get; private set; } = null!;
@@ -118,7 +128,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// WorkloadServices IP ranges.
         /// </summary>
         [Output("workloadServices")]
-        public Output<Outputs.WorkloadServicesResponse> WorkloadServices { get; private set; } = null!;
+        public Output<Outputs.ControllerServicesResponse> WorkloadServices { get; private set; } = null!;
 
 
         /// <summary>
@@ -201,6 +211,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Ipv6AddressSpace { get; set; }
 
         /// <summary>
+        /// A workload management network is required for all the tenant (workload) traffic. This traffic is only dedicated for Tenant workloads which are required to access internet or any other MSFT/Public endpoints.
+        /// </summary>
+        [Input("isWorkloadManagementNetworkEnabled")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.IsWorkloadManagementNetworkEnabled>? IsWorkloadManagementNetworkEnabled { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -213,10 +229,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<Inputs.ManagedResourceGroupConfigurationArgs>? ManagedResourceGroupConfiguration { get; set; }
 
         /// <summary>
-        /// Name of the Network Fabric Controller
+        /// Name of the Network Fabric Controller.
         /// </summary>
         [Input("networkFabricControllerName")]
         public Input<string>? NetworkFabricControllerName { get; set; }
+
+        /// <summary>
+        /// Network Fabric Controller SKU.
+        /// </summary>
+        [Input("nfcSku")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.NfcSku>? NfcSku { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -250,6 +272,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         public NetworkFabricControllerArgs()
         {
+            Ipv4AddressSpace = "10.0.0.0/19";
+            Ipv6AddressSpace = "FC00::/59";
+            IsWorkloadManagementNetworkEnabled = "True";
+            NfcSku = "Standard";
         }
         public static new NetworkFabricControllerArgs Empty => new NetworkFabricControllerArgs();
     }

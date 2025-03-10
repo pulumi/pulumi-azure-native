@@ -49,23 +49,3 @@ from .table import *
 from .table_service_properties import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storage.v20220901 as __v20220901
-    v20220901 = __v20220901
-    import pulumi_azure_native.storage.v20230101 as __v20230101
-    v20230101 = __v20230101
-    import pulumi_azure_native.storage.v20230401 as __v20230401
-    v20230401 = __v20230401
-    import pulumi_azure_native.storage.v20230501 as __v20230501
-    v20230501 = __v20230501
-    import pulumi_azure_native.storage.v20240101 as __v20240101
-    v20240101 = __v20240101
-else:
-    v20220901 = _utilities.lazy_import('pulumi_azure_native.storage.v20220901')
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.storage.v20230101')
-    v20230401 = _utilities.lazy_import('pulumi_azure_native.storage.v20230401')
-    v20230501 = _utilities.lazy_import('pulumi_azure_native.storage.v20230501')
-    v20240101 = _utilities.lazy_import('pulumi_azure_native.storage.v20240101')
-

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetHcxEnterpriseSiteResult',
@@ -26,7 +27,7 @@ class GetHcxEnterpriseSiteResult:
     """
     An HCX Enterprise Site resource
     """
-    def __init__(__self__, activation_key=None, id=None, name=None, status=None, type=None):
+    def __init__(__self__, activation_key=None, id=None, name=None, provisioning_state=None, status=None, system_data=None, type=None):
         if activation_key and not isinstance(activation_key, str):
             raise TypeError("Expected argument 'activation_key' to be a str")
         pulumi.set(__self__, "activation_key", activation_key)
@@ -36,9 +37,15 @@ class GetHcxEnterpriseSiteResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -55,7 +62,7 @@ class GetHcxEnterpriseSiteResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -63,9 +70,17 @@ class GetHcxEnterpriseSiteResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -76,10 +91,18 @@ class GetHcxEnterpriseSiteResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -93,7 +116,9 @@ class AwaitableGetHcxEnterpriseSiteResult(GetHcxEnterpriseSiteResult):
             activation_key=self.activation_key,
             id=self.id,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             status=self.status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -102,13 +127,11 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHcxEnterpriseSiteResult:
     """
-    An HCX Enterprise Site resource
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Get a HcxEnterpriseSite
+    Azure REST API version: 2023-09-01.
 
 
-    :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
+    :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -123,20 +146,20 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
         activation_key=pulumi.get(__ret__, 'activation_key'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Input[str]] = None,
                                    private_cloud_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHcxEnterpriseSiteResult]:
     """
-    An HCX Enterprise Site resource
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Get a HcxEnterpriseSite
+    Azure REST API version: 2023-09-01.
 
 
-    :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
+    :param str hcx_enterprise_site_name: Name of the HCX Enterprise Site
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -150,5 +173,7 @@ def get_hcx_enterprise_site_output(hcx_enterprise_site_name: Optional[pulumi.Inp
         activation_key=pulumi.get(__response__, 'activation_key'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

@@ -27,10 +27,13 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, id=None, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, system_data=None, tags=None, type=None, use_identity=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if incoming_traffic_policy and not isinstance(incoming_traffic_policy, str):
             raise TypeError("Expected argument 'incoming_traffic_policy' to be a str")
         pulumi.set(__self__, "incoming_traffic_policy", incoming_traffic_policy)
@@ -67,14 +70,25 @@ class GetStorageSyncServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if use_identity and not isinstance(use_identity, bool):
+            raise TypeError("Expected argument 'use_identity' to be a bool")
+        pulumi.set(__self__, "use_identity", use_identity)
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="incomingTrafficPolicy")
@@ -172,6 +186,14 @@ class GetStorageSyncServiceResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="useIdentity")
+    def use_identity(self) -> bool:
+        """
+        Use Identity authorization when customer have finished setup RBAC permissions.
+        """
+        return pulumi.get(self, "use_identity")
+
 
 class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
     # pylint: disable=using-constant-test
@@ -180,6 +202,7 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
             yield self
         return GetStorageSyncServiceResult(
             id=self.id,
+            identity=self.identity,
             incoming_traffic_policy=self.incoming_traffic_policy,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
@@ -191,7 +214,8 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
             storage_sync_service_uid=self.storage_sync_service_uid,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            use_identity=self.use_identity)
 
 
 def get_storage_sync_service(resource_group_name: Optional[str] = None,
@@ -199,9 +223,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSyncServiceResult:
     """
     Get a given StorageSyncService.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -215,6 +237,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
 
     return AwaitableGetStorageSyncServiceResult(
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         incoming_traffic_policy=pulumi.get(__ret__, 'incoming_traffic_policy'),
         last_operation_name=pulumi.get(__ret__, 'last_operation_name'),
         last_workflow_id=pulumi.get(__ret__, 'last_workflow_id'),
@@ -226,15 +249,14 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
         storage_sync_service_uid=pulumi.get(__ret__, 'storage_sync_service_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        use_identity=pulumi.get(__ret__, 'use_identity'))
 def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                     storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
     """
     Get a given StorageSyncService.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -247,6 +269,7 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getStorageSyncService', __args__, opts=opts, typ=GetStorageSyncServiceResult)
     return __ret__.apply(lambda __response__: GetStorageSyncServiceResult(
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         incoming_traffic_policy=pulumi.get(__response__, 'incoming_traffic_policy'),
         last_operation_name=pulumi.get(__response__, 'last_operation_name'),
         last_workflow_id=pulumi.get(__response__, 'last_workflow_id'),
@@ -258,4 +281,5 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
         storage_sync_service_uid=pulumi.get(__response__, 'storage_sync_service_uid'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        use_identity=pulumi.get(__response__, 'use_identity')))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Object model for the Azure CLI script.
-    /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
+    /// Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzureCliScript")]
     public partial class AzureCliScript : global::Pulumi.CustomResource
@@ -182,8 +182,12 @@ namespace Pulumi.AzureNative.Resources
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20191001preview:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20201001:AzurePowerShellScript" },
                     new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzureCliScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources/v20230801:AzurePowerShellScript" },
+                    new global::Pulumi.Alias { Type = "azure-native:resources:AzurePowerShellScript" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

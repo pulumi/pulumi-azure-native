@@ -11,13 +11,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The virtual hard disk resource definition.
-    /// Azure REST API version: 2022-12-15-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+    /// Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualHardDisk")]
     public partial class VirtualHardDisk : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Block size in bytes
+        /// </summary>
         [Output("blockSizeBytes")]
         public Output<int?> BlockSizeBytes { get; private set; } = null!;
 
@@ -26,6 +27,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("containerId")]
         public Output<string?> ContainerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean indicating whether it is an existing local hard disk or if one should be created.
+        /// </summary>
+        [Output("createFromLocal")]
+        public Output<bool?> CreateFromLocal { get; private set; } = null!;
 
         /// <summary>
         /// The format of the actual VHD file [vhd, vhdx]
@@ -38,6 +45,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("diskSizeGB")]
         public Output<double?> DiskSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        /// </summary>
+        [Output("downloadUrl")]
+        public Output<string?> DownloadUrl { get; private set; } = null!;
 
         /// <summary>
         /// Boolean for enabling dynamic sizing on the virtual hard disk
@@ -63,6 +76,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Logical sector in bytes
+        /// </summary>
         [Output("logicalSectorBytes")]
         public Output<int?> LogicalSectorBytes { get; private set; } = null!;
 
@@ -72,6 +88,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Physical sector in bytes
+        /// </summary>
         [Output("physicalSectorBytes")]
         public Output<int?> PhysicalSectorBytes { get; private set; } = null!;
 
@@ -132,6 +151,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualHardDisk" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualharddiskRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualHardDisk" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230901preview:VirtualHardDisk" },
@@ -165,6 +185,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
     public sealed class VirtualHardDiskArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Block size in bytes
+        /// </summary>
         [Input("blockSizeBytes")]
         public Input<int>? BlockSizeBytes { get; set; }
 
@@ -173,6 +196,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("containerId")]
         public Input<string>? ContainerId { get; set; }
+
+        /// <summary>
+        /// Boolean indicating whether it is an existing local hard disk or if one should be created.
+        /// </summary>
+        [Input("createFromLocal")]
+        public Input<bool>? CreateFromLocal { get; set; }
 
         /// <summary>
         /// The format of the actual VHD file [vhd, vhdx]
@@ -185,6 +214,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Input("diskSizeGB")]
         public Input<double>? DiskSizeGB { get; set; }
+
+        /// <summary>
+        /// URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        /// </summary>
+        [Input("downloadUrl")]
+        public Input<string>? DownloadUrl { get; set; }
 
         /// <summary>
         /// Boolean for enabling dynamic sizing on the virtual hard disk
@@ -210,9 +245,15 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Logical sector in bytes
+        /// </summary>
         [Input("logicalSectorBytes")]
         public Input<int>? LogicalSectorBytes { get; set; }
 
+        /// <summary>
+        /// Physical sector in bytes
+        /// </summary>
         [Input("physicalSectorBytes")]
         public Input<int>? PhysicalSectorBytes { get; set; }
 
@@ -242,6 +283,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         public VirtualHardDiskArgs()
         {
+            CreateFromLocal = false;
         }
         public static new VirtualHardDiskArgs Empty => new VirtualHardDiskArgs();
     }

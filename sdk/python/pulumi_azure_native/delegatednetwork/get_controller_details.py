@@ -26,7 +26,7 @@ class GetControllerDetailsResult:
     """
     Represents an instance of a DNC controller.
     """
-    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, dnc_tenant_id=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, dnc_app_id=None, dnc_endpoint=None, dnc_tenant_id=None, id=None, location=None, name=None, provisioning_state=None, purpose=None, resource_guid=None, tags=None, type=None):
         if dnc_app_id and not isinstance(dnc_app_id, str):
             raise TypeError("Expected argument 'dnc_app_id' to be a str")
         pulumi.set(__self__, "dnc_app_id", dnc_app_id)
@@ -48,6 +48,9 @@ class GetControllerDetailsResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if purpose and not isinstance(purpose, str):
+            raise TypeError("Expected argument 'purpose' to be a str")
+        pulumi.set(__self__, "purpose", purpose)
         if resource_guid and not isinstance(resource_guid, str):
             raise TypeError("Expected argument 'resource_guid' to be a str")
         pulumi.set(__self__, "resource_guid", resource_guid)
@@ -115,6 +118,14 @@ class GetControllerDetailsResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def purpose(self) -> Optional[str]:
+        """
+        The purpose of the dnc controller resource.
+        """
+        return pulumi.get(self, "purpose")
+
+    @property
     @pulumi.getter(name="resourceGuid")
     def resource_guid(self) -> str:
         """
@@ -152,6 +163,7 @@ class AwaitableGetControllerDetailsResult(GetControllerDetailsResult):
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            purpose=self.purpose,
             resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
@@ -162,9 +174,7 @@ def get_controller_details(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControllerDetailsResult:
     """
     Gets details about the specified dnc controller.
-    Azure REST API version: 2021-03-15.
-
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Azure REST API version: 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -184,6 +194,7 @@ def get_controller_details(resource_group_name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        purpose=pulumi.get(__ret__, 'purpose'),
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
@@ -192,9 +203,7 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControllerDetailsResult]:
     """
     Gets details about the specified dnc controller.
-    Azure REST API version: 2021-03-15.
-
-    Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+    Azure REST API version: 2023-06-27-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -213,6 +222,7 @@ def get_controller_details_output(resource_group_name: Optional[pulumi.Input[str
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        purpose=pulumi.get(__response__, 'purpose'),
         resource_guid=pulumi.get(__response__, 'resource_guid'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

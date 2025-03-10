@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// <summary>
         /// Street Address line 1.
         /// </summary>
-        public readonly string StreetAddress1;
+        public readonly string? StreetAddress1;
         /// <summary>
         /// Street Address line 2.
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             string? stateOrProvince,
 
-            string streetAddress1,
+            string? streetAddress1,
 
             string? streetAddress2,
 

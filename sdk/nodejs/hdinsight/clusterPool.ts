@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster pool.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-11-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class ClusterPool extends pulumi.CustomResource {
     /**
@@ -124,7 +122,7 @@ export class ClusterPool extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logAnalyticsProfile"] = args ? args.logAnalyticsProfile : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["networkProfile"] = args ? (args.networkProfile ? pulumi.output(args.networkProfile).apply(inputs.hdinsight.clusterPoolResourcePropertiesNetworkProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["aksClusterProfile"] = undefined /*out*/;

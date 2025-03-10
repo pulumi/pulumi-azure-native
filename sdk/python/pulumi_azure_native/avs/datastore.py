@@ -27,14 +27,16 @@ class DatastoreArgs:
                  resource_group_name: pulumi.Input[str],
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  disk_pool_volume: Optional[pulumi.Input['DiskPoolVolumeArgs']] = None,
+                 elastic_san_volume: Optional[pulumi.Input['ElasticSanVolumeArgs']] = None,
                  net_app_volume: Optional[pulumi.Input['NetAppVolumeArgs']] = None):
         """
         The set of arguments for constructing a Datastore resource.
-        :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
+        :param pulumi.Input[str] cluster_name: Name of the cluster
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] datastore_name: Name of the datastore in the private cloud cluster
+        :param pulumi.Input[str] datastore_name: Name of the datastore
         :param pulumi.Input['DiskPoolVolumeArgs'] disk_pool_volume: An iSCSI volume
+        :param pulumi.Input['ElasticSanVolumeArgs'] elastic_san_volume: An Elastic SAN volume
         :param pulumi.Input['NetAppVolumeArgs'] net_app_volume: An Azure NetApp Files volume
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -44,6 +46,8 @@ class DatastoreArgs:
             pulumi.set(__self__, "datastore_name", datastore_name)
         if disk_pool_volume is not None:
             pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
+        if elastic_san_volume is not None:
+            pulumi.set(__self__, "elastic_san_volume", elastic_san_volume)
         if net_app_volume is not None:
             pulumi.set(__self__, "net_app_volume", net_app_volume)
 
@@ -51,7 +55,7 @@ class DatastoreArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[str]:
         """
-        Name of the cluster in the private cloud
+        Name of the cluster
         """
         return pulumi.get(self, "cluster_name")
 
@@ -87,7 +91,7 @@ class DatastoreArgs:
     @pulumi.getter(name="datastoreName")
     def datastore_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the datastore in the private cloud cluster
+        Name of the datastore
         """
         return pulumi.get(self, "datastore_name")
 
@@ -106,6 +110,18 @@ class DatastoreArgs:
     @disk_pool_volume.setter
     def disk_pool_volume(self, value: Optional[pulumi.Input['DiskPoolVolumeArgs']]):
         pulumi.set(self, "disk_pool_volume", value)
+
+    @property
+    @pulumi.getter(name="elasticSanVolume")
+    def elastic_san_volume(self) -> Optional[pulumi.Input['ElasticSanVolumeArgs']]:
+        """
+        An Elastic SAN volume
+        """
+        return pulumi.get(self, "elastic_san_volume")
+
+    @elastic_san_volume.setter
+    def elastic_san_volume(self, value: Optional[pulumi.Input['ElasticSanVolumeArgs']]):
+        pulumi.set(self, "elastic_san_volume", value)
 
     @property
     @pulumi.getter(name="netAppVolume")
@@ -128,21 +144,21 @@ class Datastore(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 elastic_san_volume: Optional[pulumi.Input[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
                  net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A datastore resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
-        :param pulumi.Input[str] datastore_name: Name of the datastore in the private cloud cluster
+        :param pulumi.Input[str] cluster_name: Name of the cluster
+        :param pulumi.Input[str] datastore_name: Name of the datastore
         :param pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']] disk_pool_volume: An iSCSI volume
+        :param pulumi.Input[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']] elastic_san_volume: An Elastic SAN volume
         :param pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']] net_app_volume: An Azure NetApp Files volume
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -155,9 +171,7 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A datastore resource
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +191,7 @@ class Datastore(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 elastic_san_volume: Optional[pulumi.Input[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
                  net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -194,6 +209,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["datastore_name"] = datastore_name
             __props__.__dict__["disk_pool_volume"] = disk_pool_volume
+            __props__.__dict__["elastic_san_volume"] = elastic_san_volume
             __props__.__dict__["net_app_volume"] = net_app_volume
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
@@ -204,6 +220,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210101preview:Datastore"), pulumi.Alias(type_="azure-native:avs/v20210601:Datastore"), pulumi.Alias(type_="azure-native:avs/v20211201:Datastore"), pulumi.Alias(type_="azure-native:avs/v20220501:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230301:Datastore"), pulumi.Alias(type_="azure-native:avs/v20230901:Datastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -230,10 +247,12 @@ class Datastore(pulumi.CustomResource):
         __props__ = DatastoreArgs.__new__(DatastoreArgs)
 
         __props__.__dict__["disk_pool_volume"] = None
+        __props__.__dict__["elastic_san_volume"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["net_app_volume"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Datastore(resource_name, opts=opts, __props__=__props__)
 
@@ -246,10 +265,18 @@ class Datastore(pulumi.CustomResource):
         return pulumi.get(self, "disk_pool_volume")
 
     @property
+    @pulumi.getter(name="elasticSanVolume")
+    def elastic_san_volume(self) -> pulumi.Output[Optional['outputs.ElasticSanVolumeResponse']]:
+        """
+        An Elastic SAN volume
+        """
+        return pulumi.get(self, "elastic_san_volume")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -278,10 +305,18 @@ class Datastore(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

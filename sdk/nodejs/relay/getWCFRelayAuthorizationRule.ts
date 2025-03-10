@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get authorizationRule for a WCF relay by name.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,9 +71,7 @@ export interface GetWCFRelayAuthorizationRuleResult {
 }
 /**
  * Get authorizationRule for a WCF relay by name.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-04-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getWCFRelayAuthorizationRuleOutput(args: GetWCFRelayAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWCFRelayAuthorizationRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

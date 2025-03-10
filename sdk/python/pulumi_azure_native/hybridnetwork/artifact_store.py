@@ -135,9 +135,7 @@ class ArtifactStore(pulumi.CustomResource):
                  __props__=None):
         """
         Artifact store properties.
-        Azure REST API version: 2023-09-01.
-
-        Other available API versions: 2024-04-15.
+        Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class ArtifactStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Artifact store properties.
-        Azure REST API version: 2023-09-01.
-
-        Other available API versions: 2024-04-15.
+        Azure REST API version: 2024-04-15. Prior API version in Azure Native 2.x: 2023-09-01.
 
         :param str resource_name: The name of the resource.
         :param ArtifactStoreArgs args: The arguments to use to populate this resource's properties.

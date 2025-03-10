@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the runbook identified by runbook name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Task<GetRunbookResult> InvokeAsync(GetRunbookArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the runbook identified by runbook name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the runbook identified by runbook name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetRunbookResult> Invoke(GetRunbookInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunbookResult>("azure-native:automation:getRunbook", args ?? new GetRunbookInvokeArgs(), options.WithDefaults());
@@ -161,10 +155,6 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// Gets or sets the published runbook content link.
-        /// </summary>
-        public readonly Outputs.ContentLinkResponse? PublishContentLink;
-        /// <summary>
         /// Gets or sets the type of the runbook.
         /// </summary>
         public readonly string? RunbookType;
@@ -215,8 +205,6 @@ namespace Pulumi.AzureNative.Automation
 
             string? provisioningState,
 
-            Outputs.ContentLinkResponse? publishContentLink,
-
             string? runbookType,
 
             string? state,
@@ -241,7 +229,6 @@ namespace Pulumi.AzureNative.Automation
             OutputTypes = outputTypes;
             Parameters = parameters;
             ProvisioningState = provisioningState;
-            PublishContentLink = publishContentLink;
             RunbookType = runbookType;
             State = state;
             Tags = tags;

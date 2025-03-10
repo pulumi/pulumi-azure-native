@@ -27,7 +27,10 @@ class GetContainerAppsAuthConfigResult:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     """
-    def __init__(__self__, global_validation=None, http_settings=None, id=None, identity_providers=None, login=None, name=None, platform=None, system_data=None, type=None):
+    def __init__(__self__, encryption_settings=None, global_validation=None, http_settings=None, id=None, identity_providers=None, login=None, name=None, platform=None, system_data=None, type=None):
+        if encryption_settings and not isinstance(encryption_settings, dict):
+            raise TypeError("Expected argument 'encryption_settings' to be a dict")
+        pulumi.set(__self__, "encryption_settings", encryption_settings)
         if global_validation and not isinstance(global_validation, dict):
             raise TypeError("Expected argument 'global_validation' to be a dict")
         pulumi.set(__self__, "global_validation", global_validation)
@@ -55,6 +58,14 @@ class GetContainerAppsAuthConfigResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional['outputs.EncryptionSettingsResponse']:
+        """
+        The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
+        """
+        return pulumi.get(self, "encryption_settings")
 
     @property
     @pulumi.getter(name="globalValidation")
@@ -135,6 +146,7 @@ class AwaitableGetContainerAppsAuthConfigResult(GetContainerAppsAuthConfigResult
         if False:
             yield self
         return GetContainerAppsAuthConfigResult(
+            encryption_settings=self.encryption_settings,
             global_validation=self.global_validation,
             http_settings=self.http_settings,
             id=self.id,
@@ -152,9 +164,7 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsAuthConfigResult:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str auth_config_name: Name of the Container App AuthConfig.
@@ -169,6 +179,7 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getContainerAppsAuthConfig', __args__, opts=opts, typ=GetContainerAppsAuthConfigResult).value
 
     return AwaitableGetContainerAppsAuthConfigResult(
+        encryption_settings=pulumi.get(__ret__, 'encryption_settings'),
         global_validation=pulumi.get(__ret__, 'global_validation'),
         http_settings=pulumi.get(__ret__, 'http_settings'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Inpu
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str auth_config_name: Name of the Container App AuthConfig.
@@ -200,6 +209,7 @@ def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getContainerAppsAuthConfig', __args__, opts=opts, typ=GetContainerAppsAuthConfigResult)
     return __ret__.apply(lambda __response__: GetContainerAppsAuthConfigResult(
+        encryption_settings=pulumi.get(__response__, 'encryption_settings'),
         global_validation=pulumi.get(__response__, 'global_validation'),
         http_settings=pulumi.get(__response__, 'http_settings'),
         id=pulumi.get(__response__, 'id'),

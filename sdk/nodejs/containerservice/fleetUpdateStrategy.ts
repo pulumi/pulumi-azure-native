@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines a multi-stage process to perform update operations across members of a Fleet.
- * Azure REST API version: 2023-08-15-preview.
- *
- * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-08-15-preview.
  */
 export class FleetUpdateStrategy extends pulumi.CustomResource {
     /**

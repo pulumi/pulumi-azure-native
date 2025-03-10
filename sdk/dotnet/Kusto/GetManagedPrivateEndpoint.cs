@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Gets a managed private endpoint.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Task<GetManagedPrivateEndpointResult> InvokeAsync(GetManagedPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrivateEndpointResult>("azure-native:kusto:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed private endpoint.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed private endpoint.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetManagedPrivateEndpointResult> Invoke(GetManagedPrivateEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedPrivateEndpointResult>("azure-native:kusto:getManagedPrivateEndpoint", args ?? new GetManagedPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.Kusto
         public string ManagedPrivateEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +75,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

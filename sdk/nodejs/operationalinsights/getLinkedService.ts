@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a linked service instance.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2015-11-01-preview, 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,9 +67,7 @@ export interface GetLinkedServiceResult {
 }
 /**
  * Gets a linked service instance.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2015-11-01-preview, 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

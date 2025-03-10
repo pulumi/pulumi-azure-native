@@ -10,11 +10,3 @@ from .get_energy_service import *
 from .list_energy_service_partitions import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.openenergyplatform.v20220404preview as __v20220404preview
-    v20220404preview = __v20220404preview
-else:
-    v20220404preview = _utilities.lazy_import('pulumi_azure_native.openenergyplatform.v20220404preview')
-

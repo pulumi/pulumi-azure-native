@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Dto object representing index column
+    /// DTO object representing index column
     /// </summary>
     public sealed class IndexColumnArgs : global::Pulumi.ResourceArgs
     {

@@ -25,15 +25,13 @@ class SpringbootserverArgs:
                  resource_group_name: pulumi.Input[str],
                  site_name: pulumi.Input[str],
                  properties: Optional[pulumi.Input['SpringbootserversPropertiesArgs']] = None,
-                 springbootservers_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 springbootservers_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Springbootserver resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: The springbootsites name.
         :param pulumi.Input['SpringbootserversPropertiesArgs'] properties: The springbootservers resource definition.
         :param pulumi.Input[str] springbootservers_name: The springbootservers name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
@@ -41,8 +39,6 @@ class SpringbootserverArgs:
             pulumi.set(__self__, "properties", properties)
         if springbootservers_name is not None:
             pulumi.set(__self__, "springbootservers_name", springbootservers_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -92,18 +88,6 @@ class SpringbootserverArgs:
     def springbootservers_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "springbootservers_name", value)
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
 
 class Springbootserver(pulumi.CustomResource):
     @overload
@@ -114,11 +98,10 @@ class Springbootserver(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  springbootservers_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The springbootservers envelope resource definition.
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +109,6 @@ class Springbootserver(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] site_name: The springbootsites name.
         :param pulumi.Input[str] springbootservers_name: The springbootservers name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
     @overload
@@ -136,7 +118,7 @@ class Springbootserver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The springbootservers envelope resource definition.
-        Azure REST API version: 2023-01-01-preview.
+        Azure REST API version: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SpringbootserverArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +139,6 @@ class Springbootserver(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
                  springbootservers_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -175,11 +156,10 @@ class Springbootserver(pulumi.CustomResource):
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["springbootservers_name"] = springbootservers_name
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootserver"), pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:springbootserver"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootserver"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:springbootserver"), pulumi.Alias(type_="azure-native:offazurespringboot:springbootserver")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:offazurespringboot/v20230101preview:Springbootserver"), pulumi.Alias(type_="azure-native:offazurespringboot/v20240401preview:Springbootserver")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Springbootserver, __self__).__init__(
             'azure-native:offazurespringboot:Springbootserver',
@@ -206,7 +186,6 @@ class Springbootserver(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
-        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Springbootserver(resource_name, opts=opts, __props__=__props__)
 
@@ -233,14 +212,6 @@ class Springbootserver(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
     public sealed class DataPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        /// </summary>
-        [Input("capabilityId")]
-        public Input<string>? CapabilityId { get; set; }
-
-        /// <summary>
         /// Stringified JSON that contains connector-specific configuration for the data point. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         /// </summary>
         [Input("dataPointConfiguration")]
@@ -36,18 +30,18 @@ namespace Pulumi.AzureNative.DeviceRegistry.Inputs
         /// <summary>
         /// The name of the data point.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// An indication of how the data point should be mapped to OpenTelemetry.
         /// </summary>
         [Input("observabilityMode")]
-        public InputUnion<string, Pulumi.AzureNative.DeviceRegistry.DataPointsObservabilityMode>? ObservabilityMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DeviceRegistry.DataPointObservabilityMode>? ObservabilityMode { get; set; }
 
         public DataPointArgs()
         {
-            ObservabilityMode = "none";
+            ObservabilityMode = "None";
         }
         public static new DataPointArgs Empty => new DataPointArgs();
     }

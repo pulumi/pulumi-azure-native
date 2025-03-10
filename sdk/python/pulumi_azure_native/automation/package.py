@@ -132,9 +132,7 @@ class Package(pulumi.CustomResource):
                  __props__=None):
         """
         Definition of the Package type.
-        Azure REST API version: 2023-05-15-preview.
-
-        Other available API versions: 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2023-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the Package type.
-        Azure REST API version: 2023-05-15-preview.
-
-        Other available API versions: 2024-10-23.
+        Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2023-05-15-preview.
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

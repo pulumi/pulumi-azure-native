@@ -202,8 +202,6 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     Gets the sensitivity label of a given column
     Azure REST API version: 2021-06-01.
 
-    Other available API versions: 2021-06-01-preview.
-
 
     :param str column_name: The name of the column.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -249,8 +247,6 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
     """
     Gets the sensitivity label of a given column
     Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2021-06-01-preview.
 
 
     :param str column_name: The name of the column.

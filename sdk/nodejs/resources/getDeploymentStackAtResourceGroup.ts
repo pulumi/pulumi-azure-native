@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a Deployment Stack with a given name.
- * Azure REST API version: 2022-08-01-preview.
- *
- * Other available API versions: 2024-03-01.
+ * Gets a Deployment stack with a given name at Resource Group scope.
+ * Azure REST API version: 2024-03-01.
  */
 export function getDeploymentStackAtResourceGroup(args: GetDeploymentStackAtResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,15 +35,19 @@ export interface GetDeploymentStackAtResourceGroupArgs {
  */
 export interface GetDeploymentStackAtResourceGroupResult {
     /**
-     * Defines the behavior of resources that are not managed immediately after the stack is updated.
+     * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
      */
-    readonly actionOnUnmanage: outputs.resources.DeploymentStackPropertiesResponseActionOnUnmanage;
+    readonly actionOnUnmanage: outputs.resources.ActionOnUnmanageResponse;
+    /**
+     * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
+     */
+    readonly correlationId: string;
     /**
      * The debug setting of the deployment.
      */
     readonly debugSetting?: outputs.resources.DeploymentStacksDebugSettingResponse;
     /**
-     * An array of resources that were deleted during the most recent update.
+     * An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
      */
     readonly deletedResources: outputs.resources.ResourceReferenceResponse[];
     /**
@@ -61,23 +63,23 @@ export interface GetDeploymentStackAtResourceGroupResult {
      */
     readonly deploymentScope?: string;
     /**
-     * Deployment stack description.
+     * Deployment stack description. Max length of 4096 characters.
      */
     readonly description?: string;
     /**
-     * An array of resources that were detached during the most recent update.
+     * An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
      */
     readonly detachedResources: outputs.resources.ResourceReferenceResponse[];
     /**
-     * The duration of the deployment stack update.
+     * The duration of the last successful Deployment stack update.
      */
     readonly duration: string;
     /**
-     * Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
+     * The error detail.
      */
-    readonly error?: outputs.resources.ErrorResponseResponse;
+    readonly error?: outputs.resources.ErrorDetailResponse;
     /**
-     * An array of resources that failed to reach goal state during the most recent update.
+     * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
     readonly failedResources: outputs.resources.ResourceReferenceExtendedResponse[];
     /**
@@ -85,7 +87,7 @@ export interface GetDeploymentStackAtResourceGroupResult {
      */
     readonly id: string;
     /**
-     * The location of the deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+     * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
      */
     readonly location?: string;
     /**
@@ -93,13 +95,13 @@ export interface GetDeploymentStackAtResourceGroupResult {
      */
     readonly name: string;
     /**
-     * The outputs of the underlying deployment.
+     * The outputs of the deployment resource created by the deployment stack.
      */
     readonly outputs: any;
     /**
-     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
+     * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
      */
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: outputs.resources.DeploymentParameterResponse};
     /**
      * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
      */
@@ -126,10 +128,8 @@ export interface GetDeploymentStackAtResourceGroupResult {
     readonly type: string;
 }
 /**
- * Gets a Deployment Stack with a given name.
- * Azure REST API version: 2022-08-01-preview.
- *
- * Other available API versions: 2024-03-01.
+ * Gets a Deployment stack with a given name at Resource Group scope.
+ * Azure REST API version: 2024-03-01.
  */
 export function getDeploymentStackAtResourceGroupOutput(args: GetDeploymentStackAtResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

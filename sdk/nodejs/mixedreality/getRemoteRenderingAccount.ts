@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
- *
- * Other available API versions: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -91,9 +89,7 @@ export interface GetRemoteRenderingAccountResult {
 }
 /**
  * Retrieve a Remote Rendering Account.
- * Azure REST API version: 2021-01-01.
- *
- * Other available API versions: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getRemoteRenderingAccountOutput(args: GetRemoteRenderingAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRemoteRenderingAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

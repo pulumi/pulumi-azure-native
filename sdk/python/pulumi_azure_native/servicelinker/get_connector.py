@@ -201,9 +201,7 @@ def get_connector(connector_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Returns Connector resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str connector_name: The name of resource.
@@ -240,9 +238,7 @@ def get_connector_output(connector_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Returns Connector resource for a given name.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str connector_name: The name of resource.

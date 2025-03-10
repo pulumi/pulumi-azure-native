@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<ListAzureDevOpsOrgAvailableResult> InvokeAsync(ListAzureDevOpsOrgAvailableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAzureDevOpsOrgAvailableResult>("azure-native:security:listAzureDevOpsOrgAvailable", args ?? new ListAzureDevOpsOrgAvailableArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListAzureDevOpsOrgAvailableResult> Invoke(ListAzureDevOpsOrgAvailableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDevOpsOrgAvailableResult>("azure-native:security:listAzureDevOpsOrgAvailable", args ?? new ListAzureDevOpsOrgAvailableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of RP resources which supports pagination.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<ListAzureDevOpsOrgAvailableResult> Invoke(ListAzureDevOpsOrgAvailableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAzureDevOpsOrgAvailableResult>("azure-native:security:listAzureDevOpsOrgAvailable", args ?? new ListAzureDevOpsOrgAvailableInvokeArgs(), options.WithDefaults());

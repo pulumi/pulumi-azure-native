@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A multi-stage process to perform update operations across members of a Fleet.
- * Azure REST API version: 2023-03-15-preview.
- *
- * Other available API versions: 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
  */
 export class UpdateRun extends pulumi.CustomResource {
     /**
@@ -74,6 +72,21 @@ export class UpdateRun extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The resource id of the FleetUpdateStrategy resource to reference.
+     *
+     * When creating a new run, there are three ways to define a strategy for the run:
+     * 1. Define a new strategy in place: Set the "strategy" field.
+     * 2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+     * 3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+     *
+     * Setting both "updateStrategyId" and "strategy" is invalid.
+     *
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+     * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+     */
+    public readonly updateStrategyId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UpdateRun resource with the given unique name, arguments, and options.
@@ -100,6 +113,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
             resourceInputs["updateRunName"] = args ? args.updateRunName : undefined;
+            resourceInputs["updateStrategyId"] = args ? args.updateStrategyId : undefined;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -115,6 +129,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["strategy"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updateStrategyId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20230315preview:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }, { type: "azure-native:containerservice/v20230815preview:UpdateRun" }, { type: "azure-native:containerservice/v20231015:UpdateRun" }, { type: "azure-native:containerservice/v20240202preview:UpdateRun" }, { type: "azure-native:containerservice/v20240401:UpdateRun" }, { type: "azure-native:containerservice/v20240502preview:UpdateRun" }] };
@@ -149,4 +164,19 @@ export interface UpdateRunArgs {
      * The name of the UpdateRun resource.
      */
     updateRunName?: pulumi.Input<string>;
+    /**
+     * The resource id of the FleetUpdateStrategy resource to reference.
+     *
+     * When creating a new run, there are three ways to define a strategy for the run:
+     * 1. Define a new strategy in place: Set the "strategy" field.
+     * 2. Use an existing strategy: Set the "updateStrategyId" field. (since 2023-08-15-preview)
+     * 3. Use the default strategy to update all the members one by one: Leave both "updateStrategyId" and "strategy" unset. (since 2023-08-15-preview)
+     *
+     * Setting both "updateStrategyId" and "strategy" is invalid.
+     *
+     * UpdateRuns created by "updateStrategyId" snapshot the referenced UpdateStrategy at the time of creation and store it in the "strategy" field. 
+     * Subsequent changes to the referenced FleetUpdateStrategy resource do not propagate.
+     * UpdateRunStrategy changes can be made directly on the "strategy" field before launching the UpdateRun.
+     */
+    updateStrategyId?: pulumi.Input<string>;
 }

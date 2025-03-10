@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.VoiceServices
 {
     /// <summary>
     /// A TestLine resource
-    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview.
-    /// 
-    /// Other available API versions: 2022-12-01-preview, 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2023-04-03.
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices:TestLine")]
     public partial class TestLine : global::Pulumi.CustomResource

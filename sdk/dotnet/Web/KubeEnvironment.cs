@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:KubeEnvironment")]
     public partial class KubeEnvironment : global::Pulumi.CustomResource
@@ -74,7 +72,7 @@ namespace Pulumi.AzureNative.Web
         public Output<bool?> InternalLoadBalancerEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -216,7 +214,7 @@ namespace Pulumi.AzureNative.Web
         public Input<bool>? InternalLoadBalancerEnabled { get; set; }
 
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }

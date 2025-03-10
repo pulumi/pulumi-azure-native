@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Get the object replication policy of the storage account by policy ID.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetObjectReplicationPolicyResult> InvokeAsync(GetObjectReplicationPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the object replication policy of the storage account by policy ID.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the object replication policy of the storage account by policy ID.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetObjectReplicationPolicyResult> Invoke(GetObjectReplicationPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectReplicationPolicyResult>("azure-native:storage:getObjectReplicationPolicy", args ?? new GetObjectReplicationPolicyInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Optional. The object replication policy metrics feature options.
+        /// </summary>
+        public readonly Outputs.ObjectReplicationPolicyPropertiesResponseMetrics? Metrics;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.Storage
 
             string id,
 
+            Outputs.ObjectReplicationPolicyPropertiesResponseMetrics? metrics,
+
             string name,
 
             string policyId,
@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Storage
             DestinationAccount = destinationAccount;
             EnabledTime = enabledTime;
             Id = id;
+            Metrics = metrics;
             Name = name;
             PolicyId = policyId;
             Rules = rules;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the module identified by module name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getModule(args: GetModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,15 +40,11 @@ export interface GetModuleArgs {
  */
 export interface GetModuleResult {
     /**
-     * Gets or sets the activity count of the module.
+     * Gets the activity count of the module.
      */
     readonly activityCount?: number;
     /**
-     * Gets or sets the contentLink of the module.
-     */
-    readonly contentLink?: outputs.automation.ContentLinkResponse;
-    /**
-     * Gets or sets the creation time.
+     * Gets the creation time.
      */
     readonly creationTime?: string;
     /**
@@ -58,11 +52,11 @@ export interface GetModuleResult {
      */
     readonly description?: string;
     /**
-     * Gets or sets the error info of the module.
+     * Gets the error info of the module.
      */
     readonly error?: outputs.automation.ModuleErrorInfoResponse;
     /**
-     * Gets or sets the etag of the resource.
+     * Gets the etag of the resource.
      */
     readonly etag?: string;
     /**
@@ -70,15 +64,15 @@ export interface GetModuleResult {
      */
     readonly id: string;
     /**
-     * Gets or sets type of module, if its composite or not.
+     * Gets type of module, if its composite or not.
      */
     readonly isComposite?: boolean;
     /**
-     * Gets or sets the isGlobal flag of the module.
+     * Gets the isGlobal flag of the module.
      */
     readonly isGlobal?: boolean;
     /**
-     * Gets or sets the last modified time.
+     * Gets the last modified time.
      */
     readonly lastModifiedTime?: string;
     /**
@@ -90,11 +84,11 @@ export interface GetModuleResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the provisioning state of the module.
+     * Gets the provisioning state of the module.
      */
     readonly provisioningState?: string;
     /**
-     * Gets or sets the size in bytes of the module.
+     * Gets the size in bytes of the module.
      */
     readonly sizeInBytes?: number;
     /**
@@ -106,15 +100,13 @@ export interface GetModuleResult {
      */
     readonly type: string;
     /**
-     * Gets or sets the version of the module.
+     * Gets the version of the module.
      */
     readonly version?: string;
 }
 /**
  * Retrieve the module identified by module name.
- * Azure REST API version: 2022-08-08.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01.
  */
 export function getModuleOutput(args: GetModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

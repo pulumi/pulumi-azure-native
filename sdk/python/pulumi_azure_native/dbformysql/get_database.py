@@ -67,7 +67,7 @@ class GetDatabaseResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -83,7 +83,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -116,9 +116,7 @@ def get_database(database_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database.
-    Azure REST API version: 2022-01-01.
-
-    Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Azure REST API version: 2023-12-30.
 
 
     :param str database_name: The name of the database.
@@ -145,9 +143,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database.
-    Azure REST API version: 2022-01-01.
-
-    Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+    Azure REST API version: 2023-12-30.
 
 
     :param str database_name: The name of the database.

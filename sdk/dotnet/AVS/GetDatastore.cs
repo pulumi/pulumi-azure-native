@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.AVS
     public static class GetDatastore
     {
         /// <summary>
-        /// A datastore resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a Datastore
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A datastore resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a Datastore
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A datastore resource
-        /// Azure REST API version: 2022-05-01.
-        /// 
-        /// Other available API versions: 2023-03-01, 2023-09-01.
+        /// Get a Datastore
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:avs:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
@@ -43,13 +37,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetDatastoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the datastore in the private cloud cluster
+        /// Name of the datastore
         /// </summary>
         [Input("datastoreName", required: true)]
         public string DatastoreName { get; set; } = null!;
@@ -75,13 +69,13 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetDatastoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the cluster in the private cloud
+        /// Name of the cluster
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the datastore in the private cloud cluster
+        /// Name of the datastore
         /// </summary>
         [Input("datastoreName", required: true)]
         public Input<string> DatastoreName { get; set; } = null!;
@@ -113,11 +107,15 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly Outputs.DiskPoolVolumeResponse? DiskPoolVolume;
         /// <summary>
-        /// Resource ID.
+        /// An Elastic SAN volume
+        /// </summary>
+        public readonly Outputs.ElasticSanVolumeResponse? ElasticSanVolume;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -133,13 +131,19 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// Resource type.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDatastoreResult(
             Outputs.DiskPoolVolumeResponse? diskPoolVolume,
+
+            Outputs.ElasticSanVolumeResponse? elasticSanVolume,
 
             string id,
 
@@ -151,14 +155,18 @@ namespace Pulumi.AzureNative.AVS
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             DiskPoolVolume = diskPoolVolume;
+            ElasticSanVolume = elasticSanVolume;
             Id = id;
             Name = name;
             NetAppVolume = netAppVolume;
             ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Type = type;
         }
     }

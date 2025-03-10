@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
     public sealed class ManagedOnlineEndpointDeploymentResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("endpointComputeType")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointComputeType>? EndpointComputeType { get; set; }
+
         /// <summary>
         /// The failure reason if the creation failed.
         /// </summary>
         [Input("failureReason")]
         public Input<string>? FailureReason { get; set; }
+
+        [Input("model")]
+        public Input<string>? Model { get; set; }
 
         /// <summary>
         /// Kind of the deployment.

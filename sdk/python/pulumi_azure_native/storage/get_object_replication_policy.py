@@ -27,7 +27,7 @@ class GetObjectReplicationPolicyResult:
     """
     The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     """
-    def __init__(__self__, destination_account=None, enabled_time=None, id=None, name=None, policy_id=None, rules=None, source_account=None, type=None):
+    def __init__(__self__, destination_account=None, enabled_time=None, id=None, metrics=None, name=None, policy_id=None, rules=None, source_account=None, type=None):
         if destination_account and not isinstance(destination_account, str):
             raise TypeError("Expected argument 'destination_account' to be a str")
         pulumi.set(__self__, "destination_account", destination_account)
@@ -37,6 +37,9 @@ class GetObjectReplicationPolicyResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if metrics and not isinstance(metrics, dict):
+            raise TypeError("Expected argument 'metrics' to be a dict")
+        pulumi.set(__self__, "metrics", metrics)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -76,6 +79,14 @@ class GetObjectReplicationPolicyResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional['outputs.ObjectReplicationPolicyPropertiesResponseMetrics']:
+        """
+        Optional. The object replication policy metrics feature options.
+        """
+        return pulumi.get(self, "metrics")
 
     @property
     @pulumi.getter
@@ -127,6 +138,7 @@ class AwaitableGetObjectReplicationPolicyResult(GetObjectReplicationPolicyResult
             destination_account=self.destination_account,
             enabled_time=self.enabled_time,
             id=self.id,
+            metrics=self.metrics,
             name=self.name,
             policy_id=self.policy_id,
             rules=self.rules,
@@ -140,9 +152,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectReplicationPolicyResult:
     """
     Get the object replication policy of the storage account by policy ID.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -160,6 +170,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
         destination_account=pulumi.get(__ret__, 'destination_account'),
         enabled_time=pulumi.get(__ret__, 'enabled_time'),
         id=pulumi.get(__ret__, 'id'),
+        metrics=pulumi.get(__ret__, 'metrics'),
         name=pulumi.get(__ret__, 'name'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
         rules=pulumi.get(__ret__, 'rules'),
@@ -171,9 +182,7 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """
     Get the object replication policy of the storage account by policy ID.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -190,6 +199,7 @@ def get_object_replication_policy_output(account_name: Optional[pulumi.Input[str
         destination_account=pulumi.get(__response__, 'destination_account'),
         enabled_time=pulumi.get(__response__, 'enabled_time'),
         id=pulumi.get(__response__, 'id'),
+        metrics=pulumi.get(__response__, 'metrics'),
         name=pulumi.get(__response__, 'name'),
         policy_id=pulumi.get(__response__, 'policy_id'),
         rules=pulumi.get(__response__, 'rules'),

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a migration resource.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2021-06-15-privatepreview, 2022-05-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  */
 export class Migration extends pulumi.CustomResource {
     /**
@@ -65,13 +63,25 @@ export class Migration extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * To migrate roles and permissions we need to send this flag as True
+     */
+    public readonly migrateRoles!: pulumi.Output<string | undefined>;
+    /**
      * ID for migration, a GUID.
      */
     public /*out*/ readonly migrationId!: pulumi.Output<string>;
     /**
+     * ResourceId of the private endpoint migration instance
+     */
+    public readonly migrationInstanceResourceId!: pulumi.Output<string | undefined>;
+    /**
      * There are two types of migration modes Online and Offline
      */
     public readonly migrationMode!: pulumi.Output<string | undefined>;
+    /**
+     * This indicates the supported Migration option for the migration
+     */
+    public readonly migrationOption!: pulumi.Output<string | undefined>;
     /**
      * End time in UTC for migration window
      */
@@ -93,7 +103,7 @@ export class Migration extends pulumi.CustomResource {
      */
     public readonly setupLogicalReplicationOnSourceDbIfNeeded!: pulumi.Output<string | undefined>;
     /**
-     * Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     public readonly sourceDbServerFullyQualifiedDomainName!: pulumi.Output<string | undefined>;
     /**
@@ -101,9 +111,17 @@ export class Migration extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceDbServerMetadata!: pulumi.Output<outputs.dbforpostgresql.DbServerMetadataResponse>;
     /**
-     * ResourceId of the source database server
+     * ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
      */
     public readonly sourceDbServerResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+     */
+    public readonly sourceType!: pulumi.Output<string | undefined>;
+    /**
+     * SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+     */
+    public readonly sslMode!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the data migration should start right away
      */
@@ -117,7 +135,7 @@ export class Migration extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     public readonly targetDbServerFullyQualifiedDomainName!: pulumi.Output<string | undefined>;
     /**
@@ -159,8 +177,11 @@ export class Migration extends pulumi.CustomResource {
             resourceInputs["dbsToMigrate"] = args ? args.dbsToMigrate : undefined;
             resourceInputs["dbsToTriggerCutoverOn"] = args ? args.dbsToTriggerCutoverOn : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["migrateRoles"] = args ? args.migrateRoles : undefined;
+            resourceInputs["migrationInstanceResourceId"] = args ? args.migrationInstanceResourceId : undefined;
             resourceInputs["migrationMode"] = args ? args.migrationMode : undefined;
             resourceInputs["migrationName"] = args ? args.migrationName : undefined;
+            resourceInputs["migrationOption"] = args ? args.migrationOption : undefined;
             resourceInputs["migrationWindowEndTimeInUtc"] = args ? args.migrationWindowEndTimeInUtc : undefined;
             resourceInputs["migrationWindowStartTimeInUtc"] = args ? args.migrationWindowStartTimeInUtc : undefined;
             resourceInputs["overwriteDbsInTarget"] = args ? args.overwriteDbsInTarget : undefined;
@@ -169,6 +190,8 @@ export class Migration extends pulumi.CustomResource {
             resourceInputs["setupLogicalReplicationOnSourceDbIfNeeded"] = args ? args.setupLogicalReplicationOnSourceDbIfNeeded : undefined;
             resourceInputs["sourceDbServerFullyQualifiedDomainName"] = args ? args.sourceDbServerFullyQualifiedDomainName : undefined;
             resourceInputs["sourceDbServerResourceId"] = args ? args.sourceDbServerResourceId : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
             resourceInputs["startDataMigration"] = args ? args.startDataMigration : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -190,8 +213,11 @@ export class Migration extends pulumi.CustomResource {
             resourceInputs["dbsToMigrate"] = undefined /*out*/;
             resourceInputs["dbsToTriggerCutoverOn"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["migrateRoles"] = undefined /*out*/;
             resourceInputs["migrationId"] = undefined /*out*/;
+            resourceInputs["migrationInstanceResourceId"] = undefined /*out*/;
             resourceInputs["migrationMode"] = undefined /*out*/;
+            resourceInputs["migrationOption"] = undefined /*out*/;
             resourceInputs["migrationWindowEndTimeInUtc"] = undefined /*out*/;
             resourceInputs["migrationWindowStartTimeInUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -200,6 +226,8 @@ export class Migration extends pulumi.CustomResource {
             resourceInputs["sourceDbServerFullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["sourceDbServerMetadata"] = undefined /*out*/;
             resourceInputs["sourceDbServerResourceId"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["sslMode"] = undefined /*out*/;
             resourceInputs["startDataMigration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -241,6 +269,14 @@ export interface MigrationArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * To migrate roles and permissions we need to send this flag as True
+     */
+    migrateRoles?: pulumi.Input<string | enums.dbforpostgresql.MigrateRolesEnum>;
+    /**
+     * ResourceId of the private endpoint migration instance
+     */
+    migrationInstanceResourceId?: pulumi.Input<string>;
+    /**
      * There are two types of migration modes Online and Offline
      */
     migrationMode?: pulumi.Input<string | enums.dbforpostgresql.MigrationMode>;
@@ -248,6 +284,10 @@ export interface MigrationArgs {
      * The name of the migration.
      */
     migrationName?: pulumi.Input<string>;
+    /**
+     * This indicates the supported Migration option for the migration
+     */
+    migrationOption?: pulumi.Input<string | enums.dbforpostgresql.MigrationOption>;
     /**
      * End time in UTC for migration window
      */
@@ -273,13 +313,21 @@ export interface MigrationArgs {
      */
     setupLogicalReplicationOnSourceDbIfNeeded?: pulumi.Input<string | enums.dbforpostgresql.LogicalReplicationOnSourceDbEnum>;
     /**
-     * Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Source server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     sourceDbServerFullyQualifiedDomainName?: pulumi.Input<string>;
     /**
-     * ResourceId of the source database server
+     * ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username
      */
     sourceDbServerResourceId?: pulumi.Input<string>;
+    /**
+     * migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+     */
+    sourceType?: pulumi.Input<string | enums.dbforpostgresql.SourceType>;
+    /**
+     * SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+     */
+    sslMode?: pulumi.Input<string | enums.dbforpostgresql.SslMode>;
     /**
      * Indicates whether the data migration should start right away
      */
@@ -293,7 +341,7 @@ export interface MigrationArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection
+     * Target server fully qualified domain name (FQDN) or IP address. It is a optional value, if customer provide it, migration service will always use it for connection
      */
     targetDbServerFullyQualifiedDomainName?: pulumi.Input<string>;
     /**

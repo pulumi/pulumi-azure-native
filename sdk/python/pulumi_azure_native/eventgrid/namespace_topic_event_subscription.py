@@ -28,6 +28,7 @@ class NamespaceTopicEventSubscriptionArgs:
                  delivery_configuration: Optional[pulumi.Input['DeliveryConfigurationArgs']] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
                  filters_configuration: Optional[pulumi.Input['FiltersConfigurationArgs']] = None):
         """
         The set of arguments for constructing a NamespaceTopicEventSubscription resource.
@@ -36,7 +37,8 @@ class NamespaceTopicEventSubscriptionArgs:
         :param pulumi.Input[str] topic_name: Name of the namespace topic.
         :param pulumi.Input['DeliveryConfigurationArgs'] delivery_configuration: Information about the delivery configuration of the event subscription.
         :param pulumi.Input[Union[str, 'DeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input['FiltersConfigurationArgs'] filters_configuration: Information about the filter for the event subscription.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -48,6 +50,8 @@ class NamespaceTopicEventSubscriptionArgs:
             pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
         if event_subscription_name is not None:
             pulumi.set(__self__, "event_subscription_name", event_subscription_name)
+        if expiration_time_utc is not None:
+            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
         if filters_configuration is not None:
             pulumi.set(__self__, "filters_configuration", filters_configuration)
 
@@ -115,13 +119,25 @@ class NamespaceTopicEventSubscriptionArgs:
     @pulumi.getter(name="eventSubscriptionName")
     def event_subscription_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
         """
         return pulumi.get(self, "event_subscription_name")
 
     @event_subscription_name.setter
     def event_subscription_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_subscription_name", value)
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration time of the event subscription.
+        """
+        return pulumi.get(self, "expiration_time_utc")
+
+    @expiration_time_utc.setter
+    def expiration_time_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration_time_utc", value)
 
     @property
     @pulumi.getter(name="filtersConfiguration")
@@ -144,6 +160,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
                  filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,15 +168,14 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Event Subscription.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']] delivery_configuration: Information about the delivery configuration of the event subscription.
         :param pulumi.Input[Union[str, 'DeliverySchema']] event_delivery_schema: The event delivery schema for the event subscription.
-        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] event_subscription_name: Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
+        :param pulumi.Input[str] expiration_time_utc: Expiration time of the event subscription.
         :param pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']] filters_configuration: Information about the filter for the event subscription.
         :param pulumi.Input[str] namespace_name: Name of the namespace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
@@ -173,9 +189,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription.
-        Azure REST API version: 2023-06-01-preview.
-
-        Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NamespaceTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +209,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
                  delivery_configuration: Optional[pulumi.Input[Union['DeliveryConfigurationArgs', 'DeliveryConfigurationArgsDict']]] = None,
                  event_delivery_schema: Optional[pulumi.Input[Union[str, 'DeliverySchema']]] = None,
                  event_subscription_name: Optional[pulumi.Input[str]] = None,
+                 expiration_time_utc: Optional[pulumi.Input[str]] = None,
                  filters_configuration: Optional[pulumi.Input[Union['FiltersConfigurationArgs', 'FiltersConfigurationArgsDict']]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -211,6 +226,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
             __props__.__dict__["delivery_configuration"] = delivery_configuration
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
             __props__.__dict__["event_subscription_name"] = event_subscription_name
+            __props__.__dict__["expiration_time_utc"] = expiration_time_utc
             __props__.__dict__["filters_configuration"] = filters_configuration
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
@@ -251,6 +267,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
 
         __props__.__dict__["delivery_configuration"] = None
         __props__.__dict__["event_delivery_schema"] = None
+        __props__.__dict__["expiration_time_utc"] = None
         __props__.__dict__["filters_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -273,6 +290,14 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
         The event delivery schema for the event subscription.
         """
         return pulumi.get(self, "event_delivery_schema")
+
+    @property
+    @pulumi.getter(name="expirationTimeUtc")
+    def expiration_time_utc(self) -> pulumi.Output[Optional[str]]:
+        """
+        Expiration time of the event subscription.
+        """
+        return pulumi.get(self, "expiration_time_utc")
 
     @property
     @pulumi.getter(name="filtersConfiguration")
@@ -302,7 +327,7 @@ class NamespaceTopicEventSubscription(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Event Subscription resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

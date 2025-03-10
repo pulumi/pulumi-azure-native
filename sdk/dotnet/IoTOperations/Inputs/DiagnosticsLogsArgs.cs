@@ -21,12 +21,6 @@ namespace Pulumi.AzureNative.IoTOperations.Inputs
         [Input("level")]
         public Input<string>? Level { get; set; }
 
-        /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        [Input("opentelemetryExportConfig")]
-        public Input<Inputs.OpenTelemetryLogExportConfigArgs>? OpentelemetryExportConfig { get; set; }
-
         public DiagnosticsLogsArgs()
         {
             Level = "info";

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Security assessment metadata
- * Azure REST API version: 2019-01-01-preview.
+ * Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
  */
 export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
     /**
@@ -135,7 +135,7 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
             resourceInputs["userImpact"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20200101:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20210601:AssessmentsMetadataSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20190101preview:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20200101:AssessmentsMetadataSubscription" }, { type: "azure-native:security/v20210601:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20210601:AssessmentsMetadataSubscription" }, { type: "azure-native:security:AssessmentMetadataInSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssessmentsMetadataSubscription.__pulumiType, name, resourceInputs, opts);
     }

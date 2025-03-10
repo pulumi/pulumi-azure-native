@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Test Base Package.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +26,7 @@ export interface GetPackageArgs {
      */
     packageName: string;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -48,19 +46,35 @@ export interface GetPackageResult {
     /**
      * The file path of the package.
      */
-    readonly blobPath: string;
+    readonly blobPath?: string;
     /**
-     * Resource Etag.
+     * The id of draft package. Used to create or update this package from a draft package.
      */
-    readonly etag: string;
+    readonly draftPackageId?: string;
+    /**
+     * The list of first party applications to test along with user application.
+     */
+    readonly firstPartyApps?: outputs.testbase.FirstPartyAppDefinitionResponse[];
     /**
      * The flighting ring for feature update.
      */
-    readonly flightingRing: string;
+    readonly flightingRing?: string;
     /**
-     * Resource ID.
+     * The list of gallery apps to test along with user application.
+     */
+    readonly galleryApps: outputs.testbase.GalleryAppDefinitionResponse[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * Specifies the baseline os and target os for inplace upgrade.
+     */
+    readonly inplaceUpgradeOSPair?: outputs.testbase.InplaceUpgradeOSInfoResponse;
+    /**
+     * The metadata of Intune enrollment.
+     */
+    readonly intuneEnrollmentMetadata?: outputs.testbase.IntuneEnrollmentMetadataResponse;
     /**
      * Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
      */
@@ -74,7 +88,7 @@ export interface GetPackageResult {
      */
     readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -86,27 +100,27 @@ export interface GetPackageResult {
      */
     readonly provisioningState: string;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.testbase.SystemDataResponse;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    readonly targetOSList: outputs.testbase.TargetOSInfoResponse[];
+    readonly targetOSList?: outputs.testbase.TargetOSInfoResponse[];
     /**
-     * OOB, functional or both. Mapped to the data in 'tests' property.
+     * OOB, functional or flow driven. Mapped to the data in 'tests' property.
      */
     readonly testTypes: string[];
     /**
      * The detailed test information.
      */
-    readonly tests: outputs.testbase.TestResponse[];
+    readonly tests?: outputs.testbase.TestResponse[];
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -120,9 +134,7 @@ export interface GetPackageResult {
 }
 /**
  * Gets a Test Base Package.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -139,7 +151,7 @@ export interface GetPackageOutputArgs {
      */
     packageName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string? DaprAIInstrumentationKey;
         /// <summary>
+        /// The configuration of Dapr component.
+        /// </summary>
+        public readonly Outputs.DaprConfigurationResponse? DaprConfiguration;
+        /// <summary>
         /// Default Domain Name for the cluster
         /// </summary>
         public readonly string DefaultDomain;
@@ -117,6 +115,14 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+        /// </summary>
+        public readonly string? InfrastructureResourceGroup;
+        /// <summary>
+        /// The configuration of Keda component.
+        /// </summary>
+        public readonly Outputs.KedaConfigurationResponse? KedaConfiguration;
+        /// <summary>
         /// Kind of the Environment.
         /// </summary>
         public readonly string? Kind;
@@ -129,13 +135,17 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Peer authentication settings for the Managed Environment
+        /// </summary>
+        public readonly Outputs.ManagedEnvironmentResponsePeerAuthentication? PeerAuthentication;
+        /// <summary>
+        /// Peer traffic settings for the Managed Environment
+        /// </summary>
+        public readonly Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration? PeerTrafficConfiguration;
+        /// <summary>
         /// Provisioning state of the Environment.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// SKU properties of the Environment.
-        /// </summary>
-        public readonly Outputs.EnvironmentSkuPropertiesResponse? Sku;
         /// <summary>
         /// Static IP of the Environment
         /// </summary>
@@ -175,6 +185,8 @@ namespace Pulumi.AzureNative.App
 
             string? daprAIInstrumentationKey,
 
+            Outputs.DaprConfigurationResponse? daprConfiguration,
+
             string defaultDomain,
 
             string deploymentErrors,
@@ -183,15 +195,21 @@ namespace Pulumi.AzureNative.App
 
             string id,
 
+            string? infrastructureResourceGroup,
+
+            Outputs.KedaConfigurationResponse? kedaConfiguration,
+
             string? kind,
 
             string location,
 
             string name,
 
-            string provisioningState,
+            Outputs.ManagedEnvironmentResponsePeerAuthentication? peerAuthentication,
 
-            Outputs.EnvironmentSkuPropertiesResponse? sku,
+            Outputs.ManagedEnvironmentResponsePeerTrafficConfiguration? peerTrafficConfiguration,
+
+            string provisioningState,
 
             string staticIp,
 
@@ -211,15 +229,19 @@ namespace Pulumi.AzureNative.App
             CustomDomainConfiguration = customDomainConfiguration;
             DaprAIConnectionString = daprAIConnectionString;
             DaprAIInstrumentationKey = daprAIInstrumentationKey;
+            DaprConfiguration = daprConfiguration;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;
             EventStreamEndpoint = eventStreamEndpoint;
             Id = id;
+            InfrastructureResourceGroup = infrastructureResourceGroup;
+            KedaConfiguration = kedaConfiguration;
             Kind = kind;
             Location = location;
             Name = name;
+            PeerAuthentication = peerAuthentication;
+            PeerTrafficConfiguration = peerTrafficConfiguration;
             ProvisioningState = provisioningState;
-            Sku = sku;
             StaticIp = staticIp;
             SystemData = systemData;
             Tags = tags;

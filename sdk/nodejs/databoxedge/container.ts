@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class Container extends pulumi.CustomResource {
     /**

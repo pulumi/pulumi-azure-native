@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a HypervHost
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetHypervHostControllerResult> InvokeAsync(GetHypervHostControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervHost
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervHost
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervHostControllerResult> Invoke(GetHypervHostControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervHostControllerResult>("azure-native:offazure:getHypervHostController", args ?? new GetHypervHostControllerInvokeArgs(), options.WithDefaults());

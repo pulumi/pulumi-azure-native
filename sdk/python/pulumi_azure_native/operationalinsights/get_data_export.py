@@ -163,9 +163,7 @@ def get_data_export(data_export_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataExportResult:
     """
     Gets a data export instance.
-    Azure REST API version: 2020-08-01.
-
-    Other available API versions: 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str data_export_name: The data export rule name.
@@ -196,9 +194,7 @@ def get_data_export_output(data_export_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataExportResult]:
     """
     Gets a data export instance.
-    Azure REST API version: 2020-08-01.
-
-    Other available API versions: 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str data_export_name: The data export rule name.

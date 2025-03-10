@@ -23,9 +23,11 @@ class RegisteredServerArgs:
                  resource_group_name: pulumi.Input[str],
                  storage_sync_service_name: pulumi.Input[str],
                  agent_version: Optional[pulumi.Input[str]] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[bool]] = None,
                  last_heart_beat: Optional[pulumi.Input[str]] = None,
                  server_certificate: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
@@ -36,9 +38,11 @@ class RegisteredServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] agent_version: Registered Server Agent Version
+        :param pulumi.Input[str] application_id: Server ServicePrincipal Id
         :param pulumi.Input[str] cluster_id: Registered Server clusterId
         :param pulumi.Input[str] cluster_name: Registered Server clusterName
         :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[bool] identity: Apply server with newly discovered ApplicationId if available.
         :param pulumi.Input[str] last_heart_beat: Registered Server last heart beat
         :param pulumi.Input[str] server_certificate: Registered Server Certificate
         :param pulumi.Input[str] server_id: Registered Server serverId
@@ -49,12 +53,16 @@ class RegisteredServerArgs:
         pulumi.set(__self__, "storage_sync_service_name", storage_sync_service_name)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
         if cluster_id is not None:
             pulumi.set(__self__, "cluster_id", cluster_id)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if last_heart_beat is not None:
             pulumi.set(__self__, "last_heart_beat", last_heart_beat)
         if server_certificate is not None:
@@ -103,6 +111,18 @@ class RegisteredServerArgs:
         pulumi.set(self, "agent_version", value)
 
     @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Server ServicePrincipal Id
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -137,6 +157,18 @@ class RegisteredServerArgs:
     @friendly_name.setter
     def friendly_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Apply server with newly discovered ApplicationId if available.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="lastHeartBeat")
@@ -205,9 +237,11 @@ class RegisteredServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[bool]] = None,
                  last_heart_beat: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_certificate: Optional[pulumi.Input[str]] = None,
@@ -218,16 +252,16 @@ class RegisteredServer(pulumi.CustomResource):
                  __props__=None):
         """
         Registered Server resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_version: Registered Server Agent Version
+        :param pulumi.Input[str] application_id: Server ServicePrincipal Id
         :param pulumi.Input[str] cluster_id: Registered Server clusterId
         :param pulumi.Input[str] cluster_name: Registered Server clusterName
         :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[bool] identity: Apply server with newly discovered ApplicationId if available.
         :param pulumi.Input[str] last_heart_beat: Registered Server last heart beat
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_certificate: Registered Server Certificate
@@ -244,9 +278,7 @@ class RegisteredServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registered Server resource.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param RegisteredServerArgs args: The arguments to use to populate this resource's properties.
@@ -264,9 +296,11 @@ class RegisteredServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
+                 application_id: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[bool]] = None,
                  last_heart_beat: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_certificate: Optional[pulumi.Input[str]] = None,
@@ -284,9 +318,11 @@ class RegisteredServer(pulumi.CustomResource):
             __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
             __props__.__dict__["agent_version"] = agent_version
+            __props__.__dict__["application_id"] = application_id
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["friendly_name"] = friendly_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["last_heart_beat"] = last_heart_beat
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -298,11 +334,13 @@ class RegisteredServer(pulumi.CustomResource):
             if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
+            __props__.__dict__["active_auth_type"] = None
             __props__.__dict__["agent_version_expiration_date"] = None
             __props__.__dict__["agent_version_status"] = None
             __props__.__dict__["discovery_endpoint_uri"] = None
             __props__.__dict__["last_operation_name"] = None
             __props__.__dict__["last_workflow_id"] = None
+            __props__.__dict__["latest_application_id"] = None
             __props__.__dict__["management_endpoint_uri"] = None
             __props__.__dict__["monitoring_configuration"] = None
             __props__.__dict__["monitoring_endpoint_uri"] = None
@@ -339,16 +377,20 @@ class RegisteredServer(pulumi.CustomResource):
 
         __props__ = RegisteredServerArgs.__new__(RegisteredServerArgs)
 
+        __props__.__dict__["active_auth_type"] = None
         __props__.__dict__["agent_version"] = None
         __props__.__dict__["agent_version_expiration_date"] = None
         __props__.__dict__["agent_version_status"] = None
+        __props__.__dict__["application_id"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["discovery_endpoint_uri"] = None
         __props__.__dict__["friendly_name"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["last_heart_beat"] = None
         __props__.__dict__["last_operation_name"] = None
         __props__.__dict__["last_workflow_id"] = None
+        __props__.__dict__["latest_application_id"] = None
         __props__.__dict__["management_endpoint_uri"] = None
         __props__.__dict__["monitoring_configuration"] = None
         __props__.__dict__["monitoring_endpoint_uri"] = None
@@ -366,6 +408,14 @@ class RegisteredServer(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegisteredServer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="activeAuthType")
+    def active_auth_type(self) -> pulumi.Output[str]:
+        """
+        Server auth type.
+        """
+        return pulumi.get(self, "active_auth_type")
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -390,6 +440,14 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server Agent Version Status
         """
         return pulumi.get(self, "agent_version_status")
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Server Application Id
+        """
+        return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -424,6 +482,14 @@ class RegisteredServer(pulumi.CustomResource):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[bool]:
+        """
+        Apply server with newly discovered ApplicationId if available.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="lastHeartBeat")
     def last_heart_beat(self) -> pulumi.Output[Optional[str]]:
         """
@@ -446,6 +512,14 @@ class RegisteredServer(pulumi.CustomResource):
         Registered Server lastWorkflowId
         """
         return pulumi.get(self, "last_workflow_id")
+
+    @property
+    @pulumi.getter(name="latestApplicationId")
+    def latest_application_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Latest Server Application Id discovered from the server. It is not yet applied.
+        """
+        return pulumi.get(self, "latest_application_id")
 
     @property
     @pulumi.getter(name="managementEndpointUri")

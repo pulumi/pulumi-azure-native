@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service entity.
- * Azure REST API version: 2023-07-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -41,7 +39,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * The identity of the service.
+     * The managed service identities assigned to this resource.
      */
     public readonly identity!: pulumi.Output<outputs.apicenter.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -53,7 +51,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The status of the last operation.
+     * Provisioning state of the service.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -113,7 +111,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceArgs {
     /**
-     * The identity of the service.
+     * The managed service identities assigned to this resource.
      */
     identity?: pulumi.Input<inputs.apicenter.ManagedServiceIdentityArgs>;
     /**
@@ -125,7 +123,7 @@ export interface ServiceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Service name
+     * The name of Azure API Center service.
      */
     serviceName?: pulumi.Input<string>;
     /**

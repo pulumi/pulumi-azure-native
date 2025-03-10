@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a given plan ID
- * Azure REST API version: 2019-12-01.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getHybridUseBenefit(args: GetHybridUseBenefitArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridUseBenefitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,7 +69,7 @@ export interface GetHybridUseBenefitResult {
 }
 /**
  * Gets a given plan ID
- * Azure REST API version: 2019-12-01.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getHybridUseBenefitOutput(args: GetHybridUseBenefitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHybridUseBenefitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

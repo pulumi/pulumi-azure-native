@@ -130,9 +130,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a federated identity credential.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
-
-        Other available API versions: 2023-07-31-preview, 2024-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,9 +149,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a federated identity credential.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview.
-
-        Other available API versions: 2023-07-31-preview, 2024-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.

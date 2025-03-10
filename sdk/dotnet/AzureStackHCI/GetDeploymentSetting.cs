@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get a DeploymentSetting
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDeploymentSettingResult> InvokeAsync(GetDeploymentSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentSettingResult>("azure-native:azurestackhci:getDeploymentSetting", args ?? new GetDeploymentSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DeploymentSetting
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeploymentSettingResult> Invoke(GetDeploymentSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentSettingResult>("azure-native:azurestackhci:getDeploymentSetting", args ?? new GetDeploymentSettingInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a DeploymentSetting
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDeploymentSettingResult> Invoke(GetDeploymentSettingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentSettingResult>("azure-native:azurestackhci:getDeploymentSetting", args ?? new GetDeploymentSettingInvokeArgs(), options.WithDefaults());
@@ -109,7 +103,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string DeploymentMode;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -117,13 +111,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The intended operation for a cluster.
+        /// </summary>
+        public readonly string? OperationType;
+        /// <summary>
         /// DeploymentSetting provisioning state
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// Deployment Status reported from cluster.
         /// </summary>
-        public readonly Outputs.ReportedPropertiesResponse ReportedProperties;
+        public readonly Outputs.EceReportedPropertiesResponse ReportedProperties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -145,9 +143,11 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string name,
 
+            string? operationType,
+
             string provisioningState,
 
-            Outputs.ReportedPropertiesResponse reportedProperties,
+            Outputs.EceReportedPropertiesResponse reportedProperties,
 
             Outputs.SystemDataResponse systemData,
 
@@ -158,6 +158,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             DeploymentMode = deploymentMode;
             Id = id;
             Name = name;
+            OperationType = operationType;
             ProvisioningState = provisioningState;
             ReportedProperties = reportedProperties;
             SystemData = systemData;

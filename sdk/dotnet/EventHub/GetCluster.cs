@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the resource description of the specified Event Hubs Cluster.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:eventhub:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Provisioning state of the Cluster.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
         /// Properties of the cluster SKU.
         /// </summary>
         public readonly Outputs.ClusterSkuResponse? Sku;
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.EventHub
 
             string name,
 
+            string provisioningState,
+
             Outputs.ClusterSkuResponse? sku,
 
             string status,
@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.EventHub
             Location = location;
             MetricId = metricId;
             Name = name;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Status = status;
             SupportsScaling = supportsScaling;

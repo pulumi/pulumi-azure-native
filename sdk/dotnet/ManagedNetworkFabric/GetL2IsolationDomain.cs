@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements L2 Isolation Domain GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetL2IsolationDomainResult> InvokeAsync(GetL2IsolationDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2IsolationDomainResult>("azure-native:managednetworkfabric:getL2IsolationDomain", args ?? new GetL2IsolationDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements L2 Isolation Domain GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetL2IsolationDomainResult> Invoke(GetL2IsolationDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2IsolationDomainResult>("azure-native:managednetworkfabric:getL2IsolationDomain", args ?? new GetL2IsolationDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements L2 Isolation Domain GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetL2IsolationDomainResult> Invoke(GetL2IsolationDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2IsolationDomainResult>("azure-native:managednetworkfabric:getL2IsolationDomain", args ?? new GetL2IsolationDomainInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetL2IsolationDomainArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the L2 Isolation Domain
+        /// Name of the L2 Isolation Domain.
         /// </summary>
         [Input("l2IsolationDomainName", required: true)]
         public string L2IsolationDomainName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetL2IsolationDomainInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the L2 Isolation Domain
+        /// Name of the L2 Isolation Domain.
         /// </summary>
         [Input("l2IsolationDomainName", required: true)]
         public Input<string> L2IsolationDomainName { get; set; } = null!;
@@ -85,7 +79,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetL2IsolationDomainResult
     {
         /// <summary>
-        /// state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+        /// Administrative state of the resource.
         /// </summary>
         public readonly string AdministrativeState;
         /// <summary>
@@ -93,11 +87,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        /// Configuration state of the resource.
         /// </summary>
-        public readonly ImmutableArray<string> DisabledOnResources;
+        public readonly string ConfigurationState;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -105,7 +99,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// maximum transmission unit. Default value is 1500.
+        /// Maximum transmission unit. Default value is 1500.
         /// </summary>
         public readonly int? Mtu;
         /// <summary>
@@ -113,11 +107,11 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network Fabric ARM resource id.
+        /// ARM Resource ID of the Network Fabric.
         /// </summary>
         public readonly string NetworkFabricId;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -133,7 +127,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// vlanId. Example: 501.
+        /// Vlan Identifier of the Network Fabric. Example: 501.
         /// </summary>
         public readonly int VlanId;
 
@@ -143,7 +137,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string? annotation,
 
-            ImmutableArray<string> disabledOnResources,
+            string configurationState,
 
             string id,
 
@@ -167,7 +161,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         {
             AdministrativeState = administrativeState;
             Annotation = annotation;
-            DisabledOnResources = disabledOnResources;
+            ConfigurationState = configurationState;
             Id = id;
             Location = location;
             Mtu = mtu;

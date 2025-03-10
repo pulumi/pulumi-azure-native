@@ -156,9 +156,7 @@ class PacketCapture(pulumi.CustomResource):
                  __props__=None):
         """
         Packet capture session resource.
-        Azure REST API version: 2023-06-01.
-
-        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,9 +176,7 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Packet capture session resource.
-        Azure REST API version: 2023-06-01.
-
-        Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.
@@ -232,6 +228,7 @@ class PacketCapture(pulumi.CustomResource):
             __props__.__dict__["total_bytes_per_session"] = total_bytes_per_session
             __props__.__dict__["capture_start_time"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["output_files"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["reason"] = None
             __props__.__dict__["status"] = None
@@ -265,6 +262,7 @@ class PacketCapture(pulumi.CustomResource):
         __props__.__dict__["capture_start_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_interfaces"] = None
+        __props__.__dict__["output_files"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["reason"] = None
         __props__.__dict__["status"] = None
@@ -305,6 +303,14 @@ class PacketCapture(pulumi.CustomResource):
         List of network interfaces to capture on.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="outputFiles")
+    def output_files(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of output files of a packet capture session.
+        """
+        return pulumi.get(self, "output_files")
 
     @property
     @pulumi.getter(name="provisioningState")

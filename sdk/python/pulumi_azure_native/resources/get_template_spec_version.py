@@ -178,8 +178,6 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     Gets a Template Spec version from a specific Template Spec.
     Azure REST API version: 2022-02-01.
 
-    Other available API versions: 2019-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
@@ -211,8 +209,6 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     """
     Gets a Template Spec version from a specific Template Spec.
     Azure REST API version: 2022-02-01.
-
-    Other available API versions: 2019-06-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

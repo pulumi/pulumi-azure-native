@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets a virtual machine from a VM scale set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMResult> InvokeAsync(GetVirtualMachineScaleSetVMArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual machine from a VM scale set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual machine from a VM scale set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMResult> Invoke(GetVirtualMachineScaleSetVMInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMResult>("azure-native:compute:getVirtualMachineScaleSetVM", args ?? new GetVirtualMachineScaleSetVMInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
+        /// Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Specifies the hardware settings for the virtual machine.
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
@@ -205,11 +203,15 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly string TimeCreated;
+        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         /// </summary>
         public readonly string? UserData;
         /// <summary>
@@ -228,6 +230,8 @@ namespace Pulumi.AzureNative.Compute
             Outputs.SubResourceResponse? availabilitySet,
 
             Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
+
+            string etag,
 
             Outputs.HardwareProfileResponse? hardwareProfile,
 
@@ -271,6 +275,8 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableDictionary<string, string>? tags,
 
+            string timeCreated,
+
             string type,
 
             string? userData,
@@ -282,6 +288,7 @@ namespace Pulumi.AzureNative.Compute
             AdditionalCapabilities = additionalCapabilities;
             AvailabilitySet = availabilitySet;
             DiagnosticsProfile = diagnosticsProfile;
+            Etag = etag;
             HardwareProfile = hardwareProfile;
             Id = id;
             Identity = identity;
@@ -303,6 +310,7 @@ namespace Pulumi.AzureNative.Compute
             Sku = sku;
             StorageProfile = storageProfile;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             UserData = userData;
             VmId = vmId;

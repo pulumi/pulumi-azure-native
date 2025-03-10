@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a named add-on of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppPremierAddOn(args: GetWebAppPremierAddOnArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPremierAddOnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +41,7 @@ export interface GetWebAppPremierAddOnResult {
      */
     readonly id: string;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -85,9 +83,7 @@ export interface GetWebAppPremierAddOnResult {
 }
 /**
  * Description for Gets a named add-on of an app.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppPremierAddOnOutput(args: GetWebAppPremierAddOnOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppPremierAddOnResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

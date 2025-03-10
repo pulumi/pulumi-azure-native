@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements IP Prefix GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetIpPrefixResult> InvokeAsync(GetIpPrefixArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpPrefixResult>("azure-native:managednetworkfabric:getIpPrefix", args ?? new GetIpPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements IP Prefix GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetIpPrefixResult> Invoke(GetIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixResult>("azure-native:managednetworkfabric:getIpPrefix", args ?? new GetIpPrefixInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements IP Prefix GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetIpPrefixResult> Invoke(GetIpPrefixInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpPrefixResult>("azure-native:managednetworkfabric:getIpPrefix", args ?? new GetIpPrefixInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpPrefixArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the IP Prefix
+        /// Name of the IP Prefix.
         /// </summary>
         [Input("ipPrefixName", required: true)]
         public string IpPrefixName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpPrefixInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the IP Prefix
+        /// Name of the IP Prefix.
         /// </summary>
         [Input("ipPrefixName", required: true)]
         public Input<string> IpPrefixName { get; set; } = null!;
@@ -85,17 +79,25 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpPrefixResult
     {
         /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        public readonly string AdministrativeState;
+        /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// IpPrefix contains the list of IP PrefixRules objects.
+        /// The list of IP Prefix Rules.
         /// </summary>
-        public readonly ImmutableArray<Outputs.IpPrefixPropertiesResponseIpPrefixRules> IpPrefixRules;
+        public readonly ImmutableArray<Outputs.IpPrefixRuleResponse> IpPrefixRules;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -105,7 +107,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
@@ -123,11 +125,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetIpPrefixResult(
+            string administrativeState,
+
             string? annotation,
+
+            string configurationState,
 
             string id,
 
-            ImmutableArray<Outputs.IpPrefixPropertiesResponseIpPrefixRules> ipPrefixRules,
+            ImmutableArray<Outputs.IpPrefixRuleResponse> ipPrefixRules,
 
             string location,
 
@@ -141,7 +147,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string type)
         {
+            AdministrativeState = administrativeState;
             Annotation = annotation;
+            ConfigurationState = configurationState;
             Id = id;
             IpPrefixRules = ipPrefixRules;
             Location = location;

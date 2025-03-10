@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// Family of an application gateway SKU.
+        /// </summary>
+        [Input("family")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ApplicationGatewaySkuFamily>? Family { get; set; }
+
+        /// <summary>
         /// Name of an application gateway SKU.
         /// </summary>
         [Input("name")]

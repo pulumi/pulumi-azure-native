@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List the device groups for the catalog.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listCatalogDeviceGroups(args: ListCatalogDeviceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<ListCatalogDeviceGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -64,7 +62,7 @@ export interface ListCatalogDeviceGroupsResult {
     /**
      * The link to the next page of items
      */
-    readonly nextLink: string;
+    readonly nextLink?: string;
     /**
      * The DeviceGroup items on this page
      */
@@ -72,9 +70,7 @@ export interface ListCatalogDeviceGroupsResult {
 }
 /**
  * List the device groups for the catalog.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function listCatalogDeviceGroupsOutput(args: ListCatalogDeviceGroupsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListCatalogDeviceGroupsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -91,9 +91,7 @@ def get_cost_allocation_rule(billing_account_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCostAllocationRuleResult:
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
-    Azure REST API version: 2020-03-01-preview.
-
-    Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str billing_account_id: BillingAccount ID
@@ -115,9 +113,7 @@ def get_cost_allocation_rule_output(billing_account_id: Optional[pulumi.Input[st
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostAllocationRuleResult]:
     """
     Get a cost allocation rule by rule name and billing account or enterprise enrollment.
-    Azure REST API version: 2020-03-01-preview.
-
-    Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str billing_account_id: BillingAccount ID

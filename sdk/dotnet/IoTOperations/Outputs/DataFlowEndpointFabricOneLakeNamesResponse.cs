@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Microsoft Fabric endpoint Names properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointFabricOneLakeNamesResponse
+    public sealed class DataflowEndpointFabricOneLakeNamesResponse
     {
         /// <summary>
         /// Lakehouse name.
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string WorkspaceName;
 
         [OutputConstructor]
-        private DataFlowEndpointFabricOneLakeNamesResponse(
+        private DataflowEndpointFabricOneLakeNamesResponse(
             string lakehouseName,
 
             string workspaceName)

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Maps Creator resource.
- * Azure REST API version: 2021-02-01.
- *
- * Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Azure REST API version: 2024-07-01-preview.
  */
 export function getCreator(args: GetCreatorArgs, opts?: pulumi.InvokeOptions): Promise<GetCreatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +40,7 @@ export interface GetCreatorArgs {
  */
 export interface GetCreatorResult {
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,6 +56,10 @@ export interface GetCreatorResult {
      */
     readonly properties: outputs.maps.CreatorPropertiesResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.maps.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -68,9 +70,7 @@ export interface GetCreatorResult {
 }
 /**
  * Get a Maps Creator resource.
- * Azure REST API version: 2021-02-01.
- *
- * Other available API versions: 2020-02-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+ * Azure REST API version: 2024-07-01-preview.
  */
 export function getCreatorOutput(args: GetCreatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCreatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

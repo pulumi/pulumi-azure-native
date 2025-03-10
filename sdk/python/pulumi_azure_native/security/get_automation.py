@@ -187,9 +187,7 @@ def get_automation(automation_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationResult:
     """
     Retrieves information about the model of a security automation.
-    Azure REST API version: 2019-01-01-preview.
-
-    Other available API versions: 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str automation_name: The security automation name.
@@ -219,9 +217,7 @@ def get_automation_output(automation_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationResult]:
     """
     Retrieves information about the model of a security automation.
-    Azure REST API version: 2019-01-01-preview.
-
-    Other available API versions: 2023-12-01-preview.
+    Azure REST API version: 2023-12-01-preview.
 
 
     :param str automation_name: The security automation name.

@@ -35,7 +35,7 @@ class WorkloadNetworkSegmentArgs:
         :param pulumi.Input[str] connected_gateway: Gateway which to connect segment to.
         :param pulumi.Input[str] display_name: Display name of the segment.
         :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[str] segment_id: NSX Segment identifier. Generally the same as the Segment's display name
+        :param pulumi.Input[str] segment_id: The ID of the NSX Segment
         :param pulumi.Input['WorkloadNetworkSegmentSubnetArgs'] subnet: Subnet which to connect segment to.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
@@ -115,7 +115,7 @@ class WorkloadNetworkSegmentArgs:
     @pulumi.getter(name="segmentId")
     def segment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        NSX Segment identifier. Generally the same as the Segment's display name
+        The ID of the NSX Segment
         """
         return pulumi.get(self, "segment_id")
 
@@ -151,9 +151,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  __props__=None):
         """
         NSX Segment
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +160,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] revision: NSX revision number.
-        :param pulumi.Input[str] segment_id: NSX Segment identifier. Generally the same as the Segment's display name
+        :param pulumi.Input[str] segment_id: The ID of the NSX Segment
         :param pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']] subnet: Subnet which to connect segment to.
         """
         ...
@@ -173,9 +171,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX Segment
-        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview.
-
-        Other available API versions: 2023-03-01, 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkSegmentArgs args: The arguments to use to populate this resource's properties.
@@ -223,6 +219,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
             __props__.__dict__["port_vif"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20200717preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210101preview:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20210601:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20211201:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20220501:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230301:WorkloadNetworkSegment"), pulumi.Alias(type_="azure-native:avs/v20230901:WorkloadNetworkSegment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -256,6 +253,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         __props__.__dict__["revision"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["subnet"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WorkloadNetworkSegment(resource_name, opts=opts, __props__=__props__)
 
@@ -279,7 +277,7 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -324,10 +322,18 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         return pulumi.get(self, "subnet")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

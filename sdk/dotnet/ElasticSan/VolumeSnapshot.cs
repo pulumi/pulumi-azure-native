@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ElasticSan
 {
     /// <summary>
     /// Response for Volume Snapshot request.
-    /// Azure REST API version: 2023-01-01.
-    /// 
-    /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeSnapshot")]
     public partial class VolumeSnapshot : global::Pulumi.CustomResource

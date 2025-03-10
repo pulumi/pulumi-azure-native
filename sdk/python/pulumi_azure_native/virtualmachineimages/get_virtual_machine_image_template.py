@@ -27,7 +27,10 @@ class GetVirtualMachineImageTemplateResult:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     """
-    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, exact_staging_resource_group=None, id=None, identity=None, last_run_status=None, location=None, name=None, optimize=None, provisioning_error=None, provisioning_state=None, source=None, staging_resource_group=None, system_data=None, tags=None, type=None, validate=None, vm_profile=None):
+    def __init__(__self__, auto_run=None, build_timeout_in_minutes=None, customize=None, distribute=None, error_handling=None, exact_staging_resource_group=None, id=None, identity=None, last_run_status=None, location=None, managed_resource_tags=None, name=None, optimize=None, provisioning_error=None, provisioning_state=None, source=None, staging_resource_group=None, system_data=None, tags=None, type=None, validate=None, vm_profile=None):
+        if auto_run and not isinstance(auto_run, dict):
+            raise TypeError("Expected argument 'auto_run' to be a dict")
+        pulumi.set(__self__, "auto_run", auto_run)
         if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, int):
             raise TypeError("Expected argument 'build_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "build_timeout_in_minutes", build_timeout_in_minutes)
@@ -37,6 +40,9 @@ class GetVirtualMachineImageTemplateResult:
         if distribute and not isinstance(distribute, list):
             raise TypeError("Expected argument 'distribute' to be a list")
         pulumi.set(__self__, "distribute", distribute)
+        if error_handling and not isinstance(error_handling, dict):
+            raise TypeError("Expected argument 'error_handling' to be a dict")
+        pulumi.set(__self__, "error_handling", error_handling)
         if exact_staging_resource_group and not isinstance(exact_staging_resource_group, str):
             raise TypeError("Expected argument 'exact_staging_resource_group' to be a str")
         pulumi.set(__self__, "exact_staging_resource_group", exact_staging_resource_group)
@@ -52,6 +58,9 @@ class GetVirtualMachineImageTemplateResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_resource_tags and not isinstance(managed_resource_tags, dict):
+            raise TypeError("Expected argument 'managed_resource_tags' to be a dict")
+        pulumi.set(__self__, "managed_resource_tags", managed_resource_tags)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -87,6 +96,14 @@ class GetVirtualMachineImageTemplateResult:
         pulumi.set(__self__, "vm_profile", vm_profile)
 
     @property
+    @pulumi.getter(name="autoRun")
+    def auto_run(self) -> Optional['outputs.ImageTemplateAutoRunResponse']:
+        """
+        Indicates whether or not to automatically run the image template build on template creation or update.
+        """
+        return pulumi.get(self, "auto_run")
+
+    @property
     @pulumi.getter(name="buildTimeoutInMinutes")
     def build_timeout_in_minutes(self) -> Optional[int]:
         """
@@ -109,6 +126,14 @@ class GetVirtualMachineImageTemplateResult:
         The distribution targets where the image output needs to go to.
         """
         return pulumi.get(self, "distribute")
+
+    @property
+    @pulumi.getter(name="errorHandling")
+    def error_handling(self) -> Optional['outputs.ImageTemplatePropertiesResponseErrorHandling']:
+        """
+        Error handling options upon a build failure
+        """
+        return pulumi.get(self, "error_handling")
 
     @property
     @pulumi.getter(name="exactStagingResourceGroup")
@@ -149,6 +174,14 @@ class GetVirtualMachineImageTemplateResult:
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managedResourceTags")
+    def managed_resource_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags that will be applied to the resource group and/or resources created by the service.
+        """
+        return pulumi.get(self, "managed_resource_tags")
 
     @property
     @pulumi.getter
@@ -245,14 +278,17 @@ class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTempla
         if False:
             yield self
         return GetVirtualMachineImageTemplateResult(
+            auto_run=self.auto_run,
             build_timeout_in_minutes=self.build_timeout_in_minutes,
             customize=self.customize,
             distribute=self.distribute,
+            error_handling=self.error_handling,
             exact_staging_resource_group=self.exact_staging_resource_group,
             id=self.id,
             identity=self.identity,
             last_run_status=self.last_run_status,
             location=self.location,
+            managed_resource_tags=self.managed_resource_tags,
             name=self.name,
             optimize=self.optimize,
             provisioning_error=self.provisioning_error,
@@ -271,9 +307,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineImageTemplateResult:
     """
     Get information about a virtual machine image template
-    Azure REST API version: 2022-07-01.
-
-    Other available API versions: 2023-07-01, 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str image_template_name: The name of the image Template
@@ -286,14 +320,17 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:virtualmachineimages:getVirtualMachineImageTemplate', __args__, opts=opts, typ=GetVirtualMachineImageTemplateResult).value
 
     return AwaitableGetVirtualMachineImageTemplateResult(
+        auto_run=pulumi.get(__ret__, 'auto_run'),
         build_timeout_in_minutes=pulumi.get(__ret__, 'build_timeout_in_minutes'),
         customize=pulumi.get(__ret__, 'customize'),
         distribute=pulumi.get(__ret__, 'distribute'),
+        error_handling=pulumi.get(__ret__, 'error_handling'),
         exact_staging_resource_group=pulumi.get(__ret__, 'exact_staging_resource_group'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         last_run_status=pulumi.get(__ret__, 'last_run_status'),
         location=pulumi.get(__ret__, 'location'),
+        managed_resource_tags=pulumi.get(__ret__, 'managed_resource_tags'),
         name=pulumi.get(__ret__, 'name'),
         optimize=pulumi.get(__ret__, 'optimize'),
         provisioning_error=pulumi.get(__ret__, 'provisioning_error'),
@@ -310,9 +347,7 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Get information about a virtual machine image template
-    Azure REST API version: 2022-07-01.
-
-    Other available API versions: 2023-07-01, 2024-02-01.
+    Azure REST API version: 2024-02-01.
 
 
     :param str image_template_name: The name of the image Template
@@ -324,14 +359,17 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:virtualmachineimages:getVirtualMachineImageTemplate', __args__, opts=opts, typ=GetVirtualMachineImageTemplateResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineImageTemplateResult(
+        auto_run=pulumi.get(__response__, 'auto_run'),
         build_timeout_in_minutes=pulumi.get(__response__, 'build_timeout_in_minutes'),
         customize=pulumi.get(__response__, 'customize'),
         distribute=pulumi.get(__response__, 'distribute'),
+        error_handling=pulumi.get(__response__, 'error_handling'),
         exact_staging_resource_group=pulumi.get(__response__, 'exact_staging_resource_group'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         last_run_status=pulumi.get(__response__, 'last_run_status'),
         location=pulumi.get(__response__, 'location'),
+        managed_resource_tags=pulumi.get(__response__, 'managed_resource_tags'),
         name=pulumi.get(__response__, 'name'),
         optimize=pulumi.get(__response__, 'optimize'),
         provisioning_error=pulumi.get(__response__, 'provisioning_error'),

@@ -129,7 +129,7 @@ class GetBudgetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource Id.
         """
         return pulumi.get(self, "id")
 
@@ -137,7 +137,7 @@ class GetBudgetResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -197,7 +197,7 @@ class GetBudgetResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
 
@@ -227,9 +227,7 @@ def get_budget(budget_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBudgetResult:
     """
     Gets the budget for the scope by budget name.
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str budget_name: Budget Name.
@@ -287,9 +285,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """
     Gets the budget for the scope by budget name.
-    Azure REST API version: 2023-04-01-preview.
-
-    Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+    Azure REST API version: 2024-08-01.
 
 
     :param str budget_name: Budget Name.

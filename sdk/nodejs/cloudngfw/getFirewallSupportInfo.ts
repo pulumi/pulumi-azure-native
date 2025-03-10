@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * support info for firewall.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getFirewallSupportInfo(args: GetFirewallSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,13 +37,21 @@ export interface GetFirewallSupportInfoArgs {
  */
 export interface GetFirewallSupportInfoResult {
     /**
-     * Support account associated with given resource
+     * Support account associated with given resource when association type is tenant
      */
     readonly accountId?: string;
+    /**
+     * Support account associated with given resource when association type is billing
+     */
+    readonly accountIdForBilling?: string;
     /**
      * account registered in Customer Support Portal
      */
     readonly accountRegistered?: string;
+    /**
+     * Association Type
+     */
+    readonly associationType?: string;
     /**
      * Product usage is in free trial period
      */
@@ -89,9 +95,7 @@ export interface GetFirewallSupportInfoResult {
 }
 /**
  * support info for firewall.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getFirewallSupportInfoOutput(args: GetFirewallSupportInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

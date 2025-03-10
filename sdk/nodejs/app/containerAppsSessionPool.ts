@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App session pool.
- * Azure REST API version: 2024-02-02-preview.
- *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-02-02-preview.
  */
 export class ContainerAppsSessionPool extends pulumi.CustomResource {
     /**
@@ -57,9 +55,17 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
      */
     public readonly environmentId!: pulumi.Output<string | undefined>;
     /**
+     * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+     */
+    public readonly identity!: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Optional settings for a Managed Identity that is assigned to the Session pool.
+     */
+    public readonly managedIdentitySettings!: pulumi.Output<outputs.app.ManagedIdentitySettingResponse[] | undefined>;
     /**
      * The name of the resource
      */
@@ -123,7 +129,9 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
             resourceInputs["customContainerTemplate"] = args ? args.customContainerTemplate : undefined;
             resourceInputs["dynamicPoolConfiguration"] = args ? args.dynamicPoolConfiguration : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedIdentitySettings"] = args ? args.managedIdentitySettings : undefined;
             resourceInputs["poolManagementType"] = args ? args.poolManagementType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleConfiguration"] = args ? args.scaleConfiguration : undefined;
@@ -142,7 +150,9 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
             resourceInputs["customContainerTemplate"] = undefined /*out*/;
             resourceInputs["dynamicPoolConfiguration"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedIdentitySettings"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;
             resourceInputs["poolManagementEndpoint"] = undefined /*out*/;
@@ -183,9 +193,17 @@ export interface ContainerAppsSessionPoolArgs {
      */
     environmentId?: pulumi.Input<string>;
     /**
+     * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
+     */
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Optional settings for a Managed Identity that is assigned to the Session pool.
+     */
+    managedIdentitySettings?: pulumi.Input<pulumi.Input<inputs.app.ManagedIdentitySettingArgs>[]>;
     /**
      * The pool management type of the session pool.
      */

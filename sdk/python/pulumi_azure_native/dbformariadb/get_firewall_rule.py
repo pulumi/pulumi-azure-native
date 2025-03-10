@@ -105,8 +105,6 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     Gets information about a server firewall rule.
     Azure REST API version: 2018-06-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str firewall_rule_name: The name of the server firewall rule.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -132,8 +130,6 @@ def get_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str]] = N
     """
     Gets information about a server firewall rule.
     Azure REST API version: 2018-06-01.
-
-    Other available API versions: 2018-06-01-preview.
 
 
     :param str firewall_rule_name: The name of the server firewall rule.

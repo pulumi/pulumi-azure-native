@@ -35,6 +35,7 @@ class BareMetalMachineArgs:
                  serial_number: pulumi.Input[str],
                  bare_metal_machine_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 machine_cluster_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BareMetalMachine resource.
@@ -52,6 +53,7 @@ class BareMetalMachineArgs:
         :param pulumi.Input[str] serial_number: The serial number of the bare metal machine.
         :param pulumi.Input[str] bare_metal_machine_name: The name of the bare metal machine.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] machine_cluster_version: The cluster version that has been applied to this machine during deployment or a version update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
@@ -70,6 +72,8 @@ class BareMetalMachineArgs:
             pulumi.set(__self__, "bare_metal_machine_name", bare_metal_machine_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if machine_cluster_version is not None:
+            pulumi.set(__self__, "machine_cluster_version", machine_cluster_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -242,6 +246,18 @@ class BareMetalMachineArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="machineClusterVersion")
+    def machine_cluster_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The cluster version that has been applied to this machine during deployment or a version update.
+        """
+        return pulumi.get(self, "machine_cluster_version")
+
+    @machine_cluster_version.setter
+    def machine_cluster_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "machine_cluster_version", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -266,6 +282,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  boot_mac_address: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 machine_cluster_version: Optional[pulumi.Input[str]] = None,
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
                  machine_sku_id: Optional[pulumi.Input[str]] = None,
@@ -276,9 +293,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,6 +304,7 @@ class BareMetalMachine(pulumi.CustomResource):
         :param pulumi.Input[str] boot_mac_address: The MAC address of a NIC connected to the PXE network.
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] machine_cluster_version: The cluster version that has been applied to this machine during deployment or a version update.
         :param pulumi.Input[str] machine_details: The custom details provided by the customer.
         :param pulumi.Input[str] machine_name: The OS-level hostname assigned to this machine.
         :param pulumi.Input[str] machine_sku_id: The unique internal identifier of the bare metal machine SKU.
@@ -305,9 +321,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  args: BareMetalMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BareMetalMachineArgs args: The arguments to use to populate this resource's properties.
@@ -331,6 +345,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  boot_mac_address: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 machine_cluster_version: Optional[pulumi.Input[str]] = None,
                  machine_details: Optional[pulumi.Input[str]] = None,
                  machine_name: Optional[pulumi.Input[str]] = None,
                  machine_sku_id: Optional[pulumi.Input[str]] = None,
@@ -365,6 +380,7 @@ class BareMetalMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'extended_location'")
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
+            __props__.__dict__["machine_cluster_version"] = machine_cluster_version
             if machine_details is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_details'")
             __props__.__dict__["machine_details"] = machine_details
@@ -406,6 +422,7 @@ class BareMetalMachine(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["ready_state"] = None
             __props__.__dict__["runtime_protection_status"] = None
+            __props__.__dict__["secret_rotation_status"] = None
             __props__.__dict__["service_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -450,6 +467,7 @@ class BareMetalMachine(pulumi.CustomResource):
         __props__.__dict__["kubernetes_node_name"] = None
         __props__.__dict__["kubernetes_version"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["machine_cluster_version"] = None
         __props__.__dict__["machine_details"] = None
         __props__.__dict__["machine_name"] = None
         __props__.__dict__["machine_roles"] = None
@@ -464,6 +482,7 @@ class BareMetalMachine(pulumi.CustomResource):
         __props__.__dict__["rack_slot"] = None
         __props__.__dict__["ready_state"] = None
         __props__.__dict__["runtime_protection_status"] = None
+        __props__.__dict__["secret_rotation_status"] = None
         __props__.__dict__["serial_number"] = None
         __props__.__dict__["service_tag"] = None
         __props__.__dict__["system_data"] = None
@@ -601,6 +620,14 @@ class BareMetalMachine(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="machineClusterVersion")
+    def machine_cluster_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The cluster version that has been applied to this machine during deployment or a version update.
+        """
+        return pulumi.get(self, "machine_cluster_version")
+
+    @property
     @pulumi.getter(name="machineDetails")
     def machine_details(self) -> pulumi.Output[str]:
         """
@@ -711,6 +738,14 @@ class BareMetalMachine(pulumi.CustomResource):
         The runtime protection status of the bare metal machine.
         """
         return pulumi.get(self, "runtime_protection_status")
+
+    @property
+    @pulumi.getter(name="secretRotationStatus")
+    def secret_rotation_status(self) -> pulumi.Output[Sequence['outputs.SecretRotationStatusResponse']]:
+        """
+        The list of statuses that represent secret rotation activity.
+        """
+        return pulumi.get(self, "secret_rotation_status")
 
     @property
     @pulumi.getter(name="serialNumber")

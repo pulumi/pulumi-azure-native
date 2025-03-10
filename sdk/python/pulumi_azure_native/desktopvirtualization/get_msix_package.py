@@ -86,7 +86,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -174,7 +174,7 @@ class GetMSIXPackageResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -190,7 +190,7 @@ class GetMSIXPackageResult:
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -224,9 +224,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
     Get a msixpackage.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -262,9 +260,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

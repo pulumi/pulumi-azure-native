@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     /// Kafka endpoint Batching properties
     /// </summary>
     [OutputType]
-    public sealed class DataFlowEndpointKafkaBatchingResponse
+    public sealed class DataflowEndpointKafkaBatchingResponse
     {
         /// <summary>
         /// Batching latency in milliseconds.
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         public readonly string? Mode;
 
         [OutputConstructor]
-        private DataFlowEndpointKafkaBatchingResponse(
+        private DataflowEndpointKafkaBatchingResponse(
             int? latencyMs,
 
             int? maxBytes,

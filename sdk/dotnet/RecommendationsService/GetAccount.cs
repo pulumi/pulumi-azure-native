@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.RecommendationsService
     {
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns RecommendationsService Account resource for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:recommendationsservice:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity used for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -117,6 +115,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         private GetAccountResult(
             string id,
 
+            Outputs.ManagedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.RecommendationsService
             string type)
         {
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

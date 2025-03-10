@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a LoadBalancer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a LoadBalancer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// Get a LoadBalancer
         /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2023-10-01-preview.
         /// </summary>
         public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("azure-native:kubernetesruntime:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithDefaults());

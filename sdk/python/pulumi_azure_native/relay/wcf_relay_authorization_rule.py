@@ -115,9 +115,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2017-04-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class WCFRelayAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2017-04-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param WCFRelayAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

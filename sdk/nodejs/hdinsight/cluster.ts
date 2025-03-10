@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview.
- *
- * Other available API versions: 2023-04-15-preview, 2023-06-01-preview, 2023-08-15-preview, 2023-11-01-preview, 2024-05-01-preview, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -114,7 +112,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }, { type: "azure-native:hdinsight/v20230815preview:Cluster" }, { type: "azure-native:hdinsight/v20240801preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }, { type: "azure-native:hdinsight/v20230601preview:Cluster" }, { type: "azure-native:hdinsight/v20230815preview:Cluster" }, { type: "azure-native:hdinsight/v20231101preview:Cluster" }, { type: "azure-native:hdinsight/v20240501preview:Cluster" }, { type: "azure-native:hdinsight/v20240801preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

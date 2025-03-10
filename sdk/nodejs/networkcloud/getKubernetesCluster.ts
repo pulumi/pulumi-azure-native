@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided the Kubernetes cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -90,7 +88,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly initialAgentPoolConfigurations: outputs.networkcloud.InitialAgentPoolConfigurationResponse[];
     /**
-     * The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+     * The Kubernetes version for this cluster.
      */
     readonly kubernetesVersion: string;
     /**
@@ -132,9 +130,7 @@ export interface GetKubernetesClusterResult {
 }
 /**
  * Get properties of the provided the Kubernetes cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

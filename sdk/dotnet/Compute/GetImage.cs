@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets an image.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an image.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an image.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:compute:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

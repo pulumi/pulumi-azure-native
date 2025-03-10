@@ -30,7 +30,6 @@ class MaintenanceConfigurationArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceOverridePropertiesArgs']]]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  start_date_time: Optional[pulumi.Input[str]] = None,
@@ -47,7 +46,6 @@ class MaintenanceConfigurationArgs:
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceOverridePropertiesArgs']]] overrides: Override Properties for the maintenance Configuration.
         :param pulumi.Input[str] recur_every: Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
         :param pulumi.Input[str] resource_name: Maintenance Configuration Name
         :param pulumi.Input[str] start_date_time: Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
@@ -70,8 +68,6 @@ class MaintenanceConfigurationArgs:
             pulumi.set(__self__, "maintenance_scope", maintenance_scope)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
-        if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
         if recur_every is not None:
             pulumi.set(__self__, "recur_every", recur_every)
         if resource_name is not None:
@@ -182,18 +178,6 @@ class MaintenanceConfigurationArgs:
         pulumi.set(self, "namespace", value)
 
     @property
-    @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceOverridePropertiesArgs']]]]:
-        """
-        Override Properties for the maintenance Configuration.
-        """
-        return pulumi.get(self, "overrides")
-
-    @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceOverridePropertiesArgs']]]]):
-        pulumi.set(self, "overrides", value)
-
-    @property
     @pulumi.getter(name="recurEvery")
     def recur_every(self) -> Optional[pulumi.Input[str]]:
         """
@@ -278,7 +262,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -289,9 +272,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Maintenance configuration record type
-        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-04-01.
-
-        Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -302,7 +283,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Gets or sets location of the resource
         :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]] overrides: Override Properties for the maintenance Configuration.
         :param pulumi.Input[str] recur_every: Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
         :param pulumi.Input[str] resource_group_name: Resource Group Name
         :param pulumi.Input[str] resource_name_: Maintenance Configuration Name
@@ -319,9 +299,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Maintenance configuration record type
-        Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2020-04-01.
-
-        Other available API versions: 2023-04-01, 2023-09-01-preview, 2023-10-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -345,7 +323,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceOverridePropertiesArgs', 'MaintenanceOverridePropertiesArgsDict']]]]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -369,7 +346,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_scope"] = maintenance_scope
             __props__.__dict__["namespace"] = namespace
-            __props__.__dict__["overrides"] = overrides
             __props__.__dict__["recur_every"] = recur_every
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -414,7 +390,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         __props__.__dict__["maintenance_scope"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["namespace"] = None
-        __props__.__dict__["overrides"] = None
         __props__.__dict__["recur_every"] = None
         __props__.__dict__["start_date_time"] = None
         __props__.__dict__["system_data"] = None
@@ -487,14 +462,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         Gets or sets namespace of the resource
         """
         return pulumi.get(self, "namespace")
-
-    @property
-    @pulumi.getter
-    def overrides(self) -> pulumi.Output[Optional[Sequence['outputs.MaintenanceOverridePropertiesResponse']]]:
-        """
-        Override Properties for the maintenance Configuration.
-        """
-        return pulumi.get(self, "overrides")
 
     @property
     @pulumi.getter(name="recurEvery")

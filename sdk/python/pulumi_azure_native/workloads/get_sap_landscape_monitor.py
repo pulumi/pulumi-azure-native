@@ -52,7 +52,7 @@ class GetSapLandscapeMonitorResult:
 
     @property
     @pulumi.getter
-    def grouping(self) -> Optional['outputs.SapLandscapeMonitorPropertiesResponseGrouping']:
+    def grouping(self) -> Optional['outputs.SapLandscapeMonitorPropertiesGroupingResponse']:
         """
         Gets or sets the SID groupings by landscape and Environment.
         """
@@ -62,7 +62,7 @@ class GetSapLandscapeMonitorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -127,9 +127,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapLandscapeMonitorResult:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -154,9 +152,7 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapLandscapeMonitorResult]:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

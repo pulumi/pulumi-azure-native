@@ -16,14 +16,19 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     [OutputType]
     public sealed class FeatureSettingsResponse
     {
+        public readonly Outputs.CrossRegionRestoreSettingsResponse? CrossRegionRestoreSettings;
         /// <summary>
         /// CrossSubscriptionRestore Settings
         /// </summary>
         public readonly Outputs.CrossSubscriptionRestoreSettingsResponse? CrossSubscriptionRestoreSettings;
 
         [OutputConstructor]
-        private FeatureSettingsResponse(Outputs.CrossSubscriptionRestoreSettingsResponse? crossSubscriptionRestoreSettings)
+        private FeatureSettingsResponse(
+            Outputs.CrossRegionRestoreSettingsResponse? crossRegionRestoreSettings,
+
+            Outputs.CrossSubscriptionRestoreSettingsResponse? crossSubscriptionRestoreSettings)
         {
+            CrossRegionRestoreSettings = crossRegionRestoreSettings;
             CrossSubscriptionRestoreSettings = crossSubscriptionRestoreSettings;
         }
     }

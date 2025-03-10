@@ -143,8 +143,6 @@ def get_suppression_list(domain_name: Optional[str] = None,
     Get a SuppressionList resource.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
-
 
     :param str domain_name: The name of the Domains resource.
     :param str email_service_name: The name of the EmailService resource.
@@ -176,8 +174,6 @@ def get_suppression_list_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     Get a SuppressionList resource.
     Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-09-01-preview.
 
 
     :param str domain_name: The name of the Domains resource.

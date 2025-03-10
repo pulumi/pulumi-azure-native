@@ -32,7 +32,7 @@ class ClusterPrincipalAssignmentArgs:
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
@@ -87,7 +87,7 @@ class ClusterPrincipalAssignmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -147,9 +147,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a cluster principal assignment.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +155,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
@@ -169,9 +167,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a cluster principal assignment.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param ClusterPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

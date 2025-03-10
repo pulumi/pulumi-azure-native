@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the current version of the specified key from the specified key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the current version of the specified key from the specified key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the current version of the specified key from the specified key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
@@ -101,7 +95,7 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public readonly Outputs.KeyAttributesResponse? Attributes;
         /// <summary>
-        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+        /// The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
         /// </summary>
         public readonly string? CurveName;
         /// <summary>
@@ -110,7 +104,7 @@ namespace Pulumi.AzureNative.KeyVault
         public readonly string Id;
         public readonly ImmutableArray<string> KeyOps;
         /// <summary>
-        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
+        /// The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
         /// </summary>
         public readonly int? KeySize;
         /// <summary>

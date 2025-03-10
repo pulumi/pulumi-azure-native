@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +26,7 @@ export interface GetTagRuleArgs {
      */
     monitorName: string;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -64,9 +62,7 @@ export interface GetTagRuleResult {
 }
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -83,7 +79,7 @@ export interface GetTagRuleOutputArgs {
      */
     monitorName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the Elastic resource belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

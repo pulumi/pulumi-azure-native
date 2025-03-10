@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Test Base Account.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.I
 
 export interface GetTestBaseAccountArgs {
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -41,19 +39,19 @@ export interface GetTestBaseAccountResult {
      */
     readonly accessLevel: string;
     /**
-     * Resource Etag.
-     */
-    readonly etag: string;
-    /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity of the testBaseAccount.
+     */
+    readonly identity?: outputs.testbase.SystemAssignedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -65,23 +63,21 @@ export interface GetTestBaseAccountResult {
      */
     readonly sku: outputs.testbase.TestBaseAccountSKUResponse;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.testbase.SystemDataResponse;
     /**
-     * The tags of the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a Test Base Account.
- * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2023-11-01-preview.
+ * Azure REST API version: 2023-11-01-preview.
  */
 export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestBaseAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,7 +89,7 @@ export function getTestBaseAccountOutput(args: GetTestBaseAccountOutputArgs, opt
 
 export interface GetTestBaseAccountOutputArgs {
     /**
-     * The name of the resource group that contains the resource.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -128,9 +128,7 @@ def get_configuration_group_schema(configuration_group_schema_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationGroupSchemaResult:
     """
     Gets information about the specified configuration group schema.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str configuration_group_schema_name: The name of the configuration group schema.
@@ -158,9 +156,7 @@ def get_configuration_group_schema_output(configuration_group_schema_name: Optio
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationGroupSchemaResult]:
     """
     Gets information about the specified configuration group schema.
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2024-04-15.
+    Azure REST API version: 2024-04-15.
 
 
     :param str configuration_group_schema_name: The name of the configuration group schema.

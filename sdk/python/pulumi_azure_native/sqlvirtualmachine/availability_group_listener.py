@@ -186,9 +186,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param AvailabilityGroupListenerArgs args: The arguments to use to populate this resource's properties.

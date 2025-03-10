@@ -61,7 +61,7 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
@@ -320,7 +320,7 @@ class VirtualMachineScaleSetVMArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         return pulumi.get(self, "user_data")
 
@@ -356,9 +356,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a virtual machine scale set virtual machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -379,7 +377,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         :param pulumi.Input[Union['SecurityProfileArgs', 'SecurityProfileArgsDict']] security_profile: Specifies the Security related profile settings for the virtual machine.
         :param pulumi.Input[Union['StorageProfileArgs', 'StorageProfileArgsDict']] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        :param pulumi.Input[str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
         """
         ...
@@ -390,9 +388,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a virtual machine scale set virtual machine.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMArgs args: The arguments to use to populate this resource's properties.
@@ -460,6 +456,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
+            __props__.__dict__["etag"] = None
             __props__.__dict__["instance_view"] = None
             __props__.__dict__["latest_model_applied"] = None
             __props__.__dict__["model_definition_applied"] = None
@@ -467,6 +464,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resources"] = None
             __props__.__dict__["sku"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vm_id"] = None
             __props__.__dict__["zones"] = None
@@ -497,6 +495,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["availability_set"] = None
         __props__.__dict__["diagnostics_profile"] = None
+        __props__.__dict__["etag"] = None
         __props__.__dict__["hardware_profile"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["instance_id"] = None
@@ -517,6 +516,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_profile"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["user_data"] = None
         __props__.__dict__["vm_id"] = None
@@ -546,6 +546,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -708,6 +716,14 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
@@ -719,7 +735,7 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[Optional[str]]:
         """
-        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. <br><br>Minimum api-version: 2021-03-01
+        UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
         return pulumi.get(self, "user_data")
 

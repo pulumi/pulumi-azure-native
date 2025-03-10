@@ -21,18 +21,18 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// </summary>
         public readonly string? Address;
         /// <summary>
-        /// OperationalState of the NeighborAddress.
+        /// Configuration state of the resource.
         /// </summary>
-        public readonly string OperationalState;
+        public readonly string ConfigurationState;
 
         [OutputConstructor]
         private NeighborAddressResponse(
             string? address,
 
-            string operationalState)
+            string configurationState)
         {
             Address = address;
-            OperationalState = operationalState;
+            ConfigurationState = configurationState;
         }
     }
 }

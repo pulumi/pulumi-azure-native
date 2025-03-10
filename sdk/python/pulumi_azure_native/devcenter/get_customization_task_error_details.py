@@ -57,9 +57,7 @@ def get_customization_task_error_details(catalog_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomizationTaskErrorDetailsResult:
     """
     Gets Customization Task error details
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.
@@ -84,9 +82,7 @@ def get_customization_task_error_details_output(catalog_name: Optional[pulumi.In
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomizationTaskErrorDetailsResult]:
     """
     Gets Customization Task error details
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str catalog_name: The name of the Catalog.

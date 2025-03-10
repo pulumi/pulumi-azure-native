@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppConfiguration
     {
         /// <summary>
         /// Gets the properties of the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetConfigurationStoreResult> InvokeAsync(GetConfigurationStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetConfigurationStoreResult> Invoke(GetConfigurationStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationStoreResult>("azure-native:appconfiguration:getConfigurationStore", args ?? new GetConfigurationStoreInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// The creation date of configuration store.
         /// </summary>
         public readonly string CreationDate;
+        /// <summary>
+        /// Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
+        /// </summary>
+        public readonly Outputs.DataPlaneProxyPropertiesResponse? DataPlaneProxy;
         /// <summary>
         /// Disables all authentication methods other than AAD authentication.
         /// </summary>
@@ -157,6 +155,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         private GetConfigurationStoreResult(
             string creationDate,
 
+            Outputs.DataPlaneProxyPropertiesResponse? dataPlaneProxy,
+
             bool? disableLocalAuth,
 
             bool? enablePurgeProtection,
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.AppConfiguration
             string type)
         {
             CreationDate = creationDate;
+            DataPlaneProxy = dataPlaneProxy;
             DisableLocalAuth = disableLocalAuth;
             EnablePurgeProtection = enablePurgeProtection;
             Encryption = encryption;

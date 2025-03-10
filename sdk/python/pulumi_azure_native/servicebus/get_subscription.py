@@ -333,13 +333,11 @@ def get_subscription(namespace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """
@@ -383,13 +381,11 @@ def get_subscription_output(namespace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Returns a subscription description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str subscription_name: The subscription name.
     :param str topic_name: The topic name.
     """

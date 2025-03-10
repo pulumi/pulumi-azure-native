@@ -27,7 +27,7 @@ class GetFleetResult:
     """
     The Fleet resource.
     """
-    def __init__(__self__, e_tag=None, hub_profile=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, hub_profile=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -37,6 +37,9 @@ class GetFleetResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -79,6 +82,14 @@ class GetFleetResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed identity.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -138,6 +149,7 @@ class AwaitableGetFleetResult(GetFleetResult):
             e_tag=self.e_tag,
             hub_profile=self.hub_profile,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -151,9 +163,7 @@ def get_fleet(fleet_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFleetResult:
     """
     Gets a Fleet.
-    Azure REST API version: 2023-03-15-preview.
-
-    Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -169,6 +179,7 @@ def get_fleet(fleet_name: Optional[str] = None,
         e_tag=pulumi.get(__ret__, 'e_tag'),
         hub_profile=pulumi.get(__ret__, 'hub_profile'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -180,9 +191,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Gets a Fleet.
-    Azure REST API version: 2023-03-15-preview.
-
-    Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    Azure REST API version: 2024-05-02-preview.
 
 
     :param str fleet_name: The name of the Fleet resource.
@@ -197,6 +206,7 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[str]] = None,
         e_tag=pulumi.get(__response__, 'e_tag'),
         hub_profile=pulumi.get(__response__, 'hub_profile'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

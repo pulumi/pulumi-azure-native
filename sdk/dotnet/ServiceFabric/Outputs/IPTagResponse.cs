@@ -11,22 +11,22 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
     /// <summary>
-    /// IPTag associated with the object.
+    /// The IP tag associated with the public IP address.
     /// </summary>
     [OutputType]
-    public sealed class IPTagResponse
+    public sealed class IpTagResponse
     {
         /// <summary>
-        /// The IP tag type.
+        /// IP tag type. Example: FirstPartyUsage.
         /// </summary>
         public readonly string IpTagType;
         /// <summary>
-        /// The value of the IP tag.
+        /// IP tag associated with the public IP. Example: SQL, Storage etc.
         /// </summary>
         public readonly string Tag;
 
         [OutputConstructor]
-        private IPTagResponse(
+        private IpTagResponse(
             string ipTagType,
 
             string tag)
