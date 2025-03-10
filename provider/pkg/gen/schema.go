@@ -1253,22 +1253,24 @@ func (g *packageGenerator) formatDescription(desc string, typeName string, defau
 			fmt.Fprintf(&b, " Prior API version in Azure Native %d.x: %s.", g.majorVersion-1, previousDefaultVersion)
 		}
 
-		// List other available API versions, if any.
-		allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
-		includedVersions := []string{}
-		for _, v := range allVersions {
-			// Don't list the default version twice.
-			if v == defaultVersion {
-				continue
+		if g.majorVersion <= 2 {
+			// List other available API versions, if any.
+			allVersions := g.versioning.GetAllVersions(g.moduleName, typeName)
+			includedVersions := []string{}
+			for _, v := range allVersions {
+				// Don't list the default version twice.
+				if v == defaultVersion {
+					continue
+				}
+				tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
+				if g.shouldInclude(typeName, tok, &v) {
+					includedVersions = append(includedVersions, string(v))
+				}
 			}
-			tok := generateTok(g.moduleName, typeName, openapi.ApiToSdkVersion(v))
-			if g.shouldInclude(typeName, tok, &v) {
-				includedVersions = append(includedVersions, string(v))
-			}
-		}
 
-		if len(includedVersions) > 0 {
-			fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+			if len(includedVersions) > 0 {
+				fmt.Fprintf(&b, "\n\nOther available API versions: %s.", strings.Join(includedVersions, ", "))
+			}
 		}
 	}
 
