@@ -4,7 +4,9 @@ package provider
 
 import (
 	"bytes"
+	"compress/gzip"
 	"context"
+	"encoding/base64"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -63,6 +65,13 @@ func (c *parameterizedPackageMap) add(name, version string, schema []byte) {
 func (p *azureNativeProvider) runtimeParameterize(req *rpc.ParameterizeRequest) (*rpc.ParameterizeResponse, error) {
 	switch pt := req.Parameters.(type) {
 	case *rpc.ParameterizeRequest_Value:
+		// Extract the base64 metadata and populate it in the provider
+		metadata, err := deserializeMetadata(pt.Value.GetValue())
+		if err != nil {
+			return nil, status.Errorf(codes.InvalidArgument, "failed to deserialize metadata: %v", err)
+		}
+		p.parameterizedMetadata = metadata
+
 		return &rpc.ParameterizeResponse{
 			Name:    pt.Value.GetName(),
 			Version: pt.Value.Version,
@@ -104,14 +113,6 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 		return nil, status.Errorf(codes.Internal, "failed to create parameterized schema: %v", err)
 	}
 	newPackageName := newSchema.Name
-
-	newSchema.Parameterization = &pschema.ParameterizationSpec{
-		BaseProvider: pschema.BaseProviderSpec{
-			Name:    p.name,
-			Version: newSchema.Version,
-		},
-		Parameter: fmt.Appendf(nil, "%s:%s", targetModule, targetApiVersion),
-	}
 
 	s, err := json.Marshal(newSchema)
 	if err != nil {
@@ -188,18 +189,24 @@ func createParameterizedSchemaForApiVersion(p *azureNativeProvider, schema psche
 	logging.V(9).Infof("Creating parameterized Azure Native for %s %s: found %d types, %d resources, %d functions",
 		targetModule, targetApiVersion, len(typeNames), len(resourceNames), len(functionNames))
 
+	metadata := &resources.AzureAPIMetadata{
+		Types:     map[string]resources.AzureAPIType{},
+		Resources: map[string]resources.AzureAPIResource{},
+		Invokes:   map[string]resources.AzureAPIInvoke{},
+	}
+
 	for typeTok, typeName := range typeNames {
 		newTok := makeToken(typeName)
 		newSchema.Types[newTok] = schema.Types[typeTok]
 
-		metadata, ok, err := p.lookupType(typeTok)
+		apiType, ok, err := p.lookupType(typeTok)
 		if err != nil {
 			return nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", typeName, err)
 		}
 		if !ok {
 			logging.Warningf("type %s not found in metadata", typeName)
 		} else {
-			p.parameterizedMetadata.Types[newTok] = *metadata
+			metadata.Types[newTok] = *apiType
 		}
 	}
 
@@ -207,14 +214,14 @@ func createParameterizedSchemaForApiVersion(p *azureNativeProvider, schema psche
 		newTok := makeToken(resourceName)
 		newSchema.Resources[newTok] = schema.Resources[resourceTok]
 
-		metadata, ok, err := p.resourceMap.Resources.Get(resourceTok)
+		resource, ok, err := p.resourceMap.Resources.Get(resourceTok)
 		if err != nil {
 			return nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", resourceName, err)
 		}
 		if !ok {
 			logging.Warningf("resource %s not found in metadata", resourceName)
 		} else {
-			p.parameterizedMetadata.Resources[newTok] = metadata
+			metadata.Resources[newTok] = resource
 		}
 	}
 
@@ -222,15 +229,27 @@ func createParameterizedSchemaForApiVersion(p *azureNativeProvider, schema psche
 		newTok := makeToken(functionName)
 		newSchema.Functions[newTok] = schema.Functions[functionTok]
 
-		metadata, ok, err := p.resourceMap.Invokes.Get(functionTok)
+		invoke, ok, err := p.resourceMap.Invokes.Get(functionTok)
 		if err != nil {
 			return nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", functionName, err)
 		}
 		if !ok {
 			logging.Warningf("function %s not found in metadata", functionName)
 		} else {
-			p.parameterizedMetadata.Invokes[newTok] = metadata
+			metadata.Invokes[newTok] = invoke
 		}
+	}
+
+	metadataBytes, err := serializeMetadata(metadata)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to serialize metadata: %v", err)
+	}
+	newSchema.Parameterization = &pschema.ParameterizationSpec{
+		BaseProvider: pschema.BaseProviderSpec{
+			Name:    p.name,
+			Version: newSchema.Version,
+		},
+		Parameter: metadataBytes,
 	}
 
 	return &newSchema, nil
@@ -249,4 +268,48 @@ func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion str
 		typeNames[token] = name
 	}
 	return typeNames, nil
+}
+
+func serializeMetadata(metadata *resources.AzureAPIMetadata) ([]byte, error) {
+	jsonBytes, err := json.Marshal(metadata)
+	if err != nil {
+		return nil, err
+	}
+
+	var buf bytes.Buffer
+	zw := gzip.NewWriter(&buf)
+	if _, err := zw.Write(jsonBytes); err != nil {
+		return nil, err
+	}
+	if err := zw.Close(); err != nil {
+		return nil, err
+	}
+
+	dst := make([]byte, base64.StdEncoding.EncodedLen(buf.Len()))
+	base64.StdEncoding.Encode(dst, buf.Bytes())
+	return dst, nil
+}
+
+func deserializeMetadata(metadata []byte) (*resources.AzureAPIMetadata, error) {
+	decoded, err := base64.StdEncoding.DecodeString(string(metadata))
+	if err != nil {
+		return nil, err
+	}
+
+	zr, err := gzip.NewReader(bytes.NewReader(decoded))
+	if err != nil {
+		return nil, err
+	}
+	defer zr.Close()
+
+	var buf bytes.Buffer
+	if _, err := buf.ReadFrom(zr); err != nil {
+		return nil, err
+	}
+
+	var result resources.AzureAPIMetadata
+	if err := json.Unmarshal(buf.Bytes(), &result); err != nil {
+		return nil, err
+	}
+	return &result, nil
 }

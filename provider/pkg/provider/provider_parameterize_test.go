@@ -73,3 +73,49 @@ func TestFilterTokens(t *testing.T) {
 	require.Len(t, names, 1)
 	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
 }
+
+func TestRoundtripMetadata(t *testing.T) {
+	t.Parallel()
+
+	metadata := &resources.AzureAPIMetadata{
+		Types: map[string]resources.AzureAPIType{
+			"azure-native:aad:Thing": {
+				Properties: map[string]resources.AzureAPIProperty{
+					"prop": {
+						Type:       "string",
+						Containers: []string{"foo"},
+						ForceNew:   true,
+					},
+				},
+			},
+		},
+		Resources: map[string]resources.AzureAPIResource{
+			"azure-native:aad:Application": {
+				PutParameters: []resources.AzureAPIParameter{
+					{
+						Name:       "prop",
+						Location:   "body",
+						IsRequired: true,
+						Body: &resources.AzureAPIType{
+							Properties: map[string]resources.AzureAPIProperty{
+								"prop": {
+									Type: "object",
+									Ref:  "#/azure-native:aad:Thing",
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+		Invokes: map[string]resources.AzureAPIInvoke{},
+	}
+
+	metadataBytes, err := serializeMetadata(metadata)
+	require.NoError(t, err)
+	require.NotNil(t, metadataBytes)
+
+	deserializedMetadata, err := deserializeMetadata(metadataBytes)
+	require.NoError(t, err)
+	require.Equal(t, metadata, deserializedMetadata)
+}
