@@ -43,6 +43,7 @@ import yaml from "yaml";
     );
     result.push(...inputFiles);
   }
+  result.sort();
   writeFile(
     "../reports/autorest-input-files.json",
     JSON.stringify(result, null, 2)
