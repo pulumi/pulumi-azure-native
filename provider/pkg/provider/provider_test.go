@@ -293,18 +293,6 @@ func TestDiff(t *testing.T) {
 	}
 }
 
-func TestCheckpointObject(t *testing.T) {
-	res, _ := setUpResourceWithRefAndProviderWithTypeLookup()
-
-	t.Run("azureApiVersion", func(t *testing.T) {
-		inputs := resource.PropertyMap{}
-		outputs := map[string]interface{}{}
-		checkpointed := checkpointObject(res, inputs, outputs)
-		assert.Contains(t, checkpointed, resource.PropertyKey("azureApiVersion"))
-		assert.Equal(t, "v20241101", checkpointed["azureApiVersion"].StringValue())
-	})
-}
-
 func TestResetUnsetSubResourceProperties(t *testing.T) {
 	ctx := context.Background()
 
@@ -866,5 +854,14 @@ func TestCheckpointObject(t *testing.T) {
 		checkpoint = checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("3.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
 		assert.True(t, checkpoint.ContainsSecrets())
+	})
+
+	t.Run("produces azureApiVersion", func(t *testing.T) {
+		inputs := resource.PropertyMap{}
+		outputs := map[string]interface{}{}
+
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey("azureApiVersion"))
+		assert.Equal(t, "v20241101", checkpoint["azureApiVersion"].StringValue())
 	})
 }
