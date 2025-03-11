@@ -728,7 +728,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		// Typed object: validate all properties by looking up its type definition.
 		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
-		typ, ok, err := k.lookupTypeDefault(prop.Ref)
+		typ, ok, err := k.lookupType(prop.Ref)
 		if err != nil {
 			return append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("error decoding type spec '%s': %v", typeName, err),
@@ -893,7 +893,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		return nil, err
 	}
 
-	detailedDiff := diff(k.lookupTypeDefault, *res, oldInputs, newResInputs)
+	detailedDiff := diff(k.lookupType, *res, oldInputs, newResInputs)
 	if detailedDiff == nil {
 		return &rpc.DiffResponse{
 			Changes:             rpc.DiffResponse_DIFF_NONE,
