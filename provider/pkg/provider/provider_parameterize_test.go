@@ -6,11 +6,15 @@ import (
 	"context"
 	"encoding/json"
 	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
+	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -19,7 +23,7 @@ type schemaWithVersion struct {
 	Version string `json:"version"`
 }
 
-func TestParameterize(t *testing.T) {
+func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	t.Parallel()
 
 	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
@@ -54,9 +58,21 @@ func TestParameterize(t *testing.T) {
 		keys = append(keys, k)
 	}
 	require.Len(t, keys, 1, strings.Join(keys, ", "))
-	schema, ok := provider.parameterizedSchemas.get("azure-native_aad_v20221201", providerVersion)
+	schemaRaw, ok := provider.parameterizedSchemas.get("azure-native_aad_v20221201", providerVersion)
 	require.Truef(t, ok, "providerVersion=%s, keys=%s", providerVersion, strings.Join(keys, ", "))
-	require.NotEmpty(t, schema)
+	assert.NotEmpty(t, schemaRaw)
+
+	var schema pschema.PackageSpec
+	err = json.Unmarshal(schemaRaw, &schema)
+	require.NoError(t, err)
+	assert.NotEmpty(t, schema.Types)
+	assert.NotEmpty(t, schema.Resources)
+	assert.NotEmpty(t, schema.Functions)
+
+	// metadata is serialized as a base64-encoded JSON string
+	assert.NotEmpty(t, schema.Parameterization.Parameter)
+	_, err = deserializeMetadata(schema.Parameterization.Parameter)
+	require.NoError(t, err)
 }
 
 func TestFilterTokens(t *testing.T) {
@@ -118,4 +134,46 @@ func TestRoundtripMetadata(t *testing.T) {
 	deserializedMetadata, err := deserializeMetadata(metadataBytes)
 	require.NoError(t, err)
 	require.Equal(t, metadata, deserializedMetadata)
+}
+
+// Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
+func TestParameterizePackageAdd(t *testing.T) {
+	t.Parallel()
+
+	pt := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parameterize-storage"))
+	pulumiPackageAdd(t, pt, "../../../bin/pulumi-resource-azure-native", "storage", "v20240101")
+}
+
+func pulumiPackageAdd(
+	t *testing.T,
+	pt *pulumitest.PulumiTest,
+	localProviderBinPath string,
+	args ...string,
+) {
+	if _, err := os.Stat(localProviderBinPath); os.IsNotExist(err) {
+		t.Fatalf("Provider binary not found at path: %s", localProviderBinPath)
+	}
+	absLocalProviderBinPath, err := filepath.Abs(localProviderBinPath)
+	require.NoError(t, err)
+
+	ctx := context.Background()
+	allArgs := append([]string{"package", "add", absLocalProviderBinPath}, args...)
+	stdout, stderr, exitCode, err := pt.CurrentStack().Workspace().PulumiCommand().Run(
+		ctx,
+		pt.WorkingDir(),
+		nil, /* reader */
+		nil, /* additionalOutput */
+		nil, /* additionalErrorOutput */
+		nil, /* additionalEnv */
+		allArgs...,
+	)
+	if err != nil || exitCode != 0 {
+		t.Fatalf("Failed to run pulumi package add\nExit code: %d\nError: %v\n%s\n%s",
+			exitCode, err, stdout, stderr)
+	}
+
+	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
+	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
+		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
+	}
 }

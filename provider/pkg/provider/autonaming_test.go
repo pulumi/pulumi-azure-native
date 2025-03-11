@@ -123,7 +123,7 @@ func TestGetDefaultName(t *testing.T) {
 
 		assert.True(t, ok)
 		assert.True(t, randomlyNamed)
-		assert.Equal(t, "test1ec836c1", result.StringValue())
+		assert.Equal(t, "test614742c2", result.StringValue())
 	})
 
 	t.Run("returns proposed name for random strategy with propose mode", func(t *testing.T) {
