@@ -46899,6 +46899,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/getActiveSessions",
    "response": {
     "nextLink": {},
@@ -46963,6 +46964,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}",
    "response": {
     "access": {
@@ -47097,6 +47099,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}",
    "response": {
     "appliesToGroups": {
@@ -47164,6 +47167,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}",
    "response": {
     "authenticationCertificates": {
@@ -47538,6 +47542,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/getBackendHealthOnDemand",
    "response": {
     "backendAddressPool": {
@@ -47585,6 +47590,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections/{connectionName}",
    "response": {
     "etag": {},
@@ -47644,6 +47650,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationSecurityGroups/{applicationSecurityGroupName}",
    "response": {
     "etag": {},
@@ -47697,6 +47704,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/azureFirewalls/{azureFirewallName}",
    "response": {
     "additionalProperties": {
@@ -47838,6 +47846,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}",
    "response": {
     "disableCopyPaste": {
@@ -47961,6 +47970,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/bastionHosts/{bastionHostName}/getShareableLinks",
    "response": {
     "nextLink": {},
@@ -48009,6 +48019,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}/configurationPolicyGroups/{configurationPolicyGroupName}",
    "response": {
     "etag": {},
@@ -48087,6 +48098,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/connectionMonitors/{connectionMonitorName}",
    "response": {
     "autoStart": {
@@ -48223,6 +48235,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/connectivityConfigurations/{configurationName}",
    "response": {
     "appliesToGroups": {
@@ -48325,6 +48338,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/customIpPrefixes/{customIpPrefixName}",
    "response": {
     "asn": {
@@ -48460,6 +48474,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ddosCustomPolicies/{ddosCustomPolicyName}",
    "response": {
     "etag": {},
@@ -48513,6 +48528,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ddosProtectionPlans/{ddosProtectionPlanName}",
    "response": {
     "etag": {},
@@ -48608,6 +48624,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}/ruleCollections/{ruleCollectionName}/rules/{ruleName}",
    "response": {
     "access": {
@@ -48731,6 +48748,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dscpConfigurations/{dscpConfigurationName}",
    "response": {
     "associatedNetworkInterfaces": {
@@ -48856,6 +48874,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}",
    "response": {
     "allowClassicOperations": {
@@ -49000,6 +49019,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/authorizations/{authorizationName}",
    "response": {
     "authorizationKey": {
@@ -49068,6 +49088,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}/connections/{connectionName}",
    "response": {
     "addressPrefix": {
@@ -49151,6 +49172,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName}",
    "response": {
     "azureASN": {
@@ -49309,6 +49331,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}/expressRouteConnections/{connectionName}",
    "response": {
     "authorizationKey": {
@@ -49394,6 +49417,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}/peerings/{peeringName}",
    "response": {
     "azureASN": {
@@ -49507,6 +49531,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteGateways/{expressRouteGatewayName}",
    "response": {
     "allowNonVirtualWanTraffic": {
@@ -49581,6 +49606,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ExpressRoutePorts/{expressRoutePortName}",
    "response": {
     "allocationDate": {
@@ -49703,6 +49729,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRoutePorts/{expressRoutePortName}/authorizations/{authorizationName}",
    "response": {
     "authorizationKey": {
@@ -49768,6 +49795,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}",
    "response": {
     "basePolicy": {
@@ -49919,6 +49947,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/ruleCollectionGroups/{ruleCollectionGroupName}",
    "response": {
     "etag": {},
@@ -49985,6 +50014,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/flowLogs/{flowLogName}",
    "response": {
     "enabled": {
@@ -50079,6 +50109,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubRouteTables/{routeTableName}",
    "response": {
     "associatedConnections": {
@@ -50162,6 +50193,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/hubVirtualNetworkConnections/{connectionName}",
    "response": {
     "allowHubToRemoteVnetTransit": {
@@ -50246,6 +50278,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/inboundNatRules/{inboundNatRuleName}",
    "response": {
     "backendAddressPool": {
@@ -50354,6 +50387,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/IpAllocations/{ipAllocationName}",
    "response": {
     "allocationTags": {
@@ -50446,6 +50480,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ipGroups/{ipGroupsName}",
    "response": {
     "etag": {},
@@ -50528,6 +50563,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}",
    "response": {
     "backendAddressPools": {
@@ -50658,6 +50694,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/backendAddressPools/{backendAddressPoolName}",
    "response": {
     "backendIPConfigurations": {
@@ -50777,6 +50814,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/localNetworkGateways/{localNetworkGatewayName}",
    "response": {
     "bgpSettings": {
@@ -50844,6 +50882,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}",
    "response": {
     "description": {
@@ -50902,6 +50941,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/natGateways/{natGatewayName}",
    "response": {
     "etag": {},
@@ -51003,6 +51043,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/natRules/{natRuleName}",
    "response": {
     "egressVpnSiteLinkConnections": {
@@ -51099,6 +51140,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}",
    "response": {
     "description": {
@@ -51162,6 +51204,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}",
    "response": {
     "auxiliaryMode": {
@@ -51343,6 +51386,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/tapConfigurations/{tapConfigurationName}",
    "response": {
     "etag": {},
@@ -51391,6 +51435,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}",
    "response": {
     "description": {
@@ -51474,6 +51519,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkProfiles/{networkProfileName}",
    "response": {
     "containerNetworkInterfaceConfigurations": {
@@ -51553,6 +51599,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}",
    "response": {
     "defaultSecurityRules": {
@@ -51664,6 +51711,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}",
    "response": {
     "additionalNics": {
@@ -51833,6 +51881,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/networkVirtualApplianceConnections/{connectionName}",
    "response": {
     "asn": {
@@ -51906,6 +51955,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}",
    "response": {
     "etag": {},
@@ -51954,6 +52004,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}",
    "response": {
     "customDnsServers": {
@@ -52047,6 +52098,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}/getP2sVpnConnectionHealth",
    "response": {
     "customDnsServers": {
@@ -52159,6 +52211,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/p2svpnGateways/{gatewayName}/getP2sVpnConnectionHealthDetailed",
    "response": {
     "sasUrl": {}
@@ -52201,6 +52254,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkWatchers/{networkWatcherName}/packetCaptures/{packetCaptureName}",
    "response": {
     "bytesToCapturePerPacket": {
@@ -52299,6 +52353,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}/privateDnsZoneGroups/{privateDnsZoneGroupName}",
    "response": {
     "etag": {},
@@ -52357,6 +52412,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
    "response": {
     "applicationSecurityGroups": {
@@ -52481,6 +52537,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}",
    "response": {
     "alias": {
@@ -52614,6 +52671,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName}",
    "response": {
     "etag": {},
@@ -52686,6 +52744,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}",
    "response": {
     "ddosSettings": {
@@ -52839,6 +52898,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIpPrefixName}",
    "response": {
     "customIPPrefix": {
@@ -52962,6 +53022,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}/routes/{routeName}",
    "response": {
     "addressPrefix": {
@@ -53032,6 +53093,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}",
    "response": {
     "etag": {},
@@ -53115,6 +53177,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeFilters/{routeFilterName}/routeFilterRules/{ruleName}",
    "response": {
     "access": {
@@ -53183,6 +53246,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeMaps/{routeMapName}",
    "response": {
     "associatedInboundConnections": {
@@ -53258,6 +53322,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/routeTables/{routeTableName}",
    "response": {
     "disableBgpRoutePropagation": {
@@ -53342,6 +53407,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routingIntent/{routingIntentName}",
    "response": {
     "etag": {},
@@ -53401,6 +53467,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/scopeConnections/{scopeConnectionName}",
    "response": {
     "description": {
@@ -53464,6 +53531,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/securityAdminConfigurations/{configurationName}",
    "response": {
     "applyOnNetworkIntentPolicyBasedServices": {
@@ -53527,6 +53595,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/securityPartnerProviders/{securityPartnerProviderName}",
    "response": {
     "connectionStatus": {
@@ -53599,6 +53668,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules/{securityRuleName}",
    "response": {
     "access": {
@@ -53744,6 +53814,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceEndpointPolicies/{serviceEndpointPolicyName}",
    "response": {
     "contextualServiceEndpointPolicies": {
@@ -53837,6 +53908,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/serviceEndpointPolicies/{serviceEndpointPolicyName}/serviceEndpointPolicyDefinitions/{serviceEndpointPolicyDefinitionName}",
    "response": {
     "description": {
@@ -53913,6 +53985,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/networkGroups/{networkGroupName}/staticMembers/{staticMemberName}",
    "response": {
     "etag": {},
@@ -53984,6 +54057,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
    "response": {
     "addressPrefix": {
@@ -54156,6 +54230,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/providers/Microsoft.Network/networkManagerConnections/{networkManagerConnectionName}",
    "response": {
     "description": {
@@ -54214,6 +54289,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkVirtualAppliances/{networkVirtualApplianceName}/virtualApplianceSites/{siteName}",
    "response": {
     "addressPrefix": {
@@ -54267,6 +54343,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}",
    "response": {
     "addressPrefix": {
@@ -54456,6 +54533,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/bgpConnections/{connectionName}",
    "response": {
     "connectionState": {
@@ -54527,6 +54605,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/ipConfigurations/{ipConfigName}",
    "response": {
     "etag": {},
@@ -54599,6 +54678,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualHubs/{virtualHubName}/routeTables/{routeTableName}",
    "response": {
     "attachedConnections": {
@@ -54665,6 +54745,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
    "response": {
     "addressSpace": {
@@ -54804,6 +54885,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}",
    "response": {
     "activeActive": {
@@ -54995,6 +55077,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getAdvertisedRoutes",
    "response": {
     "value": {
@@ -55041,6 +55124,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getBgpPeerStatus",
    "response": {
     "value": {
@@ -55080,6 +55164,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}",
    "response": {
     "authorizationKey": {
@@ -55286,6 +55371,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName}/getikesas",
    "response": {
     "value": {
@@ -55322,6 +55408,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getLearnedRoutes",
    "response": {
     "value": {
@@ -55369,6 +55456,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/natRules/{natRuleName}",
    "response": {
     "etag": {},
@@ -55439,6 +55527,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getvpnprofilepackageurl",
    "response": {
     "value": {
@@ -55475,6 +55564,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getVpnClientConnectionHealth",
    "response": {
     "value": {
@@ -55514,6 +55604,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName}/getvpnclientipsecparameters",
    "response": {
     "dhGroup": {},
@@ -55563,6 +55654,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}",
    "response": {
     "allowForwardedTraffic": {
@@ -55675,6 +55767,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkTaps/{tapName}",
    "response": {
     "destinationLoadBalancerFrontEndIPConfiguration": {
@@ -55762,6 +55855,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}",
    "response": {
     "etag": {},
@@ -55852,6 +55946,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualRouters/{virtualRouterName}/peerings/{peeringName}",
    "response": {
     "etag": {},
@@ -55905,6 +56000,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualWans/{VirtualWANName}",
    "response": {
     "allowBranchToBranchTraffic": {
@@ -55999,6 +56095,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}",
    "response": {
     "connectionBandwidth": {
@@ -56144,6 +56241,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}",
    "response": {
     "bgpSettings": {
@@ -56262,6 +56360,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnGateways/{gatewayName}/vpnConnections/{connectionName}/vpnLinkConnections/{linkConnectionName}/getikesas",
    "response": {
     "value": {
@@ -56298,6 +56397,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnServerConfigurations/{vpnServerConfigurationName}",
    "response": {
     "aadAuthenticationParameters": {
@@ -56454,6 +56554,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/vpnSites/{vpnSiteName}",
    "response": {
     "addressSpace": {
@@ -56557,6 +56658,7 @@
    ],
    "POST": null,
    "apiVersion": "2023-02-01",
+   "getResource": true,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/{policyName}",
    "response": {
     "applicationGateways": {
@@ -56685,6 +56787,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveConnectivityConfigurations",
    "response": {
     "skipToken": {},
@@ -56752,6 +56855,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listActiveSecurityAdminRules",
    "response": {
     "skipToken": {},
@@ -56826,6 +56930,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/listIdpsSignatures",
    "response": {
     "matchingRecordsCount": {},
@@ -56879,6 +56984,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/firewallPolicies/{firewallPolicyName}/listIdpsFilterOptions",
    "response": {
     "filterValues": {
@@ -56950,6 +57056,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkManagers/{networkManagerName}/listDeploymentStatus",
    "response": {
     "skipToken": {},
@@ -57011,6 +57118,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveConnectivityConfigurations",
    "response": {
     "skipToken": {},
@@ -57072,6 +57180,7 @@
     }
    ],
    "apiVersion": "2023-02-01",
+   "getResource": false,
    "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/listNetworkManagerEffectiveSecurityAdminRules",
    "response": {
     "skipToken": {},
