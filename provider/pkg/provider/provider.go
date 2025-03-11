@@ -654,7 +654,7 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 	// Set the default value of azureApiVersion to the APIVersion of the inputs.
 	// Note that some Azure resource types do not have an APIVersion (e.g. storage:Blob).
 	if version.GetVersion().Major >= 3 {
-		if res.APIVersion != "" {
+		if !news.HasValue("azureApiVersion") && res.APIVersion != "" {
 			news["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 		}
 	}
