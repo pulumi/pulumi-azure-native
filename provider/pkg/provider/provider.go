@@ -107,6 +107,13 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	return p, nil
 }
 
+func (k *azureNativeProvider) getVersion() semver.Version {
+	if k.version == "" {
+		return version.GetVersion()
+	}
+	return semver.MustParse(k.version)
+}
+
 // LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
 // in memory
 func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.PartialAzureAPIMetadata, error) {
@@ -170,7 +177,7 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 func (k *azureNativeProvider) Configure(ctx context.Context,
 	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 
-	if version.GetVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
+	if k.getVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
 		// https://github.com/pulumi/pulumi-azure-native/issues/2686
 		return nil, errors.New("Azure Native provider requires Pulumi CLI v3.74.0 or later")
 	}
@@ -419,7 +426,7 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 
 	if res.GetResource {
 		// resource getters have an azureApiVersion output property.
-		if version.GetVersion().Major >= 3 {
+		if k.getVersion().Major >= 3 {
 			if res.APIVersion != "" {
 				outputs["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 			}
@@ -653,7 +660,7 @@ func (k *azureNativeProvider) applyDefaults(ctx context.Context, urn string, ran
 
 	// Set the default value of azureApiVersion to the APIVersion of the inputs.
 	// Note that some Azure resource types do not have an APIVersion (e.g. storage:Blob).
-	if version.GetVersion().Major >= 3 {
+	if k.getVersion().Major >= 3 {
 		if !news.HasValue("azureApiVersion") && res.APIVersion != "" {
 			news["azureApiVersion"] = resource.NewStringProperty(res.APIVersion)
 		}
@@ -866,7 +873,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	// v2-to-v3 migration: apiVersion might be available in the old state and we use it to suppress spurious diffs
 	// that would otherwise be produced by mere input-input diffing.
 	migratedApiVersion := false
-	if version.GetVersion().Major >= 3 {
+	if k.getVersion().Major >= 3 {
 		if _, ok := oldInputs["azureApiVersion"]; !ok {
 			if v, ok := oldState["azureApiVersion"]; ok {
 				oldInputs["azureApiVersion"] = v
