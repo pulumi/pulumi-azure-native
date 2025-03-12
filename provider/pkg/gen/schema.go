@@ -998,11 +998,11 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 			g.pkg.Functions[functionTok] = functionSpec
 
 			f := resources.AzureAPIInvoke{
-				APIVersion:    swagger.Info.Version,
-				Path:          resource.Path,
-				GetParameters: requestFunction.parameters,
-				Response:      responseFunction.properties,
-				GetResource:   true,
+				APIVersion:       swagger.Info.Version,
+				Path:             resource.Path,
+				GetParameters:    requestFunction.parameters,
+				Response:         responseFunction.properties,
+				IsResourceGetter: true,
 			}
 			g.metadata.Invokes[functionTok] = f
 		}
@@ -1198,11 +1198,11 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	g.pkg.Functions[functionTok] = functionSpec
 
 	f := resources.AzureAPIInvoke{
-		APIVersion:     swagger.Info.Version,
-		Path:           path,
-		PostParameters: request.parameters,
-		Response:       response.properties,
-		GetResource:    false,
+		APIVersion:       swagger.Info.Version,
+		Path:             path,
+		PostParameters:   request.parameters,
+		Response:         response.properties,
+		IsResourceGetter: false,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -1454,7 +1454,7 @@ func normalizeParamPattern(param *openapi.Parameter) string {
 }
 
 func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
-	namer *resources.AutoNamer, bodySchema *openapi.Schema, isTopLevel bool) (*parameterBag, error) {
+	namer *resources.AutoNamer, bodySchema *openapi.Schema, isResourceGetter bool) (*parameterBag, error) {
 	result := newParameterBag()
 	var autoNamedSpec string
 
@@ -1501,7 +1501,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 
 			// The body parameter is flattened, so that all its properties become the properties of the type.
 			props, err := m.genProperties(bodySchema, genPropertiesVariant{
-				isTopLevel: isTopLevel,
+				isTopLevel: isResourceGetter,
 				isOutput:   false,
 				isType:     false,
 				isResponse: false,
@@ -1602,7 +1602,7 @@ func (m *moduleGenerator) paramIsSetByProvider(param *openapi.Parameter, bodySch
 }
 
 func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response, ctx *openapi.ReferenceContext,
-	responseSchema *openapi.Schema, isTopLevel bool) (*propertyBag, error) {
+	responseSchema *openapi.Schema, isResourceGetter bool) (*propertyBag, error) {
 
 	if responseSchema == nil {
 		v, err := getResponseSchema(ctx, statusCodeResponses)
@@ -1618,7 +1618,7 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 	}
 
 	result, err := m.genProperties(responseSchema, genPropertiesVariant{
-		isTopLevel: isTopLevel,
+		isTopLevel: isResourceGetter,
 		isOutput:   true,
 		isType:     false,
 		isResponse: true,

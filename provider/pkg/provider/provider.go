@@ -424,7 +424,7 @@ func (k *azureNativeProvider) invokeResponseToOutputs(response any, res resource
 		outputs = map[string]any{resources.SingleValueProperty: response}
 	}
 
-	if res.GetResource {
+	if res.IsResourceGetter {
 		// resource getters have an azureApiVersion output property.
 		if k.getVersion().Major >= 3 {
 			if res.APIVersion != "" {

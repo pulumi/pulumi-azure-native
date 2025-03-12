@@ -369,10 +369,10 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 		assert.Empty(t, outputs) // the empty converter doesn't know any properties
 	})
 
-	t.Run("special case: GetResource", func(t *testing.T) {
+	t.Run("special case: IsResourceGetter", func(t *testing.T) {
 		invoke := resources.AzureAPIInvoke{
-			APIVersion:  "v20241101",
-			GetResource: true,
+			APIVersion:       "v20241101",
+			IsResourceGetter: true,
 		}
 		t.Run("azureApiVersion", func(t *testing.T) {
 			p := azureNativeProvider{converter: &conv, version: "2.0.0"}
@@ -756,7 +756,7 @@ func TestApplyDefaults(t *testing.T) {
 	})
 }
 
-func TestDiff(t *testing.T) {
+func TestProviderDiff(t *testing.T) {
 	ctx := context.Background()
 
 	type args struct {
