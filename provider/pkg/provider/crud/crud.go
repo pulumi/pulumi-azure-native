@@ -118,9 +118,14 @@ func (r *resourceCrudClient) ApiVersion() string {
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
+	apiVersion := r.res.APIVersion
+	if userApiVersion, ok := inputs["apiVersionOverride"]; ok {
+		apiVersion = userApiVersion.StringValue()
+		delete(inputs, "apiVersionOverride")
+	}
 	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
 		"subscriptionId": r.subscriptionID,
-		"api-version":    r.res.APIVersion,
+		"api-version":    apiVersion,
 	})
 }
 
