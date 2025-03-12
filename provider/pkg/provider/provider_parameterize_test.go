@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
-	"strings"
 	"testing"
 
 	"github.com/pulumi/providertest/pulumitest"
@@ -53,17 +52,8 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, "azure-native_aad_v20221201", resp.Name)
 
-	keys := []string{}
-	for k := range provider.parameterizedSchemas.schemas {
-		keys = append(keys, k)
-	}
-	require.Len(t, keys, 1, strings.Join(keys, ", "))
-	schemaRaw, ok := provider.parameterizedSchemas.get("azure-native_aad_v20221201", providerVersion)
-	require.Truef(t, ok, "providerVersion=%s, keys=%s", providerVersion, strings.Join(keys, ", "))
-	assert.NotEmpty(t, schemaRaw)
-
 	var schema pschema.PackageSpec
-	err = json.Unmarshal(schemaRaw, &schema)
+	err = json.Unmarshal(provider.schemaBytes, &schema)
 	require.NoError(t, err)
 	assert.NotEmpty(t, schema.Types)
 	assert.NotEmpty(t, schema.Resources)

@@ -12,7 +12,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"sync"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -22,36 +21,6 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
-
-// parameterizedPackageMap maps parameterized package names to their schema, in form of serialized JSON. Will be empty
-// if Parameterize() hasn't been called.
-type parameterizedPackageMap struct {
-	sync.Mutex
-	schemas map[string][]byte
-}
-
-func (c *parameterizedPackageMap) mapKey(name, version string) string {
-	return fmt.Sprintf("%s@%s", name, version)
-}
-
-// get retrieves the schema for the given package name.
-func (c *parameterizedPackageMap) get(name, version string) ([]byte, bool) {
-	c.Lock()
-	defer c.Unlock()
-	schema, ok := c.schemas[c.mapKey(name, version)]
-	return schema, ok
-}
-
-// add adds the schema for a given parameterized package.
-func (c *parameterizedPackageMap) add(name, version string, schema []byte) {
-	c.Lock()
-	defer c.Unlock()
-	if c.schemas == nil {
-		c.schemas = make(map[string][]byte)
-	}
-
-	c.schemas[c.mapKey(name, version)] = schema
-}
 
 // runtimeParameterize is called when the provider is parameterized at runtime. It doesn't do anything but echo back the
 // given name and version.
@@ -121,7 +90,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 
 	s = bytes.ReplaceAll(s, []byte(`"$ref":"#/types/azure-native`), []byte(`"$ref": "#/types/`+newPackageName))
 
-	p.parameterizedSchemas.add(newPackageName, newSchema.Version, s)
+	p.schemaBytes = s
 
 	if _, found := os.LookupEnv("PULUMI_DEBUG_PARAMETERIZE"); found {
 		tmpPath := filepath.Join(os.TempDir(), newPackageName+".json")

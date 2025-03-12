@@ -67,13 +67,11 @@ type azureNativeProvider struct {
 	config         map[string]string
 
 	resourceMap *resources.PartialAzureAPIMetadata
-	// Metadata that was added when the provider was parameterized. Not indexed by parametrization since the tok should
-	// already be unique.
+	// Metadata that was added when the provider was parameterized. We cannot (easily) just overwrite `resourceMap`
+	// because it's a different type.
 	parameterizedMetadata *resources.AzureAPIMetadata
 
 	schemaBytes []byte
-	// schemas that were added when the provider was parameterized
-	parameterizedSchemas *parameterizedPackageMap
 
 	converter        *convert.SdkShapeConverter
 	customResources  map[string]*customresources.CustomResource
@@ -105,18 +103,12 @@ func makeProviderInternal(host *provider.HostClient, name, version string, schem
 	// Return the new provider
 	p := &azureNativeProvider{
 		// Note: azureClient and subscriptionId will be initialized in Configure.
-		host:                 host,
-		name:                 name,
-		version:              version,
-		resourceMap:          resourceMap,
-		config:               map[string]string{},
-		schemaBytes:          schemaBytes,
-		parameterizedSchemas: &parameterizedPackageMap{},
-		parameterizedMetadata: &resources.AzureAPIMetadata{
-			Resources: map[string]resources.AzureAPIResource{},
-			Types:     map[string]resources.AzureAPIType{},
-			Invokes:   map[string]resources.AzureAPIInvoke{},
-		},
+		host:          host,
+		name:          name,
+		version:       version,
+		resourceMap:   resourceMap,
+		config:        map[string]string{},
+		schemaBytes:   schemaBytes,
 		converter:     &converter,
 		rgLocationMap: map[string]string{},
 		context:       ctx,
@@ -162,7 +154,7 @@ func (k *azureNativeProvider) lookupTypeDefault(ref string) (*resources.AzureAPI
 	if err != nil {
 		return nil, false, err
 	}
-	if !ok {
+	if !ok && k.parameterizedMetadata != nil {
 		t, ok = k.parameterizedMetadata.Types[typeName]
 	}
 	return &t, ok, nil
@@ -858,15 +850,6 @@ func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaReq
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
-
-	if req.SubpackageName != "" && req.SubpackageVersion != "" {
-		schema, found := k.parameterizedSchemas.get(req.SubpackageName, req.SubpackageVersion)
-		if found {
-			return &rpc.GetSchemaResponse{Schema: string(schema)}, nil
-		}
-		return nil, fmt.Errorf("parameterized package %s %s not found", req.SubpackageName, req.SubpackageVersion)
-	}
-
 	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
 }
 
