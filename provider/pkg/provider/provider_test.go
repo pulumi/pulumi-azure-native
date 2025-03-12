@@ -2,6 +2,7 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"reflect"
 	"testing"
@@ -18,6 +19,8 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
+	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -163,7 +166,7 @@ func TestMappableOldStatePreservesDefaultsThatWereNotInputs(t *testing.T) {
 func TestResetUnsetSubResourceProperties(t *testing.T) {
 	ctx := context.Background()
 
-	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
+	res, provider := setUpResourceWithRefAndProviderWithTypeLookup("")
 
 	t.Run("empty", func(t *testing.T) {
 		empty := &resources.AzureAPIResource{}
@@ -212,8 +215,9 @@ func TestResetUnsetSubResourceProperties(t *testing.T) {
 // Helper to avoid repeating the same setup code in multiple tests. Returns a resource with a
 // "properties" property of type azure-native:keyvault:VaultProperties, which the returned provider
 // will return when asked to look up that type.
-func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResource, *azureNativeProvider) {
+func setUpResourceWithRefAndProviderWithTypeLookup(version string) (*resources.AzureAPIResource, *azureNativeProvider) {
 	res := resources.AzureAPIResource{
+		APIVersion: "v20241101",
 		PutParameters: []resources.AzureAPIParameter{
 			{
 				Location: "body",
@@ -230,7 +234,20 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 		},
 	}
 
+	// Setup resource metadata
 	provider := azureNativeProvider{
+		version: version,
+		resourceMap: &resources.PartialAzureAPIMetadata{
+			Resources: func() resources.PartialMap[resources.AzureAPIResource] {
+				m := resources.NewPartialMap[resources.AzureAPIResource]()
+				b, _ := json.Marshal(map[string]any{
+					"azure-native:keyvault:Vault": res,
+				})
+				_ = m.UnmarshalJSON(b)
+				return m
+			}(),
+		},
+
 		// Mock the type lookup to only return the type referenced in the resource above
 		lookupType: func(ref string) (*resources.AzureAPIType, bool, error) {
 			if ref == "#/types/azure-native:keyvault:VaultProperties" {
@@ -267,7 +284,7 @@ func setUpResourceWithRefAndProviderWithTypeLookup() (*resources.AzureAPIResourc
 }
 
 func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
-	res, provider := setUpResourceWithRefAndProviderWithTypeLookup()
+	res, provider := setUpResourceWithRefAndProviderWithTypeLookup("")
 
 	t.Run("unchanged", func(t *testing.T) {
 		body := map[string]any{
@@ -327,10 +344,10 @@ func TestSetUnsetSubresourcePropertiesToDefaults(t *testing.T) {
 }
 
 func TestInvokeResponseToOutputs(t *testing.T) {
-	conv := convert.NewSdkShapeConverterFull(map[string]resources.AzureAPIType{})
-	p := azureNativeProvider{
-		converter: &conv,
+	invoke := resources.AzureAPIInvoke{
+		APIVersion: "v20241101",
 	}
+	conv := convert.NewSdkShapeConverterFull(map[string]resources.AzureAPIType{})
 
 	for _, val := range []any{
 		"string",
@@ -338,7 +355,8 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 		[]string{"a", "b"},
 	} {
 		t.Run(fmt.Sprintf("single value of type %T", val), func(t *testing.T) {
-			outputs := p.invokeResponseToOutputs(val, resources.AzureAPIInvoke{} /* unused */)
+			p := azureNativeProvider{converter: &conv}
+			outputs := p.invokeResponseToOutputs(val, invoke)
 			require.Len(t, outputs, 1)
 			require.Contains(t, outputs, resources.SingleValueProperty)
 			assert.Equal(t, val, outputs[resources.SingleValueProperty])
@@ -346,8 +364,26 @@ func TestInvokeResponseToOutputs(t *testing.T) {
 	}
 
 	t.Run("object", func(t *testing.T) {
-		outputs := p.invokeResponseToOutputs(map[string]any{"key": "value"}, resources.AzureAPIInvoke{})
+		p := azureNativeProvider{converter: &conv}
+		outputs := p.invokeResponseToOutputs(map[string]any{"key": "value"}, invoke)
 		assert.Empty(t, outputs) // the empty converter doesn't know any properties
+	})
+
+	t.Run("special case: IsResourceGetter", func(t *testing.T) {
+		invoke := resources.AzureAPIInvoke{
+			APIVersion:       "v20241101",
+			IsResourceGetter: true,
+		}
+		t.Run("azureApiVersion", func(t *testing.T) {
+			p := azureNativeProvider{converter: &conv, version: "2.0.0"}
+			outputs := p.invokeResponseToOutputs(map[string]any{}, invoke)
+			require.NotContains(t, outputs, "azureApiVersion")
+
+			p = azureNativeProvider{converter: &conv, version: "3.0.0"}
+			outputs = p.invokeResponseToOutputs(map[string]any{}, invoke)
+			require.Contains(t, outputs, "azureApiVersion")
+			assert.Equal(t, "v20241101", outputs["azureApiVersion"].(resource.PropertyValue).StringValue())
+		})
 	})
 }
 
@@ -647,6 +683,8 @@ func TestCustomCreate(t *testing.T) {
 func TestCheckpointObject(t *testing.T) {
 	t.Parallel()
 
+	res, _ := setUpResourceWithRefAndProviderWithTypeLookup("")
+
 	t.Run("stores inputs in v2", func(t *testing.T) {
 		t.Parallel()
 
@@ -655,7 +693,7 @@ func TestCheckpointObject(t *testing.T) {
 		}
 		outputs := map[string]any{}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey("__inputs"))
 	})
 
@@ -667,7 +705,7 @@ func TestCheckpointObject(t *testing.T) {
 		}
 		outputs := map[string]any{}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("3.0.0"))
 		assert.NotContains(t, checkpoint, resource.PropertyKey("__inputs"))
 	})
 
@@ -681,12 +719,163 @@ func TestCheckpointObject(t *testing.T) {
 			customresources.OriginalStateKey: resource.NewStringProperty("original state"),
 		}
 
-		checkpoint := checkpointObjectVersioned(inputs, outputs, semver.MustParse("2.0.0"))
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
 		assert.True(t, checkpoint.ContainsSecrets())
 
-		checkpoint = checkpointObjectVersioned(inputs, outputs, semver.MustParse("3.0.0"))
+		checkpoint = checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("3.0.0"))
 		assert.Contains(t, checkpoint, resource.PropertyKey(customresources.OriginalStateKey))
 		assert.True(t, checkpoint.ContainsSecrets())
 	})
+
+	t.Run("produces azureApiVersion", func(t *testing.T) {
+		inputs := resource.PropertyMap{}
+		outputs := map[string]interface{}{}
+
+		checkpoint := checkpointObjectVersioned(res, inputs, outputs, semver.MustParse("2.0.0"))
+		assert.Contains(t, checkpoint, resource.PropertyKey("azureApiVersion"))
+		assert.Equal(t, "v20241101", checkpoint["azureApiVersion"].StringValue())
+	})
+}
+
+func TestApplyDefaults(t *testing.T) {
+	ctx := context.Background()
+
+	t.Run("azureApiVersion", func(t *testing.T) {
+		olds := resource.PropertyMap{}
+		news := resource.PropertyMap{}
+
+		res, provider := setUpResourceWithRefAndProviderWithTypeLookup("2.0.0")
+		provider.applyDefaults(ctx, "urn", []byte{}, nil, *res, olds, news)
+		assert.NotContains(t, news, resource.PropertyKey("azureApiVersion"))
+
+		res, provider = setUpResourceWithRefAndProviderWithTypeLookup("3.0.0")
+		provider.applyDefaults(ctx, "urn", []byte{}, nil, *res, olds, news)
+		assert.Contains(t, news, resource.PropertyKey("azureApiVersion"))
+		assert.Equal(t, "v20241101", news["azureApiVersion"].StringValue())
+	})
+}
+
+func TestProviderDiff(t *testing.T) {
+	ctx := context.Background()
+
+	type args struct {
+		olds      resource.PropertyMap
+		oldInputs resource.PropertyMap
+		news      resource.PropertyMap
+	}
+	type want struct {
+		changes      rpc.DiffResponse_DiffChanges
+		detailedDiff map[string]*rpc.PropertyDiff
+	}
+	tests := []struct {
+		name    string
+		version string
+		args    args
+		want    want
+		wantErr bool
+	}{
+		{
+			name:    "azureApiVersion_v2_olds",
+			version: "2.0.0",
+			args: args{
+				olds: resource.PropertyMap{
+					// v2.90+: output property
+					"azureApiVersion": resource.NewStringProperty("v20241101"),
+				},
+				oldInputs: resource.PropertyMap{},
+				news:      resource.PropertyMap{},
+			},
+			want: want{
+				changes: rpc.DiffResponse_DIFF_NONE,
+			},
+		},
+		{
+			name:    "azureApiVersion_v2-to-v3_same",
+			version: "3.0.0",
+			args: args{
+				olds: resource.PropertyMap{
+					// v2.90+: output property
+					"azureApiVersion": resource.NewStringProperty("v20241101"),
+				},
+				oldInputs: resource.PropertyMap{},
+				news: resource.PropertyMap{
+					// v3: input property
+					"azureApiVersion": resource.NewStringProperty("v20241101"),
+				},
+			},
+			want: want{
+				changes: rpc.DiffResponse_DIFF_NONE,
+			},
+		},
+		{
+			name:    "azureApiVersion_v2-to-v3_add",
+			version: "3.0.0",
+			args: args{
+				olds:      resource.PropertyMap{},
+				oldInputs: resource.PropertyMap{},
+				news: resource.PropertyMap{
+					// v3: input property
+					"azureApiVersion": resource.NewStringProperty("v20241101"),
+				},
+			},
+			want: want{
+				changes: rpc.DiffResponse_DIFF_SOME,
+				detailedDiff: map[string]*rpc.PropertyDiff{
+					"azureApiVersion": {
+						Kind:      rpc.PropertyDiff_ADD,
+						InputDiff: true,
+					},
+				},
+			},
+		},
+		{
+			name:    "azureApiVersion_v2-to-v3_update",
+			version: "3.0.0",
+			args: args{
+				olds: resource.PropertyMap{
+					// v2.90+: output property
+					"azureApiVersion": resource.NewStringProperty("v20241101"),
+				},
+				oldInputs: resource.PropertyMap{},
+				news: resource.PropertyMap{
+					// v3: input property
+					"azureApiVersion": resource.NewStringProperty("v20251101-preview"),
+				},
+			},
+			want: want{
+				changes: rpc.DiffResponse_DIFF_SOME,
+				detailedDiff: map[string]*rpc.PropertyDiff{
+					"azureApiVersion": {
+						Kind:      rpc.PropertyDiff_UPDATE,
+						InputDiff: false,
+					},
+				},
+			},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			_, provider := setUpResourceWithRefAndProviderWithTypeLookup(tt.version)
+
+			olds, _ := plugin.MarshalProperties(tt.args.olds, plugin.MarshalOptions{})
+			oldInputs, _ := plugin.MarshalProperties(tt.args.oldInputs, plugin.MarshalOptions{})
+			news, _ := plugin.MarshalProperties(tt.args.news, plugin.MarshalOptions{})
+
+			req := &rpc.DiffRequest{
+				Id:        "id",
+				Urn:       "urn:pulumi:stack::project::azure-native:keyvault:Vault::id",
+				Olds:      olds,
+				OldInputs: oldInputs,
+				News:      news,
+			}
+			resp, err := provider.Diff(ctx, req)
+			require.NoError(t, err)
+			assert.Equal(t, tt.want.changes, resp.Changes, "expected no changes")
+			if tt.want.detailedDiff != nil {
+				assert.True(t, resp.HasDetailedDiff)
+				assert.EqualExportedValues(t, tt.want.detailedDiff, resp.DetailedDiff, "unexpected detailed diff")
+			}
+		})
+	}
 }
