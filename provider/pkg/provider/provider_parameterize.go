@@ -123,7 +123,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 
 	p.parameterizedSchemas.add(newPackageName, newSchema.Version, s)
 
-	if os.Getenv("PULUMI_DEBUG_PARAMETERIZE") != "" {
+	if _, found := os.LookupEnv("PULUMI_DEBUG_PARAMETERIZE"); found {
 		tmpPath := filepath.Join(os.TempDir(), newPackageName+".json")
 		err = os.WriteFile(tmpPath, s, 0644)
 		if err != nil {
