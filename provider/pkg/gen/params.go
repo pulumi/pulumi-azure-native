@@ -22,7 +22,7 @@ func FlattenParams(
 	types map[string]resources.AzureAPIType,
 ) (map[string]interface{}, error) {
 	out := map[string]interface{}{}
-	converter := convert.SdkShapeConverter{Types: types}
+	converter := convert.NewSdkShapeConverterFull(types)
 	// Sort the keys to ensure consistent ordering
 	for k, v := range util.MapOrdered(input) {
 		switch k {

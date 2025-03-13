@@ -67,7 +67,7 @@ type azureNativeProvider struct {
 	config         map[string]string
 
 	// also known as "metadata"
-	resourceMap *resources.PartialAzureAPIMetadata
+	resourceMap *resources.APIMetadata
 
 	schemaBytes []byte
 
@@ -92,7 +92,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 }
 
 func makeProviderInternal(host *provider.HostClient, name, version string, schemaBytes []byte,
-	resourceMap *resources.PartialAzureAPIMetadata) (*azureNativeProvider, error) {
+	resourceMap *resources.APIMetadata) (*azureNativeProvider, error) {
 
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
 
@@ -125,13 +125,17 @@ func (k *azureNativeProvider) getVersion() semver.Version {
 
 // LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
 // in memory
-func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.PartialAzureAPIMetadata, error) {
+func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.APIMetadata, error) {
 	var resourceMap resources.PartialAzureAPIMetadata
-
 	if _, err := json.Parse(azureAPIResourcesBytes, &resourceMap, json.ZeroCopy); err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
-	return &resourceMap, nil
+	apiMetadata := resources.APIMetadata{
+		Types:     &resourceMap.Types,
+		Resources: &resourceMap.Resources,
+		Invokes:   &resourceMap.Invokes,
+	}
+	return &apiMetadata, nil
 }
 
 // LoadMetadata deserializes the provided json byte array into an AzureAPIMetadata in memory

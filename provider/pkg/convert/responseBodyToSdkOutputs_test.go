@@ -490,7 +490,7 @@ func testResponseBodyToSdkOutputs(testCase responseBodyToSdkOutputsTestCase) map
 			}
 		}
 	}
-	c := SdkShapeConverter{Types: types}
+	c := NewSdkShapeConverterFull(types)
 	if testCase.bodyParameters == nil {
 		testCase.bodyParameters = map[string]resources.AzureAPIProperty{}
 	}

@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 
 	"github.com/pulumi/providertest/pulumitest"
@@ -16,6 +17,71 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestGetParameterizeArgs(t *testing.T) {
+	t.Parallel()
+
+	t.Run("value", func(t *testing.T) {
+		t.Parallel()
+
+		args := parameterizeArgs{
+			Module:  "aad",
+			Version: "v20221201",
+		}
+		serialized, err := serializeParameterizeArgs(&args)
+		require.NoError(t, err)
+
+		req := &rpc.ParameterizeRequest{
+			Parameters: &rpc.ParameterizeRequest_Value{
+				Value: &rpc.ParameterizeRequest_ParametersValue{
+					Value: serialized,
+				},
+			},
+		}
+		got, err := getParameterizeArgs(req)
+		require.NoError(t, err)
+		require.Equal(t, args, *got)
+	})
+
+	t.Run("args", func(t *testing.T) {
+		t.Parallel()
+
+		req := &rpc.ParameterizeRequest{
+			Parameters: &rpc.ParameterizeRequest_Args{
+				Args: &rpc.ParameterizeRequest_ParametersArgs{
+					Args: []string{"aad", "v20221201"},
+				},
+			},
+		}
+		got, err := getParameterizeArgs(req)
+		require.NoError(t, err)
+		require.Equal(t, "aad", got.Module)
+		require.Equal(t, "v20221201", got.Version)
+	})
+
+	t.Run("unexpected args", func(t *testing.T) {
+		t.Parallel()
+
+		req := &rpc.ParameterizeRequest{
+			Parameters: &rpc.ParameterizeRequest_Args{
+				Args: &rpc.ParameterizeRequest_ParametersArgs{
+					Args: []string{"aad"},
+				},
+			},
+		}
+		got, err := getParameterizeArgs(req)
+		require.Error(t, err)
+		require.Nil(t, got)
+	})
+
+	t.Run("empty", func(t *testing.T) {
+		t.Parallel()
+
+		req := &rpc.ParameterizeRequest{}
+		_, err := getParameterizeArgs(req)
+		require.Error(t, err)
+	})
+}
 
 // A struct to get the schema version without deserializing the whole schema.
 type schemaWithVersion struct {
@@ -35,34 +101,80 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	providerVersion := v.Version
 
-	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.PartialAzureAPIMetadata{
-		Types:     resources.PartialMap[resources.AzureAPIType]{},
-		Resources: resources.PartialMap[resources.AzureAPIResource]{},
-		Invokes:   resources.PartialMap[resources.AzureAPIInvoke]{},
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
+		Types: resources.GoMap[resources.AzureAPIType]{},
+		Resources: resources.GoMap[resources.AzureAPIResource]{
+			"azure-native:aad/v20221201:DomainService": {},
+		},
+		Invokes: resources.GoMap[resources.AzureAPIInvoke]{},
 	})
+	require.NoError(t, err)
+
+	parameterizationArgs := []string{"aad", "v20221201"}
+	expectedProviderName := "azure-native_aad_v20221201"
+
 	require.NoError(t, err)
 
 	resp, err := provider.Parameterize(context.Background(), &rpc.ParameterizeRequest{
 		Parameters: &rpc.ParameterizeRequest_Args{
 			Args: &rpc.ParameterizeRequest_ParametersArgs{
-				Args: []string{"aad", "v20221201"},
+				Args: parameterizationArgs,
 			},
 		},
 	})
 	require.NoError(t, err)
-	require.Equal(t, "azure-native_aad_v20221201", resp.Name)
+	require.Equal(t, expectedProviderName, resp.Name)
 
+	// check that schema looks ok
 	var schema pschema.PackageSpec
 	err = json.Unmarshal(provider.schemaBytes, &schema)
 	require.NoError(t, err)
 	assert.NotEmpty(t, schema.Types)
+	for typeName := range schema.Types {
+		assert.True(t, strings.HasPrefix(typeName, expectedProviderName+":aad"))
+	}
 	assert.NotEmpty(t, schema.Resources)
+	for resourceName := range schema.Resources {
+		assert.True(t, strings.HasPrefix(resourceName, expectedProviderName+":aad"))
+	}
 	assert.NotEmpty(t, schema.Functions)
 
-	// metadata is serialized as a base64-encoded JSON string
-	assert.NotEmpty(t, schema.Parameterization.Parameter)
-	_, err = deserializeMetadata(schema.Parameterization.Parameter)
+	// check that metadata looks ok
+	metadata := provider.resourceMap
+	assert.NotNil(t, metadata)
+	assert.NotNil(t, metadata.Resources)
+	assert.NotNil(t, metadata.Types)
+	assert.NotNil(t, metadata.Invokes)
+	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad/v20221201:DomainService")
 	require.NoError(t, err)
+	assert.True(t, ok)
+	assert.NotNil(t, resource)
+	_, ok, err = metadata.Resources.Get("azure-native:aad/v20221201:DomainService")
+	require.NoError(t, err)
+	assert.False(t, ok)
+
+	// parameterization arguments a serialized as a base64-encoded JSON string
+	assert.NotEmpty(t, schema.Parameterization.Parameter)
+	args, err := deserializeParameterizeArgs(schema.Parameterization.Parameter)
+	require.NoError(t, err)
+	assert.Equal(t, "aad", args.Module)
+	assert.Equal(t, "v20221201", args.Version)
+}
+
+func TestRoundtripParameterizeArgs(t *testing.T) {
+	t.Parallel()
+
+	args := parameterizeArgs{
+		Module:  "aad",
+		Version: "v20221201",
+	}
+	serialized, err := serializeParameterizeArgs(&args)
+	require.NoError(t, err)
+
+	deserialized, err := deserializeParameterizeArgs(serialized)
+	require.NoError(t, err)
+
+	require.Equal(t, args, *deserialized)
 }
 
 func TestFilterTokens(t *testing.T) {
@@ -80,77 +192,17 @@ func TestFilterTokens(t *testing.T) {
 	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
 }
 
-// equalInPartialMap asserts that a key exists in a PartialMap and its value is equal to an expected value.
-func equalInPartialMap[T any](t *testing.T, pm resources.PartialMap[T], key string, expected T) {
-	actual, ok, err := pm.Get(key)
-	require.NoError(t, err)
-	require.True(t, ok)
-	require.Equal(t, expected, actual)
-}
-
-func TestRoundtripMetadata(t *testing.T) {
-	t.Parallel()
-
-	metadata := &resources.AzureAPIMetadata{
-		Types: map[string]resources.AzureAPIType{
-			"azure-native:aad:Thing": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"prop": {
-						Type:       "string",
-						Containers: []string{"foo"},
-						ForceNew:   true,
-					},
-				},
-			},
-		},
-		Resources: map[string]resources.AzureAPIResource{
-			"azure-native:aad:Application": {
-				PutParameters: []resources.AzureAPIParameter{
-					{
-						Name:       "prop",
-						Location:   "body",
-						IsRequired: true,
-						Body: &resources.AzureAPIType{
-							Properties: map[string]resources.AzureAPIProperty{
-								"prop": {
-									Type: "object",
-									Ref:  "#/azure-native:aad:Thing",
-								},
-							},
-						},
-					},
-				},
-			},
-		},
-		Invokes: map[string]resources.AzureAPIInvoke{},
-	}
-
-	metadataBytes, err := serializeMetadata(metadata)
-	require.NoError(t, err)
-	require.NotNil(t, metadataBytes)
-
-	deserializedMetadata, err := deserializeMetadata(metadataBytes)
-	require.NoError(t, err)
-
-	for typeName, typeDef := range metadata.Types {
-		equalInPartialMap(t, deserializedMetadata.Types, typeName, typeDef)
-	}
-
-	for resourceName, resourceDef := range metadata.Resources {
-		equalInPartialMap(t, deserializedMetadata.Resources, resourceName, resourceDef)
-	}
-
-	for invokeName, invokeDef := range metadata.Invokes {
-		equalInPartialMap(t, deserializedMetadata.Invokes, invokeName, invokeDef)
-	}
-}
-
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
 func TestParameterizePackageAdd(t *testing.T) {
 	t.Parallel()
 
 	pt := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parameterize-storage"))
 	pulumiPackageAdd(t, pt, "../../../bin/pulumi-resource-azure-native", "storage", "v20240101")
+
+	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
+	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
+		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
+	}
 }
 
 func pulumiPackageAdd(
@@ -179,10 +231,5 @@ func pulumiPackageAdd(
 	if err != nil || exitCode != 0 {
 		t.Fatalf("Failed to run pulumi package add\nExit code: %d\nError: %v\n%s\n%s",
 			exitCode, err, stdout, stderr)
-	}
-
-	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
-	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
-		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
 	}
 }

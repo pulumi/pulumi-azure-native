@@ -425,7 +425,7 @@ func testSdkOutputsToSDKInputs(testCase sdkOutputsToSDKInputsTestCase) map[strin
 			}
 		}
 	}
-	c := SdkShapeConverter{Types: types}
+	c := NewSdkShapeConverterFull(types)
 	parameters := testCase.extraParameters
 	if testCase.bodyParameters != nil {
 		parameters = append(parameters, resources.AzureAPIParameter{
