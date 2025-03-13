@@ -27,13 +27,16 @@ class GetOperatorApiConnectionResult:
     """
     A Programmable Connectivity Operator API Connection resource
     """
-    def __init__(__self__, account_type=None, app_id=None, camara_api_name=None, configured_application=None, gateway_id=None, id=None, location=None, name=None, operator_api_plan_id=None, operator_name=None, provisioning_state=None, saas_properties=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_type=None, app_id=None, azure_api_version=None, camara_api_name=None, configured_application=None, gateway_id=None, id=None, location=None, name=None, operator_api_plan_id=None, operator_name=None, provisioning_state=None, saas_properties=None, status=None, system_data=None, tags=None, type=None):
         if account_type and not isinstance(account_type, str):
             raise TypeError("Expected argument 'account_type' to be a str")
         pulumi.set(__self__, "account_type", account_type)
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if camara_api_name and not isinstance(camara_api_name, str):
             raise TypeError("Expected argument 'camara_api_name' to be a str")
         pulumi.set(__self__, "camara_api_name", camara_api_name)
@@ -92,6 +95,14 @@ class GetOperatorApiConnectionResult:
         Application ID of the App Developer that is registered with the Operator in a specific country/region.
         """
         return pulumi.get(self, "app_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="camaraApiName")
@@ -214,6 +225,7 @@ class AwaitableGetOperatorApiConnectionResult(GetOperatorApiConnectionResult):
         return GetOperatorApiConnectionResult(
             account_type=self.account_type,
             app_id=self.app_id,
+            azure_api_version=self.azure_api_version,
             camara_api_name=self.camara_api_name,
             configured_application=self.configured_application,
             gateway_id=self.gateway_id,
@@ -250,6 +262,7 @@ def get_operator_api_connection(operator_api_connection_name: Optional[str] = No
     return AwaitableGetOperatorApiConnectionResult(
         account_type=pulumi.get(__ret__, 'account_type'),
         app_id=pulumi.get(__ret__, 'app_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         camara_api_name=pulumi.get(__ret__, 'camara_api_name'),
         configured_application=pulumi.get(__ret__, 'configured_application'),
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
@@ -283,6 +296,7 @@ def get_operator_api_connection_output(operator_api_connection_name: Optional[pu
     return __ret__.apply(lambda __response__: GetOperatorApiConnectionResult(
         account_type=pulumi.get(__response__, 'account_type'),
         app_id=pulumi.get(__response__, 'app_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         camara_api_name=pulumi.get(__response__, 'camara_api_name'),
         configured_application=pulumi.get(__response__, 'configured_application'),
         gateway_id=pulumi.get(__response__, 'gateway_id'),

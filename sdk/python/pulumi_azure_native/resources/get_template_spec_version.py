@@ -27,7 +27,10 @@ class GetTemplateSpecVersionResult:
     """
     Template Spec Version object.
     """
-    def __init__(__self__, description=None, id=None, linked_templates=None, location=None, main_template=None, metadata=None, name=None, system_data=None, tags=None, type=None, ui_form_definition=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, linked_templates=None, location=None, main_template=None, metadata=None, name=None, system_data=None, tags=None, type=None, ui_form_definition=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -61,6 +64,14 @@ class GetTemplateSpecVersionResult:
         if ui_form_definition and not isinstance(ui_form_definition, dict):
             raise TypeError("Expected argument 'ui_form_definition' to be a dict")
         pulumi.set(__self__, "ui_form_definition", ui_form_definition)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
         if False:
             yield self
         return GetTemplateSpecVersionResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             linked_templates=self.linked_templates,
@@ -178,8 +190,6 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     Gets a Template Spec version from a specific Template Spec.
     Azure REST API version: 2022-02-01.
 
-    Other available API versions: 2019-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
@@ -193,6 +203,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         linked_templates=pulumi.get(__ret__, 'linked_templates'),
@@ -212,8 +223,6 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     Gets a Template Spec version from a specific Template Spec.
     Azure REST API version: 2022-02-01.
 
-    Other available API versions: 2019-06-01-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str template_spec_name: Name of the Template Spec.
@@ -226,6 +235,7 @@ def get_template_spec_version_output(resource_group_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult)
     return __ret__.apply(lambda __response__: GetTemplateSpecVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         linked_templates=pulumi.get(__response__, 'linked_templates'),

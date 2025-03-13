@@ -27,7 +27,10 @@ class GetGuestAgentResult:
     """
     Defines the GuestAgent.
     """
-    def __init__(__self__, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, system_data=None, type=None, uuid=None):
+    def __init__(__self__, azure_api_version=None, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, system_data=None, type=None, uuid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -61,6 +64,14 @@ class GetGuestAgentResult:
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetGuestAgentResult(GetGuestAgentResult):
         if False:
             yield self
         return GetGuestAgentResult(
+            azure_api_version=self.azure_api_version,
             credentials=self.credentials,
             custom_resource_name=self.custom_resource_name,
             http_proxy_config=self.http_proxy_config,
@@ -176,9 +188,7 @@ def get_guest_agent(guest_agent_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str guest_agent_name: Name of the GuestAgent.
@@ -193,6 +203,7 @@ def get_guest_agent(guest_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult).value
 
     return AwaitableGetGuestAgentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credentials=pulumi.get(__ret__, 'credentials'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
@@ -210,9 +221,7 @@ def get_guest_agent_output(guest_agent_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str guest_agent_name: Name of the GuestAgent.
@@ -226,6 +235,7 @@ def get_guest_agent_output(guest_agent_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult)
     return __ret__.apply(lambda __response__: GetGuestAgentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credentials=pulumi.get(__response__, 'credentials'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),

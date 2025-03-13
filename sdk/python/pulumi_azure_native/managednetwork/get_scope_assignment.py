@@ -26,10 +26,13 @@ class GetScopeAssignmentResult:
     """
     The Managed Network resource
     """
-    def __init__(__self__, assigned_managed_network=None, etag=None, id=None, location=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, assigned_managed_network=None, azure_api_version=None, etag=None, id=None, location=None, name=None, provisioning_state=None, type=None):
         if assigned_managed_network and not isinstance(assigned_managed_network, str):
             raise TypeError("Expected argument 'assigned_managed_network' to be a str")
         pulumi.set(__self__, "assigned_managed_network", assigned_managed_network)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -56,6 +59,14 @@ class GetScopeAssignmentResult:
         The managed network ID with scope will be assigned to.
         """
         return pulumi.get(self, "assigned_managed_network")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetScopeAssignmentResult(GetScopeAssignmentResult):
             yield self
         return GetScopeAssignmentResult(
             assigned_managed_network=self.assigned_managed_network,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -140,6 +152,7 @@ def get_scope_assignment(scope: Optional[str] = None,
 
     return AwaitableGetScopeAssignmentResult(
         assigned_managed_network=pulumi.get(__ret__, 'assigned_managed_network'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -164,6 +177,7 @@ def get_scope_assignment_output(scope: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetwork:getScopeAssignment', __args__, opts=opts, typ=GetScopeAssignmentResult)
     return __ret__.apply(lambda __response__: GetScopeAssignmentResult(
         assigned_managed_network=pulumi.get(__response__, 'assigned_managed_network'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

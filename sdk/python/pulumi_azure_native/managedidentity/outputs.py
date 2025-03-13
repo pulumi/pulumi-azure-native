@@ -15,86 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'AzureResourceResponse',
     'SystemDataResponse',
 ]
-
-@pulumi.output_type
-class AzureResourceResponse(dict):
-    """
-    Describes an Azure resource that is attached to an identity.
-    """
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 resource_group: str,
-                 subscription_display_name: str,
-                 subscription_id: str,
-                 type: str):
-        """
-        Describes an Azure resource that is attached to an identity.
-        :param str id: The ID of this resource.
-        :param str name: The name of this resource.
-        :param str resource_group: The name of the resource group this resource belongs to.
-        :param str subscription_display_name: The name of the subscription this resource belongs to.
-        :param str subscription_id: The ID of the subscription this resource belongs to.
-        :param str type: The type of this resource.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "resource_group", resource_group)
-        pulumi.set(__self__, "subscription_display_name", subscription_display_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The ID of this resource.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of this resource.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> str:
-        """
-        The name of the resource group this resource belongs to.
-        """
-        return pulumi.get(self, "resource_group")
-
-    @property
-    @pulumi.getter(name="subscriptionDisplayName")
-    def subscription_display_name(self) -> str:
-        """
-        The name of the subscription this resource belongs to.
-        """
-        return pulumi.get(self, "subscription_display_name")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> str:
-        """
-        The ID of the subscription this resource belongs to.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The type of this resource.
-        """
-        return pulumi.get(self, "type")
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):

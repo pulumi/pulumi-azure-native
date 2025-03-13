@@ -27,10 +27,13 @@ class GetJitRequestResult:
     """
     Information about JIT request definition.
     """
-    def __init__(__self__, application_resource_id=None, created_by=None, id=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, system_data=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_resource_id=None, azure_api_version=None, created_by=None, id=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, system_data=None, tags=None, type=None, updated_by=None):
         if application_resource_id and not isinstance(application_resource_id, str):
             raise TypeError("Expected argument 'application_resource_id' to be a str")
         pulumi.set(__self__, "application_resource_id", application_resource_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
         pulumi.set(__self__, "created_by", created_by)
@@ -78,6 +81,14 @@ class GetJitRequestResult:
         The parent application id.
         """
         return pulumi.get(self, "application_resource_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -191,6 +202,7 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
             yield self
         return GetJitRequestResult(
             application_resource_id=self.application_resource_id,
+            azure_api_version=self.azure_api_version,
             created_by=self.created_by,
             id=self.id,
             jit_authorization_policies=self.jit_authorization_policies,
@@ -213,8 +225,6 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     Gets the JIT request.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -227,6 +237,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
 
     return AwaitableGetJitRequestResult(
         application_resource_id=pulumi.get(__ret__, 'application_resource_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
         id=pulumi.get(__ret__, 'id'),
         jit_authorization_policies=pulumi.get(__ret__, 'jit_authorization_policies'),
@@ -247,8 +258,6 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     Gets the JIT request.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str jit_request_name: The name of the JIT request.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,6 +269,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:solutions:getJitRequest', __args__, opts=opts, typ=GetJitRequestResult)
     return __ret__.apply(lambda __response__: GetJitRequestResult(
         application_resource_id=pulumi.get(__response__, 'application_resource_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by=pulumi.get(__response__, 'created_by'),
         id=pulumi.get(__response__, 'id'),
         jit_authorization_policies=pulumi.get(__response__, 'jit_authorization_policies'),

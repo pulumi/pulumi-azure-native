@@ -978,6 +978,10 @@ if not MYPY:
         """
         The alternative FQDN or IP addresses to discover for this server
         """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource labels
+        """
         machine_arm_id: NotRequired[pulumi.Input[str]]
         """
         The machine Id from ARM
@@ -1007,6 +1011,7 @@ class SpringbootserversPropertiesArgs:
                  server: pulumi.Input[str],
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]]] = None,
                  fqdn_and_ip_address_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  machine_arm_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
@@ -1017,6 +1022,7 @@ class SpringbootserversPropertiesArgs:
         :param pulumi.Input[str] server: Server is the target server name or ip address to discover of SpringBootServer.
         :param pulumi.Input[Sequence[pulumi.Input['ErrorArgs']]] errors: The list of errors.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_and_ip_address_list: The alternative FQDN or IP addresses to discover for this server
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Resource labels
         :param pulumi.Input[str] machine_arm_id: The machine Id from ARM
         :param pulumi.Input[int] port: Target server port for remote login
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The resource provisioning state.
@@ -1028,6 +1034,8 @@ class SpringbootserversPropertiesArgs:
             pulumi.set(__self__, "errors", errors)
         if fqdn_and_ip_address_list is not None:
             pulumi.set(__self__, "fqdn_and_ip_address_list", fqdn_and_ip_address_list)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
         if machine_arm_id is not None:
             pulumi.set(__self__, "machine_arm_id", machine_arm_id)
         if port is not None:
@@ -1074,6 +1082,18 @@ class SpringbootserversPropertiesArgs:
     @fqdn_and_ip_address_list.setter
     def fqdn_and_ip_address_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "fqdn_and_ip_address_list", value)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource labels
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
 
     @property
     @pulumi.getter(name="machineArmId")

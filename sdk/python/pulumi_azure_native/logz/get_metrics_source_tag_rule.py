@@ -27,7 +27,10 @@ class GetMetricsSourceTagRuleResult:
     """
     Capture metrics of Azure resources based on ARM tags.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetMetricsSourceTagRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetMetricsSourceTagRuleResult(GetMetricsSourceTagRuleResult):
         if False:
             yield self
         return GetMetricsSourceTagRuleResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -121,6 +133,7 @@ def get_metrics_source_tag_rule(metrics_source_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logz:getMetricsSourceTagRule', __args__, opts=opts, typ=GetMetricsSourceTagRuleResult).value
 
     return AwaitableGetMetricsSourceTagRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -148,6 +161,7 @@ def get_metrics_source_tag_rule_output(metrics_source_name: Optional[pulumi.Inpu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz:getMetricsSourceTagRule', __args__, opts=opts, typ=GetMetricsSourceTagRuleResult)
     return __ret__.apply(lambda __response__: GetMetricsSourceTagRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

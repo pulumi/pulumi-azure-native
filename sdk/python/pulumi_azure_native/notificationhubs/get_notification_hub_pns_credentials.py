@@ -28,19 +28,37 @@ class GetNotificationHubPnsCredentialsResult:
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, adm_credential=None, apns_credential=None, baidu_credential=None, browser_credential=None, fcm_v1_credential=None, gcm_credential=None, id=None, location=None, mpns_credential=None, name=None, system_data=None, tags=None, type=None, wns_credential=None, xiaomi_credential=None):
+        if adm_credential and not isinstance(adm_credential, dict):
+            raise TypeError("Expected argument 'adm_credential' to be a dict")
+        pulumi.set(__self__, "adm_credential", adm_credential)
+        if apns_credential and not isinstance(apns_credential, dict):
+            raise TypeError("Expected argument 'apns_credential' to be a dict")
+        pulumi.set(__self__, "apns_credential", apns_credential)
+        if baidu_credential and not isinstance(baidu_credential, dict):
+            raise TypeError("Expected argument 'baidu_credential' to be a dict")
+        pulumi.set(__self__, "baidu_credential", baidu_credential)
+        if browser_credential and not isinstance(browser_credential, dict):
+            raise TypeError("Expected argument 'browser_credential' to be a dict")
+        pulumi.set(__self__, "browser_credential", browser_credential)
+        if fcm_v1_credential and not isinstance(fcm_v1_credential, dict):
+            raise TypeError("Expected argument 'fcm_v1_credential' to be a dict")
+        pulumi.set(__self__, "fcm_v1_credential", fcm_v1_credential)
+        if gcm_credential and not isinstance(gcm_credential, dict):
+            raise TypeError("Expected argument 'gcm_credential' to be a dict")
+        pulumi.set(__self__, "gcm_credential", gcm_credential)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if mpns_credential and not isinstance(mpns_credential, dict):
+            raise TypeError("Expected argument 'mpns_credential' to be a dict")
+        pulumi.set(__self__, "mpns_credential", mpns_credential)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -50,6 +68,60 @@ class GetNotificationHubPnsCredentialsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if wns_credential and not isinstance(wns_credential, dict):
+            raise TypeError("Expected argument 'wns_credential' to be a dict")
+        pulumi.set(__self__, "wns_credential", wns_credential)
+        if xiaomi_credential and not isinstance(xiaomi_credential, dict):
+            raise TypeError("Expected argument 'xiaomi_credential' to be a dict")
+        pulumi.set(__self__, "xiaomi_credential", xiaomi_credential)
+
+    @property
+    @pulumi.getter(name="admCredential")
+    def adm_credential(self) -> Optional['outputs.AdmCredentialResponse']:
+        """
+        Description of a NotificationHub AdmCredential.
+        """
+        return pulumi.get(self, "adm_credential")
+
+    @property
+    @pulumi.getter(name="apnsCredential")
+    def apns_credential(self) -> Optional['outputs.ApnsCredentialResponse']:
+        """
+        Description of a NotificationHub ApnsCredential.
+        """
+        return pulumi.get(self, "apns_credential")
+
+    @property
+    @pulumi.getter(name="baiduCredential")
+    def baidu_credential(self) -> Optional['outputs.BaiduCredentialResponse']:
+        """
+        Description of a NotificationHub BaiduCredential.
+        """
+        return pulumi.get(self, "baidu_credential")
+
+    @property
+    @pulumi.getter(name="browserCredential")
+    def browser_credential(self) -> Optional['outputs.BrowserCredentialResponse']:
+        """
+        Description of a NotificationHub BrowserCredential.
+        """
+        return pulumi.get(self, "browser_credential")
+
+    @property
+    @pulumi.getter(name="fcmV1Credential")
+    def fcm_v1_credential(self) -> Optional['outputs.FcmV1CredentialResponse']:
+        """
+        Description of a NotificationHub FcmV1Credential.
+        """
+        return pulumi.get(self, "fcm_v1_credential")
+
+    @property
+    @pulumi.getter(name="gcmCredential")
+    def gcm_credential(self) -> Optional['outputs.GcmCredentialResponse']:
+        """
+        Description of a NotificationHub GcmCredential.
+        """
+        return pulumi.get(self, "gcm_credential")
 
     @property
     @pulumi.getter
@@ -68,20 +140,20 @@ class GetNotificationHubPnsCredentialsResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="mpnsCredential")
+    def mpns_credential(self) -> Optional['outputs.MpnsCredentialResponse']:
+        """
+        Description of a NotificationHub MpnsCredential.
+        """
+        return pulumi.get(self, "mpns_credential")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.PnsCredentialsResponse':
-        """
-        Collection of Notification Hub or Notification Hub Namespace PNS credentials.
-        """
-        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
@@ -107,6 +179,22 @@ class GetNotificationHubPnsCredentialsResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="wnsCredential")
+    def wns_credential(self) -> Optional['outputs.WnsCredentialResponse']:
+        """
+        Description of a NotificationHub WnsCredential.
+        """
+        return pulumi.get(self, "wns_credential")
+
+    @property
+    @pulumi.getter(name="xiaomiCredential")
+    def xiaomi_credential(self) -> Optional['outputs.XiaomiCredentialResponse']:
+        """
+        Description of a NotificationHub XiaomiCredential.
+        """
+        return pulumi.get(self, "xiaomi_credential")
+
 
 class AwaitableGetNotificationHubPnsCredentialsResult(GetNotificationHubPnsCredentialsResult):
     # pylint: disable=using-constant-test
@@ -114,13 +202,21 @@ class AwaitableGetNotificationHubPnsCredentialsResult(GetNotificationHubPnsCrede
         if False:
             yield self
         return GetNotificationHubPnsCredentialsResult(
+            adm_credential=self.adm_credential,
+            apns_credential=self.apns_credential,
+            baidu_credential=self.baidu_credential,
+            browser_credential=self.browser_credential,
+            fcm_v1_credential=self.fcm_v1_credential,
+            gcm_credential=self.gcm_credential,
             id=self.id,
             location=self.location,
+            mpns_credential=self.mpns_credential,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            wns_credential=self.wns_credential,
+            xiaomi_credential=self.xiaomi_credential)
 
 
 def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
@@ -130,9 +226,7 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
     """
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str namespace_name: Namespace name
@@ -147,13 +241,21 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:notificationhubs:getNotificationHubPnsCredentials', __args__, opts=opts, typ=GetNotificationHubPnsCredentialsResult).value
 
     return AwaitableGetNotificationHubPnsCredentialsResult(
+        adm_credential=pulumi.get(__ret__, 'adm_credential'),
+        apns_credential=pulumi.get(__ret__, 'apns_credential'),
+        baidu_credential=pulumi.get(__ret__, 'baidu_credential'),
+        browser_credential=pulumi.get(__ret__, 'browser_credential'),
+        fcm_v1_credential=pulumi.get(__ret__, 'fcm_v1_credential'),
+        gcm_credential=pulumi.get(__ret__, 'gcm_credential'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
+        mpns_credential=pulumi.get(__ret__, 'mpns_credential'),
         name=pulumi.get(__ret__, 'name'),
-        properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        wns_credential=pulumi.get(__ret__, 'wns_credential'),
+        xiaomi_credential=pulumi.get(__ret__, 'xiaomi_credential'))
 def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.Input[str]] = None,
                                                 notification_hub_name: Optional[pulumi.Input[str]] = None,
                                                 resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,9 +263,7 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
     """
     Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
     PNS credentials.
-    Azure REST API version: 2023-01-01-preview.
-
-    Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str namespace_name: Namespace name
@@ -177,10 +277,18 @@ def get_notification_hub_pns_credentials_output(namespace_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:notificationhubs:getNotificationHubPnsCredentials', __args__, opts=opts, typ=GetNotificationHubPnsCredentialsResult)
     return __ret__.apply(lambda __response__: GetNotificationHubPnsCredentialsResult(
+        adm_credential=pulumi.get(__response__, 'adm_credential'),
+        apns_credential=pulumi.get(__response__, 'apns_credential'),
+        baidu_credential=pulumi.get(__response__, 'baidu_credential'),
+        browser_credential=pulumi.get(__response__, 'browser_credential'),
+        fcm_v1_credential=pulumi.get(__response__, 'fcm_v1_credential'),
+        gcm_credential=pulumi.get(__response__, 'gcm_credential'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
+        mpns_credential=pulumi.get(__response__, 'mpns_credential'),
         name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        wns_credential=pulumi.get(__response__, 'wns_credential'),
+        xiaomi_credential=pulumi.get(__response__, 'xiaomi_credential')))

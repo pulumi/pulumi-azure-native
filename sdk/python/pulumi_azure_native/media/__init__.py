@@ -22,7 +22,6 @@ from .get_live_event_status import *
 from .get_live_event_stream_events import *
 from .get_live_event_track_ingest_heartbeats import *
 from .get_live_output import *
-from .get_media_graph import *
 from .get_media_service import *
 from .get_private_endpoint_connection import *
 from .get_streaming_endpoint import *
@@ -39,7 +38,6 @@ from .list_streaming_locator_content_keys import *
 from .list_streaming_locator_paths import *
 from .live_event import *
 from .live_output import *
-from .media_graph import *
 from .media_service import *
 from .private_endpoint_connection import *
 from .streaming_endpoint import *
@@ -49,32 +47,3 @@ from .track import *
 from .transform import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.media.v20151001 as __v20151001
-    v20151001 = __v20151001
-    import pulumi_azure_native.media.v20180330preview as __v20180330preview
-    v20180330preview = __v20180330preview
-    import pulumi_azure_native.media.v20180601preview as __v20180601preview
-    v20180601preview = __v20180601preview
-    import pulumi_azure_native.media.v20190501preview as __v20190501preview
-    v20190501preview = __v20190501preview
-    import pulumi_azure_native.media.v20200201preview as __v20200201preview
-    v20200201preview = __v20200201preview
-    import pulumi_azure_native.media.v20220701 as __v20220701
-    v20220701 = __v20220701
-    import pulumi_azure_native.media.v20221101 as __v20221101
-    v20221101 = __v20221101
-    import pulumi_azure_native.media.v20230101 as __v20230101
-    v20230101 = __v20230101
-else:
-    v20151001 = _utilities.lazy_import('pulumi_azure_native.media.v20151001')
-    v20180330preview = _utilities.lazy_import('pulumi_azure_native.media.v20180330preview')
-    v20180601preview = _utilities.lazy_import('pulumi_azure_native.media.v20180601preview')
-    v20190501preview = _utilities.lazy_import('pulumi_azure_native.media.v20190501preview')
-    v20200201preview = _utilities.lazy_import('pulumi_azure_native.media.v20200201preview')
-    v20220701 = _utilities.lazy_import('pulumi_azure_native.media.v20220701')
-    v20221101 = _utilities.lazy_import('pulumi_azure_native.media.v20221101')
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.media.v20230101')
-

@@ -167,7 +167,7 @@ class InternetGateway(pulumi.CustomResource):
                  __props__=None):
         """
         The Internet Gateway resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -188,7 +188,7 @@ class InternetGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Internet Gateway resource definition.
-        Azure REST API version: 2023-06-15.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
 
         :param str resource_name: The name of the resource.
         :param InternetGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -236,6 +236,7 @@ class InternetGateway(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["ipv4_address"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["port"] = None
@@ -266,6 +267,7 @@ class InternetGateway(pulumi.CustomResource):
         __props__ = InternetGatewayArgs.__new__(InternetGatewayArgs)
 
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["internet_gateway_rule_id"] = None
         __props__.__dict__["ipv4_address"] = None
         __props__.__dict__["location"] = None
@@ -285,6 +287,14 @@ class InternetGateway(pulumi.CustomResource):
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="internetGatewayRuleId")

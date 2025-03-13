@@ -14,7 +14,6 @@ from .app_service_plan_route_for_vnet import *
 from .certificate import *
 from .connection import *
 from .connection_gateway import *
-from .container_app import *
 from .custom_api import *
 from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
@@ -23,7 +22,6 @@ from .get_app_service_plan import *
 from .get_certificate import *
 from .get_connection import *
 from .get_connection_gateway import *
-from .get_container_app import *
 from .get_custom_api import *
 from .get_kube_environment import *
 from .get_static_site import *
@@ -76,7 +74,6 @@ from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
 from .list_connection_consent_links import *
 from .list_connection_keys import *
-from .list_container_app_secrets import *
 from .list_custom_api_wsdl_interfaces import *
 from .list_site_identifiers_assigned_to_host_name import *
 from .list_static_site_app_settings import *
@@ -185,71 +182,3 @@ from .web_app_vnet_connection import *
 from .web_app_vnet_connection_slot import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.web.v20150801preview as __v20150801preview
-    v20150801preview = __v20150801preview
-    import pulumi_azure_native.web.v20160301 as __v20160301
-    v20160301 = __v20160301
-    import pulumi_azure_native.web.v20160601 as __v20160601
-    v20160601 = __v20160601
-    import pulumi_azure_native.web.v20160801 as __v20160801
-    v20160801 = __v20160801
-    import pulumi_azure_native.web.v20160901 as __v20160901
-    v20160901 = __v20160901
-    import pulumi_azure_native.web.v20180201 as __v20180201
-    v20180201 = __v20180201
-    import pulumi_azure_native.web.v20181101 as __v20181101
-    v20181101 = __v20181101
-    import pulumi_azure_native.web.v20190801 as __v20190801
-    v20190801 = __v20190801
-    import pulumi_azure_native.web.v20200601 as __v20200601
-    v20200601 = __v20200601
-    import pulumi_azure_native.web.v20200901 as __v20200901
-    v20200901 = __v20200901
-    import pulumi_azure_native.web.v20201001 as __v20201001
-    v20201001 = __v20201001
-    import pulumi_azure_native.web.v20201201 as __v20201201
-    v20201201 = __v20201201
-    import pulumi_azure_native.web.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.web.v20210115 as __v20210115
-    v20210115 = __v20210115
-    import pulumi_azure_native.web.v20210201 as __v20210201
-    v20210201 = __v20210201
-    import pulumi_azure_native.web.v20210301 as __v20210301
-    v20210301 = __v20210301
-    import pulumi_azure_native.web.v20220301 as __v20220301
-    v20220301 = __v20220301
-    import pulumi_azure_native.web.v20220901 as __v20220901
-    v20220901 = __v20220901
-    import pulumi_azure_native.web.v20230101 as __v20230101
-    v20230101 = __v20230101
-    import pulumi_azure_native.web.v20231201 as __v20231201
-    v20231201 = __v20231201
-    import pulumi_azure_native.web.v20240401 as __v20240401
-    v20240401 = __v20240401
-else:
-    v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')
-    v20160301 = _utilities.lazy_import('pulumi_azure_native.web.v20160301')
-    v20160601 = _utilities.lazy_import('pulumi_azure_native.web.v20160601')
-    v20160801 = _utilities.lazy_import('pulumi_azure_native.web.v20160801')
-    v20160901 = _utilities.lazy_import('pulumi_azure_native.web.v20160901')
-    v20180201 = _utilities.lazy_import('pulumi_azure_native.web.v20180201')
-    v20181101 = _utilities.lazy_import('pulumi_azure_native.web.v20181101')
-    v20190801 = _utilities.lazy_import('pulumi_azure_native.web.v20190801')
-    v20200601 = _utilities.lazy_import('pulumi_azure_native.web.v20200601')
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.web.v20200901')
-    v20201001 = _utilities.lazy_import('pulumi_azure_native.web.v20201001')
-    v20201201 = _utilities.lazy_import('pulumi_azure_native.web.v20201201')
-    v20210101 = _utilities.lazy_import('pulumi_azure_native.web.v20210101')
-    v20210115 = _utilities.lazy_import('pulumi_azure_native.web.v20210115')
-    v20210201 = _utilities.lazy_import('pulumi_azure_native.web.v20210201')
-    v20210301 = _utilities.lazy_import('pulumi_azure_native.web.v20210301')
-    v20220301 = _utilities.lazy_import('pulumi_azure_native.web.v20220301')
-    v20220901 = _utilities.lazy_import('pulumi_azure_native.web.v20220901')
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.web.v20230101')
-    v20231201 = _utilities.lazy_import('pulumi_azure_native.web.v20231201')
-    v20240401 = _utilities.lazy_import('pulumi_azure_native.web.v20240401')
-

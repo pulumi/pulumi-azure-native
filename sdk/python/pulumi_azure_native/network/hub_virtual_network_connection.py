@@ -203,9 +203,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  __props__=None):
         """
         HubVirtualNetworkConnection Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,9 +226,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         HubVirtualNetworkConnection Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param HubVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -280,6 +276,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__.__dict__["virtual_hub_name"] = virtual_hub_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20200501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20200601:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20200701:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20200801:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20201101:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20210201:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20210301:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20210501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20210801:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20220101:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20220501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20220701:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20220901:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20221101:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20230201:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20230401:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20230501:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20230601:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20230901:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20231101:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20240101:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20240301:HubVirtualNetworkConnection"), pulumi.Alias(type_="azure-native:network/v20240501:HubVirtualNetworkConnection")])
@@ -308,6 +305,7 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
 
         __props__.__dict__["allow_hub_to_remote_vnet_transit"] = None
         __props__.__dict__["allow_remote_vnet_to_use_hub_vnet_gateways"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["enable_internet_security"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
@@ -331,6 +329,14 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
         """
         return pulumi.get(self, "allow_remote_vnet_to_use_hub_vnet_gateways")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableInternetSecurity")

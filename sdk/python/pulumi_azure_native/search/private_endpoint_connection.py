@@ -29,9 +29,9 @@ class PrivateEndpointConnectionArgs:
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param pulumi.Input[str] search_service_name: The name of the search service associated with the specified resource group.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
+        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Describes the properties of an existing private endpoint connection to the search service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "search_service_name", search_service_name)
@@ -56,7 +56,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="searchServiceName")
     def search_service_name(self) -> pulumi.Input[str]:
         """
-        The name of the Azure Cognitive Search service associated with the specified resource group.
+        The name of the search service associated with the specified resource group.
         """
         return pulumi.get(self, "search_service_name")
 
@@ -68,7 +68,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
+        The name of the private endpoint connection to the search service with the specified resource group.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -80,7 +80,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]:
         """
-        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        Describes the properties of an existing private endpoint connection to the search service.
         """
         return pulumi.get(self, "properties")
 
@@ -100,17 +100,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  search_service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        Describes an existing private endpoint connection to the search service.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the Azure Cognitive Search service with the specified resource group.
-        :param pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']] properties: Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
+        :param pulumi.Input[Union['PrivateEndpointConnectionPropertiesArgs', 'PrivateEndpointConnectionPropertiesArgsDict']] properties: Describes the properties of an existing private endpoint connection to the search service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
+        :param pulumi.Input[str] search_service_name: The name of the search service associated with the specified resource group.
         """
         ...
     @overload
@@ -119,10 +117,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview.
+        Describes an existing private endpoint connection to the search service.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -160,6 +156,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if search_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__.__dict__["search_service_name"] = search_service_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20191001preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200313:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200801:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20200801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20210401preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20220901:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20231101:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20240301preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20240601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:search/v20250201preview:PrivateEndpointConnection")])
@@ -186,10 +183,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -203,7 +209,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
-        Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        Describes the properties of an existing private endpoint connection to the search service.
         """
         return pulumi.get(self, "properties")
 

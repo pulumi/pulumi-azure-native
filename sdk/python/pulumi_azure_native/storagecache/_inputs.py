@@ -26,6 +26,8 @@ __all__ = [
     'AmlFilesystemIdentityArgsDict',
     'AmlFilesystemMaintenanceWindowArgs',
     'AmlFilesystemMaintenanceWindowArgsDict',
+    'AmlFilesystemRootSquashSettingsArgs',
+    'AmlFilesystemRootSquashSettingsArgsDict',
     'BlobNfsTargetArgs',
     'BlobNfsTargetArgsDict',
     'CacheActiveDirectorySettingsCredentialsArgs',
@@ -125,7 +127,11 @@ if not MYPY:
         """
         import_prefix: NotRequired[pulumi.Input[str]]
         """
-        Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
+        """
+        import_prefixes_initial: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
         """
 elif False:
     AmlFilesystemHsmSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -135,12 +141,14 @@ class AmlFilesystemHsmSettingsArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
                  logging_container: pulumi.Input[str],
-                 import_prefix: Optional[pulumi.Input[str]] = None):
+                 import_prefix: Optional[pulumi.Input[str]] = None,
+                 import_prefixes_initial: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         AML file system HSM settings.
         :param pulumi.Input[str] container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
         :param pulumi.Input[str] logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
-        :param pulumi.Input[str] import_prefix: Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        :param pulumi.Input[str] import_prefix: Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] import_prefixes_initial: Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "logging_container", logging_container)
@@ -148,6 +156,8 @@ class AmlFilesystemHsmSettingsArgs:
             import_prefix = '/'
         if import_prefix is not None:
             pulumi.set(__self__, "import_prefix", import_prefix)
+        if import_prefixes_initial is not None:
+            pulumi.set(__self__, "import_prefixes_initial", import_prefixes_initial)
 
     @property
     @pulumi.getter
@@ -177,13 +187,25 @@ class AmlFilesystemHsmSettingsArgs:
     @pulumi.getter(name="importPrefix")
     def import_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
         """
         return pulumi.get(self, "import_prefix")
 
     @import_prefix.setter
     def import_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "import_prefix", value)
+
+    @property
+    @pulumi.getter(name="importPrefixesInitial")
+    def import_prefixes_initial(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
+        """
+        return pulumi.get(self, "import_prefixes_initial")
+
+    @import_prefixes_initial.setter
+    def import_prefixes_initial(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "import_prefixes_initial", value)
 
 
 if not MYPY:
@@ -332,6 +354,102 @@ class AmlFilesystemMaintenanceWindowArgs:
     @time_of_day_utc.setter
     def time_of_day_utc(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_of_day_utc", value)
+
+
+if not MYPY:
+    class AmlFilesystemRootSquashSettingsArgsDict(TypedDict):
+        """
+        AML file system squash settings.
+        """
+        mode: NotRequired[pulumi.Input[Union[str, 'AmlFilesystemSquashMode']]]
+        """
+        Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+        """
+        no_squash_nid_lists: NotRequired[pulumi.Input[str]]
+        """
+        Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+        """
+        squash_gid: NotRequired[pulumi.Input[float]]
+        """
+        Group ID to squash to.
+        """
+        squash_uid: NotRequired[pulumi.Input[float]]
+        """
+        User ID to squash to.
+        """
+elif False:
+    AmlFilesystemRootSquashSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AmlFilesystemRootSquashSettingsArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[Union[str, 'AmlFilesystemSquashMode']]] = None,
+                 no_squash_nid_lists: Optional[pulumi.Input[str]] = None,
+                 squash_gid: Optional[pulumi.Input[float]] = None,
+                 squash_uid: Optional[pulumi.Input[float]] = None):
+        """
+        AML file system squash settings.
+        :param pulumi.Input[Union[str, 'AmlFilesystemSquashMode']] mode: Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+        :param pulumi.Input[str] no_squash_nid_lists: Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+        :param pulumi.Input[float] squash_gid: Group ID to squash to.
+        :param pulumi.Input[float] squash_uid: User ID to squash to.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if no_squash_nid_lists is not None:
+            pulumi.set(__self__, "no_squash_nid_lists", no_squash_nid_lists)
+        if squash_gid is not None:
+            pulumi.set(__self__, "squash_gid", squash_gid)
+        if squash_uid is not None:
+            pulumi.set(__self__, "squash_uid", squash_uid)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'AmlFilesystemSquashMode']]]:
+        """
+        Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'AmlFilesystemSquashMode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="noSquashNidLists")
+    def no_squash_nid_lists(self) -> Optional[pulumi.Input[str]]:
+        """
+        Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+        """
+        return pulumi.get(self, "no_squash_nid_lists")
+
+    @no_squash_nid_lists.setter
+    def no_squash_nid_lists(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "no_squash_nid_lists", value)
+
+    @property
+    @pulumi.getter(name="squashGID")
+    def squash_gid(self) -> Optional[pulumi.Input[float]]:
+        """
+        Group ID to squash to.
+        """
+        return pulumi.get(self, "squash_gid")
+
+    @squash_gid.setter
+    def squash_gid(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "squash_gid", value)
+
+    @property
+    @pulumi.getter(name="squashUID")
+    def squash_uid(self) -> Optional[pulumi.Input[float]]:
+        """
+        User ID to squash to.
+        """
+        return pulumi.get(self, "squash_uid")
+
+    @squash_uid.setter
+    def squash_uid(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "squash_uid", value)
 
 
 if not MYPY:

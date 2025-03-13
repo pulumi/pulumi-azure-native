@@ -27,7 +27,10 @@ class GetUserResult:
     """
     Profile of a lab user.
     """
-    def __init__(__self__, created_date=None, id=None, identity=None, location=None, name=None, provisioning_state=None, secret_store=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, id=None, identity=None, location=None, name=None, provisioning_state=None, secret_store=None, tags=None, type=None, unique_identifier=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -58,6 +61,14 @@ class GetUserResult:
         if unique_identifier and not isinstance(unique_identifier, str):
             raise TypeError("Expected argument 'unique_identifier' to be a str")
         pulumi.set(__self__, "unique_identifier", unique_identifier)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -146,6 +157,7 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             id=self.id,
             identity=self.identity,
@@ -182,6 +194,7 @@ def get_user(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -215,6 +228,7 @@ def get_user_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

@@ -27,7 +27,10 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, system_data=None, type=None, user_type=None):
+    def __init__(__self__, azure_api_version=None, encrypted_password=None, id=None, name=None, share_access_rights=None, system_data=None, type=None, user_type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encrypted_password and not isinstance(encrypted_password, dict):
             raise TypeError("Expected argument 'encrypted_password' to be a dict")
         pulumi.set(__self__, "encrypted_password", encrypted_password)
@@ -49,6 +52,14 @@ class GetUserResult:
         if user_type and not isinstance(user_type, str):
             raise TypeError("Expected argument 'user_type' to be a str")
         pulumi.set(__self__, "user_type", user_type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="encryptedPassword")
@@ -113,6 +124,7 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            azure_api_version=self.azure_api_version,
             encrypted_password=self.encrypted_password,
             id=self.id,
             name=self.name,
@@ -128,9 +140,7 @@ def get_user(device_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Gets the properties of the specified user.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -145,6 +155,7 @@ def get_user(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encrypted_password=pulumi.get(__ret__, 'encrypted_password'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -158,9 +169,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Gets the properties of the specified user.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2021-02-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -174,6 +183,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encrypted_password=pulumi.get(__response__, 'encrypted_password'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

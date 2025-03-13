@@ -386,9 +386,7 @@ class SecurityRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network security rule.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -422,9 +420,7 @@ class SecurityRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security rule.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param SecurityRuleInitArgs args: The arguments to use to populate this resource's properties.
@@ -504,6 +500,7 @@ class SecurityRule(pulumi.CustomResource):
             __props__.__dict__["source_port_range"] = source_port_range
             __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["type"] = type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20150615:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160330:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20160901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20161201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20170901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20171101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20180801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181001:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20181201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20190901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20191201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20200801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20201101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20210801:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20230201:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20230401:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20230501:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20230601:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20230901:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20231101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20240101:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20240301:SecurityRule"), pulumi.Alias(type_="azure-native:network/v20240501:SecurityRule")])
@@ -531,6 +528,7 @@ class SecurityRule(pulumi.CustomResource):
         __props__ = SecurityRuleInitArgs.__new__(SecurityRuleInitArgs)
 
         __props__.__dict__["access"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["destination_address_prefix"] = None
         __props__.__dict__["destination_address_prefixes"] = None
@@ -558,6 +556,14 @@ class SecurityRule(pulumi.CustomResource):
         The network traffic is allowed or denied.
         """
         return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -8,6 +8,7 @@ __all__ = [
     'AccessMode',
     'Action',
     'ActiveRevisionsMode',
+    'Affinity',
     'AppProtocol',
     'BindingType',
     'ClientCredentialMethod',
@@ -17,18 +18,17 @@ __all__ = [
     'ExecutionType',
     'ExtendedLocationTypes',
     'ForwardProxyConvention',
+    'IdentitySettingsLifeCycle',
     'IngressClientCertificateMode',
     'IngressTransportMethod',
     'JavaComponentType',
     'LogLevel',
     'ManagedCertificateDomainControlValidation',
-    'ManagedEnvironmentOutBoundType',
     'ManagedServiceIdentityType',
     'PoolManagementType',
     'PrivateEndpointServiceConnectionStatus',
     'Scheme',
     'SessionNetworkStatus',
-    'SkuName',
     'StorageType',
     'TriggerType',
     'Type',
@@ -60,6 +60,14 @@ class ActiveRevisionsMode(str, Enum):
     """
     MULTIPLE = "Multiple"
     SINGLE = "Single"
+
+
+class Affinity(str, Enum):
+    """
+    Sticky Session Affinity
+    """
+    STICKY = "sticky"
+    NONE = "none"
 
 
 class AppProtocol(str, Enum):
@@ -107,7 +115,6 @@ class DotNetComponentType(str, Enum):
     Type of the .NET Component.
     """
     ASPIRE_DASHBOARD = "AspireDashboard"
-    ASPIRE_RESOURCE_SERVER_API = "AspireResourceServerApi"
 
 
 class ExecutionType(str, Enum):
@@ -131,6 +138,14 @@ class ForwardProxyConvention(str, Enum):
     NO_PROXY = "NoProxy"
     STANDARD = "Standard"
     CUSTOM = "Custom"
+
+
+class IdentitySettingsLifeCycle(str, Enum):
+    """
+    Use to select the lifecycle stages of a Session Pool during which the Managed Identity should be available.
+    """
+    NONE = "None"
+    MAIN = "Main"
 
 
 class IngressClientCertificateMode(str, Enum):
@@ -159,6 +174,8 @@ class JavaComponentType(str, Enum):
     SPRING_BOOT_ADMIN = "SpringBootAdmin"
     SPRING_CLOUD_EUREKA = "SpringCloudEureka"
     SPRING_CLOUD_CONFIG = "SpringCloudConfig"
+    SPRING_CLOUD_GATEWAY = "SpringCloudGateway"
+    NACOS = "Nacos"
 
 
 class LogLevel(str, Enum):
@@ -178,14 +195,6 @@ class ManagedCertificateDomainControlValidation(str, Enum):
     CNAME = "CNAME"
     HTTP = "HTTP"
     TXT = "TXT"
-
-
-class ManagedEnvironmentOutBoundType(str, Enum):
-    """
-    Outbound type for the cluster
-    """
-    LOAD_BALANCER = "LoadBalancer"
-    USER_DEFINED_ROUTING = "UserDefinedRouting"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -230,20 +239,6 @@ class SessionNetworkStatus(str, Enum):
     """
     EGRESS_ENABLED = "EgressEnabled"
     EGRESS_DISABLED = "EgressDisabled"
-
-
-class SkuName(str, Enum):
-    """
-    Name of the Sku.
-    """
-    CONSUMPTION = "Consumption"
-    """
-    Consumption SKU of Managed Environment.
-    """
-    PREMIUM = "Premium"
-    """
-    Premium SKU of Managed Environment.
-    """
 
 
 class StorageType(str, Enum):

@@ -9,6 +9,7 @@ __all__ = [
     'EnableSslVerification',
     'EvidenceType',
     'NotificationEvent',
+    'ResourceOrigin',
     'SendAllEvents',
     'UpdateWebhookKey',
     'WebhookStatus',
@@ -80,6 +81,24 @@ class NotificationEvent(str, Enum):
     REPORT_DELETION = "report_deletion"
     """
     The subscribed report is deleted.
+    """
+
+
+class ResourceOrigin(str, Enum):
+    """
+    Resource Origin.
+    """
+    AZURE = "Azure"
+    """
+    The resource is from Azure.
+    """
+    AWS = "AWS"
+    """
+    The resource is from AWS.
+    """
+    GCP = "GCP"
+    """
+    The resource is from GCP.
     """
 
 

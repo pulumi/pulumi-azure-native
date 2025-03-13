@@ -169,9 +169,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01.
+        Azure REST API version: 2021-02-01. Prior API version in Azure Native 2.x: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +190,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
-        Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01.
+        Azure REST API version: 2021-02-01. Prior API version in Azure Native 2.x: 2021-02-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsV2Args args: The arguments to use to populate this resource's properties.
@@ -240,6 +236,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -265,6 +262,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
 
         __props__ = WebAppAuthSettingsV2Args.__new__(WebAppAuthSettingsV2Args)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["global_validation"] = None
         __props__.__dict__["http_settings"] = None
         __props__.__dict__["identity_providers"] = None
@@ -274,6 +272,14 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         __props__.__dict__["platform"] = None
         __props__.__dict__["type"] = None
         return WebAppAuthSettingsV2(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="globalValidation")

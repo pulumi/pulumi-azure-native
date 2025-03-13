@@ -5,13 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'AKSVolumeTypes',
     'AbsoluteMarker',
     'AlertsState',
+    'CrossRegionRestoreState',
     'CrossSubscriptionRestoreState',
     'DataStoreTypes',
     'DayOfWeek',
+    'EncryptionState',
+    'IdentityType',
     'ImmutabilityState',
+    'InfrastructureEncryptionState',
     'Month',
+    'ResourcePropertiesObjectType',
     'SecretStoreType',
     'SoftDeleteState',
     'StorageSettingStoreTypes',
@@ -19,6 +25,11 @@ __all__ = [
     'ValidationType',
     'WeekNumber',
 ]
+
+
+class AKSVolumeTypes(str, Enum):
+    AZURE_DISK = "AzureDisk"
+    AZURE_FILE_SHARE_SMB = "AzureFileShareSMB"
 
 
 class AbsoluteMarker(str, Enum):
@@ -32,6 +43,14 @@ class AbsoluteMarker(str, Enum):
 class AlertsState(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class CrossRegionRestoreState(str, Enum):
+    """
+    CrossRegionRestore state
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class CrossSubscriptionRestoreState(str, Enum):
@@ -62,6 +81,32 @@ class DayOfWeek(str, Enum):
     WEDNESDAY = "Wednesday"
 
 
+class EncryptionState(str, Enum):
+    """
+    Encryption state of the Backup Vault.
+    """
+    ENABLED = "Enabled"
+    """
+    CMK encryption is enabled on the Backup Vault
+    """
+    DISABLED = "Disabled"
+    """
+    CMK encryption is disabled on the Backup Vault. User can not set this state once Encryption State is 'Enabled'.
+    """
+    INCONSISTENT = "Inconsistent"
+    """
+    CMK encryption is in inconsistent state on the Backup Vault. This state indicates that user needs to retry the encryption settings operation immediately to correct the state.
+    """
+
+
+class IdentityType(str, Enum):
+    """
+    The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
 class ImmutabilityState(str, Enum):
     """
     Immutability state
@@ -69,6 +114,14 @@ class ImmutabilityState(str, Enum):
     DISABLED = "Disabled"
     UNLOCKED = "Unlocked"
     LOCKED = "Locked"
+
+
+class InfrastructureEncryptionState(str, Enum):
+    """
+    Enabling/Disabling the Double Encryption state
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class Month(str, Enum):
@@ -84,6 +137,13 @@ class Month(str, Enum):
     NOVEMBER = "November"
     OCTOBER = "October"
     SEPTEMBER = "September"
+
+
+class ResourcePropertiesObjectType(str, Enum):
+    """
+    Type of the specific object - used for deserializing
+    """
+    DEFAULT_RESOURCE_PROPERTIES = "DefaultResourceProperties"
 
 
 class SecretStoreType(str, Enum):

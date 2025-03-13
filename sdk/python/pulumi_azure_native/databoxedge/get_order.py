@@ -27,7 +27,10 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, kind=None, name=None, order_history=None, order_id=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, kind=None, name=None, order_history=None, order_id=None, return_tracking_info=None, serial_number=None, shipment_type=None, shipping_address=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
         pulumi.set(__self__, "contact_information", contact_information)
@@ -70,6 +73,14 @@ class GetOrderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contactInformation")
@@ -190,6 +201,7 @@ class AwaitableGetOrderResult(GetOrderResult):
         if False:
             yield self
         return GetOrderResult(
+            azure_api_version=self.azure_api_version,
             contact_information=self.contact_information,
             current_status=self.current_status,
             delivery_tracking_info=self.delivery_tracking_info,
@@ -211,9 +223,7 @@ def get_order(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderResult:
     """
     The order details.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -226,6 +236,7 @@ def get_order(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getOrder', __args__, opts=opts, typ=GetOrderResult).value
 
     return AwaitableGetOrderResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         contact_information=pulumi.get(__ret__, 'contact_information'),
         current_status=pulumi.get(__ret__, 'current_status'),
         delivery_tracking_info=pulumi.get(__ret__, 'delivery_tracking_info'),
@@ -245,9 +256,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderResult]:
     """
     The order details.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -259,6 +268,7 @@ def get_order_output(device_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getOrder', __args__, opts=opts, typ=GetOrderResult)
     return __ret__.apply(lambda __response__: GetOrderResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         contact_information=pulumi.get(__response__, 'contact_information'),
         current_status=pulumi.get(__response__, 'current_status'),
         delivery_tracking_info=pulumi.get(__response__, 'delivery_tracking_info'),

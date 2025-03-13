@@ -153,9 +153,7 @@ class Account(pulumi.CustomResource):
                  __props__=None):
         """
         NetApp account resource
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,9 +173,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetApp account resource
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-05-01, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +215,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["disable_showmount"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -250,6 +247,7 @@ class Account(pulumi.CustomResource):
         __props__ = AccountArgs.__new__(AccountArgs)
 
         __props__.__dict__["active_directories"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["disable_showmount"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["etag"] = None
@@ -269,6 +267,14 @@ class Account(pulumi.CustomResource):
         Active Directories
         """
         return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disableShowmount")

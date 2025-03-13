@@ -424,9 +424,7 @@ class BigDataPool(pulumi.CustomResource):
                  __props__=None):
         """
         A Big Data pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-05-01, 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -462,9 +460,7 @@ class BigDataPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Big Data pool
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-
-        Other available API versions: 2021-05-01, 2021-06-01-preview.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param BigDataPoolArgs args: The arguments to use to populate this resource's properties.
@@ -540,6 +536,7 @@ class BigDataPool(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["last_succeeded_timestamp"] = None
             __props__.__dict__["name"] = None
@@ -570,6 +567,7 @@ class BigDataPool(pulumi.CustomResource):
 
         __props__.__dict__["auto_pause"] = None
         __props__.__dict__["auto_scale"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cache_size"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["custom_libraries"] = None
@@ -608,6 +606,14 @@ class BigDataPool(pulumi.CustomResource):
         Auto-scaling properties
         """
         return pulumi.get(self, "auto_scale")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cacheSize")

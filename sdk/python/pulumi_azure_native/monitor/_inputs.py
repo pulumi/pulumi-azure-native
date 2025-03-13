@@ -16,6 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessModeSettingsExclusionArgs',
+    'AccessModeSettingsExclusionArgsDict',
+    'AccessModeSettingsArgs',
+    'AccessModeSettingsArgsDict',
+    'ActionsArgs',
+    'ActionsArgsDict',
+    'ArmRoleReceiverArgs',
+    'ArmRoleReceiverArgsDict',
+    'AutomationRunbookReceiverArgs',
+    'AutomationRunbookReceiverArgsDict',
+    'AzureAppPushReceiverArgs',
+    'AzureAppPushReceiverArgsDict',
+    'AzureFunctionReceiverArgs',
+    'AzureFunctionReceiverArgsDict',
     'AzureMonitorWorkspaceLogsApiConfigArgs',
     'AzureMonitorWorkspaceLogsApiConfigArgsDict',
     'AzureMonitorWorkspaceLogsExporterArgs',
@@ -28,8 +42,36 @@ __all__ = [
     'CacheConfigurationArgsDict',
     'ConcurrencyConfigurationArgs',
     'ConcurrencyConfigurationArgsDict',
+    'ConditionFailingPeriodsArgs',
+    'ConditionFailingPeriodsArgsDict',
+    'ConditionArgs',
+    'ConditionArgsDict',
+    'DimensionArgs',
+    'DimensionArgsDict',
+    'EmailReceiverArgs',
+    'EmailReceiverArgsDict',
+    'EventHubReceiverArgs',
+    'EventHubReceiverArgsDict',
     'ExporterArgs',
     'ExporterArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
+    'IncidentReceiverArgs',
+    'IncidentReceiverArgsDict',
+    'IncidentServiceConnectionArgs',
+    'IncidentServiceConnectionArgsDict',
+    'ItsmReceiverArgs',
+    'ItsmReceiverArgsDict',
+    'JsonArrayMapperArgs',
+    'JsonArrayMapperArgsDict',
+    'JsonMapperDestinationFieldArgs',
+    'JsonMapperDestinationFieldArgsDict',
+    'JsonMapperSourceFieldArgs',
+    'JsonMapperSourceFieldArgsDict',
+    'LogicAppReceiverArgs',
+    'LogicAppReceiverArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'NetworkingConfigurationArgs',
     'NetworkingConfigurationArgsDict',
     'NetworkingRouteArgs',
@@ -38,8 +80,12 @@ __all__ = [
     'OtlpReceiverArgsDict',
     'PersistenceConfigurationsArgs',
     'PersistenceConfigurationsArgsDict',
+    'PipelineGroupPropertiesArgs',
+    'PipelineGroupPropertiesArgsDict',
     'PipelineArgs',
     'PipelineArgsDict',
+    'PrivateLinkServiceConnectionStateArgs',
+    'PrivateLinkServiceConnectionStateArgsDict',
     'ProcessorArgs',
     'ProcessorArgsDict',
     'ReceiverArgs',
@@ -48,21 +94,695 @@ __all__ = [
     'RecordMapArgsDict',
     'ResourceMapArgs',
     'ResourceMapArgsDict',
+    'RuleResolveConfigurationArgs',
+    'RuleResolveConfigurationArgsDict',
+    'ScheduledQueryRuleCriteriaArgs',
+    'ScheduledQueryRuleCriteriaArgsDict',
     'SchemaMapArgs',
     'SchemaMapArgsDict',
     'ScopeMapArgs',
     'ScopeMapArgsDict',
     'ServiceArgs',
     'ServiceArgsDict',
+    'SmsReceiverArgs',
+    'SmsReceiverArgsDict',
     'SyslogReceiverArgs',
     'SyslogReceiverArgsDict',
     'TcpExporterArgs',
     'TcpExporterArgsDict',
     'UdpReceiverArgs',
     'UdpReceiverArgsDict',
+    'VoiceReceiverArgs',
+    'VoiceReceiverArgsDict',
+    'WebhookReceiverArgs',
+    'WebhookReceiverArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AccessModeSettingsExclusionArgsDict(TypedDict):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+        """
+        ingestion_access_mode: NotRequired[pulumi.Input[Union[str, 'AccessMode']]]
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        private_endpoint_connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        query_access_mode: NotRequired[pulumi.Input[Union[str, 'AccessMode']]]
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+elif False:
+    AccessModeSettingsExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessModeSettingsExclusionArgs:
+    def __init__(__self__, *,
+                 ingestion_access_mode: Optional[pulumi.Input[Union[str, 'AccessMode']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+                 query_access_mode: Optional[pulumi.Input[Union[str, 'AccessMode']]] = None):
+        """
+        Properties that define the scope private link mode settings exclusion item. This setting applies to a specific private endpoint connection and overrides the default settings for that private endpoint connection.
+        :param pulumi.Input[Union[str, 'AccessMode']] ingestion_access_mode: Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        :param pulumi.Input[str] private_endpoint_connection_name: The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        :param pulumi.Input[Union[str, 'AccessMode']] query_access_mode: Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        if ingestion_access_mode is not None:
+            pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
+        if query_access_mode is not None:
+            pulumi.set(__self__, "query_access_mode", query_access_mode)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> Optional[pulumi.Input[Union[str, 'AccessMode']]]:
+        """
+        Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @ingestion_access_mode.setter
+    def ingestion_access_mode(self, value: Optional[pulumi.Input[Union[str, 'AccessMode']]]):
+        pulumi.set(self, "ingestion_access_mode", value)
+
+    @property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> Optional[pulumi.Input[Union[str, 'AccessMode']]]:
+        """
+        Specifies the access mode of queries through the specified private endpoint connection in the exclusion.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @query_access_mode.setter
+    def query_access_mode(self, value: Optional[pulumi.Input[Union[str, 'AccessMode']]]):
+        pulumi.set(self, "query_access_mode", value)
+
+
+if not MYPY:
+    class AccessModeSettingsArgsDict(TypedDict):
+        """
+        Properties that define the scope private link mode settings.
+        """
+        ingestion_access_mode: pulumi.Input[Union[str, 'AccessMode']]
+        """
+        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        query_access_mode: pulumi.Input[Union[str, 'AccessMode']]
+        """
+        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgsDict']]]]
+        """
+        List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+elif False:
+    AccessModeSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AccessModeSettingsArgs:
+    def __init__(__self__, *,
+                 ingestion_access_mode: pulumi.Input[Union[str, 'AccessMode']],
+                 query_access_mode: pulumi.Input[Union[str, 'AccessMode']],
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]] = None):
+        """
+        Properties that define the scope private link mode settings.
+        :param pulumi.Input[Union[str, 'AccessMode']] ingestion_access_mode: Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param pulumi.Input[Union[str, 'AccessMode']] query_access_mode: Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]] exclusions: List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        pulumi.set(__self__, "ingestion_access_mode", ingestion_access_mode)
+        pulumi.set(__self__, "query_access_mode", query_access_mode)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="ingestionAccessMode")
+    def ingestion_access_mode(self) -> pulumi.Input[Union[str, 'AccessMode']]:
+        """
+        Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "ingestion_access_mode")
+
+    @ingestion_access_mode.setter
+    def ingestion_access_mode(self, value: pulumi.Input[Union[str, 'AccessMode']]):
+        pulumi.set(self, "ingestion_access_mode", value)
+
+    @property
+    @pulumi.getter(name="queryAccessMode")
+    def query_access_mode(self) -> pulumi.Input[Union[str, 'AccessMode']]:
+        """
+        Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+        """
+        return pulumi.get(self, "query_access_mode")
+
+    @query_access_mode.setter
+    def query_access_mode(self, value: pulumi.Input[Union[str, 'AccessMode']]):
+        pulumi.set(self, "query_access_mode", value)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]:
+        """
+        List of exclusions that override the default access mode settings for specific private endpoint connections.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessModeSettingsExclusionArgs']]]]):
+        pulumi.set(self, "exclusions", value)
+
+
+if not MYPY:
+    class ActionsArgsDict(TypedDict):
+        """
+        Actions to invoke when the alert fires.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Action Group resource Ids to invoke when the alert fires.
+        """
+        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of an action properties.
+        """
+        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The properties of an alert payload.
+        """
+elif False:
+    ActionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ActionsArgs:
+    def __init__(__self__, *,
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 action_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Actions to invoke when the alert fires.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: Action Group resource Ids to invoke when the alert fires.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] action_properties: The properties of an action properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: The properties of an alert payload.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Action Group resource Ids to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @action_groups.setter
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_groups", value)
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The properties of an action properties.
+        """
+        return pulumi.get(self, "action_properties")
+
+    @action_properties.setter
+    def action_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "action_properties", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The properties of an alert payload.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+
+if not MYPY:
+    class ArmRoleReceiverArgsDict(TypedDict):
+        """
+        An arm role receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        """
+        role_id: pulumi.Input[str]
+        """
+        The arm role id.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    ArmRoleReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ArmRoleReceiverArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 role_id: pulumi.Input[str],
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        An arm role receiver.
+        :param pulumi.Input[str] name: The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] role_id: The arm role id.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "role_id", role_id)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the arm role receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="roleId")
+    def role_id(self) -> pulumi.Input[str]:
+        """
+        The arm role id.
+        """
+        return pulumi.get(self, "role_id")
+
+    @role_id.setter
+    def role_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_id", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
+if not MYPY:
+    class AutomationRunbookReceiverArgsDict(TypedDict):
+        """
+        The Azure Automation Runbook notification receiver.
+        """
+        automation_account_id: pulumi.Input[str]
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        is_global_runbook: pulumi.Input[bool]
+        """
+        Indicates whether this instance is global runbook.
+        """
+        runbook_name: pulumi.Input[str]
+        """
+        The name for this runbook.
+        """
+        webhook_resource_id: pulumi.Input[str]
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Indicates name of the webhook.
+        """
+        service_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI where webhooks should be sent.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    AutomationRunbookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomationRunbookReceiverArgs:
+    def __init__(__self__, *,
+                 automation_account_id: pulumi.Input[str],
+                 is_global_runbook: pulumi.Input[bool],
+                 runbook_name: pulumi.Input[str],
+                 webhook_resource_id: pulumi.Input[str],
+                 managed_identity: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 service_uri: Optional[pulumi.Input[str]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        The Azure Automation Runbook notification receiver.
+        :param pulumi.Input[str] automation_account_id: The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        :param pulumi.Input[bool] is_global_runbook: Indicates whether this instance is global runbook.
+        :param pulumi.Input[str] runbook_name: The name for this runbook.
+        :param pulumi.Input[str] webhook_resource_id: The resource id for webhook linked to this runbook.
+        :param pulumi.Input[str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[str] name: Indicates name of the webhook.
+        :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
+        pulumi.set(__self__, "is_global_runbook", is_global_runbook)
+        pulumi.set(__self__, "runbook_name", runbook_name)
+        pulumi.set(__self__, "webhook_resource_id", webhook_resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_uri is not None:
+            pulumi.set(__self__, "service_uri", service_uri)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> pulumi.Input[str]:
+        """
+        The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+        """
+        return pulumi.get(self, "automation_account_id")
+
+    @automation_account_id.setter
+    def automation_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "automation_account_id", value)
+
+    @property
+    @pulumi.getter(name="isGlobalRunbook")
+    def is_global_runbook(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether this instance is global runbook.
+        """
+        return pulumi.get(self, "is_global_runbook")
+
+    @is_global_runbook.setter
+    def is_global_runbook(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_global_runbook", value)
+
+    @property
+    @pulumi.getter(name="runbookName")
+    def runbook_name(self) -> pulumi.Input[str]:
+        """
+        The name for this runbook.
+        """
+        return pulumi.get(self, "runbook_name")
+
+    @runbook_name.setter
+    def runbook_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "runbook_name", value)
+
+    @property
+    @pulumi.getter(name="webhookResourceId")
+    def webhook_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        return pulumi.get(self, "webhook_resource_id")
+
+    @webhook_resource_id.setter
+    def webhook_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "webhook_resource_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates name of the webhook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_uri", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
+if not MYPY:
+    class AzureAppPushReceiverArgsDict(TypedDict):
+        """
+        The Azure mobile App push notification receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address registered for the Azure mobile app.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+elif False:
+    AzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureAppPushReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        The Azure mobile App push notification receiver.
+        :param pulumi.Input[str] email_address: The email address registered for the Azure mobile app.
+        :param pulumi.Input[str] name: The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[str]:
+        """
+        The email address registered for the Azure mobile app.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Azure mobile app push receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class AzureFunctionReceiverArgsDict(TypedDict):
+        """
+        An azure function receiver.
+        """
+        function_app_resource_id: pulumi.Input[str]
+        """
+        The azure resource id of the function app.
+        """
+        function_name: pulumi.Input[str]
+        """
+        The function name in the function app.
+        """
+        http_trigger_url: pulumi.Input[str]
+        """
+        The http trigger url where http request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        """
+        managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    AzureFunctionReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureFunctionReceiverArgs:
+    def __init__(__self__, *,
+                 function_app_resource_id: pulumi.Input[str],
+                 function_name: pulumi.Input[str],
+                 http_trigger_url: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 managed_identity: Optional[pulumi.Input[str]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        An azure function receiver.
+        :param pulumi.Input[str] function_app_resource_id: The azure resource id of the function app.
+        :param pulumi.Input[str] function_name: The function name in the function app.
+        :param pulumi.Input[str] http_trigger_url: The http trigger url where http request sent to.
+        :param pulumi.Input[str] name: The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
+        pulumi.set(__self__, "function_name", function_name)
+        pulumi.set(__self__, "http_trigger_url", http_trigger_url)
+        pulumi.set(__self__, "name", name)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="functionAppResourceId")
+    def function_app_resource_id(self) -> pulumi.Input[str]:
+        """
+        The azure resource id of the function app.
+        """
+        return pulumi.get(self, "function_app_resource_id")
+
+    @function_app_resource_id.setter
+    def function_app_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_app_resource_id", value)
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[str]:
+        """
+        The function name in the function app.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_name", value)
+
+    @property
+    @pulumi.getter(name="httpTriggerUrl")
+    def http_trigger_url(self) -> pulumi.Input[str]:
+        """
+        The http trigger url where http request sent to.
+        """
+        return pulumi.get(self, "http_trigger_url")
+
+    @http_trigger_url.setter
+    def http_trigger_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "http_trigger_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
 
 if not MYPY:
     class AzureMonitorWorkspaceLogsApiConfigArgsDict(TypedDict):
@@ -462,6 +1182,625 @@ class ConcurrencyConfigurationArgs:
 
 
 if not MYPY:
+    class ConditionFailingPeriodsArgsDict(TypedDict):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        min_failing_periods_to_alert: NotRequired[pulumi.Input[float]]
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        number_of_evaluation_periods: NotRequired[pulumi.Input[float]]
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+elif False:
+    ConditionFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConditionFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 min_failing_periods_to_alert: Optional[pulumi.Input[float]] = None,
+                 number_of_evaluation_periods: Optional[pulumi.Input[float]] = None):
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[float] min_failing_periods_to_alert: The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        :param pulumi.Input[float] number_of_evaluation_periods: The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        if min_failing_periods_to_alert is None:
+            min_failing_periods_to_alert = 1
+        if min_failing_periods_to_alert is not None:
+            pulumi.set(__self__, "min_failing_periods_to_alert", min_failing_periods_to_alert)
+        if number_of_evaluation_periods is None:
+            number_of_evaluation_periods = 1
+        if number_of_evaluation_periods is not None:
+            pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minFailingPeriodsToAlert")
+    def min_failing_periods_to_alert(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to numberOfEvaluationPeriods. Default value is 1
+        """
+        return pulumi.get(self, "min_failing_periods_to_alert")
+
+    @min_failing_periods_to_alert.setter
+    def min_failing_periods_to_alert(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_failing_periods_to_alert", value)
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (windowSize) and the selected number of aggregated points. Default value is 1
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
+
+
+if not MYPY:
+    class ConditionArgsDict(TypedDict):
+        """
+        A condition of the scheduled query rule.
+        """
+        alert_sensitivity: NotRequired[pulumi.Input[str]]
+        """
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        """
+        criterion_type: NotRequired[pulumi.Input[Union[str, 'CriterionType']]]
+        """
+        Specifies the type of threshold criteria
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DimensionArgsDict']]]]
+        """
+        List of Dimensions conditions
+        """
+        failing_periods: NotRequired[pulumi.Input['ConditionFailingPeriodsArgsDict']]
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        ignore_data_before: NotRequired[pulumi.Input[str]]
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        """
+        metric_measure_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        operator: NotRequired[pulumi.Input[Union[str, 'ConditionOperator']]]
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        query: NotRequired[pulumi.Input[str]]
+        """
+        Log query alert
+        """
+        resource_id_column: NotRequired[pulumi.Input[str]]
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        """
+        threshold: NotRequired[pulumi.Input[float]]
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+        """
+        time_aggregation: NotRequired[pulumi.Input[Union[str, 'TimeAggregation']]]
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+elif False:
+    ConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConditionArgs:
+    def __init__(__self__, *,
+                 alert_sensitivity: Optional[pulumi.Input[str]] = None,
+                 criterion_type: Optional[pulumi.Input[Union[str, 'CriterionType']]] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
+                 failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
+                 ignore_data_before: Optional[pulumi.Input[str]] = None,
+                 metric_measure_column: Optional[pulumi.Input[str]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'ConditionOperator']]] = None,
+                 query: Optional[pulumi.Input[str]] = None,
+                 resource_id_column: Optional[pulumi.Input[str]] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 time_aggregation: Optional[pulumi.Input[Union[str, 'TimeAggregation']]] = None):
+        """
+        A condition of the scheduled query rule.
+        :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        :param pulumi.Input[Union[str, 'CriterionType']] criterion_type: Specifies the type of threshold criteria
+        :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
+        :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        :param pulumi.Input[str] metric_measure_column: The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[str] metric_name: The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        :param pulumi.Input[Union[str, 'ConditionOperator']] operator: The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        :param pulumi.Input[str] query: Log query alert
+        :param pulumi.Input[str] resource_id_column: The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+        :param pulumi.Input[Union[str, 'TimeAggregation']] time_aggregation: Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        if alert_sensitivity is not None:
+            pulumi.set(__self__, "alert_sensitivity", alert_sensitivity)
+        if criterion_type is not None:
+            pulumi.set(__self__, "criterion_type", criterion_type)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if ignore_data_before is not None:
+            pulumi.set(__self__, "ignore_data_before", ignore_data_before)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if time_aggregation is not None:
+            pulumi.set(__self__, "time_aggregation", time_aggregation)
+
+    @property
+    @pulumi.getter(name="alertSensitivity")
+    def alert_sensitivity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The extent of deviation required to trigger an alert. Allowed values are 'Low', 'Medium' and 'High'. This will affect how tight the threshold is to the metric series pattern. Relevant and required only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "alert_sensitivity")
+
+    @alert_sensitivity.setter
+    def alert_sensitivity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "alert_sensitivity", value)
+
+    @property
+    @pulumi.getter(name="criterionType")
+    def criterion_type(self) -> Optional[pulumi.Input[Union[str, 'CriterionType']]]:
+        """
+        Specifies the type of threshold criteria
+        """
+        return pulumi.get(self, "criterion_type")
+
+    @criterion_type.setter
+    def criterion_type(self, value: Optional[pulumi.Input[Union[str, 'CriterionType']]]):
+        pulumi.set(self, "criterion_type", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]:
+        """
+        List of Dimensions conditions
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional[pulumi.Input['ConditionFailingPeriodsArgs']]:
+        """
+        The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @failing_periods.setter
+    def failing_periods(self, value: Optional[pulumi.Input['ConditionFailingPeriodsArgs']]):
+        pulumi.set(self, "failing_periods", value)
+
+    @property
+    @pulumi.getter(name="ignoreDataBefore")
+    def ignore_data_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format). Relevant only for dynamic threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "ignore_data_before")
+
+    @ignore_data_before.setter
+    def ignore_data_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ignore_data_before", value)
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column containing the metric measure number. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @metric_measure_column.setter
+    def metric_measure_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_measure_column", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionOperator']]]:
+        """
+        The criteria operator. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionOperator']]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log query alert
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    @resource_id_column.setter
+    def resource_id_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id_column", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        the criteria threshold value that activates the alert. Relevant and required only for static threshold rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="timeAggregation")
+    def time_aggregation(self) -> Optional[pulumi.Input[Union[str, 'TimeAggregation']]]:
+        """
+        Aggregation type. Relevant and required only for rules of the kind LogAlert.
+        """
+        return pulumi.get(self, "time_aggregation")
+
+    @time_aggregation.setter
+    def time_aggregation(self, value: Optional[pulumi.Input[Union[str, 'TimeAggregation']]]):
+        pulumi.set(self, "time_aggregation", value)
+
+
+if not MYPY:
+    class DimensionArgsDict(TypedDict):
+        """
+        Dimension splitting and filtering definition
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the dimension
+        """
+        operator: pulumi.Input[Union[str, 'DimensionOperator']]
+        """
+        Operator for dimension values
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values
+        """
+elif False:
+    DimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'DimensionOperator']],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Dimension splitting and filtering definition
+        :param pulumi.Input[str] name: Name of the dimension
+        :param pulumi.Input[Union[str, 'DimensionOperator']] operator: Operator for dimension values
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the dimension
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[str, 'DimensionOperator']]:
+        """
+        Operator for dimension values
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[str, 'DimensionOperator']]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of dimension values
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class EmailReceiverArgsDict(TypedDict):
+        """
+        An email receiver.
+        """
+        email_address: pulumi.Input[str]
+        """
+        The email address of this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    EmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EmailReceiverArgs:
+    def __init__(__self__, *,
+                 email_address: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        An email receiver.
+        :param pulumi.Input[str] email_address: The email address of this receiver.
+        :param pulumi.Input[str] name: The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "email_address", email_address)
+        pulumi.set(__self__, "name", name)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> pulumi.Input[str]:
+        """
+        The email address of this receiver.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the email receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
+if not MYPY:
+    class EventHubReceiverArgsDict(TypedDict):
+        """
+        An Event hub receiver.
+        """
+        event_hub_name: pulumi.Input[str]
+        """
+        The name of the specific Event Hub queue
+        """
+        event_hub_name_space: pulumi.Input[str]
+        """
+        The Event Hub namespace
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        The Id for the subscription containing this event hub
+        """
+        managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant Id for the subscription containing this event hub
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    EventHubReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventHubReceiverArgs:
+    def __init__(__self__, *,
+                 event_hub_name: pulumi.Input[str],
+                 event_hub_name_space: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 subscription_id: pulumi.Input[str],
+                 managed_identity: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        An Event hub receiver.
+        :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue
+        :param pulumi.Input[str] event_hub_name_space: The Event Hub namespace
+        :param pulumi.Input[str] name: The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] subscription_id: The Id for the subscription containing this event hub
+        :param pulumi.Input[str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[str] tenant_id: The tenant Id for the subscription containing this event hub
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "event_hub_name", event_hub_name)
+        pulumi.set(__self__, "event_hub_name_space", event_hub_name_space)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "subscription_id", subscription_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> pulumi.Input[str]:
+        """
+        The name of the specific Event Hub queue
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="eventHubNameSpace")
+    def event_hub_name_space(self) -> pulumi.Input[str]:
+        """
+        The Event Hub namespace
+        """
+        return pulumi.get(self, "event_hub_name_space")
+
+    @event_hub_name_space.setter
+    def event_hub_name_space(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_hub_name_space", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Event hub receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Input[str]:
+        """
+        The Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subscription_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant Id for the subscription containing this event hub
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
+if not MYPY:
     class ExporterArgsDict(TypedDict):
         """
         Exporter Info.
@@ -553,6 +1892,657 @@ class ExporterArgs:
     @tcp.setter
     def tcp(self, value: Optional[pulumi.Input['TcpExporterArgs']]):
         pulumi.set(self, "tcp", value)
+
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input['IdentityType']
+        """
+        Type of managed service identity.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['IdentityType'],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IdentityType']:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IdentityType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class IncidentReceiverArgsDict(TypedDict):
+        """
+        An Incident receiver.
+        """
+        connection: pulumi.Input['IncidentServiceConnectionArgsDict']
+        """
+        The incident service connection
+        """
+        incident_management_service: pulumi.Input[Union[str, 'IncidentManagementService']]
+        """
+        The incident management service type
+        """
+        mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]]
+        """
+        Field mappings for the incident service
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+elif False:
+    IncidentReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IncidentReceiverArgs:
+    def __init__(__self__, *,
+                 connection: pulumi.Input['IncidentServiceConnectionArgs'],
+                 incident_management_service: pulumi.Input[Union[str, 'IncidentManagementService']],
+                 mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 name: pulumi.Input[str]):
+        """
+        An Incident receiver.
+        :param pulumi.Input['IncidentServiceConnectionArgs'] connection: The incident service connection
+        :param pulumi.Input[Union[str, 'IncidentManagementService']] incident_management_service: The incident management service type
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] mappings: Field mappings for the incident service
+        :param pulumi.Input[str] name: The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "incident_management_service", incident_management_service)
+        pulumi.set(__self__, "mappings", mappings)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> pulumi.Input['IncidentServiceConnectionArgs']:
+        """
+        The incident service connection
+        """
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: pulumi.Input['IncidentServiceConnectionArgs']):
+        pulumi.set(self, "connection", value)
+
+    @property
+    @pulumi.getter(name="incidentManagementService")
+    def incident_management_service(self) -> pulumi.Input[Union[str, 'IncidentManagementService']]:
+        """
+        The incident management service type
+        """
+        return pulumi.get(self, "incident_management_service")
+
+    @incident_management_service.setter
+    def incident_management_service(self, value: pulumi.Input[Union[str, 'IncidentManagementService']]):
+        pulumi.set(self, "incident_management_service", value)
+
+    @property
+    @pulumi.getter
+    def mappings(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Field mappings for the incident service
+        """
+        return pulumi.get(self, "mappings")
+
+    @mappings.setter
+    def mappings(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "mappings", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Incident receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class IncidentServiceConnectionArgsDict(TypedDict):
+        """
+        The connection info for Incident Receiver.
+        """
+        id: pulumi.Input[str]
+        """
+        GUID value representing the connection ID for the incident management service.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the connection.
+        """
+elif False:
+    IncidentServiceConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IncidentServiceConnectionArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 name: pulumi.Input[str]):
+        """
+        The connection info for Incident Receiver.
+        :param pulumi.Input[str] id: GUID value representing the connection ID for the incident management service.
+        :param pulumi.Input[str] name: The name of the connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        GUID value representing the connection ID for the incident management service.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ItsmReceiverArgsDict(TypedDict):
+        """
+        An Itsm receiver.
+        """
+        connection_id: pulumi.Input[str]
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        region: pulumi.Input[str]
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        ticket_configuration: pulumi.Input[str]
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        OMS LA instance identifier.
+        """
+elif False:
+    ItsmReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ItsmReceiverArgs:
+    def __init__(__self__, *,
+                 connection_id: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 region: pulumi.Input[str],
+                 ticket_configuration: pulumi.Input[str],
+                 workspace_id: pulumi.Input[str]):
+        """
+        An Itsm receiver.
+        :param pulumi.Input[str] connection_id: Unique identification of ITSM connection among multiple defined in above workspace.
+        :param pulumi.Input[str] name: The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] region: Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        :param pulumi.Input[str] ticket_configuration: JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        :param pulumi.Input[str] workspace_id: OMS LA instance identifier.
+        """
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "ticket_configuration", ticket_configuration)
+        pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Input[str]:
+        """
+        Unique identification of ITSM connection among multiple defined in above workspace.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[str]:
+        """
+        Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="ticketConfiguration")
+    def ticket_configuration(self) -> pulumi.Input[str]:
+        """
+        JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        return pulumi.get(self, "ticket_configuration")
+
+    @ticket_configuration.setter
+    def ticket_configuration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ticket_configuration", value)
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> pulumi.Input[str]:
+        """
+        OMS LA instance identifier.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @workspace_id.setter
+    def workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workspace_id", value)
+
+
+if not MYPY:
+    class JsonArrayMapperArgsDict(TypedDict):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        """
+        keys: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        destination_field: NotRequired[pulumi.Input['JsonMapperDestinationFieldArgsDict']]
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        source_field: NotRequired[pulumi.Input['JsonMapperSourceFieldArgsDict']]
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+elif False:
+    JsonArrayMapperArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonArrayMapperArgs:
+    def __init__(__self__, *,
+                 keys: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 destination_field: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']] = None,
+                 source_field: Optional[pulumi.Input['JsonMapperSourceFieldArgs']] = None):
+        """
+        A component that allows parsing a value from sourceField as a json array, match a key to each parsed value from keys, and output the key-value map to destinationField field.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        :param pulumi.Input['JsonMapperDestinationFieldArgs'] destination_field: Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        :param pulumi.Input['JsonMapperSourceFieldArgs'] source_field: Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        pulumi.set(__self__, "keys", keys)
+        if destination_field is not None:
+            pulumi.set(__self__, "destination_field", destination_field)
+        if source_field is not None:
+            pulumi.set(__self__, "source_field", source_field)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Define the names of the keys in the resulting map. The input json array elements are mapped in order, one for every key.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "keys", value)
+
+    @property
+    @pulumi.getter(name="destinationField")
+    def destination_field(self) -> Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]:
+        """
+        Define a destination field to which the parsed output will be written. The output is a map, it's keys is the given keys array and the matching values are the parsed json array elements.
+        """
+        return pulumi.get(self, "destination_field")
+
+    @destination_field.setter
+    def destination_field(self, value: Optional[pulumi.Input['JsonMapperDestinationFieldArgs']]):
+        pulumi.set(self, "destination_field", value)
+
+    @property
+    @pulumi.getter(name="sourceField")
+    def source_field(self) -> Optional[pulumi.Input['JsonMapperSourceFieldArgs']]:
+        """
+        Define a source field from which a json array will be read and parsed to it's elements. The number of elements in the json array is expected to be the same as the length of keys.
+        """
+        return pulumi.get(self, "source_field")
+
+    @source_field.setter
+    def source_field(self, value: Optional[pulumi.Input['JsonMapperSourceFieldArgs']]):
+        pulumi.set(self, "source_field", value)
+
+
+if not MYPY:
+    class JsonMapperDestinationFieldArgsDict(TypedDict):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        """
+        destination: NotRequired[pulumi.Input[Union[str, 'JsonMapperElement']]]
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        field_name: NotRequired[pulumi.Input[str]]
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+elif False:
+    JsonMapperDestinationFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonMapperDestinationFieldArgs:
+    def __init__(__self__, *,
+                 destination: Optional[pulumi.Input[Union[str, 'JsonMapperElement']]] = None,
+                 field_name: Optional[pulumi.Input[str]] = None):
+        """
+        JsonArrayMapper destination field used to describe the field to which the parsed output will be written.
+        :param pulumi.Input[Union[str, 'JsonMapperElement']] destination: Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        :param pulumi.Input[str] field_name: Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        if destination is None:
+            destination = 'attributes'
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[Union[str, 'JsonMapperElement']]]:
+        """
+        Define the destination's element. The element is the body or the attributes of the message, to which the json array mapper will write the output map.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[Union[str, 'JsonMapperElement']]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a destination field name under the given element. Leaving this empty, means the root of the element. In case element=attributes and fieldName is empty, the object's attributes themselves will contain the key value output pairs.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+
+if not MYPY:
+    class JsonMapperSourceFieldArgsDict(TypedDict):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        """
+        field_name: NotRequired[pulumi.Input[str]]
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+elif False:
+    JsonMapperSourceFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JsonMapperSourceFieldArgs:
+    def __init__(__self__, *,
+                 field_name: Optional[pulumi.Input[str]] = None):
+        """
+        JsonArrayMapper source field used to describe the field from which the json array will be read.
+        :param pulumi.Input[str] field_name: Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Define a source field name from which the json array mapper will read the json array. Leaving this empty, means reading the body of the message itself.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+
+if not MYPY:
+    class LogicAppReceiverArgsDict(TypedDict):
+        """
+        A logic app receiver.
+        """
+        callback_url: pulumi.Input[str]
+        """
+        The callback url where http request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The azure resource id of the logic app receiver.
+        """
+        managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    LogicAppReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogicAppReceiverArgs:
+    def __init__(__self__, *,
+                 callback_url: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 resource_id: pulumi.Input[str],
+                 managed_identity: Optional[pulumi.Input[str]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        A logic app receiver.
+        :param pulumi.Input[str] callback_url: The callback url where http request sent to.
+        :param pulumi.Input[str] name: The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        :param pulumi.Input[str] resource_id: The azure resource id of the logic app receiver.
+        :param pulumi.Input[str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "callback_url", callback_url)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter(name="callbackUrl")
+    def callback_url(self) -> pulumi.Input[str]:
+        """
+        The callback url where http request sent to.
+        """
+        return pulumi.get(self, "callback_url")
+
+    @callback_url.setter
+    def callback_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "callback_url", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the logic app receiver. Names must be unique across all receivers within an action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The azure resource id of the logic app receiver.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
+
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
@@ -795,6 +2785,138 @@ class PersistenceConfigurationsArgs:
 
 
 if not MYPY:
+    class PipelineGroupPropertiesArgsDict(TypedDict):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        """
+        exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgsDict']]]
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgsDict']]]
+        """
+        The processors specified for a pipeline group instance.
+        """
+        receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgsDict']]]
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        service: pulumi.Input['ServiceArgsDict']
+        """
+        The service section for a given pipeline group instance.
+        """
+        networking_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgsDict']]]]
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        replicas: NotRequired[pulumi.Input[int]]
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+elif False:
+    PipelineGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PipelineGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 exporters: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]],
+                 processors: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]],
+                 receivers: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]],
+                 service: pulumi.Input['ServiceArgs'],
+                 networking_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]] = None,
+                 replicas: Optional[pulumi.Input[int]] = None):
+        """
+        Properties that need to be specified to create a new pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]] exporters: The exporters specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]] processors: The processors specified for a pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]] receivers: The receivers specified for a pipeline group instance.
+        :param pulumi.Input['ServiceArgs'] service: The service section for a given pipeline group instance.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]] networking_configurations: Networking configurations for the pipeline group instance.
+        :param pulumi.Input[int] replicas: Defines the amount of replicas of the pipeline group instance.
+        """
+        pulumi.set(__self__, "exporters", exporters)
+        pulumi.set(__self__, "processors", processors)
+        pulumi.set(__self__, "receivers", receivers)
+        pulumi.set(__self__, "service", service)
+        if networking_configurations is not None:
+            pulumi.set(__self__, "networking_configurations", networking_configurations)
+        if replicas is not None:
+            pulumi.set(__self__, "replicas", replicas)
+
+    @property
+    @pulumi.getter
+    def exporters(self) -> pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]:
+        """
+        The exporters specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "exporters")
+
+    @exporters.setter
+    def exporters(self, value: pulumi.Input[Sequence[pulumi.Input['ExporterArgs']]]):
+        pulumi.set(self, "exporters", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]:
+        """
+        The processors specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: pulumi.Input[Sequence[pulumi.Input['ProcessorArgs']]]):
+        pulumi.set(self, "processors", value)
+
+    @property
+    @pulumi.getter
+    def receivers(self) -> pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]:
+        """
+        The receivers specified for a pipeline group instance.
+        """
+        return pulumi.get(self, "receivers")
+
+    @receivers.setter
+    def receivers(self, value: pulumi.Input[Sequence[pulumi.Input['ReceiverArgs']]]):
+        pulumi.set(self, "receivers", value)
+
+    @property
+    @pulumi.getter
+    def service(self) -> pulumi.Input['ServiceArgs']:
+        """
+        The service section for a given pipeline group instance.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input['ServiceArgs']):
+        pulumi.set(self, "service", value)
+
+    @property
+    @pulumi.getter(name="networkingConfigurations")
+    def networking_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]:
+        """
+        Networking configurations for the pipeline group instance.
+        """
+        return pulumi.get(self, "networking_configurations")
+
+    @networking_configurations.setter
+    def networking_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkingConfigurationArgs']]]]):
+        pulumi.set(self, "networking_configurations", value)
+
+    @property
+    @pulumi.getter
+    def replicas(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the amount of replicas of the pipeline group instance.
+        """
+        return pulumi.get(self, "replicas")
+
+    @replicas.setter
+    def replicas(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "replicas", value)
+
+
+if not MYPY:
     class PipelineArgsDict(TypedDict):
         """
         Pipeline Info.
@@ -904,6 +3026,82 @@ class PipelineArgs:
     @processors.setter
     def processors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "processors", value)
+
+
+if not MYPY:
+    class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        actions_required: NotRequired[pulumi.Input[str]]
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The reason for approval/rejection of the connection.
+        """
+        status: NotRequired[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+elif False:
+    PrivateLinkServiceConnectionStateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionStateArgs:
+    def __init__(__self__, *,
+                 actions_required: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -1203,6 +3401,98 @@ class ResourceMapArgs:
 
 
 if not MYPY:
+    class RuleResolveConfigurationArgsDict(TypedDict):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        """
+        auto_resolved: NotRequired[pulumi.Input[bool]]
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        time_to_resolve: NotRequired[pulumi.Input[str]]
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+elif False:
+    RuleResolveConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RuleResolveConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_resolved: Optional[pulumi.Input[bool]] = None,
+                 time_to_resolve: Optional[pulumi.Input[str]] = None):
+        """
+        TBD. Relevant only for rules of the kind LogAlert.
+        :param pulumi.Input[bool] auto_resolved: The flag that indicates whether or not to auto resolve a fired alert.
+        :param pulumi.Input[str] time_to_resolve: The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag that indicates whether or not to auto resolve a fired alert.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @auto_resolved.setter
+    def auto_resolved(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_resolved", value)
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration a rule must evaluate as healthy before the fired alert is automatically resolved represented in ISO 8601 duration format.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+    @time_to_resolve.setter
+    def time_to_resolve(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_to_resolve", value)
+
+
+if not MYPY:
+    class ScheduledQueryRuleCriteriaArgsDict(TypedDict):
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        """
+        all_of: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConditionArgsDict']]]]
+        """
+        A list of conditions to evaluate against the specified scopes
+        """
+elif False:
+    ScheduledQueryRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScheduledQueryRuleCriteriaArgs:
+    def __init__(__self__, *,
+                 all_of: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]] = None):
+        """
+        The rule criteria that defines the conditions of the scheduled query rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] all_of: A list of conditions to evaluate against the specified scopes
+        """
+        if all_of is not None:
+            pulumi.set(__self__, "all_of", all_of)
+
+    @property
+    @pulumi.getter(name="allOf")
+    def all_of(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]:
+        """
+        A list of conditions to evaluate against the specified scopes
+        """
+        return pulumi.get(self, "all_of")
+
+    @all_of.setter
+    def all_of(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]):
+        pulumi.set(self, "all_of", value)
+
+
+if not MYPY:
     class SchemaMapArgsDict(TypedDict):
         """
         Schema map for azure monitor for logs.
@@ -1387,6 +3677,79 @@ class ServiceArgs:
 
 
 if not MYPY:
+    class SmsReceiverArgsDict(TypedDict):
+        """
+        An SMS receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the SMS receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the SMS receiver.
+        """
+elif False:
+    SmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmsReceiverArgs:
+    def __init__(__self__, *,
+                 country_code: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 phone_number: pulumi.Input[str]):
+        """
+        An SMS receiver.
+        :param pulumi.Input[str] country_code: The country code of the SMS receiver.
+        :param pulumi.Input[str] name: The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        :param pulumi.Input[str] phone_number: The phone number of the SMS receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> pulumi.Input[str]:
+        """
+        The country code of the SMS receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SMS receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        The phone number of the SMS receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
+
+
+if not MYPY:
     class SyslogReceiverArgsDict(TypedDict):
         """
         Base receiver using TCP as transport protocol.
@@ -1491,6 +3854,10 @@ if not MYPY:
         """
         The encoding of the stream being received.
         """
+        json_array_mapper: NotRequired[pulumi.Input['JsonArrayMapperArgsDict']]
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
         read_queue_length: NotRequired[pulumi.Input[int]]
         """
         Max read queue length.
@@ -1503,11 +3870,13 @@ class UdpReceiverArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  encoding: Optional[pulumi.Input[Union[str, 'StreamEncodingType']]] = None,
+                 json_array_mapper: Optional[pulumi.Input['JsonArrayMapperArgs']] = None,
                  read_queue_length: Optional[pulumi.Input[int]] = None):
         """
         Receiver using UDP as transport protocol.
         :param pulumi.Input[str] endpoint: TCP endpoint definition. Example: 0.0.0.0:<port>.
         :param pulumi.Input[Union[str, 'StreamEncodingType']] encoding: The encoding of the stream being received.
+        :param pulumi.Input['JsonArrayMapperArgs'] json_array_mapper: Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
         :param pulumi.Input[int] read_queue_length: Max read queue length.
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -1515,6 +3884,8 @@ class UdpReceiverArgs:
             encoding = 'nop'
         if encoding is not None:
             pulumi.set(__self__, "encoding", encoding)
+        if json_array_mapper is not None:
+            pulumi.set(__self__, "json_array_mapper", json_array_mapper)
         if read_queue_length is None:
             read_queue_length = 1000
         if read_queue_length is not None:
@@ -1545,6 +3916,18 @@ class UdpReceiverArgs:
         pulumi.set(self, "encoding", value)
 
     @property
+    @pulumi.getter(name="jsonArrayMapper")
+    def json_array_mapper(self) -> Optional[pulumi.Input['JsonArrayMapperArgs']]:
+        """
+        Json array mapper - allows this udp receiver to parse a value from a given source field as a json array, match a key to each parsed value and output the key-value map to a given output field.
+        """
+        return pulumi.get(self, "json_array_mapper")
+
+    @json_array_mapper.setter
+    def json_array_mapper(self, value: Optional[pulumi.Input['JsonArrayMapperArgs']]):
+        pulumi.set(self, "json_array_mapper", value)
+
+    @property
     @pulumi.getter(name="readQueueLength")
     def read_queue_length(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1555,5 +3938,256 @@ class UdpReceiverArgs:
     @read_queue_length.setter
     def read_queue_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "read_queue_length", value)
+
+
+if not MYPY:
+    class VoiceReceiverArgsDict(TypedDict):
+        """
+        A voice receiver.
+        """
+        country_code: pulumi.Input[str]
+        """
+        The country code of the voice receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the voice receiver.
+        """
+elif False:
+    VoiceReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VoiceReceiverArgs:
+    def __init__(__self__, *,
+                 country_code: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 phone_number: pulumi.Input[str]):
+        """
+        A voice receiver.
+        :param pulumi.Input[str] country_code: The country code of the voice receiver.
+        :param pulumi.Input[str] name: The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        :param pulumi.Input[str] phone_number: The phone number of the voice receiver.
+        """
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "phone_number", phone_number)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> pulumi.Input[str]:
+        """
+        The country code of the voice receiver.
+        """
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: pulumi.Input[str]):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the voice receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> pulumi.Input[str]:
+        """
+        The phone number of the voice receiver.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: pulumi.Input[str]):
+        pulumi.set(self, "phone_number", value)
+
+
+if not MYPY:
+    class WebhookReceiverArgsDict(TypedDict):
+        """
+        A webhook receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+        identifier_uri: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        managed_identity: NotRequired[pulumi.Input[str]]
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Indicates the tenant id for aad auth.
+        """
+        use_aad_auth: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    WebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebhookReceiverArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 service_uri: pulumi.Input[str],
+                 identifier_uri: Optional[pulumi.Input[str]] = None,
+                 managed_identity: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None,
+                 use_aad_auth: Optional[pulumi.Input[bool]] = None,
+                 use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
+        """
+        A webhook receiver.
+        :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        :param pulumi.Input[str] service_uri: The URI where webhooks should be sent.
+        :param pulumi.Input[str] identifier_uri: Indicates the identifier uri for aad auth.
+        :param pulumi.Input[str] managed_identity: The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        :param pulumi.Input[str] object_id: Indicates the webhook app object Id for aad auth.
+        :param pulumi.Input[str] tenant_id: Indicates the tenant id for aad auth.
+        :param pulumi.Input[bool] use_aad_auth: Indicates whether or not use AAD authentication.
+        :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_uri", service_uri)
+        if identifier_uri is not None:
+            pulumi.set(__self__, "identifier_uri", identifier_uri)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_aad_auth is None:
+            use_aad_auth = False
+        if use_aad_auth is not None:
+            pulumi.set(__self__, "use_aad_auth", use_aad_auth)
+        if use_common_alert_schema is None:
+            use_common_alert_schema = False
+        if use_common_alert_schema is not None:
+            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="serviceUri")
+    def service_uri(self) -> pulumi.Input[str]:
+        """
+        The URI where webhooks should be sent.
+        """
+        return pulumi.get(self, "service_uri")
+
+    @service_uri.setter
+    def service_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_uri", value)
+
+    @property
+    @pulumi.getter(name="identifierUri")
+    def identifier_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the identifier uri for aad auth.
+        """
+        return pulumi.get(self, "identifier_uri")
+
+    @identifier_uri.setter
+    def identifier_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identifier_uri", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal id of the managed identity. The value can be "None", "SystemAssigned" 
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the webhook app object Id for aad auth.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the tenant id for aad auth.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter(name="useAadAuth")
+    def use_aad_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether or not use AAD authentication.
+        """
+        return pulumi.get(self, "use_aad_auth")
+
+    @use_aad_auth.setter
+    def use_aad_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_aad_auth", value)
+
+    @property
+    @pulumi.getter(name="useCommonAlertSchema")
+    def use_common_alert_schema(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use common alert schema.
+        """
+        return pulumi.get(self, "use_common_alert_schema")
+
+    @use_common_alert_schema.setter
+    def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_common_alert_schema", value)
 
 

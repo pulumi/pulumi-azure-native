@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricsSourceResult:
-    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetMetricsSourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetMetricsSourceResult(GetMetricsSourceResult):
         if False:
             yield self
         return GetMetricsSourceResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -142,6 +154,7 @@ def get_metrics_source(metrics_source_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logz:getMetricsSource', __args__, opts=opts, typ=GetMetricsSourceResult).value
 
     return AwaitableGetMetricsSourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -169,6 +182,7 @@ def get_metrics_source_output(metrics_source_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:logz:getMetricsSource', __args__, opts=opts, typ=GetMetricsSourceResult)
     return __ret__.apply(lambda __response__: GetMetricsSourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

@@ -27,7 +27,11 @@ __all__ = [
     'ExtensionsResourceStatusResponse',
     'HybridComputePrivateLinkScopePropertiesResponse',
     'IdentityResponse',
+    'IpAddressResponse',
     'LicenseDetailsResponse',
+    'LicenseProfileMachineInstanceViewEsuPropertiesResponse',
+    'LicenseProfileMachineInstanceViewResponse',
+    'LicenseResponse',
     'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
@@ -35,18 +39,24 @@ __all__ = [
     'MachineExtensionResponse',
     'MachineRunCommandInstanceViewResponse',
     'MachineRunCommandScriptSourceResponse',
+    'NetworkInterfaceResponse',
+    'NetworkProfileResponse',
     'OSProfileResponse',
     'OSProfileResponseLinuxConfiguration',
     'OSProfileResponseWindowsConfiguration',
+    'PatchSettingsResponseStatus',
     'PrivateEndpointConnectionDataModelResponse',
     'PrivateEndpointConnectionPropertiesResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'ProductFeatureResponse',
     'RunCommandInputParameterResponse',
     'RunCommandManagedIdentityResponse',
     'ServiceStatusResponse',
     'ServiceStatusesResponse',
+    'SubnetResponse',
     'SystemDataResponse',
+    'VolumeLicenseDetailsResponse',
 ]
 
 @pulumi.output_type
@@ -187,7 +197,9 @@ class AgentUpgradeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lastAttemptMessage":
+        if key == "lastAttemptDesiredVersion":
+            suggest = "last_attempt_desired_version"
+        elif key == "lastAttemptMessage":
             suggest = "last_attempt_message"
         elif key == "lastAttemptStatus":
             suggest = "last_attempt_status"
@@ -212,6 +224,7 @@ class AgentUpgradeResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 last_attempt_desired_version: str,
                  last_attempt_message: str,
                  last_attempt_status: str,
                  last_attempt_timestamp: str,
@@ -220,6 +233,7 @@ class AgentUpgradeResponse(dict):
                  enable_automatic_upgrade: Optional[bool] = None):
         """
         The info w.r.t Agent Upgrade.
+        :param str last_attempt_desired_version: Specifies the version of the last attempt
         :param str last_attempt_message: Failure message of last upgrade attempt if any.
         :param str last_attempt_status: Specifies the status of Agent Upgrade.
         :param str last_attempt_timestamp: Timestamp of last upgrade attempt
@@ -227,6 +241,7 @@ class AgentUpgradeResponse(dict):
         :param str desired_version: Specifies the version info w.r.t AgentUpgrade for the machine.
         :param bool enable_automatic_upgrade: Specifies if RSM should try to upgrade this machine
         """
+        pulumi.set(__self__, "last_attempt_desired_version", last_attempt_desired_version)
         pulumi.set(__self__, "last_attempt_message", last_attempt_message)
         pulumi.set(__self__, "last_attempt_status", last_attempt_status)
         pulumi.set(__self__, "last_attempt_timestamp", last_attempt_timestamp)
@@ -236,6 +251,14 @@ class AgentUpgradeResponse(dict):
             pulumi.set(__self__, "desired_version", desired_version)
         if enable_automatic_upgrade is not None:
             pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+
+    @property
+    @pulumi.getter(name="lastAttemptDesiredVersion")
+    def last_attempt_desired_version(self) -> str:
+        """
+        Specifies the version of the last attempt
+        """
+        return pulumi.get(self, "last_attempt_desired_version")
 
     @property
     @pulumi.getter(name="lastAttemptMessage")
@@ -480,11 +503,11 @@ class EsuKeyResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 license_status: Optional[str] = None,
+                 license_status: Optional[int] = None,
                  sku: Optional[str] = None):
         """
         ESU key
-        :param str license_status: The current status of the license profile key.
+        :param int license_status: The current status of the license profile key. Represented by the same integer value that is presented on the machine itself when querying the license key status.
         :param str sku: SKU number.
         """
         if license_status is not None:
@@ -494,9 +517,9 @@ class EsuKeyResponse(dict):
 
     @property
     @pulumi.getter(name="licenseStatus")
-    def license_status(self) -> Optional[str]:
+    def license_status(self) -> Optional[int]:
         """
-        The current status of the license profile key.
+        The current status of the license profile key. Represented by the same integer value that is presented on the machine itself when querying the license key status.
         """
         return pulumi.get(self, "license_status")
 
@@ -741,6 +764,69 @@ class IdentityResponse(dict):
 
 
 @pulumi.output_type
+class IpAddressResponse(dict):
+    """
+    Describes properties of the IP address.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressVersion":
+            suggest = "ip_address_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet: 'outputs.SubnetResponse',
+                 address: Optional[str] = None,
+                 ip_address_version: Optional[str] = None):
+        """
+        Describes properties of the IP address.
+        :param 'SubnetResponse' subnet: The subnet to which this IP address belongs.
+        :param str address: Represents the IP Address.
+        :param str ip_address_version: Represents the Ip Address Version.
+        """
+        pulumi.set(__self__, "subnet", subnet)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if ip_address_version is not None:
+            pulumi.set(__self__, "ip_address_version", ip_address_version)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> 'outputs.SubnetResponse':
+        """
+        The subnet to which this IP address belongs.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Represents the IP Address.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="ipAddressVersion")
+    def ip_address_version(self) -> Optional[str]:
+        """
+        Represents the Ip Address Version.
+        """
+        return pulumi.get(self, "ip_address_version")
+
+
+@pulumi.output_type
 class LicenseDetailsResponse(dict):
     """
     Describes the properties of a License.
@@ -752,6 +838,8 @@ class LicenseDetailsResponse(dict):
             suggest = "assigned_licenses"
         elif key == "immutableId":
             suggest = "immutable_id"
+        elif key == "volumeLicenseDetails":
+            suggest = "volume_license_details"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LicenseDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -771,7 +859,8 @@ class LicenseDetailsResponse(dict):
                  processors: Optional[int] = None,
                  state: Optional[str] = None,
                  target: Optional[str] = None,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 volume_license_details: Optional[Sequence['outputs.VolumeLicenseDetailsResponse']] = None):
         """
         Describes the properties of a License.
         :param int assigned_licenses: Describes the number of assigned licenses.
@@ -781,6 +870,7 @@ class LicenseDetailsResponse(dict):
         :param str state: Describes the state of the license.
         :param str target: Describes the license target server.
         :param str type: Describes the license core type (pCore or vCore).
+        :param Sequence['VolumeLicenseDetailsResponse'] volume_license_details: A list of volume license details.
         """
         pulumi.set(__self__, "assigned_licenses", assigned_licenses)
         pulumi.set(__self__, "immutable_id", immutable_id)
@@ -794,6 +884,8 @@ class LicenseDetailsResponse(dict):
             pulumi.set(__self__, "target", target)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volume_license_details is not None:
+            pulumi.set(__self__, "volume_license_details", volume_license_details)
 
     @property
     @pulumi.getter(name="assignedLicenses")
@@ -850,6 +942,468 @@ class LicenseDetailsResponse(dict):
         Describes the license core type (pCore or vCore).
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeLicenseDetails")
+    def volume_license_details(self) -> Optional[Sequence['outputs.VolumeLicenseDetailsResponse']]:
+        """
+        A list of volume license details.
+        """
+        return pulumi.get(self, "volume_license_details")
+
+
+@pulumi.output_type
+class LicenseProfileMachineInstanceViewEsuPropertiesResponse(dict):
+    """
+    Properties for the Machine ESU profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedLicenseImmutableId":
+            suggest = "assigned_license_immutable_id"
+        elif key == "esuEligibility":
+            suggest = "esu_eligibility"
+        elif key == "esuKeyState":
+            suggest = "esu_key_state"
+        elif key == "esuKeys":
+            suggest = "esu_keys"
+        elif key == "serverType":
+            suggest = "server_type"
+        elif key == "assignedLicense":
+            suggest = "assigned_license"
+        elif key == "licenseAssignmentState":
+            suggest = "license_assignment_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseProfileMachineInstanceViewEsuPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseProfileMachineInstanceViewEsuPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseProfileMachineInstanceViewEsuPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_license_immutable_id: str,
+                 esu_eligibility: str,
+                 esu_key_state: str,
+                 esu_keys: Sequence['outputs.EsuKeyResponse'],
+                 server_type: str,
+                 assigned_license: Optional['outputs.LicenseResponse'] = None,
+                 license_assignment_state: Optional[str] = None):
+        """
+        Properties for the Machine ESU profile.
+        :param str assigned_license_immutable_id: The guid id of the license.
+        :param str esu_eligibility: Indicates the eligibility state of Esu.
+        :param str esu_key_state: Indicates whether there is an ESU Key currently active for the machine.
+        :param Sequence['EsuKeyResponse'] esu_keys: The list of ESU keys.
+        :param str server_type: The type of the Esu servers.
+        :param 'LicenseResponse' assigned_license: The assigned license resource.
+        :param str license_assignment_state: Describes the license assignment state (Assigned or NotAssigned).
+        """
+        pulumi.set(__self__, "assigned_license_immutable_id", assigned_license_immutable_id)
+        pulumi.set(__self__, "esu_eligibility", esu_eligibility)
+        pulumi.set(__self__, "esu_key_state", esu_key_state)
+        pulumi.set(__self__, "esu_keys", esu_keys)
+        pulumi.set(__self__, "server_type", server_type)
+        if assigned_license is not None:
+            pulumi.set(__self__, "assigned_license", assigned_license)
+        if license_assignment_state is not None:
+            pulumi.set(__self__, "license_assignment_state", license_assignment_state)
+
+    @property
+    @pulumi.getter(name="assignedLicenseImmutableId")
+    def assigned_license_immutable_id(self) -> str:
+        """
+        The guid id of the license.
+        """
+        return pulumi.get(self, "assigned_license_immutable_id")
+
+    @property
+    @pulumi.getter(name="esuEligibility")
+    def esu_eligibility(self) -> str:
+        """
+        Indicates the eligibility state of Esu.
+        """
+        return pulumi.get(self, "esu_eligibility")
+
+    @property
+    @pulumi.getter(name="esuKeyState")
+    def esu_key_state(self) -> str:
+        """
+        Indicates whether there is an ESU Key currently active for the machine.
+        """
+        return pulumi.get(self, "esu_key_state")
+
+    @property
+    @pulumi.getter(name="esuKeys")
+    def esu_keys(self) -> Sequence['outputs.EsuKeyResponse']:
+        """
+        The list of ESU keys.
+        """
+        return pulumi.get(self, "esu_keys")
+
+    @property
+    @pulumi.getter(name="serverType")
+    def server_type(self) -> str:
+        """
+        The type of the Esu servers.
+        """
+        return pulumi.get(self, "server_type")
+
+    @property
+    @pulumi.getter(name="assignedLicense")
+    def assigned_license(self) -> Optional['outputs.LicenseResponse']:
+        """
+        The assigned license resource.
+        """
+        return pulumi.get(self, "assigned_license")
+
+    @property
+    @pulumi.getter(name="licenseAssignmentState")
+    def license_assignment_state(self) -> Optional[str]:
+        """
+        Describes the license assignment state (Assigned or NotAssigned).
+        """
+        return pulumi.get(self, "license_assignment_state")
+
+
+@pulumi.output_type
+class LicenseProfileMachineInstanceViewResponse(dict):
+    """
+    License Profile Instance View in Machine Properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingEndDate":
+            suggest = "billing_end_date"
+        elif key == "billingStartDate":
+            suggest = "billing_start_date"
+        elif key == "disenrollmentDate":
+            suggest = "disenrollment_date"
+        elif key == "enrollmentDate":
+            suggest = "enrollment_date"
+        elif key == "licenseChannel":
+            suggest = "license_channel"
+        elif key == "licenseStatus":
+            suggest = "license_status"
+        elif key == "esuProfile":
+            suggest = "esu_profile"
+        elif key == "productFeatures":
+            suggest = "product_features"
+        elif key == "productType":
+            suggest = "product_type"
+        elif key == "softwareAssuranceCustomer":
+            suggest = "software_assurance_customer"
+        elif key == "subscriptionStatus":
+            suggest = "subscription_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseProfileMachineInstanceViewResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseProfileMachineInstanceViewResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseProfileMachineInstanceViewResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_end_date: str,
+                 billing_start_date: str,
+                 disenrollment_date: str,
+                 enrollment_date: str,
+                 error: 'outputs.ErrorDetailResponse',
+                 license_channel: str,
+                 license_status: str,
+                 esu_profile: Optional['outputs.LicenseProfileMachineInstanceViewEsuPropertiesResponse'] = None,
+                 product_features: Optional[Sequence['outputs.ProductFeatureResponse']] = None,
+                 product_type: Optional[str] = None,
+                 software_assurance_customer: Optional[bool] = None,
+                 subscription_status: Optional[str] = None):
+        """
+        License Profile Instance View in Machine Properties.
+        :param str billing_end_date: The timestamp in UTC when the billing ends.
+        :param str billing_start_date: The timestamp in UTC when the billing starts.
+        :param str disenrollment_date: The timestamp in UTC when the user disenrolled the feature.
+        :param str enrollment_date: The timestamp in UTC when the user enrolls the feature.
+        :param 'ErrorDetailResponse' error: The errors that were encountered during the feature enrollment or disenrollment.
+        :param str license_channel: Indicates the license channel.
+        :param str license_status: Indicates the license status of the OS.
+        :param 'LicenseProfileMachineInstanceViewEsuPropertiesResponse' esu_profile: Properties for the Machine ESU profile.
+        :param Sequence['ProductFeatureResponse'] product_features: The list of product features.
+        :param str product_type: Indicates the product type of the license.
+        :param bool software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
+        :param str subscription_status: Indicates the subscription status of the product.
+        """
+        pulumi.set(__self__, "billing_end_date", billing_end_date)
+        pulumi.set(__self__, "billing_start_date", billing_start_date)
+        pulumi.set(__self__, "disenrollment_date", disenrollment_date)
+        pulumi.set(__self__, "enrollment_date", enrollment_date)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "license_channel", license_channel)
+        pulumi.set(__self__, "license_status", license_status)
+        if esu_profile is not None:
+            pulumi.set(__self__, "esu_profile", esu_profile)
+        if product_features is not None:
+            pulumi.set(__self__, "product_features", product_features)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if software_assurance_customer is not None:
+            pulumi.set(__self__, "software_assurance_customer", software_assurance_customer)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
+
+    @property
+    @pulumi.getter(name="billingEndDate")
+    def billing_end_date(self) -> str:
+        """
+        The timestamp in UTC when the billing ends.
+        """
+        return pulumi.get(self, "billing_end_date")
+
+    @property
+    @pulumi.getter(name="billingStartDate")
+    def billing_start_date(self) -> str:
+        """
+        The timestamp in UTC when the billing starts.
+        """
+        return pulumi.get(self, "billing_start_date")
+
+    @property
+    @pulumi.getter(name="disenrollmentDate")
+    def disenrollment_date(self) -> str:
+        """
+        The timestamp in UTC when the user disenrolled the feature.
+        """
+        return pulumi.get(self, "disenrollment_date")
+
+    @property
+    @pulumi.getter(name="enrollmentDate")
+    def enrollment_date(self) -> str:
+        """
+        The timestamp in UTC when the user enrolls the feature.
+        """
+        return pulumi.get(self, "enrollment_date")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The errors that were encountered during the feature enrollment or disenrollment.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="licenseChannel")
+    def license_channel(self) -> str:
+        """
+        Indicates the license channel.
+        """
+        return pulumi.get(self, "license_channel")
+
+    @property
+    @pulumi.getter(name="licenseStatus")
+    def license_status(self) -> str:
+        """
+        Indicates the license status of the OS.
+        """
+        return pulumi.get(self, "license_status")
+
+    @property
+    @pulumi.getter(name="esuProfile")
+    def esu_profile(self) -> Optional['outputs.LicenseProfileMachineInstanceViewEsuPropertiesResponse']:
+        """
+        Properties for the Machine ESU profile.
+        """
+        return pulumi.get(self, "esu_profile")
+
+    @property
+    @pulumi.getter(name="productFeatures")
+    def product_features(self) -> Optional[Sequence['outputs.ProductFeatureResponse']]:
+        """
+        The list of product features.
+        """
+        return pulumi.get(self, "product_features")
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[str]:
+        """
+        Indicates the product type of the license.
+        """
+        return pulumi.get(self, "product_type")
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCustomer")
+    def software_assurance_customer(self) -> Optional[bool]:
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        return pulumi.get(self, "software_assurance_customer")
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> Optional[str]:
+        """
+        Indicates the subscription status of the product.
+        """
+        return pulumi.get(self, "subscription_status")
+
+
+@pulumi.output_type
+class LicenseResponse(dict):
+    """
+    Describes a license in a hybrid machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "licenseDetails":
+            suggest = "license_details"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 name: str,
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 license_details: Optional['outputs.LicenseDetailsResponse'] = None,
+                 license_type: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Describes a license in a hybrid machine.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str location: The geo-location where the resource lives
+        :param str name: The name of the resource
+        :param str provisioning_state: The provisioning state, which only appears in the response.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'LicenseDetailsResponse' license_details: Describes the properties of a License.
+        :param str license_type: The type of the license resource.
+        :param Mapping[str, str] tags: Resource tags.
+        :param str tenant_id: Describes the tenant id.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if license_details is not None:
+            pulumi.set(__self__, "license_details", license_details)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state, which only appears in the response.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="licenseDetails")
+    def license_details(self) -> Optional['outputs.LicenseDetailsResponse']:
+        """
+        Describes the properties of a License.
+        """
+        return pulumi.get(self, "license_details")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        The type of the license resource.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Describes the tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -1570,6 +2124,86 @@ class MachineRunCommandScriptSourceResponse(dict):
 
 
 @pulumi.output_type
+class NetworkInterfaceResponse(dict):
+    """
+    Describes a network interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_addresses: Optional[Sequence['outputs.IpAddressResponse']] = None):
+        """
+        Describes a network interface.
+        :param Sequence['IpAddressResponse'] ip_addresses: The list of IP addresses in this interface.
+        """
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence['outputs.IpAddressResponse']]:
+        """
+        The list of IP addresses in this interface.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class NetworkProfileResponse(dict):
+    """
+    Describes the network information on this machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None):
+        """
+        Describes the network information on this machine.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: The list of network interfaces.
+        """
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.NetworkInterfaceResponse']]:
+        """
+        The list of network interfaces.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+
+@pulumi.output_type
 class OSProfileResponse(dict):
     """
     Specifies the operating system settings for the hybrid machine.
@@ -1646,6 +2280,8 @@ class OSProfileResponseLinuxConfiguration(dict):
         suggest = None
         if key == "assessmentMode":
             suggest = "assessment_mode"
+        elif key == "enableHotpatching":
+            suggest = "enable_hotpatching"
         elif key == "patchMode":
             suggest = "patch_mode"
 
@@ -1661,17 +2297,32 @@ class OSProfileResponseLinuxConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 status: 'outputs.PatchSettingsResponseStatus',
                  assessment_mode: Optional[str] = None,
+                 enable_hotpatching: Optional[bool] = None,
                  patch_mode: Optional[str] = None):
         """
         Specifies the linux configuration for update management.
+        :param 'PatchSettingsResponseStatus' status: Status of the hotpatch capability enrollment or disenrollment.
         :param str assessment_mode: Specifies the assessment mode.
+        :param bool enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
         :param str patch_mode: Specifies the patch mode.
         """
+        pulumi.set(__self__, "status", status)
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.PatchSettingsResponseStatus':
+        """
+        Status of the hotpatch capability enrollment or disenrollment.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -1680,6 +2331,14 @@ class OSProfileResponseLinuxConfiguration(dict):
         Specifies the assessment mode.
         """
         return pulumi.get(self, "assessment_mode")
+
+    @property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> Optional[bool]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
 
     @property
     @pulumi.getter(name="patchMode")
@@ -1700,6 +2359,8 @@ class OSProfileResponseWindowsConfiguration(dict):
         suggest = None
         if key == "assessmentMode":
             suggest = "assessment_mode"
+        elif key == "enableHotpatching":
+            suggest = "enable_hotpatching"
         elif key == "patchMode":
             suggest = "patch_mode"
 
@@ -1715,17 +2376,32 @@ class OSProfileResponseWindowsConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 status: 'outputs.PatchSettingsResponseStatus',
                  assessment_mode: Optional[str] = None,
+                 enable_hotpatching: Optional[bool] = None,
                  patch_mode: Optional[str] = None):
         """
         Specifies the windows configuration for update management.
+        :param 'PatchSettingsResponseStatus' status: Status of the hotpatch capability enrollment or disenrollment.
         :param str assessment_mode: Specifies the assessment mode.
+        :param bool enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
         :param str patch_mode: Specifies the patch mode.
         """
+        pulumi.set(__self__, "status", status)
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.PatchSettingsResponseStatus':
+        """
+        Status of the hotpatch capability enrollment or disenrollment.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="assessmentMode")
@@ -1736,12 +2412,71 @@ class OSProfileResponseWindowsConfiguration(dict):
         return pulumi.get(self, "assessment_mode")
 
     @property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> Optional[bool]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
+
+    @property
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[str]:
         """
         Specifies the patch mode.
         """
         return pulumi.get(self, "patch_mode")
+
+
+@pulumi.output_type
+class PatchSettingsResponseStatus(dict):
+    """
+    Status of the hotpatch capability enrollment or disenrollment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hotpatchEnablementStatus":
+            suggest = "hotpatch_enablement_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PatchSettingsResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PatchSettingsResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PatchSettingsResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error: 'outputs.ErrorDetailResponse',
+                 hotpatch_enablement_status: Optional[str] = None):
+        """
+        Status of the hotpatch capability enrollment or disenrollment.
+        :param 'ErrorDetailResponse' error: The errors that were encountered during the hotpatch capability enrollment or disenrollment.
+        :param str hotpatch_enablement_status: Indicates the current status of the hotpatch being enabled or disabled.
+        """
+        pulumi.set(__self__, "error", error)
+        if hotpatch_enablement_status is not None:
+            pulumi.set(__self__, "hotpatch_enablement_status", hotpatch_enablement_status)
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The errors that were encountered during the hotpatch capability enrollment or disenrollment.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="hotpatchEnablementStatus")
+    def hotpatch_enablement_status(self) -> Optional[str]:
+        """
+        Indicates the current status of the hotpatch being enabled or disabled.
+        """
+        return pulumi.get(self, "hotpatch_enablement_status")
 
 
 @pulumi.output_type
@@ -1965,6 +2700,121 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
+class ProductFeatureResponse(dict):
+    """
+    Product Feature
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "billingEndDate":
+            suggest = "billing_end_date"
+        elif key == "billingStartDate":
+            suggest = "billing_start_date"
+        elif key == "disenrollmentDate":
+            suggest = "disenrollment_date"
+        elif key == "enrollmentDate":
+            suggest = "enrollment_date"
+        elif key == "subscriptionStatus":
+            suggest = "subscription_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProductFeatureResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProductFeatureResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProductFeatureResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 billing_end_date: str,
+                 billing_start_date: str,
+                 disenrollment_date: str,
+                 enrollment_date: str,
+                 error: 'outputs.ErrorDetailResponse',
+                 name: Optional[str] = None,
+                 subscription_status: Optional[str] = None):
+        """
+        Product Feature
+        :param str billing_end_date: The timestamp in UTC when the billing ends.
+        :param str billing_start_date: The timestamp in UTC when the billing starts.
+        :param str disenrollment_date: The timestamp in UTC when the user disenrolled the feature.
+        :param str enrollment_date: The timestamp in UTC when the user enrolls the feature.
+        :param 'ErrorDetailResponse' error: The errors that were encountered during the feature enrollment or disenrollment.
+        :param str name: Product feature name.
+        :param str subscription_status: Indicates the current status of the product features.
+        """
+        pulumi.set(__self__, "billing_end_date", billing_end_date)
+        pulumi.set(__self__, "billing_start_date", billing_start_date)
+        pulumi.set(__self__, "disenrollment_date", disenrollment_date)
+        pulumi.set(__self__, "enrollment_date", enrollment_date)
+        pulumi.set(__self__, "error", error)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
+
+    @property
+    @pulumi.getter(name="billingEndDate")
+    def billing_end_date(self) -> str:
+        """
+        The timestamp in UTC when the billing ends.
+        """
+        return pulumi.get(self, "billing_end_date")
+
+    @property
+    @pulumi.getter(name="billingStartDate")
+    def billing_start_date(self) -> str:
+        """
+        The timestamp in UTC when the billing starts.
+        """
+        return pulumi.get(self, "billing_start_date")
+
+    @property
+    @pulumi.getter(name="disenrollmentDate")
+    def disenrollment_date(self) -> str:
+        """
+        The timestamp in UTC when the user disenrolled the feature.
+        """
+        return pulumi.get(self, "disenrollment_date")
+
+    @property
+    @pulumi.getter(name="enrollmentDate")
+    def enrollment_date(self) -> str:
+        """
+        The timestamp in UTC when the user enrolls the feature.
+        """
+        return pulumi.get(self, "enrollment_date")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The errors that were encountered during the feature enrollment or disenrollment.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Product feature name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> Optional[str]:
+        """
+        Indicates the current status of the product features.
+        """
+        return pulumi.get(self, "subscription_status")
+
+
+@pulumi.output_type
 class RunCommandInputParameterResponse(dict):
     """
     Describes the properties of a run command parameter.
@@ -2158,6 +3008,46 @@ class ServiceStatusesResponse(dict):
 
 
 @pulumi.output_type
+class SubnetResponse(dict):
+    """
+    Describes the subnet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: Optional[str] = None):
+        """
+        Describes the subnet.
+        :param str address_prefix: Represents address prefix.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        Represents address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -2265,5 +3155,55 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class VolumeLicenseDetailsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invoiceId":
+            suggest = "invoice_id"
+        elif key == "programYear":
+            suggest = "program_year"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeLicenseDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeLicenseDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeLicenseDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoice_id: Optional[str] = None,
+                 program_year: Optional[str] = None):
+        """
+        :param str invoice_id: The invoice id for the volume license.
+        :param str program_year: Describes the program year the volume license is for.
+        """
+        if invoice_id is not None:
+            pulumi.set(__self__, "invoice_id", invoice_id)
+        if program_year is not None:
+            pulumi.set(__self__, "program_year", program_year)
+
+    @property
+    @pulumi.getter(name="invoiceId")
+    def invoice_id(self) -> Optional[str]:
+        """
+        The invoice id for the volume license.
+        """
+        return pulumi.get(self, "invoice_id")
+
+    @property
+    @pulumi.getter(name="programYear")
+    def program_year(self) -> Optional[str]:
+        """
+        Describes the program year the volume license is for.
+        """
+        return pulumi.get(self, "program_year")
 
 

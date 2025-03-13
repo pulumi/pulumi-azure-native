@@ -26,7 +26,10 @@ class GetWebAppHybridConnectionResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
     """
-    def __init__(__self__, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
+    def __init__(__self__, azure_api_version=None, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
@@ -63,6 +66,14 @@ class GetWebAppHybridConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetWebAppHybridConnectionResult(GetWebAppHybridConnectionResult):
         if False:
             yield self
         return GetWebAppHybridConnectionResult(
+            azure_api_version=self.azure_api_version,
             hostname=self.hostname,
             id=self.id,
             kind=self.kind,
@@ -189,9 +201,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionResult:
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: The name of the web app.
@@ -208,6 +218,7 @@ def get_web_app_hybrid_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppHybridConnection', __args__, opts=opts, typ=GetWebAppHybridConnectionResult).value
 
     return AwaitableGetWebAppHybridConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hostname=pulumi.get(__ret__, 'hostname'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -227,9 +238,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppHybridConnectionResult]:
     """
     Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: The name of the web app.
@@ -245,6 +254,7 @@ def get_web_app_hybrid_connection_output(name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppHybridConnection', __args__, opts=opts, typ=GetWebAppHybridConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppHybridConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hostname=pulumi.get(__response__, 'hostname'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

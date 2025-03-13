@@ -27,7 +27,10 @@ class GetBlobContainerDataSetMappingResult:
     """
     A Blob container data set mapping.
     """
-    def __init__(__self__, container_name=None, data_set_id=None, data_set_mapping_status=None, id=None, kind=None, name=None, provisioning_state=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, container_name=None, data_set_id=None, data_set_mapping_status=None, id=None, kind=None, name=None, provisioning_state=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container_name and not isinstance(container_name, str):
             raise TypeError("Expected argument 'container_name' to be a str")
         pulumi.set(__self__, "container_name", container_name)
@@ -64,6 +67,14 @@ class GetBlobContainerDataSetMappingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerName")
@@ -169,6 +180,7 @@ class AwaitableGetBlobContainerDataSetMappingResult(GetBlobContainerDataSetMappi
         if False:
             yield self
         return GetBlobContainerDataSetMappingResult(
+            azure_api_version=self.azure_api_version,
             container_name=self.container_name,
             data_set_id=self.data_set_id,
             data_set_mapping_status=self.data_set_mapping_status,
@@ -207,6 +219,7 @@ def get_blob_container_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getBlobContainerDataSetMapping', __args__, opts=opts, typ=GetBlobContainerDataSetMappingResult).value
 
     return AwaitableGetBlobContainerDataSetMappingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container_name=pulumi.get(__ret__, 'container_name'),
         data_set_id=pulumi.get(__ret__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
@@ -242,6 +255,7 @@ def get_blob_container_data_set_mapping_output(account_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getBlobContainerDataSetMapping', __args__, opts=opts, typ=GetBlobContainerDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetBlobContainerDataSetMappingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container_name=pulumi.get(__response__, 'container_name'),
         data_set_id=pulumi.get(__response__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),

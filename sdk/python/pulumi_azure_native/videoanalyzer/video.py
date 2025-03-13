@@ -151,9 +151,7 @@ class Video(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
-
-        Other available API versions: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +171,7 @@ class Video(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
-        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
-
-        Other available API versions: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param VideoArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +215,7 @@ class Video(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["title"] = title
             __props__.__dict__["video_name"] = video_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["content_urls"] = None
             __props__.__dict__["flags"] = None
             __props__.__dict__["name"] = None
@@ -249,6 +246,7 @@ class Video(pulumi.CustomResource):
         __props__ = VideoArgs.__new__(VideoArgs)
 
         __props__.__dict__["archival"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["content_urls"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["flags"] = None
@@ -266,6 +264,14 @@ class Video(pulumi.CustomResource):
         Video archival properties.
         """
         return pulumi.get(self, "archival")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentUrls")

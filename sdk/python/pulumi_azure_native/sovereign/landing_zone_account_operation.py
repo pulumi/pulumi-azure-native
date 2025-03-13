@@ -136,7 +136,7 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
                  __props__=None):
         """
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
-        Azure REST API version: 2025-02-27-preview.
+        Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Landing zone account resource type. A Landing zone account is the container for configuring, deploying and managing multiple landing zones.
-        Azure REST API version: 2025-02-27-preview.
+        Azure REST API version: 2025-02-27-preview. Prior API version in Azure Native 2.x: 2025-02-27-preview.
 
         :param str resource_name: The name of the resource.
         :param LandingZoneAccountOperationArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +195,7 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -222,6 +223,7 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
 
         __props__ = LandingZoneAccountOperationArgs.__new__(LandingZoneAccountOperationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -230,6 +232,14 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return LandingZoneAccountOperation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -27,7 +27,10 @@ class GetGroupQuotaSubscriptionResult:
     """
     This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetGroupQuotaSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -88,6 +99,7 @@ class AwaitableGetGroupQuotaSubscriptionResult(GetGroupQuotaSubscriptionResult):
         if False:
             yield self
         return GetGroupQuotaSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -100,9 +112,7 @@ def get_group_quota_subscription(group_quota_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupQuotaSubscriptionResult:
     """
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Azure REST API version: 2025-03-01.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -115,6 +125,7 @@ def get_group_quota_subscription(group_quota_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:quota:getGroupQuotaSubscription', __args__, opts=opts, typ=GetGroupQuotaSubscriptionResult).value
 
     return AwaitableGetGroupQuotaSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
@@ -125,9 +136,7 @@ def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaSubscriptionResult]:
     """
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2024-10-15-preview, 2024-12-18-preview, 2025-03-01.
+    Azure REST API version: 2025-03-01.
 
 
     :param str group_quota_name: The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
@@ -139,6 +148,7 @@ def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:quota:getGroupQuotaSubscription', __args__, opts=opts, typ=GetGroupQuotaSubscriptionResult)
     return __ret__.apply(lambda __response__: GetGroupQuotaSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

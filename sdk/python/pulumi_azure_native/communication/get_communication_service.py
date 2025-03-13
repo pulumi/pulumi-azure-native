@@ -27,7 +27,10 @@ class GetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
     """
-    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, linked_domains=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, data_location=None, host_name=None, id=None, identity=None, immutable_resource_id=None, linked_domains=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, system_data=None, tags=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -37,6 +40,9 @@ class GetCommunicationServiceResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if immutable_resource_id and not isinstance(immutable_resource_id, str):
             raise TypeError("Expected argument 'immutable_resource_id' to be a str")
         pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
@@ -69,6 +75,14 @@ class GetCommunicationServiceResult:
         pulumi.set(__self__, "version", version)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="dataLocation")
     def data_location(self) -> str:
         """
@@ -91,6 +105,14 @@ class GetCommunicationServiceResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="immutableResourceId")
@@ -179,9 +201,11 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
         if False:
             yield self
         return GetCommunicationServiceResult(
+            azure_api_version=self.azure_api_version,
             data_location=self.data_location,
             host_name=self.host_name,
             id=self.id,
+            identity=self.identity,
             immutable_resource_id=self.immutable_resource_id,
             linked_domains=self.linked_domains,
             location=self.location,
@@ -199,9 +223,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommunicationServiceResult:
     """
     Get the CommunicationService and its properties.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -214,9 +236,11 @@ def get_communication_service(communication_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getCommunicationService', __args__, opts=opts, typ=GetCommunicationServiceResult).value
 
     return AwaitableGetCommunicationServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_location=pulumi.get(__ret__, 'data_location'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         immutable_resource_id=pulumi.get(__ret__, 'immutable_resource_id'),
         linked_domains=pulumi.get(__ret__, 'linked_domains'),
         location=pulumi.get(__ret__, 'location'),
@@ -232,9 +256,7 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunicationServiceResult]:
     """
     Get the CommunicationService and its properties.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -246,9 +268,11 @@ def get_communication_service_output(communication_service_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getCommunicationService', __args__, opts=opts, typ=GetCommunicationServiceResult)
     return __ret__.apply(lambda __response__: GetCommunicationServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_location=pulumi.get(__response__, 'data_location'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         immutable_resource_id=pulumi.get(__response__, 'immutable_resource_id'),
         linked_domains=pulumi.get(__response__, 'linked_domains'),
         location=pulumi.get(__response__, 'location'),

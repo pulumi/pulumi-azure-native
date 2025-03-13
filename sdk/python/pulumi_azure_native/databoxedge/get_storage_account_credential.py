@@ -27,7 +27,7 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, id=None, name=None, ssl_status=None, storage_account_id=None, system_data=None, type=None, user_name=None):
+    def __init__(__self__, account_key=None, account_type=None, alias=None, azure_api_version=None, blob_domain_name=None, connection_string=None, id=None, name=None, ssl_status=None, storage_account_id=None, system_data=None, type=None, user_name=None):
         if account_key and not isinstance(account_key, dict):
             raise TypeError("Expected argument 'account_key' to be a dict")
         pulumi.set(__self__, "account_key", account_key)
@@ -37,6 +37,9 @@ class GetStorageAccountCredentialResult:
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blob_domain_name and not isinstance(blob_domain_name, str):
             raise TypeError("Expected argument 'blob_domain_name' to be a str")
         pulumi.set(__self__, "blob_domain_name", blob_domain_name)
@@ -88,6 +91,14 @@ class GetStorageAccountCredentialResult:
         Alias for the storage account.
         """
         return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobDomainName")
@@ -171,6 +182,7 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
             account_key=self.account_key,
             account_type=self.account_type,
             alias=self.alias,
+            azure_api_version=self.azure_api_version,
             blob_domain_name=self.blob_domain_name,
             connection_string=self.connection_string,
             id=self.id,
@@ -188,9 +200,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageAccountCredentialResult:
     """
     Gets the properties of the specified storage account credential.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -208,6 +218,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
         account_key=pulumi.get(__ret__, 'account_key'),
         account_type=pulumi.get(__ret__, 'account_type'),
         alias=pulumi.get(__ret__, 'alias'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blob_domain_name=pulumi.get(__ret__, 'blob_domain_name'),
         connection_string=pulumi.get(__ret__, 'connection_string'),
         id=pulumi.get(__ret__, 'id'),
@@ -223,9 +234,7 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountCredentialResult]:
     """
     Gets the properties of the specified storage account credential.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -242,6 +251,7 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
         account_key=pulumi.get(__response__, 'account_key'),
         account_type=pulumi.get(__response__, 'account_type'),
         alias=pulumi.get(__response__, 'alias'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blob_domain_name=pulumi.get(__response__, 'blob_domain_name'),
         connection_string=pulumi.get(__response__, 'connection_string'),
         id=pulumi.get(__response__, 'id'),

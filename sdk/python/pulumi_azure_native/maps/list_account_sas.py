@@ -64,20 +64,18 @@ def list_account_sas(account_name: Optional[str] = None,
 
     Prerequisites:
     1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
-    2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
-       Azure REST API version: 2021-12-01-preview.
-
-    Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
+       Azure REST API version: 2024-07-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
-    :param str expiry: The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+    :param str expiry: The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
     :param int max_rate_per_second: Required parameter which represents the desired maximum request per second to allowed for the given SAS token. This does not guarantee perfect accuracy in measurements but provides application safe guards of abuse with eventual enforcement.
-    :param str principal_id: The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+    :param str principal_id: The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
     :param Sequence[str] regions: Optional, allows control of which region locations are permitted access to Azure Maps REST APIs with the SAS token. Example: "eastus", "westus2". Omitting this parameter will allow all region locations to be accessible.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param Union[str, 'SigningKey'] signing_key: The Map account key to use for signing.
-    :param str start: The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+    :param Union[str, 'SigningKey'] signing_key: The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
+    :param str start: The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -107,20 +105,18 @@ def list_account_sas_output(account_name: Optional[pulumi.Input[str]] = None,
 
     Prerequisites:
     1. Create or have an existing User Assigned Managed Identity in the same Azure region as the account.
-    2. Create or update an Azure Map account with the same Azure region as the User Assigned Managed Identity is placed.
-       Azure REST API version: 2021-12-01-preview.
-
-    Other available API versions: 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-07-01-preview.
+    2. Create or update an Azure Maps account with the same Azure region as the User Assigned Managed Identity is placed.
+       Azure REST API version: 2024-07-01-preview.
 
 
     :param str account_name: The name of the Maps Account.
-    :param str expiry: The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z"
+    :param str expiry: The date time offset of when the token validity expires. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
     :param int max_rate_per_second: Required parameter which represents the desired maximum request per second to allowed for the given SAS token. This does not guarantee perfect accuracy in measurements but provides application safe guards of abuse with eventual enforcement.
-    :param str principal_id: The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Map Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
+    :param str principal_id: The principal Id also known as the object Id of a User Assigned Managed Identity currently assigned to the Maps Account. To assign a Managed Identity of the account, use operation Create or Update an assign a User Assigned Identity resource Id.
     :param Sequence[str] regions: Optional, allows control of which region locations are permitted access to Azure Maps REST APIs with the SAS token. Example: "eastus", "westus2". Omitting this parameter will allow all region locations to be accessible.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param Union[str, 'SigningKey'] signing_key: The Map account key to use for signing.
-    :param str start: The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z".
+    :param Union[str, 'SigningKey'] signing_key: The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
+    :param str start: The date time offset of when the token validity begins. For example "2017-05-24T10:42:03.1567373Z". Maximum duration allowed is 24 hours between `start` and `expiry`.
     """
     __args__ = dict()
     __args__['accountName'] = account_name

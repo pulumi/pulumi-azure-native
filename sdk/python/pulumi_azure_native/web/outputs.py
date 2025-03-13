@@ -58,7 +58,6 @@ __all__ = [
     'BlobStorageTokenStoreResponse',
     'CapabilityResponse',
     'ClientRegistrationResponse',
-    'ConfigurationResponse',
     'ConnStringInfoResponse',
     'ConnStringValueTypePairResponse',
     'ConnectionErrorResponse',
@@ -67,24 +66,17 @@ __all__ = [
     'ConnectionParameterResponse',
     'ConnectionStatusDefinitionResponse',
     'ConsentLinkDefinitionResponse',
-    'ContainerAppSecretResponse',
     'ContainerAppsConfigurationResponse',
-    'ContainerResourcesResponse',
-    'ContainerResponse',
     'CookieExpirationResponse',
     'CorsSettingsResponse',
     'CustomApiPropertiesDefinitionResponse',
     'CustomDnsSuffixConfigurationResponse',
     'CustomOpenIdConnectProviderResponse',
-    'CustomScaleRuleResponse',
-    'DaprComponentResponse',
-    'DaprMetadataResponse',
-    'DaprResponse',
+    'DaprConfigResponse',
     'DatabaseBackupSettingResponse',
     'DatabaseConnectionOverviewResponse',
     'DefaultAuthorizationPolicyResponse',
     'EnabledConfigResponse',
-    'EnvironmentVarResponse',
     'EnvironmentVariableResponse',
     'ErrorEntityResponse',
     'ExperimentsResponse',
@@ -97,6 +89,15 @@ __all__ = [
     'FileSystemTokenStoreResponse',
     'ForwardProxyResponse',
     'FrontEndConfigurationResponse',
+    'FunctionAppConfigResponse',
+    'FunctionsAlwaysReadyConfigResponse',
+    'FunctionsDeploymentResponse',
+    'FunctionsDeploymentResponseAuthentication',
+    'FunctionsDeploymentResponseStorage',
+    'FunctionsRuntimeResponse',
+    'FunctionsScaleAndConcurrencyResponse',
+    'FunctionsScaleAndConcurrencyResponseHttp',
+    'FunctionsScaleAndConcurrencyResponseTriggers',
     'GitHubActionCodeConfigurationResponse',
     'GitHubActionConfigurationResponse',
     'GitHubActionContainerConfigurationResponse',
@@ -107,12 +108,10 @@ __all__ = [
     'HostNameSslStateResponse',
     'HostingEnvironmentProfileResponse',
     'HttpLogsConfigResponse',
-    'HttpScaleRuleResponse',
     'HttpSettingsResponse',
     'HttpSettingsRoutesResponse',
     'IdentifierResponse',
     'IdentityProvidersResponse',
-    'IngressResponse',
     'IpSecurityRestrictionResponse',
     'JwtClaimChecksResponse',
     'KubeEnvironmentProfileResponse',
@@ -130,17 +129,13 @@ __all__ = [
     'OpenIdConnectRegistrationResponse',
     'PrivateLinkConnectionStateResponse',
     'PushSettingsResponse',
-    'QueueScaleRuleResponse',
     'RampUpRuleResponse',
-    'RegistryCredentialsResponse',
     'RemotePrivateEndpointConnectionResponse',
     'RequestsBasedTriggerResponse',
+    'ResourceConfigResponse',
     'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
-    'ScaleResponse',
-    'ScaleRuleAuthResponse',
-    'ScaleRuleResponse',
-    'SecretResponse',
     'SiteConfigResponse',
+    'SiteDnsConfigResponse',
     'SiteLimitsResponse',
     'SiteMachineKeyResponse',
     'SkuCapacityResponse',
@@ -155,9 +150,7 @@ __all__ = [
     'StaticSiteUserProvidedFunctionAppResponse',
     'StatusCodesBasedTriggerResponse',
     'StatusCodesRangeBasedTriggerResponse',
-    'TemplateResponse',
     'TokenStoreResponse',
-    'TrafficWeightResponse',
     'TwitterRegistrationResponse',
     'TwitterResponse',
     'UserAssignedIdentityResponse',
@@ -2455,6 +2448,7 @@ class AzureStorageInfoValueResponse(dict):
                  access_key: Optional[str] = None,
                  account_name: Optional[str] = None,
                  mount_path: Optional[str] = None,
+                 protocol: Optional[str] = None,
                  share_name: Optional[str] = None,
                  type: Optional[str] = None):
         """
@@ -2463,6 +2457,7 @@ class AzureStorageInfoValueResponse(dict):
         :param str access_key: Access key for the storage account.
         :param str account_name: Name of the storage account.
         :param str mount_path: Path to mount the storage within the site's runtime environment.
+        :param str protocol: Mounting protocol to use for the storage account.
         :param str share_name: Name of the file share (container name, for Blob storage).
         :param str type: Type of storage.
         """
@@ -2473,6 +2468,8 @@ class AzureStorageInfoValueResponse(dict):
             pulumi.set(__self__, "account_name", account_name)
         if mount_path is not None:
             pulumi.set(__self__, "mount_path", mount_path)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if share_name is not None:
             pulumi.set(__self__, "share_name", share_name)
         if type is not None:
@@ -2509,6 +2506,14 @@ class AzureStorageInfoValueResponse(dict):
         Path to mount the storage within the site's runtime environment.
         """
         return pulumi.get(self, "mount_path")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Mounting protocol to use for the storage account.
+        """
+        return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="shareName")
@@ -3029,84 +3034,6 @@ class ClientRegistrationResponse(dict):
         The app setting name that contains the client secret.
         """
         return pulumi.get(self, "client_secret_setting_name")
-
-
-@pulumi.output_type
-class ConfigurationResponse(dict):
-    """
-    Non versioned Container App configuration properties that define the mutable settings of a Container app
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "activeRevisionsMode":
-            suggest = "active_revisions_mode"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 active_revisions_mode: Optional[str] = None,
-                 ingress: Optional['outputs.IngressResponse'] = None,
-                 registries: Optional[Sequence['outputs.RegistryCredentialsResponse']] = None,
-                 secrets: Optional[Sequence['outputs.SecretResponse']] = None):
-        """
-        Non versioned Container App configuration properties that define the mutable settings of a Container app
-        :param str active_revisions_mode: ActiveRevisionsMode controls how active revisions are handled for the Container app:
-               <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
-        :param 'IngressResponse' ingress: Ingress configurations.
-        :param Sequence['RegistryCredentialsResponse'] registries: Collection of private container registry credentials for containers used by the Container app
-        :param Sequence['SecretResponse'] secrets: Collection of secrets used by a Container app
-        """
-        if active_revisions_mode is not None:
-            pulumi.set(__self__, "active_revisions_mode", active_revisions_mode)
-        if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
-        if registries is not None:
-            pulumi.set(__self__, "registries", registries)
-        if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
-
-    @property
-    @pulumi.getter(name="activeRevisionsMode")
-    def active_revisions_mode(self) -> Optional[str]:
-        """
-        ActiveRevisionsMode controls how active revisions are handled for the Container app:
-        <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
-        """
-        return pulumi.get(self, "active_revisions_mode")
-
-    @property
-    @pulumi.getter
-    def ingress(self) -> Optional['outputs.IngressResponse']:
-        """
-        Ingress configurations.
-        """
-        return pulumi.get(self, "ingress")
-
-    @property
-    @pulumi.getter
-    def registries(self) -> Optional[Sequence['outputs.RegistryCredentialsResponse']]:
-        """
-        Collection of private container registry credentials for containers used by the Container app
-        """
-        return pulumi.get(self, "registries")
-
-    @property
-    @pulumi.getter
-    def secrets(self) -> Optional[Sequence['outputs.SecretResponse']]:
-        """
-        Collection of secrets used by a Container app
-        """
-        return pulumi.get(self, "secrets")
 
 
 @pulumi.output_type
@@ -3644,39 +3571,6 @@ class ConsentLinkDefinitionResponse(dict):
 
 
 @pulumi.output_type
-class ContainerAppSecretResponse(dict):
-    """
-    Container App Secret.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        """
-        Container App Secret.
-        :param str name: Secret Name.
-        :param str value: Secret Value.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Secret Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Secret Value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ContainerAppsConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3780,124 +3674,6 @@ class ContainerAppsConfigurationResponse(dict):
         An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server
         """
         return pulumi.get(self, "platform_reserved_dns_ip")
-
-
-@pulumi.output_type
-class ContainerResourcesResponse(dict):
-    """
-    Container App container resource requirements.
-    """
-    def __init__(__self__, *,
-                 cpu: Optional[float] = None,
-                 memory: Optional[str] = None):
-        """
-        Container App container resource requirements.
-        :param float cpu: Required CPU in cores, e.g. 0.5
-        :param str memory: Required memory, e.g. "250Mb"
-        """
-        if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
-        if memory is not None:
-            pulumi.set(__self__, "memory", memory)
-
-    @property
-    @pulumi.getter
-    def cpu(self) -> Optional[float]:
-        """
-        Required CPU in cores, e.g. 0.5
-        """
-        return pulumi.get(self, "cpu")
-
-    @property
-    @pulumi.getter
-    def memory(self) -> Optional[str]:
-        """
-        Required memory, e.g. "250Mb"
-        """
-        return pulumi.get(self, "memory")
-
-
-@pulumi.output_type
-class ContainerResponse(dict):
-    """
-    Container App container definition.
-    """
-    def __init__(__self__, *,
-                 args: Optional[Sequence[str]] = None,
-                 command: Optional[Sequence[str]] = None,
-                 env: Optional[Sequence['outputs.EnvironmentVarResponse']] = None,
-                 image: Optional[str] = None,
-                 name: Optional[str] = None,
-                 resources: Optional['outputs.ContainerResourcesResponse'] = None):
-        """
-        Container App container definition.
-        :param Sequence[str] args: Container start command arguments.
-        :param Sequence[str] command: Container start command.
-        :param Sequence['EnvironmentVarResponse'] env: Container environment variables.
-        :param str image: Container image tag.
-        :param str name: Custom container name.
-        :param 'ContainerResourcesResponse' resources: Container resource requirements.
-        """
-        if args is not None:
-            pulumi.set(__self__, "args", args)
-        if command is not None:
-            pulumi.set(__self__, "command", command)
-        if env is not None:
-            pulumi.set(__self__, "env", env)
-        if image is not None:
-            pulumi.set(__self__, "image", image)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if resources is not None:
-            pulumi.set(__self__, "resources", resources)
-
-    @property
-    @pulumi.getter
-    def args(self) -> Optional[Sequence[str]]:
-        """
-        Container start command arguments.
-        """
-        return pulumi.get(self, "args")
-
-    @property
-    @pulumi.getter
-    def command(self) -> Optional[Sequence[str]]:
-        """
-        Container start command.
-        """
-        return pulumi.get(self, "command")
-
-    @property
-    @pulumi.getter
-    def env(self) -> Optional[Sequence['outputs.EnvironmentVarResponse']]:
-        """
-        Container environment variables.
-        """
-        return pulumi.get(self, "env")
-
-    @property
-    @pulumi.getter
-    def image(self) -> Optional[str]:
-        """
-        Container image tag.
-        """
-        return pulumi.get(self, "image")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Custom container name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def resources(self) -> Optional['outputs.ContainerResourcesResponse']:
-        """
-        Container resource requirements.
-        """
-        return pulumi.get(self, "resources")
 
 
 @pulumi.output_type
@@ -4379,181 +4155,9 @@ class CustomOpenIdConnectProviderResponse(dict):
 
 
 @pulumi.output_type
-class CustomScaleRuleResponse(dict):
+class DaprConfigResponse(dict):
     """
-    Container App container Custom scaling rule.
-    """
-    def __init__(__self__, *,
-                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
-                 metadata: Optional[Mapping[str, str]] = None,
-                 type: Optional[str] = None):
-        """
-        Container App container Custom scaling rule.
-        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
-        :param Mapping[str, str] metadata: Metadata properties to describe custom scale rule.
-        :param str type: Type of the custom scale rule
-               eg: azure-servicebus, redis etc.
-        """
-        if auth is not None:
-            pulumi.set(__self__, "auth", auth)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
-        """
-        Authentication secrets for the custom scale rule.
-        """
-        return pulumi.get(self, "auth")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
-        """
-        Metadata properties to describe custom scale rule.
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of the custom scale rule
-        eg: azure-servicebus, redis etc.
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class DaprComponentResponse(dict):
-    """
-    Dapr component configuration
-    """
-    def __init__(__self__, *,
-                 metadata: Optional[Sequence['outputs.DaprMetadataResponse']] = None,
-                 name: Optional[str] = None,
-                 type: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        Dapr component configuration
-        :param Sequence['DaprMetadataResponse'] metadata: Component metadata
-        :param str name: Component name
-        :param str type: Component type
-        :param str version: Component version
-        """
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Sequence['outputs.DaprMetadataResponse']]:
-        """
-        Component metadata
-        """
-        return pulumi.get(self, "metadata")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Component name
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Component type
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        Component version
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class DaprMetadataResponse(dict):
-    """
-    Container App Dapr component metadata.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "secretRef":
-            suggest = "secret_ref"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DaprMetadataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DaprMetadataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DaprMetadataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 secret_ref: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Container App Dapr component metadata.
-        :param str name: Metadata property name.
-        :param str secret_ref: Name of the Container App secret from which to pull the metadata property value.
-        :param str value: Metadata property value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Metadata property name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="secretRef")
-    def secret_ref(self) -> Optional[str]:
-        """
-        Name of the Container App secret from which to pull the metadata property value.
-        """
-        return pulumi.get(self, "secret_ref")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Metadata property value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class DaprResponse(dict):
-    """
-    Container App Dapr configuration.
+    App Dapr configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4562,38 +4166,60 @@ class DaprResponse(dict):
             suggest = "app_id"
         elif key == "appPort":
             suggest = "app_port"
+        elif key == "enableApiLogging":
+            suggest = "enable_api_logging"
+        elif key == "httpMaxRequestSize":
+            suggest = "http_max_request_size"
+        elif key == "httpReadBufferSize":
+            suggest = "http_read_buffer_size"
+        elif key == "logLevel":
+            suggest = "log_level"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DaprResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DaprConfigResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DaprResponse.__key_warning(key)
+        DaprConfigResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DaprResponse.__key_warning(key)
+        DaprConfigResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  app_id: Optional[str] = None,
                  app_port: Optional[int] = None,
-                 components: Optional[Sequence['outputs.DaprComponentResponse']] = None,
-                 enabled: Optional[bool] = None):
+                 enable_api_logging: Optional[bool] = None,
+                 enabled: Optional[bool] = None,
+                 http_max_request_size: Optional[int] = None,
+                 http_read_buffer_size: Optional[int] = None,
+                 log_level: Optional[str] = None):
         """
-        Container App Dapr configuration.
+        App Dapr configuration.
         :param str app_id: Dapr application identifier
-        :param int app_port: Port on which the Dapr side car
-        :param Sequence['DaprComponentResponse'] components: Collection of Dapr components
+        :param int app_port: Tells Dapr which port your application is listening on
+        :param bool enable_api_logging: Enables API logging for the Dapr sidecar
         :param bool enabled: Boolean indicating if the Dapr side car is enabled
+        :param int http_max_request_size: Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        :param int http_read_buffer_size: Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        :param str log_level: Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
         if app_port is not None:
             pulumi.set(__self__, "app_port", app_port)
-        if components is not None:
-            pulumi.set(__self__, "components", components)
+        if enable_api_logging is not None:
+            pulumi.set(__self__, "enable_api_logging", enable_api_logging)
+        if enabled is None:
+            enabled = False
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if http_max_request_size is not None:
+            pulumi.set(__self__, "http_max_request_size", http_max_request_size)
+        if http_read_buffer_size is not None:
+            pulumi.set(__self__, "http_read_buffer_size", http_read_buffer_size)
+        if log_level is not None:
+            pulumi.set(__self__, "log_level", log_level)
 
     @property
     @pulumi.getter(name="appId")
@@ -4607,17 +4233,17 @@ class DaprResponse(dict):
     @pulumi.getter(name="appPort")
     def app_port(self) -> Optional[int]:
         """
-        Port on which the Dapr side car
+        Tells Dapr which port your application is listening on
         """
         return pulumi.get(self, "app_port")
 
     @property
-    @pulumi.getter
-    def components(self) -> Optional[Sequence['outputs.DaprComponentResponse']]:
+    @pulumi.getter(name="enableApiLogging")
+    def enable_api_logging(self) -> Optional[bool]:
         """
-        Collection of Dapr components
+        Enables API logging for the Dapr sidecar
         """
-        return pulumi.get(self, "components")
+        return pulumi.get(self, "enable_api_logging")
 
     @property
     @pulumi.getter
@@ -4626,6 +4252,30 @@ class DaprResponse(dict):
         Boolean indicating if the Dapr side car is enabled
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="httpMaxRequestSize")
+    def http_max_request_size(self) -> Optional[int]:
+        """
+        Increasing max size of request body http servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        """
+        return pulumi.get(self, "http_max_request_size")
+
+    @property
+    @pulumi.getter(name="httpReadBufferSize")
+    def http_read_buffer_size(self) -> Optional[int]:
+        """
+        Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        """
+        return pulumi.get(self, "http_read_buffer_size")
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> Optional[str]:
+        """
+        Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        """
+        return pulumi.get(self, "log_level")
 
 
 @pulumi.output_type
@@ -4867,70 +4517,6 @@ class EnabledConfigResponse(dict):
         True if configuration is enabled, false if it is disabled and null if configuration is not set.
         """
         return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
-class EnvironmentVarResponse(dict):
-    """
-    Container App container environment variable.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "secretRef":
-            suggest = "secret_ref"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EnvironmentVarResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EnvironmentVarResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EnvironmentVarResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 secret_ref: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Container App container environment variable.
-        :param str name: Environment variable name.
-        :param str secret_ref: Name of the Container App secret from which to pull the environment variable value.
-        :param str value: Non-secret environment variable value.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Environment variable name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="secretRef")
-    def secret_ref(self) -> Optional[str]:
-        """
-        Name of the Container App secret from which to pull the environment variable value.
-        """
-        return pulumi.get(self, "secret_ref")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Non-secret environment variable value.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -5561,6 +5147,436 @@ class FrontEndConfigurationResponse(dict):
     @pulumi.getter
     def kind(self) -> Optional[str]:
         return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class FunctionAppConfigResponse(dict):
+    """
+    Function app configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scaleAndConcurrency":
+            suggest = "scale_and_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionAppConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionAppConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionAppConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment: Optional['outputs.FunctionsDeploymentResponse'] = None,
+                 runtime: Optional['outputs.FunctionsRuntimeResponse'] = None,
+                 scale_and_concurrency: Optional['outputs.FunctionsScaleAndConcurrencyResponse'] = None):
+        """
+        Function app configuration.
+        :param 'FunctionsDeploymentResponse' deployment: Function app deployment configuration.
+        :param 'FunctionsRuntimeResponse' runtime: Function app runtime settings.
+        :param 'FunctionsScaleAndConcurrencyResponse' scale_and_concurrency: Function app scale and concurrency settings.
+        """
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if scale_and_concurrency is not None:
+            pulumi.set(__self__, "scale_and_concurrency", scale_and_concurrency)
+
+    @property
+    @pulumi.getter
+    def deployment(self) -> Optional['outputs.FunctionsDeploymentResponse']:
+        """
+        Function app deployment configuration.
+        """
+        return pulumi.get(self, "deployment")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional['outputs.FunctionsRuntimeResponse']:
+        """
+        Function app runtime settings.
+        """
+        return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="scaleAndConcurrency")
+    def scale_and_concurrency(self) -> Optional['outputs.FunctionsScaleAndConcurrencyResponse']:
+        """
+        Function app scale and concurrency settings.
+        """
+        return pulumi.get(self, "scale_and_concurrency")
+
+
+@pulumi.output_type
+class FunctionsAlwaysReadyConfigResponse(dict):
+    """
+    Sets the number of 'Always Ready' instances for a function group or a specific function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsAlwaysReadyConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionsAlwaysReadyConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionsAlwaysReadyConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        Sets the number of 'Always Ready' instances for a function group or a specific function.
+        :param int instance_count: Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        :param str name: Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        Sets the number of 'Always Ready' instances for a given function group or a specific function. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Either a function group or a function name is required. For additional information see https://aka.ms/flexconsumption/alwaysready.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class FunctionsDeploymentResponse(dict):
+    """
+    Configuration section for the function app deployment.
+    """
+    def __init__(__self__, *,
+                 storage: Optional['outputs.FunctionsDeploymentResponseStorage'] = None):
+        """
+        Configuration section for the function app deployment.
+        :param 'FunctionsDeploymentResponseStorage' storage: Storage for deployed package used by the function app.
+        """
+        if storage is not None:
+            pulumi.set(__self__, "storage", storage)
+
+    @property
+    @pulumi.getter
+    def storage(self) -> Optional['outputs.FunctionsDeploymentResponseStorage']:
+        """
+        Storage for deployed package used by the function app.
+        """
+        return pulumi.get(self, "storage")
+
+
+@pulumi.output_type
+class FunctionsDeploymentResponseAuthentication(dict):
+    """
+    Authentication method to access the storage account for deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountConnectionStringName":
+            suggest = "storage_account_connection_string_name"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsDeploymentResponseAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionsDeploymentResponseAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionsDeploymentResponseAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_connection_string_name: Optional[str] = None,
+                 type: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        Authentication method to access the storage account for deployment.
+        :param str storage_account_connection_string_name: Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
+        :param str type: Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
+        :param str user_assigned_identity_resource_id: Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
+        """
+        if storage_account_connection_string_name is not None:
+            pulumi.set(__self__, "storage_account_connection_string_name", storage_account_connection_string_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="storageAccountConnectionStringName")
+    def storage_account_connection_string_name(self) -> Optional[str]:
+        """
+        Use this property for StorageAccountConnectionString. Set the name of the app setting that has the storage account connection string. Do not set a value for this property when using other authentication type.
+        """
+        return pulumi.get(self, "storage_account_connection_string_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Property to select authentication type to access the selected storage account. Available options: SystemAssignedIdentity, UserAssignedIdentity, StorageAccountConnectionString.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        Use this property for UserAssignedIdentity. Set the resource ID of the identity. Do not set a value for this property when using other authentication type.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+
+@pulumi.output_type
+class FunctionsDeploymentResponseStorage(dict):
+    """
+    Storage for deployed package used by the function app.
+    """
+    def __init__(__self__, *,
+                 authentication: Optional['outputs.FunctionsDeploymentResponseAuthentication'] = None,
+                 type: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Storage for deployed package used by the function app.
+        :param 'FunctionsDeploymentResponseAuthentication' authentication: Authentication method to access the storage account for deployment.
+        :param str type: Property to select Azure Storage type. Available options: blobContainer.
+        :param str value: Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+        """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.FunctionsDeploymentResponseAuthentication']:
+        """
+        Authentication method to access the storage account for deployment.
+        """
+        return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Property to select Azure Storage type. Available options: blobContainer.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://<storageAccountName>.blob.core.windows.net/<containerName>.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionsRuntimeResponse(dict):
+    """
+    Function app runtime name and version.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        Function app runtime name and version.
+        :param str name: Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
+        :param str version: Function app runtime version. Example: 8 (for dotnet-isolated)
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Function app runtime name. Available options: dotnet-isolated, node, java, powershell, python, custom
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Function app runtime version. Example: 8 (for dotnet-isolated)
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FunctionsScaleAndConcurrencyResponse(dict):
+    """
+    Scale and concurrency settings for the function app.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alwaysReady":
+            suggest = "always_ready"
+        elif key == "instanceMemoryMB":
+            suggest = "instance_memory_mb"
+        elif key == "maximumInstanceCount":
+            suggest = "maximum_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsScaleAndConcurrencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionsScaleAndConcurrencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionsScaleAndConcurrencyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 always_ready: Optional[Sequence['outputs.FunctionsAlwaysReadyConfigResponse']] = None,
+                 instance_memory_mb: Optional[int] = None,
+                 maximum_instance_count: Optional[int] = None,
+                 triggers: Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers'] = None):
+        """
+        Scale and concurrency settings for the function app.
+        :param Sequence['FunctionsAlwaysReadyConfigResponse'] always_ready: 'Always Ready' configuration for the function app.
+        :param int instance_memory_mb: Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        :param int maximum_instance_count: The maximum number of instances for the function app.
+        :param 'FunctionsScaleAndConcurrencyResponseTriggers' triggers: Scale and concurrency settings for the function app triggers.
+        """
+        if always_ready is not None:
+            pulumi.set(__self__, "always_ready", always_ready)
+        if instance_memory_mb is not None:
+            pulumi.set(__self__, "instance_memory_mb", instance_memory_mb)
+        if maximum_instance_count is not None:
+            pulumi.set(__self__, "maximum_instance_count", maximum_instance_count)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+
+    @property
+    @pulumi.getter(name="alwaysReady")
+    def always_ready(self) -> Optional[Sequence['outputs.FunctionsAlwaysReadyConfigResponse']]:
+        """
+        'Always Ready' configuration for the function app.
+        """
+        return pulumi.get(self, "always_ready")
+
+    @property
+    @pulumi.getter(name="instanceMemoryMB")
+    def instance_memory_mb(self) -> Optional[int]:
+        """
+        Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.
+        """
+        return pulumi.get(self, "instance_memory_mb")
+
+    @property
+    @pulumi.getter(name="maximumInstanceCount")
+    def maximum_instance_count(self) -> Optional[int]:
+        """
+        The maximum number of instances for the function app.
+        """
+        return pulumi.get(self, "maximum_instance_count")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional['outputs.FunctionsScaleAndConcurrencyResponseTriggers']:
+        """
+        Scale and concurrency settings for the function app triggers.
+        """
+        return pulumi.get(self, "triggers")
+
+
+@pulumi.output_type
+class FunctionsScaleAndConcurrencyResponseHttp(dict):
+    """
+    Scale and concurrency settings for the HTTP trigger.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "perInstanceConcurrency":
+            suggest = "per_instance_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionsScaleAndConcurrencyResponseHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionsScaleAndConcurrencyResponseHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionsScaleAndConcurrencyResponseHttp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 per_instance_concurrency: Optional[int] = None):
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        :param int per_instance_concurrency: The maximum number of concurrent HTTP trigger invocations per instance.
+        """
+        if per_instance_concurrency is not None:
+            pulumi.set(__self__, "per_instance_concurrency", per_instance_concurrency)
+
+    @property
+    @pulumi.getter(name="perInstanceConcurrency")
+    def per_instance_concurrency(self) -> Optional[int]:
+        """
+        The maximum number of concurrent HTTP trigger invocations per instance.
+        """
+        return pulumi.get(self, "per_instance_concurrency")
+
+
+@pulumi.output_type
+class FunctionsScaleAndConcurrencyResponseTriggers(dict):
+    """
+    Scale and concurrency settings for the function app triggers.
+    """
+    def __init__(__self__, *,
+                 http: Optional['outputs.FunctionsScaleAndConcurrencyResponseHttp'] = None):
+        """
+        Scale and concurrency settings for the function app triggers.
+        :param 'FunctionsScaleAndConcurrencyResponseHttp' http: Scale and concurrency settings for the HTTP trigger.
+        """
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.FunctionsScaleAndConcurrencyResponseHttp']:
+        """
+        Scale and concurrency settings for the HTTP trigger.
+        """
+        return pulumi.get(self, "http")
 
 
 @pulumi.output_type
@@ -6241,41 +6257,6 @@ class HttpLogsConfigResponse(dict):
 
 
 @pulumi.output_type
-class HttpScaleRuleResponse(dict):
-    """
-    Container App container Custom scaling rule.
-    """
-    def __init__(__self__, *,
-                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
-                 metadata: Optional[Mapping[str, str]] = None):
-        """
-        Container App container Custom scaling rule.
-        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the custom scale rule.
-        :param Mapping[str, str] metadata: Metadata properties to describe http scale rule.
-        """
-        if auth is not None:
-            pulumi.set(__self__, "auth", auth)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-
-    @property
-    @pulumi.getter
-    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
-        """
-        Authentication secrets for the custom scale rule.
-        """
-        return pulumi.get(self, "auth")
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[Mapping[str, str]]:
-        """
-        Metadata properties to describe http scale rule.
-        """
-        return pulumi.get(self, "metadata")
-
-
-@pulumi.output_type
 class HttpSettingsResponse(dict):
     """
     The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
@@ -6593,105 +6574,6 @@ class IdentityProvidersResponse(dict):
         The configuration settings of the Twitter provider.
         """
         return pulumi.get(self, "twitter")
-
-
-@pulumi.output_type
-class IngressResponse(dict):
-    """
-    Container App Ingress configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "allowInsecure":
-            suggest = "allow_insecure"
-        elif key == "targetPort":
-            suggest = "target_port"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IngressResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IngressResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IngressResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 fqdn: str,
-                 allow_insecure: Optional[bool] = None,
-                 external: Optional[bool] = None,
-                 target_port: Optional[int] = None,
-                 traffic: Optional[Sequence['outputs.TrafficWeightResponse']] = None,
-                 transport: Optional[str] = None):
-        """
-        Container App Ingress configuration.
-        :param str fqdn: Hostname.
-        :param bool allow_insecure: Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
-        :param bool external: Bool indicating if app exposes an external http endpoint
-        :param int target_port: Target Port in containers for traffic from ingress
-        :param str transport: Ingress transport protocol
-        """
-        pulumi.set(__self__, "fqdn", fqdn)
-        if allow_insecure is not None:
-            pulumi.set(__self__, "allow_insecure", allow_insecure)
-        if external is None:
-            external = False
-        if external is not None:
-            pulumi.set(__self__, "external", external)
-        if target_port is not None:
-            pulumi.set(__self__, "target_port", target_port)
-        if traffic is not None:
-            pulumi.set(__self__, "traffic", traffic)
-        if transport is not None:
-            pulumi.set(__self__, "transport", transport)
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> str:
-        """
-        Hostname.
-        """
-        return pulumi.get(self, "fqdn")
-
-    @property
-    @pulumi.getter(name="allowInsecure")
-    def allow_insecure(self) -> Optional[bool]:
-        """
-        Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
-        """
-        return pulumi.get(self, "allow_insecure")
-
-    @property
-    @pulumi.getter
-    def external(self) -> Optional[bool]:
-        """
-        Bool indicating if app exposes an external http endpoint
-        """
-        return pulumi.get(self, "external")
-
-    @property
-    @pulumi.getter(name="targetPort")
-    def target_port(self) -> Optional[int]:
-        """
-        Target Port in containers for traffic from ingress
-        """
-        return pulumi.get(self, "target_port")
-
-    @property
-    @pulumi.getter
-    def traffic(self) -> Optional[Sequence['outputs.TrafficWeightResponse']]:
-        return pulumi.get(self, "traffic")
-
-    @property
-    @pulumi.getter
-    def transport(self) -> Optional[str]:
-        """
-        Ingress transport protocol
-        """
-        return pulumi.get(self, "transport")
 
 
 @pulumi.output_type
@@ -7889,72 +7771,6 @@ class PushSettingsResponse(dict):
 
 
 @pulumi.output_type
-class QueueScaleRuleResponse(dict):
-    """
-    Container App container Azure Queue based scaling rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "queueLength":
-            suggest = "queue_length"
-        elif key == "queueName":
-            suggest = "queue_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in QueueScaleRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        QueueScaleRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        QueueScaleRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 auth: Optional[Sequence['outputs.ScaleRuleAuthResponse']] = None,
-                 queue_length: Optional[int] = None,
-                 queue_name: Optional[str] = None):
-        """
-        Container App container Azure Queue based scaling rule.
-        :param Sequence['ScaleRuleAuthResponse'] auth: Authentication secrets for the queue scale rule.
-        :param int queue_length: Queue length.
-        :param str queue_name: Queue name.
-        """
-        if auth is not None:
-            pulumi.set(__self__, "auth", auth)
-        if queue_length is not None:
-            pulumi.set(__self__, "queue_length", queue_length)
-        if queue_name is not None:
-            pulumi.set(__self__, "queue_name", queue_name)
-
-    @property
-    @pulumi.getter
-    def auth(self) -> Optional[Sequence['outputs.ScaleRuleAuthResponse']]:
-        """
-        Authentication secrets for the queue scale rule.
-        """
-        return pulumi.get(self, "auth")
-
-    @property
-    @pulumi.getter(name="queueLength")
-    def queue_length(self) -> Optional[int]:
-        """
-        Queue length.
-        """
-        return pulumi.get(self, "queue_length")
-
-    @property
-    @pulumi.getter(name="queueName")
-    def queue_name(self) -> Optional[str]:
-        """
-        Queue name.
-        """
-        return pulumi.get(self, "queue_name")
-
-
-@pulumi.output_type
 class RampUpRuleResponse(dict):
     """
     Routing rules for ramp up testing. This rule allows to redirect static traffic % to a slot or to gradually change routing % based on performance.
@@ -8094,70 +7910,6 @@ class RampUpRuleResponse(dict):
         Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
         """
         return pulumi.get(self, "reroute_percentage")
-
-
-@pulumi.output_type
-class RegistryCredentialsResponse(dict):
-    """
-    Container App Private Registry
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "passwordSecretRef":
-            suggest = "password_secret_ref"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RegistryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RegistryCredentialsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RegistryCredentialsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 password_secret_ref: Optional[str] = None,
-                 server: Optional[str] = None,
-                 username: Optional[str] = None):
-        """
-        Container App Private Registry
-        :param str password_secret_ref: The name of the Secret that contains the registry login password
-        :param str server: Container Registry Server
-        :param str username: Container Registry Username
-        """
-        if password_secret_ref is not None:
-            pulumi.set(__self__, "password_secret_ref", password_secret_ref)
-        if server is not None:
-            pulumi.set(__self__, "server", server)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter(name="passwordSecretRef")
-    def password_secret_ref(self) -> Optional[str]:
-        """
-        The name of the Secret that contains the registry login password
-        """
-        return pulumi.get(self, "password_secret_ref")
-
-    @property
-    @pulumi.getter
-    def server(self) -> Optional[str]:
-        """
-        Container Registry Server
-        """
-        return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[str]:
-        """
-        Container Registry Username
-        """
-        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -8335,6 +8087,41 @@ class RequestsBasedTriggerResponse(dict):
 
 
 @pulumi.output_type
+class ResourceConfigResponse(dict):
+    """
+    Function app resource requirements.
+    """
+    def __init__(__self__, *,
+                 cpu: Optional[float] = None,
+                 memory: Optional[str] = None):
+        """
+        Function app resource requirements.
+        :param float cpu: Required CPU in cores, e.g. 0.5
+        :param str memory: Required memory, e.g. "1Gi"
+        """
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[float]:
+        """
+        Required CPU in cores, e.g. 0.5
+        """
+        return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[str]:
+        """
+        Required memory, e.g. "1Gi"
+        """
+        return pulumi.get(self, "memory")
+
+
+@pulumi.output_type
 class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
     """
     Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
@@ -8494,225 +8281,6 @@ class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
 
 
 @pulumi.output_type
-class ScaleResponse(dict):
-    """
-    Container App scaling configurations.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "maxReplicas":
-            suggest = "max_replicas"
-        elif key == "minReplicas":
-            suggest = "min_replicas"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScaleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScaleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScaleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 max_replicas: Optional[int] = None,
-                 min_replicas: Optional[int] = None,
-                 rules: Optional[Sequence['outputs.ScaleRuleResponse']] = None):
-        """
-        Container App scaling configurations.
-        :param int max_replicas: Optional. Maximum number of container replicas. Defaults to 10 if not set.
-        :param int min_replicas: Optional. Minimum number of container replicas.
-        :param Sequence['ScaleRuleResponse'] rules: Scaling rules.
-        """
-        if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
-        if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter(name="maxReplicas")
-    def max_replicas(self) -> Optional[int]:
-        """
-        Optional. Maximum number of container replicas. Defaults to 10 if not set.
-        """
-        return pulumi.get(self, "max_replicas")
-
-    @property
-    @pulumi.getter(name="minReplicas")
-    def min_replicas(self) -> Optional[int]:
-        """
-        Optional. Minimum number of container replicas.
-        """
-        return pulumi.get(self, "min_replicas")
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ScaleRuleResponse']]:
-        """
-        Scaling rules.
-        """
-        return pulumi.get(self, "rules")
-
-
-@pulumi.output_type
-class ScaleRuleAuthResponse(dict):
-    """
-    Auth Secrets for Container App Scale Rule
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "secretRef":
-            suggest = "secret_ref"
-        elif key == "triggerParameter":
-            suggest = "trigger_parameter"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleAuthResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScaleRuleAuthResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScaleRuleAuthResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 secret_ref: Optional[str] = None,
-                 trigger_parameter: Optional[str] = None):
-        """
-        Auth Secrets for Container App Scale Rule
-        :param str secret_ref: Name of the Container App secret from which to pull the auth params.
-        :param str trigger_parameter: Trigger Parameter that uses the secret
-        """
-        if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
-        if trigger_parameter is not None:
-            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
-
-    @property
-    @pulumi.getter(name="secretRef")
-    def secret_ref(self) -> Optional[str]:
-        """
-        Name of the Container App secret from which to pull the auth params.
-        """
-        return pulumi.get(self, "secret_ref")
-
-    @property
-    @pulumi.getter(name="triggerParameter")
-    def trigger_parameter(self) -> Optional[str]:
-        """
-        Trigger Parameter that uses the secret
-        """
-        return pulumi.get(self, "trigger_parameter")
-
-
-@pulumi.output_type
-class ScaleRuleResponse(dict):
-    """
-    Container App container scaling rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureQueue":
-            suggest = "azure_queue"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ScaleRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ScaleRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ScaleRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_queue: Optional['outputs.QueueScaleRuleResponse'] = None,
-                 custom: Optional['outputs.CustomScaleRuleResponse'] = None,
-                 http: Optional['outputs.HttpScaleRuleResponse'] = None,
-                 name: Optional[str] = None):
-        """
-        Container App container scaling rule.
-        :param 'QueueScaleRuleResponse' azure_queue: Azure Queue based scaling.
-        :param 'CustomScaleRuleResponse' custom: Custom scale rule.
-        :param 'HttpScaleRuleResponse' http: HTTP requests based scaling.
-        :param str name: Scale Rule Name
-        """
-        if azure_queue is not None:
-            pulumi.set(__self__, "azure_queue", azure_queue)
-        if custom is not None:
-            pulumi.set(__self__, "custom", custom)
-        if http is not None:
-            pulumi.set(__self__, "http", http)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="azureQueue")
-    def azure_queue(self) -> Optional['outputs.QueueScaleRuleResponse']:
-        """
-        Azure Queue based scaling.
-        """
-        return pulumi.get(self, "azure_queue")
-
-    @property
-    @pulumi.getter
-    def custom(self) -> Optional['outputs.CustomScaleRuleResponse']:
-        """
-        Custom scale rule.
-        """
-        return pulumi.get(self, "custom")
-
-    @property
-    @pulumi.getter
-    def http(self) -> Optional['outputs.HttpScaleRuleResponse']:
-        """
-        HTTP requests based scaling.
-        """
-        return pulumi.get(self, "http")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Scale Rule Name
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class SecretResponse(dict):
-    """
-    Container App Secret.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None):
-        """
-        Container App Secret.
-        :param str name: Secret Name.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Secret Name.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
 class SiteConfigResponse(dict):
     """
     Configuration of an App Service app.
@@ -8792,6 +8360,8 @@ class SiteConfigResponse(dict):
             suggest = "managed_pipeline_mode"
         elif key == "managedServiceIdentityId":
             suggest = "managed_service_identity_id"
+        elif key == "minTlsCipherSuite":
+            suggest = "min_tls_cipher_suite"
         elif key == "minTlsVersion":
             suggest = "min_tls_version"
         elif key == "minimumElasticInstanceCount":
@@ -8904,6 +8474,7 @@ class SiteConfigResponse(dict):
                  logs_directory_size_limit: Optional[int] = None,
                  managed_pipeline_mode: Optional[str] = None,
                  managed_service_identity_id: Optional[int] = None,
+                 min_tls_cipher_suite: Optional[str] = None,
                  min_tls_version: Optional[str] = None,
                  minimum_elastic_instance_count: Optional[int] = None,
                  net_framework_version: Optional[str] = None,
@@ -8980,6 +8551,7 @@ class SiteConfigResponse(dict):
         :param int logs_directory_size_limit: HTTP logs directory size limit.
         :param str managed_pipeline_mode: Managed pipeline mode.
         :param int managed_service_identity_id: Managed Service Identity Id
+        :param str min_tls_cipher_suite: The minimum strength TLS cipher suite allowed for an application
         :param str min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
         :param int minimum_elastic_instance_count: Number of minimum instance count for a site
                This setting only applies to the Elastic Plans
@@ -9095,6 +8667,8 @@ class SiteConfigResponse(dict):
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
         if managed_service_identity_id is not None:
             pulumi.set(__self__, "managed_service_identity_id", managed_service_identity_id)
+        if min_tls_cipher_suite is not None:
+            pulumi.set(__self__, "min_tls_cipher_suite", min_tls_cipher_suite)
         if min_tls_version is not None:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if minimum_elastic_instance_count is not None:
@@ -9477,6 +9051,14 @@ class SiteConfigResponse(dict):
         return pulumi.get(self, "managed_service_identity_id")
 
     @property
+    @pulumi.getter(name="minTlsCipherSuite")
+    def min_tls_cipher_suite(self) -> Optional[str]:
+        """
+        The minimum strength TLS cipher suite allowed for an application
+        """
+        return pulumi.get(self, "min_tls_cipher_suite")
+
+    @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[str]:
         """
@@ -9725,6 +9307,111 @@ class SiteConfigResponse(dict):
         Explicit Managed Service Identity Id
         """
         return pulumi.get(self, "x_managed_service_identity_id")
+
+
+@pulumi.output_type
+class SiteDnsConfigResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsLegacySortOrder":
+            suggest = "dns_legacy_sort_order"
+        elif key == "dnsAltServer":
+            suggest = "dns_alt_server"
+        elif key == "dnsMaxCacheTimeout":
+            suggest = "dns_max_cache_timeout"
+        elif key == "dnsRetryAttemptCount":
+            suggest = "dns_retry_attempt_count"
+        elif key == "dnsRetryAttemptTimeout":
+            suggest = "dns_retry_attempt_timeout"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteDnsConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteDnsConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteDnsConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_legacy_sort_order: bool,
+                 dns_alt_server: Optional[str] = None,
+                 dns_max_cache_timeout: Optional[int] = None,
+                 dns_retry_attempt_count: Optional[int] = None,
+                 dns_retry_attempt_timeout: Optional[int] = None,
+                 dns_servers: Optional[Sequence[str]] = None):
+        """
+        :param bool dns_legacy_sort_order: Indicates that sites using Virtual network custom DNS servers are still sorting the list of DNS servers. Read-Only.
+        :param str dns_alt_server: Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
+        :param int dns_max_cache_timeout: Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
+        :param int dns_retry_attempt_count: Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
+        :param int dns_retry_attempt_timeout: Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
+        :param Sequence[str] dns_servers: List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
+        """
+        pulumi.set(__self__, "dns_legacy_sort_order", dns_legacy_sort_order)
+        if dns_alt_server is not None:
+            pulumi.set(__self__, "dns_alt_server", dns_alt_server)
+        if dns_max_cache_timeout is not None:
+            pulumi.set(__self__, "dns_max_cache_timeout", dns_max_cache_timeout)
+        if dns_retry_attempt_count is not None:
+            pulumi.set(__self__, "dns_retry_attempt_count", dns_retry_attempt_count)
+        if dns_retry_attempt_timeout is not None:
+            pulumi.set(__self__, "dns_retry_attempt_timeout", dns_retry_attempt_timeout)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+
+    @property
+    @pulumi.getter(name="dnsLegacySortOrder")
+    def dns_legacy_sort_order(self) -> bool:
+        """
+        Indicates that sites using Virtual network custom DNS servers are still sorting the list of DNS servers. Read-Only.
+        """
+        return pulumi.get(self, "dns_legacy_sort_order")
+
+    @property
+    @pulumi.getter(name="dnsAltServer")
+    def dns_alt_server(self) -> Optional[str]:
+        """
+        Alternate DNS server to be used by apps. This property replicates the WEBSITE_DNS_ALT_SERVER app setting.
+        """
+        return pulumi.get(self, "dns_alt_server")
+
+    @property
+    @pulumi.getter(name="dnsMaxCacheTimeout")
+    def dns_max_cache_timeout(self) -> Optional[int]:
+        """
+        Custom time for DNS to be cached in seconds. Allowed range: 0-60. Default is 30 seconds. 0 means caching disabled.
+        """
+        return pulumi.get(self, "dns_max_cache_timeout")
+
+    @property
+    @pulumi.getter(name="dnsRetryAttemptCount")
+    def dns_retry_attempt_count(self) -> Optional[int]:
+        """
+        Total number of retries for dns lookup. Allowed range: 1-5. Default is 3.
+        """
+        return pulumi.get(self, "dns_retry_attempt_count")
+
+    @property
+    @pulumi.getter(name="dnsRetryAttemptTimeout")
+    def dns_retry_attempt_timeout(self) -> Optional[int]:
+        """
+        Timeout for a single dns lookup in seconds. Allowed range: 1-30. Default is 3.
+        """
+        return pulumi.get(self, "dns_retry_attempt_timeout")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        List of custom DNS servers to be used by an app for lookups. Maximum 5 dns servers can be set.
+        """
+        return pulumi.get(self, "dns_servers")
 
 
 @pulumi.output_type
@@ -10991,86 +10678,6 @@ class StatusCodesRangeBasedTriggerResponse(dict):
 
 
 @pulumi.output_type
-class TemplateResponse(dict):
-    """
-    Container App versioned application definition.
-    Defines the desired state of an immutable revision.
-    Any changes to this section Will result in a new revision being created
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "revisionSuffix":
-            suggest = "revision_suffix"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TemplateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TemplateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TemplateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 containers: Optional[Sequence['outputs.ContainerResponse']] = None,
-                 dapr: Optional['outputs.DaprResponse'] = None,
-                 revision_suffix: Optional[str] = None,
-                 scale: Optional['outputs.ScaleResponse'] = None):
-        """
-        Container App versioned application definition.
-        Defines the desired state of an immutable revision.
-        Any changes to this section Will result in a new revision being created
-        :param Sequence['ContainerResponse'] containers: List of container definitions for the Container App.
-        :param 'DaprResponse' dapr: Dapr configuration for the Container App.
-        :param str revision_suffix: User friendly suffix that is appended to the revision name
-        :param 'ScaleResponse' scale: Scaling properties for the Container App.
-        """
-        if containers is not None:
-            pulumi.set(__self__, "containers", containers)
-        if dapr is not None:
-            pulumi.set(__self__, "dapr", dapr)
-        if revision_suffix is not None:
-            pulumi.set(__self__, "revision_suffix", revision_suffix)
-        if scale is not None:
-            pulumi.set(__self__, "scale", scale)
-
-    @property
-    @pulumi.getter
-    def containers(self) -> Optional[Sequence['outputs.ContainerResponse']]:
-        """
-        List of container definitions for the Container App.
-        """
-        return pulumi.get(self, "containers")
-
-    @property
-    @pulumi.getter
-    def dapr(self) -> Optional['outputs.DaprResponse']:
-        """
-        Dapr configuration for the Container App.
-        """
-        return pulumi.get(self, "dapr")
-
-    @property
-    @pulumi.getter(name="revisionSuffix")
-    def revision_suffix(self) -> Optional[str]:
-        """
-        User friendly suffix that is appended to the revision name
-        """
-        return pulumi.get(self, "revision_suffix")
-
-    @property
-    @pulumi.getter
-    def scale(self) -> Optional['outputs.ScaleResponse']:
-        """
-        Scaling properties for the Container App.
-        """
-        return pulumi.get(self, "scale")
-
-
-@pulumi.output_type
 class TokenStoreResponse(dict):
     """
     The configuration settings of the token store.
@@ -11152,74 +10759,6 @@ class TokenStoreResponse(dict):
         call the token refresh API. The default is 72 hours.
         """
         return pulumi.get(self, "token_refresh_extension_hours")
-
-
-@pulumi.output_type
-class TrafficWeightResponse(dict):
-    """
-    Traffic weight assigned to a revision
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "latestRevision":
-            suggest = "latest_revision"
-        elif key == "revisionName":
-            suggest = "revision_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TrafficWeightResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TrafficWeightResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TrafficWeightResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 latest_revision: Optional[bool] = None,
-                 revision_name: Optional[str] = None,
-                 weight: Optional[int] = None):
-        """
-        Traffic weight assigned to a revision
-        :param bool latest_revision: Indicates that the traffic weight belongs to a latest stable revision
-        :param str revision_name: Name of a revision
-        :param int weight: Traffic weight assigned to a revision
-        """
-        if latest_revision is None:
-            latest_revision = False
-        if latest_revision is not None:
-            pulumi.set(__self__, "latest_revision", latest_revision)
-        if revision_name is not None:
-            pulumi.set(__self__, "revision_name", revision_name)
-        if weight is not None:
-            pulumi.set(__self__, "weight", weight)
-
-    @property
-    @pulumi.getter(name="latestRevision")
-    def latest_revision(self) -> Optional[bool]:
-        """
-        Indicates that the traffic weight belongs to a latest stable revision
-        """
-        return pulumi.get(self, "latest_revision")
-
-    @property
-    @pulumi.getter(name="revisionName")
-    def revision_name(self) -> Optional[str]:
-        """
-        Name of a revision
-        """
-        return pulumi.get(self, "revision_name")
-
-    @property
-    @pulumi.getter
-    def weight(self) -> Optional[int]:
-        """
-        Traffic weight assigned to a revision
-        """
-        return pulumi.get(self, "weight")
 
 
 @pulumi.output_type

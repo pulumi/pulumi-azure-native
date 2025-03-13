@@ -34,7 +34,7 @@ class DatabasePrincipalAssignmentArgs:
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'DatabasePrincipalRole']] role: Database principal role.
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
@@ -102,7 +102,7 @@ class DatabasePrincipalAssignmentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -163,9 +163,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a database principal assignment.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,7 +172,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'DatabasePrincipalRole']] role: Database principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
@@ -186,9 +184,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database principal assignment.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -243,6 +239,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             __props__.__dict__["role"] = role
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["aad_object_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -273,6 +270,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         __props__ = DatabasePrincipalAssignmentArgs.__new__(DatabasePrincipalAssignmentArgs)
 
         __props__.__dict__["aad_object_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -291,6 +289,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         The service principal object id in AAD (Azure active directory)
         """
         return pulumi.get(self, "aad_object_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

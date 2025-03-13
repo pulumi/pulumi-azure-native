@@ -27,7 +27,10 @@ class GetSqlSitesControllerResult:
     """
     SQL site web model.
     """
-    def __init__(__self__, discovery_scenario=None, id=None, name=None, provisioning_state=None, service_endpoint=None, site_appliance_properties_collection=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, discovery_scenario=None, id=None, name=None, provisioning_state=None, service_endpoint=None, site_appliance_properties_collection=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if discovery_scenario and not isinstance(discovery_scenario, str):
             raise TypeError("Expected argument 'discovery_scenario' to be a str")
         pulumi.set(__self__, "discovery_scenario", discovery_scenario)
@@ -52,6 +55,14 @@ class GetSqlSitesControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoveryScenario")
@@ -126,6 +137,7 @@ class AwaitableGetSqlSitesControllerResult(GetSqlSitesControllerResult):
         if False:
             yield self
         return GetSqlSitesControllerResult(
+            azure_api_version=self.azure_api_version,
             discovery_scenario=self.discovery_scenario,
             id=self.id,
             name=self.name,
@@ -142,9 +154,7 @@ def get_sql_sites_controller(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlSitesControllerResult:
     """
     Method to get a site.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -159,6 +169,7 @@ def get_sql_sites_controller(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:offazure:getSqlSitesController', __args__, opts=opts, typ=GetSqlSitesControllerResult).value
 
     return AwaitableGetSqlSitesControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         discovery_scenario=pulumi.get(__ret__, 'discovery_scenario'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,9 +184,7 @@ def get_sql_sites_controller_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlSitesControllerResult]:
     """
     Method to get a site.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -189,6 +198,7 @@ def get_sql_sites_controller_output(resource_group_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getSqlSitesController', __args__, opts=opts, typ=GetSqlSitesControllerResult)
     return __ret__.apply(lambda __response__: GetSqlSitesControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         discovery_scenario=pulumi.get(__response__, 'discovery_scenario'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

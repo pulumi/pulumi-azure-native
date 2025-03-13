@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['NetworkGroupArgs', 'NetworkGroup']
 
@@ -23,18 +24,22 @@ class NetworkGroupArgs:
                  network_manager_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 member_type: Optional[pulumi.Input[Union[str, 'GroupMemberType']]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NetworkGroup resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] description: A description of the network group.
+        :param pulumi.Input[Union[str, 'GroupMemberType']] member_type: The type of the group member.
         :param pulumi.Input[str] network_group_name: The name of the network group.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
         if network_group_name is not None:
             pulumi.set(__self__, "network_group_name", network_group_name)
 
@@ -75,6 +80,18 @@ class NetworkGroupArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[pulumi.Input[Union[str, 'GroupMemberType']]]:
+        """
+        The type of the group member.
+        """
+        return pulumi.get(self, "member_type")
+
+    @member_type.setter
+    def member_type(self, value: Optional[pulumi.Input[Union[str, 'GroupMemberType']]]):
+        pulumi.set(self, "member_type", value)
+
+    @property
     @pulumi.getter(name="networkGroupName")
     def network_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -93,19 +110,19 @@ class NetworkGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 member_type: Optional[pulumi.Input[Union[str, 'GroupMemberType']]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The network group resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the network group.
+        :param pulumi.Input[Union[str, 'GroupMemberType']] member_type: The type of the group member.
         :param pulumi.Input[str] network_group_name: The name of the network group.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -118,9 +135,7 @@ class NetworkGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network group resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2022-04-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param NetworkGroupArgs args: The arguments to use to populate this resource's properties.
@@ -138,6 +153,7 @@ class NetworkGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 member_type: Optional[pulumi.Input[Union[str, 'GroupMemberType']]] = None,
                  network_group_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -151,6 +167,7 @@ class NetworkGroup(pulumi.CustomResource):
             __props__ = NetworkGroupArgs.__new__(NetworkGroupArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["member_type"] = member_type
             __props__.__dict__["network_group_name"] = network_group_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
@@ -158,6 +175,7 @@ class NetworkGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -188,14 +206,24 @@ class NetworkGroup(pulumi.CustomResource):
 
         __props__ = NetworkGroupArgs.__new__(NetworkGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["member_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return NetworkGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -212,6 +240,14 @@ class NetworkGroup(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the group member.
+        """
+        return pulumi.get(self, "member_type")
 
     @property
     @pulumi.getter

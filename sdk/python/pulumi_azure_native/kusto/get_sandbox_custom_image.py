@@ -26,7 +26,13 @@ class GetSandboxCustomImageResult:
     """
     Class representing a Kusto sandbox custom image.
     """
-    def __init__(__self__, id=None, language=None, language_version=None, name=None, provisioning_state=None, requirements_file_content=None, type=None):
+    def __init__(__self__, azure_api_version=None, base_image_name=None, id=None, language=None, language_version=None, name=None, provisioning_state=None, requirements_file_content=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if base_image_name and not isinstance(base_image_name, str):
+            raise TypeError("Expected argument 'base_image_name' to be a str")
+        pulumi.set(__self__, "base_image_name", base_image_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +56,22 @@ class GetSandboxCustomImageResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="baseImageName")
+    def base_image_name(self) -> Optional[str]:
+        """
+        The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
+        """
+        return pulumi.get(self, "base_image_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -67,9 +89,9 @@ class GetSandboxCustomImageResult:
 
     @property
     @pulumi.getter(name="languageVersion")
-    def language_version(self) -> str:
+    def language_version(self) -> Optional[str]:
         """
-        The version of the language.
+        The version of the language. Either this property or baseImageName should be specified.
         """
         return pulumi.get(self, "language_version")
 
@@ -112,6 +134,8 @@ class AwaitableGetSandboxCustomImageResult(GetSandboxCustomImageResult):
         if False:
             yield self
         return GetSandboxCustomImageResult(
+            azure_api_version=self.azure_api_version,
+            base_image_name=self.base_image_name,
             id=self.id,
             language=self.language,
             language_version=self.language_version,
@@ -127,9 +151,7 @@ def get_sandbox_custom_image(cluster_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSandboxCustomImageResult:
     """
     Returns a sandbox custom image
-    Azure REST API version: 2023-08-15.
-
-    Other available API versions: 2024-04-13.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -144,6 +166,8 @@ def get_sandbox_custom_image(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getSandboxCustomImage', __args__, opts=opts, typ=GetSandboxCustomImageResult).value
 
     return AwaitableGetSandboxCustomImageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        base_image_name=pulumi.get(__ret__, 'base_image_name'),
         id=pulumi.get(__ret__, 'id'),
         language=pulumi.get(__ret__, 'language'),
         language_version=pulumi.get(__ret__, 'language_version'),
@@ -157,9 +181,7 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image
-    Azure REST API version: 2023-08-15.
-
-    Other available API versions: 2024-04-13.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -173,6 +195,8 @@ def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getSandboxCustomImage', __args__, opts=opts, typ=GetSandboxCustomImageResult)
     return __ret__.apply(lambda __response__: GetSandboxCustomImageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        base_image_name=pulumi.get(__response__, 'base_image_name'),
         id=pulumi.get(__response__, 'id'),
         language=pulumi.get(__response__, 'language'),
         language_version=pulumi.get(__response__, 'language_version'),

@@ -26,7 +26,10 @@ class GetWebAppPublicCertificateSlotResult:
     """
     Public certificate object
     """
-    def __init__(__self__, blob=None, id=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
+    def __init__(__self__, azure_api_version=None, blob=None, id=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blob and not isinstance(blob, str):
             raise TypeError("Expected argument 'blob' to be a str")
         pulumi.set(__self__, "blob", blob)
@@ -48,6 +51,14 @@ class GetWebAppPublicCertificateSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetWebAppPublicCertificateSlotResult(GetWebAppPublicCertificateSl
         if False:
             yield self
         return GetWebAppPublicCertificateSlotResult(
+            azure_api_version=self.azure_api_version,
             blob=self.blob,
             id=self.id,
             kind=self.kind,
@@ -128,9 +140,7 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppPublicCertificateSlotResult:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -147,6 +157,7 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult).value
 
     return AwaitableGetWebAppPublicCertificateSlotResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blob=pulumi.get(__ret__, 'blob'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -161,9 +172,7 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPublicCertificateSlotResult]:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -179,6 +188,7 @@ def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppPublicCertificateSlotResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blob=pulumi.get(__response__, 'blob'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

@@ -134,9 +134,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        Azure REST API version: 2022-10-01.
-
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,9 +153,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-        Azure REST API version: 2022-10-01.
-
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -199,6 +195,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -226,6 +223,7 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
 
         __props__ = ConnectedEnvironmentsCertificateArgs.__new__(ConnectedEnvironmentsCertificateArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -233,6 +231,14 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ConnectedEnvironmentsCertificate(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -184,9 +184,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Description of a backup which will be performed.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,9 +206,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a backup which will be performed.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppBackupConfigurationSlotArgs args: The arguments to use to populate this resource's properties.
@@ -262,6 +258,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
             if storage_account_url is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_url'")
             __props__.__dict__["storage_account_url"] = storage_account_url
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppBackupConfigurationSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppBackupConfigurationSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -287,6 +284,7 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
 
         __props__ = WebAppBackupConfigurationSlotArgs.__new__(WebAppBackupConfigurationSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backup_name"] = None
         __props__.__dict__["backup_schedule"] = None
         __props__.__dict__["databases"] = None
@@ -296,6 +294,14 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
         __props__.__dict__["storage_account_url"] = None
         __props__.__dict__["type"] = None
         return WebAppBackupConfigurationSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupName")

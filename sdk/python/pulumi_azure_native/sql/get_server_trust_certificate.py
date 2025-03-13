@@ -26,7 +26,10 @@ class GetServerTrustCertificateResult:
     """
     Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
     """
-    def __init__(__self__, certificate_name=None, id=None, name=None, public_blob=None, thumbprint=None, type=None):
+    def __init__(__self__, azure_api_version=None, certificate_name=None, id=None, name=None, public_blob=None, thumbprint=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificate_name and not isinstance(certificate_name, str):
             raise TypeError("Expected argument 'certificate_name' to be a str")
         pulumi.set(__self__, "certificate_name", certificate_name)
@@ -45,6 +48,14 @@ class GetServerTrustCertificateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateName")
@@ -101,6 +112,7 @@ class AwaitableGetServerTrustCertificateResult(GetServerTrustCertificateResult):
         if False:
             yield self
         return GetServerTrustCertificateResult(
+            azure_api_version=self.azure_api_version,
             certificate_name=self.certificate_name,
             id=self.id,
             name=self.name,
@@ -117,8 +129,6 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
     Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str certificate_name: Name of of the certificate to get.
     :param str managed_instance_name: The name of the managed instance.
@@ -132,6 +142,7 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerTrustCertificate', __args__, opts=opts, typ=GetServerTrustCertificateResult).value
 
     return AwaitableGetServerTrustCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificate_name=pulumi.get(__ret__, 'certificate_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -146,8 +157,6 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
     Gets a server trust certificate that was uploaded from box to Sql Managed Instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str certificate_name: Name of of the certificate to get.
     :param str managed_instance_name: The name of the managed instance.
@@ -160,6 +169,7 @@ def get_server_trust_certificate_output(certificate_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerTrustCertificate', __args__, opts=opts, typ=GetServerTrustCertificateResult)
     return __ret__.apply(lambda __response__: GetServerTrustCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificate_name=pulumi.get(__response__, 'certificate_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

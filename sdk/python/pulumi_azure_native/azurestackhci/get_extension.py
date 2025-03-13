@@ -27,13 +27,16 @@ class GetExtensionResult:
     """
     Details of a particular extension in HCI Cluster.
     """
-    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, managed_by=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, type=None, type_handler_version=None):
+    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, azure_api_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, managed_by=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, type=None, type_handler_version=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
             raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
         pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
@@ -89,6 +92,14 @@ class GetExtensionResult:
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableAutomaticUpgrade")
@@ -203,6 +214,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
         return GetExtensionResult(
             aggregate_state=self.aggregate_state,
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            azure_api_version=self.azure_api_version,
             enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             id=self.id,
@@ -225,9 +237,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Get particular Arc Extension of HCI Cluster.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -246,6 +256,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
     return AwaitableGetExtensionResult(
         aggregate_state=pulumi.get(__ret__, 'aggregate_state'),
         auto_upgrade_minor_version=pulumi.get(__ret__, 'auto_upgrade_minor_version'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         enable_automatic_upgrade=pulumi.get(__ret__, 'enable_automatic_upgrade'),
         force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
         id=pulumi.get(__ret__, 'id'),
@@ -266,9 +277,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get particular Arc Extension of HCI Cluster.
-    Azure REST API version: 2023-03-01.
-
-    Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -286,6 +295,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetExtensionResult(
         aggregate_state=pulumi.get(__response__, 'aggregate_state'),
         auto_upgrade_minor_version=pulumi.get(__response__, 'auto_upgrade_minor_version'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         enable_automatic_upgrade=pulumi.get(__response__, 'enable_automatic_upgrade'),
         force_update_tag=pulumi.get(__response__, 'force_update_tag'),
         id=pulumi.get(__response__, 'id'),

@@ -16,11 +16,3 @@ from .trusted_id_provider import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datalakestore.v20161101 as __v20161101
-    v20161101 = __v20161101
-else:
-    v20161101 = _utilities.lazy_import('pulumi_azure_native.datalakestore.v20161101')
-

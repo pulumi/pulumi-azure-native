@@ -123,7 +123,7 @@ class Monitor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,7 +138,7 @@ class Monitor(pulumi.CustomResource):
                  args: MonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -178,6 +178,7 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -205,6 +206,7 @@ class Monitor(pulumi.CustomResource):
 
         __props__ = MonitorArgs.__new__(MonitorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -213,6 +215,14 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Monitor(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

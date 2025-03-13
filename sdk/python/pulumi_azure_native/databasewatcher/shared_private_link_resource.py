@@ -147,9 +147,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,9 +167,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +217,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -250,6 +247,7 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
 
         __props__ = SharedPrivateLinkResourceArgs.__new__(SharedPrivateLinkResourceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dns_zone"] = None
         __props__.__dict__["group_id"] = None
         __props__.__dict__["name"] = None
@@ -260,6 +258,14 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SharedPrivateLinkResource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dnsZone")

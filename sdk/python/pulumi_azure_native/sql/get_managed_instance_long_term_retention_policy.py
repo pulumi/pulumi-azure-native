@@ -26,7 +26,13 @@ class GetManagedInstanceLongTermRetentionPolicyResult:
     """
     A long term retention policy.
     """
-    def __init__(__self__, id=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+    def __init__(__self__, azure_api_version=None, backup_storage_access_tier=None, id=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if backup_storage_access_tier and not isinstance(backup_storage_access_tier, str):
+            raise TypeError("Expected argument 'backup_storage_access_tier' to be a str")
+        pulumi.set(__self__, "backup_storage_access_tier", backup_storage_access_tier)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,6 +54,22 @@ class GetManagedInstanceLongTermRetentionPolicyResult:
         if yearly_retention and not isinstance(yearly_retention, str):
             raise TypeError("Expected argument 'yearly_retention' to be a str")
         pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="backupStorageAccessTier")
+    def backup_storage_access_tier(self) -> Optional[str]:
+        """
+        The BackupStorageAccessTier for the LTR backups
+        """
+        return pulumi.get(self, "backup_storage_access_tier")
 
     @property
     @pulumi.getter
@@ -112,6 +134,8 @@ class AwaitableGetManagedInstanceLongTermRetentionPolicyResult(GetManagedInstanc
         if False:
             yield self
         return GetManagedInstanceLongTermRetentionPolicyResult(
+            azure_api_version=self.azure_api_version,
+            backup_storage_access_tier=self.backup_storage_access_tier,
             id=self.id,
             monthly_retention=self.monthly_retention,
             name=self.name,
@@ -128,9 +152,7 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedInstanceLongTermRetentionPolicyResult:
     """
     Gets a managed database's long term retention policy.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -147,6 +169,8 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getManagedInstanceLongTermRetentionPolicy', __args__, opts=opts, typ=GetManagedInstanceLongTermRetentionPolicyResult).value
 
     return AwaitableGetManagedInstanceLongTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        backup_storage_access_tier=pulumi.get(__ret__, 'backup_storage_access_tier'),
         id=pulumi.get(__ret__, 'id'),
         monthly_retention=pulumi.get(__ret__, 'monthly_retention'),
         name=pulumi.get(__ret__, 'name'),
@@ -161,9 +185,7 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceLongTermRetentionPolicyResult]:
     """
     Gets a managed database's long term retention policy.
-    Azure REST API version: 2022-11-01-preview.
-
-    Other available API versions: 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -179,6 +201,8 @@ def get_managed_instance_long_term_retention_policy_output(database_name: Option
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getManagedInstanceLongTermRetentionPolicy', __args__, opts=opts, typ=GetManagedInstanceLongTermRetentionPolicyResult)
     return __ret__.apply(lambda __response__: GetManagedInstanceLongTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        backup_storage_access_tier=pulumi.get(__response__, 'backup_storage_access_tier'),
         id=pulumi.get(__response__, 'id'),
         monthly_retention=pulumi.get(__response__, 'monthly_retention'),
         name=pulumi.get(__response__, 'name'),

@@ -169,7 +169,7 @@ class CloudConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
-        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class CloudConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
-        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CloudConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -234,6 +234,7 @@ class CloudConnection(pulumi.CustomResource):
             __props__.__dict__["shared_key"] = shared_key
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_hub"] = virtual_hub
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -263,6 +264,7 @@ class CloudConnection(pulumi.CustomResource):
 
         __props__ = CloudConnectionArgs.__new__(CloudConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_connector"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
@@ -275,6 +277,14 @@ class CloudConnection(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_hub"] = None
         return CloudConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudConnector")

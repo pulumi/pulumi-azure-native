@@ -26,13 +26,16 @@ class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, allow_protected_append_writes=None, allow_protected_append_writes_all=None, etag=None, id=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
+    def __init__(__self__, allow_protected_append_writes=None, allow_protected_append_writes_all=None, azure_api_version=None, etag=None, id=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
         if allow_protected_append_writes and not isinstance(allow_protected_append_writes, bool):
             raise TypeError("Expected argument 'allow_protected_append_writes' to be a bool")
         pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
         if allow_protected_append_writes_all and not isinstance(allow_protected_append_writes_all, bool):
             raise TypeError("Expected argument 'allow_protected_append_writes_all' to be a bool")
         pulumi.set(__self__, "allow_protected_append_writes_all", allow_protected_append_writes_all)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -67,6 +70,14 @@ class GetBlobContainerImmutabilityPolicyResult:
         This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
         """
         return pulumi.get(self, "allow_protected_append_writes_all")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
         return GetBlobContainerImmutabilityPolicyResult(
             allow_protected_append_writes=self.allow_protected_append_writes,
             allow_protected_append_writes_all=self.allow_protected_append_writes_all,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             immutability_period_since_creation_in_days=self.immutability_period_since_creation_in_days,
@@ -140,9 +152,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobContainerImmutabilityPolicyResult:
     """
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -161,6 +171,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
         allow_protected_append_writes=pulumi.get(__ret__, 'allow_protected_append_writes'),
         allow_protected_append_writes_all=pulumi.get(__ret__, 'allow_protected_append_writes_all'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         immutability_period_since_creation_in_days=pulumi.get(__ret__, 'immutability_period_since_creation_in_days'),
@@ -174,9 +185,7 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobContainerImmutabilityPolicyResult]:
     """
     Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -194,6 +203,7 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
     return __ret__.apply(lambda __response__: GetBlobContainerImmutabilityPolicyResult(
         allow_protected_append_writes=pulumi.get(__response__, 'allow_protected_append_writes'),
         allow_protected_append_writes_all=pulumi.get(__response__, 'allow_protected_append_writes_all'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         immutability_period_since_creation_in_days=pulumi.get(__response__, 'immutability_period_since_creation_in_days'),

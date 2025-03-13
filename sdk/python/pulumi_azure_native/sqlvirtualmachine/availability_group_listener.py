@@ -186,9 +186,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Server availability group listener.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2023-10-01.
+        Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param AvailabilityGroupListenerArgs args: The arguments to use to populate this resource's properties.
@@ -260,6 +256,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
             if sql_virtual_machine_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_virtual_machine_group_name'")
             __props__.__dict__["sql_virtual_machine_group_name"] = sql_virtual_machine_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -290,6 +287,7 @@ class AvailabilityGroupListener(pulumi.CustomResource):
 
         __props__.__dict__["availability_group_configuration"] = None
         __props__.__dict__["availability_group_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["create_default_availability_group_if_not_exist"] = None
         __props__.__dict__["load_balancer_configurations"] = None
         __props__.__dict__["multi_subnet_ip_configurations"] = None
@@ -315,6 +313,14 @@ class AvailabilityGroupListener(pulumi.CustomResource):
         Name of the availability group.
         """
         return pulumi.get(self, "availability_group_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createDefaultAvailabilityGroupIfNotExist")

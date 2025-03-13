@@ -13,14 +13,226 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AadProfileResponse',
+    'AgentErrorResponse',
+    'ArcAgentProfileResponse',
     'ConnectedClusterIdentityResponse',
     'CredentialResultResponse',
     'HybridConnectionConfigResponse',
+    'SystemComponentResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class AadProfileResponse(dict):
+    """
+    AAD Profile specifies attributes for Azure Active Directory integration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIDs":
+            suggest = "admin_group_object_ids"
+        elif key == "enableAzureRBAC":
+            suggest = "enable_azure_rbac"
+        elif key == "tenantID":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AadProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AadProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AadProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_group_object_ids: Optional[Sequence[str]] = None,
+                 enable_azure_rbac: Optional[bool] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        AAD Profile specifies attributes for Azure Active Directory integration.
+        :param Sequence[str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
+        :param bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
+        :param str tenant_id: The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        if admin_group_object_ids is not None:
+            pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+        if enable_azure_rbac is not None:
+            pulumi.set(__self__, "enable_azure_rbac", enable_azure_rbac)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIDs")
+    def admin_group_object_ids(self) -> Optional[Sequence[str]]:
+        """
+        The list of AAD group object IDs that will have admin role of the cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
+    @property
+    @pulumi.getter(name="enableAzureRBAC")
+    def enable_azure_rbac(self) -> Optional[bool]:
+        """
+        Whether to enable Azure RBAC for Kubernetes authorization.
+        """
+        return pulumi.get(self, "enable_azure_rbac")
+
+    @property
+    @pulumi.getter(name="tenantID")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AgentErrorResponse(dict):
+    """
+    Agent Errors if any during agent or system component upgrade.
+    """
+    def __init__(__self__, *,
+                 component: str,
+                 message: str,
+                 severity: str,
+                 time: str):
+        """
+        Agent Errors if any during agent or system component upgrade.
+        :param str component: Agent component where error message occured.
+        :param str message: Agent error message.
+        :param str severity: Severity of the error message.
+        :param str time: The timestamp of error occured (UTC).
+        """
+        pulumi.set(__self__, "component", component)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def component(self) -> str:
+        """
+        Agent component where error message occured.
+        """
+        return pulumi.get(self, "component")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Agent error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        Severity of the error message.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The timestamp of error occured (UTC).
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class ArcAgentProfileResponse(dict):
+    """
+    Defines the Arc Agent properties for the clusters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentAutoUpgrade":
+            suggest = "agent_auto_upgrade"
+        elif key == "agentErrors":
+            suggest = "agent_errors"
+        elif key == "desiredAgentVersion":
+            suggest = "desired_agent_version"
+        elif key == "systemComponents":
+            suggest = "system_components"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArcAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArcAgentProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArcAgentProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_auto_upgrade: Optional[str] = None,
+                 agent_errors: Optional[Sequence['outputs.AgentErrorResponse']] = None,
+                 desired_agent_version: Optional[str] = None,
+                 system_components: Optional[Sequence['outputs.SystemComponentResponse']] = None):
+        """
+        Defines the Arc Agent properties for the clusters.
+        :param str agent_auto_upgrade: Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        :param Sequence['AgentErrorResponse'] agent_errors: List of system extensions can be installed on the cluster resource.
+        :param str desired_agent_version: Version of the Arc agents to be installed on the cluster resource
+        :param Sequence['SystemComponentResponse'] system_components: List of system extensions can be installed on the cluster resource.
+        """
+        if agent_auto_upgrade is None:
+            agent_auto_upgrade = 'Enabled'
+        if agent_auto_upgrade is not None:
+            pulumi.set(__self__, "agent_auto_upgrade", agent_auto_upgrade)
+        if agent_errors is not None:
+            pulumi.set(__self__, "agent_errors", agent_errors)
+        if desired_agent_version is not None:
+            pulumi.set(__self__, "desired_agent_version", desired_agent_version)
+        if system_components is not None:
+            pulumi.set(__self__, "system_components", system_components)
+
+    @property
+    @pulumi.getter(name="agentAutoUpgrade")
+    def agent_auto_upgrade(self) -> Optional[str]:
+        """
+        Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.
+        """
+        return pulumi.get(self, "agent_auto_upgrade")
+
+    @property
+    @pulumi.getter(name="agentErrors")
+    def agent_errors(self) -> Optional[Sequence['outputs.AgentErrorResponse']]:
+        """
+        List of system extensions can be installed on the cluster resource.
+        """
+        return pulumi.get(self, "agent_errors")
+
+    @property
+    @pulumi.getter(name="desiredAgentVersion")
+    def desired_agent_version(self) -> Optional[str]:
+        """
+        Version of the Arc agents to be installed on the cluster resource
+        """
+        return pulumi.get(self, "desired_agent_version")
+
+    @property
+    @pulumi.getter(name="systemComponents")
+    def system_components(self) -> Optional[Sequence['outputs.SystemComponentResponse']]:
+        """
+        List of system extensions can be installed on the cluster resource.
+        """
+        return pulumi.get(self, "system_components")
+
 
 @pulumi.output_type
 class ConnectedClusterIdentityResponse(dict):
@@ -173,6 +385,85 @@ class HybridConnectionConfigResponse(dict):
         Sender access token
         """
         return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class SystemComponentResponse(dict):
+    """
+    System Extension and its desired versions to be installed on the cluster resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentVersion":
+            suggest = "current_version"
+        elif key == "majorVersion":
+            suggest = "major_version"
+        elif key == "userSpecifiedVersion":
+            suggest = "user_specified_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemComponentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemComponentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemComponentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_version: str,
+                 major_version: Optional[int] = None,
+                 type: Optional[str] = None,
+                 user_specified_version: Optional[str] = None):
+        """
+        System Extension and its desired versions to be installed on the cluster resource.
+        :param str current_version: Version of the system extension is currently installed on the cluster resource.
+        :param int major_version: Major Version of the system extension to be installed on the cluster resource.
+        :param str type: Type of the system extension
+        :param str user_specified_version: Version of the system extension to be installed on the cluster resource.
+        """
+        pulumi.set(__self__, "current_version", current_version)
+        if major_version is not None:
+            pulumi.set(__self__, "major_version", major_version)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_specified_version is not None:
+            pulumi.set(__self__, "user_specified_version", user_specified_version)
+
+    @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> str:
+        """
+        Version of the system extension is currently installed on the cluster resource.
+        """
+        return pulumi.get(self, "current_version")
+
+    @property
+    @pulumi.getter(name="majorVersion")
+    def major_version(self) -> Optional[int]:
+        """
+        Major Version of the system extension to be installed on the cluster resource.
+        """
+        return pulumi.get(self, "major_version")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the system extension
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userSpecifiedVersion")
+    def user_specified_version(self) -> Optional[str]:
+        """
+        Version of the system extension to be installed on the cluster resource.
+        """
+        return pulumi.get(self, "user_specified_version")
 
 
 @pulumi.output_type

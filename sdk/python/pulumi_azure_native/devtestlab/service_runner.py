@@ -135,7 +135,7 @@ class ServiceRunner(pulumi.CustomResource):
                  __props__=None):
         """
         A container for a managed identity to execute DevTest lab services.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class ServiceRunner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container for a managed identity to execute DevTest lab services.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param ServiceRunnerArgs args: The arguments to use to populate this resource's properties.
@@ -196,6 +196,7 @@ class ServiceRunner(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab/v20160515:ServiceRunner"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:ServiceRunner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -221,12 +222,21 @@ class ServiceRunner(pulumi.CustomResource):
 
         __props__ = ServiceRunnerArgs.__new__(ServiceRunnerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ServiceRunner(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

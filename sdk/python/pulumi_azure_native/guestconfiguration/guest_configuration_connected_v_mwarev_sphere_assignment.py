@@ -135,9 +135,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
-
-        Other available API versions: 2024-04-05.
+        Azure REST API version: 2024-04-05. Prior API version in Azure Native 2.x: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
-
-        Other available API versions: 2024-04-05.
+        Azure REST API version: 2024-04-05. Prior API version in Azure Native 2.x: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationConnectedVMwarevSphereAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -200,6 +196,7 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationConnectedVMwarevSphereAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20240405:GuestConfigurationConnectedVMwarevSphereAssignment")])
@@ -226,12 +223,21 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
 
         __props__ = GuestConfigurationConnectedVMwarevSphereAssignmentArgs.__new__(GuestConfigurationConnectedVMwarevSphereAssignmentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return GuestConfigurationConnectedVMwarevSphereAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

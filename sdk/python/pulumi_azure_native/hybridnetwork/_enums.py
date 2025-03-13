@@ -12,6 +12,7 @@ __all__ = [
     'AzureArcKubernetesArtifactType',
     'AzureCoreArtifactType',
     'AzureOperatorNexusArtifactType',
+    'BackingResourcePublicNetworkAccess',
     'ConfigurationGroupValueConfigurationType',
     'ContainerizedNetworkFunctionNFVIType',
     'DeviceType',
@@ -21,6 +22,7 @@ __all__ = [
     'IdType',
     'ManagedServiceIdentityType',
     'NFVIType',
+    'NetworkFunctionConfigurationType',
     'NetworkFunctionRoleConfigurationType',
     'NetworkFunctionType',
     'OperatingSystemTypes',
@@ -97,6 +99,14 @@ class AzureOperatorNexusArtifactType(str, Enum):
     UNKNOWN = "Unknown"
     IMAGE_FILE = "ImageFile"
     ARM_TEMPLATE = "ArmTemplate"
+
+
+class BackingResourcePublicNetworkAccess(str, Enum):
+    """
+    The artifact store backing resource network access type
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ConfigurationGroupValueConfigurationType(str, Enum):
@@ -176,6 +186,15 @@ class NFVIType(str, Enum):
     AZURE_ARC_KUBERNETES = "AzureArcKubernetes"
     AZURE_CORE = "AzureCore"
     AZURE_OPERATOR_NEXUS = "AzureOperatorNexus"
+
+
+class NetworkFunctionConfigurationType(str, Enum):
+    """
+    The value which indicates if NF  values are secrets
+    """
+    UNKNOWN = "Unknown"
+    SECRET = "Secret"
+    OPEN = "Open"
 
 
 class NetworkFunctionRoleConfigurationType(str, Enum):

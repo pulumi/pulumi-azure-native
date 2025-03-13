@@ -27,10 +27,13 @@ class GetAutomationAccountResult:
     """
     Definition of the automation account type.
     """
-    def __init__(__self__, automation_hybrid_service_url=None, creation_time=None, description=None, disable_local_auth=None, encryption=None, etag=None, id=None, identity=None, last_modified_by=None, last_modified_time=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, sku=None, state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, automation_hybrid_service_url=None, azure_api_version=None, creation_time=None, description=None, disable_local_auth=None, encryption=None, etag=None, id=None, identity=None, last_modified_by=None, last_modified_time=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, sku=None, state=None, system_data=None, tags=None, type=None):
         if automation_hybrid_service_url and not isinstance(automation_hybrid_service_url, str):
             raise TypeError("Expected argument 'automation_hybrid_service_url' to be a str")
         pulumi.set(__self__, "automation_hybrid_service_url", automation_hybrid_service_url)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -93,6 +96,14 @@ class GetAutomationAccountResult:
         URL of automation hybrid service which is used for hybrid worker on-boarding.
         """
         return pulumi.get(self, "automation_hybrid_service_url")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -246,6 +257,7 @@ class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
             yield self
         return GetAutomationAccountResult(
             automation_hybrid_service_url=self.automation_hybrid_service_url,
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             disable_local_auth=self.disable_local_auth,
@@ -271,9 +283,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationAccountResult:
     """
     Get information about an Automation Account.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -287,6 +297,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
 
     return AwaitableGetAutomationAccountResult(
         automation_hybrid_service_url=pulumi.get(__ret__, 'automation_hybrid_service_url'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
@@ -310,9 +321,7 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationAccountResult]:
     """
     Get information about an Automation Account.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -325,6 +334,7 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getAutomationAccount', __args__, opts=opts, typ=GetAutomationAccountResult)
     return __ret__.apply(lambda __response__: GetAutomationAccountResult(
         automation_hybrid_service_url=pulumi.get(__response__, 'automation_hybrid_service_url'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ArcSettingArgs', 'ArcSetting']
@@ -185,9 +186,7 @@ class ArcSetting(pulumi.CustomResource):
                  __props__=None):
         """
         ArcSetting details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -209,9 +208,7 @@ class ArcSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ArcSetting details.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview.
-
-        Other available API versions: 2021-09-01-preview, 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param ArcSettingArgs args: The arguments to use to populate this resource's properties.
@@ -260,6 +257,7 @@ class ArcSetting(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["aggregate_state"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["default_extensions"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["per_node_details"] = None
@@ -296,6 +294,7 @@ class ArcSetting(pulumi.CustomResource):
         __props__.__dict__["arc_application_tenant_id"] = None
         __props__.__dict__["arc_instance_resource_group"] = None
         __props__.__dict__["arc_service_principal_object_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connectivity_properties"] = None
         __props__.__dict__["default_extensions"] = None
         __props__.__dict__["name"] = None
@@ -352,6 +351,14 @@ class ArcSetting(pulumi.CustomResource):
         Object id of arc AAD service principal.
         """
         return pulumi.get(self, "arc_service_principal_object_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectivityProperties")

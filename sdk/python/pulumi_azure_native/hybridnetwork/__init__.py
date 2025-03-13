@@ -45,17 +45,3 @@ from .vendor_sku_preview import *
 from .vendor_skus import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hybridnetwork.v20220101preview as __v20220101preview
-    v20220101preview = __v20220101preview
-    import pulumi_azure_native.hybridnetwork.v20230901 as __v20230901
-    v20230901 = __v20230901
-    import pulumi_azure_native.hybridnetwork.v20240415 as __v20240415
-    v20240415 = __v20240415
-else:
-    v20220101preview = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20220101preview')
-    v20230901 = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20230901')
-    v20240415 = _utilities.lazy_import('pulumi_azure_native.hybridnetwork.v20240415')
-

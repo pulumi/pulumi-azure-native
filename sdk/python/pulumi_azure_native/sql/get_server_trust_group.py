@@ -27,7 +27,10 @@ class GetServerTrustGroupResult:
     """
     A server trust group.
     """
-    def __init__(__self__, group_members=None, id=None, name=None, trust_scopes=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_members=None, id=None, name=None, trust_scopes=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_members and not isinstance(group_members, list):
             raise TypeError("Expected argument 'group_members' to be a list")
         pulumi.set(__self__, "group_members", group_members)
@@ -43,6 +46,14 @@ class GetServerTrustGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupMembers")
@@ -91,6 +102,7 @@ class AwaitableGetServerTrustGroupResult(GetServerTrustGroupResult):
         if False:
             yield self
         return GetServerTrustGroupResult(
+            azure_api_version=self.azure_api_version,
             group_members=self.group_members,
             id=self.id,
             name=self.name,
@@ -106,8 +118,6 @@ def get_server_trust_group(location_name: Optional[str] = None,
     Gets a server trust group.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str location_name: The name of the region where the resource is located.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -121,6 +131,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerTrustGroup', __args__, opts=opts, typ=GetServerTrustGroupResult).value
 
     return AwaitableGetServerTrustGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_members=pulumi.get(__ret__, 'group_members'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -134,8 +145,6 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
     Gets a server trust group.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str location_name: The name of the region where the resource is located.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -148,6 +157,7 @@ def get_server_trust_group_output(location_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerTrustGroup', __args__, opts=opts, typ=GetServerTrustGroupResult)
     return __ret__.apply(lambda __response__: GetServerTrustGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_members=pulumi.get(__response__, 'group_members'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

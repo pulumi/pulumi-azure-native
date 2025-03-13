@@ -13,13 +13,17 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'APIServerProfileResponse',
     'ClusterProfileResponse',
     'ConsoleProfileResponse',
+    'EffectiveOutboundIPResponse',
     'IngressProfileResponse',
+    'LoadBalancerProfileResponse',
+    'ManagedOutboundIPsResponse',
     'MasterProfileResponse',
     'NetworkProfileResponse',
     'ServicePrincipalProfileResponse',
@@ -33,8 +37,8 @@ class APIServerProfileResponse(dict):
     APIServerProfile represents an API server profile.
     """
     def __init__(__self__, *,
-                 ip: Optional[str] = None,
-                 url: Optional[str] = None,
+                 ip: str,
+                 url: str,
                  visibility: Optional[str] = None):
         """
         APIServerProfile represents an API server profile.
@@ -42,16 +46,14 @@ class APIServerProfileResponse(dict):
         :param str url: The URL to access the cluster API server.
         :param str visibility: API server visibility.
         """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
-        if url is not None:
-            pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "url", url)
         if visibility is not None:
             pulumi.set(__self__, "visibility", visibility)
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional[str]:
+    def ip(self) -> str:
         """
         The IP of the cluster API server.
         """
@@ -59,7 +61,7 @@ class APIServerProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[str]:
+    def url(self) -> str:
         """
         The URL to access the cluster API server.
         """
@@ -172,21 +174,43 @@ class ConsoleProfileResponse(dict):
     ConsoleProfile represents a console profile.
     """
     def __init__(__self__, *,
-                 url: Optional[str] = None):
+                 url: str):
         """
         ConsoleProfile represents a console profile.
         :param str url: The URL to access the cluster console.
         """
-        if url is not None:
-            pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
-    def url(self) -> Optional[str]:
+    def url(self) -> str:
         """
         The URL to access the cluster console.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class EffectiveOutboundIPResponse(dict):
+    """
+    EffectiveOutboundIP represents an effective outbound IP resource of the cluster public load balancer.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        EffectiveOutboundIP represents an effective outbound IP resource of the cluster public load balancer.
+        :param str id: The fully qualified Azure resource id of an IP address resource.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified Azure resource id of an IP address resource.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -195,7 +219,7 @@ class IngressProfileResponse(dict):
     IngressProfile represents an ingress profile.
     """
     def __init__(__self__, *,
-                 ip: Optional[str] = None,
+                 ip: str,
                  name: Optional[str] = None,
                  visibility: Optional[str] = None):
         """
@@ -204,8 +228,7 @@ class IngressProfileResponse(dict):
         :param str name: The ingress profile name.
         :param str visibility: Ingress visibility.
         """
-        if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "ip", ip)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if visibility is not None:
@@ -213,7 +236,7 @@ class IngressProfileResponse(dict):
 
     @property
     @pulumi.getter
-    def ip(self) -> Optional[str]:
+    def ip(self) -> str:
         """
         The IP of the ingress.
         """
@@ -234,6 +257,82 @@ class IngressProfileResponse(dict):
         Ingress visibility.
         """
         return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class LoadBalancerProfileResponse(dict):
+    """
+    LoadBalancerProfile represents the profile of the cluster public load balancer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveOutboundIps":
+            suggest = "effective_outbound_ips"
+        elif key == "managedOutboundIps":
+            suggest = "managed_outbound_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_outbound_ips: Sequence['outputs.EffectiveOutboundIPResponse'],
+                 managed_outbound_ips: Optional['outputs.ManagedOutboundIPsResponse'] = None):
+        """
+        LoadBalancerProfile represents the profile of the cluster public load balancer.
+        :param Sequence['EffectiveOutboundIPResponse'] effective_outbound_ips: The list of effective outbound IP addresses of the public load balancer.
+        :param 'ManagedOutboundIPsResponse' managed_outbound_ips: The desired managed outbound IPs for the cluster public load balancer.
+        """
+        pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        if managed_outbound_ips is not None:
+            pulumi.set(__self__, "managed_outbound_ips", managed_outbound_ips)
+
+    @property
+    @pulumi.getter(name="effectiveOutboundIps")
+    def effective_outbound_ips(self) -> Sequence['outputs.EffectiveOutboundIPResponse']:
+        """
+        The list of effective outbound IP addresses of the public load balancer.
+        """
+        return pulumi.get(self, "effective_outbound_ips")
+
+    @property
+    @pulumi.getter(name="managedOutboundIps")
+    def managed_outbound_ips(self) -> Optional['outputs.ManagedOutboundIPsResponse']:
+        """
+        The desired managed outbound IPs for the cluster public load balancer.
+        """
+        return pulumi.get(self, "managed_outbound_ips")
+
+
+@pulumi.output_type
+class ManagedOutboundIPsResponse(dict):
+    """
+    ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+    """
+    def __init__(__self__, *,
+                 count: Optional[int] = None):
+        """
+        ManagedOutboundIPs represents the desired managed outbound IPs for the cluster public load balancer.
+        :param int count: Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        """
+        Count represents the desired number of IPv4 outbound IPs created and managed by Azure for the cluster public load balancer.  Allowed values are in the range of 1 - 20.  The default value is 1.
+        """
+        return pulumi.get(self, "count")
 
 
 @pulumi.output_type
@@ -326,8 +425,14 @@ class NetworkProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "podCidr":
+        if key == "loadBalancerProfile":
+            suggest = "load_balancer_profile"
+        elif key == "outboundType":
+            suggest = "outbound_type"
+        elif key == "podCidr":
             suggest = "pod_cidr"
+        elif key == "preconfiguredNSG":
+            suggest = "preconfigured_nsg"
         elif key == "serviceCidr":
             suggest = "service_cidr"
 
@@ -343,17 +448,45 @@ class NetworkProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 load_balancer_profile: Optional['outputs.LoadBalancerProfileResponse'] = None,
+                 outbound_type: Optional[str] = None,
                  pod_cidr: Optional[str] = None,
+                 preconfigured_nsg: Optional[str] = None,
                  service_cidr: Optional[str] = None):
         """
         NetworkProfile represents a network profile.
+        :param 'LoadBalancerProfileResponse' load_balancer_profile: The cluster load balancer profile.
+        :param str outbound_type: The OutboundType used for egress traffic.
         :param str pod_cidr: The CIDR used for OpenShift/Kubernetes Pods.
+        :param str preconfigured_nsg: Specifies whether subnets are pre-attached with an NSG
         :param str service_cidr: The CIDR used for OpenShift/Kubernetes Services.
         """
+        if load_balancer_profile is not None:
+            pulumi.set(__self__, "load_balancer_profile", load_balancer_profile)
+        if outbound_type is not None:
+            pulumi.set(__self__, "outbound_type", outbound_type)
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
+        if preconfigured_nsg is not None:
+            pulumi.set(__self__, "preconfigured_nsg", preconfigured_nsg)
         if service_cidr is not None:
             pulumi.set(__self__, "service_cidr", service_cidr)
+
+    @property
+    @pulumi.getter(name="loadBalancerProfile")
+    def load_balancer_profile(self) -> Optional['outputs.LoadBalancerProfileResponse']:
+        """
+        The cluster load balancer profile.
+        """
+        return pulumi.get(self, "load_balancer_profile")
+
+    @property
+    @pulumi.getter(name="outboundType")
+    def outbound_type(self) -> Optional[str]:
+        """
+        The OutboundType used for egress traffic.
+        """
+        return pulumi.get(self, "outbound_type")
 
     @property
     @pulumi.getter(name="podCidr")
@@ -362,6 +495,14 @@ class NetworkProfileResponse(dict):
         The CIDR used for OpenShift/Kubernetes Pods.
         """
         return pulumi.get(self, "pod_cidr")
+
+    @property
+    @pulumi.getter(name="preconfiguredNSG")
+    def preconfigured_nsg(self) -> Optional[str]:
+        """
+        Specifies whether subnets are pre-attached with an NSG
+        """
+        return pulumi.get(self, "preconfigured_nsg")
 
     @property
     @pulumi.getter(name="serviceCidr")

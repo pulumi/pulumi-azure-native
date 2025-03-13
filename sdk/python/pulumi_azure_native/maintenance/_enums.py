@@ -8,7 +8,6 @@ __all__ = [
     'MaintenanceScope',
     'RebootOptions',
     'TagOperators',
-    'TaskScope',
     'Visibility',
 ]
 
@@ -62,14 +61,6 @@ class TagOperators(str, Enum):
     """
     ALL = "All"
     ANY = "Any"
-
-
-class TaskScope(str, Enum):
-    """
-    Global Task execute once when schedule trigger. Resource task execute for each VM.
-    """
-    GLOBAL_ = "Global"
-    RESOURCE = "Resource"
 
 
 class Visibility(str, Enum):

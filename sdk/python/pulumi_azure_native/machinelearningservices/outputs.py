@@ -17,24 +17,26 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AADAuthTypeWorkspaceConnectionPropertiesResponse',
     'AKSResponse',
     'AKSSchemaResponseProperties',
     'AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse',
     'AccountApiKeysResponse',
+    'AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse',
     'AccountKeyDatastoreCredentialsResponse',
-    'AccountModelResponse',
     'AcrDetailsResponse',
     'ActualCapacityInfoResponse',
     'AksNetworkingConfigurationResponse',
+    'AllFeaturesResponse',
     'AllNodesResponse',
     'AmlComputeNodeInformationResponse',
     'AmlComputePropertiesResponse',
     'AmlComputeResponse',
+    'AmlTokenComputeIdentityResponse',
     'AmlTokenResponse',
     'ApiKeyAuthWorkspaceConnectionPropertiesResponse',
     'ArmResourceIdResponse',
     'AssignedUserResponse',
-    'AutoDeleteSettingResponse',
     'AutoForecastHorizonResponse',
     'AutoMLJobResponse',
     'AutoNCrossValidationsResponse',
@@ -57,14 +59,16 @@ __all__ = [
     'BatchDeploymentResponse',
     'BatchEndpointDefaultsResponse',
     'BatchEndpointResponse',
+    'BatchPipelineComponentDeploymentConfigurationResponse',
     'BatchRetrySettingsResponse',
     'BayesianSamplingAlgorithmResponse',
     'BindOptionsResponse',
     'BuildContextResponse',
-    'CallRateLimitResponse',
     'CapabilityHostResponse',
-    'CapacityConfigResponse',
     'CapacityReservationGroupResponse',
+    'CategoricalDataDriftMetricThresholdResponse',
+    'CategoricalDataQualityMetricThresholdResponse',
+    'CategoricalPredictionDriftMetricThresholdResponse',
     'CertificateDatastoreCredentialsResponse',
     'ClassificationResponse',
     'ClassificationTrainingSettingsResponse',
@@ -73,6 +77,7 @@ __all__ = [
     'CodeContainerResponse',
     'CodeVersionResponse',
     'CognitiveServicesSkuResponse',
+    'CollectionResponse',
     'ColumnTransformerResponse',
     'CommandJobLimitsResponse',
     'CommandJobResponse',
@@ -90,29 +95,38 @@ __all__ = [
     'ComputeInstanceResponse',
     'ComputeInstanceSshSettingsResponse',
     'ComputeInstanceVersionResponse',
+    'ComputeRecurrenceScheduleResponse',
+    'ComputeRuntimeDtoResponse',
     'ComputeSchedulesResponse',
     'ComputeStartStopScheduleResponse',
     'ContainerResourceRequirementsResponse',
     'ContainerResourceSettingsResponse',
     'ContentSafetyEndpointDeploymentResourcePropertiesResponse',
+    'ContentSafetyResponse',
     'CosmosDbSettingsResponse',
+    'CreateMonitorActionResponse',
     'CronResponse',
     'CronTriggerResponse',
     'CustomForecastHorizonResponse',
     'CustomKeysResponse',
     'CustomKeysWorkspaceConnectionPropertiesResponse',
+    'CustomMetricThresholdResponse',
     'CustomModelJobInputResponse',
     'CustomModelJobOutputResponse',
+    'CustomMonitoringSignalResponse',
     'CustomNCrossValidationsResponse',
     'CustomSeasonalityResponse',
     'CustomServiceResponse',
     'CustomTargetLagsResponse',
     'CustomTargetRollingWindowSizeResponse',
+    'DataCollectorResponse',
     'DataContainerResponse',
+    'DataDriftMonitoringSignalResponse',
     'DataFactoryResponse',
     'DataLakeAnalyticsResponse',
     'DataLakeAnalyticsSchemaResponseProperties',
     'DataPathAssetReferenceResponse',
+    'DataQualityMonitoringSignalResponse',
     'DatabricksPropertiesResponse',
     'DatabricksResponse',
     'DatasetResponse',
@@ -124,7 +138,6 @@ __all__ = [
     'DatastoreResponse',
     'DefaultScaleSettingsResponse',
     'DeltaModelCurrentStateResponse',
-    'DeploymentModelResponse',
     'DeploymentResourceConfigurationResponse',
     'DockerBuildResponse',
     'DockerImagePlatformResponse',
@@ -133,7 +146,6 @@ __all__ = [
     'EncryptionKeyVaultPropertiesResponse',
     'EncryptionPropertyResponse',
     'EndpointDeploymentModelResponse',
-    'EndpointDeploymentResourcePropertiesResponse',
     'EndpointModelDeprecationPropertiesResponse',
     'EndpointModelPropertiesResponse',
     'EndpointModelSkuCapacityPropertiesResponse',
@@ -152,7 +164,12 @@ __all__ = [
     'ErrorResponseResponse',
     'EstimatedVMPriceResponse',
     'EstimatedVMPricesResponse',
+    'FeatureAttributionDriftMonitoringSignalResponse',
+    'FeatureAttributionMetricThresholdResponse',
+    'FeatureImportanceSettingsResponse',
     'FeatureResponse',
+    'FeatureStoreSettingsResponse',
+    'FeatureSubsetResponse',
     'FeatureWindowResponse',
     'FeaturesetContainerResponse',
     'FeaturesetJobResponse',
@@ -160,6 +177,7 @@ __all__ = [
     'FeaturesetVersionResponse',
     'FeaturestoreEntityContainerResponse',
     'FeaturestoreEntityVersionResponse',
+    'FixedInputDataResponse',
     'FlavorDataResponse',
     'ForecastingResponse',
     'ForecastingSettingsResponse',
@@ -167,6 +185,8 @@ __all__ = [
     'FqdnOutboundRuleResponse',
     'GlusterFsSectionResponse',
     'GridSamplingAlgorithmResponse',
+    'GroupEnvironmentConfigurationResponse',
+    'GroupModelConfigurationResponse',
     'HDInsightPropertiesResponse',
     'HDInsightResponse',
     'IdAssetReferenceResponse',
@@ -204,6 +224,7 @@ __all__ = [
     'LabelingJobInstructionsResponse',
     'LabelingJobResponse',
     'LabelingJobTextPropertiesResponse',
+    'LakeHouseArtifactResponse',
     'LinkedInfoResponse',
     'LinkedServicePropsResponse',
     'LinkedWorkspacePropsResponse',
@@ -216,8 +237,11 @@ __all__ = [
     'MLTableDataResponse',
     'MLTableJobInputResponse',
     'MLTableJobOutputResponse',
+    'ManagedComputeIdentityResponse',
     'ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse',
     'ManagedIdentityResponse',
+    'ManagedNetworkProvisionStatusResponse',
+    'ManagedNetworkSettingsResponse',
     'ManagedOnlineDeploymentResponse',
     'ManagedOnlineEndpointDeploymentResourcePropertiesResponse',
     'ManagedServiceIdentityResponse',
@@ -227,9 +251,14 @@ __all__ = [
     'MaterializationSettingsResponse',
     'MedianStoppingPolicyResponse',
     'ModelContainerResponse',
-    'ModelDeprecationInfoResponse',
-    'ModelSkuResponse',
+    'ModelSettingsResponse',
     'ModelVersionResponse',
+    'MonitorDefinitionResponse',
+    'MonitorEmailNotificationSettingsResponse',
+    'MonitorNotificationSettingsResponse',
+    'MonitorServerlessSparkComputeResponse',
+    'MonitoringTargetResponse',
+    'MonitoringThresholdResponse',
     'MpiResponse',
     'NlpVerticalFeaturizationSettingsResponse',
     'NlpVerticalLimitSettingsResponse',
@@ -239,7 +268,12 @@ __all__ = [
     'NotebookPreparationErrorResponse',
     'NotebookResourceInfoResponse',
     'NotificationSettingResponse',
+    'NumericalDataDriftMetricThresholdResponse',
+    'NumericalDataQualityMetricThresholdResponse',
+    'NumericalPredictionDriftMetricThresholdResponse',
+    'OAuth2AuthTypeWorkspaceConnectionPropertiesResponse',
     'ObjectiveResponse',
+    'OneLakeDatastoreResponse',
     'OnlineEndpointResponse',
     'OnlineRequestSettingsResponse',
     'OpenAIEndpointDeploymentResourcePropertiesResponse',
@@ -248,8 +282,7 @@ __all__ = [
     'PasswordResponse',
     'PersonalComputeInstanceSettingsResponse',
     'PipelineJobResponse',
-    'PoolEnvironmentConfigurationResponse',
-    'PoolModelConfigurationResponse',
+    'PredictionDriftMonitoringSignalResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointDestinationResponse',
     'PrivateEndpointOutboundRuleResponse',
@@ -259,6 +292,7 @@ __all__ = [
     'ProbeSettingsResponse',
     'ProgressMetricsResponse',
     'PyTorchResponse',
+    'QueueSettingsResponse',
     'RaiBlocklistConfigResponse',
     'RaiBlocklistItemPropertiesResponse',
     'RaiBlocklistPropertiesResponse',
@@ -277,18 +311,20 @@ __all__ = [
     'RegressionResponse',
     'RegressionTrainingSettingsResponse',
     'RequestConfigurationResponse',
-    'RequestMatchPatternResponse',
+    'RequestLoggingResponse',
     'ResourceIdResponse',
+    'RollingInputDataResponse',
     'RouteResponse',
     'SASAuthTypeWorkspaceConnectionPropertiesResponse',
     'SasDatastoreCredentialsResponse',
     'ScaleSettingsResponse',
+    'ScaleUnitConfigurationResponse',
     'ScheduleBaseResponse',
     'ScheduleResponse',
     'ScriptReferenceResponse',
     'ScriptsToExecuteResponse',
     'SecretConfigurationResponse',
-    'ServerlessEndpointCapacityReservationResponse',
+    'ServerlessComputeSettingsResponse',
     'ServerlessEndpointResponse',
     'ServerlessInferenceEndpointResponse',
     'ServerlessOfferResponse',
@@ -300,11 +336,17 @@ __all__ = [
     'SetupScriptsResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
+    'SparkJobPythonEntryResponse',
+    'SparkJobResponse',
+    'SparkJobScalaEntryResponse',
+    'SparkResourceConfigurationResponse',
     'SpeechEndpointDeploymentResourcePropertiesResponse',
     'SslConfigurationResponse',
     'StackEnsembleSettingsResponse',
+    'StaticInputDataResponse',
     'StatusMessageResponse',
     'StorageAccountDetailsResponse',
+    'StringStringKeyValuePairResponse',
     'SweepJobLimitsResponse',
     'SweepJobResponse',
     'SynapseSparkResponse',
@@ -320,8 +362,8 @@ __all__ = [
     'TextClassificationMultilabelResponse',
     'TextClassificationResponse',
     'TextNerResponse',
-    'ThrottlingRuleResponse',
     'TmpfsOptionsResponse',
+    'TopNFeaturesByAttributionResponse',
     'TrialComponentResponse',
     'TritonModelJobInputResponse',
     'TritonModelJobOutputResponse',
@@ -345,13 +387,165 @@ __all__ = [
     'VolumeDefinitionResponse',
     'VolumeOptionsResponse',
     'WorkspaceConnectionAccessKeyResponse',
+    'WorkspaceConnectionAccountKeyResponse',
     'WorkspaceConnectionApiKeyResponse',
     'WorkspaceConnectionManagedIdentityResponse',
+    'WorkspaceConnectionOAuth2Response',
     'WorkspaceConnectionPersonalAccessTokenResponse',
     'WorkspaceConnectionServicePrincipalResponse',
     'WorkspaceConnectionSharedAccessSignatureResponse',
     'WorkspaceConnectionUsernamePasswordResponse',
+    'WorkspaceHubConfigResponse',
 ]
+
+@pulumi.output_type
+class AADAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    """
+    This connection type covers the AAD auth for any applicable Azure service
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AADAuthTypeWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AADAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AADAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
+                 category: Optional[str] = None,
+                 expiry_time: Optional[str] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
+        """
+        This connection type covers the AAD auth for any applicable Azure service
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'AAD'.
+        :param str group: Group based on connection category
+        :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
+        """
+        pulumi.set(__self__, "auth_type", 'AAD')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'AAD'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
+
 
 @pulumi.output_type
 class AKSResponse(dict):
@@ -682,29 +876,76 @@ class AKSSchemaResponseProperties(dict):
 
 @pulumi.output_type
 class AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionAccessKeyResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
-                 target: Optional[str] = None):
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'AccessKey'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'AccessKey')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
 
     @property
     @pulumi.getter(name="authType")
@@ -714,6 +955,19 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'AccessKey'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -734,14 +988,43 @@ class AccessKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
 
 
 @pulumi.output_type
@@ -763,6 +1046,163 @@ class AccountApiKeysResponse(dict):
     @pulumi.getter
     def key2(self) -> Optional[str]:
         return pulumi.get(self, "key2")
+
+
+@pulumi.output_type
+class AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    """
+    This connection type covers the account key connection for Azure storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountKeyAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionAccountKeyResponse'] = None,
+                 expiry_time: Optional[str] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
+        """
+        This connection type covers the account key connection for Azure storage
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'AccountKey'.
+        :param str group: Group based on connection category
+        :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
+        """
+        pulumi.set(__self__, "auth_type", 'AccountKey')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'AccountKey'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionAccountKeyResponse']:
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
 
 
 @pulumi.output_type
@@ -804,183 +1244,6 @@ class AccountKeyDatastoreCredentialsResponse(dict):
         Expected value is 'AccountKey'.
         """
         return pulumi.get(self, "credentials_type")
-
-
-@pulumi.output_type
-class AccountModelResponse(dict):
-    """
-    Cognitive Services account Model.
-    """
-    def __init__(__self__, *,
-                 call_rate_limit: 'outputs.CallRateLimitResponse',
-                 system_data: 'outputs.SystemDataResponse',
-                 base_model: Optional['outputs.DeploymentModelResponse'] = None,
-                 capabilities: Optional[Mapping[str, str]] = None,
-                 deprecation: Optional['outputs.ModelDeprecationInfoResponse'] = None,
-                 finetune_capabilities: Optional[Mapping[str, str]] = None,
-                 format: Optional[str] = None,
-                 is_default_version: Optional[bool] = None,
-                 lifecycle_status: Optional[str] = None,
-                 max_capacity: Optional[int] = None,
-                 name: Optional[str] = None,
-                 skus: Optional[Sequence['outputs.ModelSkuResponse']] = None,
-                 source: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        Cognitive Services account Model.
-        :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param 'DeploymentModelResponse' base_model: Base Model Identifier.
-        :param Mapping[str, str] capabilities: The capabilities.
-        :param 'ModelDeprecationInfoResponse' deprecation: Cognitive Services account ModelDeprecationInfo.
-        :param Mapping[str, str] finetune_capabilities: The capabilities for finetune models.
-        :param str format: Deployment model format.
-        :param bool is_default_version: If the model is default version.
-        :param str lifecycle_status: Model lifecycle status.
-        :param int max_capacity: The max capacity.
-        :param str name: Deployment model name.
-        :param Sequence['ModelSkuResponse'] skus: The list of Model Sku.
-        :param str source: Optional. Deployment model source ARM resource ID.
-        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
-        """
-        pulumi.set(__self__, "call_rate_limit", call_rate_limit)
-        pulumi.set(__self__, "system_data", system_data)
-        if base_model is not None:
-            pulumi.set(__self__, "base_model", base_model)
-        if capabilities is not None:
-            pulumi.set(__self__, "capabilities", capabilities)
-        if deprecation is not None:
-            pulumi.set(__self__, "deprecation", deprecation)
-        if finetune_capabilities is not None:
-            pulumi.set(__self__, "finetune_capabilities", finetune_capabilities)
-        if format is not None:
-            pulumi.set(__self__, "format", format)
-        if is_default_version is not None:
-            pulumi.set(__self__, "is_default_version", is_default_version)
-        if lifecycle_status is not None:
-            pulumi.set(__self__, "lifecycle_status", lifecycle_status)
-        if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if skus is not None:
-            pulumi.set(__self__, "skus", skus)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="callRateLimit")
-    def call_rate_limit(self) -> 'outputs.CallRateLimitResponse':
-        """
-        The call rate limit Cognitive Services account.
-        """
-        return pulumi.get(self, "call_rate_limit")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="baseModel")
-    def base_model(self) -> Optional['outputs.DeploymentModelResponse']:
-        """
-        Base Model Identifier.
-        """
-        return pulumi.get(self, "base_model")
-
-    @property
-    @pulumi.getter
-    def capabilities(self) -> Optional[Mapping[str, str]]:
-        """
-        The capabilities.
-        """
-        return pulumi.get(self, "capabilities")
-
-    @property
-    @pulumi.getter
-    def deprecation(self) -> Optional['outputs.ModelDeprecationInfoResponse']:
-        """
-        Cognitive Services account ModelDeprecationInfo.
-        """
-        return pulumi.get(self, "deprecation")
-
-    @property
-    @pulumi.getter(name="finetuneCapabilities")
-    def finetune_capabilities(self) -> Optional[Mapping[str, str]]:
-        """
-        The capabilities for finetune models.
-        """
-        return pulumi.get(self, "finetune_capabilities")
-
-    @property
-    @pulumi.getter
-    def format(self) -> Optional[str]:
-        """
-        Deployment model format.
-        """
-        return pulumi.get(self, "format")
-
-    @property
-    @pulumi.getter(name="isDefaultVersion")
-    def is_default_version(self) -> Optional[bool]:
-        """
-        If the model is default version.
-        """
-        return pulumi.get(self, "is_default_version")
-
-    @property
-    @pulumi.getter(name="lifecycleStatus")
-    def lifecycle_status(self) -> Optional[str]:
-        """
-        Model lifecycle status.
-        """
-        return pulumi.get(self, "lifecycle_status")
-
-    @property
-    @pulumi.getter(name="maxCapacity")
-    def max_capacity(self) -> Optional[int]:
-        """
-        The max capacity.
-        """
-        return pulumi.get(self, "max_capacity")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Deployment model name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def skus(self) -> Optional[Sequence['outputs.ModelSkuResponse']]:
-        """
-        The list of Model Sku.
-        """
-        return pulumi.get(self, "skus")
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[str]:
-        """
-        Optional. Deployment model source ARM resource ID.
-        """
-        return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
-        """
-        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1026,50 +1289,78 @@ class AcrDetailsResponse(dict):
 @pulumi.output_type
 class ActualCapacityInfoResponse(dict):
     def __init__(__self__, *,
-                 allocated: Optional[int] = None,
-                 assignment_failed: Optional[int] = None,
-                 assignment_success: Optional[int] = None):
+                 failed: Optional[int] = None,
+                 outdated_failed: Optional[int] = None,
+                 outdated_succeeded: Optional[int] = None,
+                 succeeded: Optional[int] = None,
+                 total: Optional[int] = None):
         """
-        :param int allocated: Gets or sets the total number of instances for the group.
-        :param int assignment_failed: Gets or sets the number of instances which failed to successfully complete assignment.
-        :param int assignment_success: Gets or sets the number of instances which successfully completed assignment.
+        :param int failed: Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload.
+        :param int outdated_failed: Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
+        :param int outdated_succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
+        :param int succeeded: Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
+        :param int total: Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
         """
-        if allocated is None:
-            allocated = 0
-        if allocated is not None:
-            pulumi.set(__self__, "allocated", allocated)
-        if assignment_failed is None:
-            assignment_failed = 0
-        if assignment_failed is not None:
-            pulumi.set(__self__, "assignment_failed", assignment_failed)
-        if assignment_success is None:
-            assignment_success = 0
-        if assignment_success is not None:
-            pulumi.set(__self__, "assignment_success", assignment_success)
+        if failed is None:
+            failed = 0
+        if failed is not None:
+            pulumi.set(__self__, "failed", failed)
+        if outdated_failed is None:
+            outdated_failed = 0
+        if outdated_failed is not None:
+            pulumi.set(__self__, "outdated_failed", outdated_failed)
+        if outdated_succeeded is None:
+            outdated_succeeded = 0
+        if outdated_succeeded is not None:
+            pulumi.set(__self__, "outdated_succeeded", outdated_succeeded)
+        if succeeded is None:
+            succeeded = 0
+        if succeeded is not None:
+            pulumi.set(__self__, "succeeded", succeeded)
+        if total is None:
+            total = 0
+        if total is not None:
+            pulumi.set(__self__, "total", total)
 
     @property
     @pulumi.getter
-    def allocated(self) -> Optional[int]:
+    def failed(self) -> Optional[int]:
         """
-        Gets or sets the total number of instances for the group.
+        Gets or sets the number of instances (scale units) which have Failed provisioning state and have target group payload.
         """
-        return pulumi.get(self, "allocated")
+        return pulumi.get(self, "failed")
 
     @property
-    @pulumi.getter(name="assignmentFailed")
-    def assignment_failed(self) -> Optional[int]:
+    @pulumi.getter(name="outdatedFailed")
+    def outdated_failed(self) -> Optional[int]:
         """
-        Gets or sets the number of instances which failed to successfully complete assignment.
+        Gets or sets the number of instances (scale units) which have Failed provisioning state but do not have target group payload.
         """
-        return pulumi.get(self, "assignment_failed")
+        return pulumi.get(self, "outdated_failed")
 
     @property
-    @pulumi.getter(name="assignmentSuccess")
-    def assignment_success(self) -> Optional[int]:
+    @pulumi.getter(name="outdatedSucceeded")
+    def outdated_succeeded(self) -> Optional[int]:
         """
-        Gets or sets the number of instances which successfully completed assignment.
+        Gets or sets the number of instances (scale units) which have Succeeded provisioning state but do not have target group payload.
         """
-        return pulumi.get(self, "assignment_success")
+        return pulumi.get(self, "outdated_succeeded")
+
+    @property
+    @pulumi.getter
+    def succeeded(self) -> Optional[int]:
+        """
+        Gets or sets the number of instances (scale units) which have Succeeded provisioning state and target group payload.
+        """
+        return pulumi.get(self, "succeeded")
+
+    @property
+    @pulumi.getter
+    def total(self) -> Optional[int]:
+        """
+        Gets or sets the total number of instances (scale units) regardless of provisioning state or whether current group payload version matches the target group payload.
+        """
+        return pulumi.get(self, "total")
 
 
 @pulumi.output_type
@@ -1152,6 +1443,43 @@ class AksNetworkingConfigurationResponse(dict):
         Virtual network subnet resource ID the compute nodes belong to
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class AllFeaturesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AllFeaturesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AllFeaturesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AllFeaturesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_type: str):
+        """
+        :param str filter_type: 
+               Expected value is 'AllFeatures'.
+        """
+        pulumi.set(__self__, "filter_type", 'AllFeatures')
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> str:
+        """
+
+        Expected value is 'AllFeatures'.
+        """
+        return pulumi.get(self, "filter_type")
 
 
 @pulumi.output_type
@@ -1705,6 +2033,47 @@ class AmlComputeResponse(dict):
 
 
 @pulumi.output_type
+class AmlTokenComputeIdentityResponse(dict):
+    """
+    AML token compute identity definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIdentityType":
+            suggest = "compute_identity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlTokenComputeIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlTokenComputeIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlTokenComputeIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_identity_type: str):
+        """
+        AML token compute identity definition.
+        :param str compute_identity_type: Monitor compute identity type enum.
+               Expected value is 'AmlToken'.
+        """
+        pulumi.set(__self__, "compute_identity_type", 'AmlToken')
+
+    @property
+    @pulumi.getter(name="computeIdentityType")
+    def compute_identity_type(self) -> str:
+        """
+        Monitor compute identity type enum.
+        Expected value is 'AmlToken'.
+        """
+        return pulumi.get(self, "compute_identity_type")
+
+
+@pulumi.output_type
 class AmlTokenResponse(dict):
     """
     AML Token identity configuration.
@@ -1769,13 +2138,46 @@ class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
                 
     Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiKeyAuthWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiKeyAuthWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiKeyAuthWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionApiKeyResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
-                 target: Optional[str] = None):
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
         """
         This connection type covers the generic ApiKey auth connection categories, for examples:
         AzureOpenAI:
@@ -1799,20 +2201,34 @@ class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
         Use Metadata property bag for ApiType, ApiVersion, Kind and other metadata fields
         :param str auth_type: Authentication type of the connection target
                Expected value is 'ApiKey'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
         :param 'WorkspaceConnectionApiKeyResponse' credentials: Api key object for workspace connection credential.
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ApiKey')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
 
     @property
     @pulumi.getter(name="authType")
@@ -1822,6 +2238,19 @@ class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'ApiKey'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -1845,14 +2274,43 @@ class ApiKeyAuthWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
 
 
 @pulumi.output_type
@@ -1950,39 +2408,6 @@ class AssignedUserResponse(dict):
 
 
 @pulumi.output_type
-class AutoDeleteSettingResponse(dict):
-    def __init__(__self__, *,
-                 condition: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        :param str condition: When to check if an asset is expired
-        :param str value: Expiration condition value.
-        """
-        if condition is None:
-            condition = 'CreatedGreaterThan'
-        if condition is not None:
-            pulumi.set(__self__, "condition", condition)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def condition(self) -> Optional[str]:
-        """
-        When to check if an asset is expired
-        """
-        return pulumi.get(self, "condition")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        Expiration condition value.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class AutoForecastHorizonResponse(dict):
     """
     Forecast horizon determined automatically by system.
@@ -2034,6 +2459,10 @@ class AutoMLJobResponse(dict):
             suggest = "experiment_name"
         elif key == "isArchived":
             suggest = "is_archived"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
+        elif key == "queueSettings":
+            suggest = "queue_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutoMLJobResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2059,8 +2488,10 @@ class AutoMLJobResponse(dict):
                  experiment_name: Optional[str] = None,
                  identity: Optional[Any] = None,
                  is_archived: Optional[bool] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
                  outputs: Optional[Mapping[str, Any]] = None,
                  properties: Optional[Mapping[str, str]] = None,
+                 queue_settings: Optional['outputs.QueueSettingsResponse'] = None,
                  resources: Optional['outputs.JobResourceConfigurationResponse'] = None,
                  services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -2083,8 +2514,10 @@ class AutoMLJobResponse(dict):
         :param Union['AmlTokenResponse', 'ManagedIdentityResponse', 'UserIdentityResponse'] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
                Defaults to AmlToken if null.
         :param bool is_archived: Is the asset archived?
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
         :param Mapping[str, Union['CustomModelJobOutputResponse', 'MLFlowModelJobOutputResponse', 'MLTableJobOutputResponse', 'TritonModelJobOutputResponse', 'UriFileJobOutputResponse', 'UriFolderJobOutputResponse']] outputs: Mapping of output data bindings used in the job.
         :param Mapping[str, str] properties: The asset property dictionary.
+        :param 'QueueSettingsResponse' queue_settings: Queue settings for the job
         :param 'JobResourceConfigurationResponse' resources: Compute Resource configuration for the job.
         :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
@@ -2115,10 +2548,14 @@ class AutoMLJobResponse(dict):
             is_archived = False
         if is_archived is not None:
             pulumi.set(__self__, "is_archived", is_archived)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if queue_settings is not None:
+            pulumi.set(__self__, "queue_settings", queue_settings)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if services is not None:
@@ -2226,6 +2663,14 @@ class AutoMLJobResponse(dict):
         return pulumi.get(self, "is_archived")
 
     @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
     @pulumi.getter
     def outputs(self) -> Optional[Mapping[str, Any]]:
         """
@@ -2240,6 +2685,14 @@ class AutoMLJobResponse(dict):
         The asset property dictionary.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="queueSettings")
+    def queue_settings(self) -> Optional['outputs.QueueSettingsResponse']:
+        """
+        Queue settings for the job
+        """
+        return pulumi.get(self, "queue_settings")
 
     @property
     @pulumi.getter
@@ -2469,8 +2922,12 @@ class AzureBlobDatastoreResponse(dict):
             suggest = "account_name"
         elif key == "containerName":
             suggest = "container_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
         elif key == "serviceDataAccessAuthIdentity":
             suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureBlobDatastoreResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2493,7 +2950,9 @@ class AzureBlobDatastoreResponse(dict):
                  endpoint: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  protocol: Optional[str] = None,
+                 resource_group: Optional[str] = None,
                  service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure Blob datastore configuration.
@@ -2507,7 +2966,9 @@ class AzureBlobDatastoreResponse(dict):
         :param str endpoint: Azure cloud endpoint for the storage account.
         :param Mapping[str, str] properties: The asset property dictionary.
         :param str protocol: Protocol used to communicate with the storage account.
+        :param str resource_group: Azure Resource Group name
         :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Azure Subscription Id
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "credentials", credentials)
@@ -2525,10 +2986,14 @@ class AzureBlobDatastoreResponse(dict):
             pulumi.set(__self__, "properties", properties)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if service_data_access_auth_identity is None:
             service_data_access_auth_identity = 'None'
         if service_data_access_auth_identity is not None:
             pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -2606,12 +3071,28 @@ class AzureBlobDatastoreResponse(dict):
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group name
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
     @pulumi.getter(name="serviceDataAccessAuthIdentity")
     def service_data_access_auth_identity(self) -> Optional[str]:
         """
         Indicates which identity to use to authenticate service data access to customer's storage.
         """
         return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Azure Subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
 
     @property
     @pulumi.getter
@@ -2636,8 +3117,12 @@ class AzureDataLakeGen1DatastoreResponse(dict):
             suggest = "is_default"
         elif key == "storeName":
             suggest = "store_name"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
         elif key == "serviceDataAccessAuthIdentity":
             suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeGen1DatastoreResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2657,7 +3142,9 @@ class AzureDataLakeGen1DatastoreResponse(dict):
                  store_name: str,
                  description: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None,
+                 resource_group: Optional[str] = None,
                  service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure Data Lake Gen1 datastore configuration.
@@ -2668,7 +3155,9 @@ class AzureDataLakeGen1DatastoreResponse(dict):
         :param str store_name: [Required] Azure Data Lake store name.
         :param str description: The asset description text.
         :param Mapping[str, str] properties: The asset property dictionary.
+        :param str resource_group: Azure Resource Group name
         :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Azure Subscription Id
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "credentials", credentials)
@@ -2679,10 +3168,14 @@ class AzureDataLakeGen1DatastoreResponse(dict):
             pulumi.set(__self__, "description", description)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if service_data_access_auth_identity is None:
             service_data_access_auth_identity = 'None'
         if service_data_access_auth_identity is not None:
             pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -2736,12 +3229,28 @@ class AzureDataLakeGen1DatastoreResponse(dict):
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group name
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
     @pulumi.getter(name="serviceDataAccessAuthIdentity")
     def service_data_access_auth_identity(self) -> Optional[str]:
         """
         Indicates which identity to use to authenticate service data access to customer's storage.
         """
         return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Azure Subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
 
     @property
     @pulumi.getter
@@ -2766,8 +3275,12 @@ class AzureDataLakeGen2DatastoreResponse(dict):
             suggest = "datastore_type"
         elif key == "isDefault":
             suggest = "is_default"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
         elif key == "serviceDataAccessAuthIdentity":
             suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureDataLakeGen2DatastoreResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2790,7 +3303,9 @@ class AzureDataLakeGen2DatastoreResponse(dict):
                  endpoint: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  protocol: Optional[str] = None,
+                 resource_group: Optional[str] = None,
                  service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure Data Lake Gen2 datastore configuration.
@@ -2804,7 +3319,9 @@ class AzureDataLakeGen2DatastoreResponse(dict):
         :param str endpoint: Azure cloud endpoint for the storage account.
         :param Mapping[str, str] properties: The asset property dictionary.
         :param str protocol: Protocol used to communicate with the storage account.
+        :param str resource_group: Azure Resource Group name
         :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Azure Subscription Id
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -2820,10 +3337,14 @@ class AzureDataLakeGen2DatastoreResponse(dict):
             pulumi.set(__self__, "properties", properties)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if service_data_access_auth_identity is None:
             service_data_access_auth_identity = 'None'
         if service_data_access_auth_identity is not None:
             pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -2901,12 +3422,28 @@ class AzureDataLakeGen2DatastoreResponse(dict):
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group name
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
     @pulumi.getter(name="serviceDataAccessAuthIdentity")
     def service_data_access_auth_identity(self) -> Optional[str]:
         """
         Indicates which identity to use to authenticate service data access to customer's storage.
         """
         return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Azure Subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
 
     @property
     @pulumi.getter
@@ -3188,8 +3725,12 @@ class AzureFileDatastoreResponse(dict):
             suggest = "file_share_name"
         elif key == "isDefault":
             suggest = "is_default"
+        elif key == "resourceGroup":
+            suggest = "resource_group"
         elif key == "serviceDataAccessAuthIdentity":
             suggest = "service_data_access_auth_identity"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileDatastoreResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3212,7 +3753,9 @@ class AzureFileDatastoreResponse(dict):
                  endpoint: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  protocol: Optional[str] = None,
+                 resource_group: Optional[str] = None,
                  service_data_access_auth_identity: Optional[str] = None,
+                 subscription_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
         Azure File datastore configuration.
@@ -3226,7 +3769,9 @@ class AzureFileDatastoreResponse(dict):
         :param str endpoint: Azure cloud endpoint for the storage account.
         :param Mapping[str, str] properties: The asset property dictionary.
         :param str protocol: Protocol used to communicate with the storage account.
+        :param str resource_group: Azure Resource Group name
         :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param str subscription_id: Azure Subscription Id
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -3242,10 +3787,14 @@ class AzureFileDatastoreResponse(dict):
             pulumi.set(__self__, "properties", properties)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
         if service_data_access_auth_identity is None:
             service_data_access_auth_identity = 'None'
         if service_data_access_auth_identity is not None:
             pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -3323,12 +3872,28 @@ class AzureFileDatastoreResponse(dict):
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        Azure Resource Group name
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
     @pulumi.getter(name="serviceDataAccessAuthIdentity")
     def service_data_access_auth_identity(self) -> Optional[str]:
         """
         Indicates which identity to use to authenticate service data access to customer's storage.
         """
         return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Azure Subscription Id
+        """
+        return pulumi.get(self, "subscription_id")
 
     @property
     @pulumi.getter
@@ -4496,6 +5061,8 @@ class BatchDeploymentResponse(dict):
             suggest = "provisioning_state"
         elif key == "codeConfiguration":
             suggest = "code_configuration"
+        elif key == "deploymentConfiguration":
+            suggest = "deployment_configuration"
         elif key == "environmentId":
             suggest = "environment_id"
         elif key == "environmentVariables":
@@ -4530,6 +5097,7 @@ class BatchDeploymentResponse(dict):
                  provisioning_state: str,
                  code_configuration: Optional['outputs.CodeConfigurationResponse'] = None,
                  compute: Optional[str] = None,
+                 deployment_configuration: Optional['outputs.BatchPipelineComponentDeploymentConfigurationResponse'] = None,
                  description: Optional[str] = None,
                  environment_id: Optional[str] = None,
                  environment_variables: Optional[Mapping[str, str]] = None,
@@ -4548,6 +5116,7 @@ class BatchDeploymentResponse(dict):
         :param str provisioning_state: Provisioning state for the endpoint deployment.
         :param 'CodeConfigurationResponse' code_configuration: Code configuration for the endpoint deployment.
         :param str compute: Compute target for batch inference operation.
+        :param 'BatchPipelineComponentDeploymentConfigurationResponse' deployment_configuration: Properties relevant to different deployment types.
         :param str description: Description of the endpoint deployment.
         :param str environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
@@ -4575,6 +5144,8 @@ class BatchDeploymentResponse(dict):
             pulumi.set(__self__, "code_configuration", code_configuration)
         if compute is not None:
             pulumi.set(__self__, "compute", compute)
+        if deployment_configuration is not None:
+            pulumi.set(__self__, "deployment_configuration", deployment_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if environment_id is not None:
@@ -4637,6 +5208,14 @@ class BatchDeploymentResponse(dict):
         Compute target for batch inference operation.
         """
         return pulumi.get(self, "compute")
+
+    @property
+    @pulumi.getter(name="deploymentConfiguration")
+    def deployment_configuration(self) -> Optional['outputs.BatchPipelineComponentDeploymentConfigurationResponse']:
+        """
+        Properties relevant to different deployment types.
+        """
+        return pulumi.get(self, "deployment_configuration")
 
     @property
     @pulumi.getter
@@ -4831,7 +5410,7 @@ class BatchEndpointResponse(dict):
                  properties: Optional[Mapping[str, str]] = None):
         """
         Batch endpoint configuration.
-        :param str auth_mode: [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        :param str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param str provisioning_state: Provisioning state for the endpoint.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
@@ -4854,7 +5433,7 @@ class BatchEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> str:
         """
-        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         """
         return pulumi.get(self, "auth_mode")
 
@@ -4905,6 +5484,97 @@ class BatchEndpointResponse(dict):
         Property dictionary. Properties can be added, but not removed or altered.
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class BatchPipelineComponentDeploymentConfigurationResponse(dict):
+    """
+    Properties for a Batch Pipeline Component Deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentConfigurationType":
+            suggest = "deployment_configuration_type"
+        elif key == "componentId":
+            suggest = "component_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BatchPipelineComponentDeploymentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BatchPipelineComponentDeploymentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BatchPipelineComponentDeploymentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_configuration_type: str,
+                 component_id: Optional['outputs.IdAssetReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 settings: Optional[Mapping[str, str]] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Properties for a Batch Pipeline Component Deployment.
+        :param str deployment_configuration_type: The enumerated property types for batch deployments.
+               Expected value is 'PipelineComponent'.
+        :param 'IdAssetReferenceResponse' component_id: The ARM id of the component to be run.
+        :param str description: The description which will be applied to the job.
+        :param Mapping[str, str] settings: Run-time settings for the pipeline job.
+        :param Mapping[str, str] tags: The tags which will be applied to the job.
+        """
+        pulumi.set(__self__, "deployment_configuration_type", 'PipelineComponent')
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deploymentConfigurationType")
+    def deployment_configuration_type(self) -> str:
+        """
+        The enumerated property types for batch deployments.
+        Expected value is 'PipelineComponent'.
+        """
+        return pulumi.get(self, "deployment_configuration_type")
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional['outputs.IdAssetReferenceResponse']:
+        """
+        The ARM id of the component to be run.
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description which will be applied to the job.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Mapping[str, str]]:
+        """
+        Run-time settings for the pipeline job.
+        """
+        return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags which will be applied to the job.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -5128,49 +5798,6 @@ class BuildContextResponse(dict):
 
 
 @pulumi.output_type
-class CallRateLimitResponse(dict):
-    """
-    The call rate limit Cognitive Services account.
-    """
-    def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 renewal_period: Optional[float] = None,
-                 rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
-        """
-        The call rate limit Cognitive Services account.
-        :param float count: The count value of Call Rate Limit.
-        :param float renewal_period: The renewal period in seconds of Call Rate Limit.
-        """
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if renewal_period is not None:
-            pulumi.set(__self__, "renewal_period", renewal_period)
-        if rules is not None:
-            pulumi.set(__self__, "rules", rules)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[float]:
-        """
-        The count value of Call Rate Limit.
-        """
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="renewalPeriod")
-    def renewal_period(self) -> Optional[float]:
-        """
-        The renewal period in seconds of Call Rate Limit.
-        """
-        return pulumi.get(self, "renewal_period")
-
-    @property
-    @pulumi.getter
-    def rules(self) -> Optional[Sequence['outputs.ThrottlingRuleResponse']]:
-        return pulumi.get(self, "rules")
-
-
-@pulumi.output_type
 class CapabilityHostResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5314,77 +5941,6 @@ class CapabilityHostResponse(dict):
 
 
 @pulumi.output_type
-class CapacityConfigResponse(dict):
-    """
-    The capacity configuration.
-    """
-    def __init__(__self__, *,
-                 allowed_values: Optional[Sequence[int]] = None,
-                 default: Optional[int] = None,
-                 maximum: Optional[int] = None,
-                 minimum: Optional[int] = None,
-                 step: Optional[int] = None):
-        """
-        The capacity configuration.
-        :param Sequence[int] allowed_values: The array of allowed values for capacity.
-        :param int default: The default capacity.
-        :param int maximum: The maximum capacity.
-        :param int minimum: The minimum capacity.
-        :param int step: The minimal incremental between allowed values for capacity.
-        """
-        if allowed_values is not None:
-            pulumi.set(__self__, "allowed_values", allowed_values)
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if maximum is not None:
-            pulumi.set(__self__, "maximum", maximum)
-        if minimum is not None:
-            pulumi.set(__self__, "minimum", minimum)
-        if step is not None:
-            pulumi.set(__self__, "step", step)
-
-    @property
-    @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[Sequence[int]]:
-        """
-        The array of allowed values for capacity.
-        """
-        return pulumi.get(self, "allowed_values")
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[int]:
-        """
-        The default capacity.
-        """
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def maximum(self) -> Optional[int]:
-        """
-        The maximum capacity.
-        """
-        return pulumi.get(self, "maximum")
-
-    @property
-    @pulumi.getter
-    def minimum(self) -> Optional[int]:
-        """
-        The minimum capacity.
-        """
-        return pulumi.get(self, "minimum")
-
-    @property
-    @pulumi.getter
-    def step(self) -> Optional[int]:
-        """
-        The minimal incremental between allowed values for capacity.
-        """
-        return pulumi.get(self, "step")
-
-
-@pulumi.output_type
 class CapacityReservationGroupResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5429,6 +5985,186 @@ class CapacityReservationGroupResponse(dict):
         Offer used by this capacity reservation group.
         """
         return pulumi.get(self, "offer")
+
+
+@pulumi.output_type
+class CategoricalDataDriftMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CategoricalDataDriftMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CategoricalDataDriftMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CategoricalDataDriftMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Categorical'.
+        :param str metric: [Required] The categorical data drift metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Categorical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Categorical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The categorical data drift metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class CategoricalDataQualityMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CategoricalDataQualityMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CategoricalDataQualityMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CategoricalDataQualityMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Categorical'.
+        :param str metric: [Required] The categorical data quality metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Categorical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Categorical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The categorical data quality metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class CategoricalPredictionDriftMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CategoricalPredictionDriftMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CategoricalPredictionDriftMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CategoricalPredictionDriftMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Categorical'.
+        :param str metric: [Required] The categorical prediction drift metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Categorical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Categorical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The categorical prediction drift metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
 
 
 @pulumi.output_type
@@ -6478,6 +7214,88 @@ class CognitiveServicesSkuResponse(dict):
 
 
 @pulumi.output_type
+class CollectionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "dataCollectionMode":
+            suggest = "data_collection_mode"
+        elif key == "dataId":
+            suggest = "data_id"
+        elif key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 data_collection_mode: Optional[str] = None,
+                 data_id: Optional[str] = None,
+                 sampling_rate: Optional[float] = None):
+        """
+        :param str client_id: The msi client id used to collect logging to blob storage. If it's null,backend will pick a registered endpoint identity to auth.
+        :param str data_collection_mode: Enable or disable data collection.
+        :param str data_id: The data asset arm resource id. Client side will ensure data asset is pointing to the blob storage, and backend will collect data to the blob storage.
+        :param float sampling_rate: The sampling rate for collection. Sampling rate 1.0 means we collect 100% of data by default.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if data_collection_mode is None:
+            data_collection_mode = 'Disabled'
+        if data_collection_mode is not None:
+            pulumi.set(__self__, "data_collection_mode", data_collection_mode)
+        if data_id is not None:
+            pulumi.set(__self__, "data_id", data_id)
+        if sampling_rate is None:
+            sampling_rate = 1
+        if sampling_rate is not None:
+            pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The msi client id used to collect logging to blob storage. If it's null,backend will pick a registered endpoint identity to auth.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="dataCollectionMode")
+    def data_collection_mode(self) -> Optional[str]:
+        """
+        Enable or disable data collection.
+        """
+        return pulumi.get(self, "data_collection_mode")
+
+    @property
+    @pulumi.getter(name="dataId")
+    def data_id(self) -> Optional[str]:
+        """
+        The data asset arm resource id. Client side will ensure data asset is pointing to the blob storage, and backend will collect data to the blob storage.
+        """
+        return pulumi.get(self, "data_id")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> Optional[float]:
+        """
+        The sampling rate for collection. Sampling rate 1.0 means we collect 100% of data by default.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+
+@pulumi.output_type
 class ColumnTransformerResponse(dict):
     """
     Column transformer parameters.
@@ -6593,6 +7411,10 @@ class CommandJobResponse(dict):
             suggest = "experiment_name"
         elif key == "isArchived":
             suggest = "is_archived"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
+        elif key == "queueSettings":
+            suggest = "queue_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CommandJobResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6623,8 +7445,10 @@ class CommandJobResponse(dict):
                  inputs: Optional[Mapping[str, Any]] = None,
                  is_archived: Optional[bool] = None,
                  limits: Optional['outputs.CommandJobLimitsResponse'] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
                  outputs: Optional[Mapping[str, Any]] = None,
                  properties: Optional[Mapping[str, str]] = None,
+                 queue_settings: Optional['outputs.QueueSettingsResponse'] = None,
                  resources: Optional['outputs.JobResourceConfigurationResponse'] = None,
                  services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -6649,8 +7473,10 @@ class CommandJobResponse(dict):
         :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Mapping of input data bindings used in the job.
         :param bool is_archived: Is the asset archived?
         :param 'CommandJobLimitsResponse' limits: Command Job limit.
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
         :param Mapping[str, Union['CustomModelJobOutputResponse', 'MLFlowModelJobOutputResponse', 'MLTableJobOutputResponse', 'TritonModelJobOutputResponse', 'UriFileJobOutputResponse', 'UriFolderJobOutputResponse']] outputs: Mapping of output data bindings used in the job.
         :param Mapping[str, str] properties: The asset property dictionary.
+        :param 'QueueSettingsResponse' queue_settings: Queue settings for the job
         :param 'JobResourceConfigurationResponse' resources: Compute Resource configuration for the job.
         :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
@@ -6689,10 +7515,14 @@ class CommandJobResponse(dict):
             pulumi.set(__self__, "is_archived", is_archived)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if queue_settings is not None:
+            pulumi.set(__self__, "queue_settings", queue_settings)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if services is not None:
@@ -6839,6 +7669,14 @@ class CommandJobResponse(dict):
         return pulumi.get(self, "limits")
 
     @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
     @pulumi.getter
     def outputs(self) -> Optional[Mapping[str, Any]]:
         """
@@ -6853,6 +7691,14 @@ class CommandJobResponse(dict):
         The asset property dictionary.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="queueSettings")
+    def queue_settings(self) -> Optional['outputs.QueueSettingsResponse']:
+        """
+        Queue settings for the job
+        """
+        return pulumi.get(self, "queue_settings")
 
     @property
     @pulumi.getter
@@ -8297,6 +9143,114 @@ class ComputeInstanceVersionResponse(dict):
 
 
 @pulumi.output_type
+class ComputeRecurrenceScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthDays":
+            suggest = "month_days"
+        elif key == "weekDays":
+            suggest = "week_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeRecurrenceScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeRecurrenceScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeRecurrenceScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hours: Sequence[int],
+                 minutes: Sequence[int],
+                 month_days: Optional[Sequence[int]] = None,
+                 week_days: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[int] hours: [Required] List of hours for the schedule.
+        :param Sequence[int] minutes: [Required] List of minutes for the schedule.
+        :param Sequence[int] month_days: List of month days for the schedule
+        :param Sequence[str] week_days: List of days for the schedule.
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+        if month_days is not None:
+            pulumi.set(__self__, "month_days", month_days)
+        if week_days is not None:
+            pulumi.set(__self__, "week_days", week_days)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> Sequence[int]:
+        """
+        [Required] List of hours for the schedule.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Sequence[int]:
+        """
+        [Required] List of minutes for the schedule.
+        """
+        return pulumi.get(self, "minutes")
+
+    @property
+    @pulumi.getter(name="monthDays")
+    def month_days(self) -> Optional[Sequence[int]]:
+        """
+        List of month days for the schedule
+        """
+        return pulumi.get(self, "month_days")
+
+    @property
+    @pulumi.getter(name="weekDays")
+    def week_days(self) -> Optional[Sequence[str]]:
+        """
+        List of days for the schedule.
+        """
+        return pulumi.get(self, "week_days")
+
+
+@pulumi.output_type
+class ComputeRuntimeDtoResponse(dict):
+    """
+    Compute runtime config for feature store type workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkRuntimeVersion":
+            suggest = "spark_runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeRuntimeDtoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeRuntimeDtoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_runtime_version: Optional[str] = None):
+        """
+        Compute runtime config for feature store type workspace.
+        """
+        if spark_runtime_version is not None:
+            pulumi.set(__self__, "spark_runtime_version", spark_runtime_version)
+
+    @property
+    @pulumi.getter(name="sparkRuntimeVersion")
+    def spark_runtime_version(self) -> Optional[str]:
+        return pulumi.get(self, "spark_runtime_version")
+
+
+@pulumi.output_type
 class ComputeSchedulesResponse(dict):
     """
     The list of schedules to be applied on the computes
@@ -8673,6 +9627,41 @@ class ContentSafetyEndpointDeploymentResourcePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class ContentSafetyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentSafetyStatus":
+            suggest = "content_safety_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContentSafetyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContentSafetyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContentSafetyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_safety_status: str):
+        """
+        :param str content_safety_status: [Required] Specifies the status of content safety.
+        """
+        pulumi.set(__self__, "content_safety_status", content_safety_status)
+
+    @property
+    @pulumi.getter(name="contentSafetyStatus")
+    def content_safety_status(self) -> str:
+        """
+        [Required] Specifies the status of content safety.
+        """
+        return pulumi.get(self, "content_safety_status")
+
+
+@pulumi.output_type
 class CosmosDbSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8706,6 +9695,56 @@ class CosmosDbSettingsResponse(dict):
         The throughput of the collections in cosmosdb database
         """
         return pulumi.get(self, "collections_throughput")
+
+
+@pulumi.output_type
+class CreateMonitorActionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "monitorDefinition":
+            suggest = "monitor_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CreateMonitorActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CreateMonitorActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CreateMonitorActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: str,
+                 monitor_definition: 'outputs.MonitorDefinitionResponse'):
+        """
+        :param str action_type: 
+               Expected value is 'CreateMonitor'.
+        :param 'MonitorDefinitionResponse' monitor_definition: [Required] Defines the monitor.
+        """
+        pulumi.set(__self__, "action_type", 'CreateMonitor')
+        pulumi.set(__self__, "monitor_definition", monitor_definition)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+
+        Expected value is 'CreateMonitor'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="monitorDefinition")
+    def monitor_definition(self) -> 'outputs.MonitorDefinitionResponse':
+        """
+        [Required] Defines the monitor.
+        """
+        return pulumi.get(self, "monitor_definition")
 
 
 @pulumi.output_type
@@ -8943,13 +9982,46 @@ class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
     Target:= {any value}
     Use Metadata property bag for ApiVersion and other metadata fields
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomKeysWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomKeysWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomKeysWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.CustomKeysResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
-                 target: Optional[str] = None):
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
         """
         Category:= CustomKeys
         AuthType:= CustomKeys (as type discriminator)
@@ -8958,20 +10030,34 @@ class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
         Use Metadata property bag for ApiVersion and other metadata fields
         :param str auth_type: Authentication type of the connection target
                Expected value is 'CustomKeys'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
         :param 'CustomKeysResponse' credentials: Custom Keys credential object
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'CustomKeys')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
 
     @property
     @pulumi.getter(name="authType")
@@ -8981,6 +10067,19 @@ class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'CustomKeys'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -9004,14 +10103,73 @@ class CustomKeysWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
+
+
+@pulumi.output_type
+class CustomMetricThresholdResponse(dict):
+    def __init__(__self__, *,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str metric: [Required] The user-defined metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The user-defined metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
 
 
 @pulumi.output_type
@@ -9161,6 +10319,121 @@ class CustomModelJobOutputResponse(dict):
         Output Asset URI.
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class CustomMonitoringSignalResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "componentId":
+            suggest = "component_id"
+        elif key == "metricThresholds":
+            suggest = "metric_thresholds"
+        elif key == "signalType":
+            suggest = "signal_type"
+        elif key == "inputAssets":
+            suggest = "input_assets"
+        elif key == "notificationTypes":
+            suggest = "notification_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomMonitoringSignalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomMonitoringSignalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomMonitoringSignalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 component_id: str,
+                 metric_thresholds: Sequence['outputs.CustomMetricThresholdResponse'],
+                 signal_type: str,
+                 input_assets: Optional[Mapping[str, Any]] = None,
+                 inputs: Optional[Mapping[str, Any]] = None,
+                 notification_types: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        :param str component_id: [Required] Reference to the component asset used to calculate the custom metrics.
+        :param Sequence['CustomMetricThresholdResponse'] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
+        :param str signal_type: 
+               Expected value is 'Custom'.
+        :param Mapping[str, Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse']] input_assets: Monitoring assets to take as input. Key is the component input port name, value is the data asset.
+        :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Extra component parameters to take as input. Key is the component literal input port name, value is the parameter value.
+        :param Sequence[str] notification_types: The current notification mode for this signal.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "component_id", component_id)
+        pulumi.set(__self__, "metric_thresholds", metric_thresholds)
+        pulumi.set(__self__, "signal_type", 'Custom')
+        if input_assets is not None:
+            pulumi.set(__self__, "input_assets", input_assets)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if notification_types is not None:
+            pulumi.set(__self__, "notification_types", notification_types)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> str:
+        """
+        [Required] Reference to the component asset used to calculate the custom metrics.
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter(name="metricThresholds")
+    def metric_thresholds(self) -> Sequence['outputs.CustomMetricThresholdResponse']:
+        """
+        [Required] A list of metrics to calculate and their associated thresholds.
+        """
+        return pulumi.get(self, "metric_thresholds")
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> str:
+        """
+
+        Expected value is 'Custom'.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @property
+    @pulumi.getter(name="inputAssets")
+    def input_assets(self) -> Optional[Mapping[str, Any]]:
+        """
+        Monitoring assets to take as input. Key is the component input port name, value is the data asset.
+        """
+        return pulumi.get(self, "input_assets")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Mapping[str, Any]]:
+        """
+        Extra component parameters to take as input. Key is the component literal input port name, value is the parameter value.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter(name="notificationTypes")
+    def notification_types(self) -> Optional[Sequence[str]]:
+        """
+        The current notification mode for this signal.
+        """
+        return pulumi.get(self, "notification_types")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -9392,6 +10665,77 @@ class CustomTargetRollingWindowSizeResponse(dict):
 
 
 @pulumi.output_type
+class DataCollectorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestLogging":
+            suggest = "request_logging"
+        elif key == "rollingRate":
+            suggest = "rolling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataCollectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataCollectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataCollectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collections: Mapping[str, 'outputs.CollectionResponse'],
+                 request_logging: Optional['outputs.RequestLoggingResponse'] = None,
+                 rolling_rate: Optional[str] = None):
+        """
+        :param Mapping[str, 'CollectionResponse'] collections: [Required] The collection configuration. Each collection has it own configuration to collect model data and the name of collection can be arbitrary string.
+               Model data collector can be used for either payload logging or custom logging or both of them. Collection request and response are reserved for payload logging, others are for custom logging.
+        :param 'RequestLoggingResponse' request_logging: The request logging configuration for mdc, it includes advanced logging settings for all collections. It's optional.
+        :param str rolling_rate: When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+               If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+               If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+               The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+        """
+        pulumi.set(__self__, "collections", collections)
+        if request_logging is not None:
+            pulumi.set(__self__, "request_logging", request_logging)
+        if rolling_rate is None:
+            rolling_rate = 'Hour'
+        if rolling_rate is not None:
+            pulumi.set(__self__, "rolling_rate", rolling_rate)
+
+    @property
+    @pulumi.getter
+    def collections(self) -> Mapping[str, 'outputs.CollectionResponse']:
+        """
+        [Required] The collection configuration. Each collection has it own configuration to collect model data and the name of collection can be arbitrary string.
+        Model data collector can be used for either payload logging or custom logging or both of them. Collection request and response are reserved for payload logging, others are for custom logging.
+        """
+        return pulumi.get(self, "collections")
+
+    @property
+    @pulumi.getter(name="requestLogging")
+    def request_logging(self) -> Optional['outputs.RequestLoggingResponse']:
+        """
+        The request logging configuration for mdc, it includes advanced logging settings for all collections. It's optional.
+        """
+        return pulumi.get(self, "request_logging")
+
+    @property
+    @pulumi.getter(name="rollingRate")
+    def rolling_rate(self) -> Optional[str]:
+        """
+        When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+        If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+        If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+        The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+        """
+        return pulumi.get(self, "rolling_rate")
+
+
+@pulumi.output_type
 class DataContainerResponse(dict):
     """
     Container for data asset versions.
@@ -9506,6 +10850,148 @@ class DataContainerResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DataDriftMonitoringSignalResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricThresholds":
+            suggest = "metric_thresholds"
+        elif key == "productionData":
+            suggest = "production_data"
+        elif key == "referenceData":
+            suggest = "reference_data"
+        elif key == "signalType":
+            suggest = "signal_type"
+        elif key == "featureDataTypeOverride":
+            suggest = "feature_data_type_override"
+        elif key == "featureImportanceSettings":
+            suggest = "feature_importance_settings"
+        elif key == "notificationTypes":
+            suggest = "notification_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataDriftMonitoringSignalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataDriftMonitoringSignalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataDriftMonitoringSignalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_thresholds: Sequence[Any],
+                 production_data: Any,
+                 reference_data: Any,
+                 signal_type: str,
+                 feature_data_type_override: Optional[Mapping[str, str]] = None,
+                 feature_importance_settings: Optional['outputs.FeatureImportanceSettingsResponse'] = None,
+                 features: Optional[Any] = None,
+                 notification_types: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        :param Sequence[Union['CategoricalDataDriftMetricThresholdResponse', 'NumericalDataDriftMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data which drift will be calculated for.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
+        :param str signal_type: 
+               Expected value is 'DataDrift'.
+        :param Mapping[str, str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
+        :param 'FeatureImportanceSettingsResponse' feature_importance_settings: The settings for computing feature importance.
+        :param Union['AllFeaturesResponse', 'FeatureSubsetResponse', 'TopNFeaturesByAttributionResponse'] features: The feature filter which identifies which feature to calculate drift over.
+        :param Sequence[str] notification_types: The current notification mode for this signal.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "metric_thresholds", metric_thresholds)
+        pulumi.set(__self__, "production_data", production_data)
+        pulumi.set(__self__, "reference_data", reference_data)
+        pulumi.set(__self__, "signal_type", 'DataDrift')
+        if feature_data_type_override is not None:
+            pulumi.set(__self__, "feature_data_type_override", feature_data_type_override)
+        if feature_importance_settings is not None:
+            pulumi.set(__self__, "feature_importance_settings", feature_importance_settings)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if notification_types is not None:
+            pulumi.set(__self__, "notification_types", notification_types)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="metricThresholds")
+    def metric_thresholds(self) -> Sequence[Any]:
+        """
+        [Required] A list of metrics to calculate and their associated thresholds.
+        """
+        return pulumi.get(self, "metric_thresholds")
+
+    @property
+    @pulumi.getter(name="productionData")
+    def production_data(self) -> Any:
+        """
+        [Required] The data which drift will be calculated for.
+        """
+        return pulumi.get(self, "production_data")
+
+    @property
+    @pulumi.getter(name="referenceData")
+    def reference_data(self) -> Any:
+        """
+        [Required] The data to calculate drift against.
+        """
+        return pulumi.get(self, "reference_data")
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> str:
+        """
+
+        Expected value is 'DataDrift'.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @property
+    @pulumi.getter(name="featureDataTypeOverride")
+    def feature_data_type_override(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary that maps feature names to their respective data types.
+        """
+        return pulumi.get(self, "feature_data_type_override")
+
+    @property
+    @pulumi.getter(name="featureImportanceSettings")
+    def feature_importance_settings(self) -> Optional['outputs.FeatureImportanceSettingsResponse']:
+        """
+        The settings for computing feature importance.
+        """
+        return pulumi.get(self, "feature_importance_settings")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[Any]:
+        """
+        The feature filter which identifies which feature to calculate drift over.
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="notificationTypes")
+    def notification_types(self) -> Optional[Sequence[str]]:
+        """
+        The current notification mode for this signal.
+        """
+        return pulumi.get(self, "notification_types")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -9937,6 +11423,148 @@ class DataPathAssetReferenceResponse(dict):
         The path of the file/directory in the datastore.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class DataQualityMonitoringSignalResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricThresholds":
+            suggest = "metric_thresholds"
+        elif key == "productionData":
+            suggest = "production_data"
+        elif key == "referenceData":
+            suggest = "reference_data"
+        elif key == "signalType":
+            suggest = "signal_type"
+        elif key == "featureDataTypeOverride":
+            suggest = "feature_data_type_override"
+        elif key == "featureImportanceSettings":
+            suggest = "feature_importance_settings"
+        elif key == "notificationTypes":
+            suggest = "notification_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataQualityMonitoringSignalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataQualityMonitoringSignalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataQualityMonitoringSignalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_thresholds: Sequence[Any],
+                 production_data: Any,
+                 reference_data: Any,
+                 signal_type: str,
+                 feature_data_type_override: Optional[Mapping[str, str]] = None,
+                 feature_importance_settings: Optional['outputs.FeatureImportanceSettingsResponse'] = None,
+                 features: Optional[Any] = None,
+                 notification_types: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        :param Sequence[Union['CategoricalDataQualityMetricThresholdResponse', 'NumericalDataQualityMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data produced by the production service which drift will be calculated for.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
+        :param str signal_type: 
+               Expected value is 'DataQuality'.
+        :param Mapping[str, str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
+        :param 'FeatureImportanceSettingsResponse' feature_importance_settings: The settings for computing feature importance.
+        :param Union['AllFeaturesResponse', 'FeatureSubsetResponse', 'TopNFeaturesByAttributionResponse'] features: The features to calculate drift over.
+        :param Sequence[str] notification_types: The current notification mode for this signal.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "metric_thresholds", metric_thresholds)
+        pulumi.set(__self__, "production_data", production_data)
+        pulumi.set(__self__, "reference_data", reference_data)
+        pulumi.set(__self__, "signal_type", 'DataQuality')
+        if feature_data_type_override is not None:
+            pulumi.set(__self__, "feature_data_type_override", feature_data_type_override)
+        if feature_importance_settings is not None:
+            pulumi.set(__self__, "feature_importance_settings", feature_importance_settings)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if notification_types is not None:
+            pulumi.set(__self__, "notification_types", notification_types)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="metricThresholds")
+    def metric_thresholds(self) -> Sequence[Any]:
+        """
+        [Required] A list of metrics to calculate and their associated thresholds.
+        """
+        return pulumi.get(self, "metric_thresholds")
+
+    @property
+    @pulumi.getter(name="productionData")
+    def production_data(self) -> Any:
+        """
+        [Required] The data produced by the production service which drift will be calculated for.
+        """
+        return pulumi.get(self, "production_data")
+
+    @property
+    @pulumi.getter(name="referenceData")
+    def reference_data(self) -> Any:
+        """
+        [Required] The data to calculate drift against.
+        """
+        return pulumi.get(self, "reference_data")
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> str:
+        """
+
+        Expected value is 'DataQuality'.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @property
+    @pulumi.getter(name="featureDataTypeOverride")
+    def feature_data_type_override(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary that maps feature names to their respective data types.
+        """
+        return pulumi.get(self, "feature_data_type_override")
+
+    @property
+    @pulumi.getter(name="featureImportanceSettings")
+    def feature_importance_settings(self) -> Optional['outputs.FeatureImportanceSettingsResponse']:
+        """
+        The settings for computing feature importance.
+        """
+        return pulumi.get(self, "feature_importance_settings")
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[Any]:
+        """
+        The features to calculate drift over.
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="notificationTypes")
+    def notification_types(self) -> Optional[Sequence[str]]:
+        """
+        The current notification mode for this signal.
+        """
+        return pulumi.get(self, "notification_types")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -11236,76 +12864,6 @@ class DeltaModelCurrentStateResponse(dict):
 
 
 @pulumi.output_type
-class DeploymentModelResponse(dict):
-    """
-    Properties of Cognitive Services account deployment model.
-    """
-    def __init__(__self__, *,
-                 call_rate_limit: 'outputs.CallRateLimitResponse',
-                 format: Optional[str] = None,
-                 name: Optional[str] = None,
-                 source: Optional[str] = None,
-                 version: Optional[str] = None):
-        """
-        Properties of Cognitive Services account deployment model.
-        :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
-        :param str format: Deployment model format.
-        :param str name: Deployment model name.
-        :param str source: Optional. Deployment model source ARM resource ID.
-        :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
-        """
-        pulumi.set(__self__, "call_rate_limit", call_rate_limit)
-        if format is not None:
-            pulumi.set(__self__, "format", format)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if source is not None:
-            pulumi.set(__self__, "source", source)
-        if version is not None:
-            pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="callRateLimit")
-    def call_rate_limit(self) -> 'outputs.CallRateLimitResponse':
-        """
-        The call rate limit Cognitive Services account.
-        """
-        return pulumi.get(self, "call_rate_limit")
-
-    @property
-    @pulumi.getter
-    def format(self) -> Optional[str]:
-        """
-        Deployment model format.
-        """
-        return pulumi.get(self, "format")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Deployment model name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def source(self) -> Optional[str]:
-        """
-        Optional. Deployment model source ARM resource ID.
-        """
-        return pulumi.get(self, "source")
-
-    @property
-    @pulumi.getter
-    def version(self) -> Optional[str]:
-        """
-        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
-        """
-        return pulumi.get(self, "version")
-
-
-@pulumi.output_type
 class DeploymentResourceConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11751,80 +13309,6 @@ class EndpointDeploymentModelResponse(dict):
         Model version.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class EndpointDeploymentResourcePropertiesResponse(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "provisioningState":
-            suggest = "provisioning_state"
-        elif key == "raiPolicyName":
-            suggest = "rai_policy_name"
-        elif key == "versionUpgradeOption":
-            suggest = "version_upgrade_option"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        EndpointDeploymentResourcePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        EndpointDeploymentResourcePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 model: 'outputs.EndpointDeploymentModelResponse',
-                 provisioning_state: str,
-                 rai_policy_name: Optional[str] = None,
-                 version_upgrade_option: Optional[str] = None):
-        """
-        :param 'EndpointDeploymentModelResponse' model: Model used for the endpoint deployment.
-        :param str provisioning_state: Read-only provision state status property.
-        :param str rai_policy_name: The name of RAI policy.
-        :param str version_upgrade_option: Deployment model version upgrade option.
-        """
-        pulumi.set(__self__, "model", model)
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if rai_policy_name is not None:
-            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
-        if version_upgrade_option is not None:
-            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
-
-    @property
-    @pulumi.getter
-    def model(self) -> 'outputs.EndpointDeploymentModelResponse':
-        """
-        Model used for the endpoint deployment.
-        """
-        return pulumi.get(self, "model")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
-        """
-        Read-only provision state status property.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> Optional[str]:
-        """
-        The name of RAI policy.
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @property
-    @pulumi.getter(name="versionUpgradeOption")
-    def version_upgrade_option(self) -> Optional[str]:
-        """
-        Deployment model version upgrade option.
-        """
-        return pulumi.get(self, "version_upgrade_option")
 
 
 @pulumi.output_type
@@ -13102,6 +14586,215 @@ class EstimatedVMPricesResponse(dict):
 
 
 @pulumi.output_type
+class FeatureAttributionDriftMonitoringSignalResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "featureImportanceSettings":
+            suggest = "feature_importance_settings"
+        elif key == "metricThreshold":
+            suggest = "metric_threshold"
+        elif key == "productionData":
+            suggest = "production_data"
+        elif key == "referenceData":
+            suggest = "reference_data"
+        elif key == "signalType":
+            suggest = "signal_type"
+        elif key == "featureDataTypeOverride":
+            suggest = "feature_data_type_override"
+        elif key == "notificationTypes":
+            suggest = "notification_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureAttributionDriftMonitoringSignalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureAttributionDriftMonitoringSignalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureAttributionDriftMonitoringSignalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 feature_importance_settings: 'outputs.FeatureImportanceSettingsResponse',
+                 metric_threshold: 'outputs.FeatureAttributionMetricThresholdResponse',
+                 production_data: Sequence[Any],
+                 reference_data: Any,
+                 signal_type: str,
+                 feature_data_type_override: Optional[Mapping[str, str]] = None,
+                 notification_types: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None):
+        """
+        :param 'FeatureImportanceSettingsResponse' feature_importance_settings: [Required] The settings for computing feature importance.
+        :param 'FeatureAttributionMetricThresholdResponse' metric_threshold: [Required] A list of metrics to calculate and their associated thresholds.
+        :param Sequence[Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse']] production_data: [Required] The data which drift will be calculated for.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
+        :param str signal_type: 
+               Expected value is 'FeatureAttributionDrift'.
+        :param Mapping[str, str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
+        :param Sequence[str] notification_types: The current notification mode for this signal.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        """
+        pulumi.set(__self__, "feature_importance_settings", feature_importance_settings)
+        pulumi.set(__self__, "metric_threshold", metric_threshold)
+        pulumi.set(__self__, "production_data", production_data)
+        pulumi.set(__self__, "reference_data", reference_data)
+        pulumi.set(__self__, "signal_type", 'FeatureAttributionDrift')
+        if feature_data_type_override is not None:
+            pulumi.set(__self__, "feature_data_type_override", feature_data_type_override)
+        if notification_types is not None:
+            pulumi.set(__self__, "notification_types", notification_types)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="featureImportanceSettings")
+    def feature_importance_settings(self) -> 'outputs.FeatureImportanceSettingsResponse':
+        """
+        [Required] The settings for computing feature importance.
+        """
+        return pulumi.get(self, "feature_importance_settings")
+
+    @property
+    @pulumi.getter(name="metricThreshold")
+    def metric_threshold(self) -> 'outputs.FeatureAttributionMetricThresholdResponse':
+        """
+        [Required] A list of metrics to calculate and their associated thresholds.
+        """
+        return pulumi.get(self, "metric_threshold")
+
+    @property
+    @pulumi.getter(name="productionData")
+    def production_data(self) -> Sequence[Any]:
+        """
+        [Required] The data which drift will be calculated for.
+        """
+        return pulumi.get(self, "production_data")
+
+    @property
+    @pulumi.getter(name="referenceData")
+    def reference_data(self) -> Any:
+        """
+        [Required] The data to calculate drift against.
+        """
+        return pulumi.get(self, "reference_data")
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> str:
+        """
+
+        Expected value is 'FeatureAttributionDrift'.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @property
+    @pulumi.getter(name="featureDataTypeOverride")
+    def feature_data_type_override(self) -> Optional[Mapping[str, str]]:
+        """
+        A dictionary that maps feature names to their respective data types.
+        """
+        return pulumi.get(self, "feature_data_type_override")
+
+    @property
+    @pulumi.getter(name="notificationTypes")
+    def notification_types(self) -> Optional[Sequence[str]]:
+        """
+        The current notification mode for this signal.
+        """
+        return pulumi.get(self, "notification_types")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class FeatureAttributionMetricThresholdResponse(dict):
+    def __init__(__self__, *,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str metric: [Required] The feature attribution metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The feature attribution metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class FeatureImportanceSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetColumn":
+            suggest = "target_column"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureImportanceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureImportanceSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureImportanceSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 target_column: Optional[str] = None):
+        """
+        :param str mode: The mode of operation for computing feature importance.
+        :param str target_column: The name of the target column within the input data asset.
+        """
+        if mode is None:
+            mode = 'Disabled'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if target_column is not None:
+            pulumi.set(__self__, "target_column", target_column)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The mode of operation for computing feature importance.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="targetColumn")
+    def target_column(self) -> Optional[str]:
+        """
+        The name of the target column within the input data asset.
+        """
+        return pulumi.get(self, "target_column")
+
+
+@pulumi.output_type
 class FeatureResponse(dict):
     """
     Dto object representing feature
@@ -13163,6 +14856,114 @@ class FeatureResponse(dict):
 
 
 @pulumi.output_type
+class FeatureStoreSettingsResponse(dict):
+    """
+    Settings for feature store type workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeRuntime":
+            suggest = "compute_runtime"
+        elif key == "offlineStoreConnectionName":
+            suggest = "offline_store_connection_name"
+        elif key == "onlineStoreConnectionName":
+            suggest = "online_store_connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureStoreSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureStoreSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_runtime: Optional['outputs.ComputeRuntimeDtoResponse'] = None,
+                 offline_store_connection_name: Optional[str] = None,
+                 online_store_connection_name: Optional[str] = None):
+        """
+        Settings for feature store type workspace.
+        :param 'ComputeRuntimeDtoResponse' compute_runtime: Compute runtime config for feature store type workspace.
+        """
+        if compute_runtime is not None:
+            pulumi.set(__self__, "compute_runtime", compute_runtime)
+        if offline_store_connection_name is not None:
+            pulumi.set(__self__, "offline_store_connection_name", offline_store_connection_name)
+        if online_store_connection_name is not None:
+            pulumi.set(__self__, "online_store_connection_name", online_store_connection_name)
+
+    @property
+    @pulumi.getter(name="computeRuntime")
+    def compute_runtime(self) -> Optional['outputs.ComputeRuntimeDtoResponse']:
+        """
+        Compute runtime config for feature store type workspace.
+        """
+        return pulumi.get(self, "compute_runtime")
+
+    @property
+    @pulumi.getter(name="offlineStoreConnectionName")
+    def offline_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "offline_store_connection_name")
+
+    @property
+    @pulumi.getter(name="onlineStoreConnectionName")
+    def online_store_connection_name(self) -> Optional[str]:
+        return pulumi.get(self, "online_store_connection_name")
+
+
+@pulumi.output_type
+class FeatureSubsetResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureSubsetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureSubsetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureSubsetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 features: Sequence[str],
+                 filter_type: str):
+        """
+        :param Sequence[str] features: [Required] The list of features to include.
+        :param str filter_type: 
+               Expected value is 'FeatureSubset'.
+        """
+        pulumi.set(__self__, "features", features)
+        pulumi.set(__self__, "filter_type", 'FeatureSubset')
+
+    @property
+    @pulumi.getter
+    def features(self) -> Sequence[str]:
+        """
+        [Required] The list of features to include.
+        """
+        return pulumi.get(self, "features")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> str:
+        """
+
+        Expected value is 'FeatureSubset'.
+        """
+        return pulumi.get(self, "filter_type")
+
+
+@pulumi.output_type
 class FeatureWindowResponse(dict):
     """
     Specifies the feature window
@@ -13200,7 +15001,7 @@ class FeatureWindowResponse(dict):
 @pulumi.output_type
 class FeaturesetContainerResponse(dict):
     """
-    Dto object representing feature set
+    DTO object representing feature set
     """
     @staticmethod
     def __key_warning(key: str):
@@ -13234,7 +15035,7 @@ class FeaturesetContainerResponse(dict):
                  properties: Optional[Mapping[str, str]] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        Dto object representing feature set
+        DTO object representing feature set
         :param str latest_version: The latest version inside this container.
         :param str next_version: The next auto incremental version
         :param str provisioning_state: Provisioning state for the featureset container.
@@ -13440,12 +15241,12 @@ class FeaturesetJobResponse(dict):
 @pulumi.output_type
 class FeaturesetSpecificationResponse(dict):
     """
-    Dto object representing specification
+    DTO object representing specification
     """
     def __init__(__self__, *,
                  path: Optional[str] = None):
         """
-        Dto object representing specification
+        DTO object representing specification
         :param str path: Specifies the spec path
         """
         if path is not None:
@@ -13463,15 +15264,13 @@ class FeaturesetSpecificationResponse(dict):
 @pulumi.output_type
 class FeaturesetVersionResponse(dict):
     """
-    Dto object representing feature set version
+    DTO object representing feature set version
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "autoDeleteSetting":
-            suggest = "auto_delete_setting"
         elif key == "isAnonymous":
             suggest = "is_anonymous"
         elif key == "isArchived":
@@ -13492,7 +15291,6 @@ class FeaturesetVersionResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
-                 auto_delete_setting: Optional['outputs.AutoDeleteSettingResponse'] = None,
                  description: Optional[str] = None,
                  entities: Optional[Sequence[str]] = None,
                  is_anonymous: Optional[bool] = None,
@@ -13503,13 +15301,12 @@ class FeaturesetVersionResponse(dict):
                  stage: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        Dto object representing feature set version
+        DTO object representing feature set version
         :param str provisioning_state: Provisioning state for the featureset version container.
-        :param 'AutoDeleteSettingResponse' auto_delete_setting: Specifies the lifecycle setting of managed data asset.
         :param str description: The asset description text.
         :param Sequence[str] entities: Specifies list of entities
-        :param bool is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
-        :param bool is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param bool is_anonymous: If the name version are system generated (anonymous registration).
+        :param bool is_archived: Is the asset archived?
         :param 'MaterializationSettingsResponse' materialization_settings: Specifies the materialization settings
         :param Mapping[str, str] properties: The asset property dictionary.
         :param 'FeaturesetSpecificationResponse' specification: Specifies the feature spec details
@@ -13517,8 +15314,6 @@ class FeaturesetVersionResponse(dict):
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if auto_delete_setting is not None:
-            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if entities is not None:
@@ -13551,14 +15346,6 @@ class FeaturesetVersionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="autoDeleteSetting")
-    def auto_delete_setting(self) -> Optional['outputs.AutoDeleteSettingResponse']:
-        """
-        Specifies the lifecycle setting of managed data asset.
-        """
-        return pulumi.get(self, "auto_delete_setting")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -13578,7 +15365,7 @@ class FeaturesetVersionResponse(dict):
     @pulumi.getter(name="isAnonymous")
     def is_anonymous(self) -> Optional[bool]:
         """
-        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        If the name version are system generated (anonymous registration).
         """
         return pulumi.get(self, "is_anonymous")
 
@@ -13586,7 +15373,7 @@ class FeaturesetVersionResponse(dict):
     @pulumi.getter(name="isArchived")
     def is_archived(self) -> Optional[bool]:
         """
-        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        Is the asset archived?
         """
         return pulumi.get(self, "is_archived")
 
@@ -13634,7 +15421,7 @@ class FeaturesetVersionResponse(dict):
 @pulumi.output_type
 class FeaturestoreEntityContainerResponse(dict):
     """
-    Dto object representing feature entity
+    DTO object representing feature entity
     """
     @staticmethod
     def __key_warning(key: str):
@@ -13668,7 +15455,7 @@ class FeaturestoreEntityContainerResponse(dict):
                  properties: Optional[Mapping[str, str]] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        Dto object representing feature entity
+        DTO object representing feature entity
         :param str latest_version: The latest version inside this container.
         :param str next_version: The next auto incremental version
         :param str provisioning_state: Provisioning state for the featurestore entity container.
@@ -13751,15 +15538,13 @@ class FeaturestoreEntityContainerResponse(dict):
 @pulumi.output_type
 class FeaturestoreEntityVersionResponse(dict):
     """
-    Dto object representing feature entity version
+    DTO object representing feature entity version
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "autoDeleteSetting":
-            suggest = "auto_delete_setting"
         elif key == "indexColumns":
             suggest = "index_columns"
         elif key == "isAnonymous":
@@ -13780,7 +15565,6 @@ class FeaturestoreEntityVersionResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
-                 auto_delete_setting: Optional['outputs.AutoDeleteSettingResponse'] = None,
                  description: Optional[str] = None,
                  index_columns: Optional[Sequence['outputs.IndexColumnResponse']] = None,
                  is_anonymous: Optional[bool] = None,
@@ -13789,20 +15573,17 @@ class FeaturestoreEntityVersionResponse(dict):
                  stage: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        Dto object representing feature entity version
+        DTO object representing feature entity version
         :param str provisioning_state: Provisioning state for the featurestore entity version.
-        :param 'AutoDeleteSettingResponse' auto_delete_setting: Specifies the lifecycle setting of managed data asset.
         :param str description: The asset description text.
         :param Sequence['IndexColumnResponse'] index_columns: Specifies index columns
-        :param bool is_anonymous: If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
-        :param bool is_archived: Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        :param bool is_anonymous: If the name version are system generated (anonymous registration).
+        :param bool is_archived: Is the asset archived?
         :param Mapping[str, str] properties: The asset property dictionary.
         :param str stage: Specifies the asset stage
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if auto_delete_setting is not None:
-            pulumi.set(__self__, "auto_delete_setting", auto_delete_setting)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if index_columns is not None:
@@ -13831,14 +15612,6 @@ class FeaturestoreEntityVersionResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="autoDeleteSetting")
-    def auto_delete_setting(self) -> Optional['outputs.AutoDeleteSettingResponse']:
-        """
-        Specifies the lifecycle setting of managed data asset.
-        """
-        return pulumi.get(self, "auto_delete_setting")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -13858,7 +15631,7 @@ class FeaturestoreEntityVersionResponse(dict):
     @pulumi.getter(name="isAnonymous")
     def is_anonymous(self) -> Optional[bool]:
         """
-        If the name version are system generated (anonymous registration). For types where Stage is defined, when Stage is provided it will be used to populate IsAnonymous
+        If the name version are system generated (anonymous registration).
         """
         return pulumi.get(self, "is_anonymous")
 
@@ -13866,7 +15639,7 @@ class FeaturestoreEntityVersionResponse(dict):
     @pulumi.getter(name="isArchived")
     def is_archived(self) -> Optional[bool]:
         """
-        Is the asset archived? For types where Stage is defined, when Stage is provided it will be used to populate IsArchived
+        Is the asset archived?
         """
         return pulumi.get(self, "is_archived")
 
@@ -13893,6 +15666,97 @@ class FeaturestoreEntityVersionResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class FixedInputDataResponse(dict):
+    """
+    Fixed input data definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputDataType":
+            suggest = "input_data_type"
+        elif key == "jobInputType":
+            suggest = "job_input_type"
+        elif key == "dataContext":
+            suggest = "data_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FixedInputDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FixedInputDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FixedInputDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_data_type: str,
+                 job_input_type: str,
+                 uri: str,
+                 columns: Optional[Mapping[str, str]] = None,
+                 data_context: Optional[str] = None):
+        """
+        Fixed input data definition.
+        :param str input_data_type: Monitoring input data type enum.
+               Expected value is 'Fixed'.
+        :param str job_input_type: [Required] Specifies the type of job.
+        :param str uri: [Required] Input Asset URI.
+        :param Mapping[str, str] columns: Mapping of column names to special uses.
+        :param str data_context: The context metadata of the data source.
+        """
+        pulumi.set(__self__, "input_data_type", 'Fixed')
+        pulumi.set(__self__, "job_input_type", job_input_type)
+        pulumi.set(__self__, "uri", uri)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if data_context is not None:
+            pulumi.set(__self__, "data_context", data_context)
+
+    @property
+    @pulumi.getter(name="inputDataType")
+    def input_data_type(self) -> str:
+        """
+        Monitoring input data type enum.
+        Expected value is 'Fixed'.
+        """
+        return pulumi.get(self, "input_data_type")
+
+    @property
+    @pulumi.getter(name="jobInputType")
+    def job_input_type(self) -> str:
+        """
+        [Required] Specifies the type of job.
+        """
+        return pulumi.get(self, "job_input_type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        [Required] Input Asset URI.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Mapping[str, str]]:
+        """
+        Mapping of column names to special uses.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="dataContext")
+    def data_context(self) -> Optional[str]:
+        """
+        The context metadata of the data source.
+        """
+        return pulumi.get(self, "data_context")
 
 
 @pulumi.output_type
@@ -14585,7 +16449,7 @@ class FqdnOutboundRuleResponse(dict):
         :param str type: Type of a managed network Outbound Rule of a machine learning workspace.
                Expected value is 'FQDN'.
         :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
-        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'FQDN')
         if category is not None:
@@ -14621,7 +16485,7 @@ class FqdnOutboundRuleResponse(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Status of a managed network Outbound Rule of a machine learning workspace.
+        Type of a managed network Outbound Rule of a machine learning workspace.
         """
         return pulumi.get(self, "status")
 
@@ -14717,6 +16581,142 @@ class GridSamplingAlgorithmResponse(dict):
         Expected value is 'Grid'.
         """
         return pulumi.get(self, "sampling_algorithm_type")
+
+
+@pulumi.output_type
+class GroupEnvironmentConfigurationResponse(dict):
+    """
+    Environment configuration options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "environmentId":
+            suggest = "environment_id"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "livenessProbe":
+            suggest = "liveness_probe"
+        elif key == "readinessProbe":
+            suggest = "readiness_probe"
+        elif key == "startupProbe":
+            suggest = "startup_probe"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupEnvironmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupEnvironmentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupEnvironmentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 environment_id: Optional[str] = None,
+                 environment_variables: Optional[Sequence['outputs.StringStringKeyValuePairResponse']] = None,
+                 liveness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
+                 readiness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
+                 startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
+        """
+        Environment configuration options.
+        :param str environment_id: ARM resource ID of the environment specification for the inference pool.
+        :param Sequence['StringStringKeyValuePairResponse'] environment_variables: Environment variables configuration for the inference pool.
+        :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
+        :param 'ProbeSettingsResponse' readiness_probe: Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        :param 'ProbeSettingsResponse' startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if liveness_probe is not None:
+            pulumi.set(__self__, "liveness_probe", liveness_probe)
+        if readiness_probe is not None:
+            pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if startup_probe is not None:
+            pulumi.set(__self__, "startup_probe", startup_probe)
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the environment specification for the inference pool.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Sequence['outputs.StringStringKeyValuePairResponse']]:
+        """
+        Environment variables configuration for the inference pool.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="livenessProbe")
+    def liveness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Liveness probe monitors the health of the container regularly.
+        """
+        return pulumi.get(self, "liveness_probe")
+
+    @property
+    @pulumi.getter(name="readinessProbe")
+    def readiness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+        """
+        return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter(name="startupProbe")
+    def startup_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+        """
+        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        """
+        return pulumi.get(self, "startup_probe")
+
+
+@pulumi.output_type
+class GroupModelConfigurationResponse(dict):
+    """
+    Model configuration options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GroupModelConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GroupModelConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GroupModelConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_id: Optional[str] = None):
+        """
+        Model configuration options.
+        :param str model_id: The URI path to the model.
+        """
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        """
+        The URI path to the model.
+        """
+        return pulumi.get(self, "model_id")
 
 
 @pulumi.output_type
@@ -18540,7 +20540,7 @@ class ImageSweepSettingsResponse(dict):
 @pulumi.output_type
 class IndexColumnResponse(dict):
     """
-    Dto object representing index column
+    DTO object representing index column
     """
     @staticmethod
     def __key_warning(key: str):
@@ -18565,7 +20565,7 @@ class IndexColumnResponse(dict):
                  column_name: Optional[str] = None,
                  data_type: Optional[str] = None):
         """
-        Dto object representing index column
+        DTO object representing index column
         :param str column_name: Specifies the column name
         :param str data_type: Specifies the data type
         """
@@ -18669,10 +20669,12 @@ class InferenceEndpointResponse(dict):
             suggest = "auth_mode"
         elif key == "endpointUri":
             suggest = "endpoint_uri"
-        elif key == "groupId":
-            suggest = "group_id"
+        elif key == "groupName":
+            suggest = "group_name"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "requestConfiguration":
+            suggest = "request_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferenceEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -18688,27 +20690,31 @@ class InferenceEndpointResponse(dict):
     def __init__(__self__, *,
                  auth_mode: str,
                  endpoint_uri: str,
-                 group_id: str,
+                 group_name: str,
                  provisioning_state: str,
                  description: Optional[str] = None,
-                 properties: Optional[Mapping[str, str]] = None):
+                 properties: Optional[Sequence['outputs.StringStringKeyValuePairResponse']] = None,
+                 request_configuration: Optional['outputs.RequestConfigurationResponse'] = None):
         """
         InferenceEndpoint configuration
         :param str auth_mode: [Required] Authentication mode for the endpoint.
         :param str endpoint_uri: Endpoint URI for the inference endpoint.
-        :param str group_id: [Required] Group within the same pool with which this endpoint needs to be associated with.
+        :param str group_name: [Required] Group within the same pool with which this endpoint needs to be associated with.
         :param str provisioning_state: Provisioning state for the endpoint.
         :param str description: Description of the resource.
-        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param Sequence['StringStringKeyValuePairResponse'] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'RequestConfigurationResponse' request_configuration: RequestConfiguration for endpoint.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
         pulumi.set(__self__, "endpoint_uri", endpoint_uri)
-        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if request_configuration is not None:
+            pulumi.set(__self__, "request_configuration", request_configuration)
 
     @property
     @pulumi.getter(name="authMode")
@@ -18727,12 +20733,12 @@ class InferenceEndpointResponse(dict):
         return pulumi.get(self, "endpoint_uri")
 
     @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> str:
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> str:
         """
         [Required] Group within the same pool with which this endpoint needs to be associated with.
         """
-        return pulumi.get(self, "group_id")
+        return pulumi.get(self, "group_name")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -18752,11 +20758,19 @@ class InferenceEndpointResponse(dict):
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
+    def properties(self) -> Optional[Sequence['outputs.StringStringKeyValuePairResponse']]:
         """
         Property dictionary. Properties can be added, but not removed or altered.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="requestConfiguration")
+    def request_configuration(self) -> Optional['outputs.RequestConfigurationResponse']:
+        """
+        RequestConfiguration for endpoint.
+        """
+        return pulumi.get(self, "request_configuration")
 
 
 @pulumi.output_type
@@ -18769,8 +20783,14 @@ class InferenceGroupResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "bonusExtraCapacity":
-            suggest = "bonus_extra_capacity"
+        elif key == "environmentConfiguration":
+            suggest = "environment_configuration"
+        elif key == "modelConfiguration":
+            suggest = "model_configuration"
+        elif key == "nodeSkuType":
+            suggest = "node_sku_type"
+        elif key == "scaleUnitSize":
+            suggest = "scale_unit_size"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferenceGroupResponse. Access the value via the '{suggest}' property getter instead.")
@@ -18785,36 +20805,35 @@ class InferenceGroupResponse(dict):
 
     def __init__(__self__, *,
                  provisioning_state: str,
-                 bonus_extra_capacity: Optional[int] = None,
                  description: Optional[str] = None,
-                 metadata: Optional[str] = None,
-                 priority: Optional[int] = None,
-                 properties: Optional[Mapping[str, str]] = None):
+                 environment_configuration: Optional['outputs.GroupEnvironmentConfigurationResponse'] = None,
+                 model_configuration: Optional['outputs.GroupModelConfigurationResponse'] = None,
+                 node_sku_type: Optional[str] = None,
+                 properties: Optional[Sequence['outputs.StringStringKeyValuePairResponse']] = None,
+                 scale_unit_size: Optional[int] = None):
         """
         Inference group configuration
         :param str provisioning_state: Provisioning state for the inference group.
-        :param int bonus_extra_capacity: Capacity to be used from the pool's reserved capacity.
-               optional
         :param str description: Description of the resource.
-        :param str metadata: Metadata for the inference group.
-        :param int priority: Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
-        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'GroupEnvironmentConfigurationResponse' environment_configuration: Gets or sets environment configuration for the inference group. Used if PoolType=ScaleUnit.
+        :param 'GroupModelConfigurationResponse' model_configuration: Gets or sets model configuration for the inference group. Used if PoolType=ScaleUnit.
+        :param str node_sku_type: Gets or sets compute instance type.
+        :param Sequence['StringStringKeyValuePairResponse'] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param int scale_unit_size: Gets or sets Scale Unit size.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if bonus_extra_capacity is None:
-            bonus_extra_capacity = 0
-        if bonus_extra_capacity is not None:
-            pulumi.set(__self__, "bonus_extra_capacity", bonus_extra_capacity)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if priority is None:
-            priority = 0
-        if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+        if environment_configuration is not None:
+            pulumi.set(__self__, "environment_configuration", environment_configuration)
+        if model_configuration is not None:
+            pulumi.set(__self__, "model_configuration", model_configuration)
+        if node_sku_type is not None:
+            pulumi.set(__self__, "node_sku_type", node_sku_type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if scale_unit_size is not None:
+            pulumi.set(__self__, "scale_unit_size", scale_unit_size)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -18825,15 +20844,6 @@ class InferenceGroupResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="bonusExtraCapacity")
-    def bonus_extra_capacity(self) -> Optional[int]:
-        """
-        Capacity to be used from the pool's reserved capacity.
-        optional
-        """
-        return pulumi.get(self, "bonus_extra_capacity")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -18842,28 +20852,44 @@ class InferenceGroupResponse(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter
-    def metadata(self) -> Optional[str]:
+    @pulumi.getter(name="environmentConfiguration")
+    def environment_configuration(self) -> Optional['outputs.GroupEnvironmentConfigurationResponse']:
         """
-        Metadata for the inference group.
+        Gets or sets environment configuration for the inference group. Used if PoolType=ScaleUnit.
         """
-        return pulumi.get(self, "metadata")
+        return pulumi.get(self, "environment_configuration")
+
+    @property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> Optional['outputs.GroupModelConfigurationResponse']:
+        """
+        Gets or sets model configuration for the inference group. Used if PoolType=ScaleUnit.
+        """
+        return pulumi.get(self, "model_configuration")
+
+    @property
+    @pulumi.getter(name="nodeSkuType")
+    def node_sku_type(self) -> Optional[str]:
+        """
+        Gets or sets compute instance type.
+        """
+        return pulumi.get(self, "node_sku_type")
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[int]:
-        """
-        Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
-        """
-        return pulumi.get(self, "priority")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
+    def properties(self) -> Optional[Sequence['outputs.StringStringKeyValuePairResponse']]:
         """
         Property dictionary. Properties can be added, but not removed or altered.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="scaleUnitSize")
+    def scale_unit_size(self) -> Optional[int]:
+        """
+        Gets or sets Scale Unit size.
+        """
+        return pulumi.get(self, "scale_unit_size")
 
 
 @pulumi.output_type
@@ -18874,18 +20900,10 @@ class InferencePoolResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nodeSkuType":
-            suggest = "node_sku_type"
-        elif key == "provisioningState":
+        if key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "codeConfiguration":
-            suggest = "code_configuration"
-        elif key == "environmentConfiguration":
-            suggest = "environment_configuration"
-        elif key == "modelConfiguration":
-            suggest = "model_configuration"
-        elif key == "requestConfiguration":
-            suggest = "request_configuration"
+        elif key == "scaleUnitConfiguration":
+            suggest = "scale_unit_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferencePoolResponse. Access the value via the '{suggest}' property getter instead.")
@@ -18899,47 +20917,24 @@ class InferencePoolResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 node_sku_type: str,
                  provisioning_state: str,
-                 code_configuration: Optional['outputs.CodeConfigurationResponse'] = None,
                  description: Optional[str] = None,
-                 environment_configuration: Optional['outputs.PoolEnvironmentConfigurationResponse'] = None,
-                 model_configuration: Optional['outputs.PoolModelConfigurationResponse'] = None,
-                 properties: Optional[Mapping[str, str]] = None,
-                 request_configuration: Optional['outputs.RequestConfigurationResponse'] = None):
+                 properties: Optional[Sequence['outputs.StringStringKeyValuePairResponse']] = None,
+                 scale_unit_configuration: Optional['outputs.ScaleUnitConfigurationResponse'] = None):
         """
         Inference pool configuration
-        :param str node_sku_type: [Required] Compute instance type.
         :param str provisioning_state: Provisioning state for the pool.
-        :param 'CodeConfigurationResponse' code_configuration: Code configuration for the inference pool.
         :param str description: Description of the resource.
-        :param 'PoolEnvironmentConfigurationResponse' environment_configuration: EnvironmentConfiguration for the inference pool.
-        :param 'PoolModelConfigurationResponse' model_configuration: ModelConfiguration for the inference pool.
-        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
-        :param 'RequestConfigurationResponse' request_configuration: Request configuration for the inference pool.
+        :param Sequence['StringStringKeyValuePairResponse'] properties: Property dictionary. Properties can be added, but not removed or altered.
+        :param 'ScaleUnitConfigurationResponse' scale_unit_configuration: Gets or sets ScaleUnitConfiguration for the inference pool. Used if PoolType=ScaleUnit.
         """
-        pulumi.set(__self__, "node_sku_type", node_sku_type)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if code_configuration is not None:
-            pulumi.set(__self__, "code_configuration", code_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if environment_configuration is not None:
-            pulumi.set(__self__, "environment_configuration", environment_configuration)
-        if model_configuration is not None:
-            pulumi.set(__self__, "model_configuration", model_configuration)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if request_configuration is not None:
-            pulumi.set(__self__, "request_configuration", request_configuration)
-
-    @property
-    @pulumi.getter(name="nodeSkuType")
-    def node_sku_type(self) -> str:
-        """
-        [Required] Compute instance type.
-        """
-        return pulumi.get(self, "node_sku_type")
+        if scale_unit_configuration is not None:
+            pulumi.set(__self__, "scale_unit_configuration", scale_unit_configuration)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -18950,14 +20945,6 @@ class InferencePoolResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional['outputs.CodeConfigurationResponse']:
-        """
-        Code configuration for the inference pool.
-        """
-        return pulumi.get(self, "code_configuration")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -18966,36 +20953,20 @@ class InferencePoolResponse(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="environmentConfiguration")
-    def environment_configuration(self) -> Optional['outputs.PoolEnvironmentConfigurationResponse']:
-        """
-        EnvironmentConfiguration for the inference pool.
-        """
-        return pulumi.get(self, "environment_configuration")
-
-    @property
-    @pulumi.getter(name="modelConfiguration")
-    def model_configuration(self) -> Optional['outputs.PoolModelConfigurationResponse']:
-        """
-        ModelConfiguration for the inference pool.
-        """
-        return pulumi.get(self, "model_configuration")
-
-    @property
     @pulumi.getter
-    def properties(self) -> Optional[Mapping[str, str]]:
+    def properties(self) -> Optional[Sequence['outputs.StringStringKeyValuePairResponse']]:
         """
         Property dictionary. Properties can be added, but not removed or altered.
         """
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="requestConfiguration")
-    def request_configuration(self) -> Optional['outputs.RequestConfigurationResponse']:
+    @pulumi.getter(name="scaleUnitConfiguration")
+    def scale_unit_configuration(self) -> Optional['outputs.ScaleUnitConfigurationResponse']:
         """
-        Request configuration for the inference pool.
+        Gets or sets ScaleUnitConfiguration for the inference pool. Used if PoolType=ScaleUnit.
         """
-        return pulumi.get(self, "request_configuration")
+        return pulumi.get(self, "scale_unit_configuration")
 
 
 @pulumi.output_type
@@ -19206,7 +21177,7 @@ class JobScheduleActionResponse(dict):
         """
         :param str action_type: 
                Expected value is 'CreateJob'.
-        :param Union['AutoMLJobResponse', 'CommandJobResponse', 'PipelineJobResponse', 'SweepJobResponse'] job_base_properties: [Required] Defines Schedule action definition details.
+        :param Union['AutoMLJobResponse', 'CommandJobResponse', 'PipelineJobResponse', 'SparkJobResponse', 'SweepJobResponse'] job_base_properties: [Required] Defines Schedule action definition details.
         """
         pulumi.set(__self__, "action_type", 'CreateJob')
         pulumi.set(__self__, "job_base_properties", job_base_properties)
@@ -19361,6 +21332,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             suggest = "code_configuration"
         elif key == "containerResourceRequirements":
             suggest = "container_resource_requirements"
+        elif key == "dataCollector":
+            suggest = "data_collector"
         elif key == "egressPublicNetworkAccess":
             suggest = "egress_public_network_access"
         elif key == "environmentId":
@@ -19397,6 +21370,7 @@ class KubernetesOnlineDeploymentResponse(dict):
                  app_insights_enabled: Optional[bool] = None,
                  code_configuration: Optional['outputs.CodeConfigurationResponse'] = None,
                  container_resource_requirements: Optional['outputs.ContainerResourceRequirementsResponse'] = None,
+                 data_collector: Optional['outputs.DataCollectorResponse'] = None,
                  description: Optional[str] = None,
                  egress_public_network_access: Optional[str] = None,
                  environment_id: Optional[str] = None,
@@ -19417,11 +21391,12 @@ class KubernetesOnlineDeploymentResponse(dict):
         :param bool app_insights_enabled: If true, enables Application Insights logging.
         :param 'CodeConfigurationResponse' code_configuration: Code configuration for the endpoint deployment.
         :param 'ContainerResourceRequirementsResponse' container_resource_requirements: The resource requirements for the container (cpu and memory).
+        :param 'DataCollectorResponse' data_collector: The mdc configuration, we disable mdc when it's null.
         :param str description: Description of the endpoint deployment.
         :param str egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
         :param str environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
-        :param str instance_type: Compute instance type.
+        :param str instance_type: Compute instance type. Default: Standard_F4s_v2.
         :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
         :param str model: The URI path to the model.
         :param str model_mount_path: The path to mount the model in custom container.
@@ -19443,6 +21418,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "code_configuration", code_configuration)
         if container_resource_requirements is not None:
             pulumi.set(__self__, "container_resource_requirements", container_resource_requirements)
+        if data_collector is not None:
+            pulumi.set(__self__, "data_collector", data_collector)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress_public_network_access is None:
@@ -19453,6 +21430,8 @@ class KubernetesOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "environment_id", environment_id)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_type is None:
+            instance_type = 'Standard_F4s_v2'
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if liveness_probe is not None:
@@ -19512,6 +21491,14 @@ class KubernetesOnlineDeploymentResponse(dict):
         return pulumi.get(self, "container_resource_requirements")
 
     @property
+    @pulumi.getter(name="dataCollector")
+    def data_collector(self) -> Optional['outputs.DataCollectorResponse']:
+        """
+        The mdc configuration, we disable mdc when it's null.
+        """
+        return pulumi.get(self, "data_collector")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -19547,7 +21534,7 @@ class KubernetesOnlineDeploymentResponse(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        Compute instance type.
+        Compute instance type. Default: Standard_F4s_v2.
         """
         return pulumi.get(self, "instance_type")
 
@@ -20588,6 +22575,56 @@ class LabelingJobTextPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class LakeHouseArtifactResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactName":
+            suggest = "artifact_name"
+        elif key == "artifactType":
+            suggest = "artifact_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LakeHouseArtifactResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LakeHouseArtifactResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LakeHouseArtifactResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_name: str,
+                 artifact_type: str):
+        """
+        :param str artifact_name: [Required] OneLake artifact name
+        :param str artifact_type: Enum to determine OneLake artifact type.
+               Expected value is 'LakeHouse'.
+        """
+        pulumi.set(__self__, "artifact_name", artifact_name)
+        pulumi.set(__self__, "artifact_type", 'LakeHouse')
+
+    @property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> str:
+        """
+        [Required] OneLake artifact name
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @property
+    @pulumi.getter(name="artifactType")
+    def artifact_type(self) -> str:
+        """
+        Enum to determine OneLake artifact type.
+        Expected value is 'LakeHouse'.
+        """
+        return pulumi.get(self, "artifact_type")
+
+
+@pulumi.output_type
 class LinkedInfoResponse(dict):
     """
     Info about origin if it is linked.
@@ -21414,14 +23451,73 @@ class MLTableJobOutputResponse(dict):
 
 
 @pulumi.output_type
+class ManagedComputeIdentityResponse(dict):
+    """
+    Managed compute identity definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIdentityType":
+            suggest = "compute_identity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedComputeIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedComputeIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedComputeIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_identity_type: str,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None):
+        """
+        Managed compute identity definition.
+        :param str compute_identity_type: Monitor compute identity type enum.
+               Expected value is 'ManagedIdentity'.
+        :param 'ManagedServiceIdentityResponse' identity: The identity which will be leveraged by the monitoring jobs.
+        """
+        pulumi.set(__self__, "compute_identity_type", 'ManagedIdentity')
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="computeIdentityType")
+    def compute_identity_type(self) -> str:
+        """
+        Monitor compute identity type enum.
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "compute_identity_type")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity which will be leveraged by the monitoring jobs.
+        """
+        return pulumi.get(self, "identity")
+
+
+@pulumi.output_type
 class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
         elif key == "expiryTime":
             suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -21438,29 +23534,41 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionManagedIdentityResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'ManagedIdentity'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
         :param str value: Value details of the workspace connection.
         :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ManagedIdentity')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -21476,6 +23584,19 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'ManagedIdentity'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -21496,9 +23617,22 @@ class ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
@@ -21606,6 +23740,139 @@ class ManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
+class ManagedNetworkProvisionStatusResponse(dict):
+    """
+    Status of the Provisioning for the managed network of a machine learning workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkReady":
+            suggest = "spark_ready"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedNetworkProvisionStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedNetworkProvisionStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedNetworkProvisionStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 spark_ready: Optional[bool] = None,
+                 status: Optional[str] = None):
+        """
+        Status of the Provisioning for the managed network of a machine learning workspace.
+        :param str status: Status for the managed network of a machine learning workspace.
+        """
+        if spark_ready is not None:
+            pulumi.set(__self__, "spark_ready", spark_ready)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="sparkReady")
+    def spark_ready(self) -> Optional[bool]:
+        return pulumi.get(self, "spark_ready")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ManagedNetworkSettingsResponse(dict):
+    """
+    Managed Network settings for a machine learning workspace.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "firewallSku":
+            suggest = "firewall_sku"
+        elif key == "isolationMode":
+            suggest = "isolation_mode"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedNetworkSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedNetworkSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedNetworkSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: str,
+                 firewall_sku: Optional[str] = None,
+                 isolation_mode: Optional[str] = None,
+                 outbound_rules: Optional[Mapping[str, Any]] = None,
+                 status: Optional['outputs.ManagedNetworkProvisionStatusResponse'] = None):
+        """
+        Managed Network settings for a machine learning workspace.
+        :param str firewall_sku: Firewall Sku used for FQDN Rules
+        :param str isolation_mode: Isolation mode for the managed network of a machine learning workspace.
+        :param 'ManagedNetworkProvisionStatusResponse' status: Status of the Provisioning for the managed network of a machine learning workspace.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if firewall_sku is not None:
+            pulumi.set(__self__, "firewall_sku", firewall_sku)
+        if isolation_mode is not None:
+            pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if outbound_rules is not None:
+            pulumi.set(__self__, "outbound_rules", outbound_rules)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> str:
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="firewallSku")
+    def firewall_sku(self) -> Optional[str]:
+        """
+        Firewall Sku used for FQDN Rules
+        """
+        return pulumi.get(self, "firewall_sku")
+
+    @property
+    @pulumi.getter(name="isolationMode")
+    def isolation_mode(self) -> Optional[str]:
+        """
+        Isolation mode for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "isolation_mode")
+
+    @property
+    @pulumi.getter(name="outboundRules")
+    def outbound_rules(self) -> Optional[Mapping[str, Any]]:
+        return pulumi.get(self, "outbound_rules")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.ManagedNetworkProvisionStatusResponse']:
+        """
+        Status of the Provisioning for the managed network of a machine learning workspace.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ManagedOnlineDeploymentResponse(dict):
     """
     Properties specific to a ManagedOnlineDeployment.
@@ -21621,6 +23888,8 @@ class ManagedOnlineDeploymentResponse(dict):
             suggest = "app_insights_enabled"
         elif key == "codeConfiguration":
             suggest = "code_configuration"
+        elif key == "dataCollector":
+            suggest = "data_collector"
         elif key == "egressPublicNetworkAccess":
             suggest = "egress_public_network_access"
         elif key == "environmentId":
@@ -21656,6 +23925,7 @@ class ManagedOnlineDeploymentResponse(dict):
                  provisioning_state: str,
                  app_insights_enabled: Optional[bool] = None,
                  code_configuration: Optional['outputs.CodeConfigurationResponse'] = None,
+                 data_collector: Optional['outputs.DataCollectorResponse'] = None,
                  description: Optional[str] = None,
                  egress_public_network_access: Optional[str] = None,
                  environment_id: Optional[str] = None,
@@ -21675,11 +23945,12 @@ class ManagedOnlineDeploymentResponse(dict):
         :param str provisioning_state: Provisioning state for the endpoint deployment.
         :param bool app_insights_enabled: If true, enables Application Insights logging.
         :param 'CodeConfigurationResponse' code_configuration: Code configuration for the endpoint deployment.
+        :param 'DataCollectorResponse' data_collector: The mdc configuration, we disable mdc when it's null.
         :param str description: Description of the endpoint deployment.
         :param str egress_public_network_access: If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
         :param str environment_id: ARM resource ID or AssetId of the environment specification for the endpoint deployment.
         :param Mapping[str, str] environment_variables: Environment variables configuration for the deployment.
-        :param str instance_type: Compute instance type.
+        :param str instance_type: Compute instance type. Default: Standard_F4s_v2.
         :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
         :param str model: The URI path to the model.
         :param str model_mount_path: The path to mount the model in custom container.
@@ -21699,6 +23970,8 @@ class ManagedOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "app_insights_enabled", app_insights_enabled)
         if code_configuration is not None:
             pulumi.set(__self__, "code_configuration", code_configuration)
+        if data_collector is not None:
+            pulumi.set(__self__, "data_collector", data_collector)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if egress_public_network_access is None:
@@ -21709,6 +23982,8 @@ class ManagedOnlineDeploymentResponse(dict):
             pulumi.set(__self__, "environment_id", environment_id)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if instance_type is None:
+            instance_type = 'Standard_F4s_v2'
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if liveness_probe is not None:
@@ -21760,6 +24035,14 @@ class ManagedOnlineDeploymentResponse(dict):
         return pulumi.get(self, "code_configuration")
 
     @property
+    @pulumi.getter(name="dataCollector")
+    def data_collector(self) -> Optional['outputs.DataCollectorResponse']:
+        """
+        The mdc configuration, we disable mdc when it's null.
+        """
+        return pulumi.get(self, "data_collector")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -21795,7 +24078,7 @@ class ManagedOnlineDeploymentResponse(dict):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         """
-        Compute instance type.
+        Compute instance type. Default: Standard_F4s_v2.
         """
         return pulumi.get(self, "instance_type")
 
@@ -21866,6 +24149,8 @@ class ManagedOnlineEndpointDeploymentResourcePropertiesResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "endpointComputeType":
+            suggest = "endpoint_compute_type"
         elif key == "failureReason":
             suggest = "failure_reason"
 
@@ -21883,7 +24168,9 @@ class ManagedOnlineEndpointDeploymentResourcePropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  type: str,
-                 failure_reason: Optional[str] = None):
+                 endpoint_compute_type: Optional[str] = None,
+                 failure_reason: Optional[str] = None,
+                 model: Optional[str] = None):
         """
         :param str provisioning_state: Read-only provision state status property.
         :param str type: Kind of the deployment.
@@ -21892,8 +24179,12 @@ class ManagedOnlineEndpointDeploymentResourcePropertiesResponse(dict):
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", 'managedOnlineEndpoint')
+        if endpoint_compute_type is not None:
+            pulumi.set(__self__, "endpoint_compute_type", endpoint_compute_type)
         if failure_reason is not None:
             pulumi.set(__self__, "failure_reason", failure_reason)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -21913,12 +24204,22 @@ class ManagedOnlineEndpointDeploymentResourcePropertiesResponse(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="endpointComputeType")
+    def endpoint_compute_type(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_compute_type")
+
+    @property
     @pulumi.getter(name="failureReason")
     def failure_reason(self) -> Optional[str]:
         """
         The failure reason if the creation failed.
         """
         return pulumi.get(self, "failure_reason")
+
+    @property
+    @pulumi.getter
+    def model(self) -> Optional[str]:
+        return pulumi.get(self, "model")
 
 
 @pulumi.output_type
@@ -22026,9 +24327,9 @@ class MarketplacePlanResponse(dict):
                  plan_id: str,
                  publisher_id: str):
         """
-        :param str offer_id: The Offer ID of the Marketplace Plan.
-        :param str plan_id: The Plan ID of the Marketplace Plan.
-        :param str publisher_id: The Publisher ID of the Marketplace Plan.
+        :param str offer_id: The identifying name of the Offer of the Marketplace Plan.
+        :param str plan_id: The identifying name of the Plan of the Marketplace Plan.
+        :param str publisher_id: The identifying name of the Publisher of the Marketplace Plan.
         """
         pulumi.set(__self__, "offer_id", offer_id)
         pulumi.set(__self__, "plan_id", plan_id)
@@ -22038,7 +24339,7 @@ class MarketplacePlanResponse(dict):
     @pulumi.getter(name="offerId")
     def offer_id(self) -> str:
         """
-        The Offer ID of the Marketplace Plan.
+        The identifying name of the Offer of the Marketplace Plan.
         """
         return pulumi.get(self, "offer_id")
 
@@ -22046,7 +24347,7 @@ class MarketplacePlanResponse(dict):
     @pulumi.getter(name="planId")
     def plan_id(self) -> str:
         """
-        The Plan ID of the Marketplace Plan.
+        The identifying name of the Plan of the Marketplace Plan.
         """
         return pulumi.get(self, "plan_id")
 
@@ -22054,7 +24355,7 @@ class MarketplacePlanResponse(dict):
     @pulumi.getter(name="publisherId")
     def publisher_id(self) -> str:
         """
-        The Publisher ID of the Marketplace Plan.
+        The identifying name of the Publisher of the Marketplace Plan.
         """
         return pulumi.get(self, "publisher_id")
 
@@ -22136,7 +24437,7 @@ class MarketplaceSubscriptionResponse(dict):
 @pulumi.output_type
 class MaterializationComputeResourceResponse(dict):
     """
-    Dto object representing compute resource
+    DTO object representing compute resource
     """
     @staticmethod
     def __key_warning(key: str):
@@ -22158,7 +24459,7 @@ class MaterializationComputeResourceResponse(dict):
     def __init__(__self__, *,
                  instance_type: Optional[str] = None):
         """
-        Dto object representing compute resource
+        DTO object representing compute resource
         :param str instance_type: Specifies the instance type
         """
         if instance_type is not None:
@@ -22448,121 +24749,39 @@ class ModelContainerResponse(dict):
 
 
 @pulumi.output_type
-class ModelDeprecationInfoResponse(dict):
-    """
-    Cognitive Services account ModelDeprecationInfo.
-    """
+class ModelSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 fine_tune: Optional[str] = None,
-                 inference: Optional[str] = None):
+                 model_id: Optional[str] = None):
         """
-        Cognitive Services account ModelDeprecationInfo.
-        :param str fine_tune: The datetime of deprecation of the fineTune Model.
-        :param str inference: The datetime of deprecation of the inference Model.
+        :param str model_id: The unique model identifier that this ServerlessEndpoint should provision.
         """
-        if fine_tune is not None:
-            pulumi.set(__self__, "fine_tune", fine_tune)
-        if inference is not None:
-            pulumi.set(__self__, "inference", inference)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
 
     @property
-    @pulumi.getter(name="fineTune")
-    def fine_tune(self) -> Optional[str]:
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
         """
-        The datetime of deprecation of the fineTune Model.
+        The unique model identifier that this ServerlessEndpoint should provision.
         """
-        return pulumi.get(self, "fine_tune")
-
-    @property
-    @pulumi.getter
-    def inference(self) -> Optional[str]:
-        """
-        The datetime of deprecation of the inference Model.
-        """
-        return pulumi.get(self, "inference")
-
-
-@pulumi.output_type
-class ModelSkuResponse(dict):
-    """
-    Describes an available Cognitive Services Model SKU.
-    """
-    def __init__(__self__, *,
-                 capacity: Optional['outputs.CapacityConfigResponse'] = None,
-                 connection_ids: Optional[Sequence[str]] = None,
-                 deprecation_date: Optional[str] = None,
-                 name: Optional[str] = None,
-                 rate_limits: Optional[Sequence['outputs.CallRateLimitResponse']] = None,
-                 usage_name: Optional[str] = None):
-        """
-        Describes an available Cognitive Services Model SKU.
-        :param 'CapacityConfigResponse' capacity: The capacity configuration.
-        :param Sequence[str] connection_ids: The list of connection ids.
-        :param str deprecation_date: The datetime of deprecation of the model SKU.
-        :param str name: The name of the model SKU.
-        :param Sequence['CallRateLimitResponse'] rate_limits: The list of rateLimit.
-        :param str usage_name: The usage name of the model SKU.
-        """
-        if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
-        if connection_ids is not None:
-            pulumi.set(__self__, "connection_ids", connection_ids)
-        if deprecation_date is not None:
-            pulumi.set(__self__, "deprecation_date", deprecation_date)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if rate_limits is not None:
-            pulumi.set(__self__, "rate_limits", rate_limits)
-        if usage_name is not None:
-            pulumi.set(__self__, "usage_name", usage_name)
-
-    @property
-    @pulumi.getter
-    def capacity(self) -> Optional['outputs.CapacityConfigResponse']:
-        """
-        The capacity configuration.
-        """
-        return pulumi.get(self, "capacity")
-
-    @property
-    @pulumi.getter(name="connectionIds")
-    def connection_ids(self) -> Optional[Sequence[str]]:
-        """
-        The list of connection ids.
-        """
-        return pulumi.get(self, "connection_ids")
-
-    @property
-    @pulumi.getter(name="deprecationDate")
-    def deprecation_date(self) -> Optional[str]:
-        """
-        The datetime of deprecation of the model SKU.
-        """
-        return pulumi.get(self, "deprecation_date")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the model SKU.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="rateLimits")
-    def rate_limits(self) -> Optional[Sequence['outputs.CallRateLimitResponse']]:
-        """
-        The list of rateLimit.
-        """
-        return pulumi.get(self, "rate_limits")
-
-    @property
-    @pulumi.getter(name="usageName")
-    def usage_name(self) -> Optional[str]:
-        """
-        The usage name of the model SKU.
-        """
-        return pulumi.get(self, "usage_name")
+        return pulumi.get(self, "model_id")
 
 
 @pulumi.output_type
@@ -22736,6 +24955,301 @@ class ModelVersionResponse(dict):
         Tag dictionary. Tags can be added, removed, and updated.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class MonitorDefinitionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeConfiguration":
+            suggest = "compute_configuration"
+        elif key == "alertNotificationSettings":
+            suggest = "alert_notification_settings"
+        elif key == "monitoringTarget":
+            suggest = "monitoring_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_configuration: 'outputs.MonitorServerlessSparkComputeResponse',
+                 signals: Mapping[str, Any],
+                 alert_notification_settings: Optional['outputs.MonitorNotificationSettingsResponse'] = None,
+                 monitoring_target: Optional['outputs.MonitoringTargetResponse'] = None):
+        """
+        :param 'MonitorServerlessSparkComputeResponse' compute_configuration: [Required] The ARM resource ID of the compute resource to run the monitoring job on.
+        :param Mapping[str, Union['CustomMonitoringSignalResponse', 'DataDriftMonitoringSignalResponse', 'DataQualityMonitoringSignalResponse', 'FeatureAttributionDriftMonitoringSignalResponse', 'PredictionDriftMonitoringSignalResponse']] signals: [Required] The signals to monitor.
+        :param 'MonitorNotificationSettingsResponse' alert_notification_settings: The monitor's notification settings.
+        :param 'MonitoringTargetResponse' monitoring_target: The entities targeted by the monitor.
+        """
+        pulumi.set(__self__, "compute_configuration", compute_configuration)
+        pulumi.set(__self__, "signals", signals)
+        if alert_notification_settings is not None:
+            pulumi.set(__self__, "alert_notification_settings", alert_notification_settings)
+        if monitoring_target is not None:
+            pulumi.set(__self__, "monitoring_target", monitoring_target)
+
+    @property
+    @pulumi.getter(name="computeConfiguration")
+    def compute_configuration(self) -> 'outputs.MonitorServerlessSparkComputeResponse':
+        """
+        [Required] The ARM resource ID of the compute resource to run the monitoring job on.
+        """
+        return pulumi.get(self, "compute_configuration")
+
+    @property
+    @pulumi.getter
+    def signals(self) -> Mapping[str, Any]:
+        """
+        [Required] The signals to monitor.
+        """
+        return pulumi.get(self, "signals")
+
+    @property
+    @pulumi.getter(name="alertNotificationSettings")
+    def alert_notification_settings(self) -> Optional['outputs.MonitorNotificationSettingsResponse']:
+        """
+        The monitor's notification settings.
+        """
+        return pulumi.get(self, "alert_notification_settings")
+
+    @property
+    @pulumi.getter(name="monitoringTarget")
+    def monitoring_target(self) -> Optional['outputs.MonitoringTargetResponse']:
+        """
+        The entities targeted by the monitor.
+        """
+        return pulumi.get(self, "monitoring_target")
+
+
+@pulumi.output_type
+class MonitorEmailNotificationSettingsResponse(dict):
+    def __init__(__self__, *,
+                 emails: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] emails: The email recipient list which has a limitation of 499 characters in total.
+        """
+        if emails is not None:
+            pulumi.set(__self__, "emails", emails)
+
+    @property
+    @pulumi.getter
+    def emails(self) -> Optional[Sequence[str]]:
+        """
+        The email recipient list which has a limitation of 499 characters in total.
+        """
+        return pulumi.get(self, "emails")
+
+
+@pulumi.output_type
+class MonitorNotificationSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "emailNotificationSettings":
+            suggest = "email_notification_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorNotificationSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorNotificationSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorNotificationSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 email_notification_settings: Optional['outputs.MonitorEmailNotificationSettingsResponse'] = None):
+        """
+        :param 'MonitorEmailNotificationSettingsResponse' email_notification_settings: The AML notification email settings.
+        """
+        if email_notification_settings is not None:
+            pulumi.set(__self__, "email_notification_settings", email_notification_settings)
+
+    @property
+    @pulumi.getter(name="emailNotificationSettings")
+    def email_notification_settings(self) -> Optional['outputs.MonitorEmailNotificationSettingsResponse']:
+        """
+        The AML notification email settings.
+        """
+        return pulumi.get(self, "email_notification_settings")
+
+
+@pulumi.output_type
+class MonitorServerlessSparkComputeResponse(dict):
+    """
+    Monitor serverless spark compute definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeIdentity":
+            suggest = "compute_identity"
+        elif key == "computeType":
+            suggest = "compute_type"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitorServerlessSparkComputeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitorServerlessSparkComputeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitorServerlessSparkComputeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_identity: Any,
+                 compute_type: str,
+                 instance_type: str,
+                 runtime_version: str):
+        """
+        Monitor serverless spark compute definition.
+        :param Union['AmlTokenComputeIdentityResponse', 'ManagedComputeIdentityResponse'] compute_identity: [Required] The identity scheme leveraged to by the spark jobs running on serverless Spark.
+        :param str compute_type: Monitor compute type enum.
+               Expected value is 'ServerlessSpark'.
+        :param str instance_type: [Required] The instance type running the Spark job.
+        :param str runtime_version: [Required] The Spark runtime version.
+        """
+        pulumi.set(__self__, "compute_identity", compute_identity)
+        pulumi.set(__self__, "compute_type", 'ServerlessSpark')
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="computeIdentity")
+    def compute_identity(self) -> Any:
+        """
+        [Required] The identity scheme leveraged to by the spark jobs running on serverless Spark.
+        """
+        return pulumi.get(self, "compute_identity")
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> str:
+        """
+        Monitor compute type enum.
+        Expected value is 'ServerlessSpark'.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        [Required] The instance type running the Spark job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> str:
+        """
+        [Required] The Spark runtime version.
+        """
+        return pulumi.get(self, "runtime_version")
+
+
+@pulumi.output_type
+class MonitoringTargetResponse(dict):
+    """
+    Monitoring target definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "taskType":
+            suggest = "task_type"
+        elif key == "deploymentId":
+            suggest = "deployment_id"
+        elif key == "modelId":
+            suggest = "model_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringTargetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringTargetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringTargetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 task_type: str,
+                 deployment_id: Optional[str] = None,
+                 model_id: Optional[str] = None):
+        """
+        Monitoring target definition.
+        :param str task_type: [Required] The machine learning task type of the monitored model.
+        :param str deployment_id: Reference to the deployment asset targeted by this monitor.
+        :param str model_id: Reference to the model asset targeted by this monitor.
+        """
+        pulumi.set(__self__, "task_type", task_type)
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if model_id is not None:
+            pulumi.set(__self__, "model_id", model_id)
+
+    @property
+    @pulumi.getter(name="taskType")
+    def task_type(self) -> str:
+        """
+        [Required] The machine learning task type of the monitored model.
+        """
+        return pulumi.get(self, "task_type")
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[str]:
+        """
+        Reference to the deployment asset targeted by this monitor.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> Optional[str]:
+        """
+        Reference to the model asset targeted by this monitor.
+        """
+        return pulumi.get(self, "model_id")
+
+
+@pulumi.output_type
+class MonitoringThresholdResponse(dict):
+    def __init__(__self__, *,
+                 value: Optional[float] = None):
+        """
+        :param float value: The threshold value. If null, the set default is dependent on the metric type.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The threshold value. If null, the set default is dependent on the metric type.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -23012,8 +25526,14 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
         elif key == "expiryTime":
             suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -23030,26 +25550,38 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'None'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
         :param str value: Value details of the workspace connection.
         :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'None')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -23067,6 +25599,19 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "auth_type")
 
     @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
+
+    @property
     @pulumi.getter
     def category(self) -> Optional[str]:
         """
@@ -23080,9 +25625,22 @@ class NoneAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
@@ -23310,6 +25868,345 @@ class NotificationSettingResponse(dict):
 
 
 @pulumi.output_type
+class NumericalDataDriftMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NumericalDataDriftMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NumericalDataDriftMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NumericalDataDriftMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Numerical'.
+        :param str metric: [Required] The numerical data drift metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Numerical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Numerical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The numerical data drift metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class NumericalDataQualityMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NumericalDataQualityMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NumericalDataQualityMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NumericalDataQualityMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Numerical'.
+        :param str metric: [Required] The numerical data quality metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Numerical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Numerical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The numerical data quality metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class NumericalPredictionDriftMetricThresholdResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NumericalPredictionDriftMetricThresholdResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NumericalPredictionDriftMetricThresholdResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NumericalPredictionDriftMetricThresholdResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: str,
+                 metric: str,
+                 threshold: Optional['outputs.MonitoringThresholdResponse'] = None):
+        """
+        :param str data_type: 
+               Expected value is 'Numerical'.
+        :param str metric: [Required] The numerical prediction drift metric to calculate.
+        :param 'MonitoringThresholdResponse' threshold: The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        pulumi.set(__self__, "data_type", 'Numerical')
+        pulumi.set(__self__, "metric", metric)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> str:
+        """
+
+        Expected value is 'Numerical'.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def metric(self) -> str:
+        """
+        [Required] The numerical prediction drift metric to calculate.
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional['outputs.MonitoringThresholdResponse']:
+        """
+        The threshold value. If null, a default value will be set depending on the selected metric.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class OAuth2AuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OAuth2AuthTypeWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OAuth2AuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OAuth2AuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
+                 category: Optional[str] = None,
+                 credentials: Optional['outputs.WorkspaceConnectionOAuth2Response'] = None,
+                 expiry_time: Optional[str] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
+        """
+        :param str auth_type: Authentication type of the connection target
+               Expected value is 'OAuth2'.
+        :param str group: Group based on connection category
+        :param str category: Category of the connection
+        :param 'WorkspaceConnectionOAuth2Response' credentials: ClientId and ClientSecret are required. Other properties are optional
+               depending on each OAuth2 provider's implementation.
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
+        """
+        pulumi.set(__self__, "auth_type", 'OAuth2')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> str:
+        """
+        Authentication type of the connection target
+        Expected value is 'OAuth2'.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Category of the connection
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.WorkspaceConnectionOAuth2Response']:
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
+
+
+@pulumi.output_type
 class ObjectiveResponse(dict):
     """
     Optimization objective.
@@ -23360,6 +26257,159 @@ class ObjectiveResponse(dict):
 
 
 @pulumi.output_type
+class OneLakeDatastoreResponse(dict):
+    """
+    OneLake (Trident) datastore configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datastoreType":
+            suggest = "datastore_type"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "oneLakeWorkspaceName":
+            suggest = "one_lake_workspace_name"
+        elif key == "serviceDataAccessAuthIdentity":
+            suggest = "service_data_access_auth_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OneLakeDatastoreResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OneLakeDatastoreResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OneLakeDatastoreResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact: 'outputs.LakeHouseArtifactResponse',
+                 credentials: Any,
+                 datastore_type: str,
+                 is_default: bool,
+                 one_lake_workspace_name: str,
+                 description: Optional[str] = None,
+                 endpoint: Optional[str] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 service_data_access_auth_identity: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        OneLake (Trident) datastore configuration.
+        :param 'LakeHouseArtifactResponse' artifact: [Required] OneLake artifact backing the datastore.
+        :param Union['AccountKeyDatastoreCredentialsResponse', 'CertificateDatastoreCredentialsResponse', 'NoneDatastoreCredentialsResponse', 'SasDatastoreCredentialsResponse', 'ServicePrincipalDatastoreCredentialsResponse'] credentials: [Required] Account credentials.
+        :param str datastore_type: Enum to determine the datastore contents type.
+               Expected value is 'OneLake'.
+        :param bool is_default: Readonly property to indicate if datastore is the workspace default datastore
+        :param str one_lake_workspace_name: [Required] OneLake workspace name.
+        :param str description: The asset description text.
+        :param str endpoint: OneLake endpoint to use for the datastore.
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param str service_data_access_auth_identity: Indicates which identity to use to authenticate service data access to customer's storage.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "artifact", artifact)
+        pulumi.set(__self__, "credentials", credentials)
+        pulumi.set(__self__, "datastore_type", 'OneLake')
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "one_lake_workspace_name", one_lake_workspace_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if service_data_access_auth_identity is None:
+            service_data_access_auth_identity = 'None'
+        if service_data_access_auth_identity is not None:
+            pulumi.set(__self__, "service_data_access_auth_identity", service_data_access_auth_identity)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def artifact(self) -> 'outputs.LakeHouseArtifactResponse':
+        """
+        [Required] OneLake artifact backing the datastore.
+        """
+        return pulumi.get(self, "artifact")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Any:
+        """
+        [Required] Account credentials.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter(name="datastoreType")
+    def datastore_type(self) -> str:
+        """
+        Enum to determine the datastore contents type.
+        Expected value is 'OneLake'.
+        """
+        return pulumi.get(self, "datastore_type")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        """
+        Readonly property to indicate if datastore is the workspace default datastore
+        """
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="oneLakeWorkspaceName")
+    def one_lake_workspace_name(self) -> str:
+        """
+        [Required] OneLake workspace name.
+        """
+        return pulumi.get(self, "one_lake_workspace_name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[str]:
+        """
+        OneLake endpoint to use for the datastore.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="serviceDataAccessAuthIdentity")
+    def service_data_access_auth_identity(self) -> Optional[str]:
+        """
+        Indicates which identity to use to authenticate service data access to customer's storage.
+        """
+        return pulumi.get(self, "service_data_access_auth_identity")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
 class OnlineEndpointResponse(dict):
     """
     Online endpoint configuration
@@ -23404,7 +26454,7 @@ class OnlineEndpointResponse(dict):
                  traffic: Optional[Mapping[str, int]] = None):
         """
         Online endpoint configuration
-        :param str auth_mode: [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        :param str auth_mode: [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         :param str provisioning_state: Provisioning state for the endpoint.
         :param str scoring_uri: Endpoint URI.
         :param str swagger_uri: Endpoint Swagger URI.
@@ -23439,7 +26489,7 @@ class OnlineEndpointResponse(dict):
     @pulumi.getter(name="authMode")
     def auth_mode(self) -> str:
         """
-        [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+        [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
         """
         return pulumi.get(self, "auth_mode")
 
@@ -23550,8 +26600,9 @@ class OnlineRequestSettingsResponse(dict):
         """
         Online deployment scoring requests configuration.
         :param int max_concurrent_requests_per_instance: The number of maximum concurrent requests per node allowed per deployment. Defaults to 1.
-        :param str max_queue_wait: The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        :param str max_queue_wait: (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
                Defaults to 500ms.
+               (Now increase `request_timeout_ms` to account for any networking/queue delays)
         :param str request_timeout: The scoring timeout in ISO 8601 format.
                Defaults to 5000ms.
         """
@@ -23580,8 +26631,9 @@ class OnlineRequestSettingsResponse(dict):
     @pulumi.getter(name="maxQueueWait")
     def max_queue_wait(self) -> Optional[str]:
         """
-        The maximum amount of time a request will stay in the queue in ISO 8601 format.
+        (Deprecated for Managed Online Endpoints) The maximum amount of time a request will stay in the queue in ISO 8601 format.
         Defaults to 500ms.
+        (Now increase `request_timeout_ms` to account for any networking/queue delays)
         """
         return pulumi.get(self, "max_queue_wait")
 
@@ -23778,8 +26830,14 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
         elif key == "expiryTime":
             suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -23796,29 +26854,41 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionPersonalAccessTokenResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'PAT'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
         :param str value: Value details of the workspace connection.
         :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'PAT')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -23834,6 +26904,19 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'PAT'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -23854,9 +26937,22 @@ class PATAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
@@ -23959,6 +27055,8 @@ class PipelineJobResponse(dict):
             suggest = "experiment_name"
         elif key == "isArchived":
             suggest = "is_archived"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
         elif key == "sourceJobId":
             suggest = "source_job_id"
 
@@ -23985,6 +27083,7 @@ class PipelineJobResponse(dict):
                  inputs: Optional[Mapping[str, Any]] = None,
                  is_archived: Optional[bool] = None,
                  jobs: Optional[Mapping[str, Any]] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
                  outputs: Optional[Mapping[str, Any]] = None,
                  properties: Optional[Mapping[str, str]] = None,
                  services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
@@ -24006,6 +27105,7 @@ class PipelineJobResponse(dict):
         :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Inputs for the pipeline job.
         :param bool is_archived: Is the asset archived?
         :param Mapping[str, Any] jobs: Jobs construct the Pipeline Job.
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
         :param Mapping[str, Union['CustomModelJobOutputResponse', 'MLFlowModelJobOutputResponse', 'MLTableJobOutputResponse', 'TritonModelJobOutputResponse', 'UriFileJobOutputResponse', 'UriFolderJobOutputResponse']] outputs: Outputs for the pipeline job
         :param Mapping[str, str] properties: The asset property dictionary.
         :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
@@ -24038,6 +27138,8 @@ class PipelineJobResponse(dict):
             pulumi.set(__self__, "is_archived", is_archived)
         if jobs is not None:
             pulumi.set(__self__, "jobs", jobs)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
         if properties is not None:
@@ -24142,6 +27244,14 @@ class PipelineJobResponse(dict):
         return pulumi.get(self, "jobs")
 
     @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
     @pulumi.getter
     def outputs(self) -> Optional[Mapping[str, Any]]:
         """
@@ -24192,139 +27302,119 @@ class PipelineJobResponse(dict):
 
 
 @pulumi.output_type
-class PoolEnvironmentConfigurationResponse(dict):
-    """
-    Environment configuration options.
-    """
+class PredictionDriftMonitoringSignalResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "environmentId":
-            suggest = "environment_id"
-        elif key == "environmentVariables":
-            suggest = "environment_variables"
-        elif key == "livenessProbe":
-            suggest = "liveness_probe"
-        elif key == "readinessProbe":
-            suggest = "readiness_probe"
-        elif key == "startupProbe":
-            suggest = "startup_probe"
+        if key == "metricThresholds":
+            suggest = "metric_thresholds"
+        elif key == "productionData":
+            suggest = "production_data"
+        elif key == "referenceData":
+            suggest = "reference_data"
+        elif key == "signalType":
+            suggest = "signal_type"
+        elif key == "featureDataTypeOverride":
+            suggest = "feature_data_type_override"
+        elif key == "notificationTypes":
+            suggest = "notification_types"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PoolEnvironmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PredictionDriftMonitoringSignalResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PoolEnvironmentConfigurationResponse.__key_warning(key)
+        PredictionDriftMonitoringSignalResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PoolEnvironmentConfigurationResponse.__key_warning(key)
+        PredictionDriftMonitoringSignalResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 environment_id: Optional[str] = None,
-                 environment_variables: Optional[Mapping[str, str]] = None,
-                 liveness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
-                 readiness_probe: Optional['outputs.ProbeSettingsResponse'] = None,
-                 startup_probe: Optional['outputs.ProbeSettingsResponse'] = None):
+                 metric_thresholds: Sequence[Any],
+                 production_data: Any,
+                 reference_data: Any,
+                 signal_type: str,
+                 feature_data_type_override: Optional[Mapping[str, str]] = None,
+                 notification_types: Optional[Sequence[str]] = None,
+                 properties: Optional[Mapping[str, str]] = None):
         """
-        Environment configuration options.
-        :param str environment_id: ARM resource ID of the environment specification for the inference pool.
-        :param Mapping[str, str] environment_variables: Environment variables configuration for the inference pool.
-        :param 'ProbeSettingsResponse' liveness_probe: Liveness probe monitors the health of the container regularly.
-        :param 'ProbeSettingsResponse' readiness_probe: Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
-        :param 'ProbeSettingsResponse' startup_probe: This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        :param Sequence[Union['CategoricalPredictionDriftMetricThresholdResponse', 'NumericalPredictionDriftMetricThresholdResponse']] metric_thresholds: [Required] A list of metrics to calculate and their associated thresholds.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] production_data: [Required] The data which drift will be calculated for.
+        :param Union['FixedInputDataResponse', 'RollingInputDataResponse', 'StaticInputDataResponse'] reference_data: [Required] The data to calculate drift against.
+        :param str signal_type: 
+               Expected value is 'PredictionDrift'.
+        :param Mapping[str, str] feature_data_type_override: A dictionary that maps feature names to their respective data types.
+        :param Sequence[str] notification_types: The current notification mode for this signal.
+        :param Mapping[str, str] properties: Property dictionary. Properties can be added, but not removed or altered.
         """
-        if environment_id is not None:
-            pulumi.set(__self__, "environment_id", environment_id)
-        if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
-        if liveness_probe is not None:
-            pulumi.set(__self__, "liveness_probe", liveness_probe)
-        if readiness_probe is not None:
-            pulumi.set(__self__, "readiness_probe", readiness_probe)
-        if startup_probe is not None:
-            pulumi.set(__self__, "startup_probe", startup_probe)
+        pulumi.set(__self__, "metric_thresholds", metric_thresholds)
+        pulumi.set(__self__, "production_data", production_data)
+        pulumi.set(__self__, "reference_data", reference_data)
+        pulumi.set(__self__, "signal_type", 'PredictionDrift')
+        if feature_data_type_override is not None:
+            pulumi.set(__self__, "feature_data_type_override", feature_data_type_override)
+        if notification_types is not None:
+            pulumi.set(__self__, "notification_types", notification_types)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
-    @pulumi.getter(name="environmentId")
-    def environment_id(self) -> Optional[str]:
+    @pulumi.getter(name="metricThresholds")
+    def metric_thresholds(self) -> Sequence[Any]:
         """
-        ARM resource ID of the environment specification for the inference pool.
+        [Required] A list of metrics to calculate and their associated thresholds.
         """
-        return pulumi.get(self, "environment_id")
+        return pulumi.get(self, "metric_thresholds")
 
     @property
-    @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[Mapping[str, str]]:
+    @pulumi.getter(name="productionData")
+    def production_data(self) -> Any:
         """
-        Environment variables configuration for the inference pool.
+        [Required] The data which drift will be calculated for.
         """
-        return pulumi.get(self, "environment_variables")
+        return pulumi.get(self, "production_data")
 
     @property
-    @pulumi.getter(name="livenessProbe")
-    def liveness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+    @pulumi.getter(name="referenceData")
+    def reference_data(self) -> Any:
         """
-        Liveness probe monitors the health of the container regularly.
+        [Required] The data to calculate drift against.
         """
-        return pulumi.get(self, "liveness_probe")
+        return pulumi.get(self, "reference_data")
 
     @property
-    @pulumi.getter(name="readinessProbe")
-    def readiness_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> str:
         """
-        Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.
+
+        Expected value is 'PredictionDrift'.
         """
-        return pulumi.get(self, "readiness_probe")
+        return pulumi.get(self, "signal_type")
 
     @property
-    @pulumi.getter(name="startupProbe")
-    def startup_probe(self) -> Optional['outputs.ProbeSettingsResponse']:
+    @pulumi.getter(name="featureDataTypeOverride")
+    def feature_data_type_override(self) -> Optional[Mapping[str, str]]:
         """
-        This verifies whether the application within a container is started. Startup probes run before any other probe, and, unless it finishes successfully, disables other probes.
+        A dictionary that maps feature names to their respective data types.
         """
-        return pulumi.get(self, "startup_probe")
-
-
-@pulumi.output_type
-class PoolModelConfigurationResponse(dict):
-    """
-    Model configuration options.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "modelId":
-            suggest = "model_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PoolModelConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PoolModelConfigurationResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PoolModelConfigurationResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 model_id: Optional[str] = None):
-        """
-        Model configuration options.
-        :param str model_id: The URI path to the model.
-        """
-        if model_id is not None:
-            pulumi.set(__self__, "model_id", model_id)
+        return pulumi.get(self, "feature_data_type_override")
 
     @property
-    @pulumi.getter(name="modelId")
-    def model_id(self) -> Optional[str]:
+    @pulumi.getter(name="notificationTypes")
+    def notification_types(self) -> Optional[Sequence[str]]:
         """
-        The URI path to the model.
+        The current notification mode for this signal.
         """
-        return pulumi.get(self, "model_id")
+        return pulumi.get(self, "notification_types")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Property dictionary. Properties can be added, but not removed or altered.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -24522,7 +27612,7 @@ class PrivateEndpointDestinationResponse(dict):
                  subresource_target: Optional[str] = None):
         """
         Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
-        :param str spark_status: Status of a managed network Outbound Rule of a machine learning workspace.
+        :param str spark_status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         if service_resource_id is not None:
             pulumi.set(__self__, "service_resource_id", service_resource_id)
@@ -24547,7 +27637,7 @@ class PrivateEndpointDestinationResponse(dict):
     @pulumi.getter(name="sparkStatus")
     def spark_status(self) -> Optional[str]:
         """
-        Status of a managed network Outbound Rule of a machine learning workspace.
+        Type of a managed network Outbound Rule of a machine learning workspace.
         """
         return pulumi.get(self, "spark_status")
 
@@ -24573,7 +27663,7 @@ class PrivateEndpointOutboundRuleResponse(dict):
                Expected value is 'PrivateEndpoint'.
         :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param 'PrivateEndpointDestinationResponse' destination: Private Endpoint destination for a Private Endpoint Outbound Rule for the managed network of a machine learning workspace.
-        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'PrivateEndpoint')
         if category is not None:
@@ -24612,7 +27702,7 @@ class PrivateEndpointOutboundRuleResponse(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Status of a managed network Outbound Rule of a machine learning workspace.
+        Type of a managed network Outbound Rule of a machine learning workspace.
         """
         return pulumi.get(self, "status")
 
@@ -24985,6 +28075,44 @@ class PyTorchResponse(dict):
         Number of processes per node.
         """
         return pulumi.get(self, "process_count_per_instance")
+
+
+@pulumi.output_type
+class QueueSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobTier":
+            suggest = "job_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_tier: Optional[str] = None):
+        """
+        :param str job_tier: Controls the compute job tier
+        """
+        if job_tier is None:
+            job_tier = 'Null'
+        if job_tier is not None:
+            pulumi.set(__self__, "job_tier", job_tier)
+
+    @property
+    @pulumi.getter(name="jobTier")
+    def job_tier(self) -> Optional[str]:
+        """
+        Controls the compute job tier
+        """
+        return pulumi.get(self, "job_tier")
 
 
 @pulumi.output_type
@@ -25390,14 +28518,14 @@ class RecurrenceResponse(dict):
     def __init__(__self__, *,
                  frequency: Optional[str] = None,
                  interval: Optional[int] = None,
-                 schedule: Optional['outputs.RecurrenceScheduleResponse'] = None,
+                 schedule: Optional['outputs.ComputeRecurrenceScheduleResponse'] = None,
                  start_time: Optional[str] = None,
                  time_zone: Optional[str] = None):
         """
         The workflow trigger recurrence for ComputeStartStop schedule type.
         :param str frequency: [Required] The frequency to trigger schedule.
         :param int interval: [Required] Specifies schedule interval in conjunction with frequency
-        :param 'RecurrenceScheduleResponse' schedule: [Required] The recurrence schedule.
+        :param 'ComputeRecurrenceScheduleResponse' schedule: [Required] The recurrence schedule.
         :param str start_time: The start time in yyyy-MM-ddTHH:mm:ss format.
         :param str time_zone: Specifies time zone in which the schedule runs.
                TimeZone should follow Windows time zone format. Refer: https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11
@@ -25433,7 +28561,7 @@ class RecurrenceResponse(dict):
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional['outputs.RecurrenceScheduleResponse']:
+    def schedule(self) -> Optional['outputs.ComputeRecurrenceScheduleResponse']:
         """
         [Required] The recurrence schedule.
         """
@@ -25689,10 +28817,10 @@ class RegistryPrivateEndpointConnectionPropertiesResponse(dict):
             suggest = "group_ids"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
-        elif key == "privateLinkServiceConnectionState":
-            suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "registryPrivateLinkServiceConnectionState":
+            suggest = "registry_private_link_service_connection_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RegistryPrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -25708,23 +28836,23 @@ class RegistryPrivateEndpointConnectionPropertiesResponse(dict):
     def __init__(__self__, *,
                  group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResourceResponse'] = None,
-                 private_link_service_connection_state: Optional['outputs.RegistryPrivateLinkServiceConnectionStateResponse'] = None,
-                 provisioning_state: Optional[str] = None):
+                 provisioning_state: Optional[str] = None,
+                 registry_private_link_service_connection_state: Optional['outputs.RegistryPrivateLinkServiceConnectionStateResponse'] = None):
         """
         Properties of the Private Endpoint Connection
         :param Sequence[str] group_ids: The group ids
         :param 'PrivateEndpointResourceResponse' private_endpoint: The PE network resource that is linked to this PE connection.
-        :param 'RegistryPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: The connection state.
         :param str provisioning_state: One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
+        :param 'RegistryPrivateLinkServiceConnectionStateResponse' registry_private_link_service_connection_state: The connection state.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if registry_private_link_service_connection_state is not None:
+            pulumi.set(__self__, "registry_private_link_service_connection_state", registry_private_link_service_connection_state)
 
     @property
     @pulumi.getter(name="groupIds")
@@ -25743,20 +28871,20 @@ class RegistryPrivateEndpointConnectionPropertiesResponse(dict):
         return pulumi.get(self, "private_endpoint")
 
     @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.RegistryPrivateLinkServiceConnectionStateResponse']:
-        """
-        The connection state.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
         One of null, "Succeeded", "Provisioning", "Failed". While not approved, it's null.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="registryPrivateLinkServiceConnectionState")
+    def registry_private_link_service_connection_state(self) -> Optional['outputs.RegistryPrivateLinkServiceConnectionStateResponse']:
+        """
+        The connection state.
+        """
+        return pulumi.get(self, "registry_private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -25771,7 +28899,7 @@ class RegistryPrivateEndpointConnectionResponse(dict):
         """
         Private endpoint connection definition.
         :param str id: This is the private endpoint connection name created on SRP
-               Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/privateEndpointConnections/{peConnectionName}
+               Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
         :param str location: Same as workspace location.
         :param 'RegistryPrivateEndpointConnectionPropertiesResponse' properties: Properties of the Private Endpoint Connection
         """
@@ -25787,7 +28915,7 @@ class RegistryPrivateEndpointConnectionResponse(dict):
     def id(self) -> Optional[str]:
         """
         This is the private endpoint connection name created on SRP
-        Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/privateEndpointConnections/{peConnectionName}
+        Full resource id: /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.MachineLearningServices/{resourceType}/{resourceName}/registryPrivateEndpointConnections/{peConnectionName}
         """
         return pulumi.get(self, "id")
 
@@ -25954,12 +29082,12 @@ class RegistryResponse(dict):
             suggest = "managed_resource_group"
         elif key == "mlFlowRegistryUri":
             suggest = "ml_flow_registry_uri"
-        elif key == "privateEndpointConnections":
-            suggest = "private_endpoint_connections"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
         elif key == "regionDetails":
             suggest = "region_details"
+        elif key == "registryPrivateEndpointConnections":
+            suggest = "registry_private_endpoint_connections"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RegistryResponse. Access the value via the '{suggest}' property getter instead.")
@@ -25977,19 +29105,19 @@ class RegistryResponse(dict):
                  intellectual_property_publisher: Optional[str] = None,
                  managed_resource_group: Optional['outputs.ArmResourceIdResponse'] = None,
                  ml_flow_registry_uri: Optional[str] = None,
-                 private_endpoint_connections: Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']] = None,
                  public_network_access: Optional[str] = None,
-                 region_details: Optional[Sequence['outputs.RegistryRegionArmDetailsResponse']] = None):
+                 region_details: Optional[Sequence['outputs.RegistryRegionArmDetailsResponse']] = None,
+                 registry_private_endpoint_connections: Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']] = None):
         """
         Details of the Registry
         :param str discovery_url: Discovery URL for the Registry
         :param str intellectual_property_publisher: IntellectualPropertyPublisher for the registry
         :param 'ArmResourceIdResponse' managed_resource_group: ResourceId of the managed RG if the registry has system created resources
         :param str ml_flow_registry_uri: MLFlow Registry URI for the Registry
-        :param Sequence['RegistryPrivateEndpointConnectionResponse'] private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         :param str public_network_access: Is the Registry accessible from the internet?
                Possible values: "Enabled" or "Disabled"
         :param Sequence['RegistryRegionArmDetailsResponse'] region_details: Details of each region the registry is in
+        :param Sequence['RegistryPrivateEndpointConnectionResponse'] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         """
         if discovery_url is not None:
             pulumi.set(__self__, "discovery_url", discovery_url)
@@ -25999,12 +29127,12 @@ class RegistryResponse(dict):
             pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if ml_flow_registry_uri is not None:
             pulumi.set(__self__, "ml_flow_registry_uri", ml_flow_registry_uri)
-        if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if region_details is not None:
             pulumi.set(__self__, "region_details", region_details)
+        if registry_private_endpoint_connections is not None:
+            pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
 
     @property
     @pulumi.getter(name="discoveryUrl")
@@ -26039,14 +29167,6 @@ class RegistryResponse(dict):
         return pulumi.get(self, "ml_flow_registry_uri")
 
     @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']]:
-        """
-        Private endpoint connections info used for pending connections in private link portal
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
@@ -26062,6 +29182,14 @@ class RegistryResponse(dict):
         Details of each region the registry is in
         """
         return pulumi.get(self, "region_details")
+
+    @property
+    @pulumi.getter(name="registryPrivateEndpointConnections")
+    def registry_private_endpoint_connections(self) -> Optional[Sequence['outputs.RegistryPrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections info used for pending connections in private link portal
+        """
+        return pulumi.get(self, "registry_private_endpoint_connections")
 
 
 @pulumi.output_type
@@ -26543,24 +29671,39 @@ class RequestConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class RequestMatchPatternResponse(dict):
+class RequestLoggingResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureHeaders":
+            suggest = "capture_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RequestLoggingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RequestLoggingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RequestLoggingResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 method: Optional[str] = None,
-                 path: Optional[str] = None):
-        if method is not None:
-            pulumi.set(__self__, "method", method)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
+                 capture_headers: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] capture_headers: For payload logging, we only collect payload by default. If customers also want to collect the specified headers, they can set them in captureHeaders so that backend will collect those headers along with payload.
+        """
+        if capture_headers is not None:
+            pulumi.set(__self__, "capture_headers", capture_headers)
 
     @property
-    @pulumi.getter
-    def method(self) -> Optional[str]:
-        return pulumi.get(self, "method")
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[str]:
-        return pulumi.get(self, "path")
+    @pulumi.getter(name="captureHeaders")
+    def capture_headers(self) -> Optional[Sequence[str]]:
+        """
+        For payload logging, we only collect payload by default. If customers also want to collect the specified headers, they can set them in captureHeaders so that backend will collect those headers along with payload.
+        """
+        return pulumi.get(self, "capture_headers")
 
 
 @pulumi.output_type
@@ -26583,6 +29726,137 @@ class ResourceIdResponse(dict):
         The ID of the resource
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class RollingInputDataResponse(dict):
+    """
+    Rolling input data definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputDataType":
+            suggest = "input_data_type"
+        elif key == "jobInputType":
+            suggest = "job_input_type"
+        elif key == "windowOffset":
+            suggest = "window_offset"
+        elif key == "windowSize":
+            suggest = "window_size"
+        elif key == "dataContext":
+            suggest = "data_context"
+        elif key == "preprocessingComponentId":
+            suggest = "preprocessing_component_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RollingInputDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RollingInputDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RollingInputDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_data_type: str,
+                 job_input_type: str,
+                 uri: str,
+                 window_offset: str,
+                 window_size: str,
+                 columns: Optional[Mapping[str, str]] = None,
+                 data_context: Optional[str] = None,
+                 preprocessing_component_id: Optional[str] = None):
+        """
+        Rolling input data definition.
+        :param str input_data_type: Monitoring input data type enum.
+               Expected value is 'Rolling'.
+        :param str job_input_type: [Required] Specifies the type of job.
+        :param str uri: [Required] Input Asset URI.
+        :param str window_offset: [Required] The time offset between the end of the data window and the monitor's current run time.
+        :param str window_size: [Required] The size of the rolling data window.
+        :param Mapping[str, str] columns: Mapping of column names to special uses.
+        :param str data_context: The context metadata of the data source.
+        :param str preprocessing_component_id: Reference to the component asset used to preprocess the data.
+        """
+        pulumi.set(__self__, "input_data_type", 'Rolling')
+        pulumi.set(__self__, "job_input_type", job_input_type)
+        pulumi.set(__self__, "uri", uri)
+        pulumi.set(__self__, "window_offset", window_offset)
+        pulumi.set(__self__, "window_size", window_size)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if data_context is not None:
+            pulumi.set(__self__, "data_context", data_context)
+        if preprocessing_component_id is not None:
+            pulumi.set(__self__, "preprocessing_component_id", preprocessing_component_id)
+
+    @property
+    @pulumi.getter(name="inputDataType")
+    def input_data_type(self) -> str:
+        """
+        Monitoring input data type enum.
+        Expected value is 'Rolling'.
+        """
+        return pulumi.get(self, "input_data_type")
+
+    @property
+    @pulumi.getter(name="jobInputType")
+    def job_input_type(self) -> str:
+        """
+        [Required] Specifies the type of job.
+        """
+        return pulumi.get(self, "job_input_type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        [Required] Input Asset URI.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="windowOffset")
+    def window_offset(self) -> str:
+        """
+        [Required] The time offset between the end of the data window and the monitor's current run time.
+        """
+        return pulumi.get(self, "window_offset")
+
+    @property
+    @pulumi.getter(name="windowSize")
+    def window_size(self) -> str:
+        """
+        [Required] The size of the rolling data window.
+        """
+        return pulumi.get(self, "window_size")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Mapping[str, str]]:
+        """
+        Mapping of column names to special uses.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="dataContext")
+    def data_context(self) -> Optional[str]:
+        """
+        The context metadata of the data source.
+        """
+        return pulumi.get(self, "data_context")
+
+    @property
+    @pulumi.getter(name="preprocessingComponentId")
+    def preprocessing_component_id(self) -> Optional[str]:
+        """
+        Reference to the component asset used to preprocess the data.
+        """
+        return pulumi.get(self, "preprocessing_component_id")
 
 
 @pulumi.output_type
@@ -26621,8 +29895,14 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
         elif key == "expiryTime":
             suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -26639,29 +29919,41 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionSharedAccessSignatureResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'SAS'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
         :param str value: Value details of the workspace connection.
         :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'SAS')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -26677,6 +29969,19 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'SAS'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -26697,9 +30002,22 @@ class SASAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
@@ -26834,6 +30152,60 @@ class ScaleSettingsResponse(dict):
 
 
 @pulumi.output_type
+class ScaleUnitConfigurationResponse(dict):
+    """
+    Configuration for ScaleUnit pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disablePublicEgress":
+            suggest = "disable_public_egress"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScaleUnitConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScaleUnitConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScaleUnitConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_public_egress: Optional[bool] = None,
+                 registries: Optional[Sequence[str]] = None):
+        """
+        Configuration for ScaleUnit pool.
+        :param bool disable_public_egress: Gets or sets a value indicating whether PublicEgress is disabled.
+        :param Sequence[str] registries: Gets or sets a list of Registry sources that will be used to confirm identity, storage, ACR.
+        """
+        if disable_public_egress is None:
+            disable_public_egress = False
+        if disable_public_egress is not None:
+            pulumi.set(__self__, "disable_public_egress", disable_public_egress)
+        if registries is not None:
+            pulumi.set(__self__, "registries", registries)
+
+    @property
+    @pulumi.getter(name="disablePublicEgress")
+    def disable_public_egress(self) -> Optional[bool]:
+        """
+        Gets or sets a value indicating whether PublicEgress is disabled.
+        """
+        return pulumi.get(self, "disable_public_egress")
+
+    @property
+    @pulumi.getter
+    def registries(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets a list of Registry sources that will be used to confirm identity, storage, ACR.
+        """
+        return pulumi.get(self, "registries")
+
+
+@pulumi.output_type
 class ScheduleBaseResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -26930,7 +30302,7 @@ class ScheduleResponse(dict):
                  tags: Optional[Mapping[str, str]] = None):
         """
         Base definition of a schedule
-        :param Union['EndpointScheduleActionResponse', 'JobScheduleActionResponse'] action: [Required] Specifies the action of the schedule
+        :param Union['CreateMonitorActionResponse', 'EndpointScheduleActionResponse', 'JobScheduleActionResponse'] action: [Required] Specifies the action of the schedule
         :param str provisioning_state: Provisioning state for the schedule.
         :param Union['CronTriggerResponse', 'RecurrenceTriggerResponse'] trigger: [Required] Specifies the trigger details
         :param str description: The asset description text.
@@ -27209,52 +30581,53 @@ class SecretConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class ServerlessEndpointCapacityReservationResponse(dict):
+class ServerlessComputeSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "capacityReservationGroupId":
-            suggest = "capacity_reservation_group_id"
-        elif key == "endpointReservedCapacity":
-            suggest = "endpoint_reserved_capacity"
+        if key == "serverlessComputeCustomSubnet":
+            suggest = "serverless_compute_custom_subnet"
+        elif key == "serverlessComputeNoPublicIP":
+            suggest = "serverless_compute_no_public_ip"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServerlessEndpointCapacityReservationResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessComputeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        ServerlessEndpointCapacityReservationResponse.__key_warning(key)
+        ServerlessComputeSettingsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        ServerlessEndpointCapacityReservationResponse.__key_warning(key)
+        ServerlessComputeSettingsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_reservation_group_id: str,
-                 endpoint_reserved_capacity: Optional[int] = None):
+                 serverless_compute_custom_subnet: Optional[str] = None,
+                 serverless_compute_no_public_ip: Optional[bool] = None):
         """
-        :param str capacity_reservation_group_id: [Required] Specifies a capacity reservation group ID to allocate capacity from.
-        :param int endpoint_reserved_capacity: Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        :param str serverless_compute_custom_subnet: The resource ID of an existing virtual network subnet in which serverless compute nodes should be deployed
+        :param bool serverless_compute_no_public_ip: The flag to signal if serverless compute nodes deployed in custom vNet would have no public IP addresses for a workspace with private endpoint
         """
-        pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
-        if endpoint_reserved_capacity is not None:
-            pulumi.set(__self__, "endpoint_reserved_capacity", endpoint_reserved_capacity)
+        if serverless_compute_custom_subnet is not None:
+            pulumi.set(__self__, "serverless_compute_custom_subnet", serverless_compute_custom_subnet)
+        if serverless_compute_no_public_ip is not None:
+            pulumi.set(__self__, "serverless_compute_no_public_ip", serverless_compute_no_public_ip)
 
     @property
-    @pulumi.getter(name="capacityReservationGroupId")
-    def capacity_reservation_group_id(self) -> str:
+    @pulumi.getter(name="serverlessComputeCustomSubnet")
+    def serverless_compute_custom_subnet(self) -> Optional[str]:
         """
-        [Required] Specifies a capacity reservation group ID to allocate capacity from.
+        The resource ID of an existing virtual network subnet in which serverless compute nodes should be deployed
         """
-        return pulumi.get(self, "capacity_reservation_group_id")
+        return pulumi.get(self, "serverless_compute_custom_subnet")
 
     @property
-    @pulumi.getter(name="endpointReservedCapacity")
-    def endpoint_reserved_capacity(self) -> Optional[int]:
+    @pulumi.getter(name="serverlessComputeNoPublicIP")
+    def serverless_compute_no_public_ip(self) -> Optional[bool]:
         """
-        Specifies a capacity amount to reserve for this endpoint within the parent capacity reservation group.
+        The flag to signal if serverless compute nodes deployed in custom vNet would have no public IP addresses for a workspace with private endpoint
         """
-        return pulumi.get(self, "endpoint_reserved_capacity")
+        return pulumi.get(self, "serverless_compute_no_public_ip")
 
 
 @pulumi.output_type
@@ -27262,14 +30635,20 @@ class ServerlessEndpointResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "inferenceEndpoint":
+        if key == "authMode":
+            suggest = "auth_mode"
+        elif key == "endpointState":
+            suggest = "endpoint_state"
+        elif key == "inferenceEndpoint":
             suggest = "inference_endpoint"
+        elif key == "marketplaceSubscriptionId":
+            suggest = "marketplace_subscription_id"
         elif key == "provisioningState":
             suggest = "provisioning_state"
-        elif key == "authMode":
-            suggest = "auth_mode"
-        elif key == "capacityReservation":
-            suggest = "capacity_reservation"
+        elif key == "contentSafety":
+            suggest = "content_safety"
+        elif key == "modelSettings":
+            suggest = "model_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServerlessEndpointResponse. Access the value via the '{suggest}' property getter instead.")
@@ -27283,26 +30662,47 @@ class ServerlessEndpointResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 auth_mode: str,
+                 endpoint_state: str,
                  inference_endpoint: 'outputs.ServerlessInferenceEndpointResponse',
-                 offer: 'outputs.ServerlessOfferResponse',
+                 marketplace_subscription_id: str,
                  provisioning_state: str,
-                 auth_mode: Optional[str] = None,
-                 capacity_reservation: Optional['outputs.ServerlessEndpointCapacityReservationResponse'] = None):
+                 content_safety: Optional['outputs.ContentSafetyResponse'] = None,
+                 model_settings: Optional['outputs.ModelSettingsResponse'] = None):
         """
+        :param str auth_mode: [Required] Specifies the authentication mode for the Serverless endpoint.
+        :param str endpoint_state: The current state of the ServerlessEndpoint.
         :param 'ServerlessInferenceEndpointResponse' inference_endpoint: The inference uri to target when making requests against the serverless endpoint
-        :param 'ServerlessOfferResponse' offer: [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        :param str marketplace_subscription_id: The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.
         :param str provisioning_state: Provisioning state for the endpoint.
-        :param str auth_mode: Specifies the authentication mode for the Serverless endpoint.
-        :param 'ServerlessEndpointCapacityReservationResponse' capacity_reservation: Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
-               will be allocated capacity from the specified capacity reservation group.
+        :param 'ContentSafetyResponse' content_safety: Specifies the content safety options. If omitted, the default content safety settings will be configured
+        :param 'ModelSettingsResponse' model_settings: The model settings (model id) for the model being serviced on the ServerlessEndpoint.
         """
+        pulumi.set(__self__, "auth_mode", auth_mode)
+        pulumi.set(__self__, "endpoint_state", endpoint_state)
         pulumi.set(__self__, "inference_endpoint", inference_endpoint)
-        pulumi.set(__self__, "offer", offer)
+        pulumi.set(__self__, "marketplace_subscription_id", marketplace_subscription_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if auth_mode is not None:
-            pulumi.set(__self__, "auth_mode", auth_mode)
-        if capacity_reservation is not None:
-            pulumi.set(__self__, "capacity_reservation", capacity_reservation)
+        if content_safety is not None:
+            pulumi.set(__self__, "content_safety", content_safety)
+        if model_settings is not None:
+            pulumi.set(__self__, "model_settings", model_settings)
+
+    @property
+    @pulumi.getter(name="authMode")
+    def auth_mode(self) -> str:
+        """
+        [Required] Specifies the authentication mode for the Serverless endpoint.
+        """
+        return pulumi.get(self, "auth_mode")
+
+    @property
+    @pulumi.getter(name="endpointState")
+    def endpoint_state(self) -> str:
+        """
+        The current state of the ServerlessEndpoint.
+        """
+        return pulumi.get(self, "endpoint_state")
 
     @property
     @pulumi.getter(name="inferenceEndpoint")
@@ -27313,12 +30713,12 @@ class ServerlessEndpointResponse(dict):
         return pulumi.get(self, "inference_endpoint")
 
     @property
-    @pulumi.getter
-    def offer(self) -> 'outputs.ServerlessOfferResponse':
+    @pulumi.getter(name="marketplaceSubscriptionId")
+    def marketplace_subscription_id(self) -> str:
         """
-        [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.
         """
-        return pulumi.get(self, "offer")
+        return pulumi.get(self, "marketplace_subscription_id")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -27329,21 +30729,20 @@ class ServerlessEndpointResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="authMode")
-    def auth_mode(self) -> Optional[str]:
+    @pulumi.getter(name="contentSafety")
+    def content_safety(self) -> Optional['outputs.ContentSafetyResponse']:
         """
-        Specifies the authentication mode for the Serverless endpoint.
+        Specifies the content safety options. If omitted, the default content safety settings will be configured
         """
-        return pulumi.get(self, "auth_mode")
+        return pulumi.get(self, "content_safety")
 
     @property
-    @pulumi.getter(name="capacityReservation")
-    def capacity_reservation(self) -> Optional['outputs.ServerlessEndpointCapacityReservationResponse']:
+    @pulumi.getter(name="modelSettings")
+    def model_settings(self) -> Optional['outputs.ModelSettingsResponse']:
         """
-        Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
-        will be allocated capacity from the specified capacity reservation group.
+        The model settings (model id) for the model being serviced on the ServerlessEndpoint.
         """
-        return pulumi.get(self, "capacity_reservation")
+        return pulumi.get(self, "model_settings")
 
 
 @pulumi.output_type
@@ -27459,29 +30858,76 @@ class ServiceManagedResourcesSettingsResponse(dict):
 
 @pulumi.output_type
 class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
+        elif key == "valueFormat":
+            suggest = "value_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionServicePrincipalResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
-                 target: Optional[str] = None):
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
+                 target: Optional[str] = None,
+                 value: Optional[str] = None,
+                 value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'ServicePrincipal'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
+        :param str value: Value details of the workspace connection.
+        :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'ServicePrincipal')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if value_format is not None:
+            pulumi.set(__self__, "value_format", value_format)
 
     @property
     @pulumi.getter(name="authType")
@@ -27491,6 +30937,19 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'ServicePrincipal'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -27511,14 +30970,43 @@ class ServicePrincipalAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
     def target(self) -> Optional[str]:
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value details of the workspace connection.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="valueFormat")
+    def value_format(self) -> Optional[str]:
+        """
+        format for the workspace connection value
+        """
+        return pulumi.get(self, "value_format")
 
 
 @pulumi.output_type
@@ -27624,7 +31112,9 @@ class ServiceTagDestinationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "portRanges":
+        if key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "portRanges":
             suggest = "port_ranges"
         elif key == "serviceTag":
             suggest = "service_tag"
@@ -27641,18 +31131,41 @@ class ServiceTagDestinationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 address_prefixes: Sequence[str],
+                 action: Optional[str] = None,
                  port_ranges: Optional[str] = None,
                  protocol: Optional[str] = None,
                  service_tag: Optional[str] = None):
         """
         Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
+        :param Sequence[str] address_prefixes: Optional, if provided, the ServiceTag property will be ignored.
+        :param str action: The action enum for networking rule.
         """
+        pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if port_ranges is not None:
             pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if service_tag is not None:
             pulumi.set(__self__, "service_tag", service_tag)
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Sequence[str]:
+        """
+        Optional, if provided, the ServiceTag property will be ignored.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The action enum for networking rule.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="portRanges")
@@ -27686,7 +31199,7 @@ class ServiceTagOutboundRuleResponse(dict):
                Expected value is 'ServiceTag'.
         :param str category: Category of a managed network Outbound Rule of a machine learning workspace.
         :param 'ServiceTagDestinationResponse' destination: Service Tag destination for a Service Tag Outbound Rule for the managed network of a machine learning workspace.
-        :param str status: Status of a managed network Outbound Rule of a machine learning workspace.
+        :param str status: Type of a managed network Outbound Rule of a machine learning workspace.
         """
         pulumi.set(__self__, "type", 'ServiceTag')
         if category is not None:
@@ -27725,7 +31238,7 @@ class ServiceTagOutboundRuleResponse(dict):
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
-        Status of a managed network Outbound Rule of a machine learning workspace.
+        Type of a managed network Outbound Rule of a machine learning workspace.
         """
         return pulumi.get(self, "status")
 
@@ -27909,6 +31422,536 @@ class SkuResponse(dict):
         This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SparkJobPythonEntryResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sparkJobEntryType":
+            suggest = "spark_job_entry_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkJobPythonEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkJobPythonEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkJobPythonEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file: str,
+                 spark_job_entry_type: str):
+        """
+        :param str file: [Required] Relative python file path for job entry point.
+        :param str spark_job_entry_type: 
+               Expected value is 'SparkJobPythonEntry'.
+        """
+        pulumi.set(__self__, "file", file)
+        pulumi.set(__self__, "spark_job_entry_type", 'SparkJobPythonEntry')
+
+    @property
+    @pulumi.getter
+    def file(self) -> str:
+        """
+        [Required] Relative python file path for job entry point.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter(name="sparkJobEntryType")
+    def spark_job_entry_type(self) -> str:
+        """
+
+        Expected value is 'SparkJobPythonEntry'.
+        """
+        return pulumi.get(self, "spark_job_entry_type")
+
+
+@pulumi.output_type
+class SparkJobResponse(dict):
+    """
+    Spark job definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "codeId":
+            suggest = "code_id"
+        elif key == "jobType":
+            suggest = "job_type"
+        elif key == "componentId":
+            suggest = "component_id"
+        elif key == "computeId":
+            suggest = "compute_id"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "environmentId":
+            suggest = "environment_id"
+        elif key == "environmentVariables":
+            suggest = "environment_variables"
+        elif key == "experimentName":
+            suggest = "experiment_name"
+        elif key == "isArchived":
+            suggest = "is_archived"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
+        elif key == "pyFiles":
+            suggest = "py_files"
+        elif key == "queueSettings":
+            suggest = "queue_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkJobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkJobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkJobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code_id: str,
+                 entry: Any,
+                 job_type: str,
+                 status: str,
+                 archives: Optional[Sequence[str]] = None,
+                 args: Optional[str] = None,
+                 component_id: Optional[str] = None,
+                 compute_id: Optional[str] = None,
+                 conf: Optional[Mapping[str, str]] = None,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 environment_id: Optional[str] = None,
+                 environment_variables: Optional[Mapping[str, str]] = None,
+                 experiment_name: Optional[str] = None,
+                 files: Optional[Sequence[str]] = None,
+                 identity: Optional[Any] = None,
+                 inputs: Optional[Mapping[str, Any]] = None,
+                 is_archived: Optional[bool] = None,
+                 jars: Optional[Sequence[str]] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
+                 outputs: Optional[Mapping[str, Any]] = None,
+                 properties: Optional[Mapping[str, str]] = None,
+                 py_files: Optional[Sequence[str]] = None,
+                 queue_settings: Optional['outputs.QueueSettingsResponse'] = None,
+                 resources: Optional['outputs.SparkResourceConfigurationResponse'] = None,
+                 services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Spark job definition.
+        :param str code_id: [Required] arm-id of the code asset.
+        :param Union['SparkJobPythonEntryResponse', 'SparkJobScalaEntryResponse'] entry: [Required] The entry to execute on startup of the job.
+        :param str job_type: Enum to determine the type of job.
+               Expected value is 'Spark'.
+        :param str status: Status of the job.
+        :param Sequence[str] archives: Archive files used in the job.
+        :param str args: Arguments for the job.
+        :param str component_id: ARM resource ID of the component resource.
+        :param str compute_id: ARM resource ID of the compute resource.
+        :param Mapping[str, str] conf: Spark configured properties.
+        :param str description: The asset description text.
+        :param str display_name: Display name of job.
+        :param str environment_id: The ARM resource ID of the Environment specification for the job.
+        :param Mapping[str, str] environment_variables: Environment variables included in the job.
+        :param str experiment_name: The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        :param Sequence[str] files: Files used in the job.
+        :param Union['AmlTokenResponse', 'ManagedIdentityResponse', 'UserIdentityResponse'] identity: Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+               Defaults to AmlToken if null.
+        :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Mapping of input data bindings used in the job.
+        :param bool is_archived: Is the asset archived?
+        :param Sequence[str] jars: Jar files used in the job.
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
+        :param Mapping[str, Union['CustomModelJobOutputResponse', 'MLFlowModelJobOutputResponse', 'MLTableJobOutputResponse', 'TritonModelJobOutputResponse', 'UriFileJobOutputResponse', 'UriFolderJobOutputResponse']] outputs: Mapping of output data bindings used in the job.
+        :param Mapping[str, str] properties: The asset property dictionary.
+        :param Sequence[str] py_files: Python files used in the job.
+        :param 'QueueSettingsResponse' queue_settings: Queue settings for the job
+        :param 'SparkResourceConfigurationResponse' resources: Compute Resource configuration for the job.
+        :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
+               For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "code_id", code_id)
+        pulumi.set(__self__, "entry", entry)
+        pulumi.set(__self__, "job_type", 'Spark')
+        pulumi.set(__self__, "status", status)
+        if archives is not None:
+            pulumi.set(__self__, "archives", archives)
+        if args is not None:
+            pulumi.set(__self__, "args", args)
+        if component_id is not None:
+            pulumi.set(__self__, "component_id", component_id)
+        if compute_id is not None:
+            pulumi.set(__self__, "compute_id", compute_id)
+        if conf is not None:
+            pulumi.set(__self__, "conf", conf)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if environment_variables is not None:
+            pulumi.set(__self__, "environment_variables", environment_variables)
+        if experiment_name is None:
+            experiment_name = 'Default'
+        if experiment_name is not None:
+            pulumi.set(__self__, "experiment_name", experiment_name)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if inputs is not None:
+            pulumi.set(__self__, "inputs", inputs)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if jars is not None:
+            pulumi.set(__self__, "jars", jars)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
+        if outputs is not None:
+            pulumi.set(__self__, "outputs", outputs)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if py_files is not None:
+            pulumi.set(__self__, "py_files", py_files)
+        if queue_settings is not None:
+            pulumi.set(__self__, "queue_settings", queue_settings)
+        if resources is not None:
+            pulumi.set(__self__, "resources", resources)
+        if services is not None:
+            pulumi.set(__self__, "services", services)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="codeId")
+    def code_id(self) -> str:
+        """
+        [Required] arm-id of the code asset.
+        """
+        return pulumi.get(self, "code_id")
+
+    @property
+    @pulumi.getter
+    def entry(self) -> Any:
+        """
+        [Required] The entry to execute on startup of the job.
+        """
+        return pulumi.get(self, "entry")
+
+    @property
+    @pulumi.getter(name="jobType")
+    def job_type(self) -> str:
+        """
+        Enum to determine the type of job.
+        Expected value is 'Spark'.
+        """
+        return pulumi.get(self, "job_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the job.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def archives(self) -> Optional[Sequence[str]]:
+        """
+        Archive files used in the job.
+        """
+        return pulumi.get(self, "archives")
+
+    @property
+    @pulumi.getter
+    def args(self) -> Optional[str]:
+        """
+        Arguments for the job.
+        """
+        return pulumi.get(self, "args")
+
+    @property
+    @pulumi.getter(name="componentId")
+    def component_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the component resource.
+        """
+        return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter(name="computeId")
+    def compute_id(self) -> Optional[str]:
+        """
+        ARM resource ID of the compute resource.
+        """
+        return pulumi.get(self, "compute_id")
+
+    @property
+    @pulumi.getter
+    def conf(self) -> Optional[Mapping[str, str]]:
+        """
+        Spark configured properties.
+        """
+        return pulumi.get(self, "conf")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of job.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        The ARM resource ID of the Environment specification for the job.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="environmentVariables")
+    def environment_variables(self) -> Optional[Mapping[str, str]]:
+        """
+        Environment variables included in the job.
+        """
+        return pulumi.get(self, "environment_variables")
+
+    @property
+    @pulumi.getter(name="experimentName")
+    def experiment_name(self) -> Optional[str]:
+        """
+        The name of the experiment the job belongs to. If not set, the job is placed in the "Default" experiment.
+        """
+        return pulumi.get(self, "experiment_name")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Sequence[str]]:
+        """
+        Files used in the job.
+        """
+        return pulumi.get(self, "files")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[Any]:
+        """
+        Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.
+        Defaults to AmlToken if null.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def inputs(self) -> Optional[Mapping[str, Any]]:
+        """
+        Mapping of input data bindings used in the job.
+        """
+        return pulumi.get(self, "inputs")
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[bool]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @property
+    @pulumi.getter
+    def jars(self) -> Optional[Sequence[str]]:
+        """
+        Jar files used in the job.
+        """
+        return pulumi.get(self, "jars")
+
+    @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> Optional[Mapping[str, Any]]:
+        """
+        Mapping of output data bindings used in the job.
+        """
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="pyFiles")
+    def py_files(self) -> Optional[Sequence[str]]:
+        """
+        Python files used in the job.
+        """
+        return pulumi.get(self, "py_files")
+
+    @property
+    @pulumi.getter(name="queueSettings")
+    def queue_settings(self) -> Optional['outputs.QueueSettingsResponse']:
+        """
+        Queue settings for the job
+        """
+        return pulumi.get(self, "queue_settings")
+
+    @property
+    @pulumi.getter
+    def resources(self) -> Optional['outputs.SparkResourceConfigurationResponse']:
+        """
+        Compute Resource configuration for the job.
+        """
+        return pulumi.get(self, "resources")
+
+    @property
+    @pulumi.getter
+    def services(self) -> Optional[Mapping[str, 'outputs.JobServiceResponse']]:
+        """
+        List of JobEndpoints.
+        For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
+        """
+        return pulumi.get(self, "services")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class SparkJobScalaEntryResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "className":
+            suggest = "class_name"
+        elif key == "sparkJobEntryType":
+            suggest = "spark_job_entry_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkJobScalaEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkJobScalaEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkJobScalaEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 class_name: str,
+                 spark_job_entry_type: str):
+        """
+        :param str class_name: [Required] Scala class name used as entry point.
+        :param str spark_job_entry_type: 
+               Expected value is 'SparkJobScalaEntry'.
+        """
+        pulumi.set(__self__, "class_name", class_name)
+        pulumi.set(__self__, "spark_job_entry_type", 'SparkJobScalaEntry')
+
+    @property
+    @pulumi.getter(name="className")
+    def class_name(self) -> str:
+        """
+        [Required] Scala class name used as entry point.
+        """
+        return pulumi.get(self, "class_name")
+
+    @property
+    @pulumi.getter(name="sparkJobEntryType")
+    def spark_job_entry_type(self) -> str:
+        """
+
+        Expected value is 'SparkJobScalaEntry'.
+        """
+        return pulumi.get(self, "spark_job_entry_type")
+
+
+@pulumi.output_type
+class SparkResourceConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "runtimeVersion":
+            suggest = "runtime_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkResourceConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkResourceConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkResourceConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: Optional[str] = None,
+                 runtime_version: Optional[str] = None):
+        """
+        :param str instance_type: Optional type of VM used as supported by the compute target.
+        :param str runtime_version: Version of spark runtime used for the job.
+        """
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if runtime_version is None:
+            runtime_version = '3.1'
+        if runtime_version is not None:
+            pulumi.set(__self__, "runtime_version", runtime_version)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[str]:
+        """
+        Optional type of VM used as supported by the compute target.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="runtimeVersion")
+    def runtime_version(self) -> Optional[str]:
+        """
+        Version of spark runtime used for the job.
+        """
+        return pulumi.get(self, "runtime_version")
 
 
 @pulumi.output_type
@@ -28195,6 +32238,137 @@ class StackEnsembleSettingsResponse(dict):
 
 
 @pulumi.output_type
+class StaticInputDataResponse(dict):
+    """
+    Static input data definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputDataType":
+            suggest = "input_data_type"
+        elif key == "jobInputType":
+            suggest = "job_input_type"
+        elif key == "windowEnd":
+            suggest = "window_end"
+        elif key == "windowStart":
+            suggest = "window_start"
+        elif key == "dataContext":
+            suggest = "data_context"
+        elif key == "preprocessingComponentId":
+            suggest = "preprocessing_component_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticInputDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticInputDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticInputDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_data_type: str,
+                 job_input_type: str,
+                 uri: str,
+                 window_end: str,
+                 window_start: str,
+                 columns: Optional[Mapping[str, str]] = None,
+                 data_context: Optional[str] = None,
+                 preprocessing_component_id: Optional[str] = None):
+        """
+        Static input data definition.
+        :param str input_data_type: Monitoring input data type enum.
+               Expected value is 'Static'.
+        :param str job_input_type: [Required] Specifies the type of job.
+        :param str uri: [Required] Input Asset URI.
+        :param str window_end: [Required] The end date of the data window.
+        :param str window_start: [Required] The start date of the data window.
+        :param Mapping[str, str] columns: Mapping of column names to special uses.
+        :param str data_context: The context metadata of the data source.
+        :param str preprocessing_component_id: Reference to the component asset used to preprocess the data.
+        """
+        pulumi.set(__self__, "input_data_type", 'Static')
+        pulumi.set(__self__, "job_input_type", job_input_type)
+        pulumi.set(__self__, "uri", uri)
+        pulumi.set(__self__, "window_end", window_end)
+        pulumi.set(__self__, "window_start", window_start)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if data_context is not None:
+            pulumi.set(__self__, "data_context", data_context)
+        if preprocessing_component_id is not None:
+            pulumi.set(__self__, "preprocessing_component_id", preprocessing_component_id)
+
+    @property
+    @pulumi.getter(name="inputDataType")
+    def input_data_type(self) -> str:
+        """
+        Monitoring input data type enum.
+        Expected value is 'Static'.
+        """
+        return pulumi.get(self, "input_data_type")
+
+    @property
+    @pulumi.getter(name="jobInputType")
+    def job_input_type(self) -> str:
+        """
+        [Required] Specifies the type of job.
+        """
+        return pulumi.get(self, "job_input_type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        [Required] Input Asset URI.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="windowEnd")
+    def window_end(self) -> str:
+        """
+        [Required] The end date of the data window.
+        """
+        return pulumi.get(self, "window_end")
+
+    @property
+    @pulumi.getter(name="windowStart")
+    def window_start(self) -> str:
+        """
+        [Required] The start date of the data window.
+        """
+        return pulumi.get(self, "window_start")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Mapping[str, str]]:
+        """
+        Mapping of column names to special uses.
+        """
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter(name="dataContext")
+    def data_context(self) -> Optional[str]:
+        """
+        The context metadata of the data source.
+        """
+        return pulumi.get(self, "data_context")
+
+    @property
+    @pulumi.getter(name="preprocessingComponentId")
+    def preprocessing_component_id(self) -> Optional[str]:
+        """
+        Reference to the component asset used to preprocess the data.
+        """
+        return pulumi.get(self, "preprocessing_component_id")
+
+
+@pulumi.output_type
 class StatusMessageResponse(dict):
     """
     Active message associated with project
@@ -28304,6 +32478,27 @@ class StorageAccountDetailsResponse(dict):
         Details of system created storage account to be used for the registry
         """
         return pulumi.get(self, "system_created_storage_account")
+
+
+@pulumi.output_type
+class StringStringKeyValuePairResponse(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -28427,6 +32622,10 @@ class SweepJobResponse(dict):
             suggest = "experiment_name"
         elif key == "isArchived":
             suggest = "is_archived"
+        elif key == "notificationSetting":
+            suggest = "notification_setting"
+        elif key == "queueSettings":
+            suggest = "queue_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SweepJobResponse. Access the value via the '{suggest}' property getter instead.")
@@ -28456,8 +32655,10 @@ class SweepJobResponse(dict):
                  inputs: Optional[Mapping[str, Any]] = None,
                  is_archived: Optional[bool] = None,
                  limits: Optional['outputs.SweepJobLimitsResponse'] = None,
+                 notification_setting: Optional['outputs.NotificationSettingResponse'] = None,
                  outputs: Optional[Mapping[str, Any]] = None,
                  properties: Optional[Mapping[str, str]] = None,
+                 queue_settings: Optional['outputs.QueueSettingsResponse'] = None,
                  services: Optional[Mapping[str, 'outputs.JobServiceResponse']] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
@@ -28480,8 +32681,10 @@ class SweepJobResponse(dict):
         :param Mapping[str, Union['CustomModelJobInputResponse', 'LiteralJobInputResponse', 'MLFlowModelJobInputResponse', 'MLTableJobInputResponse', 'TritonModelJobInputResponse', 'UriFileJobInputResponse', 'UriFolderJobInputResponse']] inputs: Mapping of input data bindings used in the job.
         :param bool is_archived: Is the asset archived?
         :param 'SweepJobLimitsResponse' limits: Sweep Job limit.
+        :param 'NotificationSettingResponse' notification_setting: Notification setting for the job
         :param Mapping[str, Union['CustomModelJobOutputResponse', 'MLFlowModelJobOutputResponse', 'MLTableJobOutputResponse', 'TritonModelJobOutputResponse', 'UriFileJobOutputResponse', 'UriFolderJobOutputResponse']] outputs: Mapping of output data bindings used in the job.
         :param Mapping[str, str] properties: The asset property dictionary.
+        :param 'QueueSettingsResponse' queue_settings: Queue settings for the job
         :param Mapping[str, 'JobServiceResponse'] services: List of JobEndpoints.
                For local jobs, a job endpoint will have an endpoint value of FileStreamObject.
         :param Mapping[str, str] tags: Tag dictionary. Tags can be added, removed, and updated.
@@ -28516,10 +32719,14 @@ class SweepJobResponse(dict):
             pulumi.set(__self__, "is_archived", is_archived)
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
+        if notification_setting is not None:
+            pulumi.set(__self__, "notification_setting", notification_setting)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if queue_settings is not None:
+            pulumi.set(__self__, "queue_settings", queue_settings)
         if services is not None:
             pulumi.set(__self__, "services", services)
         if tags is not None:
@@ -28656,6 +32863,14 @@ class SweepJobResponse(dict):
         return pulumi.get(self, "limits")
 
     @property
+    @pulumi.getter(name="notificationSetting")
+    def notification_setting(self) -> Optional['outputs.NotificationSettingResponse']:
+        """
+        Notification setting for the job
+        """
+        return pulumi.get(self, "notification_setting")
+
+    @property
     @pulumi.getter
     def outputs(self) -> Optional[Mapping[str, Any]]:
         """
@@ -28670,6 +32885,14 @@ class SweepJobResponse(dict):
         The asset property dictionary.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="queueSettings")
+    def queue_settings(self) -> Optional['outputs.QueueSettingsResponse']:
+        """
+        Queue settings for the job
+        """
+        return pulumi.get(self, "queue_settings")
 
     @property
     @pulumi.getter
@@ -30225,59 +34448,6 @@ class TextNerResponse(dict):
 
 
 @pulumi.output_type
-class ThrottlingRuleResponse(dict):
-    def __init__(__self__, *,
-                 count: Optional[float] = None,
-                 dynamic_throttling_enabled: Optional[bool] = None,
-                 key: Optional[str] = None,
-                 match_patterns: Optional[Sequence['outputs.RequestMatchPatternResponse']] = None,
-                 min_count: Optional[float] = None,
-                 renewal_period: Optional[float] = None):
-        if count is not None:
-            pulumi.set(__self__, "count", count)
-        if dynamic_throttling_enabled is not None:
-            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
-        if key is not None:
-            pulumi.set(__self__, "key", key)
-        if match_patterns is not None:
-            pulumi.set(__self__, "match_patterns", match_patterns)
-        if min_count is not None:
-            pulumi.set(__self__, "min_count", min_count)
-        if renewal_period is not None:
-            pulumi.set(__self__, "renewal_period", renewal_period)
-
-    @property
-    @pulumi.getter
-    def count(self) -> Optional[float]:
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="dynamicThrottlingEnabled")
-    def dynamic_throttling_enabled(self) -> Optional[bool]:
-        return pulumi.get(self, "dynamic_throttling_enabled")
-
-    @property
-    @pulumi.getter
-    def key(self) -> Optional[str]:
-        return pulumi.get(self, "key")
-
-    @property
-    @pulumi.getter(name="matchPatterns")
-    def match_patterns(self) -> Optional[Sequence['outputs.RequestMatchPatternResponse']]:
-        return pulumi.get(self, "match_patterns")
-
-    @property
-    @pulumi.getter(name="minCount")
-    def min_count(self) -> Optional[float]:
-        return pulumi.get(self, "min_count")
-
-    @property
-    @pulumi.getter(name="renewalPeriod")
-    def renewal_period(self) -> Optional[float]:
-        return pulumi.get(self, "renewal_period")
-
-
-@pulumi.output_type
 class TmpfsOptionsResponse(dict):
     """
     Describes the tmpfs options for the container
@@ -30298,6 +34468,57 @@ class TmpfsOptionsResponse(dict):
         Mention the Tmpfs size
         """
         return pulumi.get(self, "size")
+
+
+@pulumi.output_type
+class TopNFeaturesByAttributionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopNFeaturesByAttributionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopNFeaturesByAttributionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopNFeaturesByAttributionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_type: str,
+                 top: Optional[int] = None):
+        """
+        :param str filter_type: 
+               Expected value is 'TopNByAttribution'.
+        :param int top: The number of top features to include.
+        """
+        pulumi.set(__self__, "filter_type", 'TopNByAttribution')
+        if top is None:
+            top = 10
+        if top is not None:
+            pulumi.set(__self__, "top", top)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> str:
+        """
+
+        Expected value is 'TopNByAttribution'.
+        """
+        return pulumi.get(self, "filter_type")
+
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[int]:
+        """
+        The number of top features to include.
+        """
+        return pulumi.get(self, "top")
 
 
 @pulumi.output_type
@@ -31487,8 +35708,14 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         suggest = None
         if key == "authType":
             suggest = "auth_type"
+        elif key == "createdByWorkspaceArmId":
+            suggest = "created_by_workspace_arm_id"
         elif key == "expiryTime":
             suggest = "expiry_time"
+        elif key == "isSharedToAll":
+            suggest = "is_shared_to_all"
+        elif key == "sharedUserList":
+            suggest = "shared_user_list"
         elif key == "valueFormat":
             suggest = "value_format"
 
@@ -31505,29 +35732,41 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  auth_type: str,
+                 created_by_workspace_arm_id: str,
+                 group: str,
                  category: Optional[str] = None,
                  credentials: Optional['outputs.WorkspaceConnectionUsernamePasswordResponse'] = None,
                  expiry_time: Optional[str] = None,
-                 metadata: Optional[Any] = None,
+                 is_shared_to_all: Optional[bool] = None,
+                 metadata: Optional[Mapping[str, str]] = None,
+                 shared_user_list: Optional[Sequence[str]] = None,
                  target: Optional[str] = None,
                  value: Optional[str] = None,
                  value_format: Optional[str] = None):
         """
         :param str auth_type: Authentication type of the connection target
                Expected value is 'UsernamePassword'.
+        :param str group: Group based on connection category
         :param str category: Category of the connection
+        :param Mapping[str, str] metadata: Store user metadata for this connection
         :param str value: Value details of the workspace connection.
         :param str value_format: format for the workspace connection value
         """
         pulumi.set(__self__, "auth_type", 'UsernamePassword')
+        pulumi.set(__self__, "created_by_workspace_arm_id", created_by_workspace_arm_id)
+        pulumi.set(__self__, "group", group)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if expiry_time is not None:
             pulumi.set(__self__, "expiry_time", expiry_time)
+        if is_shared_to_all is not None:
+            pulumi.set(__self__, "is_shared_to_all", is_shared_to_all)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if shared_user_list is not None:
+            pulumi.set(__self__, "shared_user_list", shared_user_list)
         if target is not None:
             pulumi.set(__self__, "target", target)
         if value is not None:
@@ -31543,6 +35782,19 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         Expected value is 'UsernamePassword'.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="createdByWorkspaceArmId")
+    def created_by_workspace_arm_id(self) -> str:
+        return pulumi.get(self, "created_by_workspace_arm_id")
+
+    @property
+    @pulumi.getter
+    def group(self) -> str:
+        """
+        Group based on connection category
+        """
+        return pulumi.get(self, "group")
 
     @property
     @pulumi.getter
@@ -31563,9 +35815,22 @@ class UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse(dict):
         return pulumi.get(self, "expiry_time")
 
     @property
+    @pulumi.getter(name="isSharedToAll")
+    def is_shared_to_all(self) -> Optional[bool]:
+        return pulumi.get(self, "is_shared_to_all")
+
+    @property
     @pulumi.getter
-    def metadata(self) -> Optional[Any]:
+    def metadata(self) -> Optional[Mapping[str, str]]:
+        """
+        Store user metadata for this connection
+        """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="sharedUserList")
+    def shared_user_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "shared_user_list")
 
     @property
     @pulumi.getter
@@ -32246,6 +36511,25 @@ class VolumeOptionsResponse(dict):
 
 @pulumi.output_type
 class WorkspaceConnectionAccessKeyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessKeyId":
+            suggest = "access_key_id"
+        elif key == "secretAccessKey":
+            suggest = "secret_access_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConnectionAccessKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConnectionAccessKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConnectionAccessKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  access_key_id: Optional[str] = None,
                  secret_access_key: Optional[str] = None):
@@ -32263,6 +36547,19 @@ class WorkspaceConnectionAccessKeyResponse(dict):
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[str]:
         return pulumi.get(self, "secret_access_key")
+
+
+@pulumi.output_type
+class WorkspaceConnectionAccountKeyResponse(dict):
+    def __init__(__self__, *,
+                 key: Optional[str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type
@@ -32325,6 +36622,138 @@ class WorkspaceConnectionManagedIdentityResponse(dict):
 
 
 @pulumi.output_type
+class WorkspaceConnectionOAuth2Response(dict):
+    """
+    ClientId and ClientSecret are required. Other properties are optional
+    depending on each OAuth2 provider's implementation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authUrl":
+            suggest = "auth_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "developerToken":
+            suggest = "developer_token"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConnectionOAuth2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConnectionOAuth2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConnectionOAuth2Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_url: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 client_secret: Optional[str] = None,
+                 developer_token: Optional[str] = None,
+                 password: Optional[str] = None,
+                 refresh_token: Optional[str] = None,
+                 tenant_id: Optional[str] = None,
+                 username: Optional[str] = None):
+        """
+        ClientId and ClientSecret are required. Other properties are optional
+        depending on each OAuth2 provider's implementation.
+        :param str auth_url: Required by Concur connection category
+        :param str client_id: Client id in the format of UUID
+        :param str developer_token: Required by GoogleAdWords connection category
+        :param str refresh_token: Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+               where user needs to get RefreshToken offline
+        :param str tenant_id: Required by QuickBooks and Xero connection categories
+        :param str username: Concur, ServiceNow auth server AccessToken grant type is 'Password'
+               which requires UsernamePassword
+        """
+        if auth_url is not None:
+            pulumi.set(__self__, "auth_url", auth_url)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if developer_token is not None:
+            pulumi.set(__self__, "developer_token", developer_token)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="authUrl")
+    def auth_url(self) -> Optional[str]:
+        """
+        Required by Concur connection category
+        """
+        return pulumi.get(self, "auth_url")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Client id in the format of UUID
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[str]:
+        return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter(name="developerToken")
+    def developer_token(self) -> Optional[str]:
+        """
+        Required by GoogleAdWords connection category
+        """
+        return pulumi.get(self, "developer_token")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        Required by GoogleBigQuery, GoogleAdWords, Hubspot, QuickBooks, Square, Xero, Zoho
+        where user needs to get RefreshToken offline
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Required by QuickBooks and Xero connection categories
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Concur, ServiceNow auth server AccessToken grant type is 'Password'
+        which requires UsernamePassword
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class WorkspaceConnectionPersonalAccessTokenResponse(dict):
     def __init__(__self__, *,
                  pat: Optional[str] = None):
@@ -32339,6 +36768,27 @@ class WorkspaceConnectionPersonalAccessTokenResponse(dict):
 
 @pulumi.output_type
 class WorkspaceConnectionServicePrincipalResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConnectionServicePrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConnectionServicePrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConnectionServicePrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
@@ -32381,11 +36831,34 @@ class WorkspaceConnectionSharedAccessSignatureResponse(dict):
 
 @pulumi.output_type
 class WorkspaceConnectionUsernamePasswordResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityToken":
+            suggest = "security_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceConnectionUsernamePasswordResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceConnectionUsernamePasswordResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceConnectionUsernamePasswordResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: Optional[str] = None,
+                 security_token: Optional[str] = None,
                  username: Optional[str] = None):
+        """
+        :param str security_token: Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        """
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if security_token is not None:
+            pulumi.set(__self__, "security_token", security_token)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -32395,8 +36868,62 @@ class WorkspaceConnectionUsernamePasswordResponse(dict):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter(name="securityToken")
+    def security_token(self) -> Optional[str]:
+        """
+        Optional, required by connections like SalesForce for extra security in addition to UsernamePassword
+        """
+        return pulumi.get(self, "security_token")
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[str]:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class WorkspaceHubConfigResponse(dict):
+    """
+    WorkspaceHub's configuration object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalWorkspaceStorageAccounts":
+            suggest = "additional_workspace_storage_accounts"
+        elif key == "defaultWorkspaceResourceGroup":
+            suggest = "default_workspace_resource_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceHubConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceHubConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceHubConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_workspace_storage_accounts: Optional[Sequence[str]] = None,
+                 default_workspace_resource_group: Optional[str] = None):
+        """
+        WorkspaceHub's configuration object.
+        """
+        if additional_workspace_storage_accounts is not None:
+            pulumi.set(__self__, "additional_workspace_storage_accounts", additional_workspace_storage_accounts)
+        if default_workspace_resource_group is not None:
+            pulumi.set(__self__, "default_workspace_resource_group", default_workspace_resource_group)
+
+    @property
+    @pulumi.getter(name="additionalWorkspaceStorageAccounts")
+    def additional_workspace_storage_accounts(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "additional_workspace_storage_accounts")
+
+    @property
+    @pulumi.getter(name="defaultWorkspaceResourceGroup")
+    def default_workspace_resource_group(self) -> Optional[str]:
+        return pulumi.get(self, "default_workspace_resource_group")
 
 

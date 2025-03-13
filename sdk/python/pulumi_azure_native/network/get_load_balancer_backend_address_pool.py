@@ -27,7 +27,10 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, backend_ip_configurations=None, drain_period_in_seconds=None, etag=None, id=None, inbound_nat_rules=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, tunnel_interfaces=None, type=None, virtual_network=None):
+    def __init__(__self__, azure_api_version=None, backend_ip_configurations=None, drain_period_in_seconds=None, etag=None, id=None, inbound_nat_rules=None, load_balancer_backend_addresses=None, load_balancing_rules=None, location=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, sync_mode=None, tunnel_interfaces=None, type=None, virtual_network=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -64,6 +67,9 @@ class GetLoadBalancerBackendAddressPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sync_mode and not isinstance(sync_mode, str):
+            raise TypeError("Expected argument 'sync_mode' to be a str")
+        pulumi.set(__self__, "sync_mode", sync_mode)
         if tunnel_interfaces and not isinstance(tunnel_interfaces, list):
             raise TypeError("Expected argument 'tunnel_interfaces' to be a list")
         pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
@@ -73,6 +79,14 @@ class GetLoadBalancerBackendAddressPoolResult:
         if virtual_network and not isinstance(virtual_network, dict):
             raise TypeError("Expected argument 'virtual_network' to be a dict")
         pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backendIPConfigurations")
@@ -171,6 +185,14 @@ class GetLoadBalancerBackendAddressPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="syncMode")
+    def sync_mode(self) -> Optional[str]:
+        """
+        Backend address synchronous mode for the backend pool
+        """
+        return pulumi.get(self, "sync_mode")
+
+    @property
     @pulumi.getter(name="tunnelInterfaces")
     def tunnel_interfaces(self) -> Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']]:
         """
@@ -201,6 +223,7 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
         if False:
             yield self
         return GetLoadBalancerBackendAddressPoolResult(
+            azure_api_version=self.azure_api_version,
             backend_ip_configurations=self.backend_ip_configurations,
             drain_period_in_seconds=self.drain_period_in_seconds,
             etag=self.etag,
@@ -213,6 +236,7 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
             outbound_rule=self.outbound_rule,
             outbound_rules=self.outbound_rules,
             provisioning_state=self.provisioning_state,
+            sync_mode=self.sync_mode,
             tunnel_interfaces=self.tunnel_interfaces,
             type=self.type,
             virtual_network=self.virtual_network)
@@ -224,9 +248,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerBackendAddressPoolResult:
     """
     Gets load balancer backend address pool.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.
@@ -241,6 +263,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:network:getLoadBalancerBackendAddressPool', __args__, opts=opts, typ=GetLoadBalancerBackendAddressPoolResult).value
 
     return AwaitableGetLoadBalancerBackendAddressPoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backend_ip_configurations=pulumi.get(__ret__, 'backend_ip_configurations'),
         drain_period_in_seconds=pulumi.get(__ret__, 'drain_period_in_seconds'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -253,6 +276,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
         outbound_rule=pulumi.get(__ret__, 'outbound_rule'),
         outbound_rules=pulumi.get(__ret__, 'outbound_rules'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sync_mode=pulumi.get(__ret__, 'sync_mode'),
         tunnel_interfaces=pulumi.get(__ret__, 'tunnel_interfaces'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
@@ -262,9 +286,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerBackendAddressPoolResult]:
     """
     Gets load balancer backend address pool.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str backend_address_pool_name: The name of the backend address pool.
@@ -278,6 +300,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getLoadBalancerBackendAddressPool', __args__, opts=opts, typ=GetLoadBalancerBackendAddressPoolResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerBackendAddressPoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backend_ip_configurations=pulumi.get(__response__, 'backend_ip_configurations'),
         drain_period_in_seconds=pulumi.get(__response__, 'drain_period_in_seconds'),
         etag=pulumi.get(__response__, 'etag'),
@@ -290,6 +313,7 @@ def get_load_balancer_backend_address_pool_output(backend_address_pool_name: Opt
         outbound_rule=pulumi.get(__response__, 'outbound_rule'),
         outbound_rules=pulumi.get(__response__, 'outbound_rules'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        sync_mode=pulumi.get(__response__, 'sync_mode'),
         tunnel_interfaces=pulumi.get(__response__, 'tunnel_interfaces'),
         type=pulumi.get(__response__, 'type'),
         virtual_network=pulumi.get(__response__, 'virtual_network')))

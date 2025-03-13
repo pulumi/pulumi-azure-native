@@ -68,7 +68,7 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
                  __props__=None):
         """
         Subscription Response for Changed Target Directory.
-        Azure REST API version: 2024-08-01-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +83,7 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription Response for Changed Target Directory.
-        Azure REST API version: 2024-08-01-preview.
+        Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionTarDirectoryArgs args: The arguments to use to populate this resource's properties.
@@ -113,6 +113,7 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
 
             __props__.__dict__["properties"] = properties
             __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:subscription/v20240801preview:SubscriptionTarDirectory")])
@@ -139,10 +140,19 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
 
         __props__ = SubscriptionTarDirectoryArgs.__new__(SubscriptionTarDirectoryArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return SubscriptionTarDirectory(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

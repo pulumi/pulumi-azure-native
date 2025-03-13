@@ -68,7 +68,7 @@ class UserSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Response to get user settings
-        Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
+        Azure REST API version: 2018-10-01. Prior API version in Azure Native 2.x: 2018-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +83,7 @@ class UserSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to get user settings
-        Azure REST API version: 2018-10-01. Prior API version in Azure Native 1.x: 2018-10-01.
+        Azure REST API version: 2018-10-01. Prior API version in Azure Native 2.x: 2018-10-01.
 
         :param str resource_name: The name of the resource.
         :param UserSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -115,6 +115,7 @@ class UserSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["user_settings_name"] = user_settings_name
+            __props__.__dict__["azure_api_version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:UserSettings")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserSettings, __self__).__init__(
@@ -139,8 +140,17 @@ class UserSettings(pulumi.CustomResource):
 
         __props__ = UserSettingsArgs.__new__(UserSettingsArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["properties"] = None
         return UserSettings(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

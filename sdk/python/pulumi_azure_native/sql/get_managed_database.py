@@ -26,7 +26,10 @@ class GetManagedDatabaseResult:
     """
     A managed database resource.
     """
-    def __init__(__self__, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, location=None, name=None, status=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, catalog_collation=None, collation=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, location=None, name=None, status=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -63,6 +66,14 @@ class GetManagedDatabaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -167,6 +178,7 @@ class AwaitableGetManagedDatabaseResult(GetManagedDatabaseResult):
         if False:
             yield self
         return GetManagedDatabaseResult(
+            azure_api_version=self.azure_api_version,
             catalog_collation=self.catalog_collation,
             collation=self.collation,
             creation_date=self.creation_date,
@@ -189,8 +201,6 @@ def get_managed_database(database_name: Optional[str] = None,
     Gets a managed database.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str managed_instance_name: The name of the managed instance.
@@ -204,6 +214,7 @@ def get_managed_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult).value
 
     return AwaitableGetManagedDatabaseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         catalog_collation=pulumi.get(__ret__, 'catalog_collation'),
         collation=pulumi.get(__ret__, 'collation'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
@@ -224,8 +235,6 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
     Gets a managed database.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str managed_instance_name: The name of the managed instance.
@@ -238,6 +247,7 @@ def get_managed_database_output(database_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult)
     return __ret__.apply(lambda __response__: GetManagedDatabaseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         catalog_collation=pulumi.get(__response__, 'catalog_collation'),
         collation=pulumi.get(__response__, 'collation'),
         creation_date=pulumi.get(__response__, 'creation_date'),

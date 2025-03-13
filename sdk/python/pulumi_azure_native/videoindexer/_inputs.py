@@ -18,10 +18,10 @@ from ._enums import *
 __all__ = [
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
-    'MediaServicesForPutRequestArgs',
-    'MediaServicesForPutRequestArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
+    'StorageServicesForPutRequestArgs',
+    'StorageServicesForPutRequestArgsDict',
 ]
 
 MYPY = False
@@ -79,62 +79,6 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-if not MYPY:
-    class MediaServicesForPutRequestArgsDict(TypedDict):
-        """
-        The media services details
-        """
-        resource_id: NotRequired[pulumi.Input[str]]
-        """
-        The media services resource id
-        """
-        user_assigned_identity: NotRequired[pulumi.Input[str]]
-        """
-        The user assigned identity to be used to grant permissions
-        """
-elif False:
-    MediaServicesForPutRequestArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class MediaServicesForPutRequestArgs:
-    def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
-        """
-        The media services details
-        :param pulumi.Input[str] resource_id: The media services resource id
-        :param pulumi.Input[str] user_assigned_identity: The user assigned identity to be used to grant permissions
-        """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-        if user_assigned_identity is not None:
-            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The media services resource id
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentity")
-    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
-        """
-        The user assigned identity to be used to grant permissions
-        """
-        return pulumi.get(self, "user_assigned_identity")
-
-    @user_assigned_identity.setter
-    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "user_assigned_identity", value)
 
 
 if not MYPY:
@@ -211,5 +155,61 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class StorageServicesForPutRequestArgsDict(TypedDict):
+        """
+        The storage services details
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The storage services resource id
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user assigned identity to be used to grant permissions
+        """
+elif False:
+    StorageServicesForPutRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageServicesForPutRequestArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        The storage services details
+        :param pulumi.Input[str] resource_id: The storage services resource id
+        :param pulumi.Input[str] user_assigned_identity: The user assigned identity to be used to grant permissions
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage services resource id
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity to be used to grant permissions
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 

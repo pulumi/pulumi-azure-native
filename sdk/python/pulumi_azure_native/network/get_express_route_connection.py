@@ -27,10 +27,13 @@ class GetExpressRouteConnectionResult:
     """
     ExpressRouteConnection resource.
     """
-    def __init__(__self__, authorization_key=None, enable_internet_security=None, enable_private_link_fast_path=None, express_route_circuit_peering=None, express_route_gateway_bypass=None, id=None, name=None, provisioning_state=None, routing_configuration=None, routing_weight=None):
+    def __init__(__self__, authorization_key=None, azure_api_version=None, enable_internet_security=None, enable_private_link_fast_path=None, express_route_circuit_peering=None, express_route_gateway_bypass=None, id=None, name=None, provisioning_state=None, routing_configuration=None, routing_weight=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if enable_internet_security and not isinstance(enable_internet_security, bool):
             raise TypeError("Expected argument 'enable_internet_security' to be a bool")
         pulumi.set(__self__, "enable_internet_security", enable_internet_security)
@@ -66,6 +69,14 @@ class GetExpressRouteConnectionResult:
         Authorization key to establish the connection.
         """
         return pulumi.get(self, "authorization_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableInternetSecurity")
@@ -147,6 +158,7 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
             yield self
         return GetExpressRouteConnectionResult(
             authorization_key=self.authorization_key,
+            azure_api_version=self.azure_api_version,
             enable_internet_security=self.enable_internet_security,
             enable_private_link_fast_path=self.enable_private_link_fast_path,
             express_route_circuit_peering=self.express_route_circuit_peering,
@@ -164,9 +176,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteConnectionResult:
     """
     Gets the specified ExpressRouteConnection.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -182,6 +192,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
 
     return AwaitableGetExpressRouteConnectionResult(
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
         enable_private_link_fast_path=pulumi.get(__ret__, 'enable_private_link_fast_path'),
         express_route_circuit_peering=pulumi.get(__ret__, 'express_route_circuit_peering'),
@@ -197,9 +208,7 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteConnectionResult]:
     """
     Gets the specified ExpressRouteConnection.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_name: The name of the ExpressRoute connection.
@@ -214,6 +223,7 @@ def get_express_route_connection_output(connection_name: Optional[pulumi.Input[s
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExpressRouteConnection', __args__, opts=opts, typ=GetExpressRouteConnectionResult)
     return __ret__.apply(lambda __response__: GetExpressRouteConnectionResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
         enable_private_link_fast_path=pulumi.get(__response__, 'enable_private_link_fast_path'),
         express_route_circuit_peering=pulumi.get(__response__, 'express_route_circuit_peering'),

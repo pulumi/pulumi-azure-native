@@ -12,11 +12,3 @@ from .get_account import *
 from .get_extension import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.visualstudio.v20171101preview as __v20171101preview
-    v20171101preview = __v20171101preview
-else:
-    v20171101preview = _utilities.lazy_import('pulumi_azure_native.visualstudio.v20171101preview')
-

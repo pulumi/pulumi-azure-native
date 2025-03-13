@@ -26,7 +26,10 @@ class GetStaticSiteUserProvidedFunctionAppForStaticSiteResult:
     """
     Static Site User Provided Function App ARM resource.
     """
-    def __init__(__self__, created_on=None, function_app_region=None, function_app_resource_id=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_on=None, function_app_region=None, function_app_resource_id=None, id=None, kind=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
@@ -48,6 +51,14 @@ class GetStaticSiteUserProvidedFunctionAppForStaticSiteResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdOn")
@@ -112,6 +123,7 @@ class AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult(GetStatic
         if False:
             yield self
         return GetStaticSiteUserProvidedFunctionAppForStaticSiteResult(
+            azure_api_version=self.azure_api_version,
             created_on=self.created_on,
             function_app_region=self.function_app_region,
             function_app_resource_id=self.function_app_resource_id,
@@ -127,9 +139,7 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
                                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult:
     """
     Description for Gets the details of the user provided function app registered with a static site
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str function_app_name: Name of the function app registered with the static site.
@@ -144,6 +154,7 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSite', __args__, opts=opts, typ=GetStaticSiteUserProvidedFunctionAppForStaticSiteResult).value
 
     return AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_on=pulumi.get(__ret__, 'created_on'),
         function_app_region=pulumi.get(__ret__, 'function_app_region'),
         function_app_resource_id=pulumi.get(__ret__, 'function_app_resource_id'),
@@ -157,9 +168,7 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteResult]:
     """
     Description for Gets the details of the user provided function app registered with a static site
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str function_app_name: Name of the function app registered with the static site.
@@ -173,6 +182,7 @@ def get_static_site_user_provided_function_app_for_static_site_output(function_a
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSite', __args__, opts=opts, typ=GetStaticSiteUserProvidedFunctionAppForStaticSiteResult)
     return __ret__.apply(lambda __response__: GetStaticSiteUserProvidedFunctionAppForStaticSiteResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_on=pulumi.get(__response__, 'created_on'),
         function_app_region=pulumi.get(__response__, 'function_app_region'),
         function_app_resource_id=pulumi.get(__response__, 'function_app_resource_id'),

@@ -201,7 +201,7 @@ class BusinessProcess(pulumi.CustomResource):
                  __props__=None):
         """
         A business process under application.
-        Azure REST API version: 2023-11-14-preview.
+        Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,7 +224,7 @@ class BusinessProcess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A business process under application.
-        Azure REST API version: 2023-11-14-preview.
+        Azure REST API version: 2023-11-14-preview. Prior API version in Azure Native 2.x: 2023-11-14-preview.
 
         :param str resource_name: The name of the resource.
         :param BusinessProcessArgs args: The arguments to use to populate this resource's properties.
@@ -276,6 +276,7 @@ class BusinessProcess(pulumi.CustomResource):
             __props__.__dict__["space_name"] = space_name
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tracking_data_store_reference_name"] = tracking_data_store_reference_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -305,6 +306,7 @@ class BusinessProcess(pulumi.CustomResource):
 
         __props__ = BusinessProcessArgs.__new__(BusinessProcessArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["business_process_mapping"] = None
         __props__.__dict__["business_process_stages"] = None
         __props__.__dict__["description"] = None
@@ -317,6 +319,14 @@ class BusinessProcess(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return BusinessProcess(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="businessProcessMapping")

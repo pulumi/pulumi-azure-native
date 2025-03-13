@@ -27,7 +27,10 @@ class GetManagedClusterApplicationResult:
     """
     The application resource.
     """
-    def __init__(__self__, id=None, identity=None, location=None, managed_identities=None, name=None, parameters=None, provisioning_state=None, system_data=None, tags=None, type=None, upgrade_policy=None, version=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, managed_identities=None, name=None, parameters=None, provisioning_state=None, system_data=None, tags=None, type=None, upgrade_policy=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -64,6 +67,14 @@ class GetManagedClusterApplicationResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetManagedClusterApplicationResult(GetManagedClusterApplicationRe
         if False:
             yield self
         return GetManagedClusterApplicationResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -189,9 +201,7 @@ def get_managed_cluster_application(application_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterApplicationResult:
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str application_name: The name of the application resource.
@@ -206,6 +216,7 @@ def get_managed_cluster_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric:getManagedClusterApplication', __args__, opts=opts, typ=GetManagedClusterApplicationResult).value
 
     return AwaitableGetManagedClusterApplicationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -224,9 +235,7 @@ def get_managed_cluster_application_output(application_name: Optional[pulumi.Inp
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationResult]:
     """
     Get a Service Fabric managed application resource created or in the process of being created in the Service Fabric cluster resource.
-    Azure REST API version: 2023-03-01-preview.
-
-    Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-04-01.
 
 
     :param str application_name: The name of the application resource.
@@ -240,6 +249,7 @@ def get_managed_cluster_application_output(application_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabric:getManagedClusterApplication', __args__, opts=opts, typ=GetManagedClusterApplicationResult)
     return __ret__.apply(lambda __response__: GetManagedClusterApplicationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

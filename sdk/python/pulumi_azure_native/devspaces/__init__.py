@@ -11,11 +11,3 @@ from .get_controller import *
 from .list_controller_connection_details import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.devspaces.v20190401 as __v20190401
-    v20190401 = __v20190401
-else:
-    v20190401 = _utilities.lazy_import('pulumi_azure_native.devspaces.v20190401')
-

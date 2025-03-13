@@ -26,7 +26,10 @@ class GetApiGatewayConfigConnectionResult:
     """
     A single API Management gateway resource in List or Get response.
     """
-    def __init__(__self__, default_hostname=None, etag=None, hostnames=None, id=None, name=None, provisioning_state=None, source_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, default_hostname=None, etag=None, hostnames=None, id=None, name=None, provisioning_state=None, source_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_hostname and not isinstance(default_hostname, str):
             raise TypeError("Expected argument 'default_hostname' to be a str")
         pulumi.set(__self__, "default_hostname", default_hostname)
@@ -51,6 +54,14 @@ class GetApiGatewayConfigConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultHostname")
@@ -123,6 +134,7 @@ class AwaitableGetApiGatewayConfigConnectionResult(GetApiGatewayConfigConnection
         if False:
             yield self
         return GetApiGatewayConfigConnectionResult(
+            azure_api_version=self.azure_api_version,
             default_hostname=self.default_hostname,
             etag=self.etag,
             hostnames=self.hostnames,
@@ -139,9 +151,7 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiGatewayConfigConnectionResult:
     """
     Gets an API Management gateway config connection resource description.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
 
     :param str config_connection_name: The name of the API Management gateway config connection.
@@ -156,6 +166,7 @@ def get_api_gateway_config_connection(config_connection_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiGatewayConfigConnection', __args__, opts=opts, typ=GetApiGatewayConfigConnectionResult).value
 
     return AwaitableGetApiGatewayConfigConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_hostname=pulumi.get(__ret__, 'default_hostname'),
         etag=pulumi.get(__ret__, 'etag'),
         hostnames=pulumi.get(__ret__, 'hostnames'),
@@ -170,9 +181,7 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
     """
     Gets an API Management gateway config connection resource description.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
 
     :param str config_connection_name: The name of the API Management gateway config connection.
@@ -186,6 +195,7 @@ def get_api_gateway_config_connection_output(config_connection_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiGatewayConfigConnection', __args__, opts=opts, typ=GetApiGatewayConfigConnectionResult)
     return __ret__.apply(lambda __response__: GetApiGatewayConfigConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_hostname=pulumi.get(__response__, 'default_hostname'),
         etag=pulumi.get(__response__, 'etag'),
         hostnames=pulumi.get(__response__, 'hostnames'),

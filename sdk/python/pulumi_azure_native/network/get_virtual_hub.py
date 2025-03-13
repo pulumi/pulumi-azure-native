@@ -27,13 +27,16 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, address_prefix=None, allow_branch_to_branch_traffic=None, azure_firewall=None, bgp_connections=None, etag=None, express_route_gateway=None, hub_routing_preference=None, id=None, ip_configurations=None, kind=None, location=None, name=None, p2_s_vpn_gateway=None, preferred_routing_gateway=None, provisioning_state=None, route_maps=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_auto_scale_configuration=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
+    def __init__(__self__, address_prefix=None, allow_branch_to_branch_traffic=None, azure_api_version=None, azure_firewall=None, bgp_connections=None, etag=None, express_route_gateway=None, hub_routing_preference=None, id=None, ip_configurations=None, kind=None, location=None, name=None, p2_s_vpn_gateway=None, preferred_routing_gateway=None, provisioning_state=None, route_maps=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_auto_scale_configuration=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if allow_branch_to_branch_traffic and not isinstance(allow_branch_to_branch_traffic, bool):
             raise TypeError("Expected argument 'allow_branch_to_branch_traffic' to be a bool")
         pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_firewall and not isinstance(azure_firewall, dict):
             raise TypeError("Expected argument 'azure_firewall' to be a dict")
         pulumi.set(__self__, "azure_firewall", azure_firewall)
@@ -131,6 +134,14 @@ class GetVirtualHubResult:
         Flag to control transit for VirtualRouter hub.
         """
         return pulumi.get(self, "allow_branch_to_branch_traffic")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureFirewall")
@@ -357,6 +368,7 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
         return GetVirtualHubResult(
             address_prefix=self.address_prefix,
             allow_branch_to_branch_traffic=self.allow_branch_to_branch_traffic,
+            azure_api_version=self.azure_api_version,
             azure_firewall=self.azure_firewall,
             bgp_connections=self.bgp_connections,
             etag=self.etag,
@@ -391,9 +403,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubResult:
     """
     Retrieves the details of a VirtualHub.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -408,6 +418,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualHubResult(
         address_prefix=pulumi.get(__ret__, 'address_prefix'),
         allow_branch_to_branch_traffic=pulumi.get(__ret__, 'allow_branch_to_branch_traffic'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_firewall=pulumi.get(__ret__, 'azure_firewall'),
         bgp_connections=pulumi.get(__ret__, 'bgp_connections'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -440,9 +451,7 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
     Retrieves the details of a VirtualHub.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualHub.
@@ -456,6 +465,7 @@ def get_virtual_hub_output(resource_group_name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetVirtualHubResult(
         address_prefix=pulumi.get(__response__, 'address_prefix'),
         allow_branch_to_branch_traffic=pulumi.get(__response__, 'allow_branch_to_branch_traffic'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_firewall=pulumi.get(__response__, 'azure_firewall'),
         bgp_connections=pulumi.get(__response__, 'bgp_connections'),
         etag=pulumi.get(__response__, 'etag'),

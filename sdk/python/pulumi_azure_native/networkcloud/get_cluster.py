@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, aggregator_or_single_rack_definition=None, analytics_workspace_id=None, available_upgrade_versions=None, cluster_capacity=None, cluster_connection_status=None, cluster_extended_location=None, cluster_location=None, cluster_manager_connection_status=None, cluster_manager_id=None, cluster_service_principal=None, cluster_type=None, cluster_version=None, compute_deployment_threshold=None, compute_rack_definitions=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_extended_location=None, id=None, location=None, managed_resource_group_configuration=None, manual_action_count=None, name=None, network_fabric_id=None, provisioning_state=None, runtime_protection_configuration=None, secret_archive=None, support_expiry_date=None, system_data=None, tags=None, type=None, update_strategy=None, workload_resource_ids=None):
+    def __init__(__self__, aggregator_or_single_rack_definition=None, analytics_workspace_id=None, available_upgrade_versions=None, azure_api_version=None, cluster_capacity=None, cluster_connection_status=None, cluster_extended_location=None, cluster_location=None, cluster_manager_connection_status=None, cluster_manager_id=None, cluster_service_principal=None, cluster_type=None, cluster_version=None, command_output_settings=None, compute_deployment_threshold=None, compute_rack_definitions=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_extended_location=None, id=None, identity=None, location=None, managed_resource_group_configuration=None, manual_action_count=None, name=None, network_fabric_id=None, provisioning_state=None, runtime_protection_configuration=None, secret_archive=None, support_expiry_date=None, system_data=None, tags=None, type=None, update_strategy=None, workload_resource_ids=None):
         if aggregator_or_single_rack_definition and not isinstance(aggregator_or_single_rack_definition, dict):
             raise TypeError("Expected argument 'aggregator_or_single_rack_definition' to be a dict")
         pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
@@ -34,6 +34,9 @@ class GetClusterResult:
         if available_upgrade_versions and not isinstance(available_upgrade_versions, list):
             raise TypeError("Expected argument 'available_upgrade_versions' to be a list")
         pulumi.set(__self__, "available_upgrade_versions", available_upgrade_versions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_capacity and not isinstance(cluster_capacity, dict):
             raise TypeError("Expected argument 'cluster_capacity' to be a dict")
         pulumi.set(__self__, "cluster_capacity", cluster_capacity)
@@ -61,6 +64,9 @@ class GetClusterResult:
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         pulumi.set(__self__, "cluster_version", cluster_version)
+        if command_output_settings and not isinstance(command_output_settings, dict):
+            raise TypeError("Expected argument 'command_output_settings' to be a dict")
+        pulumi.set(__self__, "command_output_settings", command_output_settings)
         if compute_deployment_threshold and not isinstance(compute_deployment_threshold, dict):
             raise TypeError("Expected argument 'compute_deployment_threshold' to be a dict")
         pulumi.set(__self__, "compute_deployment_threshold", compute_deployment_threshold)
@@ -82,6 +88,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -148,6 +157,14 @@ class GetClusterResult:
         The list of cluster runtime version upgrades available for this cluster.
         """
         return pulumi.get(self, "available_upgrade_versions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterCapacity")
@@ -222,6 +239,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_version")
 
     @property
+    @pulumi.getter(name="commandOutputSettings")
+    def command_output_settings(self) -> Optional['outputs.CommandOutputSettingsResponse']:
+        """
+        The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+        """
+        return pulumi.get(self, "command_output_settings")
+
+    @property
     @pulumi.getter(name="computeDeploymentThreshold")
     def compute_deployment_threshold(self) -> Optional['outputs.ValidationThresholdResponse']:
         """
@@ -277,6 +302,14 @@ class GetClusterResult:
         Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity for the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -400,6 +433,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             aggregator_or_single_rack_definition=self.aggregator_or_single_rack_definition,
             analytics_workspace_id=self.analytics_workspace_id,
             available_upgrade_versions=self.available_upgrade_versions,
+            azure_api_version=self.azure_api_version,
             cluster_capacity=self.cluster_capacity,
             cluster_connection_status=self.cluster_connection_status,
             cluster_extended_location=self.cluster_extended_location,
@@ -409,6 +443,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_service_principal=self.cluster_service_principal,
             cluster_type=self.cluster_type,
             cluster_version=self.cluster_version,
+            command_output_settings=self.command_output_settings,
             compute_deployment_threshold=self.compute_deployment_threshold,
             compute_rack_definitions=self.compute_rack_definitions,
             detailed_status=self.detailed_status,
@@ -416,6 +451,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             extended_location=self.extended_location,
             hybrid_aks_extended_location=self.hybrid_aks_extended_location,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             managed_resource_group_configuration=self.managed_resource_group_configuration,
             manual_action_count=self.manual_action_count,
@@ -437,9 +473,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get properties of the provided cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -455,6 +489,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         aggregator_or_single_rack_definition=pulumi.get(__ret__, 'aggregator_or_single_rack_definition'),
         analytics_workspace_id=pulumi.get(__ret__, 'analytics_workspace_id'),
         available_upgrade_versions=pulumi.get(__ret__, 'available_upgrade_versions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_capacity=pulumi.get(__ret__, 'cluster_capacity'),
         cluster_connection_status=pulumi.get(__ret__, 'cluster_connection_status'),
         cluster_extended_location=pulumi.get(__ret__, 'cluster_extended_location'),
@@ -464,6 +499,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         cluster_service_principal=pulumi.get(__ret__, 'cluster_service_principal'),
         cluster_type=pulumi.get(__ret__, 'cluster_type'),
         cluster_version=pulumi.get(__ret__, 'cluster_version'),
+        command_output_settings=pulumi.get(__ret__, 'command_output_settings'),
         compute_deployment_threshold=pulumi.get(__ret__, 'compute_deployment_threshold'),
         compute_rack_definitions=pulumi.get(__ret__, 'compute_rack_definitions'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
@@ -471,6 +507,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         extended_location=pulumi.get(__ret__, 'extended_location'),
         hybrid_aks_extended_location=pulumi.get(__ret__, 'hybrid_aks_extended_location'),
         id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
         manual_action_count=pulumi.get(__ret__, 'manual_action_count'),
@@ -490,9 +527,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get properties of the provided cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -507,6 +542,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         aggregator_or_single_rack_definition=pulumi.get(__response__, 'aggregator_or_single_rack_definition'),
         analytics_workspace_id=pulumi.get(__response__, 'analytics_workspace_id'),
         available_upgrade_versions=pulumi.get(__response__, 'available_upgrade_versions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_capacity=pulumi.get(__response__, 'cluster_capacity'),
         cluster_connection_status=pulumi.get(__response__, 'cluster_connection_status'),
         cluster_extended_location=pulumi.get(__response__, 'cluster_extended_location'),
@@ -516,6 +552,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         cluster_service_principal=pulumi.get(__response__, 'cluster_service_principal'),
         cluster_type=pulumi.get(__response__, 'cluster_type'),
         cluster_version=pulumi.get(__response__, 'cluster_version'),
+        command_output_settings=pulumi.get(__response__, 'command_output_settings'),
         compute_deployment_threshold=pulumi.get(__response__, 'compute_deployment_threshold'),
         compute_rack_definitions=pulumi.get(__response__, 'compute_rack_definitions'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
@@ -523,6 +560,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         extended_location=pulumi.get(__response__, 'extended_location'),
         hybrid_aks_extended_location=pulumi.get(__response__, 'hybrid_aks_extended_location'),
         id=pulumi.get(__response__, 'id'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         managed_resource_group_configuration=pulumi.get(__response__, 'managed_resource_group_configuration'),
         manual_action_count=pulumi.get(__response__, 'manual_action_count'),

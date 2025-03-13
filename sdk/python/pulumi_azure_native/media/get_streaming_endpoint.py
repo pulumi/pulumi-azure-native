@@ -27,13 +27,16 @@ class GetStreamingEndpointResult:
     """
     The streaming endpoint.
     """
-    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, id=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, access_control=None, availability_set_name=None, azure_api_version=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, id=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, sku=None, system_data=None, tags=None, type=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
         pulumi.set(__self__, "access_control", access_control)
         if availability_set_name and not isinstance(availability_set_name, str):
             raise TypeError("Expected argument 'availability_set_name' to be a str")
         pulumi.set(__self__, "availability_set_name", availability_set_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cdn_enabled and not isinstance(cdn_enabled, bool):
             raise TypeError("Expected argument 'cdn_enabled' to be a bool")
         pulumi.set(__self__, "cdn_enabled", cdn_enabled)
@@ -113,6 +116,14 @@ class GetStreamingEndpointResult:
         This feature is deprecated, do not set a value for this property.
         """
         return pulumi.get(self, "availability_set_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cdnEnabled")
@@ -291,6 +302,7 @@ class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
         return GetStreamingEndpointResult(
             access_control=self.access_control,
             availability_set_name=self.availability_set_name,
+            azure_api_version=self.azure_api_version,
             cdn_enabled=self.cdn_enabled,
             cdn_profile=self.cdn_profile,
             cdn_provider=self.cdn_provider,
@@ -322,8 +334,6 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
     Gets a streaming endpoint.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -339,6 +349,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
     return AwaitableGetStreamingEndpointResult(
         access_control=pulumi.get(__ret__, 'access_control'),
         availability_set_name=pulumi.get(__ret__, 'availability_set_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cdn_enabled=pulumi.get(__ret__, 'cdn_enabled'),
         cdn_profile=pulumi.get(__ret__, 'cdn_profile'),
         cdn_provider=pulumi.get(__ret__, 'cdn_provider'),
@@ -368,8 +379,6 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
     Gets a streaming endpoint.
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2018-06-01-preview.
-
 
     :param str account_name: The Media Services account name.
     :param str resource_group_name: The name of the resource group within the Azure subscription.
@@ -384,6 +393,7 @@ def get_streaming_endpoint_output(account_name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetStreamingEndpointResult(
         access_control=pulumi.get(__response__, 'access_control'),
         availability_set_name=pulumi.get(__response__, 'availability_set_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cdn_enabled=pulumi.get(__response__, 'cdn_enabled'),
         cdn_profile=pulumi.get(__response__, 'cdn_profile'),
         cdn_provider=pulumi.get(__response__, 'cdn_provider'),

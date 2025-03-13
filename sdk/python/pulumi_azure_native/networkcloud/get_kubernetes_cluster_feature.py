@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetKubernetesClusterFeatureResult:
-    def __init__(__self__, availability_lifecycle=None, detailed_status=None, detailed_status_message=None, id=None, location=None, name=None, options=None, provisioning_state=None, required=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, availability_lifecycle=None, azure_api_version=None, detailed_status=None, detailed_status_message=None, id=None, location=None, name=None, options=None, provisioning_state=None, required=None, system_data=None, tags=None, type=None, version=None):
         if availability_lifecycle and not isinstance(availability_lifecycle, str):
             raise TypeError("Expected argument 'availability_lifecycle' to be a str")
         pulumi.set(__self__, "availability_lifecycle", availability_lifecycle)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if detailed_status and not isinstance(detailed_status, str):
             raise TypeError("Expected argument 'detailed_status' to be a str")
         pulumi.set(__self__, "detailed_status", detailed_status)
@@ -72,6 +75,14 @@ class GetKubernetesClusterFeatureResult:
         The lifecycle indicator of the feature.
         """
         return pulumi.get(self, "availability_lifecycle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="detailedStatus")
@@ -177,6 +188,7 @@ class AwaitableGetKubernetesClusterFeatureResult(GetKubernetesClusterFeatureResu
             yield self
         return GetKubernetesClusterFeatureResult(
             availability_lifecycle=self.availability_lifecycle,
+            azure_api_version=self.azure_api_version,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
             id=self.id,
@@ -197,9 +209,7 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKubernetesClusterFeatureResult:
     """
     Get properties of the provided the Kubernetes cluster feature.
-    Azure REST API version: 2024-06-01-preview.
-
-    Other available API versions: 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str feature_name: The name of the feature.
@@ -215,6 +225,7 @@ def get_kubernetes_cluster_feature(feature_name: Optional[str] = None,
 
     return AwaitableGetKubernetesClusterFeatureResult(
         availability_lifecycle=pulumi.get(__ret__, 'availability_lifecycle'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
         id=pulumi.get(__ret__, 'id'),
@@ -233,9 +244,7 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesClusterFeatureResult]:
     """
     Get properties of the provided the Kubernetes cluster feature.
-    Azure REST API version: 2024-06-01-preview.
-
-    Other available API versions: 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str feature_name: The name of the feature.
@@ -250,6 +259,7 @@ def get_kubernetes_cluster_feature_output(feature_name: Optional[pulumi.Input[st
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getKubernetesClusterFeature', __args__, opts=opts, typ=GetKubernetesClusterFeatureResult)
     return __ret__.apply(lambda __response__: GetKubernetesClusterFeatureResult(
         availability_lifecycle=pulumi.get(__response__, 'availability_lifecycle'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
         id=pulumi.get(__response__, 'id'),

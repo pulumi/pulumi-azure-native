@@ -27,7 +27,10 @@ class GetWorkspaceBackendResult:
     """
     Backend details.
     """
-    def __init__(__self__, circuit_breaker=None, credentials=None, description=None, id=None, name=None, pool=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+    def __init__(__self__, azure_api_version=None, circuit_breaker=None, credentials=None, description=None, id=None, name=None, pool=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if circuit_breaker and not isinstance(circuit_breaker, dict):
             raise TypeError("Expected argument 'circuit_breaker' to be a dict")
         pulumi.set(__self__, "circuit_breaker", circuit_breaker)
@@ -70,6 +73,14 @@ class GetWorkspaceBackendResult:
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="circuitBreaker")
@@ -187,6 +198,7 @@ class AwaitableGetWorkspaceBackendResult(GetWorkspaceBackendResult):
         if False:
             yield self
         return GetWorkspaceBackendResult(
+            azure_api_version=self.azure_api_version,
             circuit_breaker=self.circuit_breaker,
             credentials=self.credentials,
             description=self.description,
@@ -210,9 +222,7 @@ def get_workspace_backend(backend_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceBackendResult:
     """
     Gets the details of the backend specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -229,6 +239,7 @@ def get_workspace_backend(backend_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceBackend', __args__, opts=opts, typ=GetWorkspaceBackendResult).value
 
     return AwaitableGetWorkspaceBackendResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         circuit_breaker=pulumi.get(__ret__, 'circuit_breaker'),
         credentials=pulumi.get(__ret__, 'credentials'),
         description=pulumi.get(__ret__, 'description'),
@@ -250,9 +261,7 @@ def get_workspace_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceBackendResult]:
     """
     Gets the details of the backend specified by its identifier.
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-06-01-preview.
 
 
     :param str backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -268,6 +277,7 @@ def get_workspace_backend_output(backend_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceBackend', __args__, opts=opts, typ=GetWorkspaceBackendResult)
     return __ret__.apply(lambda __response__: GetWorkspaceBackendResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         circuit_breaker=pulumi.get(__response__, 'circuit_breaker'),
         credentials=pulumi.get(__response__, 'credentials'),
         description=pulumi.get(__response__, 'description'),

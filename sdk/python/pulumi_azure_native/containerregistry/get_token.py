@@ -27,7 +27,10 @@ class GetTokenResult:
     """
     An object that represents a token for a container registry.
     """
-    def __init__(__self__, creation_date=None, credentials=None, id=None, name=None, provisioning_state=None, scope_map_id=None, status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_date=None, credentials=None, id=None, name=None, provisioning_state=None, scope_map_id=None, status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -55,6 +58,14 @@ class GetTokenResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -135,6 +146,7 @@ class AwaitableGetTokenResult(GetTokenResult):
         if False:
             yield self
         return GetTokenResult(
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             credentials=self.credentials,
             id=self.id,
@@ -152,9 +164,7 @@ def get_token(registry_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTokenResult:
     """
     Gets the properties of the specified token.
-    Azure REST API version: 2022-12-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -169,6 +179,7 @@ def get_token(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getToken', __args__, opts=opts, typ=GetTokenResult).value
 
     return AwaitableGetTokenResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTokenResult]:
     """
     Gets the properties of the specified token.
-    Azure REST API version: 2022-12-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -200,6 +209,7 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getToken', __args__, opts=opts, typ=GetTokenResult)
     return __ret__.apply(lambda __response__: GetTokenResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),

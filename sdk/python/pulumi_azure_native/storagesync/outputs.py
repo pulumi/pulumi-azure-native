@@ -27,18 +27,22 @@ __all__ = [
     'CloudTieringSpaceSavingsResponse',
     'CloudTieringVolumeFreeSpacePolicyStatusResponse',
     'FilesNotTieringErrorResponse',
+    'ManagedServiceIdentityResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ServerEndpointBackgroundDataDownloadActivityResponse',
     'ServerEndpointCloudTieringStatusResponse',
     'ServerEndpointFilesNotSyncingErrorResponse',
+    'ServerEndpointProvisioningStatusResponse',
+    'ServerEndpointProvisioningStepStatusResponse',
     'ServerEndpointRecallErrorResponse',
     'ServerEndpointRecallStatusResponse',
     'ServerEndpointSyncActivityStatusResponse',
     'ServerEndpointSyncSessionStatusResponse',
     'ServerEndpointSyncStatusResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -868,14 +872,93 @@ class FilesNotTieringErrorResponse(dict):
 
 
 @pulumi.output_type
-class PrivateEndpointConnectionResponse(dict):
+class ManagedServiceIdentityResponse(dict):
     """
-    The Private Endpoint Connection resource.
+    Managed service identity (system assigned and/or user assigned identities)
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateLinkServiceConnectionState":
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
@@ -896,6 +979,7 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  id: str,
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
@@ -904,15 +988,17 @@ class PrivateEndpointConnectionResponse(dict):
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
-        The Private Endpoint Connection resource.
-        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
         :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -923,10 +1009,18 @@ class PrivateEndpointConnectionResponse(dict):
             pulumi.set(__self__, "private_endpoint", private_endpoint)
 
     @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -974,7 +1068,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        The resource of private end point.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -982,13 +1076,13 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The Private Endpoint resource.
+    The private endpoint resource.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The Private Endpoint resource.
-        :param str id: The ARM identifier for Private Endpoint
+        The private endpoint resource.
+        :param str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
 
@@ -996,7 +1090,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ARM identifier for Private Endpoint
+        The ARM identifier for private endpoint.
         """
         return pulumi.get(self, "id")
 
@@ -1371,6 +1465,197 @@ class ServerEndpointFilesNotSyncingErrorResponse(dict):
         Count of transient files not syncing with the specified error code
         """
         return pulumi.get(self, "transient_count")
+
+
+@pulumi.output_type
+class ServerEndpointProvisioningStatusResponse(dict):
+    """
+    Server endpoint provisioning status information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningStatus":
+            suggest = "provisioning_status"
+        elif key == "provisioningStepStatuses":
+            suggest = "provisioning_step_statuses"
+        elif key == "provisioningType":
+            suggest = "provisioning_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_status: str,
+                 provisioning_step_statuses: Sequence['outputs.ServerEndpointProvisioningStepStatusResponse'],
+                 provisioning_type: str):
+        """
+        Server endpoint provisioning status information
+        :param str provisioning_status: Server Endpoint provisioning status
+        :param Sequence['ServerEndpointProvisioningStepStatusResponse'] provisioning_step_statuses: Provisioning Step status information for each step in the provisioning process
+        :param str provisioning_type: Server Endpoint provisioning type
+        """
+        pulumi.set(__self__, "provisioning_status", provisioning_status)
+        pulumi.set(__self__, "provisioning_step_statuses", provisioning_step_statuses)
+        pulumi.set(__self__, "provisioning_type", provisioning_type)
+
+    @property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> str:
+        """
+        Server Endpoint provisioning status
+        """
+        return pulumi.get(self, "provisioning_status")
+
+    @property
+    @pulumi.getter(name="provisioningStepStatuses")
+    def provisioning_step_statuses(self) -> Sequence['outputs.ServerEndpointProvisioningStepStatusResponse']:
+        """
+        Provisioning Step status information for each step in the provisioning process
+        """
+        return pulumi.get(self, "provisioning_step_statuses")
+
+    @property
+    @pulumi.getter(name="provisioningType")
+    def provisioning_type(self) -> str:
+        """
+        Server Endpoint provisioning type
+        """
+        return pulumi.get(self, "provisioning_type")
+
+
+@pulumi.output_type
+class ServerEndpointProvisioningStepStatusResponse(dict):
+    """
+    Server endpoint provisioning step status object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInformation":
+            suggest = "additional_information"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "errorCode":
+            suggest = "error_code"
+        elif key == "minutesLeft":
+            suggest = "minutes_left"
+        elif key == "progressPercentage":
+            suggest = "progress_percentage"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerEndpointProvisioningStepStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerEndpointProvisioningStepStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerEndpointProvisioningStepStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_information: Mapping[str, str],
+                 end_time: str,
+                 error_code: int,
+                 minutes_left: int,
+                 name: str,
+                 progress_percentage: int,
+                 start_time: str,
+                 status: str):
+        """
+        Server endpoint provisioning step status object.
+        :param Mapping[str, str] additional_information: Additional information for the provisioning step
+        :param str end_time: End time of the provisioning step
+        :param int error_code: Error code (HResult) for the provisioning step
+        :param int minutes_left: Estimated completion time of the provisioning step in minutes
+        :param str name: Name of the provisioning step
+        :param int progress_percentage: Estimated progress percentage
+        :param str start_time: Start time of the provisioning step
+        :param str status: Status of the provisioning step
+        """
+        pulumi.set(__self__, "additional_information", additional_information)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "minutes_left", minutes_left)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "progress_percentage", progress_percentage)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> Mapping[str, str]:
+        """
+        Additional information for the provisioning step
+        """
+        return pulumi.get(self, "additional_information")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        End time of the provisioning step
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> int:
+        """
+        Error code (HResult) for the provisioning step
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="minutesLeft")
+    def minutes_left(self) -> int:
+        """
+        Estimated completion time of the provisioning step in minutes
+        """
+        return pulumi.get(self, "minutes_left")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the provisioning step
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> int:
+        """
+        Estimated progress percentage
+        """
+        return pulumi.get(self, "progress_percentage")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time of the provisioning step
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the provisioning step
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2036,5 +2321,57 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

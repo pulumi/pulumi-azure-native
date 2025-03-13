@@ -26,7 +26,10 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
     Full view of the custom domain suffix configuration for ASEv3.
     """
-    def __init__(__self__, certificate_url=None, dns_suffix=None, id=None, key_vault_reference_identity=None, kind=None, name=None, provisioning_details=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, certificate_url=None, dns_suffix=None, id=None, key_vault_reference_identity=None, kind=None, name=None, provisioning_details=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if certificate_url and not isinstance(certificate_url, str):
             raise TypeError("Expected argument 'certificate_url' to be a str")
         pulumi.set(__self__, "certificate_url", certificate_url)
@@ -54,6 +57,14 @@ class GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certificateUrl")
@@ -128,6 +139,7 @@ class AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(Get
         if False:
             yield self
         return GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
+            azure_api_version=self.azure_api_version,
             certificate_url=self.certificate_url,
             dns_suffix=self.dns_suffix,
             id=self.id,
@@ -144,9 +156,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
                                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult:
     """
     Full view of the custom domain suffix configuration for ASEv3.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -159,6 +169,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration', __args__, opts=opts, typ=GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult).value
 
     return AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         certificate_url=pulumi.get(__ret__, 'certificate_url'),
         dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
         id=pulumi.get(__ret__, 'id'),
@@ -173,9 +184,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
                                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult]:
     """
     Full view of the custom domain suffix configuration for ASEv3.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -187,6 +196,7 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration_output(name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration', __args__, opts=opts, typ=GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult)
     return __ret__.apply(lambda __response__: GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         certificate_url=pulumi.get(__response__, 'certificate_url'),
         dns_suffix=pulumi.get(__response__, 'dns_suffix'),
         id=pulumi.get(__response__, 'id'),

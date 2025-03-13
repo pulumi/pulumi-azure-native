@@ -27,10 +27,13 @@ class GetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, id=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, system_data=None, type=None, user_access_rights=None):
+    def __init__(__self__, access_protocol=None, azure_api_version=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, id=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, system_data=None, type=None, user_access_rights=None):
         if access_protocol and not isinstance(access_protocol, str):
             raise TypeError("Expected argument 'access_protocol' to be a str")
         pulumi.set(__self__, "access_protocol", access_protocol)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_container_info and not isinstance(azure_container_info, dict):
             raise TypeError("Expected argument 'azure_container_info' to be a dict")
         pulumi.set(__self__, "azure_container_info", azure_container_info)
@@ -78,6 +81,14 @@ class GetShareResult:
         Access protocol to be used by the share.
         """
         return pulumi.get(self, "access_protocol")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureContainerInfo")
@@ -191,6 +202,7 @@ class AwaitableGetShareResult(GetShareResult):
             yield self
         return GetShareResult(
             access_protocol=self.access_protocol,
+            azure_api_version=self.azure_api_version,
             azure_container_info=self.azure_container_info,
             client_access_rights=self.client_access_rights,
             data_policy=self.data_policy,
@@ -212,9 +224,7 @@ def get_share(device_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -230,6 +240,7 @@ def get_share(device_name: Optional[str] = None,
 
     return AwaitableGetShareResult(
         access_protocol=pulumi.get(__ret__, 'access_protocol'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_container_info=pulumi.get(__ret__, 'azure_container_info'),
         client_access_rights=pulumi.get(__ret__, 'client_access_rights'),
         data_policy=pulumi.get(__ret__, 'data_policy'),
@@ -249,9 +260,7 @@ def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Represents a share on the  Data Box Edge/Gateway device.
-    Azure REST API version: 2022-03-01.
-
-    Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -266,6 +275,7 @@ def get_share_output(device_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getShare', __args__, opts=opts, typ=GetShareResult)
     return __ret__.apply(lambda __response__: GetShareResult(
         access_protocol=pulumi.get(__response__, 'access_protocol'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_container_info=pulumi.get(__response__, 'azure_container_info'),
         client_access_rights=pulumi.get(__response__, 'client_access_rights'),
         data_policy=pulumi.get(__response__, 'data_policy'),

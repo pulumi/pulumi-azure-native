@@ -27,10 +27,13 @@ class GetCustomResourceProviderResult:
     """
     A manifest file that defines the custom resource provider resources.
     """
-    def __init__(__self__, actions=None, id=None, location=None, name=None, provisioning_state=None, resource_types=None, tags=None, type=None, validations=None):
+    def __init__(__self__, actions=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, resource_types=None, tags=None, type=None, validations=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +66,14 @@ class GetCustomResourceProviderResult:
         A list of actions that the custom resource provider implements.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetCustomResourceProviderResult(GetCustomResourceProviderResult):
             yield self
         return GetCustomResourceProviderResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -165,6 +177,7 @@ def get_custom_resource_provider(resource_group_name: Optional[str] = None,
 
     return AwaitableGetCustomResourceProviderResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -191,6 +204,7 @@ def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:customproviders:getCustomResourceProvider', __args__, opts=opts, typ=GetCustomResourceProviderResult)
     return __ret__.apply(lambda __response__: GetCustomResourceProviderResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

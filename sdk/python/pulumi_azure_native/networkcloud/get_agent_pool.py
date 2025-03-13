@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAgentPoolResult:
-    def __init__(__self__, administrator_configuration=None, agent_options=None, attached_network_configuration=None, availability_zones=None, count=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, kubernetes_version=None, labels=None, location=None, mode=None, name=None, provisioning_state=None, system_data=None, tags=None, taints=None, type=None, upgrade_settings=None, vm_sku_name=None):
+    def __init__(__self__, administrator_configuration=None, agent_options=None, attached_network_configuration=None, availability_zones=None, azure_api_version=None, count=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, kubernetes_version=None, labels=None, location=None, mode=None, name=None, provisioning_state=None, system_data=None, tags=None, taints=None, type=None, upgrade_settings=None, vm_sku_name=None):
         if administrator_configuration and not isinstance(administrator_configuration, dict):
             raise TypeError("Expected argument 'administrator_configuration' to be a dict")
         pulumi.set(__self__, "administrator_configuration", administrator_configuration)
@@ -37,6 +37,9 @@ class GetAgentPoolResult:
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if count and not isinstance(count, float):
             raise TypeError("Expected argument 'count' to be a float")
         pulumi.set(__self__, "count", count)
@@ -120,6 +123,14 @@ class GetAgentPoolResult:
         The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -268,6 +279,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             agent_options=self.agent_options,
             attached_network_configuration=self.attached_network_configuration,
             availability_zones=self.availability_zones,
+            azure_api_version=self.azure_api_version,
             count=self.count,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -293,9 +305,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentPoolResult:
     """
     Get properties of the provided Kubernetes cluster agent pool.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str agent_pool_name: The name of the Kubernetes cluster agent pool.
@@ -314,6 +324,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         agent_options=pulumi.get(__ret__, 'agent_options'),
         attached_network_configuration=pulumi.get(__ret__, 'attached_network_configuration'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         count=pulumi.get(__ret__, 'count'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
@@ -337,9 +348,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Get properties of the provided Kubernetes cluster agent pool.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str agent_pool_name: The name of the Kubernetes cluster agent pool.
@@ -357,6 +366,7 @@ def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[str]] = None,
         agent_options=pulumi.get(__response__, 'agent_options'),
         attached_network_configuration=pulumi.get(__response__, 'attached_network_configuration'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         count=pulumi.get(__response__, 'count'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),

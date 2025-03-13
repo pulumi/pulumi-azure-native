@@ -132,9 +132,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  __props__=None):
         """
         Migration item.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Migration item.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ReplicationMigrationItemArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +199,7 @@ class ReplicationMigrationItem(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -230,11 +227,20 @@ class ReplicationMigrationItem(pulumi.CustomResource):
 
         __props__ = ReplicationMigrationItemArgs.__new__(ReplicationMigrationItemArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return ReplicationMigrationItem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -27,10 +27,16 @@ class GetDatastoreResult:
     """
     A datastore resource
     """
-    def __init__(__self__, disk_pool_volume=None, id=None, name=None, net_app_volume=None, provisioning_state=None, status=None, type=None):
+    def __init__(__self__, azure_api_version=None, disk_pool_volume=None, elastic_san_volume=None, id=None, name=None, net_app_volume=None, provisioning_state=None, status=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disk_pool_volume and not isinstance(disk_pool_volume, dict):
             raise TypeError("Expected argument 'disk_pool_volume' to be a dict")
         pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
+        if elastic_san_volume and not isinstance(elastic_san_volume, dict):
+            raise TypeError("Expected argument 'elastic_san_volume' to be a dict")
+        pulumi.set(__self__, "elastic_san_volume", elastic_san_volume)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +52,20 @@ class GetDatastoreResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="diskPoolVolume")
@@ -59,10 +76,18 @@ class GetDatastoreResult:
         return pulumi.get(self, "disk_pool_volume")
 
     @property
+    @pulumi.getter(name="elasticSanVolume")
+    def elastic_san_volume(self) -> Optional['outputs.ElasticSanVolumeResponse']:
+        """
+        An Elastic SAN volume
+        """
+        return pulumi.get(self, "elastic_san_volume")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -70,7 +95,7 @@ class GetDatastoreResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -99,10 +124,18 @@ class GetDatastoreResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -113,12 +146,15 @@ class AwaitableGetDatastoreResult(GetDatastoreResult):
         if False:
             yield self
         return GetDatastoreResult(
+            azure_api_version=self.azure_api_version,
             disk_pool_volume=self.disk_pool_volume,
+            elastic_san_volume=self.elastic_san_volume,
             id=self.id,
             name=self.name,
             net_app_volume=self.net_app_volume,
             provisioning_state=self.provisioning_state,
             status=self.status,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -128,14 +164,12 @@ def get_datastore(cluster_name: Optional[str] = None,
                   resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
-    A datastore resource
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Get a Datastore
+    Azure REST API version: 2023-09-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
-    :param str datastore_name: Name of the datastore in the private cloud cluster
+    :param str cluster_name: Name of the cluster
+    :param str datastore_name: Name of the datastore
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -148,12 +182,15 @@ def get_datastore(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getDatastore', __args__, opts=opts, typ=GetDatastoreResult).value
 
     return AwaitableGetDatastoreResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disk_pool_volume=pulumi.get(__ret__, 'disk_pool_volume'),
+        elastic_san_volume=pulumi.get(__ret__, 'elastic_san_volume'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         net_app_volume=pulumi.get(__ret__, 'net_app_volume'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          datastore_name: Optional[pulumi.Input[str]] = None,
@@ -161,14 +198,12 @@ def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
                          resource_group_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
-    A datastore resource
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2023-03-01, 2023-09-01.
+    Get a Datastore
+    Azure REST API version: 2023-09-01.
 
 
-    :param str cluster_name: Name of the cluster in the private cloud
-    :param str datastore_name: Name of the datastore in the private cloud cluster
+    :param str cluster_name: Name of the cluster
+    :param str datastore_name: Name of the datastore
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -180,10 +215,13 @@ def get_datastore_output(cluster_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
     return __ret__.apply(lambda __response__: GetDatastoreResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disk_pool_volume=pulumi.get(__response__, 'disk_pool_volume'),
+        elastic_san_volume=pulumi.get(__response__, 'elastic_san_volume'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         net_app_volume=pulumi.get(__response__, 'net_app_volume'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

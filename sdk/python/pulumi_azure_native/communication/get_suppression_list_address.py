@@ -27,7 +27,10 @@ class GetSuppressionListAddressResult:
     """
     A object that represents a SuppressionList record.
     """
-    def __init__(__self__, data_location=None, email=None, first_name=None, id=None, last_modified=None, last_name=None, name=None, notes=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_location=None, email=None, first_name=None, id=None, last_modified=None, last_name=None, name=None, notes=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -58,6 +61,14 @@ class GetSuppressionListAddressResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -146,6 +157,7 @@ class AwaitableGetSuppressionListAddressResult(GetSuppressionListAddressResult):
         if False:
             yield self
         return GetSuppressionListAddressResult(
+            azure_api_version=self.azure_api_version,
             data_location=self.data_location,
             email=self.email,
             first_name=self.first_name,
@@ -168,8 +180,6 @@ def get_suppression_list_address(address_id: Optional[str] = None,
     Get a SuppressionListAddress.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
-
 
     :param str address_id: The id of the address in a suppression list.
     :param str domain_name: The name of the Domains resource.
@@ -187,6 +197,7 @@ def get_suppression_list_address(address_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getSuppressionListAddress', __args__, opts=opts, typ=GetSuppressionListAddressResult).value
 
     return AwaitableGetSuppressionListAddressResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_location=pulumi.get(__ret__, 'data_location'),
         email=pulumi.get(__ret__, 'email'),
         first_name=pulumi.get(__ret__, 'first_name'),
@@ -207,8 +218,6 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
     Get a SuppressionListAddress.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2024-09-01-preview.
-
 
     :param str address_id: The id of the address in a suppression list.
     :param str domain_name: The name of the Domains resource.
@@ -225,6 +234,7 @@ def get_suppression_list_address_output(address_id: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getSuppressionListAddress', __args__, opts=opts, typ=GetSuppressionListAddressResult)
     return __ret__.apply(lambda __response__: GetSuppressionListAddressResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_location=pulumi.get(__response__, 'data_location'),
         email=pulumi.get(__response__, 'email'),
         first_name=pulumi.get(__response__, 'first_name'),

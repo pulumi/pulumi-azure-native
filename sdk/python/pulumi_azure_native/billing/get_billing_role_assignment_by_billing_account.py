@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetBillingRoleAssignmentByBillingAccountResult',
@@ -24,86 +25,44 @@ __all__ = [
 @pulumi.output_type
 class GetBillingRoleAssignmentByBillingAccountResult:
     """
-    The role assignment
+    The properties of the billing role assignment.
     """
-    def __init__(__self__, created_by_principal_id=None, created_by_principal_tenant_id=None, created_by_user_email_address=None, created_on=None, id=None, name=None, principal_id=None, principal_tenant_id=None, role_definition_id=None, scope=None, type=None, user_authentication_type=None, user_email_address=None):
-        if created_by_principal_id and not isinstance(created_by_principal_id, str):
-            raise TypeError("Expected argument 'created_by_principal_id' to be a str")
-        pulumi.set(__self__, "created_by_principal_id", created_by_principal_id)
-        if created_by_principal_tenant_id and not isinstance(created_by_principal_tenant_id, str):
-            raise TypeError("Expected argument 'created_by_principal_tenant_id' to be a str")
-        pulumi.set(__self__, "created_by_principal_tenant_id", created_by_principal_tenant_id)
-        if created_by_user_email_address and not isinstance(created_by_user_email_address, str):
-            raise TypeError("Expected argument 'created_by_user_email_address' to be a str")
-        pulumi.set(__self__, "created_by_user_email_address", created_by_user_email_address)
-        if created_on and not isinstance(created_on, str):
-            raise TypeError("Expected argument 'created_on' to be a str")
-        pulumi.set(__self__, "created_on", created_on)
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if principal_id and not isinstance(principal_id, str):
-            raise TypeError("Expected argument 'principal_id' to be a str")
-        pulumi.set(__self__, "principal_id", principal_id)
-        if principal_tenant_id and not isinstance(principal_tenant_id, str):
-            raise TypeError("Expected argument 'principal_tenant_id' to be a str")
-        pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
-        if role_definition_id and not isinstance(role_definition_id, str):
-            raise TypeError("Expected argument 'role_definition_id' to be a str")
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
-        if scope and not isinstance(scope, str):
-            raise TypeError("Expected argument 'scope' to be a str")
-        pulumi.set(__self__, "scope", scope)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if user_authentication_type and not isinstance(user_authentication_type, str):
-            raise TypeError("Expected argument 'user_authentication_type' to be a str")
-        pulumi.set(__self__, "user_authentication_type", user_authentication_type)
-        if user_email_address and not isinstance(user_email_address, str):
-            raise TypeError("Expected argument 'user_email_address' to be a str")
-        pulumi.set(__self__, "user_email_address", user_email_address)
 
     @property
-    @pulumi.getter(name="createdByPrincipalId")
-    def created_by_principal_id(self) -> str:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        The principal Id of the user who created the role assignment.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "created_by_principal_id")
-
-    @property
-    @pulumi.getter(name="createdByPrincipalTenantId")
-    def created_by_principal_tenant_id(self) -> str:
-        """
-        The tenant Id of the user who created the role assignment.
-        """
-        return pulumi.get(self, "created_by_principal_tenant_id")
-
-    @property
-    @pulumi.getter(name="createdByUserEmailAddress")
-    def created_by_user_email_address(self) -> str:
-        """
-        The email address of the user who created the role assignment. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "created_by_user_email_address")
-
-    @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> str:
-        """
-        The date the role assignment was created.
-        """
-        return pulumi.get(self, "created_on")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -111,65 +70,41 @@ class GetBillingRoleAssignmentByBillingAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[str]:
+    @pulumi.getter
+    def properties(self) -> 'outputs.BillingRoleAssignmentPropertiesResponse':
         """
-        The principal id of the user to whom the role was assigned.
+        The properties of the billing role assignment.
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="principalTenantId")
-    def principal_tenant_id(self) -> Optional[str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The principal tenant id of the user to whom the role was assigned.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "principal_tenant_id")
-
-    @property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> Optional[str]:
-        """
-        The ID of the role definition.
-        """
-        return pulumi.get(self, "role_definition_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
-    def scope(self) -> str:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The scope at which the role was assigned.
+        Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
-        return pulumi.get(self, "scope")
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="userAuthenticationType")
-    def user_authentication_type(self) -> Optional[str]:
-        """
-        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_authentication_type")
-
-    @property
-    @pulumi.getter(name="userEmailAddress")
-    def user_email_address(self) -> Optional[str]:
-        """
-        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
-        """
-        return pulumi.get(self, "user_email_address")
 
 
 class AwaitableGetBillingRoleAssignmentByBillingAccountResult(GetBillingRoleAssignmentByBillingAccountResult):
@@ -178,19 +113,13 @@ class AwaitableGetBillingRoleAssignmentByBillingAccountResult(GetBillingRoleAssi
         if False:
             yield self
         return GetBillingRoleAssignmentByBillingAccountResult(
-            created_by_principal_id=self.created_by_principal_id,
-            created_by_principal_tenant_id=self.created_by_principal_tenant_id,
-            created_by_user_email_address=self.created_by_user_email_address,
-            created_on=self.created_on,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
-            principal_id=self.principal_id,
-            principal_tenant_id=self.principal_tenant_id,
-            role_definition_id=self.role_definition_id,
-            scope=self.scope,
-            type=self.type,
-            user_authentication_type=self.user_authentication_type,
-            user_email_address=self.user_email_address)
+            properties=self.properties,
+            system_data=self.system_data,
+            tags=self.tags,
+            type=self.type)
 
 
 def get_billing_role_assignment_by_billing_account(billing_account_name: Optional[str] = None,
@@ -198,9 +127,7 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBillingRoleAssignmentByBillingAccountResult:
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -213,27 +140,19 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:billing:getBillingRoleAssignmentByBillingAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByBillingAccountResult).value
 
     return AwaitableGetBillingRoleAssignmentByBillingAccountResult(
-        created_by_principal_id=pulumi.get(__ret__, 'created_by_principal_id'),
-        created_by_principal_tenant_id=pulumi.get(__ret__, 'created_by_principal_tenant_id'),
-        created_by_user_email_address=pulumi.get(__ret__, 'created_by_user_email_address'),
-        created_on=pulumi.get(__ret__, 'created_on'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        principal_id=pulumi.get(__ret__, 'principal_id'),
-        principal_tenant_id=pulumi.get(__ret__, 'principal_tenant_id'),
-        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
-        scope=pulumi.get(__ret__, 'scope'),
-        type=pulumi.get(__ret__, 'type'),
-        user_authentication_type=pulumi.get(__ret__, 'user_authentication_type'),
-        user_email_address=pulumi.get(__ret__, 'user_email_address'))
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 def get_billing_role_assignment_by_billing_account_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                                                           billing_role_assignment_name: Optional[pulumi.Input[str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByBillingAccountResult]:
     """
     Gets a role assignment for the caller on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement.
-    Azure REST API version: 2019-10-01-preview.
-
-    Other available API versions: 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -245,16 +164,10 @@ def get_billing_role_assignment_by_billing_account_output(billing_account_name: 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billing:getBillingRoleAssignmentByBillingAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByBillingAccountResult)
     return __ret__.apply(lambda __response__: GetBillingRoleAssignmentByBillingAccountResult(
-        created_by_principal_id=pulumi.get(__response__, 'created_by_principal_id'),
-        created_by_principal_tenant_id=pulumi.get(__response__, 'created_by_principal_tenant_id'),
-        created_by_user_email_address=pulumi.get(__response__, 'created_by_user_email_address'),
-        created_on=pulumi.get(__response__, 'created_on'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        principal_id=pulumi.get(__response__, 'principal_id'),
-        principal_tenant_id=pulumi.get(__response__, 'principal_tenant_id'),
-        role_definition_id=pulumi.get(__response__, 'role_definition_id'),
-        scope=pulumi.get(__response__, 'scope'),
-        type=pulumi.get(__response__, 'type'),
-        user_authentication_type=pulumi.get(__response__, 'user_authentication_type'),
-        user_email_address=pulumi.get(__response__, 'user_email_address')))
+        properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
+        type=pulumi.get(__response__, 'type')))

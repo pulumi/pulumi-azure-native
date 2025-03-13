@@ -27,10 +27,13 @@ class GetNetworkSecurityPerimeterAssociationResult:
     """
     The NSP resource association resource
     """
-    def __init__(__self__, access_mode=None, has_provisioning_issues=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, access_mode=None, azure_api_version=None, has_provisioning_issues=None, id=None, location=None, name=None, private_link_resource=None, profile=None, provisioning_state=None, tags=None, type=None):
         if access_mode and not isinstance(access_mode, str):
             raise TypeError("Expected argument 'access_mode' to be a str")
         pulumi.set(__self__, "access_mode", access_mode)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if has_provisioning_issues and not isinstance(has_provisioning_issues, str):
             raise TypeError("Expected argument 'has_provisioning_issues' to be a str")
         pulumi.set(__self__, "has_provisioning_issues", has_provisioning_issues)
@@ -66,6 +69,14 @@ class GetNetworkSecurityPerimeterAssociationResult:
         Access mode on the association.
         """
         return pulumi.get(self, "access_mode")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hasProvisioningIssues")
@@ -147,6 +158,7 @@ class AwaitableGetNetworkSecurityPerimeterAssociationResult(GetNetworkSecurityPe
             yield self
         return GetNetworkSecurityPerimeterAssociationResult(
             access_mode=self.access_mode,
+            azure_api_version=self.azure_api_version,
             has_provisioning_issues=self.has_provisioning_issues,
             id=self.id,
             location=self.location,
@@ -180,6 +192,7 @@ def get_network_security_perimeter_association(association_name: Optional[str] =
 
     return AwaitableGetNetworkSecurityPerimeterAssociationResult(
         access_mode=pulumi.get(__ret__, 'access_mode'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         has_provisioning_issues=pulumi.get(__ret__, 'has_provisioning_issues'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -210,6 +223,7 @@ def get_network_security_perimeter_association_output(association_name: Optional
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getNetworkSecurityPerimeterAssociation', __args__, opts=opts, typ=GetNetworkSecurityPerimeterAssociationResult)
     return __ret__.apply(lambda __response__: GetNetworkSecurityPerimeterAssociationResult(
         access_mode=pulumi.get(__response__, 'access_mode'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         has_provisioning_issues=pulumi.get(__response__, 'has_provisioning_issues'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

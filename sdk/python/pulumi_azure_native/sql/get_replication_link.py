@@ -26,7 +26,10 @@ class GetReplicationLinkResult:
     """
     A replication link.
     """
-    def __init__(__self__, id=None, is_termination_allowed=None, link_type=None, name=None, partner_database=None, partner_database_id=None, partner_location=None, partner_role=None, partner_server=None, percent_complete=None, replication_mode=None, replication_state=None, role=None, start_time=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, is_termination_allowed=None, link_type=None, name=None, partner_database=None, partner_database_id=None, partner_location=None, partner_role=None, partner_server=None, percent_complete=None, replication_mode=None, replication_state=None, role=None, start_time=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +75,14 @@ class GetReplicationLinkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -200,6 +211,7 @@ class AwaitableGetReplicationLinkResult(GetReplicationLinkResult):
         if False:
             yield self
         return GetReplicationLinkResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             is_termination_allowed=self.is_termination_allowed,
             link_type=self.link_type,
@@ -224,9 +236,7 @@ def get_replication_link(database_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationLinkResult:
     """
     Gets a replication link.
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -243,6 +253,7 @@ def get_replication_link(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getReplicationLink', __args__, opts=opts, typ=GetReplicationLinkResult).value
 
     return AwaitableGetReplicationLinkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         is_termination_allowed=pulumi.get(__ret__, 'is_termination_allowed'),
         link_type=pulumi.get(__ret__, 'link_type'),
@@ -265,9 +276,7 @@ def get_replication_link_output(database_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationLinkResult]:
     """
     Gets a replication link.
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2024-05-01-preview.
 
 
     :param str database_name: The name of the database.
@@ -283,6 +292,7 @@ def get_replication_link_output(database_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getReplicationLink', __args__, opts=opts, typ=GetReplicationLinkResult)
     return __ret__.apply(lambda __response__: GetReplicationLinkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         is_termination_allowed=pulumi.get(__response__, 'is_termination_allowed'),
         link_type=pulumi.get(__response__, 'link_type'),

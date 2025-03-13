@@ -292,6 +292,8 @@ __all__ = [
     'RestoreSettingsArgsDict',
     'RetentionDurationArgs',
     'RetentionDurationArgsDict',
+    'SecurityProfilePropertiesArgs',
+    'SecurityProfilePropertiesArgsDict',
     'SecuritySettingsArgs',
     'SecuritySettingsArgsDict',
     'SettingsArgs',
@@ -306,6 +308,8 @@ __all__ = [
     'SimpleSchedulePolicyArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'SnapshotBackupAdditionalDetailsArgs',
+    'SnapshotBackupAdditionalDetailsArgsDict',
     'SoftDeleteSettingsArgs',
     'SoftDeleteSettingsArgsDict',
     'StorageMappingInputPropertiesArgs',
@@ -314,6 +318,12 @@ __all__ = [
     'SubProtectionPolicyArgsDict',
     'TieringPolicyArgs',
     'TieringPolicyArgsDict',
+    'UserAssignedIdentityPropertiesArgs',
+    'UserAssignedIdentityPropertiesArgsDict',
+    'UserAssignedManagedIdentityDetailsArgs',
+    'UserAssignedManagedIdentityDetailsArgsDict',
+    'UserCreatedResourceTagArgs',
+    'UserCreatedResourceTagArgsDict',
     'VMwareCbtContainerMappingInputArgs',
     'VMwareCbtContainerMappingInputArgsDict',
     'VMwareCbtDiskInputArgs',
@@ -328,8 +338,12 @@ __all__ = [
     'VMwareV2FabricCreationInputArgsDict',
     'VaultPropertiesEncryptionArgs',
     'VaultPropertiesEncryptionArgsDict',
+    'VaultPropertiesRedundancySettingsArgs',
+    'VaultPropertiesRedundancySettingsArgsDict',
     'VaultPropertiesArgs',
     'VaultPropertiesArgsDict',
+    'VaultRetentionPolicyArgs',
+    'VaultRetentionPolicyArgsDict',
     'VmmToAzureCreateNetworkMappingInputArgs',
     'VmmToAzureCreateNetworkMappingInputArgsDict',
     'VmmToVmmCreateNetworkMappingInputArgs',
@@ -578,6 +592,10 @@ if not MYPY:
         The class type.
         Expected value is 'A2A'.
         """
+        auto_protection_of_data_disk: NotRequired[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]]
+        """
+        A value indicating whether the auto protection is enabled.
+        """
         disk_encryption_info: NotRequired[pulumi.Input['DiskEncryptionInfoArgsDict']]
         """
         The recovery disk encryption information (for two pass flows).
@@ -589,6 +607,10 @@ if not MYPY:
         multi_vm_group_name: NotRequired[pulumi.Input[str]]
         """
         The multi vm group name.
+        """
+        protection_cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        The replication protection cluster Id.
         """
         recovery_availability_set_id: NotRequired[pulumi.Input[str]]
         """
@@ -654,9 +676,11 @@ class A2AEnableProtectionInputArgs:
     def __init__(__self__, *,
                  fabric_object_id: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
+                 auto_protection_of_data_disk: Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]] = None,
                  disk_encryption_info: Optional[pulumi.Input['DiskEncryptionInfoArgs']] = None,
                  multi_vm_group_id: Optional[pulumi.Input[str]] = None,
                  multi_vm_group_name: Optional[pulumi.Input[str]] = None,
+                 protection_cluster_id: Optional[pulumi.Input[str]] = None,
                  recovery_availability_set_id: Optional[pulumi.Input[str]] = None,
                  recovery_availability_zone: Optional[pulumi.Input[str]] = None,
                  recovery_azure_network_id: Optional[pulumi.Input[str]] = None,
@@ -676,9 +700,11 @@ class A2AEnableProtectionInputArgs:
         :param pulumi.Input[str] fabric_object_id: The fabric specific object Id of the virtual machine.
         :param pulumi.Input[str] instance_type: The class type.
                Expected value is 'A2A'.
+        :param pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']] auto_protection_of_data_disk: A value indicating whether the auto protection is enabled.
         :param pulumi.Input['DiskEncryptionInfoArgs'] disk_encryption_info: The recovery disk encryption information (for two pass flows).
         :param pulumi.Input[str] multi_vm_group_id: The multi vm group id.
         :param pulumi.Input[str] multi_vm_group_name: The multi vm group name.
+        :param pulumi.Input[str] protection_cluster_id: The replication protection cluster Id.
         :param pulumi.Input[str] recovery_availability_set_id: The recovery availability set Id.
         :param pulumi.Input[str] recovery_availability_zone: The recovery availability zone.
         :param pulumi.Input[str] recovery_azure_network_id: The recovery Azure virtual network ARM id.
@@ -696,12 +722,16 @@ class A2AEnableProtectionInputArgs:
         """
         pulumi.set(__self__, "fabric_object_id", fabric_object_id)
         pulumi.set(__self__, "instance_type", 'A2A')
+        if auto_protection_of_data_disk is not None:
+            pulumi.set(__self__, "auto_protection_of_data_disk", auto_protection_of_data_disk)
         if disk_encryption_info is not None:
             pulumi.set(__self__, "disk_encryption_info", disk_encryption_info)
         if multi_vm_group_id is not None:
             pulumi.set(__self__, "multi_vm_group_id", multi_vm_group_id)
         if multi_vm_group_name is not None:
             pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+        if protection_cluster_id is not None:
+            pulumi.set(__self__, "protection_cluster_id", protection_cluster_id)
         if recovery_availability_set_id is not None:
             pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
         if recovery_availability_zone is not None:
@@ -757,6 +787,18 @@ class A2AEnableProtectionInputArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="autoProtectionOfDataDisk")
+    def auto_protection_of_data_disk(self) -> Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]]:
+        """
+        A value indicating whether the auto protection is enabled.
+        """
+        return pulumi.get(self, "auto_protection_of_data_disk")
+
+    @auto_protection_of_data_disk.setter
+    def auto_protection_of_data_disk(self, value: Optional[pulumi.Input[Union[str, 'AutoProtectionOfDataDisk']]]):
+        pulumi.set(self, "auto_protection_of_data_disk", value)
+
+    @property
     @pulumi.getter(name="diskEncryptionInfo")
     def disk_encryption_info(self) -> Optional[pulumi.Input['DiskEncryptionInfoArgs']]:
         """
@@ -791,6 +833,18 @@ class A2AEnableProtectionInputArgs:
     @multi_vm_group_name.setter
     def multi_vm_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "multi_vm_group_name", value)
+
+    @property
+    @pulumi.getter(name="protectionClusterId")
+    def protection_cluster_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The replication protection cluster Id.
+        """
+        return pulumi.get(self, "protection_cluster_id")
+
+    @protection_cluster_id.setter
+    def protection_cluster_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protection_cluster_id", value)
 
     @property
     @pulumi.getter(name="recoveryAvailabilitySetId")
@@ -3331,6 +3385,10 @@ if not MYPY:
         """
         TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
+        vault_retention_policy: NotRequired[pulumi.Input['VaultRetentionPolicyArgsDict']]
+        """
+        Retention policy with the details on hardened backup copy retention ranges.
+        """
         work_load_type: NotRequired[pulumi.Input[Union[str, 'WorkloadType']]]
         """
         Type of workload for the backup management
@@ -3347,6 +3405,7 @@ class AzureFileShareProtectionPolicyArgs:
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
                  schedule_policy: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
+                 vault_retention_policy: Optional[pulumi.Input['VaultRetentionPolicyArgs']] = None,
                  work_load_type: Optional[pulumi.Input[Union[str, 'WorkloadType']]] = None):
         """
         AzureStorage backup policy.
@@ -3357,6 +3416,7 @@ class AzureFileShareProtectionPolicyArgs:
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']] schedule_policy: Backup schedule specified as part of backup policy.
         :param pulumi.Input[str] time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
+        :param pulumi.Input['VaultRetentionPolicyArgs'] vault_retention_policy: Retention policy with the details on hardened backup copy retention ranges.
         :param pulumi.Input[Union[str, 'WorkloadType']] work_load_type: Type of workload for the backup management
         """
         pulumi.set(__self__, "backup_management_type", 'AzureStorage')
@@ -3370,6 +3430,8 @@ class AzureFileShareProtectionPolicyArgs:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
+        if vault_retention_policy is not None:
+            pulumi.set(__self__, "vault_retention_policy", vault_retention_policy)
         if work_load_type is not None:
             pulumi.set(__self__, "work_load_type", work_load_type)
 
@@ -3445,6 +3507,18 @@ class AzureFileShareProtectionPolicyArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+    @property
+    @pulumi.getter(name="vaultRetentionPolicy")
+    def vault_retention_policy(self) -> Optional[pulumi.Input['VaultRetentionPolicyArgs']]:
+        """
+        Retention policy with the details on hardened backup copy retention ranges.
+        """
+        return pulumi.get(self, "vault_retention_policy")
+
+    @vault_retention_policy.setter
+    def vault_retention_policy(self, value: Optional[pulumi.Input['VaultRetentionPolicyArgs']]):
+        pulumi.set(self, "vault_retention_policy", value)
 
     @property
     @pulumi.getter(name="workLoadType")
@@ -5969,6 +6043,7 @@ if not MYPY:
         """
         Backup schedule specified as part of backup policy.
         """
+        snapshot_consistency_type: NotRequired[pulumi.Input[Union[str, 'IaasVMSnapshotConsistencyType']]]
         tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
         """
         Tiering policy to automatically move RPs to another tier
@@ -5993,6 +6068,7 @@ class AzureIaaSVMProtectionPolicyArgs:
                  resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
                  schedule_policy: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]] = None,
+                 snapshot_consistency_type: Optional[pulumi.Input[Union[str, 'IaasVMSnapshotConsistencyType']]] = None,
                  tiering_policy: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
@@ -6024,6 +6100,8 @@ class AzureIaaSVMProtectionPolicyArgs:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if snapshot_consistency_type is not None:
+            pulumi.set(__self__, "snapshot_consistency_type", snapshot_consistency_type)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
         if time_zone is not None:
@@ -6121,6 +6199,15 @@ class AzureIaaSVMProtectionPolicyArgs:
         pulumi.set(self, "schedule_policy", value)
 
     @property
+    @pulumi.getter(name="snapshotConsistencyType")
+    def snapshot_consistency_type(self) -> Optional[pulumi.Input[Union[str, 'IaasVMSnapshotConsistencyType']]]:
+        return pulumi.get(self, "snapshot_consistency_type")
+
+    @snapshot_consistency_type.setter
+    def snapshot_consistency_type(self, value: Optional[pulumi.Input[Union[str, 'IaasVMSnapshotConsistencyType']]]):
+        pulumi.set(self, "snapshot_consistency_type", value)
+
+    @property
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]]:
         """
@@ -6152,19 +6239,36 @@ if not MYPY:
         """
         Settings for Azure Monitor based alerts
         """
+        alerts_for_all_failover_issues: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
         alerts_for_all_job_failures: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+        alerts_for_all_replication_issues: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
 elif False:
     AzureMonitorAlertSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AzureMonitorAlertSettingsArgs:
     def __init__(__self__, *,
-                 alerts_for_all_job_failures: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None):
+                 alerts_for_all_failover_issues: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None,
+                 alerts_for_all_job_failures: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None,
+                 alerts_for_all_replication_issues: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None):
         """
         Settings for Azure Monitor based alerts
         """
+        if alerts_for_all_failover_issues is not None:
+            pulumi.set(__self__, "alerts_for_all_failover_issues", alerts_for_all_failover_issues)
         if alerts_for_all_job_failures is not None:
             pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+        if alerts_for_all_replication_issues is not None:
+            pulumi.set(__self__, "alerts_for_all_replication_issues", alerts_for_all_replication_issues)
+
+    @property
+    @pulumi.getter(name="alertsForAllFailoverIssues")
+    def alerts_for_all_failover_issues(self) -> Optional[pulumi.Input[Union[str, 'AlertsState']]]:
+        return pulumi.get(self, "alerts_for_all_failover_issues")
+
+    @alerts_for_all_failover_issues.setter
+    def alerts_for_all_failover_issues(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
+        pulumi.set(self, "alerts_for_all_failover_issues", value)
 
     @property
     @pulumi.getter(name="alertsForAllJobFailures")
@@ -6174,6 +6278,15 @@ class AzureMonitorAlertSettingsArgs:
     @alerts_for_all_job_failures.setter
     def alerts_for_all_job_failures(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
         pulumi.set(self, "alerts_for_all_job_failures", value)
+
+    @property
+    @pulumi.getter(name="alertsForAllReplicationIssues")
+    def alerts_for_all_replication_issues(self) -> Optional[pulumi.Input[Union[str, 'AlertsState']]]:
+        return pulumi.get(self, "alerts_for_all_replication_issues")
+
+    @alerts_for_all_replication_issues.setter
+    def alerts_for_all_replication_issues(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
+        pulumi.set(self, "alerts_for_all_replication_issues", value)
 
 
 if not MYPY:
@@ -7467,6 +7580,10 @@ if not MYPY:
         """
         Status of health of the container.
         """
+        operation_type: NotRequired[pulumi.Input[Union[str, 'OperationType']]]
+        """
+        Re-Do Operation
+        """
         protectable_object_type: NotRequired[pulumi.Input[str]]
         """
         Type of the protectable object associated with this container
@@ -7502,6 +7619,7 @@ class AzureStorageContainerArgs:
                  backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
                  protectable_object_type: Optional[pulumi.Input[str]] = None,
                  protected_item_count: Optional[pulumi.Input[float]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
@@ -7519,6 +7637,7 @@ class AzureStorageContainerArgs:
         :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: Re-Do Operation
         :param pulumi.Input[str] protectable_object_type: Type of the protectable object associated with this container
         :param pulumi.Input[float] protected_item_count: Number of items backed up in this container.
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -7535,6 +7654,8 @@ class AzureStorageContainerArgs:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if operation_type is not None:
+            pulumi.set(__self__, "operation_type", operation_type)
         if protectable_object_type is not None:
             pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
@@ -7611,6 +7732,18 @@ class AzureStorageContainerArgs:
     @health_status.setter
     def health_status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_status", value)
+
+    @property
+    @pulumi.getter(name="operationType")
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
+        """
+        Re-Do Operation
+        """
+        return pulumi.get(self, "operation_type")
+
+    @operation_type.setter
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
+        pulumi.set(self, "operation_type", value)
 
     @property
     @pulumi.getter(name="protectableObjectType")
@@ -11856,18 +11989,22 @@ if not MYPY:
         Settings for classic alerts
         """
         alerts_for_critical_operations: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
+        email_notifications_for_site_recovery: NotRequired[pulumi.Input[Union[str, 'AlertsState']]]
 elif False:
     ClassicAlertSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClassicAlertSettingsArgs:
     def __init__(__self__, *,
-                 alerts_for_critical_operations: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None):
+                 alerts_for_critical_operations: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None,
+                 email_notifications_for_site_recovery: Optional[pulumi.Input[Union[str, 'AlertsState']]] = None):
         """
         Settings for classic alerts
         """
         if alerts_for_critical_operations is not None:
             pulumi.set(__self__, "alerts_for_critical_operations", alerts_for_critical_operations)
+        if email_notifications_for_site_recovery is not None:
+            pulumi.set(__self__, "email_notifications_for_site_recovery", email_notifications_for_site_recovery)
 
     @property
     @pulumi.getter(name="alertsForCriticalOperations")
@@ -11877,6 +12014,15 @@ class ClassicAlertSettingsArgs:
     @alerts_for_critical_operations.setter
     def alerts_for_critical_operations(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
         pulumi.set(self, "alerts_for_critical_operations", value)
+
+    @property
+    @pulumi.getter(name="emailNotificationsForSiteRecovery")
+    def email_notifications_for_site_recovery(self) -> Optional[pulumi.Input[Union[str, 'AlertsState']]]:
+        return pulumi.get(self, "email_notifications_for_site_recovery")
+
+    @email_notifications_for_site_recovery.setter
+    def email_notifications_for_site_recovery(self, value: Optional[pulumi.Input[Union[str, 'AlertsState']]]):
+        pulumi.set(self, "email_notifications_for_site_recovery", value)
 
 
 if not MYPY:
@@ -15493,11 +15639,15 @@ if not MYPY:
         """
         disk_type: NotRequired[pulumi.Input[Union[str, 'DiskAccountType']]]
         """
-        The DiskType.
+        The disk type.
         """
         log_storage_account_id: NotRequired[pulumi.Input[str]]
         """
         The LogStorageAccountId.
+        """
+        sector_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The logical sector size (in bytes), 512 by default.
         """
 elif False:
     HyperVReplicaAzureDiskInputDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -15508,13 +15658,15 @@ class HyperVReplicaAzureDiskInputDetailsArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_id: Optional[pulumi.Input[str]] = None,
                  disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
-                 log_storage_account_id: Optional[pulumi.Input[str]] = None):
+                 log_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 sector_size_in_bytes: Optional[pulumi.Input[int]] = None):
         """
         Disk input details.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param pulumi.Input[str] disk_id: The DiskId.
-        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The LogStorageAccountId.
+        :param pulumi.Input[int] sector_size_in_bytes: The logical sector size (in bytes), 512 by default.
         """
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
@@ -15524,6 +15676,8 @@ class HyperVReplicaAzureDiskInputDetailsArgs:
             pulumi.set(__self__, "disk_type", disk_type)
         if log_storage_account_id is not None:
             pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        if sector_size_in_bytes is not None:
+            pulumi.set(__self__, "sector_size_in_bytes", sector_size_in_bytes)
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -15553,7 +15707,7 @@ class HyperVReplicaAzureDiskInputDetailsArgs:
     @pulumi.getter(name="diskType")
     def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
-        The DiskType.
+        The disk type.
         """
         return pulumi.get(self, "disk_type")
 
@@ -15573,6 +15727,18 @@ class HyperVReplicaAzureDiskInputDetailsArgs:
     def log_storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_storage_account_id", value)
 
+    @property
+    @pulumi.getter(name="sectorSizeInBytes")
+    def sector_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
+        return pulumi.get(self, "sector_size_in_bytes")
+
+    @sector_size_in_bytes.setter
+    def sector_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sector_size_in_bytes", value)
+
 
 if not MYPY:
     class HyperVReplicaAzureEnableProtectionInputArgsDict(TypedDict):
@@ -15590,7 +15756,7 @@ if not MYPY:
         """
         disk_type: NotRequired[pulumi.Input[Union[str, 'DiskAccountType']]]
         """
-        The DiskType.
+        The disk type.
         """
         disks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -15611,6 +15777,10 @@ if not MYPY:
         license_type: NotRequired[pulumi.Input[Union[str, 'LicenseType']]]
         """
         License type.
+        """
+        linux_license_type: NotRequired[pulumi.Input[Union[str, 'LinuxLicenseType']]]
+        """
+        The license type for Linux VM's.
         """
         log_storage_account_id: NotRequired[pulumi.Input[str]]
         """
@@ -15672,6 +15842,10 @@ if not MYPY:
         """
         The storage account Id.
         """
+        target_vm_security_profile: NotRequired[pulumi.Input['SecurityProfilePropertiesArgsDict']]
+        """
+        The target VM security profile.
+        """
         target_vm_size: NotRequired[pulumi.Input[str]]
         """
         The target VM size.
@@ -15687,6 +15861,10 @@ if not MYPY:
         use_managed_disks_for_replication: NotRequired[pulumi.Input[str]]
         """
         A value indicating whether managed disks should be used during replication.
+        """
+        user_selected_os_name: NotRequired[pulumi.Input[str]]
+        """
+        The OS name selected by user.
         """
         vhd_id: NotRequired[pulumi.Input[str]]
         """
@@ -15710,6 +15888,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  hv_host_vm_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+                 linux_license_type: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None,
                  os_type: Optional[pulumi.Input[str]] = None,
                  seed_managed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -15725,10 +15904,12 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
                  target_nic_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  target_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_vm_security_profile: Optional[pulumi.Input['SecurityProfilePropertiesArgs']] = None,
                  target_vm_size: Optional[pulumi.Input[str]] = None,
                  target_vm_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_managed_disks: Optional[pulumi.Input[str]] = None,
                  use_managed_disks_for_replication: Optional[pulumi.Input[str]] = None,
+                 user_selected_os_name: Optional[pulumi.Input[str]] = None,
                  vhd_id: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None):
         """
@@ -15736,12 +15917,13 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[str] instance_type: The class type.
                Expected value is 'HyperVReplicaAzure'.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
-        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disks_to_include: The list of VHD Ids of disks to be protected.
         :param pulumi.Input[Sequence[pulumi.Input['HyperVReplicaAzureDiskInputDetailsArgs']]] disks_to_include_for_managed_disks: The disks to include list for managed disks.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         :param pulumi.Input[str] hv_host_vm_id: The Hyper-V host VM Id.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: License type.
+        :param pulumi.Input[Union[str, 'LinuxLicenseType']] linux_license_type: The license type for Linux VM's.
         :param pulumi.Input[str] log_storage_account_id: The storage account to be used for logging during replication.
         :param pulumi.Input[str] os_type: The OS type associated with VM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] seed_managed_disk_tags: The tags for the seed managed disks.
@@ -15757,10 +15939,12 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_nic_tags: The tags for the target NICs.
         :param pulumi.Input[str] target_proximity_placement_group_id: The proximity placement group ARM Id.
         :param pulumi.Input[str] target_storage_account_id: The storage account Id.
+        :param pulumi.Input['SecurityProfilePropertiesArgs'] target_vm_security_profile: The target VM security profile.
         :param pulumi.Input[str] target_vm_size: The target VM size.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_vm_tags: The target VM tags.
         :param pulumi.Input[str] use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param pulumi.Input[str] use_managed_disks_for_replication: A value indicating whether managed disks should be used during replication.
+        :param pulumi.Input[str] user_selected_os_name: The OS name selected by user.
         :param pulumi.Input[str] vhd_id: The OS disk VHD id associated with VM.
         :param pulumi.Input[str] vm_name: The VM Name.
         """
@@ -15779,6 +15963,8 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
             pulumi.set(__self__, "hv_host_vm_id", hv_host_vm_id)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if linux_license_type is not None:
+            pulumi.set(__self__, "linux_license_type", linux_license_type)
         if log_storage_account_id is not None:
             pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
         if os_type is not None:
@@ -15809,6 +15995,8 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_storage_account_id is not None:
             pulumi.set(__self__, "target_storage_account_id", target_storage_account_id)
+        if target_vm_security_profile is not None:
+            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
         if target_vm_tags is not None:
@@ -15817,6 +16005,8 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
             pulumi.set(__self__, "use_managed_disks", use_managed_disks)
         if use_managed_disks_for_replication is not None:
             pulumi.set(__self__, "use_managed_disks_for_replication", use_managed_disks_for_replication)
+        if user_selected_os_name is not None:
+            pulumi.set(__self__, "user_selected_os_name", user_selected_os_name)
         if vhd_id is not None:
             pulumi.set(__self__, "vhd_id", vhd_id)
         if vm_name is not None:
@@ -15851,7 +16041,7 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     @pulumi.getter(name="diskType")
     def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
-        The DiskType.
+        The disk type.
         """
         return pulumi.get(self, "disk_type")
 
@@ -15918,6 +16108,18 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     @license_type.setter
     def license_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter(name="linuxLicenseType")
+    def linux_license_type(self) -> Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]:
+        """
+        The license type for Linux VM's.
+        """
+        return pulumi.get(self, "linux_license_type")
+
+    @linux_license_type.setter
+    def linux_license_type(self, value: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]):
+        pulumi.set(self, "linux_license_type", value)
 
     @property
     @pulumi.getter(name="logStorageAccountId")
@@ -16100,6 +16302,18 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
         pulumi.set(self, "target_storage_account_id", value)
 
     @property
+    @pulumi.getter(name="targetVmSecurityProfile")
+    def target_vm_security_profile(self) -> Optional[pulumi.Input['SecurityProfilePropertiesArgs']]:
+        """
+        The target VM security profile.
+        """
+        return pulumi.get(self, "target_vm_security_profile")
+
+    @target_vm_security_profile.setter
+    def target_vm_security_profile(self, value: Optional[pulumi.Input['SecurityProfilePropertiesArgs']]):
+        pulumi.set(self, "target_vm_security_profile", value)
+
+    @property
     @pulumi.getter(name="targetVmSize")
     def target_vm_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -16146,6 +16360,18 @@ class HyperVReplicaAzureEnableProtectionInputArgs:
     @use_managed_disks_for_replication.setter
     def use_managed_disks_for_replication(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "use_managed_disks_for_replication", value)
+
+    @property
+    @pulumi.getter(name="userSelectedOSName")
+    def user_selected_os_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OS name selected by user.
+        """
+        return pulumi.get(self, "user_selected_os_name")
+
+    @user_selected_os_name.setter
+    def user_selected_os_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_selected_os_name", value)
 
     @property
     @pulumi.getter(name="vhdId")
@@ -17223,7 +17449,7 @@ if not MYPY:
         """
         disk_type: NotRequired[pulumi.Input[Union[str, 'DiskAccountType']]]
         """
-        The DiskType.
+        The disk type.
         """
         log_storage_account_id: NotRequired[pulumi.Input[str]]
         """
@@ -17243,7 +17469,7 @@ class InMageAzureV2DiskInputDetailsArgs:
         Disk input details.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param pulumi.Input[str] disk_id: The DiskId.
-        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The LogStorageAccountId.
         """
         if disk_encryption_set_id is not None:
@@ -17283,7 +17509,7 @@ class InMageAzureV2DiskInputDetailsArgs:
     @pulumi.getter(name="diskType")
     def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
-        The DiskType.
+        The disk type.
         """
         return pulumi.get(self, "disk_type")
 
@@ -17320,7 +17546,7 @@ if not MYPY:
         """
         disk_type: NotRequired[pulumi.Input[Union[str, 'DiskAccountType']]]
         """
-        The DiskType.
+        The disk type.
         """
         disks_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgsDict']]]]
         """
@@ -17456,7 +17682,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         :param pulumi.Input[str] instance_type: The class type.
                Expected value is 'InMageAzureV2'.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
-        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target VM after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: License type.
@@ -17565,7 +17791,7 @@ class InMageAzureV2EnableProtectionInputArgs:
     @pulumi.getter(name="diskType")
     def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
-        The DiskType.
+        The disk type.
         """
         return pulumi.get(self, "disk_type")
 
@@ -18462,6 +18688,10 @@ if not MYPY:
         """
         The DiskEncryptionSet ARM Id.
         """
+        sector_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
 elif False:
     InMageRcmDiskInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18471,19 +18701,23 @@ class InMageRcmDiskInputArgs:
                  disk_id: pulumi.Input[str],
                  disk_type: pulumi.Input[Union[str, 'DiskAccountType']],
                  log_storage_account_id: pulumi.Input[str],
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 sector_size_in_bytes: Optional[pulumi.Input[int]] = None):
         """
         InMageRcm disk input.
         :param pulumi.Input[str] disk_id: The disk Id.
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
+        :param pulumi.Input[int] sector_size_in_bytes: The logical sector size (in bytes), 512 by default.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if sector_size_in_bytes is not None:
+            pulumi.set(__self__, "sector_size_in_bytes", sector_size_in_bytes)
 
     @property
     @pulumi.getter(name="diskId")
@@ -18533,6 +18767,18 @@ class InMageRcmDiskInputArgs:
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
+    @property
+    @pulumi.getter(name="sectorSizeInBytes")
+    def sector_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
+        return pulumi.get(self, "sector_size_in_bytes")
+
+    @sector_size_in_bytes.setter
+    def sector_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sector_size_in_bytes", value)
+
 
 if not MYPY:
     class InMageRcmDisksDefaultInputArgsDict(TypedDict):
@@ -18551,6 +18797,10 @@ if not MYPY:
         """
         The DiskEncryptionSet ARM Id.
         """
+        sector_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
 elif False:
     InMageRcmDisksDefaultInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18559,17 +18809,21 @@ class InMageRcmDisksDefaultInputArgs:
     def __init__(__self__, *,
                  disk_type: pulumi.Input[Union[str, 'DiskAccountType']],
                  log_storage_account_id: pulumi.Input[str],
-                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
+                 disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+                 sector_size_in_bytes: Optional[pulumi.Input[int]] = None):
         """
         InMageRcm disk input.
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
+        :param pulumi.Input[int] sector_size_in_bytes: The logical sector size (in bytes), 512 by default.
         """
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if sector_size_in_bytes is not None:
+            pulumi.set(__self__, "sector_size_in_bytes", sector_size_in_bytes)
 
     @property
     @pulumi.getter(name="diskType")
@@ -18607,6 +18861,18 @@ class InMageRcmDisksDefaultInputArgs:
     def disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "disk_encryption_set_id", value)
 
+    @property
+    @pulumi.getter(name="sectorSizeInBytes")
+    def sector_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
+        return pulumi.get(self, "sector_size_in_bytes")
+
+    @sector_size_in_bytes.setter
+    def sector_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sector_size_in_bytes", value)
+
 
 if not MYPY:
     class InMageRcmEnableProtectionInputArgsDict(TypedDict):
@@ -18642,6 +18908,10 @@ if not MYPY:
         """
         The license type.
         """
+        linux_license_type: NotRequired[pulumi.Input[Union[str, 'LinuxLicenseType']]]
+        """
+        The license type for Linux VM's.
+        """
         multi_vm_group_name: NotRequired[pulumi.Input[str]]
         """
         The multi VM group name.
@@ -18649,6 +18919,14 @@ if not MYPY:
         run_as_account_id: NotRequired[pulumi.Input[str]]
         """
         The run-as account Id.
+        """
+        seed_managed_disk_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgsDict']]]]
+        """
+        The tags for the seed managed disks.
+        """
+        sql_server_license_type: NotRequired[pulumi.Input[Union[str, 'SqlServerLicenseType']]]
+        """
+        The SQL Server license type.
         """
         target_availability_set_id: NotRequired[pulumi.Input[str]]
         """
@@ -18662,9 +18940,17 @@ if not MYPY:
         """
         The target boot diagnostics storage account ARM Id.
         """
+        target_managed_disk_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgsDict']]]]
+        """
+        The tags for the target managed disks.
+        """
         target_network_id: NotRequired[pulumi.Input[str]]
         """
         The selected target network ARM Id.
+        """
+        target_nic_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgsDict']]]]
+        """
+        The tags for the target NICs.
         """
         target_proximity_placement_group_id: NotRequired[pulumi.Input[str]]
         """
@@ -18678,9 +18964,17 @@ if not MYPY:
         """
         The target VM name.
         """
+        target_vm_security_profile: NotRequired[pulumi.Input['SecurityProfilePropertiesArgsDict']]
+        """
+        The target VM security profile.
+        """
         target_vm_size: NotRequired[pulumi.Input[str]]
         """
         The target VM size.
+        """
+        target_vm_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgsDict']]]]
+        """
+        The target VM tags.
         """
         test_network_id: NotRequired[pulumi.Input[str]]
         """
@@ -18689,6 +18983,10 @@ if not MYPY:
         test_subnet_name: NotRequired[pulumi.Input[str]]
         """
         The selected test subnet name.
+        """
+        user_selected_os_name: NotRequired[pulumi.Input[str]]
+        """
+        The OS name selected by user.
         """
 elif False:
     InMageRcmEnableProtectionInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -18703,18 +19001,26 @@ class InMageRcmEnableProtectionInputArgs:
                  disks_default: Optional[pulumi.Input['InMageRcmDisksDefaultInputArgs']] = None,
                  disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+                 linux_license_type: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]] = None,
                  multi_vm_group_name: Optional[pulumi.Input[str]] = None,
                  run_as_account_id: Optional[pulumi.Input[str]] = None,
+                 seed_managed_disk_tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]] = None,
+                 sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
                  target_availability_set_id: Optional[pulumi.Input[str]] = None,
                  target_availability_zone: Optional[pulumi.Input[str]] = None,
                  target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[str]] = None,
+                 target_managed_disk_tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]] = None,
                  target_network_id: Optional[pulumi.Input[str]] = None,
+                 target_nic_tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]] = None,
                  target_proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  target_subnet_name: Optional[pulumi.Input[str]] = None,
                  target_vm_name: Optional[pulumi.Input[str]] = None,
+                 target_vm_security_profile: Optional[pulumi.Input['SecurityProfilePropertiesArgs']] = None,
                  target_vm_size: Optional[pulumi.Input[str]] = None,
+                 target_vm_tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
-                 test_subnet_name: Optional[pulumi.Input[str]] = None):
+                 test_subnet_name: Optional[pulumi.Input[str]] = None,
+                 user_selected_os_name: Optional[pulumi.Input[str]] = None):
         """
         InMageRcm specific enable protection input.
         :param pulumi.Input[str] fabric_discovery_machine_id: The ARM Id of discovered machine.
@@ -18725,18 +19031,26 @@ class InMageRcmEnableProtectionInputArgs:
         :param pulumi.Input['InMageRcmDisksDefaultInputArgs'] disks_default: The default disk input.
         :param pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: The license type.
+        :param pulumi.Input[Union[str, 'LinuxLicenseType']] linux_license_type: The license type for Linux VM's.
         :param pulumi.Input[str] multi_vm_group_name: The multi VM group name.
         :param pulumi.Input[str] run_as_account_id: The run-as account Id.
+        :param pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]] seed_managed_disk_tags: The tags for the seed managed disks.
+        :param pulumi.Input[Union[str, 'SqlServerLicenseType']] sql_server_license_type: The SQL Server license type.
         :param pulumi.Input[str] target_availability_set_id: The target availability set ARM Id.
         :param pulumi.Input[str] target_availability_zone: The target availability zone.
         :param pulumi.Input[str] target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
+        :param pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]] target_managed_disk_tags: The tags for the target managed disks.
         :param pulumi.Input[str] target_network_id: The selected target network ARM Id.
+        :param pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]] target_nic_tags: The tags for the target NICs.
         :param pulumi.Input[str] target_proximity_placement_group_id: The target proximity placement group Id.
         :param pulumi.Input[str] target_subnet_name: The selected target subnet name.
         :param pulumi.Input[str] target_vm_name: The target VM name.
+        :param pulumi.Input['SecurityProfilePropertiesArgs'] target_vm_security_profile: The target VM security profile.
         :param pulumi.Input[str] target_vm_size: The target VM size.
+        :param pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]] target_vm_tags: The target VM tags.
         :param pulumi.Input[str] test_network_id: The selected test network ARM Id.
         :param pulumi.Input[str] test_subnet_name: The selected test subnet name.
+        :param pulumi.Input[str] user_selected_os_name: The OS name selected by user.
         """
         pulumi.set(__self__, "fabric_discovery_machine_id", fabric_discovery_machine_id)
         pulumi.set(__self__, "instance_type", 'InMageRcm')
@@ -18748,30 +19062,46 @@ class InMageRcmEnableProtectionInputArgs:
             pulumi.set(__self__, "disks_to_include", disks_to_include)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if linux_license_type is not None:
+            pulumi.set(__self__, "linux_license_type", linux_license_type)
         if multi_vm_group_name is not None:
             pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
         if run_as_account_id is not None:
             pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+        if seed_managed_disk_tags is not None:
+            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
+        if sql_server_license_type is not None:
+            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
         if target_availability_set_id is not None:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
             pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        if target_managed_disk_tags is not None:
+            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
         if target_network_id is not None:
             pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_nic_tags is not None:
+            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_subnet_name is not None:
             pulumi.set(__self__, "target_subnet_name", target_subnet_name)
         if target_vm_name is not None:
             pulumi.set(__self__, "target_vm_name", target_vm_name)
+        if target_vm_security_profile is not None:
+            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if target_vm_tags is not None:
+            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
         if test_network_id is not None:
             pulumi.set(__self__, "test_network_id", test_network_id)
         if test_subnet_name is not None:
             pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+        if user_selected_os_name is not None:
+            pulumi.set(__self__, "user_selected_os_name", user_selected_os_name)
 
     @property
     @pulumi.getter(name="fabricDiscoveryMachineId")
@@ -18859,6 +19189,18 @@ class InMageRcmEnableProtectionInputArgs:
         pulumi.set(self, "license_type", value)
 
     @property
+    @pulumi.getter(name="linuxLicenseType")
+    def linux_license_type(self) -> Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]:
+        """
+        The license type for Linux VM's.
+        """
+        return pulumi.get(self, "linux_license_type")
+
+    @linux_license_type.setter
+    def linux_license_type(self, value: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]):
+        pulumi.set(self, "linux_license_type", value)
+
+    @property
     @pulumi.getter(name="multiVmGroupName")
     def multi_vm_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -18881,6 +19223,30 @@ class InMageRcmEnableProtectionInputArgs:
     @run_as_account_id.setter
     def run_as_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "run_as_account_id", value)
+
+    @property
+    @pulumi.getter(name="seedManagedDiskTags")
+    def seed_managed_disk_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]:
+        """
+        The tags for the seed managed disks.
+        """
+        return pulumi.get(self, "seed_managed_disk_tags")
+
+    @seed_managed_disk_tags.setter
+    def seed_managed_disk_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]):
+        pulumi.set(self, "seed_managed_disk_tags", value)
+
+    @property
+    @pulumi.getter(name="sqlServerLicenseType")
+    def sql_server_license_type(self) -> Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]]:
+        """
+        The SQL Server license type.
+        """
+        return pulumi.get(self, "sql_server_license_type")
+
+    @sql_server_license_type.setter
+    def sql_server_license_type(self, value: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]]):
+        pulumi.set(self, "sql_server_license_type", value)
 
     @property
     @pulumi.getter(name="targetAvailabilitySetId")
@@ -18919,6 +19285,18 @@ class InMageRcmEnableProtectionInputArgs:
         pulumi.set(self, "target_boot_diagnostics_storage_account_id", value)
 
     @property
+    @pulumi.getter(name="targetManagedDiskTags")
+    def target_managed_disk_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]:
+        """
+        The tags for the target managed disks.
+        """
+        return pulumi.get(self, "target_managed_disk_tags")
+
+    @target_managed_disk_tags.setter
+    def target_managed_disk_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]):
+        pulumi.set(self, "target_managed_disk_tags", value)
+
+    @property
     @pulumi.getter(name="targetNetworkId")
     def target_network_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -18929,6 +19307,18 @@ class InMageRcmEnableProtectionInputArgs:
     @target_network_id.setter
     def target_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_network_id", value)
+
+    @property
+    @pulumi.getter(name="targetNicTags")
+    def target_nic_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]:
+        """
+        The tags for the target NICs.
+        """
+        return pulumi.get(self, "target_nic_tags")
+
+    @target_nic_tags.setter
+    def target_nic_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]):
+        pulumi.set(self, "target_nic_tags", value)
 
     @property
     @pulumi.getter(name="targetProximityPlacementGroupId")
@@ -18967,6 +19357,18 @@ class InMageRcmEnableProtectionInputArgs:
         pulumi.set(self, "target_vm_name", value)
 
     @property
+    @pulumi.getter(name="targetVmSecurityProfile")
+    def target_vm_security_profile(self) -> Optional[pulumi.Input['SecurityProfilePropertiesArgs']]:
+        """
+        The target VM security profile.
+        """
+        return pulumi.get(self, "target_vm_security_profile")
+
+    @target_vm_security_profile.setter
+    def target_vm_security_profile(self, value: Optional[pulumi.Input['SecurityProfilePropertiesArgs']]):
+        pulumi.set(self, "target_vm_security_profile", value)
+
+    @property
     @pulumi.getter(name="targetVmSize")
     def target_vm_size(self) -> Optional[pulumi.Input[str]]:
         """
@@ -18977,6 +19379,18 @@ class InMageRcmEnableProtectionInputArgs:
     @target_vm_size.setter
     def target_vm_size(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_vm_size", value)
+
+    @property
+    @pulumi.getter(name="targetVmTags")
+    def target_vm_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]:
+        """
+        The target VM tags.
+        """
+        return pulumi.get(self, "target_vm_tags")
+
+    @target_vm_tags.setter
+    def target_vm_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserCreatedResourceTagArgs']]]]):
+        pulumi.set(self, "target_vm_tags", value)
 
     @property
     @pulumi.getter(name="testNetworkId")
@@ -19001,6 +19415,18 @@ class InMageRcmEnableProtectionInputArgs:
     @test_subnet_name.setter
     def test_subnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "test_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="userSelectedOSName")
+    def user_selected_os_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OS name selected by user.
+        """
+        return pulumi.get(self, "user_selected_os_name")
+
+    @user_selected_os_name.setter
+    def user_selected_os_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_selected_os_name", value)
 
 
 if not MYPY:
@@ -22979,28 +23405,36 @@ class ResourceGuardOperationDetailArgs:
 
 if not MYPY:
     class ResourceGuardProxyBaseArgsDict(TypedDict):
+        resource_guard_resource_id: pulumi.Input[str]
         description: NotRequired[pulumi.Input[str]]
         last_updated_time: NotRequired[pulumi.Input[str]]
         resource_guard_operation_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgsDict']]]]
-        resource_guard_resource_id: NotRequired[pulumi.Input[str]]
 elif False:
     ResourceGuardProxyBaseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResourceGuardProxyBaseArgs:
     def __init__(__self__, *,
+                 resource_guard_resource_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
-                 resource_guard_operation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]] = None,
-                 resource_guard_resource_id: Optional[pulumi.Input[str]] = None):
+                 resource_guard_operation_details: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]] = None):
+        pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if last_updated_time is not None:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if resource_guard_operation_details is not None:
             pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
-        if resource_guard_resource_id is not None:
-            pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter(name="resourceGuardResourceId")
+    def resource_guard_resource_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_guard_resource_id")
+
+    @resource_guard_resource_id.setter
+    def resource_guard_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_guard_resource_id", value)
 
     @property
     @pulumi.getter
@@ -23028,15 +23462,6 @@ class ResourceGuardProxyBaseArgs:
     @resource_guard_operation_details.setter
     def resource_guard_operation_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceGuardOperationDetailArgs']]]]):
         pulumi.set(self, "resource_guard_operation_details", value)
-
-    @property
-    @pulumi.getter(name="resourceGuardResourceId")
-    def resource_guard_resource_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "resource_guard_resource_id")
-
-    @resource_guard_resource_id.setter
-    def resource_guard_resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_guard_resource_id", value)
 
 
 if not MYPY:
@@ -23132,6 +23557,122 @@ class RetentionDurationArgs:
     @duration_type.setter
     def duration_type(self, value: Optional[pulumi.Input[Union[str, 'RetentionDurationType']]]):
         pulumi.set(self, "duration_type", value)
+
+
+if not MYPY:
+    class SecurityProfilePropertiesArgsDict(TypedDict):
+        """
+        Security profile input.
+        """
+        target_vm_confidential_encryption: NotRequired[pulumi.Input[Union[str, 'SecurityConfiguration']]]
+        """
+        A value indicating whether confidential compute encryption to be enabled.
+        """
+        target_vm_monitoring: NotRequired[pulumi.Input[Union[str, 'SecurityConfiguration']]]
+        """
+        A value indicating whether integrity monitoring to be enabled.
+        """
+        target_vm_secure_boot: NotRequired[pulumi.Input[Union[str, 'SecurityConfiguration']]]
+        """
+        A value indicating whether secure boot to be enabled.
+        """
+        target_vm_security_type: NotRequired[pulumi.Input[Union[str, 'SecurityType']]]
+        """
+        The target VM security type.
+        """
+        target_vm_tpm: NotRequired[pulumi.Input[Union[str, 'SecurityConfiguration']]]
+        """
+        A value indicating whether trusted platform module to be enabled.
+        """
+elif False:
+    SecurityProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 target_vm_confidential_encryption: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]] = None,
+                 target_vm_monitoring: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]] = None,
+                 target_vm_secure_boot: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]] = None,
+                 target_vm_security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
+                 target_vm_tpm: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]] = None):
+        """
+        Security profile input.
+        :param pulumi.Input[Union[str, 'SecurityConfiguration']] target_vm_confidential_encryption: A value indicating whether confidential compute encryption to be enabled.
+        :param pulumi.Input[Union[str, 'SecurityConfiguration']] target_vm_monitoring: A value indicating whether integrity monitoring to be enabled.
+        :param pulumi.Input[Union[str, 'SecurityConfiguration']] target_vm_secure_boot: A value indicating whether secure boot to be enabled.
+        :param pulumi.Input[Union[str, 'SecurityType']] target_vm_security_type: The target VM security type.
+        :param pulumi.Input[Union[str, 'SecurityConfiguration']] target_vm_tpm: A value indicating whether trusted platform module to be enabled.
+        """
+        if target_vm_confidential_encryption is not None:
+            pulumi.set(__self__, "target_vm_confidential_encryption", target_vm_confidential_encryption)
+        if target_vm_monitoring is not None:
+            pulumi.set(__self__, "target_vm_monitoring", target_vm_monitoring)
+        if target_vm_secure_boot is not None:
+            pulumi.set(__self__, "target_vm_secure_boot", target_vm_secure_boot)
+        if target_vm_security_type is not None:
+            pulumi.set(__self__, "target_vm_security_type", target_vm_security_type)
+        if target_vm_tpm is not None:
+            pulumi.set(__self__, "target_vm_tpm", target_vm_tpm)
+
+    @property
+    @pulumi.getter(name="targetVmConfidentialEncryption")
+    def target_vm_confidential_encryption(self) -> Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]:
+        """
+        A value indicating whether confidential compute encryption to be enabled.
+        """
+        return pulumi.get(self, "target_vm_confidential_encryption")
+
+    @target_vm_confidential_encryption.setter
+    def target_vm_confidential_encryption(self, value: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]):
+        pulumi.set(self, "target_vm_confidential_encryption", value)
+
+    @property
+    @pulumi.getter(name="targetVmMonitoring")
+    def target_vm_monitoring(self) -> Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]:
+        """
+        A value indicating whether integrity monitoring to be enabled.
+        """
+        return pulumi.get(self, "target_vm_monitoring")
+
+    @target_vm_monitoring.setter
+    def target_vm_monitoring(self, value: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]):
+        pulumi.set(self, "target_vm_monitoring", value)
+
+    @property
+    @pulumi.getter(name="targetVmSecureBoot")
+    def target_vm_secure_boot(self) -> Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]:
+        """
+        A value indicating whether secure boot to be enabled.
+        """
+        return pulumi.get(self, "target_vm_secure_boot")
+
+    @target_vm_secure_boot.setter
+    def target_vm_secure_boot(self, value: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]):
+        pulumi.set(self, "target_vm_secure_boot", value)
+
+    @property
+    @pulumi.getter(name="targetVmSecurityType")
+    def target_vm_security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityType']]]:
+        """
+        The target VM security type.
+        """
+        return pulumi.get(self, "target_vm_security_type")
+
+    @target_vm_security_type.setter
+    def target_vm_security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityType']]]):
+        pulumi.set(self, "target_vm_security_type", value)
+
+    @property
+    @pulumi.getter(name="targetVmTpm")
+    def target_vm_tpm(self) -> Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]:
+        """
+        A value indicating whether trusted platform module to be enabled.
+        """
+        return pulumi.get(self, "target_vm_tpm")
+
+    @target_vm_tpm.setter
+    def target_vm_tpm(self, value: Optional[pulumi.Input[Union[str, 'SecurityConfiguration']]]):
+        pulumi.set(self, "target_vm_tpm", value)
 
 
 if not MYPY:
@@ -23875,10 +24416,73 @@ class SkuArgs:
 
 
 if not MYPY:
+    class SnapshotBackupAdditionalDetailsArgsDict(TypedDict):
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        """
+        instant_rp_details: NotRequired[pulumi.Input[str]]
+        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[int]]
+        user_assigned_managed_identity_details: NotRequired[pulumi.Input['UserAssignedManagedIdentityDetailsArgsDict']]
+        """
+        User assigned managed identity details
+        """
+elif False:
+    SnapshotBackupAdditionalDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SnapshotBackupAdditionalDetailsArgs:
+    def __init__(__self__, *,
+                 instant_rp_details: Optional[pulumi.Input[str]] = None,
+                 instant_rp_retention_range_in_days: Optional[pulumi.Input[int]] = None,
+                 user_assigned_managed_identity_details: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']] = None):
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        :param pulumi.Input['UserAssignedManagedIdentityDetailsArgs'] user_assigned_managed_identity_details: User assigned managed identity details
+        """
+        if instant_rp_details is not None:
+            pulumi.set(__self__, "instant_rp_details", instant_rp_details)
+        if instant_rp_retention_range_in_days is not None:
+            pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+        if user_assigned_managed_identity_details is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_details", user_assigned_managed_identity_details)
+
+    @property
+    @pulumi.getter(name="instantRPDetails")
+    def instant_rp_details(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instant_rp_details")
+
+    @instant_rp_details.setter
+    def instant_rp_details(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instant_rp_details", value)
+
+    @property
+    @pulumi.getter(name="instantRpRetentionRangeInDays")
+    def instant_rp_retention_range_in_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "instant_rp_retention_range_in_days")
+
+    @instant_rp_retention_range_in_days.setter
+    def instant_rp_retention_range_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "instant_rp_retention_range_in_days", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentityDetails")
+    def user_assigned_managed_identity_details(self) -> Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']]:
+        """
+        User assigned managed identity details
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_details")
+
+    @user_assigned_managed_identity_details.setter
+    def user_assigned_managed_identity_details(self, value: Optional[pulumi.Input['UserAssignedManagedIdentityDetailsArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_details", value)
+
+
+if not MYPY:
     class SoftDeleteSettingsArgsDict(TypedDict):
         """
         Soft delete Settings of vault
         """
+        enhanced_security_state: NotRequired[pulumi.Input[Union[str, 'EnhancedSecurityState']]]
         soft_delete_retention_period_in_days: NotRequired[pulumi.Input[int]]
         """
         Soft delete retention period in days
@@ -23890,16 +24494,28 @@ elif False:
 @pulumi.input_type
 class SoftDeleteSettingsArgs:
     def __init__(__self__, *,
+                 enhanced_security_state: Optional[pulumi.Input[Union[str, 'EnhancedSecurityState']]] = None,
                  soft_delete_retention_period_in_days: Optional[pulumi.Input[int]] = None,
                  soft_delete_state: Optional[pulumi.Input[Union[str, 'SoftDeleteState']]] = None):
         """
         Soft delete Settings of vault
         :param pulumi.Input[int] soft_delete_retention_period_in_days: Soft delete retention period in days
         """
+        if enhanced_security_state is not None:
+            pulumi.set(__self__, "enhanced_security_state", enhanced_security_state)
         if soft_delete_retention_period_in_days is not None:
             pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if soft_delete_state is not None:
             pulumi.set(__self__, "soft_delete_state", soft_delete_state)
+
+    @property
+    @pulumi.getter(name="enhancedSecurityState")
+    def enhanced_security_state(self) -> Optional[pulumi.Input[Union[str, 'EnhancedSecurityState']]]:
+        return pulumi.get(self, "enhanced_security_state")
+
+    @enhanced_security_state.setter
+    def enhanced_security_state(self, value: Optional[pulumi.Input[Union[str, 'EnhancedSecurityState']]]):
+        pulumi.set(self, "enhanced_security_state", value)
 
     @property
     @pulumi.getter(name="softDeleteRetentionPeriodInDays")
@@ -23976,6 +24592,10 @@ if not MYPY:
         """
         Backup schedule specified as part of backup policy.
         """
+        snapshot_backup_additional_details: NotRequired[pulumi.Input['SnapshotBackupAdditionalDetailsArgsDict']]
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        """
         tiering_policy: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgsDict']]]]
         """
         Tiering policy to automatically move RPs to another tier.
@@ -23991,12 +24611,14 @@ class SubProtectionPolicyArgs:
                  policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  retention_policy: Optional[pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]] = None,
                  schedule_policy: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]] = None,
+                 snapshot_backup_additional_details: Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']] = None,
                  tiering_policy: Optional[pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]]] = None):
         """
         Sub-protection policy which includes schedule and retention
         :param pulumi.Input[Union[str, 'PolicyType']] policy_type: Type of backup policy type
         :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] retention_policy: Retention policy with the details on backup copy retention ranges.
         :param pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']] schedule_policy: Backup schedule specified as part of backup policy.
+        :param pulumi.Input['SnapshotBackupAdditionalDetailsArgs'] snapshot_backup_additional_details: Snapshot Backup related fields for WorkloadType SaPHanaSystem
         :param pulumi.Input[Mapping[str, pulumi.Input['TieringPolicyArgs']]] tiering_policy: Tiering policy to automatically move RPs to another tier.
                Key is Target Tier, defined in RecoveryPointTierType enum.
                Tiering policy specifies the criteria to move RP to the target tier.
@@ -24007,6 +24629,8 @@ class SubProtectionPolicyArgs:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if snapshot_backup_additional_details is not None:
+            pulumi.set(__self__, "snapshot_backup_additional_details", snapshot_backup_additional_details)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
 
@@ -24045,6 +24669,18 @@ class SubProtectionPolicyArgs:
     @schedule_policy.setter
     def schedule_policy(self, value: Optional[pulumi.Input[Union['LogSchedulePolicyArgs', 'LongTermSchedulePolicyArgs', 'SimpleSchedulePolicyArgs', 'SimpleSchedulePolicyV2Args']]]):
         pulumi.set(self, "schedule_policy", value)
+
+    @property
+    @pulumi.getter(name="snapshotBackupAdditionalDetails")
+    def snapshot_backup_additional_details(self) -> Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']]:
+        """
+        Snapshot Backup related fields for WorkloadType SaPHanaSystem
+        """
+        return pulumi.get(self, "snapshot_backup_additional_details")
+
+    @snapshot_backup_additional_details.setter
+    def snapshot_backup_additional_details(self, value: Optional[pulumi.Input['SnapshotBackupAdditionalDetailsArgs']]):
+        pulumi.set(self, "snapshot_backup_additional_details", value)
 
     @property
     @pulumi.getter(name="tieringPolicy")
@@ -24152,6 +24788,194 @@ class TieringPolicyArgs:
     @tiering_mode.setter
     def tiering_mode(self, value: Optional[pulumi.Input[Union[str, 'TieringMode']]]):
         pulumi.set(self, "tiering_mode", value)
+
+
+if not MYPY:
+    class UserAssignedIdentityPropertiesArgsDict(TypedDict):
+        """
+        User assigned managed identity properties
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID of the assigned identity.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal ID of the assigned identity.
+        """
+elif False:
+    UserAssignedIdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None):
+        """
+        User assigned managed identity properties
+        :param pulumi.Input[str] client_id: The client ID of the assigned identity.
+        :param pulumi.Input[str] principal_id: The principal ID of the assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+
+if not MYPY:
+    class UserAssignedManagedIdentityDetailsArgsDict(TypedDict):
+        """
+        User assigned managed identity details
+        """
+        identity_arm_id: NotRequired[pulumi.Input[str]]
+        """
+        The ARM id of the assigned identity.
+        """
+        identity_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the assigned identity.
+        """
+        user_assigned_identity_properties: NotRequired[pulumi.Input['UserAssignedIdentityPropertiesArgsDict']]
+        """
+        User assigned managed identity properties
+        """
+elif False:
+    UserAssignedManagedIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserAssignedManagedIdentityDetailsArgs:
+    def __init__(__self__, *,
+                 identity_arm_id: Optional[pulumi.Input[str]] = None,
+                 identity_name: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_properties: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None):
+        """
+        User assigned managed identity details
+        :param pulumi.Input[str] identity_arm_id: The ARM id of the assigned identity.
+        :param pulumi.Input[str] identity_name: The name of the assigned identity.
+        :param pulumi.Input['UserAssignedIdentityPropertiesArgs'] user_assigned_identity_properties: User assigned managed identity properties
+        """
+        if identity_arm_id is not None:
+            pulumi.set(__self__, "identity_arm_id", identity_arm_id)
+        if identity_name is not None:
+            pulumi.set(__self__, "identity_name", identity_name)
+        if user_assigned_identity_properties is not None:
+            pulumi.set(__self__, "user_assigned_identity_properties", user_assigned_identity_properties)
+
+    @property
+    @pulumi.getter(name="identityArmId")
+    def identity_arm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM id of the assigned identity.
+        """
+        return pulumi.get(self, "identity_arm_id")
+
+    @identity_arm_id.setter
+    def identity_arm_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_arm_id", value)
+
+    @property
+    @pulumi.getter(name="identityName")
+    def identity_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the assigned identity.
+        """
+        return pulumi.get(self, "identity_name")
+
+    @identity_name.setter
+    def identity_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_name", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityProperties")
+    def user_assigned_identity_properties(self) -> Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]:
+        """
+        User assigned managed identity properties
+        """
+        return pulumi.get(self, "user_assigned_identity_properties")
+
+    @user_assigned_identity_properties.setter
+    def user_assigned_identity_properties(self, value: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]):
+        pulumi.set(self, "user_assigned_identity_properties", value)
+
+
+if not MYPY:
+    class UserCreatedResourceTagArgsDict(TypedDict):
+        """
+        Resource tag input.
+        """
+        tag_name: NotRequired[pulumi.Input[str]]
+        """
+        The tag name. Please read for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        """
+        tag_value: NotRequired[pulumi.Input[str]]
+        """
+        The tag value. Please read her for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        """
+elif False:
+    UserCreatedResourceTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserCreatedResourceTagArgs:
+    def __init__(__self__, *,
+                 tag_name: Optional[pulumi.Input[str]] = None,
+                 tag_value: Optional[pulumi.Input[str]] = None):
+        """
+        Resource tag input.
+        :param pulumi.Input[str] tag_name: The tag name. Please read for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        :param pulumi.Input[str] tag_value: The tag value. Please read her for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        """
+        if tag_name is not None:
+            pulumi.set(__self__, "tag_name", tag_name)
+        if tag_value is not None:
+            pulumi.set(__self__, "tag_value", tag_value)
+
+    @property
+    @pulumi.getter(name="tagName")
+    def tag_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag name. Please read for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        """
+        return pulumi.get(self, "tag_name")
+
+    @tag_name.setter
+    def tag_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_name", value)
+
+    @property
+    @pulumi.getter(name="tagValue")
+    def tag_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value. Please read her for more information: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources#limitations
+        """
+        return pulumi.get(self, "tag_value")
+
+    @tag_value.setter
+    def tag_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag_value", value)
 
 
 if not MYPY:
@@ -24339,6 +25163,10 @@ if not MYPY:
         """
         The disk type.
         """
+        sector_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
 elif False:
     VMwareCbtDiskInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -24350,7 +25178,8 @@ class VMwareCbtDiskInputArgs:
                  log_storage_account_id: pulumi.Input[str],
                  log_storage_account_sas_secret_name: pulumi.Input[str],
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None):
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
+                 sector_size_in_bytes: Optional[pulumi.Input[int]] = None):
         """
         VMwareCbt disk input.
         :param pulumi.Input[str] disk_id: The disk Id.
@@ -24359,6 +25188,7 @@ class VMwareCbtDiskInputArgs:
         :param pulumi.Input[str] log_storage_account_sas_secret_name: The key vault secret name of the log storage account.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
+        :param pulumi.Input[int] sector_size_in_bytes: The logical sector size (in bytes), 512 by default.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "is_os_disk", is_os_disk)
@@ -24368,6 +25198,8 @@ class VMwareCbtDiskInputArgs:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_type is not None:
             pulumi.set(__self__, "disk_type", disk_type)
+        if sector_size_in_bytes is not None:
+            pulumi.set(__self__, "sector_size_in_bytes", sector_size_in_bytes)
 
     @property
     @pulumi.getter(name="diskId")
@@ -24441,6 +25273,18 @@ class VMwareCbtDiskInputArgs:
     def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
+    @property
+    @pulumi.getter(name="sectorSizeInBytes")
+    def sector_size_in_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The logical sector size (in bytes), 512 by default.
+        """
+        return pulumi.get(self, "sector_size_in_bytes")
+
+    @sector_size_in_bytes.setter
+    def sector_size_in_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sector_size_in_bytes", value)
+
 
 if not MYPY:
     class VMwareCbtEnableMigrationInputArgsDict(TypedDict):
@@ -24483,6 +25327,10 @@ if not MYPY:
         license_type: NotRequired[pulumi.Input[Union[str, 'LicenseType']]]
         """
         License type.
+        """
+        linux_license_type: NotRequired[pulumi.Input[Union[str, 'LinuxLicenseType']]]
+        """
+        The license type for Linux VM's.
         """
         perform_auto_resync: NotRequired[pulumi.Input[str]]
         """
@@ -24552,6 +25400,10 @@ if not MYPY:
         """
         The selected test subnet name.
         """
+        user_selected_os_name: NotRequired[pulumi.Input[str]]
+        """
+        The OS name selected by user.
+        """
 elif False:
     VMwareCbtEnableMigrationInputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -24567,6 +25419,7 @@ class VMwareCbtEnableMigrationInputArgs:
                  vmware_machine_id: pulumi.Input[str],
                  confidential_vm_key_vault_id: Optional[pulumi.Input[str]] = None,
                  license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+                 linux_license_type: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]] = None,
                  perform_auto_resync: Optional[pulumi.Input[str]] = None,
                  perform_sql_bulk_registration: Optional[pulumi.Input[str]] = None,
                  seed_disk_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -24583,7 +25436,8 @@ class VMwareCbtEnableMigrationInputArgs:
                  target_vm_size: Optional[pulumi.Input[str]] = None,
                  target_vm_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_network_id: Optional[pulumi.Input[str]] = None,
-                 test_subnet_name: Optional[pulumi.Input[str]] = None):
+                 test_subnet_name: Optional[pulumi.Input[str]] = None,
+                 user_selected_os_name: Optional[pulumi.Input[str]] = None):
         """
         VMwareCbt specific enable migration input.
         :param pulumi.Input[str] data_mover_run_as_account_id: The data mover run as account Id.
@@ -24596,6 +25450,7 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[str] vmware_machine_id: The ARM Id of the VM discovered in VMware.
         :param pulumi.Input[str] confidential_vm_key_vault_id: The confidential VM key vault Id for ADE installation.
         :param pulumi.Input[Union[str, 'LicenseType']] license_type: License type.
+        :param pulumi.Input[Union[str, 'LinuxLicenseType']] linux_license_type: The license type for Linux VM's.
         :param pulumi.Input[str] perform_auto_resync: A value indicating whether auto resync is to be done.
         :param pulumi.Input[str] perform_sql_bulk_registration: A value indicating whether bulk SQL RP registration to be done.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] seed_disk_tags: The tags for the seed disks.
@@ -24613,6 +25468,7 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_vm_tags: The target VM tags.
         :param pulumi.Input[str] test_network_id: The selected test network ARM Id.
         :param pulumi.Input[str] test_subnet_name: The selected test subnet name.
+        :param pulumi.Input[str] user_selected_os_name: The OS name selected by user.
         """
         pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
         pulumi.set(__self__, "disks_to_include", disks_to_include)
@@ -24625,6 +25481,8 @@ class VMwareCbtEnableMigrationInputArgs:
             pulumi.set(__self__, "confidential_vm_key_vault_id", confidential_vm_key_vault_id)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if linux_license_type is not None:
+            pulumi.set(__self__, "linux_license_type", linux_license_type)
         if perform_auto_resync is not None:
             pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
         if perform_sql_bulk_registration is not None:
@@ -24659,6 +25517,8 @@ class VMwareCbtEnableMigrationInputArgs:
             pulumi.set(__self__, "test_network_id", test_network_id)
         if test_subnet_name is not None:
             pulumi.set(__self__, "test_subnet_name", test_subnet_name)
+        if user_selected_os_name is not None:
+            pulumi.set(__self__, "user_selected_os_name", user_selected_os_name)
 
     @property
     @pulumi.getter(name="dataMoverRunAsAccountId")
@@ -24768,6 +25628,18 @@ class VMwareCbtEnableMigrationInputArgs:
     @license_type.setter
     def license_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter(name="linuxLicenseType")
+    def linux_license_type(self) -> Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]:
+        """
+        The license type for Linux VM's.
+        """
+        return pulumi.get(self, "linux_license_type")
+
+    @linux_license_type.setter
+    def linux_license_type(self, value: Optional[pulumi.Input[Union[str, 'LinuxLicenseType']]]):
+        pulumi.set(self, "linux_license_type", value)
 
     @property
     @pulumi.getter(name="performAutoResync")
@@ -24972,6 +25844,18 @@ class VMwareCbtEnableMigrationInputArgs:
     @test_subnet_name.setter
     def test_subnet_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "test_subnet_name", value)
+
+    @property
+    @pulumi.getter(name="userSelectedOSName")
+    def user_selected_os_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OS name selected by user.
+        """
+        return pulumi.get(self, "user_selected_os_name")
+
+    @user_selected_os_name.setter
+    def user_selected_os_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_selected_os_name", value)
 
 
 if not MYPY:
@@ -25362,6 +26246,62 @@ class VaultPropertiesEncryptionArgs:
 
 
 if not MYPY:
+    class VaultPropertiesRedundancySettingsArgsDict(TypedDict):
+        """
+        The redundancy Settings of a Vault
+        """
+        cross_region_restore: NotRequired[pulumi.Input[Union[str, 'CrossRegionRestore']]]
+        """
+        Flag to show if Cross Region Restore is enabled on the Vault or not
+        """
+        standard_tier_storage_redundancy: NotRequired[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]]
+        """
+        The storage redundancy setting of a vault
+        """
+elif False:
+    VaultPropertiesRedundancySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VaultPropertiesRedundancySettingsArgs:
+    def __init__(__self__, *,
+                 cross_region_restore: Optional[pulumi.Input[Union[str, 'CrossRegionRestore']]] = None,
+                 standard_tier_storage_redundancy: Optional[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]] = None):
+        """
+        The redundancy Settings of a Vault
+        :param pulumi.Input[Union[str, 'CrossRegionRestore']] cross_region_restore: Flag to show if Cross Region Restore is enabled on the Vault or not
+        :param pulumi.Input[Union[str, 'StandardTierStorageRedundancy']] standard_tier_storage_redundancy: The storage redundancy setting of a vault
+        """
+        if cross_region_restore is not None:
+            pulumi.set(__self__, "cross_region_restore", cross_region_restore)
+        if standard_tier_storage_redundancy is not None:
+            pulumi.set(__self__, "standard_tier_storage_redundancy", standard_tier_storage_redundancy)
+
+    @property
+    @pulumi.getter(name="crossRegionRestore")
+    def cross_region_restore(self) -> Optional[pulumi.Input[Union[str, 'CrossRegionRestore']]]:
+        """
+        Flag to show if Cross Region Restore is enabled on the Vault or not
+        """
+        return pulumi.get(self, "cross_region_restore")
+
+    @cross_region_restore.setter
+    def cross_region_restore(self, value: Optional[pulumi.Input[Union[str, 'CrossRegionRestore']]]):
+        pulumi.set(self, "cross_region_restore", value)
+
+    @property
+    @pulumi.getter(name="standardTierStorageRedundancy")
+    def standard_tier_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]]:
+        """
+        The storage redundancy setting of a vault
+        """
+        return pulumi.get(self, "standard_tier_storage_redundancy")
+
+    @standard_tier_storage_redundancy.setter
+    def standard_tier_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'StandardTierStorageRedundancy']]]):
+        pulumi.set(self, "standard_tier_storage_redundancy", value)
+
+
+if not MYPY:
     class VaultPropertiesArgsDict(TypedDict):
         """
         Properties of the vault.
@@ -25377,6 +26317,14 @@ if not MYPY:
         public_network_access: NotRequired[pulumi.Input[Union[str, 'PublicNetworkAccess']]]
         """
         property to enable or disable resource provider inbound network traffic from public clients
+        """
+        redundancy_settings: NotRequired[pulumi.Input['VaultPropertiesRedundancySettingsArgsDict']]
+        """
+        The redundancy Settings of a Vault
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
         """
         restore_settings: NotRequired[pulumi.Input['RestoreSettingsArgsDict']]
         """
@@ -25395,6 +26343,8 @@ class VaultPropertiesArgs:
                  encryption: Optional[pulumi.Input['VaultPropertiesEncryptionArgs']] = None,
                  monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 redundancy_settings: Optional[pulumi.Input['VaultPropertiesRedundancySettingsArgs']] = None,
+                 resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  restore_settings: Optional[pulumi.Input['RestoreSettingsArgs']] = None,
                  security_settings: Optional[pulumi.Input['SecuritySettingsArgs']] = None):
         """
@@ -25402,6 +26352,8 @@ class VaultPropertiesArgs:
         :param pulumi.Input['VaultPropertiesEncryptionArgs'] encryption: Customer Managed Key details of the resource.
         :param pulumi.Input['MonitoringSettingsArgs'] monitoring_settings: Monitoring Settings of the vault
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: property to enable or disable resource provider inbound network traffic from public clients
+        :param pulumi.Input['VaultPropertiesRedundancySettingsArgs'] redundancy_settings: The redundancy Settings of a Vault
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input['RestoreSettingsArgs'] restore_settings: Restore Settings of the vault
         :param pulumi.Input['SecuritySettingsArgs'] security_settings: Security Settings of the vault
         """
@@ -25411,6 +26363,10 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "monitoring_settings", monitoring_settings)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if redundancy_settings is not None:
+            pulumi.set(__self__, "redundancy_settings", redundancy_settings)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if restore_settings is not None:
             pulumi.set(__self__, "restore_settings", restore_settings)
         if security_settings is not None:
@@ -25453,6 +26409,30 @@ class VaultPropertiesArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="redundancySettings")
+    def redundancy_settings(self) -> Optional[pulumi.Input['VaultPropertiesRedundancySettingsArgs']]:
+        """
+        The redundancy Settings of a Vault
+        """
+        return pulumi.get(self, "redundancy_settings")
+
+    @redundancy_settings.setter
+    def redundancy_settings(self, value: Optional[pulumi.Input['VaultPropertiesRedundancySettingsArgs']]):
+        pulumi.set(self, "redundancy_settings", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @resource_guard_operation_requests.setter
+    def resource_guard_operation_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_guard_operation_requests", value)
+
+    @property
     @pulumi.getter(name="restoreSettings")
     def restore_settings(self) -> Optional[pulumi.Input['RestoreSettingsArgs']]:
         """
@@ -25475,6 +26455,53 @@ class VaultPropertiesArgs:
     @security_settings.setter
     def security_settings(self, value: Optional[pulumi.Input['SecuritySettingsArgs']]):
         pulumi.set(self, "security_settings", value)
+
+
+if not MYPY:
+    class VaultRetentionPolicyArgsDict(TypedDict):
+        """
+        Vault retention policy for AzureFileShare
+        """
+        snapshot_retention_in_days: pulumi.Input[int]
+        vault_retention: pulumi.Input[Union['LongTermRetentionPolicyArgsDict', 'SimpleRetentionPolicyArgsDict']]
+        """
+        Base class for retention policy.
+        """
+elif False:
+    VaultRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VaultRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 snapshot_retention_in_days: pulumi.Input[int],
+                 vault_retention: pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]):
+        """
+        Vault retention policy for AzureFileShare
+        :param pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']] vault_retention: Base class for retention policy.
+        """
+        pulumi.set(__self__, "snapshot_retention_in_days", snapshot_retention_in_days)
+        pulumi.set(__self__, "vault_retention", vault_retention)
+
+    @property
+    @pulumi.getter(name="snapshotRetentionInDays")
+    def snapshot_retention_in_days(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "snapshot_retention_in_days")
+
+    @snapshot_retention_in_days.setter
+    def snapshot_retention_in_days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "snapshot_retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="vaultRetention")
+    def vault_retention(self) -> pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]:
+        """
+        Base class for retention policy.
+        """
+        return pulumi.get(self, "vault_retention")
+
+    @vault_retention.setter
+    def vault_retention(self, value: pulumi.Input[Union['LongTermRetentionPolicyArgs', 'SimpleRetentionPolicyArgs']]):
+        pulumi.set(self, "vault_retention", value)
 
 
 if not MYPY:

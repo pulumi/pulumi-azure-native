@@ -12,11 +12,3 @@ from .lab import *
 from .student import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.education.v20211201preview as __v20211201preview
-    v20211201preview = __v20211201preview
-else:
-    v20211201preview = _utilities.lazy_import('pulumi_azure_native.education.v20211201preview')
-

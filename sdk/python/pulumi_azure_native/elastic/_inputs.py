@@ -32,6 +32,8 @@ __all__ = [
     'MonitoringTagRulesPropertiesArgsDict',
     'OpenAIIntegrationPropertiesArgs',
     'OpenAIIntegrationPropertiesArgsDict',
+    'PlanDetailsArgs',
+    'PlanDetailsArgsDict',
     'ResourceSkuArgs',
     'ResourceSkuArgsDict',
     'SubscriptionListArgs',
@@ -379,9 +381,29 @@ if not MYPY:
         """
         Flag specifying if the resource monitoring is enabled or disabled.
         """
+        plan_details: NotRequired[pulumi.Input['PlanDetailsArgsDict']]
+        """
+        Plan details of the monitor resource.
+        """
         provisioning_state: NotRequired[pulumi.Input[Union[str, 'ProvisioningState']]]
         """
         Provisioning state of the monitor resource.
+        """
+        saa_s_azure_subscription_status: NotRequired[pulumi.Input[str]]
+        """
+        Status of Azure Subscription where Marketplace SaaS is located.
+        """
+        source_campaign_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique identifier associated with the campaign.
+        """
+        source_campaign_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the marketing campaign.
+        """
+        subscription_state: NotRequired[pulumi.Input[str]]
+        """
+        State of the Azure Subscription containing the monitor resource
         """
         user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
         """
@@ -399,14 +421,24 @@ class MonitorPropertiesArgs:
     def __init__(__self__, *,
                  generate_api_key: Optional[pulumi.Input[bool]] = None,
                  monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+                 plan_details: Optional[pulumi.Input['PlanDetailsArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
+                 saa_s_azure_subscription_status: Optional[pulumi.Input[str]] = None,
+                 source_campaign_id: Optional[pulumi.Input[str]] = None,
+                 source_campaign_name: Optional[pulumi.Input[str]] = None,
+                 subscription_state: Optional[pulumi.Input[str]] = None,
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Properties specific to the monitor resource.
         :param pulumi.Input[bool] generate_api_key: Flag to determine if User API Key has to be generated and shared.
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param pulumi.Input['PlanDetailsArgs'] plan_details: Plan details of the monitor resource.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the monitor resource.
+        :param pulumi.Input[str] saa_s_azure_subscription_status: Status of Azure Subscription where Marketplace SaaS is located.
+        :param pulumi.Input[str] source_campaign_id: A unique identifier associated with the campaign.
+        :param pulumi.Input[str] source_campaign_name: Name of the marketing campaign.
+        :param pulumi.Input[str] subscription_state: State of the Azure Subscription containing the monitor resource
         :param pulumi.Input['UserInfoArgs'] user_info: User information.
         :param pulumi.Input[str] version: Version of elastic of the monitor resource
         """
@@ -414,8 +446,18 @@ class MonitorPropertiesArgs:
             pulumi.set(__self__, "generate_api_key", generate_api_key)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
+        if plan_details is not None:
+            pulumi.set(__self__, "plan_details", plan_details)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if saa_s_azure_subscription_status is not None:
+            pulumi.set(__self__, "saa_s_azure_subscription_status", saa_s_azure_subscription_status)
+        if source_campaign_id is not None:
+            pulumi.set(__self__, "source_campaign_id", source_campaign_id)
+        if source_campaign_name is not None:
+            pulumi.set(__self__, "source_campaign_name", source_campaign_name)
+        if subscription_state is not None:
+            pulumi.set(__self__, "subscription_state", subscription_state)
         if user_info is not None:
             pulumi.set(__self__, "user_info", user_info)
         if version is not None:
@@ -446,6 +488,18 @@ class MonitorPropertiesArgs:
         pulumi.set(self, "monitoring_status", value)
 
     @property
+    @pulumi.getter(name="planDetails")
+    def plan_details(self) -> Optional[pulumi.Input['PlanDetailsArgs']]:
+        """
+        Plan details of the monitor resource.
+        """
+        return pulumi.get(self, "plan_details")
+
+    @plan_details.setter
+    def plan_details(self, value: Optional[pulumi.Input['PlanDetailsArgs']]):
+        pulumi.set(self, "plan_details", value)
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
@@ -456,6 +510,54 @@ class MonitorPropertiesArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @property
+    @pulumi.getter(name="saaSAzureSubscriptionStatus")
+    def saa_s_azure_subscription_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Status of Azure Subscription where Marketplace SaaS is located.
+        """
+        return pulumi.get(self, "saa_s_azure_subscription_status")
+
+    @saa_s_azure_subscription_status.setter
+    def saa_s_azure_subscription_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "saa_s_azure_subscription_status", value)
+
+    @property
+    @pulumi.getter(name="sourceCampaignId")
+    def source_campaign_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier associated with the campaign.
+        """
+        return pulumi.get(self, "source_campaign_id")
+
+    @source_campaign_id.setter
+    def source_campaign_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_campaign_id", value)
+
+    @property
+    @pulumi.getter(name="sourceCampaignName")
+    def source_campaign_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the marketing campaign.
+        """
+        return pulumi.get(self, "source_campaign_name")
+
+    @source_campaign_name.setter
+    def source_campaign_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_campaign_name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionState")
+    def subscription_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        State of the Azure Subscription containing the monitor resource
+        """
+        return pulumi.get(self, "subscription_state")
+
+    @subscription_state.setter
+    def subscription_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_state", value)
 
     @property
     @pulumi.getter(name="userInfo")
@@ -708,6 +810,122 @@ class OpenAIIntegrationPropertiesArgs:
     @open_ai_resource_id.setter
     def open_ai_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "open_ai_resource_id", value)
+
+
+if not MYPY:
+    class PlanDetailsArgsDict(TypedDict):
+        """
+        Plan details of the monitor resource.
+        """
+        offer_id: NotRequired[pulumi.Input[str]]
+        """
+        Offer ID of the plan
+        """
+        plan_id: NotRequired[pulumi.Input[str]]
+        """
+        Plan ID
+        """
+        plan_name: NotRequired[pulumi.Input[str]]
+        """
+        Plan Name
+        """
+        publisher_id: NotRequired[pulumi.Input[str]]
+        """
+        Publisher ID of the plan
+        """
+        term_id: NotRequired[pulumi.Input[str]]
+        """
+        Term ID of the plan
+        """
+elif False:
+    PlanDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlanDetailsArgs:
+    def __init__(__self__, *,
+                 offer_id: Optional[pulumi.Input[str]] = None,
+                 plan_id: Optional[pulumi.Input[str]] = None,
+                 plan_name: Optional[pulumi.Input[str]] = None,
+                 publisher_id: Optional[pulumi.Input[str]] = None,
+                 term_id: Optional[pulumi.Input[str]] = None):
+        """
+        Plan details of the monitor resource.
+        :param pulumi.Input[str] offer_id: Offer ID of the plan
+        :param pulumi.Input[str] plan_id: Plan ID
+        :param pulumi.Input[str] plan_name: Plan Name
+        :param pulumi.Input[str] publisher_id: Publisher ID of the plan
+        :param pulumi.Input[str] term_id: Term ID of the plan
+        """
+        if offer_id is not None:
+            pulumi.set(__self__, "offer_id", offer_id)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
+        if plan_name is not None:
+            pulumi.set(__self__, "plan_name", plan_name)
+        if publisher_id is not None:
+            pulumi.set(__self__, "publisher_id", publisher_id)
+        if term_id is not None:
+            pulumi.set(__self__, "term_id", term_id)
+
+    @property
+    @pulumi.getter(name="offerID")
+    def offer_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Offer ID of the plan
+        """
+        return pulumi.get(self, "offer_id")
+
+    @offer_id.setter
+    def offer_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offer_id", value)
+
+    @property
+    @pulumi.getter(name="planID")
+    def plan_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plan ID
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_id", value)
+
+    @property
+    @pulumi.getter(name="planName")
+    def plan_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plan Name
+        """
+        return pulumi.get(self, "plan_name")
+
+    @plan_name.setter
+    def plan_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "plan_name", value)
+
+    @property
+    @pulumi.getter(name="publisherID")
+    def publisher_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Publisher ID of the plan
+        """
+        return pulumi.get(self, "publisher_id")
+
+    @publisher_id.setter
+    def publisher_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publisher_id", value)
+
+    @property
+    @pulumi.getter(name="termID")
+    def term_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Term ID of the plan
+        """
+        return pulumi.get(self, "term_id")
+
+    @term_id.setter
+    def term_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "term_id", value)
 
 
 if not MYPY:

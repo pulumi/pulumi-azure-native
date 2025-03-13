@@ -77,6 +77,7 @@ class RunbookTypeEnum(str, Enum):
     GRAPH_POWER_SHELL = "GraphPowerShell"
     PYTHON2 = "Python2"
     PYTHON3 = "Python3"
+    POWER_SHELL72 = "PowerShell72"
 
 
 class ScheduleDay(str, Enum):

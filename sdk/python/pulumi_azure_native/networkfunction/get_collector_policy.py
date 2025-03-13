@@ -27,7 +27,10 @@ class GetCollectorPolicyResult:
     """
     Collector policy resource.
     """
-    def __init__(__self__, emission_policies=None, etag=None, id=None, ingestion_policy=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, emission_policies=None, etag=None, id=None, ingestion_policy=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if emission_policies and not isinstance(emission_policies, list):
             raise TypeError("Expected argument 'emission_policies' to be a list")
         pulumi.set(__self__, "emission_policies", emission_policies)
@@ -58,6 +61,14 @@ class GetCollectorPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="emissionPolicies")
@@ -146,6 +157,7 @@ class AwaitableGetCollectorPolicyResult(GetCollectorPolicyResult):
         if False:
             yield self
         return GetCollectorPolicyResult(
+            azure_api_version=self.azure_api_version,
             emission_policies=self.emission_policies,
             etag=self.etag,
             id=self.id,
@@ -166,8 +178,6 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     Gets the collector policy in a specified Traffic Collector
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2022-05-01.
-
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str collector_policy_name: Collector Policy Name
@@ -181,6 +191,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkfunction:getCollectorPolicy', __args__, opts=opts, typ=GetCollectorPolicyResult).value
 
     return AwaitableGetCollectorPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         emission_policies=pulumi.get(__ret__, 'emission_policies'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -199,8 +210,6 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     Gets the collector policy in a specified Traffic Collector
     Azure REST API version: 2022-11-01.
 
-    Other available API versions: 2022-05-01.
-
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str collector_policy_name: Collector Policy Name
@@ -213,6 +222,7 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkfunction:getCollectorPolicy', __args__, opts=opts, typ=GetCollectorPolicyResult)
     return __ret__.apply(lambda __response__: GetCollectorPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         emission_policies=pulumi.get(__response__, 'emission_policies'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

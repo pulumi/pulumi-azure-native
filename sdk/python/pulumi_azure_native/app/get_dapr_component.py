@@ -27,7 +27,10 @@ class GetDaprComponentResult:
     """
     Dapr Component.
     """
-    def __init__(__self__, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, component_type=None, id=None, ignore_errors=None, init_timeout=None, metadata=None, name=None, scopes=None, secret_store_component=None, secrets=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if component_type and not isinstance(component_type, str):
             raise TypeError("Expected argument 'component_type' to be a str")
         pulumi.set(__self__, "component_type", component_type)
@@ -64,6 +67,14 @@ class GetDaprComponentResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="componentType")
@@ -168,6 +179,7 @@ class AwaitableGetDaprComponentResult(GetDaprComponentResult):
         if False:
             yield self
         return GetDaprComponentResult(
+            azure_api_version=self.azure_api_version,
             component_type=self.component_type,
             id=self.id,
             ignore_errors=self.ignore_errors,
@@ -188,9 +200,7 @@ def get_dapr_component(component_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDaprComponentResult:
     """
     Dapr Component.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -205,6 +215,7 @@ def get_dapr_component(component_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getDaprComponent', __args__, opts=opts, typ=GetDaprComponentResult).value
 
     return AwaitableGetDaprComponentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         component_type=pulumi.get(__ret__, 'component_type'),
         id=pulumi.get(__ret__, 'id'),
         ignore_errors=pulumi.get(__ret__, 'ignore_errors'),
@@ -223,9 +234,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResult]:
     """
     Dapr Component.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str component_name: Name of the Dapr Component.
@@ -239,6 +248,7 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getDaprComponent', __args__, opts=opts, typ=GetDaprComponentResult)
     return __ret__.apply(lambda __response__: GetDaprComponentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         component_type=pulumi.get(__response__, 'component_type'),
         id=pulumi.get(__response__, 'id'),
         ignore_errors=pulumi.get(__response__, 'ignore_errors'),

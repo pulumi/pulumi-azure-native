@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OrganizationArgs', 'Organization']
@@ -24,6 +25,7 @@ class OrganizationArgs:
                  offer_detail: pulumi.Input['OfferDetailArgs'],
                  resource_group_name: pulumi.Input[str],
                  user_detail: pulumi.Input['UserDetailArgs'],
+                 link_organization: Optional[pulumi.Input['LinkOrganizationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -32,6 +34,7 @@ class OrganizationArgs:
         :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
         :param pulumi.Input[str] resource_group_name: Resource group name
         :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
+        :param pulumi.Input['LinkOrganizationArgs'] link_organization: Link an existing Confluent organization
         :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input[str] organization_name: Organization resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Organization resource tags
@@ -39,6 +42,8 @@ class OrganizationArgs:
         pulumi.set(__self__, "offer_detail", offer_detail)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_detail", user_detail)
+        if link_organization is not None:
+            pulumi.set(__self__, "link_organization", link_organization)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if organization_name is not None:
@@ -83,6 +88,18 @@ class OrganizationArgs:
         pulumi.set(self, "user_detail", value)
 
     @property
+    @pulumi.getter(name="linkOrganization")
+    def link_organization(self) -> Optional[pulumi.Input['LinkOrganizationArgs']]:
+        """
+        Link an existing Confluent organization
+        """
+        return pulumi.get(self, "link_organization")
+
+    @link_organization.setter
+    def link_organization(self, value: Optional[pulumi.Input['LinkOrganizationArgs']]):
+        pulumi.set(self, "link_organization", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -124,6 +141,7 @@ class Organization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 link_organization: Optional[pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
@@ -133,12 +151,11 @@ class Organization(pulumi.CustomResource):
                  __props__=None):
         """
         Organization resource.
-        Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']] link_organization: Link an existing Confluent organization
         :param pulumi.Input[str] location: Location of Organization resource
         :param pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']] offer_detail: Confluent offer detail
         :param pulumi.Input[str] organization_name: Organization resource name
@@ -154,9 +171,7 @@ class Organization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Organization resource.
-        Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2020-03-01-preview, 2023-08-22, 2024-02-13, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.
@@ -173,6 +188,7 @@ class Organization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 link_organization: Optional[pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
                  organization_name: Optional[pulumi.Input[str]] = None,
@@ -188,6 +204,7 @@ class Organization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
+            __props__.__dict__["link_organization"] = link_organization
             __props__.__dict__["location"] = location
             if offer_detail is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_detail'")
@@ -200,6 +217,7 @@ class Organization(pulumi.CustomResource):
             if user_detail is None and not opts.urn:
                 raise TypeError("Missing required property 'user_detail'")
             __props__.__dict__["user_detail"] = user_detail
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["organization_id"] = None
@@ -231,6 +249,7 @@ class Organization(pulumi.CustomResource):
 
         __props__ = OrganizationArgs.__new__(OrganizationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -243,6 +262,14 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["user_detail"] = None
         return Organization(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")

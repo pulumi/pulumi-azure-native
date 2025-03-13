@@ -67,9 +67,7 @@ def list_monitor_hosts(monitor_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorHostsResult:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Azure REST API version: 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name
@@ -89,9 +87,7 @@ def list_monitor_hosts_output(monitor_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorHostsResult]:
     """
     Response of a list operation.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+    Azure REST API version: 2023-10-20.
 
 
     :param str monitor_name: Monitor resource name

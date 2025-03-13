@@ -28,9 +28,11 @@ __all__ = [
     'AvailabilityGroupInfoResponse',
     'AvailabilityGroupStateResponse',
     'BackgroundJobResponse',
+    'BackupPolicyResponse',
     'BasicLoginInformationResponse',
     'DataControllerPropertiesResponse',
     'ExtendedLocationResponse',
+    'FailoverClusterResponse',
     'FailoverGroupPropertiesResponse',
     'FailoverGroupSpecResponse',
     'K8sActiveDirectoryResponse',
@@ -43,6 +45,7 @@ __all__ = [
     'K8sSettingsResponse',
     'K8stransparentDataEncryptionResponse',
     'LogAnalyticsWorkspaceConfigResponse',
+    'MonitoringResponse',
     'OnPremisePropertyResponse',
     'PostgresInstancePropertiesResponse',
     'PostgresInstanceSkuResponse',
@@ -1139,6 +1142,88 @@ class BackgroundJobResponse(dict):
 
 
 @pulumi.output_type
+class BackupPolicyResponse(dict):
+    """
+    The backup profile for the SQL server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "differentialBackupHours":
+            suggest = "differential_backup_hours"
+        elif key == "fullBackupDays":
+            suggest = "full_backup_days"
+        elif key == "retentionPeriodDays":
+            suggest = "retention_period_days"
+        elif key == "transactionLogBackupMinutes":
+            suggest = "transaction_log_backup_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 differential_backup_hours: Optional[int] = None,
+                 full_backup_days: Optional[int] = None,
+                 retention_period_days: Optional[int] = None,
+                 transaction_log_backup_minutes: Optional[int] = None):
+        """
+        The backup profile for the SQL server.
+        :param int differential_backup_hours: The differential backup interval in hours.
+        :param int full_backup_days: The value indicating days between full backups.
+        :param int retention_period_days: The retention period for all the databases in this managed instance.
+        :param int transaction_log_backup_minutes: The value indicating minutes between transaction log backups.
+        """
+        if differential_backup_hours is not None:
+            pulumi.set(__self__, "differential_backup_hours", differential_backup_hours)
+        if full_backup_days is not None:
+            pulumi.set(__self__, "full_backup_days", full_backup_days)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if transaction_log_backup_minutes is not None:
+            pulumi.set(__self__, "transaction_log_backup_minutes", transaction_log_backup_minutes)
+
+    @property
+    @pulumi.getter(name="differentialBackupHours")
+    def differential_backup_hours(self) -> Optional[int]:
+        """
+        The differential backup interval in hours.
+        """
+        return pulumi.get(self, "differential_backup_hours")
+
+    @property
+    @pulumi.getter(name="fullBackupDays")
+    def full_backup_days(self) -> Optional[int]:
+        """
+        The value indicating days between full backups.
+        """
+        return pulumi.get(self, "full_backup_days")
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[int]:
+        """
+        The retention period for all the databases in this managed instance.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @property
+    @pulumi.getter(name="transactionLogBackupMinutes")
+    def transaction_log_backup_minutes(self) -> Optional[int]:
+        """
+        The value indicating minutes between transaction log backups.
+        """
+        return pulumi.get(self, "transaction_log_backup_minutes")
+
+
+@pulumi.output_type
 class BasicLoginInformationResponse(dict):
     """
     Username and password for basic login authentication.
@@ -1401,6 +1486,82 @@ class ExtendedLocationResponse(dict):
         The type of the extended location.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FailoverClusterResponse(dict):
+    """
+    Failover Cluster Instance properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostNames":
+            suggest = "host_names"
+        elif key == "networkName":
+            suggest = "network_name"
+        elif key == "sqlInstanceIds":
+            suggest = "sql_instance_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FailoverClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FailoverClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FailoverClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_names: Sequence[str],
+                 id: str,
+                 network_name: str,
+                 sql_instance_ids: Sequence[str]):
+        """
+        Failover Cluster Instance properties.
+        :param Sequence[str] host_names: The host names which are part of the SQL FCI resource group.
+        :param str id: The GUID of the SQL Server's underlying Failover Cluster.
+        :param str network_name: The network name to connect to the SQL FCI.
+        :param Sequence[str] sql_instance_ids: The ARM IDs of the Arc SQL Server resources, belonging to the current server's Failover cluster.
+        """
+        pulumi.set(__self__, "host_names", host_names)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "sql_instance_ids", sql_instance_ids)
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Sequence[str]:
+        """
+        The host names which are part of the SQL FCI resource group.
+        """
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The GUID of the SQL Server's underlying Failover Cluster.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network name to connect to the SQL FCI.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter(name="sqlInstanceIds")
+    def sql_instance_ids(self) -> Sequence[str]:
+        """
+        The ARM IDs of the Arc SQL Server resources, belonging to the current server's Failover cluster.
+        """
+        return pulumi.get(self, "sql_instance_ids")
 
 
 @pulumi.output_type
@@ -2033,6 +2194,29 @@ class LogAnalyticsWorkspaceConfigResponse(dict):
         Azure Log Analytics workspace ID
         """
         return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class MonitoringResponse(dict):
+    """
+    The monitoring configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The monitoring configuration.
+        :param bool enabled: Indicates if monitoring is enabled for this SQL Server instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates if monitoring is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -3157,14 +3341,22 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "earliestRestoreDate":
+            suggest = "earliest_restore_date"
+        elif key == "lastDatabaseUploadTime":
+            suggest = "last_database_upload_time"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "backupInformation":
             suggest = "backup_information"
+        elif key == "backupPolicy":
+            suggest = "backup_policy"
         elif key == "collationName":
             suggest = "collation_name"
         elif key == "compatibilityLevel":
             suggest = "compatibility_level"
+        elif key == "createMode":
+            suggest = "create_mode"
         elif key == "databaseCreationDate":
             suggest = "database_creation_date"
         elif key == "databaseOptions":
@@ -3173,8 +3365,12 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
             suggest = "is_read_only"
         elif key == "recoveryMode":
             suggest = "recovery_mode"
+        elif key == "restorePointInTime":
+            suggest = "restore_point_in_time"
         elif key == "sizeMB":
             suggest = "size_mb"
+        elif key == "sourceDatabaseId":
+            suggest = "source_database_id"
         elif key == "spaceAvailableMB":
             suggest = "space_available_mb"
 
@@ -3190,37 +3386,55 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 earliest_restore_date: str,
+                 last_database_upload_time: str,
                  provisioning_state: str,
                  backup_information: Optional['outputs.SqlServerDatabaseResourcePropertiesResponseBackupInformation'] = None,
+                 backup_policy: Optional['outputs.BackupPolicyResponse'] = None,
                  collation_name: Optional[str] = None,
                  compatibility_level: Optional[int] = None,
+                 create_mode: Optional[str] = None,
                  database_creation_date: Optional[str] = None,
                  database_options: Optional['outputs.SqlServerDatabaseResourcePropertiesResponseDatabaseOptions'] = None,
                  is_read_only: Optional[bool] = None,
                  recovery_mode: Optional[str] = None,
+                 restore_point_in_time: Optional[str] = None,
                  size_mb: Optional[float] = None,
+                 source_database_id: Optional[str] = None,
                  space_available_mb: Optional[float] = None,
                  state: Optional[str] = None):
         """
         The properties of Arc Sql Server database resource
+        :param str earliest_restore_date: This records the earliest start date and time that restore is available for this database (ISO8601 format).
+        :param str last_database_upload_time: The time when last successful database upload was performed.
         :param str provisioning_state: The provisioning state of the Arc-enabled SQL Server database resource.
+        :param 'BackupPolicyResponse' backup_policy: The backup profile for the SQL server.
         :param str collation_name: Collation of the database.
         :param int compatibility_level: Compatibility level of the database
+        :param str create_mode: Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
         :param str database_creation_date: Creation date of the database.
         :param 'SqlServerDatabaseResourcePropertiesResponseDatabaseOptions' database_options: List of features that are enabled for the database
         :param bool is_read_only: Whether the database is read only or not.
         :param str recovery_mode: Status of the database.
+        :param str restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param float size_mb: Size of the database.
+        :param str source_database_id: The resource identifier of the source database associated with create operation of this database.
         :param float space_available_mb: Space left of the database.
         :param str state: State of the database.
         """
+        pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
+        pulumi.set(__self__, "last_database_upload_time", last_database_upload_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if backup_information is not None:
             pulumi.set(__self__, "backup_information", backup_information)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
         if collation_name is not None:
             pulumi.set(__self__, "collation_name", collation_name)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if database_creation_date is not None:
             pulumi.set(__self__, "database_creation_date", database_creation_date)
         if database_options is not None:
@@ -3229,12 +3443,32 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
             pulumi.set(__self__, "is_read_only", is_read_only)
         if recovery_mode is not None:
             pulumi.set(__self__, "recovery_mode", recovery_mode)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if size_mb is not None:
             pulumi.set(__self__, "size_mb", size_mb)
+        if source_database_id is not None:
+            pulumi.set(__self__, "source_database_id", source_database_id)
         if space_available_mb is not None:
             pulumi.set(__self__, "space_available_mb", space_available_mb)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="earliestRestoreDate")
+    def earliest_restore_date(self) -> str:
+        """
+        This records the earliest start date and time that restore is available for this database (ISO8601 format).
+        """
+        return pulumi.get(self, "earliest_restore_date")
+
+    @property
+    @pulumi.getter(name="lastDatabaseUploadTime")
+    def last_database_upload_time(self) -> str:
+        """
+        The time when last successful database upload was performed.
+        """
+        return pulumi.get(self, "last_database_upload_time")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -3248,6 +3482,14 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
     @pulumi.getter(name="backupInformation")
     def backup_information(self) -> Optional['outputs.SqlServerDatabaseResourcePropertiesResponseBackupInformation']:
         return pulumi.get(self, "backup_information")
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional['outputs.BackupPolicyResponse']:
+        """
+        The backup profile for the SQL server.
+        """
+        return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter(name="collationName")
@@ -3264,6 +3506,14 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         Compatibility level of the database
         """
         return pulumi.get(self, "compatibility_level")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        """
+        return pulumi.get(self, "create_mode")
 
     @property
     @pulumi.getter(name="databaseCreationDate")
@@ -3298,12 +3548,28 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         return pulumi.get(self, "recovery_mode")
 
     @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[str]:
+        """
+        Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @property
     @pulumi.getter(name="sizeMB")
     def size_mb(self) -> Optional[float]:
         """
         Size of the database.
         """
         return pulumi.get(self, "size_mb")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> Optional[str]:
+        """
+        The resource identifier of the source database associated with create operation of this database.
+        """
+        return pulumi.get(self, "source_database_id")
 
     @property
     @pulumi.getter(name="spaceAvailableMB")
@@ -3710,34 +3976,46 @@ class SqlServerInstancePropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "containerResourceId":
-            suggest = "container_resource_id"
-        elif key == "createTime":
-            suggest = "create_time"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
+        if key == "alwaysOnRole":
+            suggest = "always_on_role"
         elif key == "azureDefenderStatus":
             suggest = "azure_defender_status"
         elif key == "azureDefenderStatusLastUpdated":
             suggest = "azure_defender_status_last_updated"
+        elif key == "containerResourceId":
+            suggest = "container_resource_id"
+        elif key == "createTime":
+            suggest = "create_time"
         elif key == "currentVersion":
             suggest = "current_version"
-        elif key == "hostType":
-            suggest = "host_type"
-        elif key == "instanceName":
-            suggest = "instance_name"
+        elif key == "lastInventoryUploadTime":
+            suggest = "last_inventory_upload_time"
+        elif key == "lastUsageUploadTime":
+            suggest = "last_usage_upload_time"
         elif key == "licenseType":
             suggest = "license_type"
         elif key == "patchLevel":
             suggest = "patch_level"
         elif key == "productId":
             suggest = "product_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "tcpDynamicPorts":
             suggest = "tcp_dynamic_ports"
         elif key == "tcpStaticPorts":
             suggest = "tcp_static_ports"
         elif key == "vCore":
             suggest = "v_core"
+        elif key == "backupPolicy":
+            suggest = "backup_policy"
+        elif key == "failoverCluster":
+            suggest = "failover_cluster"
+        elif key == "hostType":
+            suggest = "host_type"
+        elif key == "instanceName":
+            suggest = "instance_name"
+        elif key == "upgradeLockedUntil":
+            suggest = "upgrade_locked_until"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SqlServerInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3751,81 +4029,128 @@ class SqlServerInstancePropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 always_on_role: str,
+                 azure_defender_status: str,
+                 azure_defender_status_last_updated: str,
+                 collation: str,
                  container_resource_id: str,
                  create_time: str,
+                 current_version: str,
+                 last_inventory_upload_time: str,
+                 last_usage_upload_time: str,
+                 license_type: str,
+                 patch_level: str,
+                 product_id: str,
                  provisioning_state: str,
                  status: str,
-                 azure_defender_status: Optional[str] = None,
-                 azure_defender_status_last_updated: Optional[str] = None,
-                 collation: Optional[str] = None,
+                 tcp_dynamic_ports: str,
+                 tcp_static_ports: str,
+                 v_core: str,
+                 backup_policy: Optional['outputs.BackupPolicyResponse'] = None,
                  cores: Optional[str] = None,
-                 current_version: Optional[str] = None,
                  edition: Optional[str] = None,
+                 failover_cluster: Optional['outputs.FailoverClusterResponse'] = None,
                  host_type: Optional[str] = None,
                  instance_name: Optional[str] = None,
-                 license_type: Optional[str] = None,
-                 patch_level: Optional[str] = None,
-                 product_id: Optional[str] = None,
-                 tcp_dynamic_ports: Optional[str] = None,
-                 tcp_static_ports: Optional[str] = None,
-                 v_core: Optional[str] = None,
+                 monitoring: Optional['outputs.MonitoringResponse'] = None,
+                 upgrade_locked_until: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Properties of SqlServerInstance.
-        :param str container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
-        :param str create_time: The time when the resource was created.
-        :param str provisioning_state: The provisioning state of the Arc-enabled SQL Server resource.
-        :param str status: The cloud connectivity status.
+        :param str always_on_role: The role of the SQL Server, based on availability.
         :param str azure_defender_status: Status of Azure Defender.
         :param str azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
         :param str collation: SQL Server collation.
-        :param str cores: The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        :param str container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
+        :param str create_time: The time when the resource was created.
         :param str current_version: SQL Server current version.
-        :param str edition: SQL Server edition.
-        :param str host_type: Type of host for Azure Arc SQL Server
-        :param str instance_name: SQL Server instance name.
+        :param str last_inventory_upload_time: The time when last successful inventory upload was performed.
+        :param str last_usage_upload_time: The time when last successful usage upload was performed.
         :param str license_type: SQL Server license type.
         :param str patch_level: SQL Server update level.
         :param str product_id: SQL Server product ID.
+        :param str provisioning_state: The provisioning state of the Arc-enabled SQL Server resource.
+        :param str status: The cloud connectivity status.
         :param str tcp_dynamic_ports: Dynamic TCP ports used by SQL Server.
         :param str tcp_static_ports: Static TCP ports used by SQL Server.
         :param str v_core: The number of logical processors used by the SQL Server instance.
+        :param 'BackupPolicyResponse' backup_policy: The backup profile for the SQL server.
+        :param str cores: The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        :param str edition: SQL Server edition.
+        :param 'FailoverClusterResponse' failover_cluster: Failover Cluster Instance properties.
+        :param str host_type: Type of host for Azure Arc SQL Server
+        :param str instance_name: SQL Server instance name.
+        :param 'MonitoringResponse' monitoring: The monitoring configuration.
+        :param str upgrade_locked_until: Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         :param str version: SQL Server version.
         """
+        pulumi.set(__self__, "always_on_role", always_on_role)
+        pulumi.set(__self__, "azure_defender_status", azure_defender_status)
+        pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
+        pulumi.set(__self__, "collation", collation)
         pulumi.set(__self__, "container_resource_id", container_resource_id)
         pulumi.set(__self__, "create_time", create_time)
+        pulumi.set(__self__, "current_version", current_version)
+        pulumi.set(__self__, "last_inventory_upload_time", last_inventory_upload_time)
+        pulumi.set(__self__, "last_usage_upload_time", last_usage_upload_time)
+        pulumi.set(__self__, "license_type", license_type)
+        pulumi.set(__self__, "patch_level", patch_level)
+        pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
-        if azure_defender_status is not None:
-            pulumi.set(__self__, "azure_defender_status", azure_defender_status)
-        if azure_defender_status_last_updated is not None:
-            pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
-        if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+        pulumi.set(__self__, "tcp_dynamic_ports", tcp_dynamic_ports)
+        pulumi.set(__self__, "tcp_static_ports", tcp_static_ports)
+        pulumi.set(__self__, "v_core", v_core)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
         if cores is not None:
             pulumi.set(__self__, "cores", cores)
-        if current_version is not None:
-            pulumi.set(__self__, "current_version", current_version)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
+        if failover_cluster is not None:
+            pulumi.set(__self__, "failover_cluster", failover_cluster)
         if host_type is not None:
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
-        if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
-        if patch_level is not None:
-            pulumi.set(__self__, "patch_level", patch_level)
-        if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
-        if tcp_dynamic_ports is not None:
-            pulumi.set(__self__, "tcp_dynamic_ports", tcp_dynamic_ports)
-        if tcp_static_ports is not None:
-            pulumi.set(__self__, "tcp_static_ports", tcp_static_ports)
-        if v_core is not None:
-            pulumi.set(__self__, "v_core", v_core)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if upgrade_locked_until is not None:
+            pulumi.set(__self__, "upgrade_locked_until", upgrade_locked_until)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="alwaysOnRole")
+    def always_on_role(self) -> str:
+        """
+        The role of the SQL Server, based on availability.
+        """
+        return pulumi.get(self, "always_on_role")
+
+    @property
+    @pulumi.getter(name="azureDefenderStatus")
+    def azure_defender_status(self) -> str:
+        """
+        Status of Azure Defender.
+        """
+        return pulumi.get(self, "azure_defender_status")
+
+    @property
+    @pulumi.getter(name="azureDefenderStatusLastUpdated")
+    def azure_defender_status_last_updated(self) -> str:
+        """
+        Timestamp of last Azure Defender status update.
+        """
+        return pulumi.get(self, "azure_defender_status_last_updated")
+
+    @property
+    @pulumi.getter
+    def collation(self) -> str:
+        """
+        SQL Server collation.
+        """
+        return pulumi.get(self, "collation")
 
     @property
     @pulumi.getter(name="containerResourceId")
@@ -3844,6 +4169,54 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter(name="currentVersion")
+    def current_version(self) -> str:
+        """
+        SQL Server current version.
+        """
+        return pulumi.get(self, "current_version")
+
+    @property
+    @pulumi.getter(name="lastInventoryUploadTime")
+    def last_inventory_upload_time(self) -> str:
+        """
+        The time when last successful inventory upload was performed.
+        """
+        return pulumi.get(self, "last_inventory_upload_time")
+
+    @property
+    @pulumi.getter(name="lastUsageUploadTime")
+    def last_usage_upload_time(self) -> str:
+        """
+        The time when last successful usage upload was performed.
+        """
+        return pulumi.get(self, "last_usage_upload_time")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> str:
+        """
+        SQL Server license type.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="patchLevel")
+    def patch_level(self) -> str:
+        """
+        SQL Server update level.
+        """
+        return pulumi.get(self, "patch_level")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> str:
+        """
+        SQL Server product ID.
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -3860,28 +4233,36 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "status")
 
     @property
-    @pulumi.getter(name="azureDefenderStatus")
-    def azure_defender_status(self) -> Optional[str]:
+    @pulumi.getter(name="tcpDynamicPorts")
+    def tcp_dynamic_ports(self) -> str:
         """
-        Status of Azure Defender.
+        Dynamic TCP ports used by SQL Server.
         """
-        return pulumi.get(self, "azure_defender_status")
+        return pulumi.get(self, "tcp_dynamic_ports")
 
     @property
-    @pulumi.getter(name="azureDefenderStatusLastUpdated")
-    def azure_defender_status_last_updated(self) -> Optional[str]:
+    @pulumi.getter(name="tcpStaticPorts")
+    def tcp_static_ports(self) -> str:
         """
-        Timestamp of last Azure Defender status update.
+        Static TCP ports used by SQL Server.
         """
-        return pulumi.get(self, "azure_defender_status_last_updated")
+        return pulumi.get(self, "tcp_static_ports")
 
     @property
-    @pulumi.getter
-    def collation(self) -> Optional[str]:
+    @pulumi.getter(name="vCore")
+    def v_core(self) -> str:
         """
-        SQL Server collation.
+        The number of logical processors used by the SQL Server instance.
         """
-        return pulumi.get(self, "collation")
+        return pulumi.get(self, "v_core")
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional['outputs.BackupPolicyResponse']:
+        """
+        The backup profile for the SQL server.
+        """
+        return pulumi.get(self, "backup_policy")
 
     @property
     @pulumi.getter
@@ -3892,20 +4273,20 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "cores")
 
     @property
-    @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[str]:
-        """
-        SQL Server current version.
-        """
-        return pulumi.get(self, "current_version")
-
-    @property
     @pulumi.getter
     def edition(self) -> Optional[str]:
         """
         SQL Server edition.
         """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="failoverCluster")
+    def failover_cluster(self) -> Optional['outputs.FailoverClusterResponse']:
+        """
+        Failover Cluster Instance properties.
+        """
+        return pulumi.get(self, "failover_cluster")
 
     @property
     @pulumi.getter(name="hostType")
@@ -3924,52 +4305,20 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "instance_name")
 
     @property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[str]:
+    @pulumi.getter
+    def monitoring(self) -> Optional['outputs.MonitoringResponse']:
         """
-        SQL Server license type.
+        The monitoring configuration.
         """
-        return pulumi.get(self, "license_type")
+        return pulumi.get(self, "monitoring")
 
     @property
-    @pulumi.getter(name="patchLevel")
-    def patch_level(self) -> Optional[str]:
+    @pulumi.getter(name="upgradeLockedUntil")
+    def upgrade_locked_until(self) -> Optional[str]:
         """
-        SQL Server update level.
+        Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         """
-        return pulumi.get(self, "patch_level")
-
-    @property
-    @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[str]:
-        """
-        SQL Server product ID.
-        """
-        return pulumi.get(self, "product_id")
-
-    @property
-    @pulumi.getter(name="tcpDynamicPorts")
-    def tcp_dynamic_ports(self) -> Optional[str]:
-        """
-        Dynamic TCP ports used by SQL Server.
-        """
-        return pulumi.get(self, "tcp_dynamic_ports")
-
-    @property
-    @pulumi.getter(name="tcpStaticPorts")
-    def tcp_static_ports(self) -> Optional[str]:
-        """
-        Static TCP ports used by SQL Server.
-        """
-        return pulumi.get(self, "tcp_static_ports")
-
-    @property
-    @pulumi.getter(name="vCore")
-    def v_core(self) -> Optional[str]:
-        """
-        The number of logical processors used by the SQL Server instance.
-        """
-        return pulumi.get(self, "v_core")
+        return pulumi.get(self, "upgrade_locked_until")
 
     @property
     @pulumi.getter

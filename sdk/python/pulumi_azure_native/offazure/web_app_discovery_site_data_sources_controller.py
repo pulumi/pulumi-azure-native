@@ -115,9 +115,7 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
                  __props__=None):
         """
         Web app data source web model.
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,9 +133,7 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Web app data source web model.
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param WebAppDiscoverySiteDataSourcesControllerArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +175,7 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
             if web_app_site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'web_app_site_name'")
             __props__.__dict__["web_app_site_name"] = web_app_site_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -207,12 +204,21 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
 
         __props__ = WebAppDiscoverySiteDataSourcesControllerArgs.__new__(WebAppDiscoverySiteDataSourcesControllerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["discovery_site_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebAppDiscoverySiteDataSourcesController(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoverySiteId")

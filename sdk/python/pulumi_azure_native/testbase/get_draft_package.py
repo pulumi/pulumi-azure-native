@@ -27,13 +27,16 @@ class GetDraftPackageResult:
     """
     The Test Base Draft Package resource.
     """
-    def __init__(__self__, app_file_name=None, application_name=None, comments=None, draft_package_path=None, edit_package=None, executable_launch_command=None, first_party_apps=None, flighting_ring=None, gallery_apps=None, highlighted_files=None, id=None, inplace_upgrade_os_pair=None, intune_enrollment_metadata=None, intune_metadata=None, last_modified_time=None, name=None, package_id=None, package_tags=None, process_name=None, provisioning_state=None, source_type=None, system_data=None, tab_state=None, target_os_list=None, test_types=None, tests=None, type=None, use_autofill=None, use_sample=None, version=None, working_path=None):
+    def __init__(__self__, app_file_name=None, application_name=None, azure_api_version=None, comments=None, draft_package_path=None, edit_package=None, executable_launch_command=None, first_party_apps=None, flighting_ring=None, gallery_apps=None, highlighted_files=None, id=None, inplace_upgrade_os_pair=None, intune_enrollment_metadata=None, intune_metadata=None, last_modified_time=None, name=None, package_id=None, package_tags=None, process_name=None, provisioning_state=None, source_type=None, system_data=None, tab_state=None, target_os_list=None, test_types=None, tests=None, type=None, use_autofill=None, use_sample=None, version=None, working_path=None):
         if app_file_name and not isinstance(app_file_name, str):
             raise TypeError("Expected argument 'app_file_name' to be a str")
         pulumi.set(__self__, "app_file_name", app_file_name)
         if application_name and not isinstance(application_name, str):
             raise TypeError("Expected argument 'application_name' to be a str")
         pulumi.set(__self__, "application_name", application_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if comments and not isinstance(comments, str):
             raise TypeError("Expected argument 'comments' to be a str")
         pulumi.set(__self__, "comments", comments)
@@ -137,6 +140,14 @@ class GetDraftPackageResult:
         Application name
         """
         return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -379,6 +390,7 @@ class AwaitableGetDraftPackageResult(GetDraftPackageResult):
         return GetDraftPackageResult(
             app_file_name=self.app_file_name,
             application_name=self.application_name,
+            azure_api_version=self.azure_api_version,
             comments=self.comments,
             draft_package_path=self.draft_package_path,
             edit_package=self.edit_package,
@@ -433,6 +445,7 @@ def get_draft_package(draft_package_name: Optional[str] = None,
     return AwaitableGetDraftPackageResult(
         app_file_name=pulumi.get(__ret__, 'app_file_name'),
         application_name=pulumi.get(__ret__, 'application_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         comments=pulumi.get(__ret__, 'comments'),
         draft_package_path=pulumi.get(__ret__, 'draft_package_path'),
         edit_package=pulumi.get(__ret__, 'edit_package'),
@@ -484,6 +497,7 @@ def get_draft_package_output(draft_package_name: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetDraftPackageResult(
         app_file_name=pulumi.get(__response__, 'app_file_name'),
         application_name=pulumi.get(__response__, 'application_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         comments=pulumi.get(__response__, 'comments'),
         draft_package_path=pulumi.get(__response__, 'draft_package_path'),
         edit_package=pulumi.get(__response__, 'edit_package'),

@@ -320,9 +320,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         The streaming endpoint.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -352,9 +350,7 @@ class StreamingEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The streaming endpoint.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param StreamingEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -420,6 +416,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_endpoint_name"] = streaming_endpoint_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["free_trial_end_time"] = None
             __props__.__dict__["host_name"] = None
@@ -455,6 +452,7 @@ class StreamingEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["access_control"] = None
         __props__.__dict__["availability_set_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cdn_enabled"] = None
         __props__.__dict__["cdn_profile"] = None
         __props__.__dict__["cdn_provider"] = None
@@ -492,6 +490,14 @@ class StreamingEndpoint(pulumi.CustomResource):
         This feature is deprecated, do not set a value for this property.
         """
         return pulumi.get(self, "availability_set_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cdnEnabled")

@@ -12,11 +12,3 @@ from .registration_assignment import *
 from .registration_definition import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.managedservices.v20221001 as __v20221001
-    v20221001 = __v20221001
-else:
-    v20221001 = _utilities.lazy_import('pulumi_azure_native.managedservices.v20221001')
-

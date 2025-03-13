@@ -7,7 +7,9 @@ from enum import Enum
 __all__ = [
     'LanguageRuntime',
     'LedgerRoleName',
+    'LedgerSku',
     'LedgerType',
+    'RunningState',
 ]
 
 
@@ -28,6 +30,15 @@ class LedgerRoleName(str, Enum):
     ADMINISTRATOR = "Administrator"
 
 
+class LedgerSku(str, Enum):
+    """
+    SKU associated with the ledger
+    """
+    STANDARD = "Standard"
+    BASIC = "Basic"
+    UNKNOWN = "Unknown"
+
+
 class LedgerType(str, Enum):
     """
     Type of Confidential Ledger
@@ -35,3 +46,14 @@ class LedgerType(str, Enum):
     UNKNOWN = "Unknown"
     PUBLIC = "Public"
     PRIVATE = "Private"
+
+
+class RunningState(str, Enum):
+    """
+    Object representing RunningState for Managed CCF.
+    """
+    ACTIVE = "Active"
+    PAUSED = "Paused"
+    UNKNOWN = "Unknown"
+    PAUSING = "Pausing"
+    RESUMING = "Resuming"

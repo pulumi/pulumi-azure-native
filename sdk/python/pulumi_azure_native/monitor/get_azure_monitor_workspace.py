@@ -25,12 +25,15 @@ __all__ = [
 @pulumi.output_type
 class GetAzureMonitorWorkspaceResult:
     """
-    An Azure Monitor Workspace definition
+    An Azure Monitor Workspace definition.
     """
-    def __init__(__self__, account_id=None, default_ingestion_settings=None, etag=None, id=None, location=None, metrics=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, azure_api_version=None, default_ingestion_settings=None, etag=None, id=None, location=None, metrics=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_ingestion_settings and not isinstance(default_ingestion_settings, dict):
             raise TypeError("Expected argument 'default_ingestion_settings' to be a dict")
         pulumi.set(__self__, "default_ingestion_settings", default_ingestion_settings)
@@ -72,13 +75,21 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The immutable Id of the Azure Monitor Workspace. This property is read-only.
+        The immutable ID of the Azure Monitor workspace. This property is read-only.
         """
         return pulumi.get(self, "account_id")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="defaultIngestionSettings")
-    def default_ingestion_settings(self) -> 'outputs.AzureMonitorWorkspaceResponseDefaultIngestionSettings':
+    def default_ingestion_settings(self) -> 'outputs.IngestionSettingsResponse':
         """
         The Data Collection Rule and Endpoint used for ingestion by default.
         """
@@ -96,7 +107,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -110,9 +121,9 @@ class GetAzureMonitorWorkspaceResult:
 
     @property
     @pulumi.getter
-    def metrics(self) -> 'outputs.AzureMonitorWorkspaceResponseMetrics':
+    def metrics(self) -> Optional['outputs.MetricsResponse']:
         """
-        Properties related to the metrics container in the Azure Monitor Workspace
+        Information about metrics for the Azure Monitor workspace
         """
         return pulumi.get(self, "metrics")
 
@@ -128,7 +139,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        List of private endpoint connections
+        List of private endpoint connections.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -136,15 +147,15 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
+        The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[str]:
+    def public_network_access(self) -> str:
         """
-        Gets or sets allow or disallow public network access to Azure Monitor Workspace
+        Gets or sets allow or disallow public network access to workspace
         """
         return pulumi.get(self, "public_network_access")
 
@@ -180,6 +191,7 @@ class AwaitableGetAzureMonitorWorkspaceResult(GetAzureMonitorWorkspaceResult):
             yield self
         return GetAzureMonitorWorkspaceResult(
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             default_ingestion_settings=self.default_ingestion_settings,
             etag=self.etag,
             id=self.id,
@@ -198,13 +210,11 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
-    Returns the specified Azure Monitor Workspace
-    Azure REST API version: 2023-04-03.
-
-    Other available API versions: 2023-10-01-preview.
+    Returns the specific Azure Monitor workspace
+    Azure REST API version: 2023-10-01-preview.
 
 
-    :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -215,6 +225,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
 
     return AwaitableGetAzureMonitorWorkspaceResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_ingestion_settings=pulumi.get(__ret__, 'default_ingestion_settings'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -231,13 +242,11 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
-    Returns the specified Azure Monitor Workspace
-    Azure REST API version: 2023-04-03.
-
-    Other available API versions: 2023-10-01-preview.
+    Returns the specific Azure Monitor workspace
+    Azure REST API version: 2023-10-01-preview.
 
 
-    :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace. The name is case insensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -247,6 +256,7 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
     __ret__ = pulumi.runtime.invoke_output('azure-native:monitor:getAzureMonitorWorkspace', __args__, opts=opts, typ=GetAzureMonitorWorkspaceResult)
     return __ret__.apply(lambda __response__: GetAzureMonitorWorkspaceResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_ingestion_settings=pulumi.get(__response__, 'default_ingestion_settings'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

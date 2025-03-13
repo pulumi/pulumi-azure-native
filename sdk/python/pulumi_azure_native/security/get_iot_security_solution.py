@@ -27,13 +27,16 @@ class GetIotSecuritySolutionResult:
     """
     IoT Security solution configuration and resource information.
     """
-    def __init__(__self__, additional_workspaces=None, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, id=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, system_data=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
+    def __init__(__self__, additional_workspaces=None, auto_discovered_resources=None, azure_api_version=None, disabled_data_sources=None, display_name=None, export=None, id=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, system_data=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
         if additional_workspaces and not isinstance(additional_workspaces, list):
             raise TypeError("Expected argument 'additional_workspaces' to be a list")
         pulumi.set(__self__, "additional_workspaces", additional_workspaces)
         if auto_discovered_resources and not isinstance(auto_discovered_resources, list):
             raise TypeError("Expected argument 'auto_discovered_resources' to be a list")
         pulumi.set(__self__, "auto_discovered_resources", auto_discovered_resources)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disabled_data_sources and not isinstance(disabled_data_sources, list):
             raise TypeError("Expected argument 'disabled_data_sources' to be a list")
         pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
@@ -95,6 +98,14 @@ class GetIotSecuritySolutionResult:
         List of resources that were automatically discovered as relevant to the security solution.
         """
         return pulumi.get(self, "auto_discovered_resources")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disabledDataSources")
@@ -225,6 +236,7 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
         return GetIotSecuritySolutionResult(
             additional_workspaces=self.additional_workspaces,
             auto_discovered_resources=self.auto_discovered_resources,
+            azure_api_version=self.azure_api_version,
             disabled_data_sources=self.disabled_data_sources,
             display_name=self.display_name,
             export=self.export,
@@ -249,8 +261,6 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
     User this method to get details of a specific IoT Security solution based on solution name
     Azure REST API version: 2019-08-01.
 
-    Other available API versions: 2017-08-01-preview.
-
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str solution_name: The name of the IoT Security solution.
@@ -264,6 +274,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
     return AwaitableGetIotSecuritySolutionResult(
         additional_workspaces=pulumi.get(__ret__, 'additional_workspaces'),
         auto_discovered_resources=pulumi.get(__ret__, 'auto_discovered_resources'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disabled_data_sources=pulumi.get(__ret__, 'disabled_data_sources'),
         display_name=pulumi.get(__ret__, 'display_name'),
         export=pulumi.get(__ret__, 'export'),
@@ -286,8 +297,6 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     User this method to get details of a specific IoT Security solution based on solution name
     Azure REST API version: 2019-08-01.
 
-    Other available API versions: 2017-08-01-preview.
-
 
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     :param str solution_name: The name of the IoT Security solution.
@@ -300,6 +309,7 @@ def get_iot_security_solution_output(resource_group_name: Optional[pulumi.Input[
     return __ret__.apply(lambda __response__: GetIotSecuritySolutionResult(
         additional_workspaces=pulumi.get(__response__, 'additional_workspaces'),
         auto_discovered_resources=pulumi.get(__response__, 'auto_discovered_resources'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disabled_data_sources=pulumi.get(__response__, 'disabled_data_sources'),
         display_name=pulumi.get(__response__, 'display_name'),
         export=pulumi.get(__response__, 'export'),

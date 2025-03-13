@@ -27,10 +27,13 @@ class GetReadOnlyFollowingDatabaseResult:
     """
     Class representing a read only following database.
     """
-    def __init__(__self__, attached_database_configuration_name=None, database_share_origin=None, hot_cache_period=None, id=None, kind=None, leader_cluster_resource_id=None, location=None, name=None, original_database_name=None, principals_modification_kind=None, provisioning_state=None, soft_delete_period=None, statistics=None, table_level_sharing_properties=None, type=None):
+    def __init__(__self__, attached_database_configuration_name=None, azure_api_version=None, database_share_origin=None, hot_cache_period=None, id=None, kind=None, leader_cluster_resource_id=None, location=None, name=None, original_database_name=None, principals_modification_kind=None, provisioning_state=None, soft_delete_period=None, statistics=None, suspension_details=None, table_level_sharing_properties=None, type=None):
         if attached_database_configuration_name and not isinstance(attached_database_configuration_name, str):
             raise TypeError("Expected argument 'attached_database_configuration_name' to be a str")
         pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_share_origin and not isinstance(database_share_origin, str):
             raise TypeError("Expected argument 'database_share_origin' to be a str")
         pulumi.set(__self__, "database_share_origin", database_share_origin)
@@ -67,6 +70,9 @@ class GetReadOnlyFollowingDatabaseResult:
         if statistics and not isinstance(statistics, dict):
             raise TypeError("Expected argument 'statistics' to be a dict")
         pulumi.set(__self__, "statistics", statistics)
+        if suspension_details and not isinstance(suspension_details, dict):
+            raise TypeError("Expected argument 'suspension_details' to be a dict")
+        pulumi.set(__self__, "suspension_details", suspension_details)
         if table_level_sharing_properties and not isinstance(table_level_sharing_properties, dict):
             raise TypeError("Expected argument 'table_level_sharing_properties' to be a dict")
         pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
@@ -81,6 +87,14 @@ class GetReadOnlyFollowingDatabaseResult:
         The name of the attached database configuration cluster
         """
         return pulumi.get(self, "attached_database_configuration_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databaseShareOrigin")
@@ -180,6 +194,14 @@ class GetReadOnlyFollowingDatabaseResult:
         return pulumi.get(self, "statistics")
 
     @property
+    @pulumi.getter(name="suspensionDetails")
+    def suspension_details(self) -> 'outputs.SuspensionDetailsResponse':
+        """
+        The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        """
+        return pulumi.get(self, "suspension_details")
+
+    @property
     @pulumi.getter(name="tableLevelSharingProperties")
     def table_level_sharing_properties(self) -> 'outputs.TableLevelSharingPropertiesResponse':
         """
@@ -203,6 +225,7 @@ class AwaitableGetReadOnlyFollowingDatabaseResult(GetReadOnlyFollowingDatabaseRe
             yield self
         return GetReadOnlyFollowingDatabaseResult(
             attached_database_configuration_name=self.attached_database_configuration_name,
+            azure_api_version=self.azure_api_version,
             database_share_origin=self.database_share_origin,
             hot_cache_period=self.hot_cache_period,
             id=self.id,
@@ -215,6 +238,7 @@ class AwaitableGetReadOnlyFollowingDatabaseResult(GetReadOnlyFollowingDatabaseRe
             provisioning_state=self.provisioning_state,
             soft_delete_period=self.soft_delete_period,
             statistics=self.statistics,
+            suspension_details=self.suspension_details,
             table_level_sharing_properties=self.table_level_sharing_properties,
             type=self.type)
 
@@ -225,12 +249,12 @@ def get_read_only_following_database(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadOnlyFollowingDatabaseResult:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -241,6 +265,7 @@ def get_read_only_following_database(cluster_name: Optional[str] = None,
 
     return AwaitableGetReadOnlyFollowingDatabaseResult(
         attached_database_configuration_name=pulumi.get(__ret__, 'attached_database_configuration_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_share_origin=pulumi.get(__ret__, 'database_share_origin'),
         hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
         id=pulumi.get(__ret__, 'id'),
@@ -253,6 +278,7 @@ def get_read_only_following_database(cluster_name: Optional[str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'),
         statistics=pulumi.get(__ret__, 'statistics'),
+        suspension_details=pulumi.get(__ret__, 'suspension_details'),
         table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
         type=pulumi.get(__ret__, 'type'))
 def get_read_only_following_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
@@ -261,12 +287,12 @@ def get_read_only_following_database_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadOnlyFollowingDatabaseResult]:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -276,6 +302,7 @@ def get_read_only_following_database_output(cluster_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult)
     return __ret__.apply(lambda __response__: GetReadOnlyFollowingDatabaseResult(
         attached_database_configuration_name=pulumi.get(__response__, 'attached_database_configuration_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_share_origin=pulumi.get(__response__, 'database_share_origin'),
         hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
         id=pulumi.get(__response__, 'id'),
@@ -288,5 +315,6 @@ def get_read_only_following_database_output(cluster_name: Optional[pulumi.Input[
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         soft_delete_period=pulumi.get(__response__, 'soft_delete_period'),
         statistics=pulumi.get(__response__, 'statistics'),
+        suspension_details=pulumi.get(__response__, 'suspension_details'),
         table_level_sharing_properties=pulumi.get(__response__, 'table_level_sharing_properties'),
         type=pulumi.get(__response__, 'type')))

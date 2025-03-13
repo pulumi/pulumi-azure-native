@@ -206,7 +206,7 @@ class KustoPool(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Kusto kusto pool.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -229,7 +229,7 @@ class KustoPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto kusto pool.
-        Azure REST API version: 2021-06-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 2.x: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KustoPoolArgs args: The arguments to use to populate this resource's properties.
@@ -285,6 +285,7 @@ class KustoPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["workspace_uid"] = workspace_uid
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["data_ingestion_uri"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["language_extensions"] = None
@@ -319,6 +320,7 @@ class KustoPool(pulumi.CustomResource):
 
         __props__ = KustoPoolArgs.__new__(KustoPoolArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["data_ingestion_uri"] = None
         __props__.__dict__["enable_purge"] = None
         __props__.__dict__["enable_streaming_ingest"] = None
@@ -337,6 +339,14 @@ class KustoPool(pulumi.CustomResource):
         __props__.__dict__["uri"] = None
         __props__.__dict__["workspace_uid"] = None
         return KustoPool(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataIngestionUri")

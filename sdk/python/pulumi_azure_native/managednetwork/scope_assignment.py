@@ -99,7 +99,7 @@ class ScopeAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         The Managed Network resource
-        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -116,7 +116,7 @@ class ScopeAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Managed Network resource
-        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ScopeAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -152,6 +152,7 @@ class ScopeAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["scope_assignment_name"] = scope_assignment_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -181,6 +182,7 @@ class ScopeAssignment(pulumi.CustomResource):
         __props__ = ScopeAssignmentArgs.__new__(ScopeAssignmentArgs)
 
         __props__.__dict__["assigned_managed_network"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -195,6 +197,14 @@ class ScopeAssignment(pulumi.CustomResource):
         The managed network ID with scope will be assigned to.
         """
         return pulumi.get(self, "assigned_managed_network")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

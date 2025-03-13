@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AdditionalVmPatch',
     'AssessmentDayOfWeek',
     'AutoBackupDaysOfWeek',
     'BackupScheduleType',
@@ -16,6 +17,7 @@ __all__ = [
     'Failover',
     'FullBackupFrequencyType',
     'IdentityType',
+    'LeastPrivilegeMode',
     'ReadableSecondary',
     'Role',
     'SqlImageSku',
@@ -24,7 +26,16 @@ __all__ = [
     'SqlVmGroupImageSku',
     'SqlWorkloadType',
     'StorageWorkloadType',
+    'VmIdentityType',
 ]
+
+
+class AdditionalVmPatch(str, Enum):
+    """
+    Additional Patch to be enable or enabled on the SQL Virtual Machine.
+    """
+    NOT_SET = "NotSet"
+    MICROSOFT_UPDATE = "MicrosoftUpdate"
 
 
 class AssessmentDayOfWeek(str, Enum):
@@ -128,6 +139,16 @@ class IdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class LeastPrivilegeMode(str, Enum):
+    """
+    SQL IaaS Agent least privilege mode.
+    """
+    ENABLED = "Enabled"
+    NOT_SET = "NotSet"
 
 
 class ReadableSecondary(str, Enum):
@@ -160,7 +181,7 @@ class SqlImageSku(str, Enum):
 
 class SqlManagementMode(str, Enum):
     """
-    SQL Server Management type.
+    SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
     """
     FULL = "Full"
     LIGHT_WEIGHT = "LightWeight"
@@ -200,3 +221,12 @@ class StorageWorkloadType(str, Enum):
     GENERAL = "GENERAL"
     OLTP = "OLTP"
     DW = "DW"
+
+
+class VmIdentityType(str, Enum):
+    """
+    Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"

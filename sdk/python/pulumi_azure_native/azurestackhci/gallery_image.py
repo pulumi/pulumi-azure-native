@@ -22,38 +22,43 @@ __all__ = ['GalleryImageArgs', 'GalleryImage']
 @pulumi.input_type
 class GalleryImageArgs:
     def __init__(__self__, *,
+                 os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[str],
                  cloud_init_data_source: Optional[pulumi.Input[Union[str, 'CloudInitDataSource']]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
+                 container_id: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  identifier: Optional[pulumi.Input['GalleryImageIdentifierArgs']] = None,
                  image_path: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None):
+                 version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']] = None):
         """
         The set of arguments for constructing a GalleryImage resource.
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-        :param pulumi.Input[str] container_name: Container Name for storage container
+        :param pulumi.Input[str] container_id: Storage ContainerID of the storage container to be used for gallery image
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] gallery_image_name: Name of the gallery image
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] image_path: location of the image the gallery image should be created from
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['OperatingSystemTypes'] os_type: Operating system type that the gallery image uses [Windows, Linux]
+        :param pulumi.Input[str] source_virtual_machine_id: Resource ID of the source virtual machine from whose OS disk the gallery image is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['GalleryImageVersionArgs'] version: Specifies information about the gallery image version that you want to create or update.
+        :param pulumi.Input['VmImageRepositoryCredentialsArgs'] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image
         """
+        pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_init_data_source is not None:
             pulumi.set(__self__, "cloud_init_data_source", cloud_init_data_source)
-        if container_name is not None:
-            pulumi.set(__self__, "container_name", container_name)
+        if container_id is not None:
+            pulumi.set(__self__, "container_id", container_id)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if gallery_image_name is not None:
@@ -66,12 +71,26 @@ class GalleryImageArgs:
             pulumi.set(__self__, "image_path", image_path)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+        if source_virtual_machine_id is not None:
+            pulumi.set(__self__, "source_virtual_machine_id", source_virtual_machine_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if vm_image_repository_credentials is not None:
+            pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[Union[str, 'OperatingSystemTypes']]:
+        """
+        Operating system type that the gallery image uses [Windows, Linux]
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[Union[str, 'OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -98,16 +117,16 @@ class GalleryImageArgs:
         pulumi.set(self, "cloud_init_data_source", value)
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Container Name for storage container
+        Storage ContainerID of the storage container to be used for gallery image
         """
-        return pulumi.get(self, "container_name")
+        return pulumi.get(self, "container_id")
 
-    @container_name.setter
-    def container_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "container_name", value)
+    @container_id.setter
+    def container_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_id", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -182,16 +201,16 @@ class GalleryImageArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input['OperatingSystemTypes']]:
+    @pulumi.getter(name="sourceVirtualMachineId")
+    def source_virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Operating system type that the gallery image uses [Windows, Linux]
+        Resource ID of the source virtual machine from whose OS disk the gallery image is created.
         """
-        return pulumi.get(self, "os_type")
+        return pulumi.get(self, "source_virtual_machine_id")
 
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input['OperatingSystemTypes']]):
-        pulumi.set(self, "os_type", value)
+    @source_virtual_machine_id.setter
+    def source_virtual_machine_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_virtual_machine_id", value)
 
     @property
     @pulumi.getter
@@ -217,6 +236,18 @@ class GalleryImageArgs:
     def version(self, value: Optional[pulumi.Input['GalleryImageVersionArgs']]):
         pulumi.set(self, "version", value)
 
+    @property
+    @pulumi.getter(name="vmImageRepositoryCredentials")
+    def vm_image_repository_credentials(self) -> Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']]:
+        """
+        The credentials used to login to the image repository that has access to the specified image
+        """
+        return pulumi.get(self, "vm_image_repository_credentials")
+
+    @vm_image_repository_credentials.setter
+    def vm_image_repository_credentials(self, value: Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']]):
+        pulumi.set(self, "vm_image_repository_credentials", value)
+
 
 class GalleryImage(pulumi.CustomResource):
     @overload
@@ -224,38 +255,40 @@ class GalleryImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_init_data_source: Optional[pulumi.Input[Union[str, 'CloudInitDataSource']]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
+                 container_id: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
                  image_path: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         The gallery images resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
-        :param pulumi.Input[str] container_name: Container Name for storage container
+        :param pulumi.Input[str] container_id: Storage ContainerID of the storage container to be used for gallery image
         :param pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] gallery_image_name: Name of the gallery image
         :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] image_path: location of the image the gallery image should be created from
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['OperatingSystemTypes'] os_type: Operating system type that the gallery image uses [Windows, Linux]
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] source_virtual_machine_id: Resource ID of the source virtual machine from whose OS disk the gallery image is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']] version: Specifies information about the gallery image version that you want to create or update.
+        :param pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image
         """
         ...
     @overload
@@ -265,9 +298,7 @@ class GalleryImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The gallery images resource definition.
-        Azure REST API version: 2022-12-15-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.
@@ -285,17 +316,19 @@ class GalleryImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloud_init_data_source: Optional[pulumi.Input[Union[str, 'CloudInitDataSource']]] = None,
-                 container_name: Optional[pulumi.Input[str]] = None,
+                 container_id: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  identifier: Optional[pulumi.Input[Union['GalleryImageIdentifierArgs', 'GalleryImageIdentifierArgsDict']]] = None,
                  image_path: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
+                 vm_image_repository_credentials: Optional[pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -306,25 +339,30 @@ class GalleryImage(pulumi.CustomResource):
             __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
             __props__.__dict__["cloud_init_data_source"] = cloud_init_data_source
-            __props__.__dict__["container_name"] = container_name
+            __props__.__dict__["container_id"] = container_id
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["gallery_image_name"] = gallery_image_name
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["identifier"] = identifier
             __props__.__dict__["image_path"] = image_path
             __props__.__dict__["location"] = location
+            if os_type is None and not opts.urn:
+                raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source_virtual_machine_id"] = source_virtual_machine_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
+            __props__.__dict__["vm_image_repository_credentials"] = vm_image_repository_credentials
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-native:azurestackhci:GalleryImage',
@@ -348,8 +386,9 @@ class GalleryImage(pulumi.CustomResource):
 
         __props__ = GalleryImageArgs.__new__(GalleryImageArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_init_data_source"] = None
-        __props__.__dict__["container_name"] = None
+        __props__.__dict__["container_id"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["hyper_v_generation"] = None
         __props__.__dict__["identifier"] = None
@@ -358,12 +397,22 @@ class GalleryImage(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["os_type"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["source_virtual_machine_id"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
+        __props__.__dict__["vm_image_repository_credentials"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudInitDataSource")
@@ -374,12 +423,12 @@ class GalleryImage(pulumi.CustomResource):
         return pulumi.get(self, "cloud_init_data_source")
 
     @property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="containerId")
+    def container_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Container Name for storage container
+        Storage ContainerID of the storage container to be used for gallery image
         """
-        return pulumi.get(self, "container_name")
+        return pulumi.get(self, "container_id")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -431,7 +480,7 @@ class GalleryImage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Output[Optional[str]]:
+    def os_type(self) -> pulumi.Output[str]:
         """
         Operating system type that the gallery image uses [Windows, Linux]
         """
@@ -444,6 +493,14 @@ class GalleryImage(pulumi.CustomResource):
         Provisioning state of the gallery image.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceVirtualMachineId")
+    def source_virtual_machine_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource ID of the source virtual machine from whose OS disk the gallery image is created.
+        """
+        return pulumi.get(self, "source_virtual_machine_id")
 
     @property
     @pulumi.getter
@@ -484,4 +541,12 @@ class GalleryImage(pulumi.CustomResource):
         Specifies information about the gallery image version that you want to create or update.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="vmImageRepositoryCredentials")
+    def vm_image_repository_credentials(self) -> pulumi.Output[Optional['outputs.VmImageRepositoryCredentialsResponse']]:
+        """
+        The credentials used to login to the image repository that has access to the specified image
+        """
+        return pulumi.get(self, "vm_image_repository_credentials")
 

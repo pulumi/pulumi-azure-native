@@ -27,13 +27,16 @@ class GetTopicResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, location=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, system_data=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, azure_api_version=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, id=None, location=None, max_message_size_in_kilobytes=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, system_data=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if count_details and not isinstance(count_details, dict):
             raise TypeError("Expected argument 'count_details' to be a dict")
         pulumi.set(__self__, "count_details", count_details)
@@ -110,6 +113,14 @@ class GetTopicResult:
         ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="countDetails")
@@ -280,6 +291,7 @@ class AwaitableGetTopicResult(GetTopicResult):
         return GetTopicResult(
             accessed_at=self.accessed_at,
             auto_delete_on_idle=self.auto_delete_on_idle,
+            azure_api_version=self.azure_api_version,
             count_details=self.count_details,
             created_at=self.created_at,
             default_message_time_to_live=self.default_message_time_to_live,
@@ -308,13 +320,11 @@ def get_topic(namespace_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTopicResult:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()
@@ -327,6 +337,7 @@ def get_topic(namespace_name: Optional[str] = None,
     return AwaitableGetTopicResult(
         accessed_at=pulumi.get(__ret__, 'accessed_at'),
         auto_delete_on_idle=pulumi.get(__ret__, 'auto_delete_on_idle'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         count_details=pulumi.get(__ret__, 'count_details'),
         created_at=pulumi.get(__ret__, 'created_at'),
         default_message_time_to_live=pulumi.get(__ret__, 'default_message_time_to_live'),
@@ -353,13 +364,11 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Returns a description for the specified topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()
@@ -371,6 +380,7 @@ def get_topic_output(namespace_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetTopicResult(
         accessed_at=pulumi.get(__response__, 'accessed_at'),
         auto_delete_on_idle=pulumi.get(__response__, 'auto_delete_on_idle'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         count_details=pulumi.get(__response__, 'count_details'),
         created_at=pulumi.get(__response__, 'created_at'),
         default_message_time_to_live=pulumi.get(__response__, 'default_message_time_to_live'),

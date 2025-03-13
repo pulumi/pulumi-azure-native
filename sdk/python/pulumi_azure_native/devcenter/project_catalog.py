@@ -152,9 +152,7 @@ class ProjectCatalog(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a catalog.
-        Azure REST API version: 2024-02-01.
-
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +172,7 @@ class ProjectCatalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a catalog.
-        Azure REST API version: 2024-02-01.
-
-        Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2024-02-01.
 
         :param str resource_name: The name of the resource.
         :param ProjectCatalogArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +216,7 @@ class ProjectCatalog(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sync_type"] = sync_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connection_state"] = None
             __props__.__dict__["last_connection_time"] = None
             __props__.__dict__["last_sync_stats"] = None
@@ -254,6 +251,7 @@ class ProjectCatalog(pulumi.CustomResource):
         __props__ = ProjectCatalogArgs.__new__(ProjectCatalogArgs)
 
         __props__.__dict__["ado_git"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["connection_state"] = None
         __props__.__dict__["git_hub"] = None
         __props__.__dict__["last_connection_time"] = None
@@ -275,6 +273,14 @@ class ProjectCatalog(pulumi.CustomResource):
         Properties for an Azure DevOps catalog type.
         """
         return pulumi.get(self, "ado_git")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionState")

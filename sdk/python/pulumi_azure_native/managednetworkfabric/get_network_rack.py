@@ -25,12 +25,15 @@ __all__ = [
 @pulumi.output_type
 class GetNetworkRackResult:
     """
-    The NetworkRack resource definition.
+    The Network Rack resource definition.
     """
-    def __init__(__self__, annotation=None, id=None, location=None, name=None, network_devices=None, network_fabric_id=None, network_rack_sku=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, annotation=None, azure_api_version=None, id=None, location=None, name=None, network_devices=None, network_fabric_id=None, network_rack_type=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,9 +49,9 @@ class GetNetworkRackResult:
         if network_fabric_id and not isinstance(network_fabric_id, str):
             raise TypeError("Expected argument 'network_fabric_id' to be a str")
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        if network_rack_sku and not isinstance(network_rack_sku, str):
-            raise TypeError("Expected argument 'network_rack_sku' to be a str")
-        pulumi.set(__self__, "network_rack_sku", network_rack_sku)
+        if network_rack_type and not isinstance(network_rack_type, str):
+            raise TypeError("Expected argument 'network_rack_type' to be a str")
+        pulumi.set(__self__, "network_rack_type", network_rack_type)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -71,10 +74,18 @@ class GetNetworkRackResult:
         return pulumi.get(self, "annotation")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -98,7 +109,7 @@ class GetNetworkRackResult:
     @pulumi.getter(name="networkDevices")
     def network_devices(self) -> Sequence[str]:
         """
-        List of network device ARM resource ids.
+        List of network device ARM resource IDs.
         """
         return pulumi.get(self, "network_devices")
 
@@ -106,23 +117,23 @@ class GetNetworkRackResult:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> str:
         """
-        Network Fabric ARM resource id.
+        ARM resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
     @property
-    @pulumi.getter(name="networkRackSku")
-    def network_rack_sku(self) -> str:
+    @pulumi.getter(name="networkRackType")
+    def network_rack_type(self) -> Optional[str]:
         """
         Network Rack SKU name.
         """
-        return pulumi.get(self, "network_rack_sku")
+        return pulumi.get(self, "network_rack_type")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -158,12 +169,13 @@ class AwaitableGetNetworkRackResult(GetNetworkRackResult):
             yield self
         return GetNetworkRackResult(
             annotation=self.annotation,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
             network_devices=self.network_devices,
             network_fabric_id=self.network_fabric_id,
-            network_rack_sku=self.network_rack_sku,
+            network_rack_type=self.network_rack_type,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
             tags=self.tags,
@@ -175,12 +187,10 @@ def get_network_rack(network_rack_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkRackResult:
     """
     Get Network Rack resource details.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str network_rack_name: Name of the Network Rack
+    :param str network_rack_name: Name of the Network Rack.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -191,12 +201,13 @@ def get_network_rack(network_rack_name: Optional[str] = None,
 
     return AwaitableGetNetworkRackResult(
         annotation=pulumi.get(__ret__, 'annotation'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         network_devices=pulumi.get(__ret__, 'network_devices'),
         network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
-        network_rack_sku=pulumi.get(__ret__, 'network_rack_sku'),
+        network_rack_type=pulumi.get(__ret__, 'network_rack_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -206,12 +217,10 @@ def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkRackResult]:
     """
     Get Network Rack resource details.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str network_rack_name: Name of the Network Rack
+    :param str network_rack_name: Name of the Network Rack.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -221,12 +230,13 @@ def get_network_rack_output(network_rack_name: Optional[pulumi.Input[str]] = Non
     __ret__ = pulumi.runtime.invoke_output('azure-native:managednetworkfabric:getNetworkRack', __args__, opts=opts, typ=GetNetworkRackResult)
     return __ret__.apply(lambda __response__: GetNetworkRackResult(
         annotation=pulumi.get(__response__, 'annotation'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         network_devices=pulumi.get(__response__, 'network_devices'),
         network_fabric_id=pulumi.get(__response__, 'network_fabric_id'),
-        network_rack_sku=pulumi.get(__response__, 'network_rack_sku'),
+        network_rack_type=pulumi.get(__response__, 'network_rack_type'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),

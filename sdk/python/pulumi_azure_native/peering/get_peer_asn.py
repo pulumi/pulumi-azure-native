@@ -27,7 +27,10 @@ class GetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
     """
-    def __init__(__self__, error_message=None, id=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, type=None, validation_state=None):
+    def __init__(__self__, azure_api_version=None, error_message=None, id=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, type=None, validation_state=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
@@ -52,6 +55,14 @@ class GetPeerAsnResult:
         if validation_state and not isinstance(validation_state, str):
             raise TypeError("Expected argument 'validation_state' to be a str")
         pulumi.set(__self__, "validation_state", validation_state)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="errorMessage")
@@ -124,6 +135,7 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
         if False:
             yield self
         return GetPeerAsnResult(
+            azure_api_version=self.azure_api_version,
             error_message=self.error_message,
             id=self.id,
             name=self.name,
@@ -140,8 +152,6 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
     Gets the peer ASN with the specified name under the given subscription.
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2021-01-01.
-
 
     :param str peer_asn_name: The peer ASN name.
     """
@@ -151,6 +161,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getPeerAsn', __args__, opts=opts, typ=GetPeerAsnResult).value
 
     return AwaitableGetPeerAsnResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         error_message=pulumi.get(__ret__, 'error_message'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -165,8 +176,6 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
     Gets the peer ASN with the specified name under the given subscription.
     Azure REST API version: 2022-10-01.
 
-    Other available API versions: 2021-01-01.
-
 
     :param str peer_asn_name: The peer ASN name.
     """
@@ -175,6 +184,7 @@ def get_peer_asn_output(peer_asn_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:peering:getPeerAsn', __args__, opts=opts, typ=GetPeerAsnResult)
     return __ret__.apply(lambda __response__: GetPeerAsnResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         error_message=pulumi.get(__response__, 'error_message'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -186,9 +186,7 @@ class ResourcePool(pulumi.CustomResource):
                  __props__=None):
         """
         Define the resourcePool.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class ResourcePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the resourcePool.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param ResourcePoolArgs args: The arguments to use to populate this resource's properties.
@@ -258,12 +254,17 @@ class ResourcePool(pulumi.CustomResource):
             __props__.__dict__["resource_pool_name"] = resource_pool_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["cpu_capacity_m_hz"] = None
             __props__.__dict__["cpu_limit_m_hz"] = None
+            __props__.__dict__["cpu_overall_usage_m_hz"] = None
             __props__.__dict__["cpu_reservation_m_hz"] = None
             __props__.__dict__["cpu_shares_level"] = None
             __props__.__dict__["custom_resource_name"] = None
             __props__.__dict__["datastore_ids"] = None
+            __props__.__dict__["mem_capacity_gb"] = None
             __props__.__dict__["mem_limit_mb"] = None
+            __props__.__dict__["mem_overall_usage_gb"] = None
             __props__.__dict__["mem_reservation_mb"] = None
             __props__.__dict__["mem_shares_level"] = None
             __props__.__dict__["mo_name"] = None
@@ -298,7 +299,10 @@ class ResourcePool(pulumi.CustomResource):
 
         __props__ = ResourcePoolArgs.__new__(ResourcePoolArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["cpu_capacity_m_hz"] = None
         __props__.__dict__["cpu_limit_m_hz"] = None
+        __props__.__dict__["cpu_overall_usage_m_hz"] = None
         __props__.__dict__["cpu_reservation_m_hz"] = None
         __props__.__dict__["cpu_shares_level"] = None
         __props__.__dict__["custom_resource_name"] = None
@@ -307,7 +311,9 @@ class ResourcePool(pulumi.CustomResource):
         __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["mem_capacity_gb"] = None
         __props__.__dict__["mem_limit_mb"] = None
+        __props__.__dict__["mem_overall_usage_gb"] = None
         __props__.__dict__["mem_reservation_mb"] = None
         __props__.__dict__["mem_shares_level"] = None
         __props__.__dict__["mo_name"] = None
@@ -324,6 +330,22 @@ class ResourcePool(pulumi.CustomResource):
         return ResourcePool(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="cpuCapacityMHz")
+    def cpu_capacity_m_hz(self) -> pulumi.Output[float]:
+        """
+        Gets the max CPU usage across all cores on the pool in MHz.
+        """
+        return pulumi.get(self, "cpu_capacity_m_hz")
+
+    @property
     @pulumi.getter(name="cpuLimitMHz")
     def cpu_limit_m_hz(self) -> pulumi.Output[float]:
         """
@@ -331,6 +353,14 @@ class ResourcePool(pulumi.CustomResource):
         Utilization will not exceed this limit even if there are available resources.
         """
         return pulumi.get(self, "cpu_limit_m_hz")
+
+    @property
+    @pulumi.getter(name="cpuOverallUsageMHz")
+    def cpu_overall_usage_m_hz(self) -> pulumi.Output[float]:
+        """
+        Gets the used CPU usage across all cores on the pool in MHz.
+        """
+        return pulumi.get(self, "cpu_overall_usage_m_hz")
 
     @property
     @pulumi.getter(name="cpuReservationMHz")
@@ -362,7 +392,7 @@ class ResourcePool(pulumi.CustomResource):
     @pulumi.getter(name="datastoreIds")
     def datastore_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        Gets or sets the datastore ARM ids.
+        Gets the datastore ARM ids.
         """
         return pulumi.get(self, "datastore_ids")
 
@@ -399,6 +429,14 @@ class ResourcePool(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="memCapacityGB")
+    def mem_capacity_gb(self) -> pulumi.Output[float]:
+        """
+        Gets the total amount of physical memory on the pool in GB.
+        """
+        return pulumi.get(self, "mem_capacity_gb")
+
+    @property
     @pulumi.getter(name="memLimitMB")
     def mem_limit_mb(self) -> pulumi.Output[float]:
         """
@@ -406,6 +444,14 @@ class ResourcePool(pulumi.CustomResource):
         Utilization will not exceed the specified limit even if there are available resources.
         """
         return pulumi.get(self, "mem_limit_mb")
+
+    @property
+    @pulumi.getter(name="memOverallUsageGB")
+    def mem_overall_usage_gb(self) -> pulumi.Output[float]:
+        """
+        Gets the used physical memory on the pool in GB.
+        """
+        return pulumi.get(self, "mem_overall_usage_gb")
 
     @property
     @pulumi.getter(name="memReservationMB")
@@ -453,7 +499,7 @@ class ResourcePool(pulumi.CustomResource):
     @pulumi.getter(name="networkIds")
     def network_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        Gets or sets the network ARM ids.
+        Gets the network ARM ids.
         """
         return pulumi.get(self, "network_ids")
 
@@ -461,7 +507,7 @@ class ResourcePool(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

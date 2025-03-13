@@ -119,9 +119,7 @@ class Pipeline(pulumi.CustomResource):
                  __props__=None):
         """
         The pipeline resource definition.
-        Azure REST API version: 2023-10-11-preview.
-
-        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        Azure REST API version: 2024-09-27. Prior API version in Azure Native 2.x: 2023-10-11-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -139,9 +137,7 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The pipeline resource definition.
-        Azure REST API version: 2023-10-11-preview.
-
-        Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+        Azure REST API version: 2024-09-27. Prior API version in Azure Native 2.x: 2023-10-11-preview.
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +175,7 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -206,6 +203,7 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -213,6 +211,14 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

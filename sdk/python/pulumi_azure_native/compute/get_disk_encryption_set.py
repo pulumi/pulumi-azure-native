@@ -27,13 +27,16 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, active_key=None, auto_key_rotation_error=None, encryption_type=None, federated_client_id=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, auto_key_rotation_error=None, azure_api_version=None, encryption_type=None, federated_client_id=None, id=None, identity=None, last_key_rotation_timestamp=None, location=None, name=None, previous_keys=None, provisioning_state=None, rotation_to_latest_key_version_enabled=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
         pulumi.set(__self__, "active_key", active_key)
         if auto_key_rotation_error and not isinstance(auto_key_rotation_error, dict):
             raise TypeError("Expected argument 'auto_key_rotation_error' to be a dict")
         pulumi.set(__self__, "auto_key_rotation_error", auto_key_rotation_error)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption_type and not isinstance(encryption_type, str):
             raise TypeError("Expected argument 'encryption_type' to be a str")
         pulumi.set(__self__, "encryption_type", encryption_type)
@@ -86,6 +89,14 @@ class GetDiskEncryptionSetResult:
         The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
         """
         return pulumi.get(self, "auto_key_rotation_error")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -192,6 +203,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
         return GetDiskEncryptionSetResult(
             active_key=self.active_key,
             auto_key_rotation_error=self.auto_key_rotation_error,
+            azure_api_version=self.azure_api_version,
             encryption_type=self.encryption_type,
             federated_client_id=self.federated_client_id,
             id=self.id,
@@ -211,9 +223,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiskEncryptionSetResult:
     """
     Gets information about a disk encryption set.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -228,6 +238,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
     return AwaitableGetDiskEncryptionSetResult(
         active_key=pulumi.get(__ret__, 'active_key'),
         auto_key_rotation_error=pulumi.get(__ret__, 'auto_key_rotation_error'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption_type=pulumi.get(__ret__, 'encryption_type'),
         federated_client_id=pulumi.get(__ret__, 'federated_client_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -245,9 +256,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskEncryptionSetResult]:
     """
     Gets information about a disk encryption set.
-    Azure REST API version: 2022-07-02.
-
-    Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    Azure REST API version: 2024-03-02.
 
 
     :param str disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -261,6 +270,7 @@ def get_disk_encryption_set_output(disk_encryption_set_name: Optional[pulumi.Inp
     return __ret__.apply(lambda __response__: GetDiskEncryptionSetResult(
         active_key=pulumi.get(__response__, 'active_key'),
         auto_key_rotation_error=pulumi.get(__response__, 'auto_key_rotation_error'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption_type=pulumi.get(__response__, 'encryption_type'),
         federated_client_id=pulumi.get(__response__, 'federated_client_id'),
         id=pulumi.get(__response__, 'id'),

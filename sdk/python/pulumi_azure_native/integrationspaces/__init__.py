@@ -19,11 +19,3 @@ from .list_application_business_process_development_artifacts import *
 from .space import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.integrationspaces.v20231114preview as __v20231114preview
-    v20231114preview = __v20231114preview
-else:
-    v20231114preview = _utilities.lazy_import('pulumi_azure_native.integrationspaces.v20231114preview')
-

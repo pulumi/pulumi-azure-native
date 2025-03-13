@@ -222,9 +222,7 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The ID of the policy definition version.
-        Azure REST API version: 2023-04-01.
-
-        Other available API versions: 2024-05-01, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -248,9 +246,7 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ID of the policy definition version.
-        Azure REST API version: 2023-04-01.
-
-        Other available API versions: 2024-05-01, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionVersionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.
@@ -304,6 +300,7 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
             __props__.__dict__["policy_rule"] = policy_rule
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -331,6 +328,7 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
 
         __props__ = PolicyDefinitionVersionAtManagementGroupArgs.__new__(PolicyDefinitionVersionAtManagementGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["metadata"] = None
@@ -343,6 +341,14 @@ class PolicyDefinitionVersionAtManagementGroup(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return PolicyDefinitionVersionAtManagementGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

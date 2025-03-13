@@ -12,6 +12,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
     'SearchEncryptionWithCmk',
+    'SearchSemanticSearch',
     'SharedPrivateLinkResourceProvisioningState',
     'SharedPrivateLinkResourceStatus',
     'SkuName',
@@ -20,7 +21,7 @@ __all__ = [
 
 class AadAuthFailureMode(str, Enum):
     """
-    Describes what response the data plane API of a Search service would send for requests that failed authentication.
+    Describes what response the data plane API of a search service would send for requests that failed authentication.
     """
     HTTP403 = "http403"
     """
@@ -56,7 +57,7 @@ class IdentityType(str, Enum):
 
 class PrivateLinkServiceConnectionProvisioningState(str, Enum):
     """
-    The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+    The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
     """
     UPDATING = "Updating"
     """
@@ -86,7 +87,7 @@ class PrivateLinkServiceConnectionProvisioningState(str, Enum):
 
 class PrivateLinkServiceConnectionStatus(str, Enum):
     """
-    Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+    Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
     """
     PENDING = "Pending"
     """
@@ -116,15 +117,15 @@ class PublicNetworkAccess(str, Enum):
 
 class SearchEncryptionWithCmk(str, Enum):
     """
-    Describes how a search service should enforce having one or more non customer encrypted resources.
+    Describes how a search service should enforce having one or more non-customer-encrypted resources.
     """
     DISABLED = "Disabled"
     """
-    No enforcement will be made and the search service can have non customer encrypted resources.
+    No enforcement will be made and the search service can have non-customer-encrypted resources.
     """
     ENABLED = "Enabled"
     """
-    Search service will be marked as non-compliant if there are one or more non customer encrypted resources.
+    Search service will be marked as non-compliant if there are one or more non-customer-encrypted resources.
     """
     UNSPECIFIED = "Unspecified"
     """
@@ -132,9 +133,27 @@ class SearchEncryptionWithCmk(str, Enum):
     """
 
 
+class SearchSemanticSearch(str, Enum):
+    """
+    Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+    """
+    DISABLED = "disabled"
+    """
+    Indicates that semantic ranking is disabled for the search service.
+    """
+    FREE = "free"
+    """
+    Enables semantic ranking on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+    """
+    STANDARD = "standard"
+    """
+    Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
+    """
+
+
 class SharedPrivateLinkResourceProvisioningState(str, Enum):
     """
-    The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+    The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
     """
     UPDATING = "Updating"
     DELETING = "Deleting"
@@ -145,7 +164,7 @@ class SharedPrivateLinkResourceProvisioningState(str, Enum):
 
 class SharedPrivateLinkResourceStatus(str, Enum):
     """
-    Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+    Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
     """
     PENDING = "Pending"
     APPROVED = "Approved"
@@ -159,15 +178,15 @@ class SkuName(str, Enum):
     """
     FREE = "free"
     """
-    Free tier, with no SLA guarantees and a subset of features offered to paid tiers.
+    Free tier, with no SLA guarantees and a subset of the features offered on billable tiers.
     """
     BASIC = "basic"
     """
-    Paid tier dedicated service with up to 3 replicas.
+    Billable tier for a dedicated service having up to 3 replicas.
     """
     STANDARD = "standard"
     """
-    Paid tier dedicated service with up to 12 partitions and 12 replicas.
+    Billable tier for a dedicated service having up to 12 partitions and 12 replicas.
     """
     STANDARD2 = "standard2"
     """
@@ -179,9 +198,9 @@ class SkuName(str, Enum):
     """
     STORAGE_OPTIMIZED_L1 = "storage_optimized_l1"
     """
-    Paid tier dedicated service that supports 1TB per partition, up to 12 partitions.
+    Billable tier for a dedicated service that supports 1TB per partition, up to 12 partitions.
     """
     STORAGE_OPTIMIZED_L2 = "storage_optimized_l2"
     """
-    Paid tier dedicated service that supports 2TB per partition, up to 12 partitions.
+    Billable tier for a dedicated service that supports 2TB per partition, up to 12 partitions.
     """

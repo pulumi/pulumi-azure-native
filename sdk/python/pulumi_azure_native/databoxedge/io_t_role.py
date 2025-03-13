@@ -217,7 +217,7 @@ class IoTRole(pulumi.CustomResource):
                  __props__=None):
         """
         Compute role.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,7 +242,7 @@ class IoTRole(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Compute role.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param IoTRoleArgs args: The arguments to use to populate this resource's properties.
@@ -304,10 +304,11 @@ class IoTRole(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_status'")
             __props__.__dict__["role_status"] = role_status
             __props__.__dict__["share_mappings"] = share_mappings
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["host_platform_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTRole")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:MECRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:IoTRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:MECRole"), pulumi.Alias(type_="azure-native:databoxedge:CloudEdgeManagementRole"), pulumi.Alias(type_="azure-native:databoxedge:KubernetesRole"), pulumi.Alias(type_="azure-native:databoxedge:MECRole")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoTRole, __self__).__init__(
             'azure-native:databoxedge:IoTRole',
@@ -331,6 +332,7 @@ class IoTRole(pulumi.CustomResource):
 
         __props__ = IoTRoleArgs.__new__(IoTRoleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["compute_resource"] = None
         __props__.__dict__["host_platform"] = None
         __props__.__dict__["host_platform_type"] = None
@@ -344,6 +346,14 @@ class IoTRole(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return IoTRole(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="computeResource")

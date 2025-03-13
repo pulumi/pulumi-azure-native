@@ -166,9 +166,7 @@ class ContentType(pulumi.CustomResource):
                  __props__=None):
         """
         Content type contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,9 +187,7 @@ class ContentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Content type contract details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param ContentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -237,6 +233,7 @@ class ContentType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:ContentType"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:ContentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -262,12 +259,21 @@ class ContentType(pulumi.CustomResource):
 
         __props__ = ContentTypeArgs.__new__(ContentTypeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schema"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return ContentType(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

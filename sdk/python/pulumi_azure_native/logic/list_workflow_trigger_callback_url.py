@@ -118,8 +118,6 @@ def list_workflow_trigger_callback_url(resource_group_name: Optional[str] = None
     Get the callback URL for a workflow trigger.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
-
 
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The workflow trigger name.
@@ -146,8 +144,6 @@ def list_workflow_trigger_callback_url_output(resource_group_name: Optional[pulu
     """
     Get the callback URL for a workflow trigger.
     Azure REST API version: 2019-05-01.
-
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
 
 
     :param str resource_group_name: The resource group name.

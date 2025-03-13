@@ -27,7 +27,10 @@ class GetFirewallPolicyRuleCollectionGroupResult:
     """
     Rule Collection Group resource.
     """
-    def __init__(__self__, etag=None, id=None, name=None, priority=None, provisioning_state=None, rule_collections=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, name=None, priority=None, provisioning_state=None, rule_collections=None, size=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,9 +49,20 @@ class GetFirewallPolicyRuleCollectionGroupResult:
         if rule_collections and not isinstance(rule_collections, list):
             raise TypeError("Expected argument 'rule_collections' to be a list")
         pulumi.set(__self__, "rule_collections", rule_collections)
+        if size and not isinstance(size, str):
+            raise TypeError("Expected argument 'size' to be a str")
+        pulumi.set(__self__, "size", size)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -100,6 +114,14 @@ class GetFirewallPolicyRuleCollectionGroupResult:
 
     @property
     @pulumi.getter
+    def size(self) -> str:
+        """
+        A read-only string that represents the size of the FirewallPolicyRuleCollectionGroupProperties in MB. (ex 1.2MB)
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         Rule Group type.
@@ -113,12 +135,14 @@ class AwaitableGetFirewallPolicyRuleCollectionGroupResult(GetFirewallPolicyRuleC
         if False:
             yield self
         return GetFirewallPolicyRuleCollectionGroupResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
             rule_collections=self.rule_collections,
+            size=self.size,
             type=self.type)
 
 
@@ -128,9 +152,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyRuleCollectionGroupResult:
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -145,12 +167,14 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network:getFirewallPolicyRuleCollectionGroup', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupResult).value
 
     return AwaitableGetFirewallPolicyRuleCollectionGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rule_collections=pulumi.get(__ret__, 'rule_collections'),
+        size=pulumi.get(__ret__, 'size'),
         type=pulumi.get(__ret__, 'type'))
 def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optional[pulumi.Input[str]] = None,
                                                      resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -158,9 +182,7 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupResult]:
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -174,10 +196,12 @@ def get_firewall_policy_rule_collection_group_output(firewall_policy_name: Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFirewallPolicyRuleCollectionGroup', __args__, opts=opts, typ=GetFirewallPolicyRuleCollectionGroupResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyRuleCollectionGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rule_collections=pulumi.get(__response__, 'rule_collections'),
+        size=pulumi.get(__response__, 'size'),
         type=pulumi.get(__response__, 'type')))

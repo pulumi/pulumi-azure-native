@@ -27,7 +27,10 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, azure_api_version=None, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -55,6 +58,14 @@ class GetDiagnosticSettingResult:
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventHubAuthorizationRuleId")
@@ -135,6 +146,7 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
         if False:
             yield self
         return GetDiagnosticSettingResult(
+            azure_api_version=self.azure_api_version,
             event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
             event_hub_name=self.event_hub_name,
             id=self.id,
@@ -152,8 +164,6 @@ def get_diagnostic_setting(name: Optional[str] = None,
     Gets the active diagnostic setting for AadIam.
     Azure REST API version: 2017-04-01.
 
-    Other available API versions: 2017-04-01-preview.
-
 
     :param str name: The name of the diagnostic setting.
     """
@@ -163,6 +173,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aadiam:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult).value
 
     return AwaitableGetDiagnosticSettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         event_hub_authorization_rule_id=pulumi.get(__ret__, 'event_hub_authorization_rule_id'),
         event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -178,8 +189,6 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
     Gets the active diagnostic setting for AadIam.
     Azure REST API version: 2017-04-01.
 
-    Other available API versions: 2017-04-01-preview.
-
 
     :param str name: The name of the diagnostic setting.
     """
@@ -188,6 +197,7 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:aadiam:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult)
     return __ret__.apply(lambda __response__: GetDiagnosticSettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         event_hub_authorization_rule_id=pulumi.get(__response__, 'event_hub_authorization_rule_id'),
         event_hub_name=pulumi.get(__response__, 'event_hub_name'),
         id=pulumi.get(__response__, 'id'),

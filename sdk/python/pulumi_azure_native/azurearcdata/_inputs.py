@@ -36,6 +36,8 @@ __all__ = [
     'AvailabilityGroupConfigureArgsDict',
     'AvailabilityGroupInfoArgs',
     'AvailabilityGroupInfoArgsDict',
+    'BackupPolicyArgs',
+    'BackupPolicyArgsDict',
     'BasicLoginInformationArgs',
     'BasicLoginInformationArgsDict',
     'DataControllerPropertiesArgs',
@@ -68,6 +70,8 @@ __all__ = [
     'KeytabInformationArgsDict',
     'LogAnalyticsWorkspaceConfigArgs',
     'LogAnalyticsWorkspaceConfigArgsDict',
+    'MonitoringArgs',
+    'MonitoringArgsDict',
     'OnPremisePropertyArgs',
     'OnPremisePropertyArgsDict',
     'PostgresInstancePropertiesArgs',
@@ -950,6 +954,102 @@ class AvailabilityGroupInfoArgs:
     @required_synchronized_secondaries_to_commit.setter
     def required_synchronized_secondaries_to_commit(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "required_synchronized_secondaries_to_commit", value)
+
+
+if not MYPY:
+    class BackupPolicyArgsDict(TypedDict):
+        """
+        The backup profile for the SQL server.
+        """
+        differential_backup_hours: NotRequired[pulumi.Input[int]]
+        """
+        The differential backup interval in hours.
+        """
+        full_backup_days: NotRequired[pulumi.Input[int]]
+        """
+        The value indicating days between full backups.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for all the databases in this managed instance.
+        """
+        transaction_log_backup_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The value indicating minutes between transaction log backups.
+        """
+elif False:
+    BackupPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackupPolicyArgs:
+    def __init__(__self__, *,
+                 differential_backup_hours: Optional[pulumi.Input[int]] = None,
+                 full_backup_days: Optional[pulumi.Input[int]] = None,
+                 retention_period_days: Optional[pulumi.Input[int]] = None,
+                 transaction_log_backup_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        The backup profile for the SQL server.
+        :param pulumi.Input[int] differential_backup_hours: The differential backup interval in hours.
+        :param pulumi.Input[int] full_backup_days: The value indicating days between full backups.
+        :param pulumi.Input[int] retention_period_days: The retention period for all the databases in this managed instance.
+        :param pulumi.Input[int] transaction_log_backup_minutes: The value indicating minutes between transaction log backups.
+        """
+        if differential_backup_hours is not None:
+            pulumi.set(__self__, "differential_backup_hours", differential_backup_hours)
+        if full_backup_days is not None:
+            pulumi.set(__self__, "full_backup_days", full_backup_days)
+        if retention_period_days is not None:
+            pulumi.set(__self__, "retention_period_days", retention_period_days)
+        if transaction_log_backup_minutes is not None:
+            pulumi.set(__self__, "transaction_log_backup_minutes", transaction_log_backup_minutes)
+
+    @property
+    @pulumi.getter(name="differentialBackupHours")
+    def differential_backup_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The differential backup interval in hours.
+        """
+        return pulumi.get(self, "differential_backup_hours")
+
+    @differential_backup_hours.setter
+    def differential_backup_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "differential_backup_hours", value)
+
+    @property
+    @pulumi.getter(name="fullBackupDays")
+    def full_backup_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value indicating days between full backups.
+        """
+        return pulumi.get(self, "full_backup_days")
+
+    @full_backup_days.setter
+    def full_backup_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "full_backup_days", value)
+
+    @property
+    @pulumi.getter(name="retentionPeriodDays")
+    def retention_period_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The retention period for all the databases in this managed instance.
+        """
+        return pulumi.get(self, "retention_period_days")
+
+    @retention_period_days.setter
+    def retention_period_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_period_days", value)
+
+    @property
+    @pulumi.getter(name="transactionLogBackupMinutes")
+    def transaction_log_backup_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The value indicating minutes between transaction log backups.
+        """
+        return pulumi.get(self, "transaction_log_backup_minutes")
+
+    @transaction_log_backup_minutes.setter
+    def transaction_log_backup_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "transaction_log_backup_minutes", value)
 
 
 if not MYPY:
@@ -2178,6 +2278,42 @@ class LogAnalyticsWorkspaceConfigArgs:
     @workspace_id.setter
     def workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_id", value)
+
+
+if not MYPY:
+    class MonitoringArgsDict(TypedDict):
+        """
+        The monitoring configuration.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if monitoring is enabled for this SQL Server instance.
+        """
+elif False:
+    MonitoringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MonitoringArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The monitoring configuration.
+        :param pulumi.Input[bool] enabled: Indicates if monitoring is enabled for this SQL Server instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if monitoring is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -3436,6 +3572,10 @@ if not MYPY:
         The properties of Arc Sql Server database resource
         """
         backup_information: NotRequired[pulumi.Input['SqlServerDatabaseResourcePropertiesBackupInformationArgsDict']]
+        backup_policy: NotRequired[pulumi.Input['BackupPolicyArgsDict']]
+        """
+        The backup profile for the SQL server.
+        """
         collation_name: NotRequired[pulumi.Input[str]]
         """
         Collation of the database.
@@ -3443,6 +3583,10 @@ if not MYPY:
         compatibility_level: NotRequired[pulumi.Input[int]]
         """
         Compatibility level of the database
+        """
+        create_mode: NotRequired[pulumi.Input[Union[str, 'DatabaseCreateMode']]]
+        """
+        Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
         """
         database_creation_date: NotRequired[pulumi.Input[str]]
         """
@@ -3460,9 +3604,17 @@ if not MYPY:
         """
         Status of the database.
         """
+        restore_point_in_time: NotRequired[pulumi.Input[str]]
+        """
+        Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        """
         size_mb: NotRequired[pulumi.Input[float]]
         """
         Size of the database.
+        """
+        source_database_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource identifier of the source database associated with create operation of this database.
         """
         space_available_mb: NotRequired[pulumi.Input[float]]
         """
@@ -3479,33 +3631,45 @@ elif False:
 class SqlServerDatabaseResourcePropertiesArgs:
     def __init__(__self__, *,
                  backup_information: Optional[pulumi.Input['SqlServerDatabaseResourcePropertiesBackupInformationArgs']] = None,
+                 backup_policy: Optional[pulumi.Input['BackupPolicyArgs']] = None,
                  collation_name: Optional[pulumi.Input[str]] = None,
                  compatibility_level: Optional[pulumi.Input[int]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'DatabaseCreateMode']]] = None,
                  database_creation_date: Optional[pulumi.Input[str]] = None,
                  database_options: Optional[pulumi.Input['SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs']] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  recovery_mode: Optional[pulumi.Input[Union[str, 'RecoveryMode']]] = None,
+                 restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  size_mb: Optional[pulumi.Input[float]] = None,
+                 source_database_id: Optional[pulumi.Input[str]] = None,
                  space_available_mb: Optional[pulumi.Input[float]] = None,
                  state: Optional[pulumi.Input[Union[str, 'DatabaseState']]] = None):
         """
         The properties of Arc Sql Server database resource
+        :param pulumi.Input['BackupPolicyArgs'] backup_policy: The backup profile for the SQL server.
         :param pulumi.Input[str] collation_name: Collation of the database.
         :param pulumi.Input[int] compatibility_level: Compatibility level of the database
+        :param pulumi.Input[Union[str, 'DatabaseCreateMode']] create_mode: Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
         :param pulumi.Input[str] database_creation_date: Creation date of the database.
         :param pulumi.Input['SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs'] database_options: List of features that are enabled for the database
         :param pulumi.Input[bool] is_read_only: Whether the database is read only or not.
         :param pulumi.Input[Union[str, 'RecoveryMode']] recovery_mode: Status of the database.
+        :param pulumi.Input[str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[float] size_mb: Size of the database.
+        :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.
         :param pulumi.Input[float] space_available_mb: Space left of the database.
         :param pulumi.Input[Union[str, 'DatabaseState']] state: State of the database.
         """
         if backup_information is not None:
             pulumi.set(__self__, "backup_information", backup_information)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
         if collation_name is not None:
             pulumi.set(__self__, "collation_name", collation_name)
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
         if database_creation_date is not None:
             pulumi.set(__self__, "database_creation_date", database_creation_date)
         if database_options is not None:
@@ -3514,8 +3678,12 @@ class SqlServerDatabaseResourcePropertiesArgs:
             pulumi.set(__self__, "is_read_only", is_read_only)
         if recovery_mode is not None:
             pulumi.set(__self__, "recovery_mode", recovery_mode)
+        if restore_point_in_time is not None:
+            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
         if size_mb is not None:
             pulumi.set(__self__, "size_mb", size_mb)
+        if source_database_id is not None:
+            pulumi.set(__self__, "source_database_id", source_database_id)
         if space_available_mb is not None:
             pulumi.set(__self__, "space_available_mb", space_available_mb)
         if state is not None:
@@ -3529,6 +3697,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
     @backup_information.setter
     def backup_information(self, value: Optional[pulumi.Input['SqlServerDatabaseResourcePropertiesBackupInformationArgs']]):
         pulumi.set(self, "backup_information", value)
+
+    @property
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
+        """
+        The backup profile for the SQL server.
+        """
+        return pulumi.get(self, "backup_policy")
+
+    @backup_policy.setter
+    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+        pulumi.set(self, "backup_policy", value)
 
     @property
     @pulumi.getter(name="collationName")
@@ -3553,6 +3733,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
     @compatibility_level.setter
     def compatibility_level(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'DatabaseCreateMode']]]:
+        """
+        Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @create_mode.setter
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'DatabaseCreateMode']]]):
+        pulumi.set(self, "create_mode", value)
 
     @property
     @pulumi.getter(name="databaseCreationDate")
@@ -3603,6 +3795,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
         pulumi.set(self, "recovery_mode", value)
 
     @property
+    @pulumi.getter(name="restorePointInTime")
+    def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
+        """
+        return pulumi.get(self, "restore_point_in_time")
+
+    @restore_point_in_time.setter
+    def restore_point_in_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_point_in_time", value)
+
+    @property
     @pulumi.getter(name="sizeMB")
     def size_mb(self) -> Optional[pulumi.Input[float]]:
         """
@@ -3613,6 +3817,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
     @size_mb.setter
     def size_mb(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "size_mb", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseId")
+    def source_database_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource identifier of the source database associated with create operation of this database.
+        """
+        return pulumi.get(self, "source_database_id")
+
+    @source_database_id.setter
+    def source_database_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_database_id", value)
 
     @property
     @pulumi.getter(name="spaceAvailableMB")
@@ -3755,33 +3971,13 @@ if not MYPY:
         """
         Properties of SqlServerInstance.
         """
-        container_resource_id: pulumi.Input[str]
+        backup_policy: NotRequired[pulumi.Input['BackupPolicyArgsDict']]
         """
-        ARM Resource id of the container resource (Azure Arc for Servers).
-        """
-        status: pulumi.Input[Union[str, 'ConnectionStatus']]
-        """
-        The cloud connectivity status.
-        """
-        azure_defender_status: NotRequired[pulumi.Input[Union[str, 'DefenderStatus']]]
-        """
-        Status of Azure Defender.
-        """
-        azure_defender_status_last_updated: NotRequired[pulumi.Input[str]]
-        """
-        Timestamp of last Azure Defender status update.
-        """
-        collation: NotRequired[pulumi.Input[str]]
-        """
-        SQL Server collation.
+        The backup profile for the SQL server.
         """
         cores: NotRequired[pulumi.Input[str]]
         """
         The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
-        """
-        current_version: NotRequired[pulumi.Input[str]]
-        """
-        SQL Server current version.
         """
         edition: NotRequired[pulumi.Input[Union[str, 'EditionType']]]
         """
@@ -3795,29 +3991,13 @@ if not MYPY:
         """
         SQL Server instance name.
         """
-        license_type: NotRequired[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]
+        monitoring: NotRequired[pulumi.Input['MonitoringArgsDict']]
         """
-        SQL Server license type.
+        The monitoring configuration.
         """
-        patch_level: NotRequired[pulumi.Input[str]]
+        upgrade_locked_until: NotRequired[pulumi.Input[str]]
         """
-        SQL Server update level.
-        """
-        product_id: NotRequired[pulumi.Input[str]]
-        """
-        SQL Server product ID.
-        """
-        tcp_dynamic_ports: NotRequired[pulumi.Input[str]]
-        """
-        Dynamic TCP ports used by SQL Server.
-        """
-        tcp_static_ports: NotRequired[pulumi.Input[str]]
-        """
-        Static TCP ports used by SQL Server.
-        """
-        v_core: NotRequired[pulumi.Input[str]]
-        """
-        The number of logical processors used by the SQL Server instance.
+        Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         """
         version: NotRequired[pulumi.Input[Union[str, 'SqlVersion']]]
         """
@@ -3829,135 +4009,53 @@ elif False:
 @pulumi.input_type
 class SqlServerInstancePropertiesArgs:
     def __init__(__self__, *,
-                 container_resource_id: pulumi.Input[str],
-                 status: pulumi.Input[Union[str, 'ConnectionStatus']],
-                 azure_defender_status: Optional[pulumi.Input[Union[str, 'DefenderStatus']]] = None,
-                 azure_defender_status_last_updated: Optional[pulumi.Input[str]] = None,
-                 collation: Optional[pulumi.Input[str]] = None,
+                 backup_policy: Optional[pulumi.Input['BackupPolicyArgs']] = None,
                  cores: Optional[pulumi.Input[str]] = None,
-                 current_version: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[Union[str, 'EditionType']]] = None,
                  host_type: Optional[pulumi.Input[Union[str, 'HostType']]] = None,
                  instance_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]] = None,
-                 patch_level: Optional[pulumi.Input[str]] = None,
-                 product_id: Optional[pulumi.Input[str]] = None,
-                 tcp_dynamic_ports: Optional[pulumi.Input[str]] = None,
-                 tcp_static_ports: Optional[pulumi.Input[str]] = None,
-                 v_core: Optional[pulumi.Input[str]] = None,
+                 monitoring: Optional[pulumi.Input['MonitoringArgs']] = None,
+                 upgrade_locked_until: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[Union[str, 'SqlVersion']]] = None):
         """
         Properties of SqlServerInstance.
-        :param pulumi.Input[str] container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
-        :param pulumi.Input[Union[str, 'ConnectionStatus']] status: The cloud connectivity status.
-        :param pulumi.Input[Union[str, 'DefenderStatus']] azure_defender_status: Status of Azure Defender.
-        :param pulumi.Input[str] azure_defender_status_last_updated: Timestamp of last Azure Defender status update.
-        :param pulumi.Input[str] collation: SQL Server collation.
+        :param pulumi.Input['BackupPolicyArgs'] backup_policy: The backup profile for the SQL server.
         :param pulumi.Input[str] cores: The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
-        :param pulumi.Input[str] current_version: SQL Server current version.
         :param pulumi.Input[Union[str, 'EditionType']] edition: SQL Server edition.
         :param pulumi.Input[Union[str, 'HostType']] host_type: Type of host for Azure Arc SQL Server
         :param pulumi.Input[str] instance_name: SQL Server instance name.
-        :param pulumi.Input[Union[str, 'ArcSqlServerLicenseType']] license_type: SQL Server license type.
-        :param pulumi.Input[str] patch_level: SQL Server update level.
-        :param pulumi.Input[str] product_id: SQL Server product ID.
-        :param pulumi.Input[str] tcp_dynamic_ports: Dynamic TCP ports used by SQL Server.
-        :param pulumi.Input[str] tcp_static_ports: Static TCP ports used by SQL Server.
-        :param pulumi.Input[str] v_core: The number of logical processors used by the SQL Server instance.
+        :param pulumi.Input['MonitoringArgs'] monitoring: The monitoring configuration.
+        :param pulumi.Input[str] upgrade_locked_until: Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         :param pulumi.Input[Union[str, 'SqlVersion']] version: SQL Server version.
         """
-        pulumi.set(__self__, "container_resource_id", container_resource_id)
-        pulumi.set(__self__, "status", status)
-        if azure_defender_status is not None:
-            pulumi.set(__self__, "azure_defender_status", azure_defender_status)
-        if azure_defender_status_last_updated is not None:
-            pulumi.set(__self__, "azure_defender_status_last_updated", azure_defender_status_last_updated)
-        if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+        if backup_policy is not None:
+            pulumi.set(__self__, "backup_policy", backup_policy)
         if cores is not None:
             pulumi.set(__self__, "cores", cores)
-        if current_version is not None:
-            pulumi.set(__self__, "current_version", current_version)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
         if host_type is not None:
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
-        if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
-        if patch_level is not None:
-            pulumi.set(__self__, "patch_level", patch_level)
-        if product_id is not None:
-            pulumi.set(__self__, "product_id", product_id)
-        if tcp_dynamic_ports is not None:
-            pulumi.set(__self__, "tcp_dynamic_ports", tcp_dynamic_ports)
-        if tcp_static_ports is not None:
-            pulumi.set(__self__, "tcp_static_ports", tcp_static_ports)
-        if v_core is not None:
-            pulumi.set(__self__, "v_core", v_core)
+        if monitoring is not None:
+            pulumi.set(__self__, "monitoring", monitoring)
+        if upgrade_locked_until is not None:
+            pulumi.set(__self__, "upgrade_locked_until", upgrade_locked_until)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
     @property
-    @pulumi.getter(name="containerResourceId")
-    def container_resource_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="backupPolicy")
+    def backup_policy(self) -> Optional[pulumi.Input['BackupPolicyArgs']]:
         """
-        ARM Resource id of the container resource (Azure Arc for Servers).
+        The backup profile for the SQL server.
         """
-        return pulumi.get(self, "container_resource_id")
+        return pulumi.get(self, "backup_policy")
 
-    @container_resource_id.setter
-    def container_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "container_resource_id", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> pulumi.Input[Union[str, 'ConnectionStatus']]:
-        """
-        The cloud connectivity status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Union[str, 'ConnectionStatus']]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="azureDefenderStatus")
-    def azure_defender_status(self) -> Optional[pulumi.Input[Union[str, 'DefenderStatus']]]:
-        """
-        Status of Azure Defender.
-        """
-        return pulumi.get(self, "azure_defender_status")
-
-    @azure_defender_status.setter
-    def azure_defender_status(self, value: Optional[pulumi.Input[Union[str, 'DefenderStatus']]]):
-        pulumi.set(self, "azure_defender_status", value)
-
-    @property
-    @pulumi.getter(name="azureDefenderStatusLastUpdated")
-    def azure_defender_status_last_updated(self) -> Optional[pulumi.Input[str]]:
-        """
-        Timestamp of last Azure Defender status update.
-        """
-        return pulumi.get(self, "azure_defender_status_last_updated")
-
-    @azure_defender_status_last_updated.setter
-    def azure_defender_status_last_updated(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "azure_defender_status_last_updated", value)
-
-    @property
-    @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[str]]:
-        """
-        SQL Server collation.
-        """
-        return pulumi.get(self, "collation")
-
-    @collation.setter
-    def collation(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "collation", value)
+    @backup_policy.setter
+    def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
+        pulumi.set(self, "backup_policy", value)
 
     @property
     @pulumi.getter
@@ -3970,18 +4068,6 @@ class SqlServerInstancePropertiesArgs:
     @cores.setter
     def cores(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cores", value)
-
-    @property
-    @pulumi.getter(name="currentVersion")
-    def current_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        SQL Server current version.
-        """
-        return pulumi.get(self, "current_version")
-
-    @current_version.setter
-    def current_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "current_version", value)
 
     @property
     @pulumi.getter
@@ -4020,76 +4106,28 @@ class SqlServerInstancePropertiesArgs:
         pulumi.set(self, "instance_name", value)
 
     @property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]:
+    @pulumi.getter
+    def monitoring(self) -> Optional[pulumi.Input['MonitoringArgs']]:
         """
-        SQL Server license type.
+        The monitoring configuration.
         """
-        return pulumi.get(self, "license_type")
+        return pulumi.get(self, "monitoring")
 
-    @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[Union[str, 'ArcSqlServerLicenseType']]]):
-        pulumi.set(self, "license_type", value)
-
-    @property
-    @pulumi.getter(name="patchLevel")
-    def patch_level(self) -> Optional[pulumi.Input[str]]:
-        """
-        SQL Server update level.
-        """
-        return pulumi.get(self, "patch_level")
-
-    @patch_level.setter
-    def patch_level(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "patch_level", value)
+    @monitoring.setter
+    def monitoring(self, value: Optional[pulumi.Input['MonitoringArgs']]):
+        pulumi.set(self, "monitoring", value)
 
     @property
-    @pulumi.getter(name="productId")
-    def product_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="upgradeLockedUntil")
+    def upgrade_locked_until(self) -> Optional[pulumi.Input[str]]:
         """
-        SQL Server product ID.
+        Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         """
-        return pulumi.get(self, "product_id")
+        return pulumi.get(self, "upgrade_locked_until")
 
-    @product_id.setter
-    def product_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "product_id", value)
-
-    @property
-    @pulumi.getter(name="tcpDynamicPorts")
-    def tcp_dynamic_ports(self) -> Optional[pulumi.Input[str]]:
-        """
-        Dynamic TCP ports used by SQL Server.
-        """
-        return pulumi.get(self, "tcp_dynamic_ports")
-
-    @tcp_dynamic_ports.setter
-    def tcp_dynamic_ports(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tcp_dynamic_ports", value)
-
-    @property
-    @pulumi.getter(name="tcpStaticPorts")
-    def tcp_static_ports(self) -> Optional[pulumi.Input[str]]:
-        """
-        Static TCP ports used by SQL Server.
-        """
-        return pulumi.get(self, "tcp_static_ports")
-
-    @tcp_static_ports.setter
-    def tcp_static_ports(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tcp_static_ports", value)
-
-    @property
-    @pulumi.getter(name="vCore")
-    def v_core(self) -> Optional[pulumi.Input[str]]:
-        """
-        The number of logical processors used by the SQL Server instance.
-        """
-        return pulumi.get(self, "v_core")
-
-    @v_core.setter
-    def v_core(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_core", value)
+    @upgrade_locked_until.setter
+    def upgrade_locked_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "upgrade_locked_until", value)
 
     @property
     @pulumi.getter

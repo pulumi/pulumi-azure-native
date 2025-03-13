@@ -24,6 +24,8 @@ __all__ = [
     'IpAllocationType',
     'KubernetesPluginType',
     'L3NetworkConfigurationIpamEnabled',
+    'ManagedServiceIdentitySelectorType',
+    'ManagedServiceIdentityType',
     'OsDiskCreateOption',
     'OsDiskDeleteOption',
     'RuntimeProtectionEnforcementLevel',
@@ -118,6 +120,7 @@ class ClusterUpdateStrategyType(str, Enum):
     The mode of operation for runtime protection.
     """
     RACK = "Rack"
+    PAUSE_AFTER_RACK = "PauseAfterRack"
 
 
 class ConsoleEnabled(str, Enum):
@@ -196,6 +199,24 @@ class L3NetworkConfigurationIpamEnabled(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class ManagedServiceIdentitySelectorType(str, Enum):
+    """
+    The type of managed identity that is being selected.
+    """
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
+    USER_ASSIGNED_IDENTITY = "UserAssignedIdentity"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class OsDiskCreateOption(str, Enum):

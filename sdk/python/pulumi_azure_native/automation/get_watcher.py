@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetWatcherResult',
@@ -26,7 +27,10 @@ class GetWatcherResult:
     """
     Definition of the watcher type.
     """
-    def __init__(__self__, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, id=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, id=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -66,12 +70,23 @@ class GetWatcherResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -109,7 +124,7 @@ class GetWatcherResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -178,6 +193,14 @@ class GetWatcherResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -189,7 +212,7 @@ class GetWatcherResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -200,6 +223,7 @@ class AwaitableGetWatcherResult(GetWatcherResult):
         if False:
             yield self
         return GetWatcherResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             description=self.description,
             etag=self.etag,
@@ -213,6 +237,7 @@ class AwaitableGetWatcherResult(GetWatcherResult):
             script_parameters=self.script_parameters,
             script_run_on=self.script_run_on,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -223,9 +248,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
     Retrieve the watcher identified by watcher name.
-    Azure REST API version: 2020-01-13-preview.
-
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Azure REST API version: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -240,6 +263,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getWatcher', __args__, opts=opts, typ=GetWatcherResult).value
 
     return AwaitableGetWatcherResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -253,6 +277,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
         script_parameters=pulumi.get(__ret__, 'script_parameters'),
         script_run_on=pulumi.get(__ret__, 'script_run_on'),
         status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = None,
@@ -261,9 +286,7 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatcherResult]:
     """
     Retrieve the watcher identified by watcher name.
-    Azure REST API version: 2020-01-13-preview.
-
-    Other available API versions: 2023-05-15-preview, 2024-10-23.
+    Azure REST API version: 2023-05-15-preview.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -277,6 +300,7 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getWatcher', __args__, opts=opts, typ=GetWatcherResult)
     return __ret__.apply(lambda __response__: GetWatcherResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
@@ -290,5 +314,6 @@ def get_watcher_output(automation_account_name: Optional[pulumi.Input[str]] = No
         script_parameters=pulumi.get(__response__, 'script_parameters'),
         script_run_on=pulumi.get(__response__, 'script_run_on'),
         status=pulumi.get(__response__, 'status'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

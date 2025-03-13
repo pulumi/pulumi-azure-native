@@ -38,5 +38,5 @@ class ResourceDiscoveryMode(str, Enum):
     """
     RE_EVALUATE_COMPLIANCE = "ReEvaluateCompliance"
     """
-    Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant.
+    Re-evaluate the compliance state of resources and then remediate the resources found to be non-compliant. The resourceIds filter cannot be used in this mode.
     """

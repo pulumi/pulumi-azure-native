@@ -27,7 +27,10 @@ class GetDdosProtectionPlanResult:
     """
     A DDoS protection plan in a resource group.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, resource_guid=None, tags=None, type=None, virtual_networks=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, resource_guid=None, tags=None, type=None, virtual_networks=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetDdosProtectionPlanResult:
         if virtual_networks and not isinstance(virtual_networks, list):
             raise TypeError("Expected argument 'virtual_networks' to be a list")
         pulumi.set(__self__, "virtual_networks", virtual_networks)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetDdosProtectionPlanResult(GetDdosProtectionPlanResult):
         if False:
             yield self
         return GetDdosProtectionPlanResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             location=self.location,
@@ -163,9 +175,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDdosProtectionPlanResult:
     """
     Gets information about the specified DDoS protection plan.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -178,6 +188,7 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getDdosProtectionPlan', __args__, opts=opts, typ=GetDdosProtectionPlanResult).value
 
     return AwaitableGetDdosProtectionPlanResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -193,9 +204,7 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
     """
     Gets information about the specified DDoS protection plan.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2022-05-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -207,6 +216,7 @@ def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getDdosProtectionPlan', __args__, opts=opts, typ=GetDdosProtectionPlanResult)
     return __ret__.apply(lambda __response__: GetDdosProtectionPlanResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

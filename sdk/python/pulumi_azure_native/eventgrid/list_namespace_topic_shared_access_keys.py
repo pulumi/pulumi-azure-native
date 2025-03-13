@@ -67,9 +67,7 @@ def list_namespace_topic_shared_access_keys(namespace_name: Optional[str] = None
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNamespaceTopicSharedAccessKeysResult:
     """
     List the two keys used to publish to a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.
@@ -92,9 +90,7 @@ def list_namespace_topic_shared_access_keys_output(namespace_name: Optional[pulu
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNamespaceTopicSharedAccessKeysResult]:
     """
     List the two keys used to publish to a namespace topic.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    Azure REST API version: 2025-02-15.
 
 
     :param str namespace_name: Name of the namespace.

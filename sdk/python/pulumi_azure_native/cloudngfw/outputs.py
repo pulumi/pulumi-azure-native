@@ -45,6 +45,7 @@ __all__ = [
     'SecurityServicesTypeListResponse',
     'SourceAddrResponse',
     'StorageAccountResponse',
+    'StrataCloudManagerConfigResponse',
     'SystemDataResponse',
     'TagInfoResponse',
     'VnetConfigurationResponse',
@@ -1145,6 +1146,8 @@ class NetworkProfileResponse(dict):
             suggest = "public_ips"
         elif key == "egressNatIp":
             suggest = "egress_nat_ip"
+        elif key == "privateSourceNatRulesDestination":
+            suggest = "private_source_nat_rules_destination"
         elif key == "trustedRanges":
             suggest = "trusted_ranges"
         elif key == "vnetConfiguration":
@@ -1168,6 +1171,7 @@ class NetworkProfileResponse(dict):
                  network_type: str,
                  public_ips: Sequence['outputs.IPAddressResponse'],
                  egress_nat_ip: Optional[Sequence['outputs.IPAddressResponse']] = None,
+                 private_source_nat_rules_destination: Optional[Sequence[str]] = None,
                  trusted_ranges: Optional[Sequence[str]] = None,
                  vnet_configuration: Optional['outputs.VnetConfigurationResponse'] = None,
                  vwan_configuration: Optional['outputs.VwanConfigurationResponse'] = None):
@@ -1177,6 +1181,7 @@ class NetworkProfileResponse(dict):
         :param str network_type: vnet or vwan, cannot be updated
         :param Sequence['IPAddressResponse'] public_ips: List of IPs associated with the Firewall
         :param Sequence['IPAddressResponse'] egress_nat_ip: Egress nat IP to use
+        :param Sequence[str] private_source_nat_rules_destination: Array of ipv4 destination address for which source NAT is to be performed
         :param Sequence[str] trusted_ranges: Non-RFC 1918 address
         :param 'VnetConfigurationResponse' vnet_configuration: Vnet configurations
         :param 'VwanConfigurationResponse' vwan_configuration: Vwan configurations
@@ -1186,6 +1191,8 @@ class NetworkProfileResponse(dict):
         pulumi.set(__self__, "public_ips", public_ips)
         if egress_nat_ip is not None:
             pulumi.set(__self__, "egress_nat_ip", egress_nat_ip)
+        if private_source_nat_rules_destination is not None:
+            pulumi.set(__self__, "private_source_nat_rules_destination", private_source_nat_rules_destination)
         if trusted_ranges is not None:
             pulumi.set(__self__, "trusted_ranges", trusted_ranges)
         if vnet_configuration is not None:
@@ -1224,6 +1231,14 @@ class NetworkProfileResponse(dict):
         Egress nat IP to use
         """
         return pulumi.get(self, "egress_nat_ip")
+
+    @property
+    @pulumi.getter(name="privateSourceNatRulesDestination")
+    def private_source_nat_rules_destination(self) -> Optional[Sequence[str]]:
+        """
+        Array of ipv4 destination address for which source NAT is to be performed
+        """
+        return pulumi.get(self, "private_source_nat_rules_destination")
 
     @property
     @pulumi.getter(name="trustedRanges")
@@ -1843,6 +1858,45 @@ class StorageAccountResponse(dict):
         Subscription Id
         """
         return pulumi.get(self, "subscription_id")
+
+
+@pulumi.output_type
+class StrataCloudManagerConfigResponse(dict):
+    """
+    This field is only present if Strata Cloud Manager is managing the policy for this firewall
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudManagerName":
+            suggest = "cloud_manager_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StrataCloudManagerConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StrataCloudManagerConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StrataCloudManagerConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_manager_name: str):
+        """
+        This field is only present if Strata Cloud Manager is managing the policy for this firewall
+        :param str cloud_manager_name: Strata Cloud Manager name which is intended to manage the policy for this firewall.
+        """
+        pulumi.set(__self__, "cloud_manager_name", cloud_manager_name)
+
+    @property
+    @pulumi.getter(name="cloudManagerName")
+    def cloud_manager_name(self) -> str:
+        """
+        Strata Cloud Manager name which is intended to manage the policy for this firewall.
+        """
+        return pulumi.get(self, "cloud_manager_name")
 
 
 @pulumi.output_type

@@ -252,7 +252,7 @@ class JobDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Job Definition.
-        Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2019-06-01. Prior API version in Azure Native 2.x: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +278,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Job Definition.
-        Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
+        Azure REST API version: 2019-06-01. Prior API version in Azure Native 2.x: 2019-06-01.
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -344,6 +344,7 @@ class JobDefinition(pulumi.CustomResource):
             if user_confirmation is None:
                 user_confirmation = 'NotRequired'
             __props__.__dict__["user_confirmation"] = user_confirmation
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybriddata/v20160601:JobDefinition"), pulumi.Alias(type_="azure-native:hybriddata/v20190601:JobDefinition")])
@@ -370,6 +371,7 @@ class JobDefinition(pulumi.CustomResource):
 
         __props__ = JobDefinitionArgs.__new__(JobDefinitionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["customer_secrets"] = None
         __props__.__dict__["data_service_input"] = None
         __props__.__dict__["data_sink_id"] = None
@@ -382,6 +384,14 @@ class JobDefinition(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["user_confirmation"] = None
         return JobDefinition(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerSecrets")

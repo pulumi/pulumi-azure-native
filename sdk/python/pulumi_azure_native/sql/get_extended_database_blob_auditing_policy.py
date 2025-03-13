@@ -26,10 +26,13 @@ class GetExtendedDatabaseBlobAuditingPolicyResult:
     """
     An extended database blob auditing policy.
     """
-    def __init__(__self__, audit_actions_and_groups=None, id=None, is_azure_monitor_target_enabled=None, is_managed_identity_in_use=None, is_storage_secondary_key_in_use=None, name=None, predicate_expression=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
+    def __init__(__self__, audit_actions_and_groups=None, azure_api_version=None, id=None, is_azure_monitor_target_enabled=None, is_managed_identity_in_use=None, is_storage_secondary_key_in_use=None, name=None, predicate_expression=None, queue_delay_ms=None, retention_days=None, state=None, storage_account_subscription_id=None, storage_endpoint=None, type=None):
         if audit_actions_and_groups and not isinstance(audit_actions_and_groups, list):
             raise TypeError("Expected argument 'audit_actions_and_groups' to be a list")
         pulumi.set(__self__, "audit_actions_and_groups", audit_actions_and_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -134,6 +137,14 @@ class GetExtendedDatabaseBlobAuditingPolicyResult:
         For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
         """
         return pulumi.get(self, "audit_actions_and_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -250,6 +261,7 @@ class AwaitableGetExtendedDatabaseBlobAuditingPolicyResult(GetExtendedDatabaseBl
             yield self
         return GetExtendedDatabaseBlobAuditingPolicyResult(
             audit_actions_and_groups=self.audit_actions_and_groups,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             is_azure_monitor_target_enabled=self.is_azure_monitor_target_enabled,
             is_managed_identity_in_use=self.is_managed_identity_in_use,
@@ -273,8 +285,6 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
     Gets an extended database's blob auditing policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
     :param str database_name: The name of the database.
@@ -291,6 +301,7 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
 
     return AwaitableGetExtendedDatabaseBlobAuditingPolicyResult(
         audit_actions_and_groups=pulumi.get(__ret__, 'audit_actions_and_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         is_azure_monitor_target_enabled=pulumi.get(__ret__, 'is_azure_monitor_target_enabled'),
         is_managed_identity_in_use=pulumi.get(__ret__, 'is_managed_identity_in_use'),
@@ -312,8 +323,6 @@ def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name:
     Gets an extended database's blob auditing policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str blob_auditing_policy_name: The name of the blob auditing policy.
     :param str database_name: The name of the database.
@@ -329,6 +338,7 @@ def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name:
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getExtendedDatabaseBlobAuditingPolicy', __args__, opts=opts, typ=GetExtendedDatabaseBlobAuditingPolicyResult)
     return __ret__.apply(lambda __response__: GetExtendedDatabaseBlobAuditingPolicyResult(
         audit_actions_and_groups=pulumi.get(__response__, 'audit_actions_and_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         is_azure_monitor_target_enabled=pulumi.get(__response__, 'is_azure_monitor_target_enabled'),
         is_managed_identity_in_use=pulumi.get(__response__, 'is_managed_identity_in_use'),

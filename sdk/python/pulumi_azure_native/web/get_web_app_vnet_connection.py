@@ -27,7 +27,10 @@ class GetWebAppVnetConnectionResult:
     """
     Virtual Network information ARM resource.
     """
-    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
+    def __init__(__self__, azure_api_version=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cert_blob and not isinstance(cert_blob, str):
             raise TypeError("Expected argument 'cert_blob' to be a str")
         pulumi.set(__self__, "cert_blob", cert_blob)
@@ -61,6 +64,14 @@ class GetWebAppVnetConnectionResult:
         if vnet_resource_id and not isinstance(vnet_resource_id, str):
             raise TypeError("Expected argument 'vnet_resource_id' to be a str")
         pulumi.set(__self__, "vnet_resource_id", vnet_resource_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certBlob")
@@ -158,6 +169,7 @@ class AwaitableGetWebAppVnetConnectionResult(GetWebAppVnetConnectionResult):
         if False:
             yield self
         return GetWebAppVnetConnectionResult(
+            azure_api_version=self.azure_api_version,
             cert_blob=self.cert_blob,
             cert_thumbprint=self.cert_thumbprint,
             dns_servers=self.dns_servers,
@@ -177,9 +189,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppVnetConnectionResult:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -194,6 +204,7 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppVnetConnection', __args__, opts=opts, typ=GetWebAppVnetConnectionResult).value
 
     return AwaitableGetWebAppVnetConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cert_blob=pulumi.get(__ret__, 'cert_blob'),
         cert_thumbprint=pulumi.get(__ret__, 'cert_thumbprint'),
         dns_servers=pulumi.get(__ret__, 'dns_servers'),
@@ -211,9 +222,7 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -227,6 +236,7 @@ def get_web_app_vnet_connection_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppVnetConnection', __args__, opts=opts, typ=GetWebAppVnetConnectionResult)
     return __ret__.apply(lambda __response__: GetWebAppVnetConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cert_blob=pulumi.get(__response__, 'cert_blob'),
         cert_thumbprint=pulumi.get(__response__, 'cert_thumbprint'),
         dns_servers=pulumi.get(__response__, 'dns_servers'),

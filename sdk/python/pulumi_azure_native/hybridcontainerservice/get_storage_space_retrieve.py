@@ -27,7 +27,10 @@ class GetStorageSpaceRetrieveResult:
     """
     The storageSpaces resource definition.
     """
-    def __init__(__self__, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -52,6 +55,14 @@ class GetStorageSpaceRetrieveResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -121,6 +132,7 @@ class AwaitableGetStorageSpaceRetrieveResult(GetStorageSpaceRetrieveResult):
         if False:
             yield self
         return GetStorageSpaceRetrieveResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -149,6 +161,7 @@ def get_storage_space_retrieve(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcontainerservice:getStorageSpaceRetrieve', __args__, opts=opts, typ=GetStorageSpaceRetrieveResult).value
 
     return AwaitableGetStorageSpaceRetrieveResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -174,6 +187,7 @@ def get_storage_space_retrieve_output(resource_group_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridcontainerservice:getStorageSpaceRetrieve', __args__, opts=opts, typ=GetStorageSpaceRetrieveResult)
     return __ret__.apply(lambda __response__: GetStorageSpaceRetrieveResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

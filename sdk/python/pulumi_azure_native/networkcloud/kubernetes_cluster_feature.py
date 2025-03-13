@@ -133,9 +133,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2024-06-01-preview.
-
-        Other available API versions: 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                  args: KubernetesClusterFeatureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2024-06-01-preview.
-
-        Other available API versions: 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param KubernetesClusterFeatureArgs args: The arguments to use to populate this resource's properties.
@@ -198,6 +194,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["availability_lifecycle"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["name"] = None
@@ -231,6 +228,7 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         __props__ = KubernetesClusterFeatureArgs.__new__(KubernetesClusterFeatureArgs)
 
         __props__.__dict__["availability_lifecycle"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["location"] = None
@@ -251,6 +249,14 @@ class KubernetesClusterFeature(pulumi.CustomResource):
         The lifecycle indicator of the feature.
         """
         return pulumi.get(self, "availability_lifecycle")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="detailedStatus")

@@ -22,14 +22,3 @@ from .registered_asn import *
 from .registered_prefix import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.peering.v20210101 as __v20210101
-    v20210101 = __v20210101
-    import pulumi_azure_native.peering.v20221001 as __v20221001
-    v20221001 = __v20221001
-else:
-    v20210101 = _utilities.lazy_import('pulumi_azure_native.peering.v20210101')
-    v20221001 = _utilities.lazy_import('pulumi_azure_native.peering.v20221001')
-

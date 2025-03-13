@@ -243,6 +243,7 @@ class ImportJob(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["blobs_imported_per_second"] = None
             __props__.__dict__["blobs_walked_per_second"] = None
             __props__.__dict__["last_completion_time"] = None
@@ -257,7 +258,7 @@ class ImportJob(pulumi.CustomResource):
             __props__.__dict__["total_conflicts"] = None
             __props__.__dict__["total_errors"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240301:ImportJob"), pulumi.Alias(type_="azure-native:storagecache/v20240301:importJob"), pulumi.Alias(type_="azure-native:storagecache/v20240701:ImportJob"), pulumi.Alias(type_="azure-native:storagecache/v20240701:importJob"), pulumi.Alias(type_="azure-native:storagecache:importJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240301:ImportJob"), pulumi.Alias(type_="azure-native:storagecache/v20240701:ImportJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ImportJob, __self__).__init__(
             'azure-native:storagecache:ImportJob',
@@ -281,6 +282,7 @@ class ImportJob(pulumi.CustomResource):
 
         __props__ = ImportJobArgs.__new__(ImportJobArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blobs_imported_per_second"] = None
         __props__.__dict__["blobs_walked_per_second"] = None
         __props__.__dict__["conflict_resolution_mode"] = None
@@ -301,6 +303,14 @@ class ImportJob(pulumi.CustomResource):
         __props__.__dict__["total_errors"] = None
         __props__.__dict__["type"] = None
         return ImportJob(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blobsImportedPerSecond")

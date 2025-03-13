@@ -153,7 +153,7 @@ class SecurityStandard(pulumi.CustomResource):
                  __props__=None):
         """
         Security Standard on a resource
-        Azure REST API version: 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,7 +173,7 @@ class SecurityStandard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Standard on a resource
-        Azure REST API version: 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
 
         :param str resource_name: The name of the resource.
         :param SecurityStandardArgs args: The arguments to use to populate this resource's properties.
@@ -215,6 +215,7 @@ class SecurityStandard(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["standard_id"] = standard_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["standard_type"] = None
@@ -244,6 +245,7 @@ class SecurityStandard(pulumi.CustomResource):
         __props__ = SecurityStandardArgs.__new__(SecurityStandardArgs)
 
         __props__.__dict__["assessments"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cloud_providers"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
@@ -261,6 +263,14 @@ class SecurityStandard(pulumi.CustomResource):
         List of assessment keys to apply to standard scope.
         """
         return pulumi.get(self, "assessments")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cloudProviders")

@@ -27,10 +27,13 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, title=None, type=None):
+    def __init__(__self__, additional_data=None, azure_api_version=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if classification and not isinstance(classification, str):
             raise TypeError("Expected argument 'classification' to be a str")
         pulumi.set(__self__, "classification", classification)
@@ -108,6 +111,14 @@ class GetIncidentResult:
         Additional data on the incident
         """
         return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -301,6 +312,7 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             yield self
         return GetIncidentResult(
             additional_data=self.additional_data,
+            azure_api_version=self.azure_api_version,
             classification=self.classification,
             classification_comment=self.classification_comment,
             classification_reason=self.classification_reason,
@@ -332,9 +344,7 @@ def get_incident(incident_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIncidentResult:
     """
     Gets a given incident.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str incident_id: Incident ID
@@ -350,6 +360,7 @@ def get_incident(incident_id: Optional[str] = None,
 
     return AwaitableGetIncidentResult(
         additional_data=pulumi.get(__ret__, 'additional_data'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         classification=pulumi.get(__ret__, 'classification'),
         classification_comment=pulumi.get(__ret__, 'classification_comment'),
         classification_reason=pulumi.get(__ret__, 'classification_reason'),
@@ -379,9 +390,7 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentResult]:
     """
     Gets a given incident.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str incident_id: Incident ID
@@ -396,6 +405,7 @@ def get_incident_output(incident_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getIncident', __args__, opts=opts, typ=GetIncidentResult)
     return __ret__.apply(lambda __response__: GetIncidentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         classification=pulumi.get(__response__, 'classification'),
         classification_comment=pulumi.get(__response__, 'classification_comment'),
         classification_reason=pulumi.get(__response__, 'classification_reason'),

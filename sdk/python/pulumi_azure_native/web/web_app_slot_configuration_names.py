@@ -132,9 +132,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
                  __props__=None):
         """
         Slot Config names azure resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Slot Config names azure resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSlotConfigurationNamesArgs args: The arguments to use to populate this resource's properties.
@@ -197,6 +193,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSlotConfigurationNames"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSlotConfigurationNames")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -223,6 +220,7 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
         __props__ = WebAppSlotConfigurationNamesArgs.__new__(WebAppSlotConfigurationNamesArgs)
 
         __props__.__dict__["app_setting_names"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_storage_config_names"] = None
         __props__.__dict__["connection_string_names"] = None
         __props__.__dict__["kind"] = None
@@ -237,6 +235,14 @@ class WebAppSlotConfigurationNames(pulumi.CustomResource):
         List of application settings names.
         """
         return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureStorageConfigNames")

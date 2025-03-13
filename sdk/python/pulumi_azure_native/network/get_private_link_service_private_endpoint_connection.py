@@ -27,7 +27,10 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     PrivateEndpointConnection resource.
     """
-    def __init__(__self__, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_endpoint_location=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_endpoint_location=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -55,6 +58,14 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(GetPrivateLi
         if False:
             yield self
         return GetPrivateLinkServicePrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             link_identifier=self.link_identifier,
@@ -153,9 +165,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -172,6 +182,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPrivateLinkServicePrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateLinkServicePrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         link_identifier=pulumi.get(__ret__, 'link_identifier'),
@@ -188,9 +199,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
                                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str expand: Expands referenced resources.
@@ -206,6 +215,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPrivateLinkServicePrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateLinkServicePrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicePrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         link_identifier=pulumi.get(__response__, 'link_identifier'),

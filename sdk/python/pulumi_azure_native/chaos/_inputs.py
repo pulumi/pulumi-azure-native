@@ -49,7 +49,7 @@ MYPY = False
 if not MYPY:
     class BranchArgsDict(TypedDict):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         """
         actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgsDict', 'DelayActionArgsDict', 'DiscreteActionArgsDict']]]]
         """
@@ -68,7 +68,7 @@ class BranchArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]],
                  name: pulumi.Input[str]):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContinuousActionArgs', 'DelayActionArgs', 'DiscreteActionArgs']]]] actions: List of actions.
         :param pulumi.Input[str] name: String of the branch name.
         """
@@ -398,10 +398,6 @@ if not MYPY:
         """
         List of steps.
         """
-        start_on_creation: NotRequired[pulumi.Input[bool]]
-        """
-        A boolean value that indicates if experiment should be started on creation or not.
-        """
 elif False:
     ExperimentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -409,18 +405,14 @@ elif False:
 class ExperimentPropertiesArgs:
     def __init__(__self__, *,
                  selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]],
-                 steps: pulumi.Input[Sequence[pulumi.Input['StepArgs']]],
-                 start_on_creation: Optional[pulumi.Input[bool]] = None):
+                 steps: pulumi.Input[Sequence[pulumi.Input['StepArgs']]]):
         """
         Model that represents the Experiment properties model.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]] selectors: List of selectors.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: List of steps.
-        :param pulumi.Input[bool] start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
         """
         pulumi.set(__self__, "selectors", selectors)
         pulumi.set(__self__, "steps", steps)
-        if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
 
     @property
     @pulumi.getter
@@ -445,18 +437,6 @@ class ExperimentPropertiesArgs:
     @steps.setter
     def steps(self, value: pulumi.Input[Sequence[pulumi.Input['StepArgs']]]):
         pulumi.set(self, "steps", value)
-
-    @property
-    @pulumi.getter(name="startOnCreation")
-    def start_on_creation(self) -> Optional[pulumi.Input[bool]]:
-        """
-        A boolean value that indicates if experiment should be started on creation or not.
-        """
-        return pulumi.get(self, "start_on_creation")
-
-    @start_on_creation.setter
-    def start_on_creation(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "start_on_creation", value)
 
 
 if not MYPY:

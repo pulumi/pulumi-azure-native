@@ -27,7 +27,10 @@ class GetSapLandscapeMonitorResult:
     """
     configuration associated with SAP Landscape Monitor Dashboard.
     """
-    def __init__(__self__, grouping=None, id=None, name=None, provisioning_state=None, system_data=None, top_metrics_thresholds=None, type=None):
+    def __init__(__self__, azure_api_version=None, grouping=None, id=None, name=None, provisioning_state=None, system_data=None, top_metrics_thresholds=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if grouping and not isinstance(grouping, dict):
             raise TypeError("Expected argument 'grouping' to be a dict")
         pulumi.set(__self__, "grouping", grouping)
@@ -51,8 +54,16 @@ class GetSapLandscapeMonitorResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def grouping(self) -> Optional['outputs.SapLandscapeMonitorPropertiesResponseGrouping']:
+    def grouping(self) -> Optional['outputs.SapLandscapeMonitorPropertiesGroupingResponse']:
         """
         Gets or sets the SID groupings by landscape and Environment.
         """
@@ -62,7 +73,7 @@ class GetSapLandscapeMonitorResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -113,6 +124,7 @@ class AwaitableGetSapLandscapeMonitorResult(GetSapLandscapeMonitorResult):
         if False:
             yield self
         return GetSapLandscapeMonitorResult(
+            azure_api_version=self.azure_api_version,
             grouping=self.grouping,
             id=self.id,
             name=self.name,
@@ -127,9 +139,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapLandscapeMonitorResult:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -142,6 +152,7 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSapLandscapeMonitor', __args__, opts=opts, typ=GetSapLandscapeMonitorResult).value
 
     return AwaitableGetSapLandscapeMonitorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         grouping=pulumi.get(__ret__, 'grouping'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -154,9 +165,7 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapLandscapeMonitorResult]:
     """
     Gets configuration values for Single Pane Of Glass for SAP monitor for the specified subscription, resource group, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -168,6 +177,7 @@ def get_sap_landscape_monitor_output(monitor_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapLandscapeMonitor', __args__, opts=opts, typ=GetSapLandscapeMonitorResult)
     return __ret__.apply(lambda __response__: GetSapLandscapeMonitorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         grouping=pulumi.get(__response__, 'grouping'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -117,9 +117,7 @@ class Gateway(pulumi.CustomResource):
                  __props__=None):
         """
         Gateway details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +175,7 @@ class Gateway(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Gateway")])
@@ -205,11 +202,20 @@ class Gateway(pulumi.CustomResource):
 
         __props__ = GatewayArgs.__new__(GatewayArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["location_data"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return Gateway(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

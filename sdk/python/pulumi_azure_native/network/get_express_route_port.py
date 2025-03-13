@@ -27,10 +27,13 @@ class GetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
     """
-    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, billing_type=None, circuits=None, encapsulation=None, etag=None, ether_type=None, id=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, allocation_date=None, azure_api_version=None, bandwidth_in_gbps=None, billing_type=None, circuits=None, encapsulation=None, etag=None, ether_type=None, id=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if allocation_date and not isinstance(allocation_date, str):
             raise TypeError("Expected argument 'allocation_date' to be a str")
         pulumi.set(__self__, "allocation_date", allocation_date)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, int):
             raise TypeError("Expected argument 'bandwidth_in_gbps' to be a int")
         pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
@@ -93,6 +96,14 @@ class GetExpressRoutePortResult:
         Date of the physical port allocation to be used in Letter of Authorization.
         """
         return pulumi.get(self, "allocation_date")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bandwidthInGbps")
@@ -246,6 +257,7 @@ class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
             yield self
         return GetExpressRoutePortResult(
             allocation_date=self.allocation_date,
+            azure_api_version=self.azure_api_version,
             bandwidth_in_gbps=self.bandwidth_in_gbps,
             billing_type=self.billing_type,
             circuits=self.circuits,
@@ -271,9 +283,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortResult:
     """
     Retrieves the requested ExpressRoutePort resource.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.
@@ -287,6 +297,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
 
     return AwaitableGetExpressRoutePortResult(
         allocation_date=pulumi.get(__ret__, 'allocation_date'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bandwidth_in_gbps=pulumi.get(__ret__, 'bandwidth_in_gbps'),
         billing_type=pulumi.get(__ret__, 'billing_type'),
         circuits=pulumi.get(__ret__, 'circuits'),
@@ -310,9 +321,7 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRoutePortResult]:
     """
     Retrieves the requested ExpressRoutePort resource.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.
@@ -325,6 +334,7 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getExpressRoutePort', __args__, opts=opts, typ=GetExpressRoutePortResult)
     return __ret__.apply(lambda __response__: GetExpressRoutePortResult(
         allocation_date=pulumi.get(__response__, 'allocation_date'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bandwidth_in_gbps=pulumi.get(__response__, 'bandwidth_in_gbps'),
         billing_type=pulumi.get(__response__, 'billing_type'),
         circuits=pulumi.get(__response__, 'circuits'),

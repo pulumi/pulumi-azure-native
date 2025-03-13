@@ -8,6 +8,8 @@ __all__ = [
     'ApplicationType',
     'AvsDataStore',
     'ChownMode',
+    'CoolAccessRetrievalPolicy',
+    'CoolAccessTieringPolicy',
     'EnableSubvolumes',
     'EncryptionKeySource',
     'EncryptionType',
@@ -30,6 +32,7 @@ class ApplicationType(str, Enum):
     Application Type
     """
     SA_P_HANA = "SAP-HANA"
+    ORACLE = "ORACLE"
 
 
 class AvsDataStore(str, Enum):
@@ -52,6 +55,26 @@ class ChownMode(str, Enum):
     """
     RESTRICTED = "Restricted"
     UNRESTRICTED = "Unrestricted"
+
+
+class CoolAccessRetrievalPolicy(str, Enum):
+    """
+    coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+     Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+     OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+     Never - No client-driven data is pulled from cool tier to standard storage.
+    """
+    DEFAULT = "Default"
+    ON_READ = "OnRead"
+    NEVER = "Never"
+
+
+class CoolAccessTieringPolicy(str, Enum):
+    """
+    coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+    """
+    AUTO = "Auto"
+    SNAPSHOT_ONLY = "SnapshotOnly"
 
 
 class EnableSubvolumes(str, Enum):
@@ -130,15 +153,23 @@ class ManagedServiceIdentityType(str, Enum):
 
 class NetworkFeatures(str, Enum):
     """
-    Basic network, or Standard features available to the volume.
+    The original value of the network features type available to the volume at the time it was created.
     """
     BASIC = "Basic"
     """
-    Basic network feature.
+    Basic network features.
     """
     STANDARD = "Standard"
     """
-    Standard network feature.
+    Standard network features.
+    """
+    BASIC_STANDARD = "Basic_Standard"
+    """
+    Updating from Basic to Standard network features.
+    """
+    STANDARD_BASIC = "Standard_Basic"
+    """
+    Updating from Standard to Basic network features.
     """
 
 
@@ -197,7 +228,7 @@ class ServiceLevel(str, Enum):
 
 class SmbAccessBasedEnumeration(str, Enum):
     """
-    Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
     DISABLED = "Disabled"
     """
@@ -211,7 +242,7 @@ class SmbAccessBasedEnumeration(str, Enum):
 
 class SmbNonBrowsable(str, Enum):
     """
-    Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+    Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
     """
     DISABLED = "Disabled"
     """

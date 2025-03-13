@@ -27,7 +27,10 @@ class GetServerInstanceResult:
     """
     Define the Server Instance resource.
     """
-    def __init__(__self__, configuration_data=None, errors=None, id=None, instance_sid=None, name=None, operating_system=None, performance_data=None, provisioning_state=None, sap_instance_type=None, sap_product=None, sap_product_version=None, server_name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, configuration_data=None, errors=None, id=None, instance_sid=None, name=None, operating_system=None, performance_data=None, provisioning_state=None, sap_instance_type=None, sap_product=None, sap_product_version=None, server_name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration_data and not isinstance(configuration_data, dict):
             raise TypeError("Expected argument 'configuration_data' to be a dict")
         pulumi.set(__self__, "configuration_data", configuration_data)
@@ -70,6 +73,14 @@ class GetServerInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationData")
@@ -190,6 +201,7 @@ class AwaitableGetServerInstanceResult(GetServerInstanceResult):
         if False:
             yield self
         return GetServerInstanceResult(
+            azure_api_version=self.azure_api_version,
             configuration_data=self.configuration_data,
             errors=self.errors,
             id=self.id,
@@ -230,6 +242,7 @@ def get_server_instance(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getServerInstance', __args__, opts=opts, typ=GetServerInstanceResult).value
 
     return AwaitableGetServerInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration_data=pulumi.get(__ret__, 'configuration_data'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
@@ -267,6 +280,7 @@ def get_server_instance_output(resource_group_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getServerInstance', __args__, opts=opts, typ=GetServerInstanceResult)
     return __ret__.apply(lambda __response__: GetServerInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration_data=pulumi.get(__response__, 'configuration_data'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),
