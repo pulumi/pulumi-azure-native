@@ -80,6 +80,14 @@ func TestFilterTokens(t *testing.T) {
 	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
 }
 
+// equalInPartialMap asserts that a key exists in a PartialMap and its value is equal to an expected value.
+func equalInPartialMap[T any](t *testing.T, pm resources.PartialMap[T], key string, expected T) {
+	actual, ok, err := pm.Get(key)
+	require.NoError(t, err)
+	require.True(t, ok)
+	require.Equal(t, expected, actual)
+}
+
 func TestRoundtripMetadata(t *testing.T) {
 	t.Parallel()
 
@@ -123,7 +131,18 @@ func TestRoundtripMetadata(t *testing.T) {
 
 	deserializedMetadata, err := deserializeMetadata(metadataBytes)
 	require.NoError(t, err)
-	require.Equal(t, metadata, deserializedMetadata)
+
+	for typeName, typeDef := range metadata.Types {
+		equalInPartialMap(t, deserializedMetadata.Types, typeName, typeDef)
+	}
+
+	for resourceName, resourceDef := range metadata.Resources {
+		equalInPartialMap(t, deserializedMetadata.Resources, resourceName, resourceDef)
+	}
+
+	for invokeName, invokeDef := range metadata.Invokes {
+		equalInPartialMap(t, deserializedMetadata.Invokes, invokeName, invokeDef)
+	}
 }
 
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.

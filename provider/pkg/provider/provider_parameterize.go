@@ -39,7 +39,7 @@ func (p *azureNativeProvider) runtimeParameterize(req *rpc.ParameterizeRequest) 
 		if err != nil {
 			return nil, status.Errorf(codes.InvalidArgument, "failed to deserialize metadata: %v", err)
 		}
-		p.parameterizedMetadata = metadata
+		p.resourceMap = metadata
 
 		return &rpc.ParameterizeResponse{
 			Name:    pt.Value.GetName(),
@@ -224,6 +224,7 @@ func createParameterizedSchemaForApiVersion(p *azureNativeProvider, schema psche
 	return &newSchema, nil
 }
 
+// filterTokens returns a map of tokens that match the target module and API version.
 func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion string) (map[string]string, error) {
 	typeNames := map[string]string{}
 	for token := range tokens {
@@ -259,7 +260,7 @@ func serializeMetadata(metadata *resources.AzureAPIMetadata) ([]byte, error) {
 	return dst, nil
 }
 
-func deserializeMetadata(metadata []byte) (*resources.AzureAPIMetadata, error) {
+func deserializeMetadata(metadata []byte) (*resources.PartialAzureAPIMetadata, error) {
 	decoded, err := base64.StdEncoding.DecodeString(string(metadata))
 	if err != nil {
 		return nil, err
@@ -276,7 +277,7 @@ func deserializeMetadata(metadata []byte) (*resources.AzureAPIMetadata, error) {
 		return nil, err
 	}
 
-	var result resources.AzureAPIMetadata
+	var result resources.PartialAzureAPIMetadata
 	if err := json.Unmarshal(buf.Bytes(), &result); err != nil {
 		return nil, err
 	}

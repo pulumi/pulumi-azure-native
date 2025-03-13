@@ -66,10 +66,8 @@ type azureNativeProvider struct {
 	cloud          azcloud.Configuration
 	config         map[string]string
 
+	// also known as "metadata"
 	resourceMap *resources.PartialAzureAPIMetadata
-	// Metadata that was added when the provider was parameterized. We cannot (easily) just overwrite `resourceMap`
-	// because it's a different type.
-	parameterizedMetadata *resources.AzureAPIMetadata
 
 	schemaBytes []byte
 
@@ -151,24 +149,11 @@ func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, e
 func (k *azureNativeProvider) lookupTypeDefault(ref string) (*resources.AzureAPIType, bool, error) {
 	typeName := strings.TrimPrefix(ref, "#/types/")
 	t, ok, err := k.resourceMap.Types.Get(typeName)
-	if err != nil {
-		return nil, false, err
-	}
-	if !ok && k.parameterizedMetadata != nil {
-		t, ok = k.parameterizedMetadata.Types[typeName]
-	}
-	return &t, ok, nil
+	return &t, ok, err
 }
 
 func (k *azureNativeProvider) LookupResource(resourceType string) (resources.AzureAPIResource, bool, error) {
-	res, found, err := k.resourceMap.Resources.Get(resourceType)
-	if err != nil {
-		return resources.AzureAPIResource{}, false, err
-	}
-	if !found {
-		res, found = k.parameterizedMetadata.Resources[resourceType]
-	}
-	return res, found, nil
+	return k.resourceMap.Resources.Get(resourceType)
 }
 
 func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resources.AzureAPIResource, error) {
