@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
-    /// Azure REST API version: 2020-05-01.
-    /// 
-    /// Other available API versions: 2023-01-01.
+    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:PrivateEndpointConnectionControllerPrivateEndpointConnection")]
     public partial class PrivateEndpointConnectionControllerPrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets the tag for optimistic concurrency control.
         /// </summary>

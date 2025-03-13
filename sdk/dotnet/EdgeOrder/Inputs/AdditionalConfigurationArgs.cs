@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         [Input("hierarchyInformation", required: true)]
         public Input<Inputs.HierarchyInformationArgs> HierarchyInformation { get; set; } = null!;
 
+        [Input("provisioningDetails")]
+        private InputList<Inputs.ProvisioningDetailsArgs>? _provisioningDetails;
+
+        /// <summary>
+        /// List Provisioning Details for Devices in Additional Config.
+        /// </summary>
+        public InputList<Inputs.ProvisioningDetailsArgs> ProvisioningDetails
+        {
+            get => _provisioningDetails ?? (_provisioningDetails = new InputList<Inputs.ProvisioningDetailsArgs>());
+            set => _provisioningDetails = value;
+        }
+
         /// <summary>
         /// Quantity of the product.
         /// </summary>

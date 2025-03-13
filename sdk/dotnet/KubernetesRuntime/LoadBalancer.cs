@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.KubernetesRuntime
 {
     /// <summary>
     /// A LoadBalancer resource for an Arc connected cluster (Microsoft.Kubernetes/connectedClusters)
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2023-10-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesruntime:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// </summary>
         [Output("advertiseMode")]
         public Output<string> AdvertiseMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.

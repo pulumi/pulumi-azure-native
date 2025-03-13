@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided trunked network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetTrunkedNetworkResult> InvokeAsync(GetTrunkedNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrunkedNetworkResult>("azure-native:networkcloud:getTrunkedNetwork", args ?? new GetTrunkedNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided trunked network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided trunked network.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetTrunkedNetworkResult> Invoke(GetTrunkedNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrunkedNetworkResult>("azure-native:networkcloud:getTrunkedNetwork", args ?? new GetTrunkedNetworkInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
         /// </summary>
         public readonly ImmutableArray<string> AssociatedResourceIds;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The resource ID of the Network Cloud cluster this trunked network is associated with.
         /// </summary>
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetTrunkedNetworkResult(
             ImmutableArray<string> associatedResourceIds,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string detailedStatus,
@@ -196,6 +196,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<double> vlans)
         {
             AssociatedResourceIds = associatedResourceIds;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;

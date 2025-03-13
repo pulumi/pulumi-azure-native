@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided volume.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure-native:networkcloud:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AttachedTo;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The more detailed status of the volume.
         /// </summary>
         public readonly string DetailedStatus;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetVolumeResult(
             ImmutableArray<string> attachedTo,
 
+            string azureApiVersion,
+
             string detailedStatus,
 
             string detailedStatusMessage,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             string type)
         {
             AttachedTo = attachedTo;
+            AzureApiVersion = azureApiVersion;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
             ExtendedLocation = extendedLocation;

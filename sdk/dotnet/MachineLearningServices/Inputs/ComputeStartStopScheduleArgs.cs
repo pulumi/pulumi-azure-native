@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// [Required] The schedule trigger type.
         /// </summary>
         [Input("triggerType")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.TriggerType>? TriggerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ComputeTriggerType>? TriggerType { get; set; }
 
         public ComputeStartStopScheduleArgs()
         {

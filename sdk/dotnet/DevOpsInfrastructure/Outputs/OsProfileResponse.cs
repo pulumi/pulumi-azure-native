@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
     public sealed class OsProfileResponse
     {
         /// <summary>
+        /// Determines how the service should be run. By default, this will be set to Service.
+        /// </summary>
+        public readonly string? LogonType;
+        /// <summary>
         /// The secret management settings of the machines in the pool.
         /// </summary>
-        public readonly Outputs.SecretsManagementSettingsResponse SecretsManagementSettings;
+        public readonly Outputs.SecretsManagementSettingsResponse? SecretsManagementSettings;
 
         [OutputConstructor]
-        private OsProfileResponse(Outputs.SecretsManagementSettingsResponse secretsManagementSettings)
+        private OsProfileResponse(
+            string? logonType,
+
+            Outputs.SecretsManagementSettingsResponse? secretsManagementSettings)
         {
+            LogonType = logonType;
             SecretsManagementSettings = secretsManagementSettings;
         }
     }

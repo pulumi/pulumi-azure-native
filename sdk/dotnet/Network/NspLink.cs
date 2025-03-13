@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network security perimeter link resource
-    /// Azure REST API version: 2021-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+    /// Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NspLink")]
     public partial class NspLink : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("autoApprovedRemotePerimeterResourceId")]
         public Output<string?> AutoApprovedRemotePerimeterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
@@ -37,7 +41,7 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         /// </summary>
         [Output("localInboundProfiles")]
         public Output<ImmutableArray<string>> LocalInboundProfiles { get; private set; } = null!;
@@ -61,7 +65,7 @@ namespace Pulumi.AzureNative.Network
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         /// </summary>
         [Output("remoteInboundProfiles")]
         public Output<ImmutableArray<string>> RemoteInboundProfiles { get; private set; } = null!;
@@ -170,7 +174,7 @@ namespace Pulumi.AzureNative.Network
         private InputList<string>? _localInboundProfiles;
 
         /// <summary>
-        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. It's default value is ['*'].
+        /// Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
         /// </summary>
         public InputList<string> LocalInboundProfiles
         {
@@ -188,7 +192,7 @@ namespace Pulumi.AzureNative.Network
         private InputList<string>? _remoteInboundProfiles;
 
         /// <summary>
-        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode. It's default value is ['*'].
+        /// Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
         /// </summary>
         public InputList<string> RemoteInboundProfiles
         {

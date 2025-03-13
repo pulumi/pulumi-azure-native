@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Task<GetManagedInstanceAzureADOnlyAuthenticationResult> InvokeAsync(GetManagedInstanceAzureADOnlyAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceAzureADOnlyAuthenticationResult> Invoke(GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Gets a specific Azure Active Directory only authentication property.
         /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
         /// </summary>
         public static Output<GetManagedInstanceAzureADOnlyAuthenticationResult> Invoke(GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceAzureADOnlyAuthenticationResult>("azure-native:sql:getManagedInstanceAzureADOnlyAuthentication", args ?? new GetManagedInstanceAzureADOnlyAuthenticationInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool AzureADOnlyAuthentication;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -117,6 +115,8 @@ namespace Pulumi.AzureNative.Sql
         private GetManagedInstanceAzureADOnlyAuthenticationResult(
             bool azureADOnlyAuthentication,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Sql
             string type)
         {
             AzureADOnlyAuthentication = azureADOnlyAuthentication;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Type = type;

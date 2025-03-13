@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetAssetFilterResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The first quality.
         /// </summary>
         public readonly Outputs.FirstQualityResponse? FirstQuality;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetAssetFilterResult(
+            string azureApiVersion,
+
             Outputs.FirstQualityResponse? firstQuality,
 
             string id,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             FirstQuality = firstQuality;
             Id = id;
             Name = name;

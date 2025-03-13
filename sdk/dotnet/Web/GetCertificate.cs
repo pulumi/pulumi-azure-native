@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get a certificate.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get a certificate.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get a certificate.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:web:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.Web
     [OutputType]
     public sealed class GetCertificateResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// CNAME of the certificate to be issued via free certificate
         /// </summary>
@@ -137,7 +135,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string KeyVaultSecretStatus;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -191,6 +189,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetCertificateResult(
+            string azureApiVersion,
+
             string? canonicalName,
 
             string cerBlob,
@@ -243,6 +243,7 @@ namespace Pulumi.AzureNative.Web
 
             bool valid)
         {
+            AzureApiVersion = azureApiVersion;
             CanonicalName = canonicalName;
             CerBlob = cerBlob;
             DomainValidationMethod = domainValidationMethod;

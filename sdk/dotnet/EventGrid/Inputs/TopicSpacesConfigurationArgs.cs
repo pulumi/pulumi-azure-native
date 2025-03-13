@@ -15,11 +15,17 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
     /// </summary>
     public sealed class TopicSpacesConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customDomains")]
+        private InputList<Inputs.CustomDomainConfigurationArgs>? _customDomains;
+
         /// <summary>
-        /// Client authentication settings for topic spaces configuration.
+        /// List of custom domain configurations for the namespace.
         /// </summary>
-        [Input("clientAuthentication")]
-        public Input<Inputs.ClientAuthenticationSettingsArgs>? ClientAuthentication { get; set; }
+        public InputList<Inputs.CustomDomainConfigurationArgs> CustomDomains
+        {
+            get => _customDomains ?? (_customDomains = new InputList<Inputs.CustomDomainConfigurationArgs>());
+            set => _customDomains = value;
+        }
 
         /// <summary>
         /// The maximum number of sessions per authentication name. The property default value is 1.

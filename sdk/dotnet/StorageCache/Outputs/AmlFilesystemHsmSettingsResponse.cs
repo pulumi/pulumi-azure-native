@@ -21,9 +21,13 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
         /// </summary>
         public readonly string Container;
         /// <summary>
-        /// Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        /// Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
         /// </summary>
         public readonly string? ImportPrefix;
+        /// <summary>
+        /// Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
+        /// </summary>
+        public readonly ImmutableArray<string> ImportPrefixesInitial;
         /// <summary>
         /// Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
         /// </summary>
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
 
             string? importPrefix,
 
+            ImmutableArray<string> importPrefixesInitial,
+
             string loggingContainer)
         {
             Container = container;
             ImportPrefix = importPrefix;
+            ImportPrefixesInitial = importPrefixesInitial;
             LoggingContainer = loggingContainer;
         }
     }

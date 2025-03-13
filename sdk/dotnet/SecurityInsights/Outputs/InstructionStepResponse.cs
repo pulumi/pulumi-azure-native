@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         public readonly string? Description;
         /// <summary>
         /// Gets or sets the inner instruction steps details.
-        /// Foe Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
+        /// For Example: instruction step 1 might contain inner instruction steps: [instruction step 1.1, instruction step 1.2].
         /// </summary>
         public readonly ImmutableArray<Outputs.InstructionStepResponse> InnerSteps;
         /// <summary>

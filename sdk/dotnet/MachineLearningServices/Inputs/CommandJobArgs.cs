@@ -119,6 +119,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("limits")]
         public Input<Inputs.CommandJobLimitsArgs>? Limits { get; set; }
 
+        /// <summary>
+        /// Notification setting for the job
+        /// </summary>
+        [Input("notificationSetting")]
+        public Input<Inputs.NotificationSettingArgs>? NotificationSetting { get; set; }
+
         [Input("outputs")]
         private InputMap<object>? _outputs;
 
@@ -142,6 +148,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
             get => _properties ?? (_properties = new InputMap<string>());
             set => _properties = value;
         }
+
+        /// <summary>
+        /// Queue settings for the job
+        /// </summary>
+        [Input("queueSettings")]
+        public Input<Inputs.QueueSettingsArgs>? QueueSettings { get; set; }
 
         /// <summary>
         /// Compute Resource configuration for the job.

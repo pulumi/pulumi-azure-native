@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.MixedReality
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.MixedReality
 
             string accountId,
 
+            string azureApiVersion,
+
             string id,
 
             Outputs.ObjectAnchorsAccountResponseIdentity? identity,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNative.MixedReality
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Kind = kind;

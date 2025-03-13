@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
     public sealed class ActionIpExtendedCommunityPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         [Input("add")]
         public Input<Inputs.IpExtendedCommunityIdListArgs>? Add { get; set; }
 
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         [Input("delete")]
         public Input<Inputs.IpExtendedCommunityIdListArgs>? Delete { get; set; }
 
         /// <summary>
-        /// IP Extended Community Id list properties.
+        /// List of IP Extended Community IDs.
         /// </summary>
         [Input("set")]
         public Input<Inputs.IpExtendedCommunityIdListArgs>? Set { get; set; }

@@ -52,6 +52,12 @@ namespace Pulumi.AzureNative.GuestConfiguration.Inputs
         public Input<string>? ContentHash { get; set; }
 
         /// <summary>
+        /// Managed identity with storage access of the guest configuration package and configuration parameters.
+        /// </summary>
+        [Input("contentManagedIdentity")]
+        public Input<string>? ContentManagedIdentity { get; set; }
+
+        /// <summary>
         /// Uri of the storage where guest configuration package is uploaded.
         /// </summary>
         [Input("contentUri")]

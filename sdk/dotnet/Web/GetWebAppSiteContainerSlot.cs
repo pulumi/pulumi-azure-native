@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppSiteContainerSlotResult> InvokeAsync(GetWebAppSiteContainerSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSiteContainerSlotResult>("azure-native:web:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSiteContainerSlotResult> Invoke(GetWebAppSiteContainerSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerSlotResult>("azure-native:web:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container of a site
-        /// Azure REST API version: 2023-12-01.
-        /// 
-        /// Other available API versions: 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppSiteContainerSlotResult> Invoke(GetWebAppSiteContainerSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSiteContainerSlotResult>("azure-native:web:getWebAppSiteContainerSlot", args ?? new GetWebAppSiteContainerSlotInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? AuthType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Created Time
         /// </summary>
         public readonly string CreatedTime;
@@ -177,6 +175,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppSiteContainerSlotResult(
             string? authType,
 
+            string azureApiVersion,
+
             string createdTime,
 
             ImmutableArray<Outputs.EnvironmentVariableResponse> environmentVariables,
@@ -208,6 +208,7 @@ namespace Pulumi.AzureNative.Web
             ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
         {
             AuthType = authType;
+            AzureApiVersion = azureApiVersion;
             CreatedTime = createdTime;
             EnvironmentVariables = environmentVariables;
             Id = id;

@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
         /// </summary>
         public readonly Outputs.BrowserCredentialResponse? BrowserCredential;
         /// <summary>
+        /// Description of a NotificationHub FcmV1Credential.
+        /// </summary>
+        public readonly Outputs.FcmV1CredentialResponse? FcmV1Credential;
+        /// <summary>
         /// Description of a NotificationHub GcmCredential.
         /// </summary>
         public readonly Outputs.GcmCredentialResponse? GcmCredential;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
 
             Outputs.BrowserCredentialResponse? browserCredential,
 
+            Outputs.FcmV1CredentialResponse? fcmV1Credential,
+
             Outputs.GcmCredentialResponse? gcmCredential,
 
             Outputs.MpnsCredentialResponse? mpnsCredential,
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
             ApnsCredential = apnsCredential;
             BaiduCredential = baiduCredential;
             BrowserCredential = browserCredential;
+            FcmV1Credential = fcmV1Credential;
             GcmCredential = gcmCredential;
             MpnsCredential = mpnsCredential;
             WnsCredential = wnsCredential;

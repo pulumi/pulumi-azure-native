@@ -40,6 +40,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllocationStrategy : IEquatable<AllocationStrategy>
+    {
+        private readonly string _value;
+
+        private AllocationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllocationStrategy LowestPrice { get; } = new AllocationStrategy("LowestPrice");
+        public static AllocationStrategy CapacityOptimized { get; } = new AllocationStrategy("CapacityOptimized");
+
+        public static bool operator ==(AllocationStrategy left, AllocationStrategy right) => left.Equals(right);
+        public static bool operator !=(AllocationStrategy left, AllocationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(AllocationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllocationStrategy other && Equals(other);
+        public bool Equals(AllocationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// CPU architecture supported by an OS disk.
     /// </summary>
     [EnumType]
@@ -428,7 +459,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    /// Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk,** **NvmeDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** or **NvmeDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk. Minimum api-version for NvmeDisk: 2024-03-01.
     /// </summary>
     [EnumType]
     public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
@@ -442,6 +473,7 @@ namespace Pulumi.AzureNative.Compute
 
         public static DiffDiskPlacement CacheDisk { get; } = new DiffDiskPlacement("CacheDisk");
         public static DiffDiskPlacement ResourceDisk { get; } = new DiffDiskPlacement("ResourceDisk");
+        public static DiffDiskPlacement NvmeDisk { get; } = new DiffDiskPlacement("NvmeDisk");
 
         public static bool operator ==(DiffDiskPlacement left, DiffDiskPlacement right) => left.Equals(right);
         public static bool operator !=(DiffDiskPlacement left, DiffDiskPlacement right) => !left.Equals(right);
@@ -542,6 +574,10 @@ namespace Pulumi.AzureNative.Compute
         /// Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
         /// </summary>
         public static DiskCreateOption UploadPreparedSecure { get; } = new DiskCreateOption("UploadPreparedSecure");
+        /// <summary>
+        /// Create a new disk by exporting from elastic san volume snapshot
+        /// </summary>
+        public static DiskCreateOption CopyFromSanSnapshot { get; } = new DiskCreateOption("CopyFromSanSnapshot");
 
         public static bool operator ==(DiskCreateOption left, DiskCreateOption right) => left.Equals(right);
         public static bool operator !=(DiskCreateOption left, DiskCreateOption right) => !left.Equals(right);
@@ -559,7 +595,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+    /// Specifies how the virtual machine disk should be created. Possible values are **Attach:** This value is used when you are using a specialized disk to create the virtual machine. **FromImage:** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
     /// </summary>
     [EnumType]
     public readonly struct DiskCreateOptionTypes : IEquatable<DiskCreateOptionTypes>
@@ -574,6 +610,8 @@ namespace Pulumi.AzureNative.Compute
         public static DiskCreateOptionTypes FromImage { get; } = new DiskCreateOptionTypes("FromImage");
         public static DiskCreateOptionTypes Empty { get; } = new DiskCreateOptionTypes("Empty");
         public static DiskCreateOptionTypes Attach { get; } = new DiskCreateOptionTypes("Attach");
+        public static DiskCreateOptionTypes Copy { get; } = new DiskCreateOptionTypes("Copy");
+        public static DiskCreateOptionTypes Restore { get; } = new DiskCreateOptionTypes("Restore");
 
         public static bool operator ==(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => left.Equals(right);
         public static bool operator !=(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => !left.Equals(right);
@@ -622,7 +660,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    /// Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     /// </summary>
     [EnumType]
     public readonly struct DiskDetachOptionTypes : IEquatable<DiskDetachOptionTypes>
@@ -754,6 +792,10 @@ namespace Pulumi.AzureNative.Compute
         /// Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
         /// </summary>
         public static DiskSecurityTypes ConfidentialVM_DiskEncryptedWithCustomerKey { get; } = new DiskSecurityTypes("ConfidentialVM_DiskEncryptedWithCustomerKey");
+        /// <summary>
+        /// Indicates Confidential VM disk with a ephemeral vTPM. vTPM state is not persisted across VM reboots.
+        /// </summary>
+        public static DiskSecurityTypes ConfidentialVM_NonPersistedTPM { get; } = new DiskSecurityTypes("ConfidentialVM_NonPersistedTPM");
 
         public static bool operator ==(DiskSecurityTypes left, DiskSecurityTypes right) => left.Equals(right);
         public static bool operator !=(DiskSecurityTypes left, DiskSecurityTypes right) => !left.Equals(right);
@@ -820,6 +862,39 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiskStorageAccountTypes other && Equals(other);
         public bool Equals(DiskStorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Domain name label scope.The concatenation of the hashed domain name label that generated according to the policy from domain name label scope and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainNameLabelScopeTypes : IEquatable<DomainNameLabelScopeTypes>
+    {
+        private readonly string _value;
+
+        private DomainNameLabelScopeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainNameLabelScopeTypes TenantReuse { get; } = new DomainNameLabelScopeTypes("TenantReuse");
+        public static DomainNameLabelScopeTypes SubscriptionReuse { get; } = new DomainNameLabelScopeTypes("SubscriptionReuse");
+        public static DomainNameLabelScopeTypes ResourceGroupReuse { get; } = new DomainNameLabelScopeTypes("ResourceGroupReuse");
+        public static DomainNameLabelScopeTypes NoReuse { get; } = new DomainNameLabelScopeTypes("NoReuse");
+
+        public static bool operator ==(DomainNameLabelScopeTypes left, DomainNameLabelScopeTypes right) => left.Equals(right);
+        public static bool operator !=(DomainNameLabelScopeTypes left, DomainNameLabelScopeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DomainNameLabelScopeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainNameLabelScopeTypes other && Equals(other);
+        public bool Equals(DomainNameLabelScopeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1026,6 +1101,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
+    /// </summary>
+    [EnumType]
+    public readonly struct GalleryApplicationScriptRebootBehavior : IEquatable<GalleryApplicationScriptRebootBehavior>
+    {
+        private readonly string _value;
+
+        private GalleryApplicationScriptRebootBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GalleryApplicationScriptRebootBehavior None { get; } = new GalleryApplicationScriptRebootBehavior("None");
+        public static GalleryApplicationScriptRebootBehavior Rerun { get; } = new GalleryApplicationScriptRebootBehavior("Rerun");
+
+        public static bool operator ==(GalleryApplicationScriptRebootBehavior left, GalleryApplicationScriptRebootBehavior right) => left.Equals(right);
+        public static bool operator !=(GalleryApplicationScriptRebootBehavior left, GalleryApplicationScriptRebootBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(GalleryApplicationScriptRebootBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GalleryApplicationScriptRebootBehavior other && Equals(other);
+        public bool Equals(GalleryApplicationScriptRebootBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// It is type of the extended location.
     /// </summary>
     [EnumType]
@@ -1057,7 +1163,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// This property allows you to specify the permission of sharing gallery. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Private** &lt;br&gt;&lt;br&gt; **Groups** &lt;br&gt;&lt;br&gt; **Community**
+    /// This property allows you to specify the permission of sharing gallery. Possible values are: **Private,** **Groups,** **Community.**
     /// </summary>
     [EnumType]
     public readonly struct GallerySharingPermissionTypes : IEquatable<GallerySharingPermissionTypes>
@@ -1373,6 +1479,37 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
+    /// Specifies the mode that ProxyAgent will execute on if the feature is enabled. ProxyAgent will start to audit or monitor but not enforce access control over requests to host endpoints in Audit mode, while in Enforce mode it will enforce access control. The default value is Enforce mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct Mode : IEquatable<Mode>
+    {
+        private readonly string _value;
+
+        private Mode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Mode Audit { get; } = new Mode("Audit");
+        public static Mode Enforce { get; } = new Mode("Enforce");
+
+        public static bool operator ==(Mode left, Mode right) => left.Equals(right);
+        public static bool operator !=(Mode left, Mode right) => !left.Equals(right);
+
+        public static explicit operator string(Mode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Mode other && Equals(other);
+        public bool Equals(Mode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Policy for accessing the disk via network.
     /// </summary>
     [EnumType]
@@ -1436,6 +1573,72 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NetworkApiVersion other && Equals(other);
         public bool Equals(NetworkApiVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the Auxiliary mode is enabled for the Network Interface resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfaceAuxiliaryMode : IEquatable<NetworkInterfaceAuxiliaryMode>
+    {
+        private readonly string _value;
+
+        private NetworkInterfaceAuxiliaryMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfaceAuxiliaryMode None { get; } = new NetworkInterfaceAuxiliaryMode("None");
+        public static NetworkInterfaceAuxiliaryMode AcceleratedConnections { get; } = new NetworkInterfaceAuxiliaryMode("AcceleratedConnections");
+        public static NetworkInterfaceAuxiliaryMode Floating { get; } = new NetworkInterfaceAuxiliaryMode("Floating");
+
+        public static bool operator ==(NetworkInterfaceAuxiliaryMode left, NetworkInterfaceAuxiliaryMode right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfaceAuxiliaryMode left, NetworkInterfaceAuxiliaryMode right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfaceAuxiliaryMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfaceAuxiliaryMode other && Equals(other);
+        public bool Equals(NetworkInterfaceAuxiliaryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the Auxiliary sku is enabled for the Network Interface resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkInterfaceAuxiliarySku : IEquatable<NetworkInterfaceAuxiliarySku>
+    {
+        private readonly string _value;
+
+        private NetworkInterfaceAuxiliarySku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkInterfaceAuxiliarySku None { get; } = new NetworkInterfaceAuxiliarySku("None");
+        public static NetworkInterfaceAuxiliarySku A1 { get; } = new NetworkInterfaceAuxiliarySku("A1");
+        public static NetworkInterfaceAuxiliarySku A2 { get; } = new NetworkInterfaceAuxiliarySku("A2");
+        public static NetworkInterfaceAuxiliarySku A4 { get; } = new NetworkInterfaceAuxiliarySku("A4");
+        public static NetworkInterfaceAuxiliarySku A8 { get; } = new NetworkInterfaceAuxiliarySku("A8");
+
+        public static bool operator ==(NetworkInterfaceAuxiliarySku left, NetworkInterfaceAuxiliarySku right) => left.Equals(right);
+        public static bool operator !=(NetworkInterfaceAuxiliarySku left, NetworkInterfaceAuxiliarySku right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkInterfaceAuxiliarySku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkInterfaceAuxiliarySku other && Equals(other);
+        public bool Equals(NetworkInterfaceAuxiliarySku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1628,6 +1831,37 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProtocolTypes other && Equals(other);
         public bool Equals(ProtocolTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProvisionedBandwidthCopyOption : IEquatable<ProvisionedBandwidthCopyOption>
+    {
+        private readonly string _value;
+
+        private ProvisionedBandwidthCopyOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisionedBandwidthCopyOption None { get; } = new ProvisionedBandwidthCopyOption("None");
+        public static ProvisionedBandwidthCopyOption Enhanced { get; } = new ProvisionedBandwidthCopyOption("Enhanced");
+
+        public static bool operator ==(ProvisionedBandwidthCopyOption left, ProvisionedBandwidthCopyOption right) => left.Equals(right);
+        public static bool operator !=(ProvisionedBandwidthCopyOption left, ProvisionedBandwidthCopyOption right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisionedBandwidthCopyOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisionedBandwidthCopyOption other && Equals(other);
+        public bool Equals(ProvisionedBandwidthCopyOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1934,7 +2168,7 @@ namespace Pulumi.AzureNative.Compute
     }
 
     /// <summary>
-    /// Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+    /// Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob.. **Note:** It can be set for only Confidential VMs.
     /// </summary>
     [EnumType]
     public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
@@ -1948,6 +2182,7 @@ namespace Pulumi.AzureNative.Compute
 
         public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
         public static SecurityEncryptionTypes DiskWithVMGuestState { get; } = new SecurityEncryptionTypes("DiskWithVMGuestState");
+        public static SecurityEncryptionTypes NonPersistedTPM { get; } = new SecurityEncryptionTypes("NonPersistedTPM");
 
         public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);
         public static bool operator !=(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => !left.Equals(right);
@@ -2161,6 +2396,69 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountTypes other && Equals(other);
         public bool Equals(StorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of key signature.
+    /// </summary>
+    [EnumType]
+    public readonly struct UefiKeyType : IEquatable<UefiKeyType>
+    {
+        private readonly string _value;
+
+        private UefiKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UefiKeyType Sha256 { get; } = new UefiKeyType("sha256");
+        public static UefiKeyType X509 { get; } = new UefiKeyType("x509");
+
+        public static bool operator ==(UefiKeyType left, UefiKeyType right) => left.Equals(right);
+        public static bool operator !=(UefiKeyType left, UefiKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(UefiKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UefiKeyType other && Equals(other);
+        public bool Equals(UefiKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the signature template that contains default UEFI keys.
+    /// </summary>
+    [EnumType]
+    public readonly struct UefiSignatureTemplateName : IEquatable<UefiSignatureTemplateName>
+    {
+        private readonly string _value;
+
+        private UefiSignatureTemplateName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UefiSignatureTemplateName NoSignatureTemplate { get; } = new UefiSignatureTemplateName("NoSignatureTemplate");
+        public static UefiSignatureTemplateName MicrosoftUefiCertificateAuthorityTemplate { get; } = new UefiSignatureTemplateName("MicrosoftUefiCertificateAuthorityTemplate");
+        public static UefiSignatureTemplateName MicrosoftWindowsTemplate { get; } = new UefiSignatureTemplateName("MicrosoftWindowsTemplate");
+
+        public static bool operator ==(UefiSignatureTemplateName left, UefiSignatureTemplateName right) => left.Equals(right);
+        public static bool operator !=(UefiSignatureTemplateName left, UefiSignatureTemplateName right) => !left.Equals(right);
+
+        public static explicit operator string(UefiSignatureTemplateName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UefiSignatureTemplateName other && Equals(other);
+        public bool Equals(UefiSignatureTemplateName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2576,6 +2874,37 @@ namespace Pulumi.AzureNative.Compute
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WindowsVMGuestPatchMode other && Equals(other);
         public bool Equals(WindowsVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
+    /// </summary>
+    [EnumType]
+    public readonly struct ZonalPlatformFaultDomainAlignMode : IEquatable<ZonalPlatformFaultDomainAlignMode>
+    {
+        private readonly string _value;
+
+        private ZonalPlatformFaultDomainAlignMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZonalPlatformFaultDomainAlignMode Aligned { get; } = new ZonalPlatformFaultDomainAlignMode("Aligned");
+        public static ZonalPlatformFaultDomainAlignMode Unaligned { get; } = new ZonalPlatformFaultDomainAlignMode("Unaligned");
+
+        public static bool operator ==(ZonalPlatformFaultDomainAlignMode left, ZonalPlatformFaultDomainAlignMode right) => left.Equals(right);
+        public static bool operator !=(ZonalPlatformFaultDomainAlignMode left, ZonalPlatformFaultDomainAlignMode right) => !left.Equals(right);
+
+        public static explicit operator string(ZonalPlatformFaultDomainAlignMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZonalPlatformFaultDomainAlignMode other && Equals(other);
+        public bool Equals(ZonalPlatformFaultDomainAlignMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

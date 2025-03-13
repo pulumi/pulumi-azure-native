@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The storage account credential.
-    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         [Output("accessKey")]
         public Output<Outputs.AsymmetricEncryptedSecretResponse?> AccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The storage endpoint

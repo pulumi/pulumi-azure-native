@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly Outputs.FileShareResponse? BackupFileShare;
         /// <summary>
+        /// id of the database
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Name of the database
         /// </summary>
         public readonly string Name;
@@ -39,12 +43,15 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.FileShareResponse? backupFileShare,
 
+            string? id,
+
             string name,
 
             string restoreDatabaseName)
         {
             BackupFilePaths = backupFilePaths;
             BackupFileShare = backupFileShare;
+            Id = id;
             Name = name;
             RestoreDatabaseName = restoreDatabaseName;
         }

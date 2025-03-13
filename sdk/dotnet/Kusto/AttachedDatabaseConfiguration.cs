@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+    /// Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("attachedDatabaseNames")]
         public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource id of the cluster where the databases you would like to attach reside.
@@ -195,7 +199,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

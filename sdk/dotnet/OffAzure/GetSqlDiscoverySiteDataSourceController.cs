@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a SqlDiscoverySiteDataSource
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetSqlDiscoverySiteDataSourceControllerResult> InvokeAsync(GetSqlDiscoverySiteDataSourceControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlDiscoverySiteDataSource
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a SqlDiscoverySiteDataSource
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetSqlDiscoverySiteDataSourceControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the discovery site Id.
         /// </summary>
         public readonly string? DiscoverySiteId;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetSqlDiscoverySiteDataSourceControllerResult(
+            string azureApiVersion,
+
             string? discoverySiteId,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DiscoverySiteId = discoverySiteId;
             Id = id;
             Name = name;

@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.ScVmm
     public sealed class GetVMInstanceGuestAgentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
         public readonly Outputs.GuestCredentialResponse? Credentials;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.ScVmm
 
         [OutputConstructor]
         private GetVMInstanceGuestAgentResult(
+            string azureApiVersion,
+
             Outputs.GuestCredentialResponse? credentials,
 
             string customResourceName,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.ScVmm
 
             string uuid)
         {
+            AzureApiVersion = azureApiVersion;
             Credentials = credentials;
             CustomResourceName = customResourceName;
             HttpProxyConfig = httpProxyConfig;

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
     public sealed class SignalRTlsSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Request client certificate during TLS handshake if enabled
+        /// Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         /// </summary>
         [Input("clientCertEnabled")]
         public Input<bool>? ClientCertEnabled { get; set; }
 
         public SignalRTlsSettingsArgs()
         {
-            ClientCertEnabled = true;
+            ClientCertEnabled = false;
         }
         public static new SignalRTlsSettingsArgs Empty => new SignalRTlsSettingsArgs();
     }

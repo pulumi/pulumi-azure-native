@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationServiceEnvironmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationServiceEnvironmentResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

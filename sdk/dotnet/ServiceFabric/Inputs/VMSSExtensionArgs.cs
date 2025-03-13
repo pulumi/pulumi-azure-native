@@ -69,6 +69,18 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         [Input("settings")]
         public Input<object>? Settings { get; set; }
 
+        [Input("setupOrder")]
+        private InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmssExtensionSetupOrder>>? _setupOrder;
+
+        /// <summary>
+        /// Indicates the setup order for the extension.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmssExtensionSetupOrder>> SetupOrder
+        {
+            get => _setupOrder ?? (_setupOrder = new InputList<Union<string, Pulumi.AzureNative.ServiceFabric.VmssExtensionSetupOrder>>());
+            set => _setupOrder = value;
+        }
+
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".
         /// </summary>

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Rule Collection Group resource.
-    /// Azure REST API version: 2023-11-01.
-    /// 
-    /// Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicyRuleCollectionGroupDraft")]
     public partial class FirewallPolicyRuleCollectionGroupDraft : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>

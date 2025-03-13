@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the current filter values for the signatures overrides
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<ListFirewallPolicyIdpsSignaturesFilterValueResult> InvokeAsync(ListFirewallPolicyIdpsSignaturesFilterValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the current filter values for the signatures overrides
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> Invoke(ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the current filter values for the signatures overrides
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<ListFirewallPolicyIdpsSignaturesFilterValueResult> Invoke(ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListFirewallPolicyIdpsSignaturesFilterValueResult>("azure-native:network:listFirewallPolicyIdpsSignaturesFilterValue", args ?? new ListFirewallPolicyIdpsSignaturesFilterValueInvokeArgs(), options.WithDefaults());

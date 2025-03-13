@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a specific curation profile.
-        /// Azure REST API version: 2024-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetCurationProfileResult> InvokeAsync(GetCurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCurationProfileResult>("azure-native:devcenter:getCurationProfile", args ?? new GetCurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific curation profile.
-        /// Azure REST API version: 2024-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific curation profile.
-        /// Azure REST API version: 2024-08-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetCurationProfileResult> Invoke(GetCurationProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCurationProfileResult>("azure-native:devcenter:getCurationProfile", args ?? new GetCurationProfileInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetCurationProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetCurationProfileResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

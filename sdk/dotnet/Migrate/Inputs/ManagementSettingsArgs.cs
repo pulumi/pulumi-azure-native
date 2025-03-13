@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         [Input("thirdPartyManagementSettings", required: true)]
         public Input<Inputs.ThirdPartyManagementSettingsArgs> ThirdPartyManagementSettings { get; set; } = null!;
 
-        /// <summary>
-        /// vSphere Management Settings.
-        /// </summary>
-        [Input("vsphereManagementSettings", required: true)]
-        public Input<Inputs.VsphereManagementSettingsArgs> VsphereManagementSettings { get; set; } = null!;
-
         public ManagementSettingsArgs()
         {
         }

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided storage appliance.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetStorageApplianceResult> InvokeAsync(GetStorageApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided storage appliance.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided storage appliance.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetStorageApplianceResult> Invoke(GetStorageApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageApplianceResult>("azure-native:networkcloud:getStorageAppliance", args ?? new GetStorageApplianceInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse AdministratorCredentials;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The total capacity of the storage appliance.
         /// </summary>
         public readonly double Capacity;
@@ -125,6 +123,14 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string ManagementIpv4Address;
         /// <summary>
+        /// The manufacturer of the storage appliance.
+        /// </summary>
+        public readonly string Manufacturer;
+        /// <summary>
+        /// The model of the storage appliance.
+        /// </summary>
+        public readonly string Model;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -149,6 +155,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string RemoteVendorManagementStatus;
         /// <summary>
+        /// The list of statuses that represent secret rotation activity.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecretRotationStatusResponse> SecretRotationStatus;
+        /// <summary>
         /// The serial number for the storage appliance.
         /// </summary>
         public readonly string SerialNumber;
@@ -168,10 +178,16 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version of the storage appliance.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetStorageApplianceResult(
             Outputs.AdministrativeCredentialsResponse administratorCredentials,
+
+            string azureApiVersion,
 
             double capacity,
 
@@ -191,6 +207,10 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string managementIpv4Address,
 
+            string manufacturer,
+
+            string model,
+
             string name,
 
             string provisioningState,
@@ -203,6 +223,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string remoteVendorManagementStatus,
 
+            ImmutableArray<Outputs.SecretRotationStatusResponse> secretRotationStatus,
+
             string serialNumber,
 
             string storageApplianceSkuId,
@@ -211,9 +233,12 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string version)
         {
             AdministratorCredentials = administratorCredentials;
+            AzureApiVersion = azureApiVersion;
             Capacity = capacity;
             CapacityUsed = capacityUsed;
             ClusterId = clusterId;
@@ -223,17 +248,21 @@ namespace Pulumi.AzureNative.NetworkCloud
             Id = id;
             Location = location;
             ManagementIpv4Address = managementIpv4Address;
+            Manufacturer = manufacturer;
+            Model = model;
             Name = name;
             ProvisioningState = provisioningState;
             RackId = rackId;
             RackSlot = rackSlot;
             RemoteVendorManagementFeature = remoteVendorManagementFeature;
             RemoteVendorManagementStatus = remoteVendorManagementStatus;
+            SecretRotationStatus = secretRotationStatus;
             SerialNumber = serialNumber;
             StorageApplianceSkuId = storageApplianceSkuId;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

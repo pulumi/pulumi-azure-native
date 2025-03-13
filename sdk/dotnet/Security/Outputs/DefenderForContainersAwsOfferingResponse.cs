@@ -17,29 +17,29 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForContainersAwsOfferingResponse
     {
         /// <summary>
-        /// Is audit logs pipeline auto provisioning enabled
-        /// </summary>
-        public readonly bool? AutoProvisioning;
-        /// <summary>
         /// The cloudwatch to kinesis connection configuration
         /// </summary>
         public readonly Outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis? CloudWatchToKinesis;
         /// <summary>
-        /// The container vulnerability assessment configuration
+        /// The externalId used by the data reader to prevent the confused deputy attack
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment? ContainerVulnerabilityAssessment;
-        /// <summary>
-        /// The container vulnerability assessment task configuration
-        /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask? ContainerVulnerabilityAssessmentTask;
+        public readonly string? DataCollectionExternalId;
         /// <summary>
         /// The offering description.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Enable container vulnerability assessment feature
+        /// Is audit logs data collection enabled
         /// </summary>
-        public readonly bool? EnableContainerVulnerabilityAssessment;
+        public readonly bool? EnableAuditLogsAutoProvisioning;
+        /// <summary>
+        /// Is Microsoft Defender for Cloud Kubernetes agent auto provisioning enabled
+        /// </summary>
+        public readonly bool? EnableDefenderAgentAutoProvisioning;
+        /// <summary>
+        /// Is Policy Kubernetes agent auto provisioning enabled
+        /// </summary>
+        public readonly bool? EnablePolicyAgentAutoProvisioning;
         /// <summary>
         /// The kinesis to s3 connection configuration
         /// </summary>
@@ -49,61 +49,75 @@ namespace Pulumi.AzureNative.Security.Outputs
         /// </summary>
         public readonly double? KubeAuditRetentionTime;
         /// <summary>
-        /// The kubernetes to scuba connection configuration
+        /// The kubernetes data collection connection configuration
         /// </summary>
-        public readonly Outputs.DefenderForContainersAwsOfferingResponseKubernetesScubaReader? KubernetesScubaReader;
+        public readonly Outputs.DefenderForContainersAwsOfferingResponseKubernetesDataCollection? KubernetesDataCollection;
         /// <summary>
         /// The kubernetes service connection configuration
         /// </summary>
         public readonly Outputs.DefenderForContainersAwsOfferingResponseKubernetesService? KubernetesService;
+        /// <summary>
+        /// The Microsoft Defender container agentless discovery K8s configuration
+        /// </summary>
+        public readonly Outputs.DefenderForContainersAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? MdcContainersAgentlessDiscoveryK8s;
+        /// <summary>
+        /// The Microsoft Defender container image assessment configuration
+        /// </summary>
+        public readonly Outputs.DefenderForContainersAwsOfferingResponseMdcContainersImageAssessment? MdcContainersImageAssessment;
         /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderForContainersAws'.
         /// </summary>
         public readonly string OfferingType;
         /// <summary>
-        /// The externalId used by the data reader to prevent the confused deputy attack
+        /// The Microsoft Defender for Container K8s VM host scanning configuration
         /// </summary>
-        public readonly string? ScubaExternalId;
+        public readonly Outputs.DefenderForContainersAwsOfferingResponseVmScanners? VmScanners;
 
         [OutputConstructor]
         private DefenderForContainersAwsOfferingResponse(
-            bool? autoProvisioning,
-
             Outputs.DefenderForContainersAwsOfferingResponseCloudWatchToKinesis? cloudWatchToKinesis,
 
-            Outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessment? containerVulnerabilityAssessment,
-
-            Outputs.DefenderForContainersAwsOfferingResponseContainerVulnerabilityAssessmentTask? containerVulnerabilityAssessmentTask,
+            string? dataCollectionExternalId,
 
             string description,
 
-            bool? enableContainerVulnerabilityAssessment,
+            bool? enableAuditLogsAutoProvisioning,
+
+            bool? enableDefenderAgentAutoProvisioning,
+
+            bool? enablePolicyAgentAutoProvisioning,
 
             Outputs.DefenderForContainersAwsOfferingResponseKinesisToS3? kinesisToS3,
 
             double? kubeAuditRetentionTime,
 
-            Outputs.DefenderForContainersAwsOfferingResponseKubernetesScubaReader? kubernetesScubaReader,
+            Outputs.DefenderForContainersAwsOfferingResponseKubernetesDataCollection? kubernetesDataCollection,
 
             Outputs.DefenderForContainersAwsOfferingResponseKubernetesService? kubernetesService,
 
+            Outputs.DefenderForContainersAwsOfferingResponseMdcContainersAgentlessDiscoveryK8s? mdcContainersAgentlessDiscoveryK8s,
+
+            Outputs.DefenderForContainersAwsOfferingResponseMdcContainersImageAssessment? mdcContainersImageAssessment,
+
             string offeringType,
 
-            string? scubaExternalId)
+            Outputs.DefenderForContainersAwsOfferingResponseVmScanners? vmScanners)
         {
-            AutoProvisioning = autoProvisioning;
             CloudWatchToKinesis = cloudWatchToKinesis;
-            ContainerVulnerabilityAssessment = containerVulnerabilityAssessment;
-            ContainerVulnerabilityAssessmentTask = containerVulnerabilityAssessmentTask;
+            DataCollectionExternalId = dataCollectionExternalId;
             Description = description;
-            EnableContainerVulnerabilityAssessment = enableContainerVulnerabilityAssessment;
+            EnableAuditLogsAutoProvisioning = enableAuditLogsAutoProvisioning;
+            EnableDefenderAgentAutoProvisioning = enableDefenderAgentAutoProvisioning;
+            EnablePolicyAgentAutoProvisioning = enablePolicyAgentAutoProvisioning;
             KinesisToS3 = kinesisToS3;
             KubeAuditRetentionTime = kubeAuditRetentionTime;
-            KubernetesScubaReader = kubernetesScubaReader;
+            KubernetesDataCollection = kubernetesDataCollection;
             KubernetesService = kubernetesService;
+            MdcContainersAgentlessDiscoveryK8s = mdcContainersAgentlessDiscoveryK8s;
+            MdcContainersImageAssessment = mdcContainersImageAssessment;
             OfferingType = offeringType;
-            ScubaExternalId = scubaExternalId;
+            VmScanners = vmScanners;
         }
     }
 }

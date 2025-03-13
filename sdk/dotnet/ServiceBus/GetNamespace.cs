@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Alternate name for namespace
         /// </summary>
         public readonly string? AlternateName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The time the namespace was created
         /// </summary>
@@ -124,6 +122,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
+        /// </summary>
+        public readonly int? PremiumMessagingPartitions;
         /// <summary>
         /// List of private endpoint connections.
         /// </summary>
@@ -173,6 +175,8 @@ namespace Pulumi.AzureNative.ServiceBus
         private GetNamespaceResult(
             string? alternateName,
 
+            string azureApiVersion,
+
             string createdAt,
 
             bool? disableLocalAuth,
@@ -190,6 +194,8 @@ namespace Pulumi.AzureNative.ServiceBus
             string? minimumTlsVersion,
 
             string name,
+
+            int? premiumMessagingPartitions,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
@@ -214,6 +220,7 @@ namespace Pulumi.AzureNative.ServiceBus
             bool? zoneRedundant)
         {
             AlternateName = alternateName;
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             DisableLocalAuth = disableLocalAuth;
             Encryption = encryption;
@@ -223,6 +230,7 @@ namespace Pulumi.AzureNative.ServiceBus
             MetricId = metricId;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            PremiumMessagingPartitions = premiumMessagingPartitions;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

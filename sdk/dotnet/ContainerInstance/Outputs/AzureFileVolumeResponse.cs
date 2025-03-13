@@ -29,10 +29,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
         /// </summary>
         public readonly string? StorageAccountKey;
         /// <summary>
-        /// The reference to the storage account access key used to access the Azure File share.
-        /// </summary>
-        public readonly string? StorageAccountKeyReference;
-        /// <summary>
         /// The name of the storage account that contains the Azure File share.
         /// </summary>
         public readonly string StorageAccountName;
@@ -45,14 +41,11 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
             string? storageAccountKey,
 
-            string? storageAccountKeyReference,
-
             string storageAccountName)
         {
             ReadOnly = readOnly;
             ShareName = shareName;
             StorageAccountKey = storageAccountKey;
-            StorageAccountKeyReference = storageAccountKeyReference;
             StorageAccountName = storageAccountName;
         }
     }

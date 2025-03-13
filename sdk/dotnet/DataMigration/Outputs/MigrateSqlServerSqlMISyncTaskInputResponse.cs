@@ -17,13 +17,17 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlMISyncTaskInputResponse
     {
         /// <summary>
-        /// Azure Active Directory Application the DMS instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
+        /// Azure Active Directory Application the DMS (classic) instance will use to connect to the target instance of Azure SQL Database Managed Instance and the Azure Storage Account
         /// </summary>
         public readonly Outputs.AzureActiveDirectoryAppResponse AzureApp;
         /// <summary>
         /// Backup file share information for all selected databases.
         /// </summary>
         public readonly Outputs.FileShareResponse? BackupFileShare;
+        /// <summary>
+        /// Number of database migrations to start in parallel
+        /// </summary>
+        public readonly double? NumberOfParallelDatabaseMigrations;
         /// <summary>
         /// Databases to migrate
         /// </summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             Outputs.FileShareResponse? backupFileShare,
 
+            double? numberOfParallelDatabaseMigrations,
+
             ImmutableArray<Outputs.MigrateSqlServerSqlMIDatabaseInputResponse> selectedDatabases,
 
             Outputs.SqlConnectionInfoResponse sourceConnectionInfo,
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         {
             AzureApp = azureApp;
             BackupFileShare = backupFileShare;
+            NumberOfParallelDatabaseMigrations = numberOfParallelDatabaseMigrations;
             SelectedDatabases = selectedDatabases;
             SourceConnectionInfo = sourceConnectionInfo;
             StorageResourceId = storageResourceId;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Method to get a site.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetSqlSitesControllerResult> InvokeAsync(GetSqlSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlSitesControllerResult>("azure-native:offazure:getSqlSitesController", args ?? new GetSqlSitesControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get a site.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSqlSitesControllerResult> Invoke(GetSqlSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlSitesControllerResult>("azure-native:offazure:getSqlSitesController", args ?? new GetSqlSitesControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get a site.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetSqlSitesControllerResult> Invoke(GetSqlSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlSitesControllerResult>("azure-native:offazure:getSqlSitesController", args ?? new GetSqlSitesControllerInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.OffAzure
     public sealed class GetSqlSitesControllerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the discovery scenario.
         /// </summary>
         public readonly string? DiscoveryScenario;
@@ -133,6 +131,8 @@ namespace Pulumi.AzureNative.OffAzure
 
         [OutputConstructor]
         private GetSqlSitesControllerResult(
+            string azureApiVersion,
+
             string? discoveryScenario,
 
             string id,
@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.OffAzure
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DiscoveryScenario = discoveryScenario;
             Id = id;
             Name = name;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
     {
         /// <summary>
         /// Get firmware.
-        /// Azure REST API version: 2023-02-08-preview.
-        /// 
-        /// Other available API versions: 2024-01-10.
+        /// Azure REST API version: 2024-01-10.
         /// </summary>
         public static Task<GetFirmwareResult> InvokeAsync(GetFirmwareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirmwareResult>("azure-native:iotfirmwaredefense:getFirmware", args ?? new GetFirmwareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get firmware.
-        /// Azure REST API version: 2023-02-08-preview.
-        /// 
-        /// Other available API versions: 2024-01-10.
+        /// Azure REST API version: 2024-01-10.
         /// </summary>
         public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get firmware.
-        /// Azure REST API version: 2023-02-08-preview.
-        /// 
-        /// Other available API versions: 2024-01-10.
+        /// Azure REST API version: 2024-01-10.
         /// </summary>
         public static Output<GetFirmwareResult> Invoke(GetFirmwareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirmwareResult>("azure-native:iotfirmwaredefense:getFirmware", args ?? new GetFirmwareInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
     public sealed class GetFirmwareResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// User-specified description of the firmware.
         /// </summary>
         public readonly string? Description;
@@ -109,7 +107,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// </summary>
         public readonly double? FileSize;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -131,7 +129,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// A list of errors or other messages generated during firmware analysis
         /// </summary>
-        public readonly ImmutableArray<object> StatusMessages;
+        public readonly ImmutableArray<Outputs.StatusMessageResponse> StatusMessages;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 
         [OutputConstructor]
         private GetFirmwareResult(
+            string azureApiVersion,
+
             string? description,
 
             string? fileName,
@@ -167,7 +167,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 
             string? status,
 
-            ImmutableArray<object> statusMessages,
+            ImmutableArray<Outputs.StatusMessageResponse> statusMessages,
 
             Outputs.SystemDataResponse systemData,
 
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             FileName = fileName;
             FileSize = fileSize;

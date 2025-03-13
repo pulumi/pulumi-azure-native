@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public Input<string>? StorageAccountKey { get; set; }
 
         /// <summary>
-        /// The reference to the storage account access key used to access the Azure File share.
-        /// </summary>
-        [Input("storageAccountKeyReference")]
-        public Input<string>? StorageAccountKeyReference { get; set; }
-
-        /// <summary>
         /// The name of the storage account that contains the Azure File share.
         /// </summary>
         [Input("storageAccountName", required: true)]

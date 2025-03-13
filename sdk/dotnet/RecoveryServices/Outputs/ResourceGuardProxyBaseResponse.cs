@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         public readonly string? Description;
         public readonly string? LastUpdatedTime;
         public readonly ImmutableArray<Outputs.ResourceGuardOperationDetailResponse> ResourceGuardOperationDetails;
-        public readonly string? ResourceGuardResourceId;
+        public readonly string ResourceGuardResourceId;
 
         [OutputConstructor]
         private ResourceGuardProxyBaseResponse(
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             ImmutableArray<Outputs.ResourceGuardOperationDetailResponse> resourceGuardOperationDetails,
 
-            string? resourceGuardResourceId)
+            string resourceGuardResourceId)
         {
             Description = description;
             LastUpdatedTime = lastUpdatedTime;

@@ -27,6 +27,30 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
         [Input("monitoringSettings")]
         public Input<Inputs.MonitoringSettingsArgs>? MonitoringSettings { get; set; }
 
+        [Input("replicatedRegions")]
+        private InputList<string>? _replicatedRegions;
+
+        /// <summary>
+        /// List of replicated regions for Backup Vault
+        /// </summary>
+        public InputList<string> ReplicatedRegions
+        {
+            get => _replicatedRegions ?? (_replicatedRegions = new InputList<string>());
+            set => _replicatedRegions = value;
+        }
+
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
+
         /// <summary>
         /// Security Settings
         /// </summary>

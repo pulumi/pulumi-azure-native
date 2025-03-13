@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetFileEventTriggerResult> InvokeAsync(GetFileEventTriggerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific trigger by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetFileEventTriggerResult> Invoke(GetFileEventTriggerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileEventTriggerResult>("azure-native:databoxedge:getFileEventTrigger", args ?? new GetFileEventTriggerInvokeArgs(), options.WithDefaults());
@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetFileEventTriggerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         /// </summary>
         public readonly string? CustomContextTag;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetFileEventTriggerResult(
+            string azureApiVersion,
+
             string? customContextTag,
 
             string id,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomContextTag = customContextTag;
             Id = id;
             Kind = kind;

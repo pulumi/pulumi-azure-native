@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     public sealed class BrokerListenerPropertiesResponse
     {
         /// <summary>
-        /// Broker associated with this listener.
-        /// </summary>
-        public readonly string BrokerRef;
-        /// <summary>
         /// Ports on which this listener accepts client connections.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerPortResponse> Ports;
@@ -39,8 +35,6 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
         [OutputConstructor]
         private BrokerListenerPropertiesResponse(
-            string brokerRef,
-
             ImmutableArray<Outputs.ListenerPortResponse> ports,
 
             string provisioningState,
@@ -49,7 +43,6 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
             string? serviceType)
         {
-            BrokerRef = brokerRef;
             Ports = ports;
             ProvisioningState = provisioningState;
             ServiceName = serviceName;

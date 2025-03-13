@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Search.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        /// Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AzureNative.Search.PrivateLinkServiceConnectionStatus>? Status { get; set; }

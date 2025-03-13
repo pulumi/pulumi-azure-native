@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Dapr Component Resiliency Policy.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Task<GetDaprComponentResiliencyPolicyResult> InvokeAsync(GetDaprComponentResiliencyPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprComponentResiliencyPolicyResult>("azure-native:app:getDaprComponentResiliencyPolicy", args ?? new GetDaprComponentResiliencyPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component Resiliency Policy.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprComponentResiliencyPolicyResult> Invoke(GetDaprComponentResiliencyPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResiliencyPolicyResult>("azure-native:app:getDaprComponentResiliencyPolicy", args ?? new GetDaprComponentResiliencyPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component Resiliency Policy.
-        /// Azure REST API version: 2023-08-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-10-02-preview.
         /// </summary>
         public static Output<GetDaprComponentResiliencyPolicyResult> Invoke(GetDaprComponentResiliencyPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResiliencyPolicyResult>("azure-native:app:getDaprComponentResiliencyPolicy", args ?? new GetDaprComponentResiliencyPolicyInvokeArgs(), options.WithDefaults());
@@ -109,7 +103,11 @@ namespace Pulumi.AzureNative.App
     public sealed class GetDaprComponentResiliencyPolicyResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetDaprComponentResiliencyPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.DaprComponentResiliencyPolicyConfigurationResponse? inboundPolicy,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             InboundPolicy = inboundPolicy;
             Name = name;

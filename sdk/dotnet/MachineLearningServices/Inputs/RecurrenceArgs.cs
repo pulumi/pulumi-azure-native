@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// [Required] The frequency to trigger schedule.
         /// </summary>
         [Input("frequency")]
-        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RecurrenceFrequency>? Frequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ComputeRecurrenceFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// [Required] Specifies schedule interval in conjunction with frequency
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// [Required] The recurrence schedule.
         /// </summary>
         [Input("schedule")]
-        public Input<Inputs.RecurrenceScheduleArgs>? Schedule { get; set; }
+        public Input<Inputs.ComputeRecurrenceScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
         /// The start time in yyyy-MM-ddTHH:mm:ss format.

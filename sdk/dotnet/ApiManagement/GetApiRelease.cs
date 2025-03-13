@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Returns the details of an API release.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiReleaseResult> InvokeAsync(GetApiReleaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiReleaseResult>("azure-native:apimanagement:getApiRelease", args ?? new GetApiReleaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the details of an API release.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the details of an API release.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiReleaseResult> Invoke(GetApiReleaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiReleaseResult>("azure-native:apimanagement:getApiRelease", args ?? new GetApiReleaseInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? ApiId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
         /// </summary>
         public readonly string CreatedDateTime;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetApiReleaseResult(
             string? apiId,
 
+            string azureApiVersion,
+
             string createdDateTime,
 
             string id,
@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.ApiManagement
             string updatedDateTime)
         {
             ApiId = apiId;
+            AzureApiVersion = azureApiVersion;
             CreatedDateTime = createdDateTime;
             Id = id;
             Name = name;

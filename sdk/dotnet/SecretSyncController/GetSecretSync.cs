@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.SecretSyncController
     public sealed class GetSecretSyncResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The complex type of the extended location.
         /// </summary>
         public readonly Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? ExtendedLocation;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.SecretSyncController
 
         [OutputConstructor]
         private GetSecretSyncResult(
+            string azureApiVersion,
+
             Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
 
             string? forceSynchronization,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.SecretSyncController
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             ForceSynchronization = forceSynchronization;
             Id = id;

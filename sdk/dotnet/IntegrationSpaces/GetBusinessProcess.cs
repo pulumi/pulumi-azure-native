@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     public sealed class GetBusinessProcessResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The business process mapping.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.BusinessProcessMappingItemResponse>? BusinessProcessMapping;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
         [OutputConstructor]
         private GetBusinessProcessResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, Outputs.BusinessProcessMappingItemResponse>? businessProcessMapping,
 
             ImmutableDictionary<string, Outputs.BusinessProcessStageResponse>? businessProcessStages,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             BusinessProcessMapping = businessProcessMapping;
             BusinessProcessStages = businessProcessStages;
             Description = description;

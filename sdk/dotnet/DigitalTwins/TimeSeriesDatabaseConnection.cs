@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// Describes a time series database connection resource.
-    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview.
+    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:TimeSeriesDatabaseConnection")]
     public partial class TimeSeriesDatabaseConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Extension resource name.
         /// </summary>

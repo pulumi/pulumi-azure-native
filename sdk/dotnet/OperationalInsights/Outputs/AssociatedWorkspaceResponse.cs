@@ -21,15 +21,15 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// </summary>
         public readonly string AssociateDate;
         /// <summary>
-        /// The ResourceId id the assigned workspace.
+        /// Associated workspace arm resource id, in the form of: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}.
         /// </summary>
         public readonly string ResourceId;
         /// <summary>
-        /// The id of the assigned workspace.
+        /// Associated workspace immutable id.
         /// </summary>
         public readonly string WorkspaceId;
         /// <summary>
-        /// The name id the assigned workspace.
+        /// Associated workspace resource name.
         /// </summary>
         public readonly string WorkspaceName;
 

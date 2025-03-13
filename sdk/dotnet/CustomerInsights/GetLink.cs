@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.CustomerInsights
     public sealed class GetLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Localized descriptions for the Link.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Description;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
         [OutputConstructor]
         private GetLinkResult(
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? description,
 
             ImmutableDictionary<string, string>? displayName,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

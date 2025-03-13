@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an Event Hubs description for the specified Event Hub.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure-native:eventhub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetEventHubResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Properties of capture description
         /// </summary>
         public readonly Outputs.CaptureDescriptionResponse? CaptureDescription;
@@ -148,9 +146,15 @@ namespace Pulumi.AzureNative.EventHub
         /// The exact time the message was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Gets and Sets Metadata of User.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetEventHubResult(
+            string azureApiVersion,
+
             Outputs.CaptureDescriptionResponse? captureDescription,
 
             string createdAt,
@@ -175,8 +179,11 @@ namespace Pulumi.AzureNative.EventHub
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            string? userMetadata)
         {
+            AzureApiVersion = azureApiVersion;
             CaptureDescription = captureDescription;
             CreatedAt = createdAt;
             Id = id;
@@ -190,6 +197,7 @@ namespace Pulumi.AzureNative.EventHub
             SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

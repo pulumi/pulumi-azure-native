@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetMaintenanceConfigurationResult> InvokeAsync(GetMaintenanceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMaintenanceConfigurationResult>("azure-native:containerservice:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:containerservice:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetMaintenanceConfigurationResult> Invoke(GetMaintenanceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMaintenanceConfigurationResult>("azure-native:containerservice:getMaintenanceConfiguration", args ?? new GetMaintenanceConfigurationInvokeArgs(), options.WithDefaults());
@@ -97,9 +91,17 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetMaintenanceConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Maintenance window for the maintenance configuration.
+        /// </summary>
+        public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -123,7 +125,11 @@ namespace Pulumi.AzureNative.ContainerService
 
         [OutputConstructor]
         private GetMaintenanceConfigurationResult(
+            string azureApiVersion,
+
             string id,
+
+            Outputs.MaintenanceWindowResponse? maintenanceWindow,
 
             string name,
 
@@ -135,7 +141,9 @@ namespace Pulumi.AzureNative.ContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
+            MaintenanceWindow = maintenanceWindow;
             Name = name;
             NotAllowedTime = notAllowedTime;
             SystemData = systemData;

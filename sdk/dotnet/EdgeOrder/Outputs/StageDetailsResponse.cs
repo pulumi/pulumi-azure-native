@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Stage name
+        /// Stage name.
         /// </summary>
         public readonly string StageName;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string StageStatus;
         /// <summary>
-        /// Stage start time
+        /// Stage start time.
         /// </summary>
         public readonly string StartTime;
 

@@ -8,6 +8,67 @@ using Pulumi;
 namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
+    /// Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogItemSyncEnableStatus : IEquatable<CatalogItemSyncEnableStatus>
+    {
+        private readonly string _value;
+
+        private CatalogItemSyncEnableStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogItemSyncEnableStatus Enabled { get; } = new CatalogItemSyncEnableStatus("Enabled");
+        public static CatalogItemSyncEnableStatus Disabled { get; } = new CatalogItemSyncEnableStatus("Disabled");
+
+        public static bool operator ==(CatalogItemSyncEnableStatus left, CatalogItemSyncEnableStatus right) => left.Equals(right);
+        public static bool operator !=(CatalogItemSyncEnableStatus left, CatalogItemSyncEnableStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogItemSyncEnableStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogItemSyncEnableStatus other && Equals(other);
+        public bool Equals(CatalogItemSyncEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates catalog item types.
+    /// </summary>
+    [EnumType]
+    public readonly struct CatalogItemType : IEquatable<CatalogItemType>
+    {
+        private readonly string _value;
+
+        private CatalogItemType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CatalogItemType EnvironmentDefinition { get; } = new CatalogItemType("EnvironmentDefinition");
+
+        public static bool operator ==(CatalogItemType left, CatalogItemType right) => left.Equals(right);
+        public static bool operator !=(CatalogItemType left, CatalogItemType right) => !left.Equals(right);
+
+        public static explicit operator string(CatalogItemType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CatalogItemType other && Equals(other);
+        public bool Equals(CatalogItemType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates the type of sync that is configured for the catalog.
     /// </summary>
     [EnumType]
@@ -155,6 +216,38 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HibernateSupport other && Equals(other);
         public bool Equals(HibernateSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Values can be systemAssignedIdentity or userAssignedIdentity
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssignedIdentity { get; } = new IdentityType("systemAssignedIdentity");
+        public static IdentityType UserAssignedIdentity { get; } = new IdentityType("userAssignedIdentity");
+        public static IdentityType DelegatedResourceIdentity { get; } = new IdentityType("delegatedResourceIdentity");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -379,6 +472,37 @@ namespace Pulumi.AzureNative.DevCenter
     }
 
     /// <summary>
+    /// Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
+    /// </summary>
+    [EnumType]
+    public readonly struct SingleSignOnStatus : IEquatable<SingleSignOnStatus>
+    {
+        private readonly string _value;
+
+        private SingleSignOnStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SingleSignOnStatus Disabled { get; } = new SingleSignOnStatus("Disabled");
+        public static SingleSignOnStatus Enabled { get; } = new SingleSignOnStatus("Enabled");
+
+        public static bool operator ==(SingleSignOnStatus left, SingleSignOnStatus right) => left.Equals(right);
+        public static bool operator !=(SingleSignOnStatus left, SingleSignOnStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SingleSignOnStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SingleSignOnStatus other && Equals(other);
+        public bool Equals(SingleSignOnStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     /// </summary>
     [EnumType]
@@ -435,6 +559,37 @@ namespace Pulumi.AzureNative.DevCenter
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StopOnDisconnectEnableStatus other && Equals(other);
         public bool Equals(StopOnDisconnectEnableStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkType : IEquatable<VirtualNetworkType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkType Managed { get; } = new VirtualNetworkType("Managed");
+        public static VirtualNetworkType Unmanaged { get; } = new VirtualNetworkType("Unmanaged");
+
+        public static bool operator ==(VirtualNetworkType left, VirtualNetworkType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkType left, VirtualNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkType other && Equals(other);
+        public bool Equals(VirtualNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

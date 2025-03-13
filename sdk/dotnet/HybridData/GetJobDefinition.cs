@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.HybridData
     public sealed class GetJobDefinitionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomerSecretResponse> CustomerSecrets;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.HybridData
 
         [OutputConstructor]
         private GetJobDefinitionResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.CustomerSecretResponse> customerSecrets,
 
             object? dataServiceInput,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNative.HybridData
 
             string? userConfirmation)
         {
+            AzureApiVersion = azureApiVersion;
             CustomerSecrets = customerSecrets;
             DataServiceInput = dataServiceInput;
             DataSinkId = dataSinkId;

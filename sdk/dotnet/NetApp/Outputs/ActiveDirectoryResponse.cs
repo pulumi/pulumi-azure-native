@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? EncryptDCConnections;
         /// <summary>
-        /// kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
+        /// kdc server IP address for the active directory machine. This optional parameter is used only while creating kerberos volume.
         /// </summary>
         public readonly string? KdcIP;
         /// <summary>

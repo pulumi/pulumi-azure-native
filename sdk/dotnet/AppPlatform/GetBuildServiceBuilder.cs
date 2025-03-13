@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get a KPack builder.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Task<GetBuildServiceBuilderResult> InvokeAsync(GetBuildServiceBuilderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildServiceBuilderResult>("azure-native:appplatform:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a KPack builder.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetBuildServiceBuilderResult> Invoke(GetBuildServiceBuilderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuilderResult>("azure-native:appplatform:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a KPack builder.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetBuildServiceBuilderResult> Invoke(GetBuildServiceBuilderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildServiceBuilderResult>("azure-native:appplatform:getBuildServiceBuilder", args ?? new GetBuildServiceBuilderInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.AppPlatform
     public sealed class GetBuildServiceBuilderResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource Id for the resource.
         /// </summary>
         public readonly string Id;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.AppPlatform
 
         [OutputConstructor]
         private GetBuildServiceBuilderResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

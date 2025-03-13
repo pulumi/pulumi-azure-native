@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// <summary>
         /// Version of the secret to be used
         /// </summary>
-        [Input("secretVersion")]
-        public Input<string>? SecretVersion { get; set; }
+        [Input("secretVersion", required: true)]
+        public Input<string> SecretVersion { get; set; } = null!;
 
         /// <summary>
         /// The type of the secret resource.

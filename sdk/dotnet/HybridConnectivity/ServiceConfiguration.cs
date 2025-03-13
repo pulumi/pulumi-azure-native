@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
     /// The service configuration details associated with the target resource.
-    /// Azure REST API version: 2023-03-15.
-    /// 
-    /// Other available API versions: 2024-12-01.
+    /// Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-03-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:ServiceConfiguration")]
     public partial class ServiceConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// A vulnerability assessments setting on Azure servers in the defined scope.
-    /// Azure REST API version: 2023-05-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AzureServersSetting")]
     public partial class AzureServersSetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The kind of the server vulnerability assessments setting
         /// Expected value is 'AzureServersSetting'.

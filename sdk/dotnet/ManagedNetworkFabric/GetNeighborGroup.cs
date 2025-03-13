@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An array of destination IPv4 Addresses or IPv6 Addresses.
         /// </summary>
         public readonly Outputs.NeighborGroupDestinationResponse Destination;
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         private GetNeighborGroupResult(
             string? annotation,
 
+            string azureApiVersion,
+
             Outputs.NeighborGroupDestinationResponse destination,
 
             string id,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
             string type)
         {
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
             Destination = destination;
             Id = id;
             Location = location;

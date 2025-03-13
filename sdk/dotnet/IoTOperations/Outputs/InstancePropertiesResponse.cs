@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 {
 
     /// <summary>
-    /// The properties of a Instance resource.
+    /// The properties of the Instance resource.
     /// </summary>
     [OutputType]
     public sealed class InstancePropertiesResponse
@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The reference to the Schema Registry for this AIO Instance.
+        /// </summary>
+        public readonly Outputs.SchemaRegistryRefResponse SchemaRegistryRef;
+        /// <summary>
         /// The Azure IoT Operations version.
         /// </summary>
         public readonly string Version;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
             string provisioningState,
 
+            Outputs.SchemaRegistryRefResponse schemaRegistryRef,
+
             string version)
         {
             Description = description;
             ProvisioningState = provisioningState;
+            SchemaRegistryRef = schemaRegistryRef;
             Version = version;
         }
     }

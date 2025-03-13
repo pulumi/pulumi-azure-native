@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("keda")]
         public Input<Inputs.ManagedClusterWorkloadAutoScalerProfileKedaArgs>? Keda { get; set; }
 
+        /// <summary>
+        /// VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        /// </summary>
+        [Input("verticalPodAutoscaler")]
+        public Input<Inputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgs>? VerticalPodAutoscaler { get; set; }
+
         public ManagedClusterWorkloadAutoScalerProfileArgs()
         {
         }

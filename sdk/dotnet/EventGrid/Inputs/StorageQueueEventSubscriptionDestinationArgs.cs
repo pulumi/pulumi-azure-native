@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// Storage queue message time to live in seconds.
+        /// Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         /// </summary>
         [Input("queueMessageTimeToLiveInSeconds")]
         public Input<double>? QueueMessageTimeToLiveInSeconds { get; set; }

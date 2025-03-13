@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a comment for a given incident.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetIncidentCommentResult> InvokeAsync(GetIncidentCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a comment for a given incident.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a comment for a given incident.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetIncidentCommentResult> Invoke(GetIncidentCommentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIncidentCommentResult>("azure-native:securityinsights:getIncidentComment", args ?? new GetIncidentCommentInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.ClientInfoResponse Author;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The time the comment was created
         /// </summary>
         public readonly string CreatedTimeUtc;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetIncidentCommentResult(
             Outputs.ClientInfoResponse author,
 
+            string azureApiVersion,
+
             string createdTimeUtc,
 
             string? etag,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             string type)
         {
             Author = author;
+            AzureApiVersion = azureApiVersion;
             CreatedTimeUtc = createdTimeUtc;
             Etag = etag;
             Id = id;

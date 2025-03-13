@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Backend address synchronous mode for the backend pool
+        /// </summary>
+        [Input("syncMode")]
+        public InputUnion<string, Pulumi.AzureNative.Network.SyncMode>? SyncMode { get; set; }
+
         [Input("tunnelInterfaces")]
         private InputList<Inputs.GatewayLoadBalancerTunnelInterfaceArgs>? _tunnelInterfaces;
 

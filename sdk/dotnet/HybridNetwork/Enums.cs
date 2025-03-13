@@ -232,6 +232,37 @@ namespace Pulumi.AzureNative.HybridNetwork
     }
 
     /// <summary>
+    /// The artifact store backing resource network access type
+    /// </summary>
+    [EnumType]
+    public readonly struct BackingResourcePublicNetworkAccess : IEquatable<BackingResourcePublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private BackingResourcePublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackingResourcePublicNetworkAccess Enabled { get; } = new BackingResourcePublicNetworkAccess("Enabled");
+        public static BackingResourcePublicNetworkAccess Disabled { get; } = new BackingResourcePublicNetworkAccess("Disabled");
+
+        public static bool operator ==(BackingResourcePublicNetworkAccess left, BackingResourcePublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(BackingResourcePublicNetworkAccess left, BackingResourcePublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(BackingResourcePublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackingResourcePublicNetworkAccess other && Equals(other);
+        public bool Equals(BackingResourcePublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The value which indicates if configuration values are secrets
     /// </summary>
     [EnumType]
@@ -510,6 +541,38 @@ namespace Pulumi.AzureNative.HybridNetwork
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is NFVIType other && Equals(other);
         public bool Equals(NFVIType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The value which indicates if NF  values are secrets
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkFunctionConfigurationType : IEquatable<NetworkFunctionConfigurationType>
+    {
+        private readonly string _value;
+
+        private NetworkFunctionConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkFunctionConfigurationType Unknown { get; } = new NetworkFunctionConfigurationType("Unknown");
+        public static NetworkFunctionConfigurationType Secret { get; } = new NetworkFunctionConfigurationType("Secret");
+        public static NetworkFunctionConfigurationType Open { get; } = new NetworkFunctionConfigurationType("Open");
+
+        public static bool operator ==(NetworkFunctionConfigurationType left, NetworkFunctionConfigurationType right) => left.Equals(right);
+        public static bool operator !=(NetworkFunctionConfigurationType left, NetworkFunctionConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkFunctionConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkFunctionConfigurationType other && Equals(other);
+        public bool Equals(NetworkFunctionConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

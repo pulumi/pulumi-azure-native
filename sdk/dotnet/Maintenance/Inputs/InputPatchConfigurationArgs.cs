@@ -21,30 +21,6 @@ namespace Pulumi.AzureNative.Maintenance.Inputs
         [Input("linuxParameters")]
         public Input<Inputs.InputLinuxParametersArgs>? LinuxParameters { get; set; }
 
-        [Input("postTasks")]
-        private InputList<Inputs.TaskPropertiesArgs>? _postTasks;
-
-        /// <summary>
-        /// List of post tasks. e.g. [{'source' :'runbook', 'taskScope': 'Resource', 'parameters': { 'arg1': 'value1'}}]
-        /// </summary>
-        public InputList<Inputs.TaskPropertiesArgs> PostTasks
-        {
-            get => _postTasks ?? (_postTasks = new InputList<Inputs.TaskPropertiesArgs>());
-            set => _postTasks = value;
-        }
-
-        [Input("preTasks")]
-        private InputList<Inputs.TaskPropertiesArgs>? _preTasks;
-
-        /// <summary>
-        /// List of pre tasks. e.g. [{'source' :'runbook', 'taskScope': 'Global', 'parameters': { 'arg1': 'value1'}}]
-        /// </summary>
-        public InputList<Inputs.TaskPropertiesArgs> PreTasks
-        {
-            get => _preTasks ?? (_preTasks = new InputList<Inputs.TaskPropertiesArgs>());
-            set => _preTasks = value;
-        }
-
         /// <summary>
         /// Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.
         /// </summary>

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01.
-    /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    /// Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Replication")]
     public partial class Replication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>

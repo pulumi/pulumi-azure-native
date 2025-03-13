@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     public sealed class SettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Azure arc settings.
+        /// </summary>
+        [Input("azureArcSettings")]
+        public Input<Inputs.AzureArcSettingsArgs>? AzureArcSettings { get; set; }
+
+        /// <summary>
         /// Azure settings for a business case.
         /// </summary>
         [Input("azureSettings", required: true)]

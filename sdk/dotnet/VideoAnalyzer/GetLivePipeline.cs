@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetLivePipelineResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Maximum bitrate capacity in Kbps reserved for the live pipeline. The allowed range is from 500 to 3000 Kbps in increments of 100 Kbps. If the RTSP camera exceeds this capacity, then the service will disconnect temporarily from the camera. It will retry to re-establish connection (with exponential backoff), checking to see if the camera bitrate is now below the reserved capacity. Doing so will ensure that one 'noisy neighbor' does not affect other live pipelines in your account.
         /// </summary>
         public readonly int BitrateKbps;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetLivePipelineResult(
+            string azureApiVersion,
+
             int bitrateKbps,
 
             string? description,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BitrateKbps = bitrateKbps;
             Description = description;
             Id = id;

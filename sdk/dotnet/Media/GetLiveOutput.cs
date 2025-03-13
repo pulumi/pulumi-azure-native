@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string AssetName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation time the live output.
         /// </summary>
         public readonly string Created;
@@ -169,6 +173,8 @@ namespace Pulumi.AzureNative.Media
 
             string assetName,
 
+            string azureApiVersion,
+
             string created,
 
             string? description,
@@ -197,6 +203,7 @@ namespace Pulumi.AzureNative.Media
         {
             ArchiveWindowLength = archiveWindowLength;
             AssetName = assetName;
+            AzureApiVersion = azureApiVersion;
             Created = created;
             Description = description;
             Hls = hls;

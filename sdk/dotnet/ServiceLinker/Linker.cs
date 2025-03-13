@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ServiceLinker
 {
     /// <summary>
     /// Linker of source and target resource
-    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview.
-    /// 
-    /// Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Linker")]
     public partial class Linker : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         [Output("authInfo")]
         public Output<object?> AuthInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The application client type

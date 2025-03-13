@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Defines the inventory item.
-    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-    /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    /// Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:InventoryItem")]
     public partial class InventoryItem : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// They inventory type.
         /// </summary>
@@ -55,13 +59,13 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the provisioning state.
+        /// Gets the provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

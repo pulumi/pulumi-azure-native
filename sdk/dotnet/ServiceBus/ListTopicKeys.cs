@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets the primary and secondary connection strings for the topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<ListTopicKeysResult> InvokeAsync(ListTopicKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopicKeysResult>("azure-native:servicebus:listTopicKeys", args ?? new ListTopicKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the primary and secondary connection strings for the topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the primary and secondary connection strings for the topic.
-        /// Azure REST API version: 2022-01-01-preview.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<ListTopicKeysResult> Invoke(ListTopicKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopicKeysResult>("azure-native:servicebus:listTopicKeys", args ?? new ListTopicKeysInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -87,7 +81,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

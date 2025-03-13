@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
     public sealed class SettingsResponse
     {
         /// <summary>
+        /// Azure arc settings.
+        /// </summary>
+        public readonly Outputs.AzureArcSettingsResponse? AzureArcSettings;
+        /// <summary>
         /// Azure settings for a business case.
         /// </summary>
         public readonly Outputs.AzureSettingsResponse AzureSettings;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
         [OutputConstructor]
         private SettingsResponse(
+            Outputs.AzureArcSettingsResponse? azureArcSettings,
+
             Outputs.AzureSettingsResponse azureSettings,
 
             Outputs.OnPremiseSettingsResponse? onPremiseSettings)
         {
+            AzureArcSettings = azureArcSettings;
             AzureSettings = azureSettings;
             OnPremiseSettings = onPremiseSettings;
         }

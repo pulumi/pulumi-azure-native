@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the import pipeline.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the import pipeline.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the import pipeline.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class GetImportPipelineResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID.
         /// </summary>
         public readonly string Id;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         [OutputConstructor]
         private GetImportPipelineResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityPropertiesResponse? identity,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

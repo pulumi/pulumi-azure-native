@@ -17,9 +17,21 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class NetworkProfileResponse
     {
         /// <summary>
+        /// The cluster load balancer profile.
+        /// </summary>
+        public readonly Outputs.LoadBalancerProfileResponse? LoadBalancerProfile;
+        /// <summary>
+        /// The OutboundType used for egress traffic.
+        /// </summary>
+        public readonly string? OutboundType;
+        /// <summary>
         /// The CIDR used for OpenShift/Kubernetes Pods.
         /// </summary>
         public readonly string? PodCidr;
+        /// <summary>
+        /// Specifies whether subnets are pre-attached with an NSG
+        /// </summary>
+        public readonly string? PreconfiguredNSG;
         /// <summary>
         /// The CIDR used for OpenShift/Kubernetes Services.
         /// </summary>
@@ -27,11 +39,20 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
 
         [OutputConstructor]
         private NetworkProfileResponse(
+            Outputs.LoadBalancerProfileResponse? loadBalancerProfile,
+
+            string? outboundType,
+
             string? podCidr,
+
+            string? preconfiguredNSG,
 
             string? serviceCidr)
         {
+            LoadBalancerProfile = loadBalancerProfile;
+            OutboundType = outboundType;
             PodCidr = podCidr;
+            PreconfiguredNSG = preconfiguredNSG;
             ServiceCidr = serviceCidr;
         }
     }

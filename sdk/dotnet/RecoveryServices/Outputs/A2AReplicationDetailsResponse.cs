@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? AutoProtectionOfDataDisk;
         /// <summary>
+        /// A value indicating the churn option selected by user.
+        /// </summary>
+        public readonly string ChurnOptionSelected;
+        /// <summary>
         /// The fabric specific object Id of the virtual machine.
         /// </summary>
         public readonly string? FabricObjectId;
@@ -65,6 +69,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Expected value is 'A2A'.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// A value indicating if the cluster infra is ready or not.
+        /// </summary>
+        public readonly bool? IsClusterInfraReady;
         /// <summary>
         /// A value indicating whether agent certificate update is required.
         /// </summary>
@@ -133,6 +141,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The list of protected managed disks.
         /// </summary>
         public readonly ImmutableArray<Outputs.A2AProtectedManagedDiskDetailsResponse> ProtectedManagedDisks;
+        /// <summary>
+        /// The replication protection cluster Id.
+        /// </summary>
+        public readonly string? ProtectionClusterId;
         /// <summary>
         /// The recovery availability set.
         /// </summary>
@@ -244,6 +256,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? autoProtectionOfDataDisk,
 
+            string churnOptionSelected,
+
             string? fabricObjectId,
 
             Outputs.ExtendedLocationResponse? initialPrimaryExtendedLocation,
@@ -259,6 +273,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string initialRecoveryZone,
 
             string instanceType,
+
+            bool? isClusterInfraReady,
 
             bool? isReplicationAgentCertificateUpdateRequired,
 
@@ -293,6 +309,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ImmutableArray<Outputs.A2AProtectedDiskDetailsResponse> protectedDisks,
 
             ImmutableArray<Outputs.A2AProtectedManagedDiskDetailsResponse> protectedManagedDisks,
+
+            string? protectionClusterId,
 
             string? recoveryAvailabilitySet,
 
@@ -348,6 +366,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             AgentExpiryDate = agentExpiryDate;
             AgentVersion = agentVersion;
             AutoProtectionOfDataDisk = autoProtectionOfDataDisk;
+            ChurnOptionSelected = churnOptionSelected;
             FabricObjectId = fabricObjectId;
             InitialPrimaryExtendedLocation = initialPrimaryExtendedLocation;
             InitialPrimaryFabricLocation = initialPrimaryFabricLocation;
@@ -356,6 +375,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             InitialRecoveryFabricLocation = initialRecoveryFabricLocation;
             InitialRecoveryZone = initialRecoveryZone;
             InstanceType = instanceType;
+            IsClusterInfraReady = isClusterInfraReady;
             IsReplicationAgentCertificateUpdateRequired = isReplicationAgentCertificateUpdateRequired;
             IsReplicationAgentUpdateRequired = isReplicationAgentUpdateRequired;
             LastHeartbeat = lastHeartbeat;
@@ -373,6 +393,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             PrimaryFabricLocation = primaryFabricLocation;
             ProtectedDisks = protectedDisks;
             ProtectedManagedDisks = protectedManagedDisks;
+            ProtectionClusterId = protectionClusterId;
             RecoveryAvailabilitySet = recoveryAvailabilitySet;
             RecoveryAvailabilityZone = recoveryAvailabilityZone;
             RecoveryAzureGeneration = recoveryAzureGeneration;

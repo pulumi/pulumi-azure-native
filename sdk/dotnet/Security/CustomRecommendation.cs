@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Custom Recommendation
-    /// Azure REST API version: 2024-08-01.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomRecommendation")]
     public partial class CustomRecommendation : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("assessmentKey")]
         public Output<string> AssessmentKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// List of all standard supported clouds.

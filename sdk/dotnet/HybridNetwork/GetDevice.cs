@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetDeviceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The type of the device.
         /// </summary>
         public readonly string DeviceType;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetDeviceResult(
+            string azureApiVersion,
+
             string deviceType,
 
             string id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeviceType = deviceType;
             Id = id;
             Location = location;

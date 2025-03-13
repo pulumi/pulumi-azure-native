@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.BotService
 
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);

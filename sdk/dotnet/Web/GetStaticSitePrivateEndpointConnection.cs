@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetStaticSitePrivateEndpointConnectionResult> InvokeAsync(GetStaticSitePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets a private endpoint connection
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetStaticSitePrivateEndpointConnectionResult> Invoke(GetStaticSitePrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSitePrivateEndpointConnectionResult>("azure-native:web:getStaticSitePrivateEndpointConnection", args ?? new GetStaticSitePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetStaticSitePrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -128,6 +126,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetStaticSitePrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             string id,
 
             ImmutableArray<string> ipAddresses,
@@ -144,6 +144,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IpAddresses = ipAddresses;
             Kind = kind;

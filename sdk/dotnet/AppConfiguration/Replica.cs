@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The replica resource.
-    /// Azure REST API version: 2023-03-01.
-    /// 
-    /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:Replica")]
     public partial class Replica : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The URI of the replica where the replica API will be available.
         /// </summary>

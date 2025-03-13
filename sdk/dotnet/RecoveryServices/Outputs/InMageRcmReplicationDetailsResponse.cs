@@ -118,6 +118,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        public readonly string? LinuxLicenseType;
+        /// <summary>
         /// The mobility agent information.
         /// </summary>
         public readonly Outputs.InMageRcmMobilityAgentDetailsResponse? MobilityAgentDetails;
@@ -125,6 +129,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The multi VM group name.
         /// </summary>
         public readonly string MultiVmGroupName;
+        /// <summary>
+        /// The OS name associated with VM.
+        /// </summary>
+        public readonly string? OsName;
         /// <summary>
         /// The type of the OS on the VM.
         /// </summary>
@@ -178,9 +186,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string RunAsAccountId;
         /// <summary>
+        /// The tags for the seed managed disks.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserCreatedResourceTagResponse> SeedManagedDiskTags;
+        /// <summary>
+        /// The SQL Server license type.
+        /// </summary>
+        public readonly string? SqlServerLicenseType;
+        /// <summary>
         /// The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
         /// </summary>
         public readonly string StorageAccountId;
+        /// <summary>
+        /// A value indicating the inplace OS Upgrade version.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedOSVersions;
         /// <summary>
         /// The target availability set Id.
         /// </summary>
@@ -202,9 +222,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetLocation;
         /// <summary>
+        /// The tags for the target managed disks.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserCreatedResourceTagResponse> TargetManagedDiskTags;
+        /// <summary>
         /// The target network Id.
         /// </summary>
         public readonly string? TargetNetworkId;
+        /// <summary>
+        /// The tags for the target NICs.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserCreatedResourceTagResponse> TargetNicTags;
         /// <summary>
         /// The target proximity placement group Id.
         /// </summary>
@@ -218,13 +246,25 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetVmName;
         /// <summary>
+        /// The target VM security profile.
+        /// </summary>
+        public readonly Outputs.SecurityProfilePropertiesResponse? TargetVmSecurityProfile;
+        /// <summary>
         /// The target VM size.
         /// </summary>
         public readonly string? TargetVmSize;
         /// <summary>
+        /// The target VM tags.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserCreatedResourceTagResponse> TargetVmTags;
+        /// <summary>
         /// The test network Id.
         /// </summary>
         public readonly string? TestNetworkId;
+        /// <summary>
+        /// The list of unprotected disks.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InMageRcmUnProtectedDiskDetailsResponse> UnprotectedDisks;
         /// <summary>
         /// The network details.
         /// </summary>
@@ -282,9 +322,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? licenseType,
 
+            string? linuxLicenseType,
+
             Outputs.InMageRcmMobilityAgentDetailsResponse? mobilityAgentDetails,
 
             string multiVmGroupName,
+
+            string? osName,
 
             string osType,
 
@@ -312,7 +356,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string runAsAccountId,
 
+            ImmutableArray<Outputs.UserCreatedResourceTagResponse> seedManagedDiskTags,
+
+            string? sqlServerLicenseType,
+
             string storageAccountId,
+
+            ImmutableArray<string> supportedOSVersions,
 
             string? targetAvailabilitySetId,
 
@@ -324,7 +374,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetLocation,
 
+            ImmutableArray<Outputs.UserCreatedResourceTagResponse> targetManagedDiskTags,
+
             string? targetNetworkId,
+
+            ImmutableArray<Outputs.UserCreatedResourceTagResponse> targetNicTags,
 
             string? targetProximityPlacementGroupId,
 
@@ -332,9 +386,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetVmName,
 
+            Outputs.SecurityProfilePropertiesResponse? targetVmSecurityProfile,
+
             string? targetVmSize,
 
+            ImmutableArray<Outputs.UserCreatedResourceTagResponse> targetVmTags,
+
             string? testNetworkId,
+
+            ImmutableArray<Outputs.InMageRcmUnProtectedDiskDetailsResponse> unprotectedDisks,
 
             ImmutableArray<Outputs.InMageRcmNicDetailsResponse> vmNics)
         {
@@ -363,8 +423,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LastRpoCalculatedTime = lastRpoCalculatedTime;
             LastRpoInSeconds = lastRpoInSeconds;
             LicenseType = licenseType;
+            LinuxLicenseType = linuxLicenseType;
             MobilityAgentDetails = mobilityAgentDetails;
             MultiVmGroupName = multiVmGroupName;
+            OsName = osName;
             OsType = osType;
             PrimaryNicIpAddress = primaryNicIpAddress;
             ProcessServerId = processServerId;
@@ -378,18 +440,26 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             ResyncState = resyncState;
             ResyncTransferredBytes = resyncTransferredBytes;
             RunAsAccountId = runAsAccountId;
+            SeedManagedDiskTags = seedManagedDiskTags;
+            SqlServerLicenseType = sqlServerLicenseType;
             StorageAccountId = storageAccountId;
+            SupportedOSVersions = supportedOSVersions;
             TargetAvailabilitySetId = targetAvailabilitySetId;
             TargetAvailabilityZone = targetAvailabilityZone;
             TargetBootDiagnosticsStorageAccountId = targetBootDiagnosticsStorageAccountId;
             TargetGeneration = targetGeneration;
             TargetLocation = targetLocation;
+            TargetManagedDiskTags = targetManagedDiskTags;
             TargetNetworkId = targetNetworkId;
+            TargetNicTags = targetNicTags;
             TargetProximityPlacementGroupId = targetProximityPlacementGroupId;
             TargetResourceGroupId = targetResourceGroupId;
             TargetVmName = targetVmName;
+            TargetVmSecurityProfile = targetVmSecurityProfile;
             TargetVmSize = targetVmSize;
+            TargetVmTags = targetVmTags;
             TestNetworkId = testNetworkId;
+            UnprotectedDisks = unprotectedDisks;
             VmNics = vmNics;
         }
     }

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// SecurityPolicy Subresource of Traffic Controller.
-    /// Azure REST API version: 2024-05-01-preview.
-    /// 
-    /// Other available API versions: 2025-01-01.
+    /// Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2024-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:SecurityPoliciesInterface")]
     public partial class SecurityPoliciesInterface : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

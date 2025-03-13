@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetDataVersionResult> InvokeAsync(GetDataVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataVersionResult>("azure-native:machinelearningservices:getDataVersion", args ?? new GetDataVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetDataVersionResult> Invoke(GetDataVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataVersionResult>("azure-native:machinelearningservices:getDataVersion", args ?? new GetDataVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetDataVersionResult> Invoke(GetDataVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataVersionResult>("azure-native:machinelearningservices:getDataVersion", args ?? new GetDataVersionInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetDataVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly object DataVersionBaseProperties;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetDataVersionResult(
+            string azureApiVersion,
+
             object dataVersionBaseProperties,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataVersionBaseProperties = dataVersionBaseProperties;
             Id = id;
             Name = name;

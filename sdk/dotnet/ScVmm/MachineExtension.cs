@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// Describes a Machine Extension.
-    /// Azure REST API version: 2022-05-21-preview.
-    /// 
-    /// Other available API versions: 2023-04-01-preview.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         [Output("autoUpgradeMinorVersion")]
         public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.

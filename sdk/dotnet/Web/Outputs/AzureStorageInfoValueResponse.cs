@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? MountPath;
         /// <summary>
+        /// Mounting protocol to use for the storage account.
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
         /// Name of the file share (container name, for Blob storage).
         /// </summary>
         public readonly string? ShareName;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? mountPath,
 
+            string? protocol,
+
             string? shareName,
 
             string state,
@@ -58,6 +64,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             AccessKey = accessKey;
             AccountName = accountName;
             MountPath = mountPath;
+            Protocol = protocol;
             ShareName = shareName;
             State = state;
             Type = type;

@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetCapabilityHostResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.CapabilityHostResponse CapabilityHostProperties;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetCapabilityHostResult(
+            string azureApiVersion,
+
             Outputs.CapabilityHostResponse capabilityHostProperties,
 
             string id,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CapabilityHostProperties = capabilityHostProperties;
             Id = id;
             Name = name;

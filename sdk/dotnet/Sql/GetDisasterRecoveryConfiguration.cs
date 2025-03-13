@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string AutoFailover;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// How aggressive the automatic failover should be.
         /// </summary>
         public readonly string FailoverPolicy;
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.Sql
         private GetDisasterRecoveryConfigurationResult(
             string autoFailover,
 
+            string azureApiVersion,
+
             string failoverPolicy,
 
             string id,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.Sql
             string type)
         {
             AutoFailover = autoFailover;
+            AzureApiVersion = azureApiVersion;
             FailoverPolicy = failoverPolicy;
             Id = id;
             Location = location;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Task<GetNamespaceTopicResult> InvokeAsync(GetNamespaceTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a namespace topic.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetNamespaceTopicResult> Invoke(GetNamespaceTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceTopicResult>("azure-native:eventgrid:getNamespaceTopic", args ?? new GetNamespaceTopicInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetNamespaceTopicResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Event retention for the namespace topic expressed in days. The property default value is 1 day.
         /// Min event retention duration value is 1 day and max event retention duration value is 1 day.
         /// </summary>
@@ -122,7 +120,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? PublisherType;
         /// <summary>
-        /// The system metadata relating to namespace topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -132,6 +130,8 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetNamespaceTopicResult(
+            string azureApiVersion,
+
             int? eventRetentionInDays,
 
             string id,
@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EventRetentionInDays = eventRetentionInDays;
             Id = id;
             InputSchema = inputSchema;

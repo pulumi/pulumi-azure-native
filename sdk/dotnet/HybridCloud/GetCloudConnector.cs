@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.HybridCloud
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The cloud connector type.
         /// </summary>
         public readonly string? CloudType;
@@ -123,6 +127,8 @@ namespace Pulumi.AzureNative.HybridCloud
         private GetCloudConnectorResult(
             string? accountId,
 
+            string azureApiVersion,
+
             string? cloudType,
 
             string etag,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.HybridCloud
             string type)
         {
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             CloudType = cloudType;
             Etag = etag;
             Id = id;

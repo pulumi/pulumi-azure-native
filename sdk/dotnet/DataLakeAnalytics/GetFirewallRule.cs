@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         /// </summary>
         public readonly string EndIpAddress;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string azureApiVersion,
+
             string endIpAddress,
 
             string id,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The test base image definition resource.
-    /// Azure REST API version: 2023-11-01-preview.
+    /// Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2023-11-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:ImageDefinition")]
     public partial class ImageDefinition : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         [Output("architecture")]
         public Output<string> Architecture { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource

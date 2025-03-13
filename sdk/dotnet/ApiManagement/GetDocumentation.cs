@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Documentation specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetDocumentationResult> InvokeAsync(GetDocumentationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDocumentationResult>("azure-native:apimanagement:getDocumentation", args ?? new GetDocumentationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Documentation specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Documentation specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDocumentationResult> Invoke(GetDocumentationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationResult>("azure-native:apimanagement:getDocumentation", args ?? new GetDocumentationInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetDocumentationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Markdown documentation content.
         /// </summary>
         public readonly string? Content;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetDocumentationResult(
+            string azureApiVersion,
+
             string? content,
 
             string id,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Content = content;
             Id = id;
             Name = name;

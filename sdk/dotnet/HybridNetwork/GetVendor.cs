@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetVendorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetVendorResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        public readonly Outputs.OpenTelemetryExportConfigResponse? OpentelemetryExportConfig;
-        /// <summary>
         /// The self tracing properties.
         /// </summary>
         public readonly Outputs.SelfTracingResponse? SelfTracing;
@@ -43,15 +39,12 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
 
             string? mode,
 
-            Outputs.OpenTelemetryExportConfigResponse? opentelemetryExportConfig,
-
             Outputs.SelfTracingResponse? selfTracing,
 
             int? spanChannelCapacity)
         {
             CacheSizeMegabytes = cacheSizeMegabytes;
             Mode = mode;
-            OpentelemetryExportConfig = opentelemetryExportConfig;
             SelfTracing = selfTracing;
             SpanChannelCapacity = spanChannelCapacity;
         }

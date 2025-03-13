@@ -25,9 +25,25 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Capabilities;
         /// <summary>
+        /// Internal use only.
+        /// </summary>
+        public readonly Outputs.DeploymentCapacitySettingsResponse? CapacitySettings;
+        /// <summary>
+        /// The current capacity.
+        /// </summary>
+        public readonly int? CurrentCapacity;
+        /// <summary>
+        /// If the dynamic throttling is enabled.
+        /// </summary>
+        public readonly bool DynamicThrottlingEnabled;
+        /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         public readonly Outputs.DeploymentModelResponse? Model;
+        /// <summary>
+        /// The name of parent deployment.
+        /// </summary>
+        public readonly string? ParentDeploymentName;
         /// <summary>
         /// Gets the status of the resource at the time the operation was called.
         /// </summary>
@@ -38,7 +54,7 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         public readonly string? RaiPolicyName;
         public readonly ImmutableArray<Outputs.ThrottlingRuleResponse> RateLimits;
         /// <summary>
-        /// Properties of Cognitive Services account deployment model.
+        /// Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         /// </summary>
         public readonly Outputs.DeploymentScaleSettingsResponse? ScaleSettings;
         /// <summary>
@@ -52,7 +68,15 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             ImmutableDictionary<string, string> capabilities,
 
+            Outputs.DeploymentCapacitySettingsResponse? capacitySettings,
+
+            int? currentCapacity,
+
+            bool dynamicThrottlingEnabled,
+
             Outputs.DeploymentModelResponse? model,
+
+            string? parentDeploymentName,
 
             string provisioningState,
 
@@ -66,7 +90,11 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         {
             CallRateLimit = callRateLimit;
             Capabilities = capabilities;
+            CapacitySettings = capacitySettings;
+            CurrentCapacity = currentCapacity;
+            DynamicThrottlingEnabled = dynamicThrottlingEnabled;
             Model = model;
+            ParentDeploymentName = parentDeploymentName;
             ProvisioningState = provisioningState;
             RaiPolicyName = raiPolicyName;
             RateLimits = rateLimits;

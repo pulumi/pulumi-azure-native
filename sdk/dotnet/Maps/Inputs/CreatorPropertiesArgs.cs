@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.Maps.Inputs
     public sealed class CreatorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The consumed storage unit size in bytes for the creator resource.
+        /// </summary>
+        [Input("consumedStorageUnitSizeInBytes")]
+        public Input<int>? ConsumedStorageUnitSizeInBytes { get; set; }
+
+        /// <summary>
         /// The storage units to be allocated. Integer values from 1 to 100, inclusive.
         /// </summary>
         [Input("storageUnits", required: true)]
         public Input<int> StorageUnits { get; set; } = null!;
+
+        /// <summary>
+        /// The total allocated storage unit size in bytes for the creator resource.
+        /// </summary>
+        [Input("totalStorageUnitSizeInBytes")]
+        public Input<int>? TotalStorageUnitSizeInBytes { get; set; }
 
         public CreatorPropertiesArgs()
         {

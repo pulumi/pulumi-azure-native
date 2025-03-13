@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.CodeConfigurationResponse? CodeConfiguration;
         /// <summary>
+        /// The mdc configuration, we disable mdc when it's null.
+        /// </summary>
+        public readonly Outputs.DataCollectorResponse? DataCollector;
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         public readonly string? Description;
@@ -46,7 +50,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.CodeConfigurationResponse? codeConfiguration,
 
+            Outputs.DataCollectorResponse? dataCollector,
+
             string? description,
 
             string? egressPublicNetworkAccess,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         {
             AppInsightsEnabled = appInsightsEnabled;
             CodeConfiguration = codeConfiguration;
+            DataCollector = dataCollector;
             Description = description;
             EgressPublicNetworkAccess = egressPublicNetworkAccess;
             EndpointComputeType = endpointComputeType;

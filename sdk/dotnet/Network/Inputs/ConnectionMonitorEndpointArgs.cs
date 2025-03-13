@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Network.Inputs
     public sealed class ConnectionMonitorEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address of the connection monitor endpoint (IP or domain name).
+        /// Address of the connection monitor endpoint. Supported for AzureVM, ExternalAddress, ArcMachine, MMAWorkspaceMachine endpoint type.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
@@ -28,10 +28,16 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.CoverageLevel>? CoverageLevel { get; set; }
 
         /// <summary>
-        /// Filter for sub-items within the endpoint.
+        /// Filter field is getting deprecated and should not be used. Instead use Include/Exclude scope fields for it.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.ConnectionMonitorEndpointFilterArgs>? Filter { get; set; }
+
+        /// <summary>
+        /// Location details is optional and only being used for 'AzureArcNetwork' type endpoints, which contains region details.
+        /// </summary>
+        [Input("locationDetails")]
+        public Input<Inputs.ConnectionMonitorEndpointLocationDetailsArgs>? LocationDetails { get; set; }
 
         /// <summary>
         /// The name of the connection monitor endpoint.
@@ -40,16 +46,22 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Resource ID of the connection monitor endpoint.
+        /// Resource ID of the connection monitor endpoint are supported for AzureVM, AzureVMSS, AzureVNet, AzureSubnet, MMAWorkspaceMachine, MMAWorkspaceNetwork, AzureArcVM endpoint type.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// Endpoint scope.
+        /// Endpoint scope defines which target resource to monitor in case of compound resource endpoints like VMSS, AzureSubnet, AzureVNet, MMAWorkspaceNetwork, AzureArcNetwork.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.ConnectionMonitorEndpointScopeArgs>? Scope { get; set; }
+
+        /// <summary>
+        /// Subscription ID for connection monitor endpoint. It's an optional parameter which is being used for 'AzureArcNetwork' type endpoint.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         /// <summary>
         /// The endpoint type.

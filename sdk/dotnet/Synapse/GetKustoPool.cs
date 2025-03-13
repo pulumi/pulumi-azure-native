@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetKustoPoolResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Kusto Pool data ingestion URI.
         /// </summary>
         public readonly string DataIngestionUri;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetKustoPoolResult(
+            string azureApiVersion,
+
             string dataIngestionUri,
 
             bool? enablePurge,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string? workspaceUID)
         {
+            AzureApiVersion = azureApiVersion;
             DataIngestionUri = dataIngestionUri;
             EnablePurge = enablePurge;
             EnableStreamingIngest = enableStreamingIngest;

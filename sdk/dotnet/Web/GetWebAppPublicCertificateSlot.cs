@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get the named public certificate for an app (or deployment slot, if specified).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppPublicCertificateSlotResult> InvokeAsync(GetWebAppPublicCertificateSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppPublicCertificateSlotResult>("azure-native:web:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the named public certificate for an app (or deployment slot, if specified).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppPublicCertificateSlotResult> Invoke(GetWebAppPublicCertificateSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateSlotResult>("azure-native:web:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get the named public certificate for an app (or deployment slot, if specified).
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppPublicCertificateSlotResult> Invoke(GetWebAppPublicCertificateSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppPublicCertificateSlotResult>("azure-native:web:getWebAppPublicCertificateSlot", args ?? new GetWebAppPublicCertificateSlotInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetWebAppPublicCertificateSlotResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Public Certificate byte array
         /// </summary>
         public readonly string? Blob;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetWebAppPublicCertificateSlotResult(
+            string azureApiVersion,
+
             string? blob,
 
             string id,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Blob = blob;
             Id = id;
             Kind = kind;

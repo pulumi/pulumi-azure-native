@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureArcData
     {
         /// <summary>
         /// Retrieves an Active Directory connector resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetActiveDirectoryConnectorResult> InvokeAsync(GetActiveDirectoryConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves an Active Directory connector resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetActiveDirectoryConnectorResult> Invoke(GetActiveDirectoryConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves an Active Directory connector resource
-        /// Azure REST API version: 2023-01-15-preview.
-        /// 
-        /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetActiveDirectoryConnectorResult> Invoke(GetActiveDirectoryConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetActiveDirectoryConnectorResult>("azure-native:azurearcdata:getActiveDirectoryConnector", args ?? new GetActiveDirectoryConnectorInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.AzureArcData
     public sealed class GetActiveDirectoryConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.AzureArcData
 
         [OutputConstructor]
         private GetActiveDirectoryConnectorResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.AzureArcData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

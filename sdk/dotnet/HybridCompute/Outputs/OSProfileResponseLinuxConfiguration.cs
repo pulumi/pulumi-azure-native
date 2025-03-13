@@ -21,18 +21,32 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
         /// </summary>
         public readonly string? AssessmentMode;
         /// <summary>
+        /// Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        /// </summary>
+        public readonly bool? EnableHotpatching;
+        /// <summary>
         /// Specifies the patch mode.
         /// </summary>
         public readonly string? PatchMode;
+        /// <summary>
+        /// Status of the hotpatch capability enrollment or disenrollment.
+        /// </summary>
+        public readonly Outputs.PatchSettingsResponseStatus Status;
 
         [OutputConstructor]
         private OSProfileResponseLinuxConfiguration(
             string? assessmentMode,
 
-            string? patchMode)
+            bool? enableHotpatching,
+
+            string? patchMode,
+
+            Outputs.PatchSettingsResponseStatus status)
         {
             AssessmentMode = assessmentMode;
+            EnableHotpatching = enableHotpatching;
             PatchMode = patchMode;
+            Status = status;
         }
     }
 }

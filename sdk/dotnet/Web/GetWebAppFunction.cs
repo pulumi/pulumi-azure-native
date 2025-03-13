@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get function information by its ID for web site, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppFunctionResult> InvokeAsync(GetWebAppFunctionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get function information by its ID for web site, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get function information by its ID for web site, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppFunctionResult> Invoke(GetWebAppFunctionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFunctionResult>("azure-native:web:getWebAppFunction", args ?? new GetWebAppFunctionInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Web
     [OutputType]
     public sealed class GetWebAppFunctionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Config information.
         /// </summary>
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetWebAppFunctionResult(
+            string azureApiVersion,
+
             object? config,
 
             string? configHref,
@@ -201,6 +201,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Config = config;
             ConfigHref = configHref;
             Files = files;

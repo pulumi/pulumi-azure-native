@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Purview.Inputs
         /// Identity Type.
         /// </summary>
         [Input("type")]
-        public InputUnion<string, Pulumi.AzureNative.Purview.CredentialsType>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Purview.KafkaConfigurationIdentityType>? Type { get; set; }
 
         public CredentialsArgs()
         {

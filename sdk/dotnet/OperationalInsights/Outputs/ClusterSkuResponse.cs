@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
     public sealed class ClusterSkuResponse
     {
         /// <summary>
-        /// The capacity value
+        /// The capacity reservation level in Gigabytes for this cluster.
         /// </summary>
         public readonly double? Capacity;
         /// <summary>
-        /// The name of the SKU.
+        /// The SKU (tier) of a cluster.
         /// </summary>
         public readonly string? Name;
 

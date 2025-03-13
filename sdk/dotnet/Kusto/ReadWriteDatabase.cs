@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a read write database.
-    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
         /// </summary>
@@ -27,6 +33,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("isFollowed")]
         public Output<bool> IsFollowed { get; private set; } = null!;
+
+        /// <summary>
+        /// KeyVault properties for the database encryption.
+        /// </summary>
+        [Output("keyVaultProperties")]
+        public Output<Outputs.KeyVaultPropertiesResponse?> KeyVaultProperties { get; private set; } = null!;
 
         /// <summary>
         /// Kind of the database
@@ -64,6 +76,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("statistics")]
         public Output<Outputs.DatabaseStatisticsResponse> Statistics { get; private set; } = null!;
+
+        /// <summary>
+        /// The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        /// </summary>
+        [Output("suspensionDetails")]
+        public Output<Outputs.SuspensionDetailsResponse> SuspensionDetails { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -104,9 +122,12 @@ namespace Pulumi.AzureNative.Kusto
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20180907preview:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190121:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190515:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20190907:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20191109:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20200215:ReadWriteDatabase" },
@@ -117,10 +138,15 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220201:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ReadWriteDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20230815:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadOnlyFollowingDatabase" },
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20240413:ReadWriteDatabase" },
+                    new global::Pulumi.Alias { Type = "azure-native:kusto:ReadOnlyFollowingDatabase" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,6 +195,12 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? HotCachePeriod { get; set; }
 
         /// <summary>
+        /// KeyVault properties for the database encryption.
+        /// </summary>
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
+
+        /// <summary>
         /// Kind of the database
         /// Expected value is 'ReadWrite'.
         /// </summary>
@@ -182,7 +214,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

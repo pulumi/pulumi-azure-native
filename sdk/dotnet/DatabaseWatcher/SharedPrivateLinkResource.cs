@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 {
     /// <summary>
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
-    /// Azure REST API version: 2023-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:databasewatcher:SharedPrivateLinkResource")]
     public partial class SharedPrivateLinkResource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The DNS zone to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances. The value to use is the second segment of the host FQDN name of the resource that the shared private link resource is for.
         /// </summary>

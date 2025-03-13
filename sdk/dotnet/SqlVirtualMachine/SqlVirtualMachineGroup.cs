@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine group.
-    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview.
-    /// 
-    /// Other available API versions: 2023-01-01-preview, 2023-10-01.
+    /// Azure REST API version: 2023-10-01. Prior API version in Azure Native 2.x: 2022-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Cluster type.
         /// </summary>

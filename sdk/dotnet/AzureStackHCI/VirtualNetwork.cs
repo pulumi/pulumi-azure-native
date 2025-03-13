@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// The virtual network resource definition.
-    /// Azure REST API version: 2022-12-15-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview.
+    /// Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 2.x: 2022-12-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
         /// </summary>
@@ -117,6 +121,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:VirtualnetworkRetrieve" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:VirtualNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230701preview:VirtualNetwork" },
                 },

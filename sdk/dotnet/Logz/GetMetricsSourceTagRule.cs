@@ -97,6 +97,10 @@ namespace Pulumi.AzureNative.Logz
     public sealed class GetMetricsSourceTagRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the rule set.
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.Logz
 
         [OutputConstructor]
         private GetMetricsSourceTagRuleResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Logz
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

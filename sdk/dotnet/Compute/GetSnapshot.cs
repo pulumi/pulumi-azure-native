@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Gets information about a snapshot.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Task<GetSnapshotResult> InvokeAsync(GetSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a snapshot.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a snapshot.
-        /// Azure REST API version: 2022-07-02.
-        /// 
-        /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+        /// Azure REST API version: 2024-03-02.
         /// </summary>
         public static Output<GetSnapshotResult> Invoke(GetSnapshotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotResult>("azure-native:compute:getSnapshot", args ?? new GetSnapshotInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.Compute
     [OutputType]
     public sealed class GetSnapshotResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
         /// </summary>
@@ -211,6 +209,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetSnapshotResult(
+            string azureApiVersion,
+
             double? completionPercent,
 
             Outputs.CopyCompletionErrorResponse? copyCompletionError,
@@ -273,6 +273,7 @@ namespace Pulumi.AzureNative.Compute
 
             string uniqueId)
         {
+            AzureApiVersion = azureApiVersion;
             CompletionPercent = completionPercent;
             CopyCompletionError = copyCompletionError;
             CreationData = creationData;

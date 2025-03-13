@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     public sealed class NetworkRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Setting for trusted services.
+        /// </summary>
+        [Input("bypass")]
+        public InputUnion<string, Pulumi.AzureNative.CognitiveServices.ByPassSelection>? Bypass { get; set; }
+
+        /// <summary>
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         [Input("defaultAction")]

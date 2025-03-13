@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         }
 
         /// <summary>
+        /// DateTime in UTC when the task was created
+        /// </summary>
+        [Input("createdOn")]
+        public Input<string>? CreatedOn { get; set; }
+
+        /// <summary>
         /// Task input
         /// </summary>
         [Input("input")]

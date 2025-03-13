@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.SoftwarePlan
     public sealed class GetHybridUseBenefitResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Created date
         /// </summary>
         public readonly string CreatedDate;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.SoftwarePlan
 
         [OutputConstructor]
         private GetHybridUseBenefitResult(
+            string azureApiVersion,
+
             string createdDate,
 
             int etag,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.SoftwarePlan
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Etag = etag;
             Id = id;

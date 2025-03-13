@@ -17,50 +17,43 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class RaiPolicyPropertiesResponse
     {
         /// <summary>
-        /// Name of the base Content Filters.
+        /// Name of Rai policy.
         /// </summary>
         public readonly string? BasePolicyName;
-        /// <summary>
-        /// The list of blocklists for completion.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RaiBlocklistConfigResponse> CompletionBlocklists;
         /// <summary>
         /// The list of Content Filters.
         /// </summary>
         public readonly ImmutableArray<Outputs.RaiPolicyContentFilterResponse> ContentFilters;
         /// <summary>
-        /// Content Filters mode.
+        /// The list of custom Blocklist.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CustomBlocklistConfigResponse> CustomBlocklists;
+        /// <summary>
+        /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
         /// Content Filters policy type.
         /// </summary>
-        public readonly string PolicyType;
-        /// <summary>
-        /// The list of blocklists for prompt.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RaiBlocklistConfigResponse> PromptBlocklists;
+        public readonly string Type;
 
         [OutputConstructor]
         private RaiPolicyPropertiesResponse(
             string? basePolicyName,
 
-            ImmutableArray<Outputs.RaiBlocklistConfigResponse> completionBlocklists,
-
             ImmutableArray<Outputs.RaiPolicyContentFilterResponse> contentFilters,
+
+            ImmutableArray<Outputs.CustomBlocklistConfigResponse> customBlocklists,
 
             string? mode,
 
-            string policyType,
-
-            ImmutableArray<Outputs.RaiBlocklistConfigResponse> promptBlocklists)
+            string type)
         {
             BasePolicyName = basePolicyName;
-            CompletionBlocklists = completionBlocklists;
             ContentFilters = contentFilters;
+            CustomBlocklists = customBlocklists;
             Mode = mode;
-            PolicyType = policyType;
-            PromptBlocklists = promptBlocklists;
+            Type = type;
         }
     }
 }

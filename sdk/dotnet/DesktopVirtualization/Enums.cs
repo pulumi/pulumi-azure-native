@@ -177,6 +177,39 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     }
 
     /// <summary>
+    /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+    /// </summary>
+    [EnumType]
+    public readonly struct HostpoolPublicNetworkAccess : IEquatable<HostpoolPublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private HostpoolPublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostpoolPublicNetworkAccess Enabled { get; } = new HostpoolPublicNetworkAccess("Enabled");
+        public static HostpoolPublicNetworkAccess Disabled { get; } = new HostpoolPublicNetworkAccess("Disabled");
+        public static HostpoolPublicNetworkAccess EnabledForSessionHostsOnly { get; } = new HostpoolPublicNetworkAccess("EnabledForSessionHostsOnly");
+        public static HostpoolPublicNetworkAccess EnabledForClientsOnly { get; } = new HostpoolPublicNetworkAccess("EnabledForClientsOnly");
+
+        public static bool operator ==(HostpoolPublicNetworkAccess left, HostpoolPublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(HostpoolPublicNetworkAccess left, HostpoolPublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(HostpoolPublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostpoolPublicNetworkAccess other && Equals(other);
+        public bool Equals(HostpoolPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the load balancer.
     /// </summary>
     [EnumType]
@@ -327,6 +360,37 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

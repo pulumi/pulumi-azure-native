@@ -90,6 +90,10 @@ namespace Pulumi.AzureNative.Cdn
     [OutputType]
     public sealed class GetAFDTargetGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Resource ID.
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetAFDTargetGroupResult(
+            string azureApiVersion,
+
             string deploymentStatus,
 
             string id,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeploymentStatus = deploymentStatus;
             Id = id;
             Name = name;

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The access control record.
-    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:AccessControlRecord")]
     public partial class AccessControlRecord : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The iSCSI initiator name (IQN).
         /// </summary>

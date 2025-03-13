@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// support info for rulestack.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<GetLocalRulestackSupportInfoResult> InvokeAsync(GetLocalRulestackSupportInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLocalRulestackSupportInfoResult>("azure-native:cloudngfw:getLocalRulestackSupportInfo", args ?? new GetLocalRulestackSupportInfoArgs(), options.WithDefaults());
 
         /// <summary>
         /// support info for rulestack.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetLocalRulestackSupportInfoResult> Invoke(GetLocalRulestackSupportInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackSupportInfoResult>("azure-native:cloudngfw:getLocalRulestackSupportInfo", args ?? new GetLocalRulestackSupportInfoInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// support info for rulestack.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetLocalRulestackSupportInfoResult> Invoke(GetLocalRulestackSupportInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalRulestackSupportInfoResult>("azure-native:cloudngfw:getLocalRulestackSupportInfo", args ?? new GetLocalRulestackSupportInfoInvokeArgs(), options.WithDefaults());
@@ -97,13 +91,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     public sealed class GetLocalRulestackSupportInfoResult
     {
         /// <summary>
-        /// Support account associated with given resource
+        /// Support account associated with given resource when association type is tenant
         /// </summary>
         public readonly string? AccountId;
+        /// <summary>
+        /// Support account associated with given resource when association type is billing
+        /// </summary>
+        public readonly string? AccountIdForBilling;
         /// <summary>
         /// account registered in Customer Support Portal
         /// </summary>
         public readonly string? AccountRegistered;
+        /// <summary>
+        /// Association Type
+        /// </summary>
+        public readonly string? AssociationType;
         /// <summary>
         /// Product usage is in free trial period
         /// </summary>
@@ -149,7 +151,11 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetLocalRulestackSupportInfoResult(
             string? accountId,
 
+            string? accountIdForBilling,
+
             string? accountRegistered,
+
+            string? associationType,
 
             string? freeTrial,
 
@@ -172,7 +178,9 @@ namespace Pulumi.AzureNative.Cloudngfw
             string? userRegistered)
         {
             AccountId = accountId;
+            AccountIdForBilling = accountIdForBilling;
             AccountRegistered = accountRegistered;
+            AssociationType = associationType;
             FreeTrial = freeTrial;
             FreeTrialCreditLeft = freeTrialCreditLeft;
             FreeTrialDaysLeft = freeTrialDaysLeft;

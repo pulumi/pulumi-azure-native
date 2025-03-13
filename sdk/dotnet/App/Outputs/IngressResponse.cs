@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class IngressResponse
     {
         /// <summary>
+        /// Settings to expose additional ports on container app
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IngressPortMappingResponse> AdditionalPortMappings;
+        /// <summary>
         /// Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections
         /// </summary>
         public readonly bool? AllowInsecure;
@@ -49,6 +53,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IpSecurityRestrictionRuleResponse> IpSecurityRestrictions;
         /// <summary>
+        /// Sticky Sessions for Single Revision Mode
+        /// </summary>
+        public readonly Outputs.IngressResponseStickySessions? StickySessions;
+        /// <summary>
         /// Target Port in containers for traffic from ingress
         /// </summary>
         public readonly int? TargetPort;
@@ -63,6 +71,8 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private IngressResponse(
+            ImmutableArray<Outputs.IngressPortMappingResponse> additionalPortMappings,
+
             bool? allowInsecure,
 
             string? clientCertificateMode,
@@ -79,12 +89,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             ImmutableArray<Outputs.IpSecurityRestrictionRuleResponse> ipSecurityRestrictions,
 
+            Outputs.IngressResponseStickySessions? stickySessions,
+
             int? targetPort,
 
             ImmutableArray<Outputs.TrafficWeightResponse> traffic,
 
             string? transport)
         {
+            AdditionalPortMappings = additionalPortMappings;
             AllowInsecure = allowInsecure;
             ClientCertificateMode = clientCertificateMode;
             CorsPolicy = corsPolicy;
@@ -93,6 +106,7 @@ namespace Pulumi.AzureNative.App.Outputs
             External = external;
             Fqdn = fqdn;
             IpSecurityRestrictions = ipSecurityRestrictions;
+            StickySessions = stickySessions;
             TargetPort = targetPort;
             Traffic = traffic;
             Transport = transport;

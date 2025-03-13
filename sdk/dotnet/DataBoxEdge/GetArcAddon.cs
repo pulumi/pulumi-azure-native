@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Gets a specific addon by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetArcAddonResult> InvokeAsync(GetArcAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific addon by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific addon by name.
-        /// Azure REST API version: 2022-03-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetArcAddonResult> Invoke(GetArcAddonInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArcAddonResult>("azure-native:databoxedge:getArcAddon", args ?? new GetArcAddonInvokeArgs(), options.WithDefaults());
@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetArcAddonResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Host OS supported by the Arc addon.
         /// </summary>
         public readonly string HostPlatform;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetArcAddonResult(
+            string azureApiVersion,
+
             string hostPlatform,
 
             string hostPlatformType,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string version)
         {
+            AzureApiVersion = azureApiVersion;
             HostPlatform = hostPlatform;
             HostPlatformType = hostPlatformType;
             Id = id;

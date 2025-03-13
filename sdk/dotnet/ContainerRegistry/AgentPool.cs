@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// <summary>
     /// The agentpool that has the ARM resource and properties.
     /// The agentpool will have all information to create an agent pool.
-    /// Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+    /// Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The count of agent machine
         /// </summary>

@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
-        /// Reference of the PublicIP resource.
+        /// Reference of the PublicIP resource. Null for private only bastion
         /// </summary>
-        [Input("publicIPAddress", required: true)]
-        public Input<Inputs.SubResourceArgs> PublicIPAddress { get; set; } = null!;
+        [Input("publicIPAddress")]
+        public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
 
         /// <summary>
         /// Reference of the subnet resource.

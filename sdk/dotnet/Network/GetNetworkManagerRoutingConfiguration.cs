@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetNetworkManagerRoutingConfigurationResult> InvokeAsync(GetNetworkManagerRoutingConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager routing configuration.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkManagerRoutingConfigurationResult> Invoke(GetNetworkManagerRoutingConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerRoutingConfigurationResult>("azure-native:network:getNetworkManagerRoutingConfiguration", args ?? new GetNetworkManagerRoutingConfigurationInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkManagerRoutingConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the routing configuration.
         /// </summary>
         public readonly string? Description;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkManagerRoutingConfigurationResult(
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

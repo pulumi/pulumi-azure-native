@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class A2AEnableProtectionInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A value indicating whether the auto protection is enabled.
+        /// </summary>
+        [Input("autoProtectionOfDataDisk")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AutoProtectionOfDataDisk>? AutoProtectionOfDataDisk { get; set; }
+
+        /// <summary>
         /// The recovery disk encryption information (for two pass flows).
         /// </summary>
         [Input("diskEncryptionInfo")]
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("multiVmGroupName")]
         public Input<string>? MultiVmGroupName { get; set; }
+
+        /// <summary>
+        /// The replication protection cluster Id.
+        /// </summary>
+        [Input("protectionClusterId")]
+        public Input<string>? ProtectionClusterId { get; set; }
 
         /// <summary>
         /// The recovery availability set Id.

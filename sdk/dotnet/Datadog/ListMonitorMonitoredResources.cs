@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Task<ListMonitorMonitoredResourcesResult> InvokeAsync(ListMonitorMonitoredResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitorMonitoredResourcesResult>("azure-native:datadog:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:datadog:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+        /// Azure REST API version: 2023-10-20.
         /// </summary>
         public static Output<ListMonitorMonitoredResourcesResult> Invoke(ListMonitorMonitoredResourcesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitorMonitoredResourcesResult>("azure-native:datadog:listMonitorMonitoredResources", args ?? new ListMonitorMonitoredResourcesInvokeArgs(), options.WithDefaults());

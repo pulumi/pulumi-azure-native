@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
-    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:RegisteredAsn")]
     public partial class RegisteredAsn : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         [Output("asn")]
         public Output<int?> Asn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.

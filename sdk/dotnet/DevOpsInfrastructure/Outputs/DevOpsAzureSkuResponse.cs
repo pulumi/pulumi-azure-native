@@ -20,19 +20,11 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// The Azure SKU name of the machines in the pool.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The Azure SKU tier of the machines in the pool.
-        /// </summary>
-        public readonly string? Tier;
 
         [OutputConstructor]
-        private DevOpsAzureSkuResponse(
-            string name,
-
-            string? tier)
+        private DevOpsAzureSkuResponse(string name)
         {
             Name = name;
-            Tier = tier;
         }
     }
 }

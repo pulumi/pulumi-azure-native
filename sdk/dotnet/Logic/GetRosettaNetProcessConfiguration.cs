@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         public readonly Outputs.RosettaNetPipActivitySettingsResponse ActivitySettings;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The changed time.
         /// </summary>
         public readonly string ChangedTime;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNative.Logic
         private GetRosettaNetProcessConfigurationResult(
             Outputs.RosettaNetPipActivitySettingsResponse activitySettings,
 
+            string azureApiVersion,
+
             string changedTime,
 
             string createdTime,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.Logic
             string type)
         {
             ActivitySettings = activitySettings;
+            AzureApiVersion = azureApiVersion;
             ChangedTime = changedTime;
             CreatedTime = createdTime;
             Description = description;

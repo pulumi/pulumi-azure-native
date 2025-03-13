@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetworkCloud.BgpMultiHop>? BgpMultiHop { get; set; }
 
         /// <summary>
-        /// The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
         /// </summary>
         [Input("holdTime")]
         public Input<string>? HoldTime { get; set; }
 
         /// <summary>
-        /// The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         /// </summary>
         [Input("keepAliveTime")]
         public Input<string>? KeepAliveTime { get; set; }

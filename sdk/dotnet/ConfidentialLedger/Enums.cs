@@ -71,6 +71,38 @@ namespace Pulumi.AzureNative.ConfidentialLedger
     }
 
     /// <summary>
+    /// SKU associated with the ledger
+    /// </summary>
+    [EnumType]
+    public readonly struct LedgerSku : IEquatable<LedgerSku>
+    {
+        private readonly string _value;
+
+        private LedgerSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LedgerSku Standard { get; } = new LedgerSku("Standard");
+        public static LedgerSku Basic { get; } = new LedgerSku("Basic");
+        public static LedgerSku Unknown { get; } = new LedgerSku("Unknown");
+
+        public static bool operator ==(LedgerSku left, LedgerSku right) => left.Equals(right);
+        public static bool operator !=(LedgerSku left, LedgerSku right) => !left.Equals(right);
+
+        public static explicit operator string(LedgerSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LedgerSku other && Equals(other);
+        public bool Equals(LedgerSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of Confidential Ledger
     /// </summary>
     [EnumType]
@@ -95,6 +127,40 @@ namespace Pulumi.AzureNative.ConfidentialLedger
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LedgerType other && Equals(other);
         public bool Equals(LedgerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Object representing RunningState for Managed CCF.
+    /// </summary>
+    [EnumType]
+    public readonly struct RunningState : IEquatable<RunningState>
+    {
+        private readonly string _value;
+
+        private RunningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RunningState Active { get; } = new RunningState("Active");
+        public static RunningState Paused { get; } = new RunningState("Paused");
+        public static RunningState Unknown { get; } = new RunningState("Unknown");
+        public static RunningState Pausing { get; } = new RunningState("Pausing");
+        public static RunningState Resuming { get; } = new RunningState("Resuming");
+
+        public static bool operator ==(RunningState left, RunningState right) => left.Equals(right);
+        public static bool operator !=(RunningState left, RunningState right) => !left.Equals(right);
+
+        public static explicit operator string(RunningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RunningState other && Equals(other);
+        public bool Equals(RunningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

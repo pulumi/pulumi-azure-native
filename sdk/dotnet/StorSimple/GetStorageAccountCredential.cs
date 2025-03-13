@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? AccessKey;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The storage endpoint
         /// </summary>
         public readonly string EndPoint;
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.StorSimple
         private GetStorageAccountCredentialResult(
             Outputs.AsymmetricEncryptedSecretResponse? accessKey,
 
+            string azureApiVersion,
+
             string endPoint,
 
             string id,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNative.StorSimple
             int volumesCount)
         {
             AccessKey = accessKey;
+            AzureApiVersion = azureApiVersion;
             EndPoint = endPoint;
             Id = id;
             Kind = kind;

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
     /// <summary>
-    /// State of a private endpoint connection.
+    /// Private endpoint connection state.
     /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
         /// <summary>
-        /// Actions required on the private endpoint connection.
+        /// Action required.
         /// </summary>
         public readonly string? ActionsRequired;
         /// <summary>
-        /// Description of the private endpoint connection.
+        /// Description of the object.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Connection status of the private endpoint connection.
+        /// Private link connection state.
         /// </summary>
         public readonly string? Status;
 

@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// <summary>
         /// Adapter Name of NIC
         /// </summary>
-        [Input("adapterName", required: true)]
-        public Input<string> AdapterName { get; set; } = null!;
+        [Input("adapterName")]
+        public Input<string>? AdapterName { get; set; }
 
         /// <summary>
         /// Component Id of NIC

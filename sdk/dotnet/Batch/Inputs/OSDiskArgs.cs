@@ -12,8 +12,20 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
     public sealed class OSDiskArgs : global::Pulumi.ResourceArgs
     {
+        [Input("caching")]
+        public Input<Pulumi.AzureNative.Batch.CachingType>? Caching { get; set; }
+
+        [Input("diskSizeGB")]
+        public Input<int>? DiskSizeGB { get; set; }
+
         [Input("ephemeralOSDiskSettings")]
         public Input<Inputs.DiffDiskSettingsArgs>? EphemeralOSDiskSettings { get; set; }
+
+        [Input("managedDisk")]
+        public Input<Inputs.ManagedDiskArgs>? ManagedDisk { get; set; }
+
+        [Input("writeAcceleratorEnabled")]
+        public Input<bool>? WriteAcceleratorEnabled { get; set; }
 
         public OSDiskArgs()
         {

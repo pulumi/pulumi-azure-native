@@ -16,6 +16,10 @@ namespace Pulumi.AzureNative.HybridNetwork.Outputs
     [OutputType]
     public sealed class ArtifactStorePropertiesFormatResponse
     {
+        /// <summary>
+        /// The artifact store backing resource network access type
+        /// </summary>
+        public readonly string? BackingResourcePublicNetworkAccess;
         public readonly Outputs.ArtifactStorePropertiesFormatResponseManagedResourceGroupConfiguration? ManagedResourceGroupConfiguration;
         /// <summary>
         /// The provisioning state of the application groups resource.
@@ -36,6 +40,8 @@ namespace Pulumi.AzureNative.HybridNetwork.Outputs
 
         [OutputConstructor]
         private ArtifactStorePropertiesFormatResponse(
+            string? backingResourcePublicNetworkAccess,
+
             Outputs.ArtifactStorePropertiesFormatResponseManagedResourceGroupConfiguration? managedResourceGroupConfiguration,
 
             string provisioningState,
@@ -46,6 +52,7 @@ namespace Pulumi.AzureNative.HybridNetwork.Outputs
 
             string? storeType)
         {
+            BackingResourcePublicNetworkAccess = backingResourcePublicNetworkAccess;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             ProvisioningState = provisioningState;
             ReplicationStrategy = replicationStrategy;

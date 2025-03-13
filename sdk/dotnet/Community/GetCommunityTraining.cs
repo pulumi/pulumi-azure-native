@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Community
     public sealed class GetCommunityTrainingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// To indicate whether the Community Training instance has Disaster Recovery enabled
         /// </summary>
         public readonly bool DisasterRecoveryEnabled;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Community
 
         [OutputConstructor]
         private GetCommunityTrainingResult(
+            string azureApiVersion,
+
             bool disasterRecoveryEnabled,
 
             string id,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.Community
 
             bool zoneRedundancyEnabled)
         {
+            AzureApiVersion = azureApiVersion;
             DisasterRecoveryEnabled = disasterRecoveryEnabled;
             Id = id;
             IdentityConfiguration = identityConfiguration;

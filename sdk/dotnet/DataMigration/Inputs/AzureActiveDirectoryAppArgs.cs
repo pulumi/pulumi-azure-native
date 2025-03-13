@@ -18,20 +18,26 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
         /// <summary>
         /// Key used to authenticate to the Azure Active Directory Application
         /// </summary>
-        [Input("appKey", required: true)]
-        public Input<string> AppKey { get; set; } = null!;
+        [Input("appKey")]
+        public Input<string>? AppKey { get; set; }
 
         /// <summary>
         /// Application ID of the Azure Active Directory Application
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
+
+        /// <summary>
+        /// Ignore checking azure permissions on the AAD app
+        /// </summary>
+        [Input("ignoreAzurePermissions")]
+        public Input<bool>? IgnoreAzurePermissions { get; set; }
 
         /// <summary>
         /// Tenant id of the customer
         /// </summary>
-        [Input("tenantId", required: true)]
-        public Input<string> TenantId { get; set; } = null!;
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public AzureActiveDirectoryAppArgs()
         {

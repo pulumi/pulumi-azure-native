@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Cloud Endpoint object.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-    /// 
-    /// Other available API versions: 2022-09-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:CloudEndpoint")]
     public partial class CloudEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Azure file share name
         /// </summary>

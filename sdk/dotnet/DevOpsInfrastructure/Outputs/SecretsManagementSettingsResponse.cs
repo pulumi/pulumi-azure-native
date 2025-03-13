@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// </summary>
         public readonly string? CertificateStoreLocation;
         /// <summary>
+        /// Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+        /// </summary>
+        public readonly string? CertificateStoreName;
+        /// <summary>
         /// Defines if the key of the certificates should be exportable.
         /// </summary>
         public readonly bool KeyExportable;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         private SecretsManagementSettingsResponse(
             string? certificateStoreLocation,
 
+            string? certificateStoreName,
+
             bool keyExportable,
 
             ImmutableArray<string> observedCertificates)
         {
             CertificateStoreLocation = certificateStoreLocation;
+            CertificateStoreName = certificateStoreName;
             KeyExportable = keyExportable;
             ObservedCertificates = observedCertificates;
         }

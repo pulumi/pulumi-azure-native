@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Gets the endpoint to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the endpoint to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the endpoint to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2022-05-01-preview, 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class GetEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
         [OutputConstructor]
         private GetEndpointResult(
+            string azureApiVersion,
+
             string? createdAt,
 
             string? createdBy,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
             CreatedByType = createdByType;

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
-        /// 
-        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Task<GetFabricCapacityResult> InvokeAsync(GetFabricCapacityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
-        /// 
-        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// Get a FabricCapacity
         /// Azure REST API version: 2023-11-01.
-        /// 
-        /// Other available API versions: 2025-01-15-preview.
         /// </summary>
         public static Output<GetFabricCapacityResult> Invoke(GetFabricCapacityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFabricCapacityResult>("azure-native:fabric:getFabricCapacity", args ?? new GetFabricCapacityInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Fabric
         /// </summary>
         public readonly Outputs.CapacityAdministrationResponse Administration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -129,6 +127,8 @@ namespace Pulumi.AzureNative.Fabric
         private GetFabricCapacityResult(
             Outputs.CapacityAdministrationResponse administration,
 
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.Fabric
             string type)
         {
             Administration = administration;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

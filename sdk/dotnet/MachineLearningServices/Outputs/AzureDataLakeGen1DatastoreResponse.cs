@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
+        /// Azure Resource Group name
+        /// </summary>
+        public readonly string? ResourceGroup;
+        /// <summary>
         /// Indicates which identity to use to authenticate service data access to customer's storage.
         /// </summary>
         public readonly string? ServiceDataAccessAuthIdentity;
@@ -45,6 +49,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// [Required] Azure Data Lake store name.
         /// </summary>
         public readonly string StoreName;
+        /// <summary>
+        /// Azure Subscription Id
+        /// </summary>
+        public readonly string? SubscriptionId;
         /// <summary>
         /// Tag dictionary. Tags can be added, removed, and updated.
         /// </summary>
@@ -62,9 +70,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             ImmutableDictionary<string, string>? properties,
 
+            string? resourceGroup,
+
             string? serviceDataAccessAuthIdentity,
 
             string storeName,
+
+            string? subscriptionId,
 
             ImmutableDictionary<string, string>? tags)
         {
@@ -73,8 +85,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
             Description = description;
             IsDefault = isDefault;
             Properties = properties;
+            ResourceGroup = resourceGroup;
             ServiceDataAccessAuthIdentity = serviceDataAccessAuthIdentity;
             StoreName = storeName;
+            SubscriptionId = subscriptionId;
             Tags = tags;
         }
     }

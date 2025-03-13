@@ -10,16 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
+    /// <summary>
+    /// Describes IPPool
+    /// </summary>
     [OutputType]
     public sealed class IPPoolResponse
     {
         /// <summary>
-        /// end of the ip address pool
+        /// End of the IP address pool
         /// </summary>
         public readonly string? End;
+        /// <summary>
+        /// IPPool info
+        /// </summary>
         public readonly Outputs.IPPoolInfoResponse? Info;
         /// <summary>
-        /// ip pool type
+        /// Type of the IP Pool [vm, vippool]
         /// </summary>
         public readonly string? IpPoolType;
         /// <summary>
@@ -27,7 +33,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// start of the ip address pool
+        /// Start of the IP address pool
         /// </summary>
         public readonly string? Start;
 

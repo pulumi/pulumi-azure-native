@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Logz
     public sealed class GetMonitorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM id of the monitor resource.
         /// </summary>
         public readonly string Id;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.Logz
 
         [OutputConstructor]
         private GetMonitorResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityPropertiesResponse? identity,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.Logz
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

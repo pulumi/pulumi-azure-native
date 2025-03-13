@@ -11,21 +11,18 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 {
 
     /// <summary>
-    /// Private endpoint connection properties.
+    /// Properties of a private endpoint connection.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionPropertiesResponse
     {
-        /// <summary>
-        /// ARM id for the private endpoint resource corresponding to the connection.
-        /// </summary>
         public readonly Outputs.ResourceIdResponse PrivateEndpoint;
         /// <summary>
-        /// State of the private endpoint connection.
+        /// Gets the properties of the object.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Indicates whether there is an ongoing operation on the private endpoint.
+        /// Provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
 

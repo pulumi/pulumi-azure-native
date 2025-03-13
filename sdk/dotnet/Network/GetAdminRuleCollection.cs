@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security admin configuration rule collection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetAdminRuleCollectionResult> InvokeAsync(GetAdminRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security admin configuration rule collection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAdminRuleCollectionResult> Invoke(GetAdminRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security admin configuration rule collection.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetAdminRuleCollectionResult> Invoke(GetAdminRuleCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAdminRuleCollectionResult>("azure-native:network:getAdminRuleCollection", args ?? new GetAdminRuleCollectionInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> AppliesToGroups;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the admin rule collection.
         /// </summary>
         public readonly string? Description;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.Network
         private GetAdminRuleCollectionResult(
             ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> appliesToGroups,
 
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AppliesToGroups = appliesToGroups;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

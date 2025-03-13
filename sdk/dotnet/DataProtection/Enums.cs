@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AzureNative.DataProtection
 {
     [EnumType]
+    public readonly struct AKSVolumeTypes : IEquatable<AKSVolumeTypes>
+    {
+        private readonly string _value;
+
+        private AKSVolumeTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AKSVolumeTypes AzureDisk { get; } = new AKSVolumeTypes("AzureDisk");
+        public static AKSVolumeTypes AzureFileShareSMB { get; } = new AKSVolumeTypes("AzureFileShareSMB");
+
+        public static bool operator ==(AKSVolumeTypes left, AKSVolumeTypes right) => left.Equals(right);
+        public static bool operator !=(AKSVolumeTypes left, AKSVolumeTypes right) => !left.Equals(right);
+
+        public static explicit operator string(AKSVolumeTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AKSVolumeTypes other && Equals(other);
+        public bool Equals(AKSVolumeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AbsoluteMarker : IEquatable<AbsoluteMarker>
     {
         private readonly string _value;
@@ -59,6 +87,37 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AlertsState other && Equals(other);
         public bool Equals(AlertsState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// CrossRegionRestore state
+    /// </summary>
+    [EnumType]
+    public readonly struct CrossRegionRestoreState : IEquatable<CrossRegionRestoreState>
+    {
+        private readonly string _value;
+
+        private CrossRegionRestoreState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CrossRegionRestoreState Disabled { get; } = new CrossRegionRestoreState("Disabled");
+        public static CrossRegionRestoreState Enabled { get; } = new CrossRegionRestoreState("Enabled");
+
+        public static bool operator ==(CrossRegionRestoreState left, CrossRegionRestoreState right) => left.Equals(right);
+        public static bool operator !=(CrossRegionRestoreState left, CrossRegionRestoreState right) => !left.Equals(right);
+
+        public static explicit operator string(CrossRegionRestoreState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CrossRegionRestoreState other && Equals(other);
+        public bool Equals(CrossRegionRestoreState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -164,6 +223,78 @@ namespace Pulumi.AzureNative.DataProtection
     }
 
     /// <summary>
+    /// Encryption state of the Backup Vault.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionState : IEquatable<EncryptionState>
+    {
+        private readonly string _value;
+
+        private EncryptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// CMK encryption is enabled on the Backup Vault
+        /// </summary>
+        public static EncryptionState Enabled { get; } = new EncryptionState("Enabled");
+        /// <summary>
+        /// CMK encryption is disabled on the Backup Vault. User can not set this state once Encryption State is 'Enabled'.
+        /// </summary>
+        public static EncryptionState Disabled { get; } = new EncryptionState("Disabled");
+        /// <summary>
+        /// CMK encryption is in inconsistent state on the Backup Vault. This state indicates that user needs to retry the encryption settings operation immediately to correct the state.
+        /// </summary>
+        public static EncryptionState Inconsistent { get; } = new EncryptionState("Inconsistent");
+
+        public static bool operator ==(EncryptionState left, EncryptionState right) => left.Equals(right);
+        public static bool operator !=(EncryptionState left, EncryptionState right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionState other && Equals(other);
+        public bool Equals(EncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Immutability state
     /// </summary>
     [EnumType]
@@ -188,6 +319,37 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ImmutabilityState other && Equals(other);
         public bool Equals(ImmutabilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabling/Disabling the Double Encryption state
+    /// </summary>
+    [EnumType]
+    public readonly struct InfrastructureEncryptionState : IEquatable<InfrastructureEncryptionState>
+    {
+        private readonly string _value;
+
+        private InfrastructureEncryptionState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfrastructureEncryptionState Enabled { get; } = new InfrastructureEncryptionState("Enabled");
+        public static InfrastructureEncryptionState Disabled { get; } = new InfrastructureEncryptionState("Disabled");
+
+        public static bool operator ==(InfrastructureEncryptionState left, InfrastructureEncryptionState right) => left.Equals(right);
+        public static bool operator !=(InfrastructureEncryptionState left, InfrastructureEncryptionState right) => !left.Equals(right);
+
+        public static explicit operator string(InfrastructureEncryptionState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfrastructureEncryptionState other && Equals(other);
+        public bool Equals(InfrastructureEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -226,6 +388,36 @@ namespace Pulumi.AzureNative.DataProtection
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Month other && Equals(other);
         public bool Equals(Month other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the specific object - used for deserializing
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourcePropertiesObjectType : IEquatable<ResourcePropertiesObjectType>
+    {
+        private readonly string _value;
+
+        private ResourcePropertiesObjectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourcePropertiesObjectType DefaultResourceProperties { get; } = new ResourcePropertiesObjectType("DefaultResourceProperties");
+
+        public static bool operator ==(ResourcePropertiesObjectType left, ResourcePropertiesObjectType right) => left.Equals(right);
+        public static bool operator !=(ResourcePropertiesObjectType left, ResourcePropertiesObjectType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourcePropertiesObjectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourcePropertiesObjectType other && Equals(other);
+        public bool Equals(ResourcePropertiesObjectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

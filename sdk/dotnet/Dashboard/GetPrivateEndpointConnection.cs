@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Dashboard
     {
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dashboard:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dashboard:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Private Endpoint Connection resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dashboard:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Dashboard
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The private endpoint connection group ids.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Dashboard
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Dashboard
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

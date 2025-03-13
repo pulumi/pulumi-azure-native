@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Method to get site health summary.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<ListSitesControllerHealthSummaryResult> InvokeAsync(ListSitesControllerHealthSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSitesControllerHealthSummaryResult>("azure-native:offazure:listSitesControllerHealthSummary", args ?? new ListSitesControllerHealthSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get site health summary.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<ListSitesControllerHealthSummaryResult> Invoke(ListSitesControllerHealthSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSitesControllerHealthSummaryResult>("azure-native:offazure:listSitesControllerHealthSummary", args ?? new ListSitesControllerHealthSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Method to get site health summary.
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<ListSitesControllerHealthSummaryResult> Invoke(ListSitesControllerHealthSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListSitesControllerHealthSummaryResult>("azure-native:offazure:listSitesControllerHealthSummary", args ?? new ListSitesControllerHealthSummaryInvokeArgs(), options.WithDefaults());

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:SubAccountTagRule")]
     public partial class SubAccountTagRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Name of the rule set.
         /// </summary>

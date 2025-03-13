@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// DevOps Configuration resource.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetDevOpsConfigurationResult> InvokeAsync(GetDevOpsConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevOpsConfigurationResult>("azure-native:security:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// DevOps Configuration resource.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDevOpsConfigurationResult> Invoke(GetDevOpsConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsConfigurationResult>("azure-native:security:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// DevOps Configuration resource.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01, 2024-05-15-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetDevOpsConfigurationResult> Invoke(GetDevOpsConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevOpsConfigurationResult>("azure-native:security:getDevOpsConfiguration", args ?? new GetDevOpsConfigurationInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetDevOpsConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -107,6 +105,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetDevOpsConfigurationResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? TargetIPAddressType;
         /// <summary>
+        /// The target NIC name.
+        /// </summary>
+        public readonly string? TargetNicName;
+        /// <summary>
         /// Target subnet name.
         /// </summary>
         public readonly string? TargetSubnetName;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? targetIPAddressType,
 
+            string? targetNicName,
+
             string? targetSubnetName,
 
             string? testIPAddress,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             SourceSubnetName = sourceSubnetName;
             TargetIPAddress = targetIPAddress;
             TargetIPAddressType = targetIPAddressType;
+            TargetNicName = targetNicName;
             TargetSubnetName = targetSubnetName;
             TestIPAddress = testIPAddress;
             TestIPAddressType = testIPAddressType;

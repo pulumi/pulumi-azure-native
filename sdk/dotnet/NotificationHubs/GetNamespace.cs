@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NotificationHubs
     {
         /// <summary>
         /// Notification Hubs Namespace Resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Notification Hubs Namespace Resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Notification Hubs Namespace Resource.
-        /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-04-01, 2023-09-01, 2023-10-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,26 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Time when the namespace was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Gets or sets whether or not the namespace is set as Critical.
+        /// </summary>
+        public readonly bool Critical;
+        /// <summary>
+        /// Deprecated.
+        /// </summary>
+        public readonly string? DataCenter;
+        /// <summary>
+        /// Gets or sets whether or not the namespace is currently enabled.
+        /// </summary>
+        public readonly bool Enabled;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -93,17 +107,67 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Azure Insights Metrics id.
+        /// </summary>
+        public readonly string MetricId;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Represents namespace properties.
+        /// Defines values for NamespaceType.
         /// </summary>
-        public readonly Outputs.NamespacePropertiesResponse Properties;
+        public readonly string? NamespaceType;
+        /// <summary>
+        /// A collection of network authorization rules.
+        /// </summary>
+        public readonly Outputs.NetworkAclsResponse? NetworkAcls;
+        /// <summary>
+        /// Collection of Notification Hub or Notification Hub Namespace PNS credentials.
+        /// </summary>
+        public readonly Outputs.PnsCredentialsResponse? PnsCredentials;
+        /// <summary>
+        /// Private Endpoint Connections for namespace
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResourceResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Defines values for OperationProvisioningState.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Type of public network access.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Region. The value is always set to the same value as Namespace.Location, so we are deprecating
+        /// this property.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
+        /// Allowed replication region
+        /// </summary>
+        public readonly string? ReplicationRegion;
+        /// <summary>
+        /// Gets or sets scaleUnit where the namespace gets created
+        /// </summary>
+        public readonly string? ScaleUnit;
+        /// <summary>
+        /// Gets or sets endpoint you can use to perform NotificationHub
+        /// operations.
+        /// </summary>
+        public readonly string ServiceBusEndpoint;
         /// <summary>
         /// The Sku description for a namespace
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
+        /// <summary>
+        /// Namespace status.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
+        /// Namespace subscription id.
+        /// </summary>
+        public readonly string SubscriptionId;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -116,33 +180,98 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Time when the namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
+        /// <summary>
+        /// Namespace SKU name.
+        /// </summary>
+        public readonly string? ZoneRedundancy;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string azureApiVersion,
+
+            string createdAt,
+
+            bool critical,
+
+            string? dataCenter,
+
+            bool enabled,
+
             string id,
 
             string location,
 
+            string metricId,
+
             string name,
 
-            Outputs.NamespacePropertiesResponse properties,
+            string? namespaceType,
+
+            Outputs.NetworkAclsResponse? networkAcls,
+
+            Outputs.PnsCredentialsResponse? pnsCredentials,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResourceResponse> privateEndpointConnections,
+
+            string? provisioningState,
+
+            string? publicNetworkAccess,
+
+            string region,
+
+            string? replicationRegion,
+
+            string? scaleUnit,
+
+            string serviceBusEndpoint,
 
             Outputs.SkuResponse sku,
+
+            string? status,
+
+            string subscriptionId,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string updatedAt,
+
+            string? zoneRedundancy)
         {
+            AzureApiVersion = azureApiVersion;
+            CreatedAt = createdAt;
+            Critical = critical;
+            DataCenter = dataCenter;
+            Enabled = enabled;
             Id = id;
             Location = location;
+            MetricId = metricId;
             Name = name;
-            Properties = properties;
+            NamespaceType = namespaceType;
+            NetworkAcls = networkAcls;
+            PnsCredentials = pnsCredentials;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            Region = region;
+            ReplicationRegion = replicationRegion;
+            ScaleUnit = scaleUnit;
+            ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
+            SubscriptionId = subscriptionId;
             SystemData = systemData;
             Tags = tags;
             Type = type;
+            UpdatedAt = updatedAt;
+            ZoneRedundancy = zoneRedundancy;
         }
     }
 }

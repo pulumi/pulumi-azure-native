@@ -11,34 +11,48 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Address Properties
+    /// Address Properties.
     /// </summary>
     [OutputType]
     public sealed class AddressPropertiesResponse
     {
         /// <summary>
-        /// Status of address validation
+        /// Type of address based on its usage context.
+        /// </summary>
+        public readonly string? AddressClassification;
+        /// <summary>
+        /// Status of address validation.
         /// </summary>
         public readonly string AddressValidationStatus;
         /// <summary>
-        /// Contact details for the address
+        /// Contact details for the address.
         /// </summary>
-        public readonly Outputs.ContactDetailsResponse ContactDetails;
+        public readonly Outputs.ContactDetailsResponse? ContactDetails;
         /// <summary>
-        /// Shipping details for the address
+        /// Provisioning state
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Shipping details for the address.
         /// </summary>
         public readonly Outputs.ShippingAddressResponse? ShippingAddress;
 
         [OutputConstructor]
         private AddressPropertiesResponse(
+            string? addressClassification,
+
             string addressValidationStatus,
 
-            Outputs.ContactDetailsResponse contactDetails,
+            Outputs.ContactDetailsResponse? contactDetails,
+
+            string provisioningState,
 
             Outputs.ShippingAddressResponse? shippingAddress)
         {
+            AddressClassification = addressClassification;
             AddressValidationStatus = addressValidationStatus;
             ContactDetails = contactDetails;
+            ProvisioningState = provisioningState;
             ShippingAddress = shippingAddress;
         }
     }

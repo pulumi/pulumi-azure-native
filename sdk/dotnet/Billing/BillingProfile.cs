@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Billing
 {
     /// <summary>
     /// A billing profile.
-    /// Azure REST API version: 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2024-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:billing:BillingProfile")]
     public partial class BillingProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.VisualStudio
     public sealed class GetExtensionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Unique identifier of the resource.
         /// </summary>
         public readonly string Id;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.VisualStudio
 
         [OutputConstructor]
         private GetExtensionResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.VisualStudio
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

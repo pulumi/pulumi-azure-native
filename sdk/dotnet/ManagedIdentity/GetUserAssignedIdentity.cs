@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Task<GetUserAssignedIdentityResult> InvokeAsync(GetUserAssignedIdentityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// Gets the identity.
         /// Azure REST API version: 2023-01-31.
-        /// 
-        /// Other available API versions: 2023-07-31-preview, 2024-11-30.
         /// </summary>
         public static Output<GetUserAssignedIdentityResult> Invoke(GetUserAssignedIdentityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAssignedIdentityResult>("azure-native:managedidentity:getUserAssignedIdentity", args ?? new GetUserAssignedIdentityInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.ManagedIdentity
     public sealed class GetUserAssignedIdentityResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the app associated with the identity. This is a random generated UUID by MSI.
         /// </summary>
         public readonly string ClientId;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
         [OutputConstructor]
         private GetUserAssignedIdentityResult(
+            string azureApiVersion,
+
             string clientId,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClientId = clientId;
             Id = id;
             Location = location;

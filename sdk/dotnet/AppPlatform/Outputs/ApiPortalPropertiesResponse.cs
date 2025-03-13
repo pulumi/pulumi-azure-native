@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
     public sealed class ApiPortalPropertiesResponse
     {
         /// <summary>
+        /// Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+        /// </summary>
+        public readonly string? ApiTryOutEnabledState;
+        /// <summary>
         /// The array of resource Ids of gateway to integrate with API portal.
         /// </summary>
         public readonly ImmutableArray<string> GatewayIds;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private ApiPortalPropertiesResponse(
+            string? apiTryOutEnabledState,
+
             ImmutableArray<string> gatewayIds,
 
             bool? httpsOnly,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string url)
         {
+            ApiTryOutEnabledState = apiTryOutEnabledState;
             GatewayIds = gatewayIds;
             HttpsOnly = httpsOnly;
             Instances = instances;

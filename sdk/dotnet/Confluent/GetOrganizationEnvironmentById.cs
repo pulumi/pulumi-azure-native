@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class GetOrganizationEnvironmentByIdResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Id of the environment
         /// </summary>
         public readonly string? Id;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.Confluent
 
         [OutputConstructor]
         private GetOrganizationEnvironmentByIdResult(
+            string azureApiVersion,
+
             string? id,
 
             string? kind,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Confluent
 
             string? type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Metadata = metadata;

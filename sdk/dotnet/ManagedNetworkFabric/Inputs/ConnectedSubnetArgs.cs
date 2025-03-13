@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         public Input<string>? Annotation { get; set; }
 
         /// <summary>
-        /// Prefix of the connected Subnet.
+        /// Prefix of the Connected Subnet.
         /// </summary>
-        [Input("prefix")]
-        public Input<string>? Prefix { get; set; }
+        [Input("prefix", required: true)]
+        public Input<string> Prefix { get; set; } = null!;
 
         public ConnectedSubnetArgs()
         {

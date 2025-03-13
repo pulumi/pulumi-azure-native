@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Get a single software update configuration by name.
-        /// Azure REST API version: 2019-06-01.
-        /// 
-        /// Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Task<GetSoftwareUpdateConfigurationByNameResult> InvokeAsync(GetSoftwareUpdateConfigurationByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single software update configuration by name.
-        /// Azure REST API version: 2019-06-01.
-        /// 
-        /// Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a single software update configuration by name.
-        /// Azure REST API version: 2019-06-01.
-        /// 
-        /// Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Output<GetSoftwareUpdateConfigurationByNameResult> Invoke(GetSoftwareUpdateConfigurationByNameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoftwareUpdateConfigurationByNameResult>("azure-native:automation:getSoftwareUpdateConfigurationByName", args ?? new GetSoftwareUpdateConfigurationByNameInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetSoftwareUpdateConfigurationByNameResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// CreatedBy property, which only appears in the response.
         /// </summary>
         public readonly string CreatedBy;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetSoftwareUpdateConfigurationByNameResult(
+            string azureApiVersion,
+
             string createdBy,
 
             string creationTime,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.Automation
 
             Outputs.UpdateConfigurationResponse updateConfiguration)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedBy = createdBy;
             CreationTime = creationTime;
             Error = error;

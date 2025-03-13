@@ -24,15 +24,22 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// Logical Unit Numbers for the disks.
         /// </summary>
         public readonly ImmutableArray<int> Luns;
+        /// <summary>
+        /// Use storage pool to build a drive if true or not provided
+        /// </summary>
+        public readonly bool? UseStoragePool;
 
         [OutputConstructor]
         private SQLStorageSettingsResponse(
             string? defaultFilePath,
 
-            ImmutableArray<int> luns)
+            ImmutableArray<int> luns,
+
+            bool? useStoragePool)
         {
             DefaultFilePath = defaultFilePath;
             Luns = luns;
+            UseStoragePool = useStoragePool;
         }
     }
 }

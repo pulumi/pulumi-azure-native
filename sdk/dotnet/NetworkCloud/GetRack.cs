@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided rack.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetRackResult> InvokeAsync(GetRackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRackResult>("azure-native:networkcloud:getRack", args ?? new GetRackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided rack.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetRackResult> Invoke(GetRackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRackResult>("azure-native:networkcloud:getRack", args ?? new GetRackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided rack.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetRackResult> Invoke(GetRackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRackResult>("azure-native:networkcloud:getRack", args ?? new GetRackInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
         /// </summary>
         public readonly string AvailabilityZone;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The resource ID of the cluster the rack is created for. This value is set when the rack is created by the cluster.
         /// </summary>
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetRackResult(
             string availabilityZone,
 
+            string azureApiVersion,
+
             string clusterId,
 
             string detailedStatus,
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             string type)
         {
             AvailabilityZone = availabilityZone;
+            AzureApiVersion = azureApiVersion;
             ClusterId = clusterId;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;

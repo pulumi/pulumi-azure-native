@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<ListMonitoredResourceResult> InvokeAsync(ListMonitoredResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMonitoredResourceResult>("azure-native:elastic:listMonitoredResource", args ?? new ListMonitoredResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response of a list operation.
-        /// Azure REST API version: 2023-06-01.
-        /// 
-        /// Other available API versions: 2023-06-15-preview, 2023-07-01-preview, 2023-10-01-preview, 2023-11-01-preview, 2024-01-01-preview, 2024-03-01, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<ListMonitoredResourceResult> Invoke(ListMonitoredResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListMonitoredResourceResult>("azure-native:elastic:listMonitoredResource", args ?? new ListMonitoredResourceInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.Elastic
         public string MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -69,7 +63,7 @@ namespace Pulumi.AzureNative.Elastic
         public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the Elastic resource belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

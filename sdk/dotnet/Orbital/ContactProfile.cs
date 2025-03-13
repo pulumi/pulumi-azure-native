@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    /// Azure REST API version: 2022-11-01.
-    /// 
-    /// Other available API versions: 2022-03-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:ContactProfile")]
     public partial class ContactProfile : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Output("autoTrackingConfiguration")]
         public Output<string?> AutoTrackingConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.

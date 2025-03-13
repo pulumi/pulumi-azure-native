@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
         /// Azure REST API version: 2022-10-27.
-        /// 
-        /// Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
         /// Azure REST API version: 2022-10-27.
-        /// 
-        /// Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Gets the details of an Appliance with a specified resource group and name.
         /// Azure REST API version: 2022-10-27.
-        /// 
-        /// Other available API versions: 2021-10-31-preview.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.ResourceConnector
     [OutputType]
     public sealed class GetApplianceResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Represents a supported Fabric/Infra. (AKSEdge etc...).
         /// </summary>
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.ResourceConnector
 
         [OutputConstructor]
         private GetApplianceResult(
+            string azureApiVersion,
+
             string? distro,
 
             string id,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.ResourceConnector
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Distro = distro;
             Id = id;
             Identity = identity;

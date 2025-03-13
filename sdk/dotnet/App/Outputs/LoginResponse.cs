@@ -38,6 +38,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// The routes that specify the endpoints used for login and logout requests.
         /// </summary>
         public readonly Outputs.LoginRoutesResponse? Routes;
+        /// <summary>
+        /// The configuration settings of the token store.
+        /// </summary>
+        public readonly Outputs.TokenStoreResponse? TokenStore;
 
         [OutputConstructor]
         private LoginResponse(
@@ -49,13 +53,16 @@ namespace Pulumi.AzureNative.App.Outputs
 
             bool? preserveUrlFragmentsForLogins,
 
-            Outputs.LoginRoutesResponse? routes)
+            Outputs.LoginRoutesResponse? routes,
+
+            Outputs.TokenStoreResponse? tokenStore)
         {
             AllowedExternalRedirectUrls = allowedExternalRedirectUrls;
             CookieExpiration = cookieExpiration;
             Nonce = nonce;
             PreserveUrlFragmentsForLogins = preserveUrlFragmentsForLogins;
             Routes = routes;
+            TokenStore = tokenStore;
         }
     }
 }

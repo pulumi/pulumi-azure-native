@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided virtual machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided virtual machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided virtual machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the bare metal machine that hosts the virtual machine.
         /// </summary>
         public readonly string BareMetalMachineId;
@@ -137,7 +135,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The memory size of the virtual machine in GB.
+        /// The memory size of the virtual machine. Allocations are measured in gibibytes.
         /// </summary>
         public readonly double MemorySizeGB;
         /// <summary>
@@ -215,6 +213,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string availabilityZone,
 
+            string azureApiVersion,
+
             string bareMetalMachineId,
 
             string? bootMethod,
@@ -275,6 +275,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         {
             AdminUsername = adminUsername;
             AvailabilityZone = availabilityZone;
+            AzureApiVersion = azureApiVersion;
             BareMetalMachineId = bareMetalMachineId;
             BootMethod = bootMethod;
             CloudServicesNetworkAttachment = cloudServicesNetworkAttachment;

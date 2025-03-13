@@ -16,28 +16,16 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
     public sealed class IPConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// prefixLength for network interface
-        /// </summary>
-        [Input("prefixLength")]
-        public Input<string>? PrefixLength { get; set; }
-
-        /// <summary>
         /// PrivateIPAddress - Private IP address of the IP configuration.
         /// </summary>
         [Input("privateIPAddress")]
         public Input<string>? PrivateIPAddress { get; set; }
 
         /// <summary>
-        /// PrivateIPAllocationMethod - The private IP address allocation method. Possible values include: 'Static', 'Dynamic'
-        /// </summary>
-        [Input("privateIPAllocationMethod")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.PrivateIPAllocationMethodEnum>? PrivateIPAllocationMethod { get; set; }
-
-        /// <summary>
         /// Subnet - Name of Subnet bound to the IP configuration.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.IPConfigurationSubnetArgs>? Subnet { get; set; }
+        public Input<Inputs.LogicalNetworkArmReferenceArgs>? Subnet { get; set; }
 
         public IPConfigurationPropertiesArgs()
         {

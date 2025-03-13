@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified artifact store.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetArtifactStoreResult> InvokeAsync(GetArtifactStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArtifactStoreResult>("azure-native:hybridnetwork:getArtifactStore", args ?? new GetArtifactStoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified artifact store.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetArtifactStoreResult> Invoke(GetArtifactStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactStoreResult>("azure-native:hybridnetwork:getArtifactStore", args ?? new GetArtifactStoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified artifact store.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetArtifactStoreResult> Invoke(GetArtifactStoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArtifactStoreResult>("azure-native:hybridnetwork:getArtifactStore", args ?? new GetArtifactStoreInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetArtifactStoreResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetArtifactStoreResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

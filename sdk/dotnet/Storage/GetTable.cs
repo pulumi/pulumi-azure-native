@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the table with the specified table name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the table with the specified table name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the table with the specified table name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:storage:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetTableResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Storage
 
         [OutputConstructor]
         private GetTableResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Storage
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             SignedIdentifiers = signedIdentifiers;

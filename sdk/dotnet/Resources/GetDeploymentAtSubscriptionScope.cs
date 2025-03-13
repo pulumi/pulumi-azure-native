@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a deployment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetDeploymentAtSubscriptionScopeResult> InvokeAsync(GetDeploymentAtSubscriptionScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetDeploymentAtSubscriptionScopeResult> Invoke(GetDeploymentAtSubscriptionScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetDeploymentAtSubscriptionScopeResult> Invoke(GetDeploymentAtSubscriptionScopeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentAtSubscriptionScopeResult>("azure-native:resources:getDeploymentAtSubscriptionScope", args ?? new GetDeploymentAtSubscriptionScopeInvokeArgs(), options.WithDefaults());
@@ -73,6 +67,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetDeploymentAtSubscriptionScopeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the deployment.
         /// </summary>
         public readonly string Id;
@@ -99,6 +97,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetDeploymentAtSubscriptionScopeResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.Resources
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

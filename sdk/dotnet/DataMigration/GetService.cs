@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.DataMigration
     public static class GetService
     {
         /// <summary>
-        /// The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:datamigration:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -85,24 +79,27 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The time delay before the service is auto-stopped when idle.
+        /// </summary>
+        public readonly string? AutoStopDelay;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Whether service resources should be deleted when stopped. (Turned on by default)
+        /// </summary>
+        public readonly bool? DeleteResourcesOnStop;
+        /// <summary>
         /// HTTP strong entity tag value. Ignored if submitted
         /// </summary>
         public readonly string? Etag;
-        /// <summary>
-        /// Resource ID.
-        /// </summary>
         public readonly string Id;
         /// <summary>
         /// The resource kind. Only 'vm' (the default) is supported.
         /// </summary>
         public readonly string? Kind;
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Resource name.
-        /// </summary>
+        public readonly string? Location;
         public readonly string Name;
         /// <summary>
         /// The resource's provisioning state
@@ -116,17 +113,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// Service SKU
         /// </summary>
         public readonly Outputs.ServiceSkuResponse? Sku;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
         public readonly string Type;
         /// <summary>
         /// The ID of the Microsoft.Network/networkInterfaces resource which the service have
@@ -135,17 +123,23 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         /// </summary>
-        public readonly string VirtualSubnetId;
+        public readonly string? VirtualSubnetId;
 
         [OutputConstructor]
         private GetServiceResult(
+            string? autoStopDelay,
+
+            string azureApiVersion,
+
+            bool? deleteResourcesOnStop,
+
             string? etag,
 
             string id,
 
             string? kind,
 
-            string location,
+            string? location,
 
             string name,
 
@@ -163,8 +157,11 @@ namespace Pulumi.AzureNative.DataMigration
 
             string? virtualNicId,
 
-            string virtualSubnetId)
+            string? virtualSubnetId)
         {
+            AutoStopDelay = autoStopDelay;
+            AzureApiVersion = azureApiVersion;
+            DeleteResourcesOnStop = deleteResourcesOnStop;
             Etag = etag;
             Id = id;
             Kind = kind;

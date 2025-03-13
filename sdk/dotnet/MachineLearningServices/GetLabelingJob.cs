@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01-preview.
-        /// 
-        /// Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+        /// Azure REST API version: 2024-01-01-preview.
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
@@ -47,18 +41,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
-
-        /// <summary>
-        /// Boolean value to indicate whether to include JobInstructions in response.
-        /// </summary>
-        [Input("includeJobInstructions")]
-        public bool? IncludeJobInstructions { get; set; }
-
-        /// <summary>
-        /// Boolean value to indicate Whether to include LabelCategories in response.
-        /// </summary>
-        [Input("includeLabelCategories")]
-        public bool? IncludeLabelCategories { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -87,18 +69,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// Boolean value to indicate whether to include JobInstructions in response.
-        /// </summary>
-        [Input("includeJobInstructions")]
-        public Input<bool>? IncludeJobInstructions { get; set; }
-
-        /// <summary>
-        /// Boolean value to indicate Whether to include LabelCategories in response.
-        /// </summary>
-        [Input("includeLabelCategories")]
-        public Input<bool>? IncludeLabelCategories { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -120,6 +90,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     [OutputType]
     public sealed class GetLabelingJobResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -143,6 +117,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetLabelingJobResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.LabelingJobResponse labelingJobProperties,
@@ -153,6 +129,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             LabelingJobProperties = labelingJobProperties;
             Name = name;

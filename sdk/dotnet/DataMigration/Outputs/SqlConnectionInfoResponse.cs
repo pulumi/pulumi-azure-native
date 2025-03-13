@@ -41,6 +41,26 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly string? Platform;
         /// <summary>
+        /// Port for Server
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
+        /// Represents the ID of an HTTP resource represented by an Azure resource provider.
+        /// </summary>
+        public readonly string? ResourceId;
+        /// <summary>
+        /// server brand version
+        /// </summary>
+        public readonly string? ServerBrandVersion;
+        /// <summary>
+        /// name of the server
+        /// </summary>
+        public readonly string? ServerName;
+        /// <summary>
+        /// server version
+        /// </summary>
+        public readonly string? ServerVersion;
+        /// <summary>
         /// Whether to trust the server certificate
         /// </summary>
         public readonly bool? TrustServerCertificate;
@@ -68,6 +88,16 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string? platform,
 
+            int? port,
+
+            string? resourceId,
+
+            string? serverBrandVersion,
+
+            string? serverName,
+
+            string? serverVersion,
+
             bool? trustServerCertificate,
 
             string type,
@@ -80,6 +110,11 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
             EncryptConnection = encryptConnection;
             Password = password;
             Platform = platform;
+            Port = port;
+            ResourceId = resourceId;
+            ServerBrandVersion = serverBrandVersion;
+            ServerName = serverName;
+            ServerVersion = serverVersion;
             TrustServerCertificate = trustServerCertificate;
             Type = type;
             UserName = userName;

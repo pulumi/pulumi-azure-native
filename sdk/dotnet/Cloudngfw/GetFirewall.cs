@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get a FirewallResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<GetFirewallResult> InvokeAsync(GetFirewallArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallResult>("azure-native:cloudngfw:getFirewall", args ?? new GetFirewallArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FirewallResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("azure-native:cloudngfw:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FirewallResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("azure-native:cloudngfw:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public readonly Outputs.RulestackDetailsResponse? AssociatedRulestack;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// DNS settings for Firewall
         /// </summary>
         public readonly Outputs.DNSSettingsResponse DnsSettings;
@@ -108,6 +106,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// Panorama Managed: Default is False. Default will be CloudSec managed
         /// </summary>
         public readonly string? IsPanoramaManaged;
+        /// <summary>
+        /// Strata Cloud Managed: Default is False. Default will be CloudSec managed
+        /// </summary>
+        public readonly string? IsStrataCloudManaged;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -141,6 +143,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
+        /// </summary>
+        public readonly Outputs.StrataCloudManagerConfigResponse? StrataCloudManagerConfig;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -157,6 +163,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetFirewallResult(
             Outputs.RulestackDetailsResponse? associatedRulestack,
 
+            string azureApiVersion,
+
             Outputs.DNSSettingsResponse dnsSettings,
 
             ImmutableArray<Outputs.FrontendSettingResponse> frontEndSettings,
@@ -166,6 +174,8 @@ namespace Pulumi.AzureNative.Cloudngfw
             Outputs.AzureResourceManagerManagedIdentityPropertiesResponse? identity,
 
             string? isPanoramaManaged,
+
+            string? isStrataCloudManaged,
 
             string location,
 
@@ -183,6 +193,8 @@ namespace Pulumi.AzureNative.Cloudngfw
 
             string provisioningState,
 
+            Outputs.StrataCloudManagerConfigResponse? strataCloudManagerConfig,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -190,11 +202,13 @@ namespace Pulumi.AzureNative.Cloudngfw
             string type)
         {
             AssociatedRulestack = associatedRulestack;
+            AzureApiVersion = azureApiVersion;
             DnsSettings = dnsSettings;
             FrontEndSettings = frontEndSettings;
             Id = id;
             Identity = identity;
             IsPanoramaManaged = isPanoramaManaged;
+            IsStrataCloudManaged = isStrataCloudManaged;
             Location = location;
             MarketplaceDetails = marketplaceDetails;
             Name = name;
@@ -203,6 +217,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             PanoramaConfig = panoramaConfig;
             PlanData = planData;
             ProvisioningState = provisioningState;
+            StrataCloudManagerConfig = strataCloudManagerConfig;
             SystemData = systemData;
             Tags = tags;
             Type = type;

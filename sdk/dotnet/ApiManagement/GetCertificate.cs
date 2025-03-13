@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the certificate specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the certificate specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the certificate specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:apimanagement:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
         public readonly string ExpirationDate;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetCertificateResult(
+            string azureApiVersion,
+
             string expirationDate,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExpirationDate = expirationDate;
             Id = id;
             KeyVault = keyVault;

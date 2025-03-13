@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string AadObjectId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNative.Synapse
         private GetKustoPoolDatabasePrincipalAssignmentResult(
             string aadObjectId,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Synapse
             string type)
         {
             AadObjectId = aadObjectId;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PrincipalId = principalId;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// Azure REST API version: 2022-12-29.
-        /// 
-        /// Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.Kusto
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +75,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The list of databases from the clusterResourceId which are currently attached to the cluster.
         /// </summary>
         public readonly ImmutableArray<string> AttachedDatabaseNames;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The resource id of the cluster where the databases you would like to attach reside.
         /// </summary>
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.Kusto
         private GetAttachedDatabaseConfigurationResult(
             ImmutableArray<string> attachedDatabaseNames,
 
+            string azureApiVersion,
+
             string clusterResourceId,
 
             string databaseName,
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Kusto
             string type)
         {
             AttachedDatabaseNames = attachedDatabaseNames;
+            AzureApiVersion = azureApiVersion;
             ClusterResourceId = clusterResourceId;
             DatabaseName = databaseName;
             DatabaseNameOverride = databaseNameOverride;

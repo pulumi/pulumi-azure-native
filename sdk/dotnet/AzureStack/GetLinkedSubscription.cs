@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.AzureStack
     public sealed class GetLinkedSubscriptionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The status of the remote management connection of the Azure Stack device.
         /// </summary>
         public readonly string DeviceConnectionStatus;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.AzureStack
 
         [OutputConstructor]
         private GetLinkedSubscriptionResult(
+            string azureApiVersion,
+
             string deviceConnectionStatus,
 
             string deviceId,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.AzureStack
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeviceConnectionStatus = deviceConnectionStatus;
             DeviceId = deviceId;
             DeviceLinkState = deviceLinkState;

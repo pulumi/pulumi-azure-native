@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Array of group IDs.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

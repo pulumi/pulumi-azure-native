@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetRegistryCodeVersionResult> InvokeAsync(GetRegistryCodeVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistryCodeVersionResult>("azure-native:machinelearningservices:getRegistryCodeVersion", args ?? new GetRegistryCodeVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRegistryCodeVersionResult> Invoke(GetRegistryCodeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryCodeVersionResult>("azure-native:machinelearningservices:getRegistryCodeVersion", args ?? new GetRegistryCodeVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRegistryCodeVersionResult> Invoke(GetRegistryCodeVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryCodeVersionResult>("azure-native:machinelearningservices:getRegistryCodeVersion", args ?? new GetRegistryCodeVersionInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetRegistryCodeVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
         public readonly Outputs.CodeVersionResponse CodeVersionProperties;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetRegistryCodeVersionResult(
+            string azureApiVersion,
+
             Outputs.CodeVersionResponse codeVersionProperties,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CodeVersionProperties = codeVersionProperties;
             Id = id;
             Name = name;

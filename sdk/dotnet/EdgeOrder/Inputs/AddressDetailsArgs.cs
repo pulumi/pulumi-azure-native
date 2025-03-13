@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
     public sealed class AddressDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer address and contact details. It should be address resource
+        /// Customer address and contact details.
         /// </summary>
         [Input("forwardAddress", required: true)]
         public Input<Inputs.AddressPropertiesArgs> ForwardAddress { get; set; } = null!;

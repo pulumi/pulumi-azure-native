@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Task<ListPolicyDefinitionVersionAllResult> InvokeAsync(ListPolicyDefinitionVersionAllArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", args ?? new ListPolicyDefinitionVersionAllArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// This operation lists all the policy definition versions for all policy definitions within a subscription.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<ListPolicyDefinitionVersionAllResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPolicyDefinitionVersionAllResult>("azure-native:authorization:listPolicyDefinitionVersionAll", InvokeArgs.Empty, options.WithDefaults());

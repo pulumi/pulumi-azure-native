@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.EventHub.Outputs
         /// </summary>
         public readonly string? DataLakeSubscriptionId;
         /// <summary>
+        /// A value that indicates whether capture description is enabled.
+        /// </summary>
+        public readonly Outputs.CaptureIdentityResponse? Identity;
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         public readonly string? Name;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.EventHub.Outputs
 
             string? dataLakeSubscriptionId,
 
+            Outputs.CaptureIdentityResponse? identity,
+
             string? name,
 
             string? storageAccountResourceId)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.EventHub.Outputs
             DataLakeAccountName = dataLakeAccountName;
             DataLakeFolderPath = dataLakeFolderPath;
             DataLakeSubscriptionId = dataLakeSubscriptionId;
+            Identity = identity;
             Name = name;
             StorageAccountResourceId = storageAccountResourceId;
         }

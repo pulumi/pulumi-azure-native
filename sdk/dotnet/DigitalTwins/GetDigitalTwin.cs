@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.DigitalTwins
     public sealed class GetDigitalTwinResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Time when DigitalTwinsInstance was created.
         /// </summary>
         public readonly string CreatedTime;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 
         [OutputConstructor]
         private GetDigitalTwinResult(
+            string azureApiVersion,
+
             string createdTime,
 
             string hostName,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.DigitalTwins
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedTime = createdTime;
             HostName = hostName;
             Id = id;

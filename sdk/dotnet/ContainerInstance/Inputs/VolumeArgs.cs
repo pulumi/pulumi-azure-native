@@ -51,18 +51,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
             set => _secret = value;
         }
 
-        [Input("secretReference")]
-        private InputMap<string>? _secretReference;
-
-        /// <summary>
-        /// The secret reference volume.
-        /// </summary>
-        public InputMap<string> SecretReference
-        {
-            get => _secretReference ?? (_secretReference = new InputMap<string>());
-            set => _secretReference = value;
-        }
-
         public VolumeArgs()
         {
         }

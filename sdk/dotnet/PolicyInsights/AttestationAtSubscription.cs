@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.PolicyInsights
 {
     /// <summary>
     /// An attestation resource.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-    /// 
-    /// Other available API versions: 2024-10-01.
+    /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:AttestationAtSubscription")]
     public partial class AttestationAtSubscription : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         [Output("assessmentDate")]
         public Output<string?> AssessmentDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Comments describing why this attestation was created.

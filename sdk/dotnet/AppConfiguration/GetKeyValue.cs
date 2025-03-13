@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppConfiguration
     {
         /// <summary>
         /// Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetKeyValueResult> InvokeAsync(GetKeyValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueResult>("azure-native:appconfiguration:getKeyValue", args ?? new GetKeyValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueResult>("azure-native:appconfiguration:getKeyValue", args ?? new GetKeyValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified key-value. NOTE: This operation is intended for use in ARM Template deployments. For all other scenarios involving App Configuration key-values the data plane API should be used instead.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetKeyValueResult> Invoke(GetKeyValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueResult>("azure-native:appconfiguration:getKeyValue", args ?? new GetKeyValueInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.AppConfiguration
     public sealed class GetKeyValueResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The content type of the key-value's value.
         /// Providing a proper content-type can enable transformations of values when they are retrieved by applications.
         /// </summary>
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.AppConfiguration
 
         [OutputConstructor]
         private GetKeyValueResult(
+            string azureApiVersion,
+
             string? contentType,
 
             string eTag,
@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.AppConfiguration
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             ContentType = contentType;
             ETag = eTag;
             Id = id;

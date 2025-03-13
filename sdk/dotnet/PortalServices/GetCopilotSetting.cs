@@ -51,6 +51,10 @@ namespace Pulumi.AzureNative.PortalServices
         /// </summary>
         public readonly bool AccessControlEnabled;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -75,6 +79,8 @@ namespace Pulumi.AzureNative.PortalServices
         private GetCopilotSettingResult(
             bool accessControlEnabled,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNative.PortalServices
             string type)
         {
             AccessControlEnabled = accessControlEnabled;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

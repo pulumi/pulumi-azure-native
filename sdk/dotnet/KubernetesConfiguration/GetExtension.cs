@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Task<GetExtensionResult> InvokeAsync(GetExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Gets Kubernetes Cluster Extension.
         /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-07-01-preview, 2022-04-02-preview, 2022-07-01.
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("azure-native:kubernetesconfiguration:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
@@ -129,6 +123,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ConfigurationProtectedSettings;
@@ -211,6 +209,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             bool? autoUpgradeMinorVersion,
 
+            string azureApiVersion,
+
             ImmutableDictionary<string, string>? configurationProtectedSettings,
 
             ImmutableDictionary<string, string>? configurationSettings,
@@ -251,6 +251,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         {
             AksAssignedIdentity = aksAssignedIdentity;
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            AzureApiVersion = azureApiVersion;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             ConfigurationSettings = configurationSettings;
             CurrentVersion = currentVersion;

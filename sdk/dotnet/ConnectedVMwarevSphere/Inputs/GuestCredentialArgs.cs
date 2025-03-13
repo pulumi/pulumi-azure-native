@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
         public Input<string>? Password { get; set; }
 
         /// <summary>
+        /// Private key used to authenticate to a virtual machine through ssh.
+        /// </summary>
+        [Input("privateKey")]
+        public Input<string>? PrivateKey { get; set; }
+
+        /// <summary>
         /// Gets or sets username to connect with the guest.
         /// </summary>
         [Input("username")]

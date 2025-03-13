@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AadIam
 {
     /// <summary>
     /// The diagnostic setting resource.
-    /// Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01.
-    /// 
-    /// Other available API versions: 2017-04-01-preview.
+    /// Azure REST API version: 2017-04-01. Prior API version in Azure Native 2.x: 2017-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:DiagnosticSetting")]
     public partial class DiagnosticSetting : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The resource Id for the event hub authorization rule.
         /// </summary>
