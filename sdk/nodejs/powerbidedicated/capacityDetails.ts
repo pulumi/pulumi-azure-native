@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a Dedicated Capacity resource.
- * Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2021-01-01. Prior API version in Azure Native 2.x: 2021-01-01.
  */
 export class CapacityDetails extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      * A collection of Dedicated capacity administrators
      */
     public readonly administration!: pulumi.Output<outputs.powerbidedicated.DedicatedCapacityAdministratorsResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Capacity name
      */
@@ -112,6 +116,7 @@ export class CapacityDetails extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["systemData"] = args ? args.systemData : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -120,6 +125,7 @@ export class CapacityDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mode"] = undefined /*out*/;

@@ -36,6 +36,10 @@ export interface GetManagerExtendedInfoResult {
      */
     readonly algorithm: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Represents the CEK of the resource.
      */
     readonly encryptionKey?: string;

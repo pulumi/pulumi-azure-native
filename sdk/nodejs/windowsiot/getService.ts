@@ -36,6 +36,10 @@ export interface GetServiceResult {
      */
     readonly adminDomainName?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Windows IoT Device Service ODM AAD domain
      */
     readonly billingDomainName?: string;

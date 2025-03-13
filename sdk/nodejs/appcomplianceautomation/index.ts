@@ -69,15 +69,6 @@ utilities.lazyLoad(exports, ["Webhook"], () => require("./webhook"));
 // Export enums:
 export * from "../types/enums/appcomplianceautomation";
 
-// Export sub-modules:
-import * as v20221116preview from "./v20221116preview";
-import * as v20240627 from "./v20240627";
-
-export {
-    v20221116preview,
-    v20240627,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

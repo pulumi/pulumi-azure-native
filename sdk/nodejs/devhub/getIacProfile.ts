@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Resource representation of a IacProfile.
  * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2024-08-01-preview.
  */
 export function getIacProfile(args: GetIacProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetIacProfileResult {
      * Determines the authorization status of requests.
      */
     readonly authStatus: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Repository Branch Name
      */
@@ -114,8 +116,6 @@ export interface GetIacProfileResult {
 /**
  * Resource representation of a IacProfile.
  * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2024-08-01-preview.
  */
 export function getIacProfileOutput(args: GetIacProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIacProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

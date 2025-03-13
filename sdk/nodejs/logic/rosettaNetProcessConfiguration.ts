@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration account RosettaNet process configuration.
- * Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
+ * Azure REST API version: 2016-06-01. Prior API version in Azure Native 2.x: 2016-06-01.
  */
 export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
      * The RosettaNet process configuration activity settings.
      */
     public readonly activitySettings!: pulumi.Output<outputs.logic.RosettaNetPipActivitySettingsResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The changed time.
      */
@@ -143,12 +147,14 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             resourceInputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
             resourceInputs["rosettaNetProcessConfigurationName"] = args ? args.rosettaNetProcessConfigurationName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activitySettings"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

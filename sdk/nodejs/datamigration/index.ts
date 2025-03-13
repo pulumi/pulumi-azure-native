@@ -10,11 +10,6 @@ export type DatabaseMigrationsMongoToCosmosDbRUMongo = import("./databaseMigrati
 export const DatabaseMigrationsMongoToCosmosDbRUMongo: typeof import("./databaseMigrationsMongoToCosmosDbRUMongo").DatabaseMigrationsMongoToCosmosDbRUMongo = null as any;
 utilities.lazyLoad(exports, ["DatabaseMigrationsMongoToCosmosDbRUMongo"], () => require("./databaseMigrationsMongoToCosmosDbRUMongo"));
 
-export { DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs } from "./databaseMigrationsMongoToCosmosDbvCoreMongo";
-export type DatabaseMigrationsMongoToCosmosDbvCoreMongo = import("./databaseMigrationsMongoToCosmosDbvCoreMongo").DatabaseMigrationsMongoToCosmosDbvCoreMongo;
-export const DatabaseMigrationsMongoToCosmosDbvCoreMongo: typeof import("./databaseMigrationsMongoToCosmosDbvCoreMongo").DatabaseMigrationsMongoToCosmosDbvCoreMongo = null as any;
-utilities.lazyLoad(exports, ["DatabaseMigrationsMongoToCosmosDbvCoreMongo"], () => require("./databaseMigrationsMongoToCosmosDbvCoreMongo"));
-
 export { DatabaseMigrationsSqlDbArgs } from "./databaseMigrationsSqlDb";
 export type DatabaseMigrationsSqlDb = import("./databaseMigrationsSqlDb").DatabaseMigrationsSqlDb;
 export const DatabaseMigrationsSqlDb: typeof import("./databaseMigrationsSqlDb").DatabaseMigrationsSqlDb = null as any;
@@ -30,11 +25,6 @@ export const getDatabaseMigrationsMongoToCosmosDbRUMongo: typeof import("./getDa
 export const getDatabaseMigrationsMongoToCosmosDbRUMongoOutput: typeof import("./getDatabaseMigrationsMongoToCosmosDbRUMongo").getDatabaseMigrationsMongoToCosmosDbRUMongoOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseMigrationsMongoToCosmosDbRUMongo","getDatabaseMigrationsMongoToCosmosDbRUMongoOutput"], () => require("./getDatabaseMigrationsMongoToCosmosDbRUMongo"));
 
-export { GetDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs, GetDatabaseMigrationsMongoToCosmosDbvCoreMongoResult, GetDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs } from "./getDatabaseMigrationsMongoToCosmosDbvCoreMongo";
-export const getDatabaseMigrationsMongoToCosmosDbvCoreMongo: typeof import("./getDatabaseMigrationsMongoToCosmosDbvCoreMongo").getDatabaseMigrationsMongoToCosmosDbvCoreMongo = null as any;
-export const getDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput: typeof import("./getDatabaseMigrationsMongoToCosmosDbvCoreMongo").getDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabaseMigrationsMongoToCosmosDbvCoreMongo","getDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput"], () => require("./getDatabaseMigrationsMongoToCosmosDbvCoreMongo"));
-
 export { GetDatabaseMigrationsSqlDbArgs, GetDatabaseMigrationsSqlDbResult, GetDatabaseMigrationsSqlDbOutputArgs } from "./getDatabaseMigrationsSqlDb";
 export const getDatabaseMigrationsSqlDb: typeof import("./getDatabaseMigrationsSqlDb").getDatabaseMigrationsSqlDb = null as any;
 export const getDatabaseMigrationsSqlDbOutput: typeof import("./getDatabaseMigrationsSqlDb").getDatabaseMigrationsSqlDbOutput = null as any;
@@ -49,6 +39,11 @@ export { GetMigrationServiceArgs, GetMigrationServiceResult, GetMigrationService
 export const getMigrationService: typeof import("./getMigrationService").getMigrationService = null as any;
 export const getMigrationServiceOutput: typeof import("./getMigrationService").getMigrationServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getMigrationService","getMigrationServiceOutput"], () => require("./getMigrationService"));
+
+export { GetMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs, GetMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoResult, GetMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoOutputArgs } from "./getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo";
+export const getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo: typeof import("./getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo").getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo = null as any;
+export const getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput: typeof import("./getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo").getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo","getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoOutput"], () => require("./getMongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo"));
 
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
@@ -90,6 +85,11 @@ export type MigrationService = import("./migrationService").MigrationService;
 export const MigrationService: typeof import("./migrationService").MigrationService = null as any;
 utilities.lazyLoad(exports, ["MigrationService"], () => require("./migrationService"));
 
+export { MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongoArgs } from "./mongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo";
+export type MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo = import("./mongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo").MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo;
+export const MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo: typeof import("./mongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo").MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo = null as any;
+utilities.lazyLoad(exports, ["MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo"], () => require("./mongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -119,33 +119,20 @@ utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 // Export enums:
 export * from "../types/enums/datamigration";
 
-// Export sub-modules:
-import * as v20210630 from "./v20210630";
-import * as v20211030preview from "./v20211030preview";
-import * as v20220330preview from "./v20220330preview";
-import * as v20230715preview from "./v20230715preview";
-
-export {
-    v20210630,
-    v20211030preview,
-    v20220330preview,
-    v20230715preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
             case "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbRUMongo":
                 return new DatabaseMigrationsMongoToCosmosDbRUMongo(name, <any>undefined, { urn })
-            case "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbvCoreMongo":
-                return new DatabaseMigrationsMongoToCosmosDbvCoreMongo(name, <any>undefined, { urn })
             case "azure-native:datamigration:DatabaseMigrationsSqlDb":
                 return new DatabaseMigrationsSqlDb(name, <any>undefined, { urn })
             case "azure-native:datamigration:File":
                 return new File(name, <any>undefined, { urn })
             case "azure-native:datamigration:MigrationService":
                 return new MigrationService(name, <any>undefined, { urn })
+            case "azure-native:datamigration:MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo":
+                return new MongoClusterDatabaseMigrationsMongoToCosmosDbvCoreMongo(name, <any>undefined, { urn })
             case "azure-native:datamigration:Project":
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:datamigration:Service":

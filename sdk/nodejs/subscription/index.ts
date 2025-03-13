@@ -29,17 +29,6 @@ utilities.lazyLoad(exports, ["SubscriptionTarDirectory"], () => require("./subsc
 // Export enums:
 export * from "../types/enums/subscription";
 
-// Export sub-modules:
-import * as v20200901 from "./v20200901";
-import * as v20211001 from "./v20211001";
-import * as v20240801preview from "./v20240801preview";
-
-export {
-    v20200901,
-    v20211001,
-    v20240801preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

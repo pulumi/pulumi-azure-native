@@ -40,6 +40,10 @@ export interface GetDatasetArgs {
  */
 export interface GetDatasetResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Detailed description of the Dataset.
      */
     readonly description?: string;

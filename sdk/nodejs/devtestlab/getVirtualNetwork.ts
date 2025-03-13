@@ -49,6 +49,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly allowedSubnets?: outputs.devtestlab.SubnetResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation date of the virtual network.
      */
     readonly createdDate: string;

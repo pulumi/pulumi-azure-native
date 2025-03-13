@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The server encryption protector.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class EncryptionProtector extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class EncryptionProtector extends pulumi.CustomResource {
      * Key auto rotation opt-in flag. Either true or false.
      */
     public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Kind of encryption protector. This is metadata used for the Azure portal experience.
      */
@@ -107,6 +109,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
             resourceInputs["serverKeyName"] = args ? args.serverKeyName : undefined;
             resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -116,6 +119,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         } else {
             resourceInputs["autoRotationEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

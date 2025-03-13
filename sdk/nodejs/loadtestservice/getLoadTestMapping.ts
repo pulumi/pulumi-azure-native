@@ -35,6 +35,10 @@ export interface GetLoadTestMappingArgs {
  */
 export interface GetLoadTestMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Mapped Azure Load Test resource Id.
      */
     readonly azureLoadTestingResourceId?: string;

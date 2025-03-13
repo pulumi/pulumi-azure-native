@@ -44,6 +44,10 @@ export interface GetPredictionResult {
      */
     readonly autoAnalyze: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Description of the prediction.
      */
     readonly description?: {[key: string]: string};

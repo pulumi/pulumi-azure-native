@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Hybrid Connection for an App Service app.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppRelayServiceConnectionSlot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly biztalkUri!: pulumi.Output<string | undefined>;
     public readonly entityConnectionString!: pulumi.Output<string | undefined>;
     public readonly entityName!: pulumi.Output<string | undefined>;
@@ -88,8 +90,10 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["biztalkUri"] = undefined /*out*/;
             resourceInputs["entityConnectionString"] = undefined /*out*/;
             resourceInputs["entityName"] = undefined /*out*/;

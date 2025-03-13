@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a file import in Azure Security Insights.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class FileImport extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class FileImport extends pulumi.CustomResource {
         return obj['__pulumiType'] === FileImport.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The content type of this file.
      */
@@ -141,6 +143,7 @@ export class FileImport extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUTC"] = undefined /*out*/;
             resourceInputs["errorFile"] = undefined /*out*/;
             resourceInputs["errorsPreview"] = undefined /*out*/;
@@ -154,6 +157,7 @@ export class FileImport extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validRecordCount"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["createdTimeUTC"] = undefined /*out*/;
             resourceInputs["errorFile"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The UTC time when the Event Hubs Cluster was created.
      */
     readonly createdAt: string;
@@ -56,6 +58,10 @@ export interface GetClusterResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Provisioning state of the Cluster.
+     */
+    readonly provisioningState: string;
     /**
      * Properties of the cluster SKU.
      */
@@ -87,9 +93,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets the resource description of the specified Event Hubs Cluster.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a credential set resource for a container registry.
- * Azure REST API version: 2023-01-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class CredentialSet extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class CredentialSet extends pulumi.CustomResource {
      * Usually consists of a primary and an optional secondary credential.
      */
     public readonly authCredentials!: pulumi.Output<outputs.containerregistry.AuthCredentialResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of credential store resource.
      */
@@ -97,6 +99,7 @@ export class CredentialSet extends pulumi.CustomResource {
             resourceInputs["loginServer"] = args ? args.loginServer : undefined;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -104,6 +107,7 @@ export class CredentialSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authCredentials"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["loginServer"] = undefined /*out*/;

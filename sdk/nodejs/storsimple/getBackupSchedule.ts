@@ -50,6 +50,10 @@ export interface GetBackupScheduleArgs {
  */
 export interface GetBackupScheduleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The type of backup which needs to be taken.
      */
     readonly backupType: string;

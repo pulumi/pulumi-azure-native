@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,6 +19,9 @@ export function getCapacityReservationGroup(args: GetCapacityReservationGroupArg
 }
 
 export interface GetCapacityReservationGroupArgs {
+    /**
+     * Group ID
+     */
     groupId: string;
     /**
      * The name of the resource group. The name is case insensitive.
@@ -29,6 +30,10 @@ export interface GetCapacityReservationGroupArgs {
 }
 
 export interface GetCapacityReservationGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -71,9 +76,7 @@ export interface GetCapacityReservationGroupResult {
     readonly type: string;
 }
 /**
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +87,9 @@ export function getCapacityReservationGroupOutput(args: GetCapacityReservationGr
 }
 
 export interface GetCapacityReservationGroupOutputArgs {
+    /**
+     * Group ID
+     */
     groupId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.

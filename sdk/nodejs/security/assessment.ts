@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Security assessment on a resource - response format
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01.
- *
- * Other available API versions: 2020-01-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Assessment extends pulumi.CustomResource {
      * Additional data regarding the assessment
      */
     public readonly additionalData!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User friendly display name of the assessment
      */
@@ -104,12 +106,14 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["resourceDetails"] = args ? args.resourceDetails : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;

@@ -40,6 +40,10 @@ export interface GetAccountFilterArgs {
  */
 export interface GetAccountFilterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The first quality.
      */
     readonly firstQuality?: outputs.media.FirstQualityResponse;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL DW table data set.
- * Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01.
+ * Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
  */
 export class SqlDWTableDataSet extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlDWTableDataSet.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Unique id for identifying a data set resource
      */
@@ -120,11 +124,13 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
             resourceInputs["shareName"] = args ? args.shareName : undefined;
             resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["dataWarehouseName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -136,7 +142,7 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20191101:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20201001preview:BlobStorageAccountDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen1FileDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20210801:BlobContainerDataSet" }, { type: "azure-native:datashare/v20210801:BlobDataSet" }, { type: "azure-native:datashare/v20210801:BlobFolderDataSet" }, { type: "azure-native:datashare/v20210801:KustoClusterDataSet" }, { type: "azure-native:datashare/v20210801:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20210801:KustoTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDBTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet" }, { type: "azure-native:datashare:ADLSGen1FileDataSet" }, { type: "azure-native:datashare:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare:ADLSGen2FileDataSet" }, { type: "azure-native:datashare:ADLSGen2FileSystemDataSet" }, { type: "azure-native:datashare:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare:BlobContainerDataSet" }, { type: "azure-native:datashare:BlobDataSet" }, { type: "azure-native:datashare:BlobFolderDataSet" }, { type: "azure-native:datashare:KustoClusterDataSet" }, { type: "azure-native:datashare:KustoDatabaseDataSet" }, { type: "azure-native:datashare:KustoTableDataSet" }, { type: "azure-native:datashare:SqlDBTableDataSet" }, { type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDWTableDataSet.__pulumiType, name, resourceInputs, opts);
     }

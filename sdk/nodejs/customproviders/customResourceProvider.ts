@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A manifest file that defines the custom resource provider resources.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class CustomResourceProvider extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class CustomResourceProvider extends pulumi.CustomResource {
      * A list of actions that the custom resource provider implements.
      */
     public readonly actions!: pulumi.Output<outputs.customproviders.CustomRPActionRouteDefinitionResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -92,11 +96,13 @@ export class CustomResourceProvider extends pulumi.CustomResource {
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validations"] = args ? args.validations : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

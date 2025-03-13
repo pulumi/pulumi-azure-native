@@ -40,6 +40,10 @@ export interface GetRegistrationAssignmentArgs {
  */
 export interface GetRegistrationAssignmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The fully qualified path of the registration assignment.
      */
     readonly id: string;

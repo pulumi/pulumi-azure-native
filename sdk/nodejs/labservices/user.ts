@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * User of a lab that can register for and use virtual machines within the lab.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly additionalUsageQuota!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Display name of the user, for example user's full name.
      */
     public /*out*/ readonly displayName!: pulumi.Output<string>;
@@ -72,6 +74,10 @@ export class User extends pulumi.CustomResource {
      * State of the user's registration within the lab.
      */
     public /*out*/ readonly registrationState!: pulumi.Output<string>;
+    /**
+     * Error details of last operation done on lab plan.
+     */
+    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
@@ -110,17 +116,20 @@ export class User extends pulumi.CustomResource {
             resourceInputs["labName"] = args ? args.labName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["invitationSent"] = undefined /*out*/;
             resourceInputs["invitationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalUsageQuota"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["invitationSent"] = undefined /*out*/;
@@ -128,12 +137,13 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["resourceOperationError"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:User" }, { type: "azure-native:labservices/v20211115preview:User" }, { type: "azure-native:labservices/v20220801:User" }, { type: "azure-native:labservices/v20230607:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:User" }, { type: "azure-native:labservices/v20211001preview:User" }, { type: "azure-native:labservices/v20211115preview:User" }, { type: "azure-native:labservices/v20220801:User" }, { type: "azure-native:labservices/v20230607:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

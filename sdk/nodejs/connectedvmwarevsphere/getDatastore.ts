@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements datastore GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDatastoreArgs {
  * Define the datastore.
  */
 export interface GetDatastoreResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets Maximum capacity of this datastore in GBs.
      */
@@ -111,9 +113,7 @@ export interface GetDatastoreResult {
 }
 /**
  * Implements datastore GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

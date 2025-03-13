@@ -124,17 +124,6 @@ utilities.lazyLoad(exports, ["SqlServerLicense"], () => require("./sqlServerLice
 // Export enums:
 export * from "../types/enums/azurearcdata";
 
-// Export sub-modules:
-import * as v20230115preview from "./v20230115preview";
-import * as v20240101 from "./v20240101";
-import * as v20240501preview from "./v20240501preview";
-
-export {
-    v20230115preview,
-    v20240101,
-    v20240501preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

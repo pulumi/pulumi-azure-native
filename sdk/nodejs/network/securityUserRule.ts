@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network security user rule.
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
  */
 export class SecurityUserRule extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SecurityUserRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityUserRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A description for this rule.
      */
@@ -134,6 +136,7 @@ export class SecurityUserRule extends pulumi.CustomResource {
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -141,6 +144,7 @@ export class SecurityUserRule extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
@@ -156,7 +160,7 @@ export class SecurityUserRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:SecurityUserRule" }, { type: "azure-native:network/v20220201preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:SecurityUserRule" }, { type: "azure-native:network/v20240301:SecurityUserRule" }, { type: "azure-native:network/v20240501:SecurityUserRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:DefaultUserRule" }, { type: "azure-native:network/v20210501preview:SecurityUserRule" }, { type: "azure-native:network/v20210501preview:UserRule" }, { type: "azure-native:network/v20220201preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:DefaultUserRule" }, { type: "azure-native:network/v20220401preview:SecurityUserRule" }, { type: "azure-native:network/v20220401preview:UserRule" }, { type: "azure-native:network/v20240301:SecurityUserRule" }, { type: "azure-native:network/v20240501:SecurityUserRule" }, { type: "azure-native:network:DefaultUserRule" }, { type: "azure-native:network:UserRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserRule.__pulumiType, name, resourceInputs, opts);
     }

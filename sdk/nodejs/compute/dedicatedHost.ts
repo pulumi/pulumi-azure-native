@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
      */
     public readonly autoReplaceOnFailure!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
      */
@@ -126,6 +128,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -136,6 +139,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["virtualMachines"] = undefined /*out*/;
         } else {
             resourceInputs["autoReplaceOnFailure"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostId"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;

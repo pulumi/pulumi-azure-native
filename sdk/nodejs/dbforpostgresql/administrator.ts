@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an Active Directory administrator.
- * Azure REST API version: 2022-12-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
  */
 export class Administrator extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Administrator extends pulumi.CustomResource {
         return obj['__pulumiType'] === Administrator.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -92,10 +94,12 @@ export class Administrator extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;

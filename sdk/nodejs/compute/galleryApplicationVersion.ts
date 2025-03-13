@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
- * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
- *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryApplicationVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -104,11 +106,13 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

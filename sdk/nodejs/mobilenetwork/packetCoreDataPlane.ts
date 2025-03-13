@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
- * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
- *
- * Other available API versions: 2022-04-01-preview, 2022-11-01, 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  */
 export class PacketCoreDataPlane extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -68,6 +70,10 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
      * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
      */
     public readonly userPlaneAccessInterface!: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
+    /**
+     * The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+     */
+    public readonly userPlaneAccessVirtualIpv4Addresses!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PacketCoreDataPlane resource with the given unique name, arguments, and options.
@@ -95,11 +101,14 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userPlaneAccessInterface"] = args ? args.userPlaneAccessInterface : undefined;
+            resourceInputs["userPlaneAccessVirtualIpv4Addresses"] = args ? args.userPlaneAccessVirtualIpv4Addresses : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -107,6 +116,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userPlaneAccessInterface"] = undefined /*out*/;
+            resourceInputs["userPlaneAccessVirtualIpv4Addresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20230601:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20230901:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20240201:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20240401:PacketCoreDataPlane" }] };
@@ -143,4 +153,8 @@ export interface PacketCoreDataPlaneArgs {
      * The user plane interface on the access network. For 5G networks, this is the N3 interface. For 4G networks, this is the S1-U interface.
      */
     userPlaneAccessInterface: pulumi.Input<inputs.mobilenetwork.InterfacePropertiesArgs>;
+    /**
+     * The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty.
+     */
+    userPlaneAccessVirtualIpv4Addresses?: pulumi.Input<pulumi.Input<string>[]>;
 }

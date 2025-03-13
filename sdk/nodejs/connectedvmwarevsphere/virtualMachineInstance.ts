@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the virtualMachineInstance.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  */
 export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualMachineInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the extended location.
      */
@@ -124,6 +126,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -132,6 +135,7 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
             resourceInputs["infrastructureProfile"] = undefined /*out*/;

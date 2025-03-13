@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * HubVirtualNetworkConnection Resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
      * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
      */
     public readonly allowRemoteVnetToUseHubVnetGateways!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Enable internet security.
      */
@@ -100,11 +102,13 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
             resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
             resourceInputs["allowHubToRemoteVnetTransit"] = undefined /*out*/;
             resourceInputs["allowRemoteVnetToUseHubVnetGateways"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableInternetSecurity"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

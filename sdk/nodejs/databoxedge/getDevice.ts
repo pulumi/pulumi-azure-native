@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDeviceArgs {
  * The Data Box Edge/Gateway device.
  */
 export interface GetDeviceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Type of compute roles configured.
      */
@@ -101,6 +103,10 @@ export interface GetDeviceResult {
      */
     readonly kind: string;
     /**
+     * Kubernetes Workload Profile
+     */
+    readonly kubernetesWorkloadProfile: string;
+    /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
     readonly location: string;
@@ -147,9 +153,7 @@ export interface GetDeviceResult {
 }
 /**
  * Gets the properties of the Data Box Edge/Data Box Gateway device.
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2021-02-01, 2021-02-01-preview, 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getDeviceOutput(args: GetDeviceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

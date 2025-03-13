@@ -5,9 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+ * Azure REST API version: 2023-10-20.
  */
 export function getMonitorDefaultKey(args: GetMonitorDefaultKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorDefaultKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,9 +45,7 @@ export interface GetMonitorDefaultKeyResult {
     readonly name?: string;
 }
 /**
- * Azure REST API version: 2022-06-01.
- *
- * Other available API versions: 2022-08-01, 2023-01-01, 2023-07-07, 2023-10-20.
+ * Azure REST API version: 2023-10-20.
  */
 export function getMonitorDefaultKeyOutput(args: GetMonitorDefaultKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorDefaultKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

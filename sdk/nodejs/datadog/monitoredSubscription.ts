@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The request to update subscriptions needed to be monitored by the Datadog monitor resource.
- * Azure REST API version: 2023-01-01.
- *
- * Other available API versions: 2023-07-07, 2023-10-20.
+ * Azure REST API version: 2023-10-20. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class MonitoredSubscription extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class MonitoredSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoredSubscription.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Name of the monitored subscription resource.
      */
@@ -74,9 +76,11 @@ export class MonitoredSubscription extends pulumi.CustomResource {
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

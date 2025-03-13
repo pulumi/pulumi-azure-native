@@ -40,6 +40,10 @@ export interface GetDataLakeConnectorArgs {
  */
 export interface GetDataLakeConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * DataLake database format to use.
      */
     readonly databaseFormat: string;

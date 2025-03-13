@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an application in a Batch account.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -42,6 +40,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly allowUpdates!: pulumi.Output<boolean | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
      */
     public readonly defaultVersion!: pulumi.Output<string | undefined>;
@@ -57,6 +59,10 @@ export class Application extends pulumi.CustomResource {
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The tags of the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -85,15 +91,19 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowUpdates"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,4 +141,8 @@ export interface ApplicationArgs {
      * The name of the resource group that contains the Batch account.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The tags of the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

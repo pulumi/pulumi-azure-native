@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The integration fabric resource type.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getIntegrationFabric(args: GetIntegrationFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetIntegrationFabricArgs {
  */
 export interface GetIntegrationFabricResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -69,9 +71,7 @@ export interface GetIntegrationFabricResult {
 }
 /**
  * The integration fabric resource type.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getIntegrationFabricOutput(args: GetIntegrationFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing an EmailService resource.
- * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
- *
- * Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-03-31.
  */
 export class EmailService extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class EmailService extends pulumi.CustomResource {
         return obj['__pulumiType'] === EmailService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The location where the email service stores its data at rest.
      */
@@ -91,11 +93,13 @@ export class EmailService extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

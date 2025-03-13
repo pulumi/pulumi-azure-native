@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A streaming job object, containing all information associated with the named streaming job.
- * Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
- *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+ * Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class StreamingJob extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamingJob.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The cluster which streaming jobs will run on.
      */
@@ -189,6 +191,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["jobId"] = undefined /*out*/;
@@ -198,6 +201,7 @@ export class StreamingJob extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["compatibilityLevel"] = undefined /*out*/;
             resourceInputs["contentStoragePolicy"] = undefined /*out*/;

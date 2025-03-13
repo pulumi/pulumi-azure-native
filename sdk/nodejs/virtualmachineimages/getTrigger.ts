@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified trigger for the specified image template resource
- * Azure REST API version: 2022-07-01.
- *
- * Other available API versions: 2023-07-01, 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetTriggerArgs {
  * Represents a trigger that can invoke an image template build.
  */
 export interface GetTriggerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -72,9 +74,7 @@ export interface GetTriggerResult {
 }
 /**
  * Get the specified trigger for the specified image template resource
- * Azure REST API version: 2022-07-01.
- *
- * Other available API versions: 2023-07-01, 2024-02-01.
+ * Azure REST API version: 2024-02-01.
  */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

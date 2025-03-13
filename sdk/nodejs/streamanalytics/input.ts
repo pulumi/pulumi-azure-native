@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
- * Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
- *
- * Other available API versions: 2021-10-01-preview.
+ * Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
  */
 export class Input extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Input extends pulumi.CustomResource {
         return obj['__pulumiType'] === Input.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource name
      */
@@ -75,8 +77,10 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

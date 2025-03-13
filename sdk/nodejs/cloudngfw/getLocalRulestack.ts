@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LocalRulestackResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRulestack(args: GetLocalRulestackArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetLocalRulestackResult {
      * subscription scope of global rulestack
      */
     readonly associatedSubscriptions?: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Mode for default rules creation
      */
@@ -103,9 +105,7 @@ export interface GetLocalRulestackResult {
 }
 /**
  * Get a LocalRulestackResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRulestackOutput(args: GetLocalRulestackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

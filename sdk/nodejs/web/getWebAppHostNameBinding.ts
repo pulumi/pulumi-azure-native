@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppHostNameBinding(args: GetWebAppHostNameBindingArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHostNameBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetWebAppHostNameBindingArgs {
  * A hostname binding object.
  */
 export interface GetWebAppHostNameBindingResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Azure resource name.
      */
@@ -93,9 +95,7 @@ export interface GetWebAppHostNameBindingResult {
 }
 /**
  * Description for Get the named hostname binding for an app (or deployment slot, if specified).
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppHostNameBindingOutput(args: GetWebAppHostNameBindingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppHostNameBindingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

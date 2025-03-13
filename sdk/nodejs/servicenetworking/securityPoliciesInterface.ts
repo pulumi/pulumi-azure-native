@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SecurityPolicy Subresource of Traffic Controller.
- * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2025-01-01.
+ * Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class SecurityPoliciesInterface extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityPoliciesInterface.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -96,12 +98,14 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
             resourceInputs["wafPolicy"] = args ? args.wafPolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;

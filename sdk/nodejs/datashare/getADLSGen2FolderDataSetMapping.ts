@@ -45,6 +45,10 @@ export interface GetADLSGen2FolderDataSetMappingArgs {
  */
 export interface GetADLSGen2FolderDataSetMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the source data set.
      */
     readonly dataSetId: string;

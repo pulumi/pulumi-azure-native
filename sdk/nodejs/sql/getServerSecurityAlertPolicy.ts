@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a server's security alert policy.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getServerSecurityAlertPolicy(args: GetServerSecurityAlertPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetServerSecurityAlertPolicyArgs {
  * A server security alert policy.
  */
 export interface GetServerSecurityAlertPolicyResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Specifies the UTC creation time of the policy.
      */
@@ -93,8 +95,6 @@ export interface GetServerSecurityAlertPolicyResult {
 /**
  * Get a server's security alert policy.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getServerSecurityAlertPolicyOutput(args: GetServerSecurityAlertPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerSecurityAlertPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

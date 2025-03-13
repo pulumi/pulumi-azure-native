@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The live event.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
  */
 export class LiveEvent extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class LiveEvent extends pulumi.CustomResource {
         return obj['__pulumiType'] === LiveEvent.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation time for the live event
      */
@@ -148,6 +150,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transcriptions"] = args ? args.transcriptions : undefined;
             resourceInputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -156,6 +159,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["crossSiteAccessPolicies"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

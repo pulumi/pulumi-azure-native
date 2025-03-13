@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the DigitalTwins service.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DigitalTwin extends pulumi.CustomResource {
         return obj['__pulumiType'] === DigitalTwin.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Time when DigitalTwinsInstance was created.
      */
@@ -108,6 +112,7 @@ export class DigitalTwin extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
@@ -116,6 +121,7 @@ export class DigitalTwin extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

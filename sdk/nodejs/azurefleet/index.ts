@@ -19,17 +19,6 @@ utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getF
 // Export enums:
 export * from "../types/enums/azurefleet";
 
-// Export sub-modules:
-import * as v20231101preview from "./v20231101preview";
-import * as v20240501preview from "./v20240501preview";
-import * as v20241101 from "./v20241101";
-
-export {
-    v20231101preview,
-    v20240501preview,
-    v20241101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

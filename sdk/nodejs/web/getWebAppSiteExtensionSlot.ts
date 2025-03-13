@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get site extension information by its ID for a web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteExtensionSlot(args: GetWebAppSiteExtensionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetWebAppSiteExtensionSlotResult {
      * List of authors.
      */
     readonly authors?: string[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Site Extension comment.
      */
@@ -139,9 +141,7 @@ export interface GetWebAppSiteExtensionSlotResult {
 }
 /**
  * Description for Get site extension information by its ID for a web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppSiteExtensionSlotOutput(args: GetWebAppSiteExtensionSlotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppSiteExtensionSlotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

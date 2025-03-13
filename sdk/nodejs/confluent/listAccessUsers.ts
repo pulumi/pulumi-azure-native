@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List users success response
- * Azure REST API version: 2023-08-22.
- *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function listAccessUsers(args: ListAccessUsersArgs, opts?: pulumi.InvokeOptions): Promise<ListAccessUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +26,7 @@ export interface ListAccessUsersArgs {
      */
     organizationName: string;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * Resource group name
      */
     resourceGroupName: string;
     /**
@@ -56,9 +54,7 @@ export interface ListAccessUsersResult {
 }
 /**
  * List users success response
- * Azure REST API version: 2023-08-22.
- *
- * Other available API versions: 2024-02-13, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function listAccessUsersOutput(args: ListAccessUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccessUsersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -75,7 +71,7 @@ export interface ListAccessUsersOutputArgs {
      */
     organizationName: pulumi.Input<string>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * Resource group name
      */
     resourceGroupName: pulumi.Input<string>;
     /**

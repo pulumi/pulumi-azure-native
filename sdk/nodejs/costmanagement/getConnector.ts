@@ -35,6 +35,10 @@ export interface GetConnectorArgs {
  */
 export interface GetConnectorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Collection information
      */
     readonly collection: outputs.costmanagement.ConnectorCollectionInfoResponse;

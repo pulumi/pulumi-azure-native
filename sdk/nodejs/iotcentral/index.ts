@@ -29,15 +29,6 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./priv
 // Export enums:
 export * from "../types/enums/iotcentral";
 
-// Export sub-modules:
-import * as v20210601 from "./v20210601";
-import * as v20211101preview from "./v20211101preview";
-
-export {
-    v20210601,
-    v20211101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

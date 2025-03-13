@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Disk resource.
- * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+ * Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
  */
 export class Disk extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Disk extends pulumi.CustomResource {
         return obj['__pulumiType'] === Disk.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
      */
@@ -108,6 +110,10 @@ export class Disk extends pulumi.CustomResource {
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
+     * The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+     */
+    public /*out*/ readonly lastOwnershipUpdateTime!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -248,9 +254,11 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["burstingEnabledTime"] = undefined /*out*/;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;
             resourceInputs["diskState"] = undefined /*out*/;
+            resourceInputs["lastOwnershipUpdateTime"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["managedByExtended"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -261,6 +269,7 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["burstingEnabled"] = undefined /*out*/;
             resourceInputs["burstingEnabledTime"] = undefined /*out*/;
             resourceInputs["completionPercent"] = undefined /*out*/;
@@ -278,6 +287,7 @@ export class Disk extends pulumi.CustomResource {
             resourceInputs["encryptionSettingsCollection"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["hyperVGeneration"] = undefined /*out*/;
+            resourceInputs["lastOwnershipUpdateTime"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["managedByExtended"] = undefined /*out*/;

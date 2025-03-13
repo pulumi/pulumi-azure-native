@@ -36,6 +36,10 @@ export interface GetMetricsSourceArgs {
 
 export interface GetMetricsSourceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ARM id of the monitor resource.
      */
     readonly id: string;

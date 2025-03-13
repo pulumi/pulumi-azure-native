@@ -16,13 +16,6 @@ export const getAccountOutput: typeof import("./getAccount").getAccountOutput = 
 utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
 
 
-// Export sub-modules:
-import * as v20230413 from "./v20230413";
-
-export {
-    v20230413,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

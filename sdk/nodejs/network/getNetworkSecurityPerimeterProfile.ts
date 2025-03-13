@@ -41,6 +41,10 @@ export interface GetNetworkSecurityPerimeterProfileResult {
      */
     readonly accessRulesVersion: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Version number that increases with every update to diagnostic settings within the profile.
      */
     readonly diagnosticSettingsVersion: string;

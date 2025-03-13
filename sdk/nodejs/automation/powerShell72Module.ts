@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the module type.
- * Azure REST API version: 2023-11-01.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
  */
 export class PowerShell72Module extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class PowerShell72Module extends pulumi.CustomResource {
      * Gets the activity count of the module.
      */
     public /*out*/ readonly activityCount!: pulumi.Output<number | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
@@ -127,6 +131,7 @@ export class PowerShell72Module extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activityCount"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
@@ -140,6 +145,7 @@ export class PowerShell72Module extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["activityCount"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

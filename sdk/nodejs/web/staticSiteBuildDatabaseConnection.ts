@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Database Connection resource.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === StaticSiteBuildDatabaseConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A list of configuration files associated with this database connection.
      */
@@ -108,9 +110,11 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationFiles"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationFiles"] = undefined /*out*/;
             resourceInputs["connectionIdentity"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;

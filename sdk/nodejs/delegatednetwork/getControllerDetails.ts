@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified dnc controller.
- * Azure REST API version: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview.
  */
 export function getControllerDetails(args: GetControllerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -33,6 +31,10 @@ export interface GetControllerDetailsArgs {
  * Represents an instance of a DNC controller.
  */
 export interface GetControllerDetailsResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * dnc application id should be used by customer to authenticate with dnc gateway.
      */
@@ -62,6 +64,10 @@ export interface GetControllerDetailsResult {
      */
     readonly provisioningState: string;
     /**
+     * The purpose of the dnc controller resource.
+     */
+    readonly purpose?: string;
+    /**
      * Resource guid.
      */
     readonly resourceGuid: string;
@@ -76,9 +82,7 @@ export interface GetControllerDetailsResult {
 }
 /**
  * Gets details about the specified dnc controller.
- * Azure REST API version: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview.
  */
 export function getControllerDetailsOutput(args: GetControllerDetailsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControllerDetailsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["JobCollection"], () => require("./jobCollection"))
 // Export enums:
 export * from "../types/enums/scheduler";
 
-// Export sub-modules:
-import * as v20160301 from "./v20160301";
-
-export {
-    v20160301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

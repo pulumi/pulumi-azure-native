@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      * The list of databases from the clusterResourceId which are currently attached to the cluster.
      */
     public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
@@ -122,11 +124,13 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["databaseNameOverride"] = undefined /*out*/;
@@ -182,7 +186,7 @@ export interface AttachedDatabaseConfigurationArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

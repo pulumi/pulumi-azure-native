@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a backup which will be performed.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppBackupConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppBackupConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Name of the backup.
      */
@@ -101,8 +103,10 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupName"] = undefined /*out*/;
             resourceInputs["backupSchedule"] = undefined /*out*/;
             resourceInputs["databases"] = undefined /*out*/;

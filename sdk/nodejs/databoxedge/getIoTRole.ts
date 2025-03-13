@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific role by name.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getIoTRole(args: GetIoTRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetIoTRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetIoTRoleArgs {
  * Compute role.
  */
 export interface GetIoTRoleResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Resource allocation
      */
@@ -95,7 +99,7 @@ export interface GetIoTRoleResult {
 }
 /**
  * Gets a specific role by name.
- * Azure REST API version: 2022-03-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getIoTRoleOutput(args: GetIoTRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIoTRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

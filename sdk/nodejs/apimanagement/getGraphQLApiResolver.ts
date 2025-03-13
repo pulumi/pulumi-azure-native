@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the GraphQL API Resolver specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGraphQLApiResolver(args: GetGraphQLApiResolverArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetGraphQLApiResolverArgs {
  */
 export interface GetGraphQLApiResolverResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Description of the resolver. May include HTML formatting tags.
      */
     readonly description?: string;
@@ -70,9 +72,7 @@ export interface GetGraphQLApiResolverResult {
 }
 /**
  * Gets the details of the GraphQL API Resolver specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGraphQLApiResolverOutput(args: GetGraphQLApiResolverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQLApiResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

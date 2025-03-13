@@ -40,6 +40,10 @@ export interface GetInterfaceEndpointArgs {
  */
 export interface GetInterfaceEndpointResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A reference to the service being brought into the virtual network.
      */
     readonly endpointService?: outputs.network.EndpointServiceResponse;

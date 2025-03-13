@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetManagedAzResiliencyStatusArgs, GetManagedAzResiliencyStatusResult, GetManagedAzResiliencyStatusOutputArgs } from "./getManagedAzResiliencyStatus";
+export const getManagedAzResiliencyStatus: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatus = null as any;
+export const getManagedAzResiliencyStatusOutput: typeof import("./getManagedAzResiliencyStatus").getManagedAzResiliencyStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedAzResiliencyStatus","getManagedAzResiliencyStatusOutput"], () => require("./getManagedAzResiliencyStatus"));
+
 export { GetManagedClusterArgs, GetManagedClusterResult, GetManagedClusterOutputArgs } from "./getManagedCluster";
 export const getManagedCluster: typeof import("./getManagedCluster").getManagedCluster = null as any;
 export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
@@ -35,6 +40,11 @@ export const getManagedClusterService: typeof import("./getManagedClusterService
 export const getManagedClusterServiceOutput: typeof import("./getManagedClusterService").getManagedClusterServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedClusterService","getManagedClusterServiceOutput"], () => require("./getManagedClusterService"));
 
+export { GetManagedMaintenanceWindowStatusArgs, GetManagedMaintenanceWindowStatusResult, GetManagedMaintenanceWindowStatusOutputArgs } from "./getManagedMaintenanceWindowStatus";
+export const getManagedMaintenanceWindowStatus: typeof import("./getManagedMaintenanceWindowStatus").getManagedMaintenanceWindowStatus = null as any;
+export const getManagedMaintenanceWindowStatusOutput: typeof import("./getManagedMaintenanceWindowStatus").getManagedMaintenanceWindowStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedMaintenanceWindowStatus","getManagedMaintenanceWindowStatusOutput"], () => require("./getManagedMaintenanceWindowStatus"));
+
 export { GetNodeTypeArgs, GetNodeTypeResult, GetNodeTypeOutputArgs } from "./getNodeType";
 export const getNodeType: typeof import("./getNodeType").getNodeType = null as any;
 export const getNodeTypeOutput: typeof import("./getNodeType").getNodeTypeOutput = null as any;
@@ -44,16 +54,6 @@ export { GetNodeTypeFaultSimulationArgs, GetNodeTypeFaultSimulationResult, GetNo
 export const getNodeTypeFaultSimulation: typeof import("./getNodeTypeFaultSimulation").getNodeTypeFaultSimulation = null as any;
 export const getNodeTypeFaultSimulationOutput: typeof import("./getNodeTypeFaultSimulation").getNodeTypeFaultSimulationOutput = null as any;
 utilities.lazyLoad(exports, ["getNodeTypeFaultSimulation","getNodeTypeFaultSimulationOutput"], () => require("./getNodeTypeFaultSimulation"));
-
-export { GetmanagedAzResiliencyStatusArgs, GetmanagedAzResiliencyStatusResult, GetmanagedAzResiliencyStatusOutputArgs } from "./getmanagedAzResiliencyStatus";
-export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatus = null as any;
-export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
-
-export { GetmanagedMaintenanceWindowStatusArgs, GetmanagedMaintenanceWindowStatusResult, GetmanagedMaintenanceWindowStatusOutputArgs } from "./getmanagedMaintenanceWindowStatus";
-export const getmanagedMaintenanceWindowStatus: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatus = null as any;
-export const getmanagedMaintenanceWindowStatusOutput: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatusOutput = null as any;
-utilities.lazyLoad(exports, ["getmanagedMaintenanceWindowStatus","getmanagedMaintenanceWindowStatusOutput"], () => require("./getmanagedMaintenanceWindowStatus"));
 
 export { ListManagedClusterFaultSimulationArgs, ListManagedClusterFaultSimulationResult, ListManagedClusterFaultSimulationOutputArgs } from "./listManagedClusterFaultSimulation";
 export const listManagedClusterFaultSimulation: typeof import("./listManagedClusterFaultSimulation").listManagedClusterFaultSimulation = null as any;
@@ -98,41 +98,6 @@ utilities.lazyLoad(exports, ["NodeType"], () => require("./nodeType"));
 
 // Export enums:
 export * from "../types/enums/servicefabric";
-
-// Export sub-modules:
-import * as v20200101preview from "./v20200101preview";
-import * as v20201201preview from "./v20201201preview";
-import * as v20210601 from "./v20210601";
-import * as v20220101 from "./v20220101";
-import * as v20221001preview from "./v20221001preview";
-import * as v20230301preview from "./v20230301preview";
-import * as v20230701preview from "./v20230701preview";
-import * as v20230901preview from "./v20230901preview";
-import * as v20231101preview from "./v20231101preview";
-import * as v20231201preview from "./v20231201preview";
-import * as v20240201preview from "./v20240201preview";
-import * as v20240401 from "./v20240401";
-import * as v20240601preview from "./v20240601preview";
-import * as v20240901preview from "./v20240901preview";
-import * as v20241101preview from "./v20241101preview";
-
-export {
-    v20200101preview,
-    v20201201preview,
-    v20210601,
-    v20220101,
-    v20221001preview,
-    v20230301preview,
-    v20230701preview,
-    v20230901preview,
-    v20231101preview,
-    v20231201preview,
-    v20240201preview,
-    v20240401,
-    v20240601preview,
-    v20240901preview,
-    v20241101preview,
-};
 
 const _module = {
     version: utilities.getVersion(),

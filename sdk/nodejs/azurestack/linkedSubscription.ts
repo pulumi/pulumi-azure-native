@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked Subscription information.
- * Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 1.x: 2020-06-01-preview.
+ * Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 2.x: 2020-06-01-preview.
  */
 export class LinkedSubscription extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class LinkedSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === LinkedSubscription.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The status of the remote management connection of the Azure Stack device.
      */
@@ -120,6 +124,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["deviceLinkState"] = undefined /*out*/;
@@ -132,6 +137,7 @@ export class LinkedSubscription extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["deviceLinkState"] = undefined /*out*/;

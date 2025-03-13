@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema version's definition.
- * Azure REST API version: 2024-09-01-preview.
+ * Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
  */
 export class SchemaVersion extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SchemaVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Human-readable description of the schema.
      */
@@ -100,6 +104,7 @@ export class SchemaVersion extends pulumi.CustomResource {
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["schemaRegistryName"] = args ? args.schemaRegistryName : undefined;
             resourceInputs["schemaVersionName"] = args ? args.schemaVersionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -107,6 +112,7 @@ export class SchemaVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

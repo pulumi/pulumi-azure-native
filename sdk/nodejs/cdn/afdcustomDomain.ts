@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         return obj['__pulumiType'] === AFDCustomDomain.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource reference to the Azure DNS zone
      */
@@ -118,6 +120,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tlsSettings"] = args ? args.tlsSettings : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["domainValidationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -126,6 +129,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationProperties"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureDnsZone"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["domainValidationState"] = undefined /*out*/;

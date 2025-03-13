@@ -35,6 +35,10 @@ export interface GetSubscriptionFeatureRegistrationArgs {
  */
 export interface GetSubscriptionFeatureRegistrationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure resource Id.
      */
     readonly id: string;

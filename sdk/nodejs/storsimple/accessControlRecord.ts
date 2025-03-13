@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The access control record.
- * Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+ * Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
  */
 export class AccessControlRecord extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class AccessControlRecord extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessControlRecord.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The iSCSI initiator name (IQN).
      */
@@ -84,10 +88,12 @@ export class AccessControlRecord extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["managerName"] = args ? args.managerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["initiatorName"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

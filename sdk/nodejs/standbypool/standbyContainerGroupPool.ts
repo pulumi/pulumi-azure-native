@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A StandbyContainerGroupPoolResource.
- * Azure REST API version: 2023-12-01-preview.
- *
- * Other available API versions: 2024-03-01, 2024-03-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-12-01-preview.
  */
 export class StandbyContainerGroupPool extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === StandbyContainerGroupPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies container group properties of standby container group pools.
      */
@@ -99,11 +101,13 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["standbyContainerGroupPoolName"] = args ? args.standbyContainerGroupPoolName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerGroupProperties"] = undefined /*out*/;
             resourceInputs["elasticityProfile"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

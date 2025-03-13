@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DeidService
- * Azure REST API version: 2024-02-28-preview.
- *
- * Other available API versions: 2024-09-20.
+ * Azure REST API version: 2024-09-20.
  */
 export function getDeidService(args: GetDeidServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeidServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetDeidServiceArgs {
  * A HealthDataAIServicesProviderHub resource
  */
 export interface GetDeidServiceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -71,9 +73,7 @@ export interface GetDeidServiceResult {
 }
 /**
  * Get a DeidService
- * Azure REST API version: 2024-02-28-preview.
- *
- * Other available API versions: 2024-09-20.
+ * Azure REST API version: 2024-09-20.
  */
 export function getDeidServiceOutput(args: GetDeidServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeidServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

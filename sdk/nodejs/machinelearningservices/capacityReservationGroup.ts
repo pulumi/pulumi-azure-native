@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  */
 export class CapacityReservationGroup extends pulumi.CustomResource {
     /**
@@ -39,6 +37,10 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === CapacityReservationGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -101,10 +103,12 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityReservationGroupProperties"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -130,6 +134,9 @@ export interface CapacityReservationGroupArgs {
      * [Required] Additional attributes of the entity.
      */
     capacityReservationGroupProperties: pulumi.Input<inputs.machinelearningservices.CapacityReservationGroupArgs>;
+    /**
+     * Group ID
+     */
     groupId?: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)

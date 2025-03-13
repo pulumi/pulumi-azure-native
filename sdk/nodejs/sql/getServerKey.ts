@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a server key.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetServerKeyResult {
      * Key auto rotation opt-in flag. Either true or false.
      */
     readonly autoRotationEnabled: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The server key creation date.
      */
@@ -78,8 +80,6 @@ export interface GetServerKeyResult {
 /**
  * Gets a server key.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2015-05-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

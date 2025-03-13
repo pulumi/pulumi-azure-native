@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
@@ -41,9 +39,17 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of references to application gateway for containers.
+     */
+    public /*out*/ readonly applicationGatewayForContainers!: pulumi.Output<outputs.network.ApplicationGatewayForContainersReferenceDefinitionResponse[]>;
+    /**
      * A collection of references to application gateways.
      */
     public /*out*/ readonly applicationGateways!: pulumi.Output<outputs.network.ApplicationGatewayResponse[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The custom rules inside the policy.
      */
@@ -118,7 +124,9 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.policySettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationGatewayForContainers"] = undefined /*out*/;
             resourceInputs["applicationGateways"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["httpListeners"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -127,7 +135,9 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationGatewayForContainers"] = undefined /*out*/;
             resourceInputs["applicationGateways"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customRules"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["httpListeners"] = undefined /*out*/;

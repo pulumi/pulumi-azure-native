@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services RaiBlocklist.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class RaiBlocklist extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class RaiBlocklist extends pulumi.CustomResource {
         return obj['__pulumiType'] === RaiBlocklist.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource Etag.
      */
@@ -87,11 +89,13 @@ export class RaiBlocklist extends pulumi.CustomResource {
             resourceInputs["raiBlocklistName"] = args ? args.raiBlocklistName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

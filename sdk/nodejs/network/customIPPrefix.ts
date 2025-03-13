@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * Authorization message for WAN validation.
      */
     public readonly authorizationMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The list of all Children for IPv6 /48 CustomIpPrefix.
      */
@@ -160,6 +162,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             resourceInputs["signedMessage"] = args ? args.signedMessage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["failedReason"] = undefined /*out*/;
@@ -171,6 +174,7 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         } else {
             resourceInputs["asn"] = undefined /*out*/;
             resourceInputs["authorizationMessage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["cidr"] = undefined /*out*/;
             resourceInputs["commissionedState"] = undefined /*out*/;

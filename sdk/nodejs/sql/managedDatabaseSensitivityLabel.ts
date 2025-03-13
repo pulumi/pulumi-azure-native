@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A sensitivity label.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagedDatabaseSensitivityLabel.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The column name.
      */
@@ -127,11 +129,13 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["sensitivityLabelSource"] = args ? args.sensitivityLabelSource : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isDisabled"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["columnName"] = undefined /*out*/;
             resourceInputs["informationType"] = undefined /*out*/;
             resourceInputs["informationTypeId"] = undefined /*out*/;

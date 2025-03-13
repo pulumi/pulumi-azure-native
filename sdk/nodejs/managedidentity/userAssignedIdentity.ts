@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an identity resource.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserAssignedIdentity.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The id of the app associated with the identity. This is a random generated UUID by MSI.
      */
@@ -91,6 +93,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
@@ -98,6 +101,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

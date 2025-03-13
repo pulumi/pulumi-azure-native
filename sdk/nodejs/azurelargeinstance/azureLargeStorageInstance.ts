@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * AzureLargeStorageInstance info on Azure (ARM properties and
  * AzureLargeStorageInstance properties)
- * Azure REST API version: 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
  */
 export class AzureLargeStorageInstance extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class AzureLargeStorageInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === AzureLargeStorageInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the AzureLargeStorageInstance unique ID.
      */
@@ -93,10 +97,12 @@ export class AzureLargeStorageInstance extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageProperties"] = args ? args.storageProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureLargeStorageInstanceUniqueIdentifier"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

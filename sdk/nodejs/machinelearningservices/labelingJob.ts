@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
- *
- * Other available API versions: 2020-09-01-preview, 2021-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-01-01-preview. Prior API version in Azure Native 2.x: 2023-04-01-preview.
  */
 export class LabelingJob extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class LabelingJob extends pulumi.CustomResource {
         return obj['__pulumiType'] === LabelingJob.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -81,10 +83,12 @@ export class LabelingJob extends pulumi.CustomResource {
             resourceInputs["labelingJobProperties"] = args ? (args.labelingJobProperties ? pulumi.output(args.labelingJobProperties).apply(inputs.machinelearningservices.labelingJobArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["labelingJobProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

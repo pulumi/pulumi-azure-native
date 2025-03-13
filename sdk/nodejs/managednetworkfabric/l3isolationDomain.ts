@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The L3IsolationDomain resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * The L3 Isolation Domain resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class L3IsolationDomain extends pulumi.CustomResource {
     /**
@@ -41,11 +39,11 @@ export class L3IsolationDomain extends pulumi.CustomResource {
     }
 
     /**
-     * Administrative state of the IsolationDomain. Example: Enabled | Disabled.
+     * Administrative state of the resource.
      */
     public /*out*/ readonly administrativeState!: pulumi.Output<string>;
     /**
-     * List of Ipv4 and Ipv6 route configurations.
+     * Aggregate route configurations.
      */
     public readonly aggregateRouteConfiguration!: pulumi.Output<outputs.managednetworkfabric.AggregateRouteConfigurationResponse | undefined>;
     /**
@@ -53,17 +51,17 @@ export class L3IsolationDomain extends pulumi.CustomResource {
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
      * Connected Subnet RoutePolicy
      */
-    public readonly connectedSubnetRoutePolicy!: pulumi.Output<outputs.managednetworkfabric.L3IsolationDomainPatchPropertiesResponseConnectedSubnetRoutePolicy | undefined>;
-    /**
-     * L3 Isolation Domain description.
-     */
-    public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * List of resources the L3 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
-     */
-    public /*out*/ readonly disabledOnResources!: pulumi.Output<string[]>;
+    public readonly connectedSubnetRoutePolicy!: pulumi.Output<outputs.managednetworkfabric.ConnectedSubnetRoutePolicyResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -73,15 +71,11 @@ export class L3IsolationDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM Resource ID of the Network Fabric.
      */
     public readonly networkFabricId!: pulumi.Output<string>;
     /**
-     * List of resources the OptionB is disabled on. Can be either entire NetworkFabric or NetworkRack.
-     */
-    public /*out*/ readonly optionBDisabledOnResources!: pulumi.Output<string[]>;
-    /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -125,7 +119,6 @@ export class L3IsolationDomain extends pulumi.CustomResource {
             resourceInputs["aggregateRouteConfiguration"] = args ? args.aggregateRouteConfiguration : undefined;
             resourceInputs["annotation"] = args ? args.annotation : undefined;
             resourceInputs["connectedSubnetRoutePolicy"] = args ? args.connectedSubnetRoutePolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
@@ -134,9 +127,9 @@ export class L3IsolationDomain extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["administrativeState"] = undefined /*out*/;
-            resourceInputs["disabledOnResources"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["optionBDisabledOnResources"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -144,13 +137,12 @@ export class L3IsolationDomain extends pulumi.CustomResource {
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["aggregateRouteConfiguration"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["connectedSubnetRoutePolicy"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["disabledOnResources"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkFabricId"] = undefined /*out*/;
-            resourceInputs["optionBDisabledOnResources"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["redistributeConnectedSubnets"] = undefined /*out*/;
             resourceInputs["redistributeStaticRoutes"] = undefined /*out*/;
@@ -170,7 +162,7 @@ export class L3IsolationDomain extends pulumi.CustomResource {
  */
 export interface L3IsolationDomainArgs {
     /**
-     * List of Ipv4 and Ipv6 route configurations.
+     * Aggregate route configurations.
      */
     aggregateRouteConfiguration?: pulumi.Input<inputs.managednetworkfabric.AggregateRouteConfigurationArgs>;
     /**
@@ -180,13 +172,9 @@ export interface L3IsolationDomainArgs {
     /**
      * Connected Subnet RoutePolicy
      */
-    connectedSubnetRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs>;
+    connectedSubnetRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ConnectedSubnetRoutePolicyArgs>;
     /**
-     * L3 Isolation Domain description.
-     */
-    description?: pulumi.Input<string>;
-    /**
-     * Name of the L3 Isolation Domain
+     * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName?: pulumi.Input<string>;
     /**
@@ -194,7 +182,7 @@ export interface L3IsolationDomainArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Network Fabric ARM resource id.
+     * ARM Resource ID of the Network Fabric.
      */
     networkFabricId: pulumi.Input<string>;
     /**

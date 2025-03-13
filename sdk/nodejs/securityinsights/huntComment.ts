@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Hunt Comment in Azure Security Insights
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class HuntComment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class HuntComment extends pulumi.CustomResource {
         return obj['__pulumiType'] === HuntComment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
@@ -89,11 +91,13 @@ export class HuntComment extends pulumi.CustomResource {
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["message"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

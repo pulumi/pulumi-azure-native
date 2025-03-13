@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
     public readonly alternateName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -99,6 +101,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
@@ -108,6 +111,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alternateName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerNamespace"] = undefined /*out*/;
@@ -145,7 +149,7 @@ export interface DisasterRecoveryConfigArgs {
      */
     partnerNamespace?: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

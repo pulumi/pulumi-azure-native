@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
- * Azure REST API version: 2023-03-15-preview.
- *
- * Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
  */
 export class FleetMember extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class FleetMember extends pulumi.CustomResource {
         return obj['__pulumiType'] === FleetMember.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
      */
@@ -94,12 +96,14 @@ export class FleetMember extends pulumi.CustomResource {
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
             resourceInputs["group"] = args ? args.group : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["group"] = undefined /*out*/;

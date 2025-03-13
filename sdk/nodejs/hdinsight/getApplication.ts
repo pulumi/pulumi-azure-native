@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of the specified application.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetApplicationArgs {
  * The HDInsight cluster application
  */
 export interface GetApplicationResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The ETag for the application
      */
@@ -72,9 +74,7 @@ export interface GetApplicationResult {
 }
 /**
  * Gets properties of the specified application.
- * Azure REST API version: 2021-06-01.
- *
- * Other available API versions: 2023-04-15-preview, 2023-08-15-preview, 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

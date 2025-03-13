@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * P2SVpnGateway Resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class P2sVpnGateway extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === P2sVpnGateway.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of all customer specified DNS servers IP addresses.
      */
@@ -118,12 +120,14 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
             resourceInputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             resourceInputs["vpnServerConfiguration"] = args ? args.vpnServerConfiguration : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vpnClientConnectionHealth"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDnsServers"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["isRoutingPreferenceInternet"] = undefined /*out*/;

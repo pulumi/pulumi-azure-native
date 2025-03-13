@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * AzureBareMetal instance info on Azure (ARM properties and AzureBareMetal properties)
- * Azure REST API version: 2024-08-01-preview.
+ * Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
  */
 export class AzureBareMetalInstance extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class AzureBareMetalInstance extends pulumi.CustomResource {
         return obj['__pulumiType'] === AzureBareMetalInstance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the Azure Bare Metal Instance unique ID.
      */
@@ -126,11 +130,13 @@ export class AzureBareMetalInstance extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureBareMetalInstanceId"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
             resourceInputs["hwRevision"] = undefined /*out*/;

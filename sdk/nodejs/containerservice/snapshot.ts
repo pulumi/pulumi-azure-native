@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A node pool snapshot resource.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-08-01.
- *
- * Other available API versions: 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Snapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === Snapshot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * CreationData to be used to specify the source agent pool resource ID to create this snapshot.
      */
@@ -113,6 +115,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["snapshotType"] = args ? args.snapshotType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableFIPS"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmSize"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationData"] = undefined /*out*/;
             resourceInputs["enableFIPS"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;

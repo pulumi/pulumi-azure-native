@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration of App Service site logs.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
      * Application logs configuration.
      */
     public readonly applicationLogs!: pulumi.Output<outputs.web.ApplicationLogsConfigResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Detailed error messages configuration.
      */
@@ -93,9 +95,11 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationLogs"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedErrorMessages"] = undefined /*out*/;
             resourceInputs["failedRequestsTracing"] = undefined /*out*/;
             resourceInputs["httpLogs"] = undefined /*out*/;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The lock information.
- * Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
+ * Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
  */
 export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagementLockAtResourceLevel.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
@@ -105,10 +109,12 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["level"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notes"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves an Arc Sql Server database.
- * Azure REST API version: 2023-01-15-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerDatabase(args: GetSqlServerDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetSqlServerDatabaseArgs {
  * Arc Sql Server database
  */
 export interface GetSqlServerDatabaseResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -72,9 +74,7 @@ export interface GetSqlServerDatabaseResult {
 }
 /**
  * Retrieves an Arc Sql Server database.
- * Azure REST API version: 2023-01-15-preview.
- *
- * Other available API versions: 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getSqlServerDatabaseOutput(args: GetSqlServerDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

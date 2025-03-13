@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-03-01, 2023-03-01-preview, 2023-11-01-preview, 2024-03-01, 2024-07-01.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Cache extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cache.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The size of this Cache, in GB.
      */
@@ -153,6 +155,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
             resourceInputs["mountAddresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -163,6 +166,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["upgradeStatus"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cacheSizeGB"] = undefined /*out*/;
             resourceInputs["directoryServicesSettings"] = undefined /*out*/;
             resourceInputs["encryptionSettings"] = undefined /*out*/;

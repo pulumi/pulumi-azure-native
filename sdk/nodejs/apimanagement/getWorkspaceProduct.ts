@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the details of the product specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceProduct(args: GetWorkspaceProductArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetWorkspaceProductResult {
      * whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
      */
     readonly approvalRequired?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Product description. May include HTML formatting tags.
      */
@@ -87,8 +89,6 @@ export interface GetWorkspaceProductResult {
 /**
  * Gets the details of the product specified by its identifier.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceProductOutput(args: GetWorkspaceProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

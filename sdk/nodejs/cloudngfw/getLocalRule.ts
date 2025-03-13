@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LocalRulesResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRule(args: GetLocalRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +51,10 @@ export interface GetLocalRuleResult {
      * rule comment
      */
     readonly auditComment?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * rule category
      */
@@ -137,9 +139,7 @@ export interface GetLocalRuleResult {
 }
 /**
  * Get a LocalRulesResource
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRuleOutput(args: GetLocalRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

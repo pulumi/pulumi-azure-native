@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site ARM resource.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2021-02-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class StaticSite extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class StaticSite extends pulumi.CustomResource {
      * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
      */
     public readonly allowConfigFileUpdates!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The target branch in the repository.
      */
@@ -81,7 +83,7 @@ export class StaticSite extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyVaultReferenceIdentity!: pulumi.Output<string>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -172,6 +174,7 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["stagingEnvironmentPolicy"] = args ? args.stagingEnvironmentPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateProperties"] = args ? args.templateProperties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentDistributionEndpoint"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["databaseConnections"] = undefined /*out*/;
@@ -183,6 +186,7 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["userProvidedFunctionApps"] = undefined /*out*/;
         } else {
             resourceInputs["allowConfigFileUpdates"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["branch"] = undefined /*out*/;
             resourceInputs["buildProperties"] = undefined /*out*/;
             resourceInputs["contentDistributionEndpoint"] = undefined /*out*/;
@@ -240,7 +244,7 @@ export interface StaticSiteArgs {
      */
     identity?: pulumi.Input<inputs.web.ManagedServiceIdentityArgs>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

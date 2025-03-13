@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppFunction(args: GetWebAppFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetWebAppFunctionArgs {
  * Function information.
  */
 export interface GetWebAppFunctionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Config information.
      */
@@ -109,9 +111,7 @@ export interface GetWebAppFunctionResult {
 }
 /**
  * Description for Get function information by its ID for web site, or a deployment slot.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppFunctionOutput(args: GetWebAppFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

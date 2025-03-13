@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoutePort resource definition.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * Date of the physical port allocation to be used in Letter of Authorization.
      */
     public /*out*/ readonly allocationDate!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Bandwidth of procured ports in Gbps.
      */
@@ -139,6 +141,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocationDate"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["etherType"] = undefined /*out*/;
@@ -150,6 +153,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allocationDate"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
             resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;

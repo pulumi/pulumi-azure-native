@@ -37,6 +37,10 @@ export interface GetServerCommunicationLinkArgs {
  */
 export interface GetServerCommunicationLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id: string;

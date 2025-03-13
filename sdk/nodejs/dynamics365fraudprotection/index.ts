@@ -16,13 +16,6 @@ export const InstanceDetails: typeof import("./instanceDetails").InstanceDetails
 utilities.lazyLoad(exports, ["InstanceDetails"], () => require("./instanceDetails"));
 
 
-// Export sub-modules:
-import * as v20210201preview from "./v20210201preview";
-
-export {
-    v20210201preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

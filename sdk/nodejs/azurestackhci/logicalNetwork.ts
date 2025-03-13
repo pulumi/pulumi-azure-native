@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The logical network resource definition.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+ * Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class LogicalNetwork extends pulumi.CustomResource {
     /**
@@ -41,9 +39,13 @@ export class LogicalNetwork extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
      */
-    public readonly dhcpOptions!: pulumi.Output<outputs.azurestackhci.LogicalNetworkPropertiesResponseDhcpOptions | undefined>;
+    public readonly dhcpOptions!: pulumi.Output<outputs.azurestackhci.LogicalNetworkPropertiesDhcpOptionsResponse | undefined>;
     /**
      * The extendedLocation of the resource.
      */
@@ -107,12 +109,14 @@ export class LogicalNetwork extends pulumi.CustomResource {
             resourceInputs["subnets"] = args ? args.subnets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vmSwitchName"] = args ? args.vmSwitchName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dhcpOptions"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

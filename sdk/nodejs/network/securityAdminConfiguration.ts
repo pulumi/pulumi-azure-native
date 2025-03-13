@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the security admin configuration
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview.
- *
- * Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class SecurityAdminConfiguration extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
      */
     public readonly applyOnNetworkIntentPolicyBasedServices!: pulumi.Output<string[] | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A description of the security configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -56,6 +58,10 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Determine update behavior for changes to network groups referenced within the rules in this configuration.
+     */
+    public readonly networkGroupAddressSpaceAggregationOption!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
@@ -93,8 +99,10 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = args ? args.applyOnNetworkIntentPolicyBasedServices : undefined;
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["networkGroupAddressSpaceAggregationOption"] = args ? args.networkGroupAddressSpaceAggregationOption : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -103,9 +111,11 @@ export class SecurityAdminConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applyOnNetworkIntentPolicyBasedServices"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkGroupAddressSpaceAggregationOption"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -134,6 +144,10 @@ export interface SecurityAdminConfigurationArgs {
      * A description of the security configuration.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Determine update behavior for changes to network groups referenced within the rules in this configuration.
+     */
+    networkGroupAddressSpaceAggregationOption?: pulumi.Input<string | enums.network.AddressSpaceAggregationOption>;
     /**
      * The name of the network manager.
      */

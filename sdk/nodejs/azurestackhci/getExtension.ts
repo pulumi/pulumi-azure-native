@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get particular Arc Extension of HCI Cluster.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -54,6 +52,10 @@ export interface GetExtensionResult {
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
     readonly autoUpgradeMinorVersion?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
      */
@@ -109,9 +111,7 @@ export interface GetExtensionResult {
 }
 /**
  * Get particular Arc Extension of HCI Cluster.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

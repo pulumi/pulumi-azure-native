@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Video Analyzer account.
- * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
  */
 export class VideoAnalyzer extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VideoAnalyzer extends pulumi.CustomResource {
         return obj['__pulumiType'] === VideoAnalyzer.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The account encryption properties.
      */
@@ -124,6 +126,7 @@ export class VideoAnalyzer extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -131,6 +134,7 @@ export class VideoAnalyzer extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

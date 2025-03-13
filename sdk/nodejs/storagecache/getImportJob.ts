@@ -40,6 +40,10 @@ export interface GetImportJobArgs {
  */
 export interface GetImportJobResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A recent and frequently updated rate of total files, directories, and symlinks imported per second.
      */
     readonly blobsImportedPerSecond: number;

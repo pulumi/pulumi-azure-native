@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data export instance.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetDataExportArgs {
  * The top level data export resource container.
  */
 export interface GetDataExportResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The latest data export rule modification time.
      */
@@ -81,9 +83,7 @@ export interface GetDataExportResult {
 }
 /**
  * Gets a data export instance.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataExportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

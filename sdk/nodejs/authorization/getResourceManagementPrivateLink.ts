@@ -32,6 +32,10 @@ export interface GetResourceManagementPrivateLinkArgs {
 
 export interface GetResourceManagementPrivateLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The rmplResourceID.
      */
     readonly id: string;

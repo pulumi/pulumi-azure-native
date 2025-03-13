@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the Package type.
- * Azure REST API version: 2023-05-15-preview.
- *
- * Other available API versions: 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2023-05-15-preview.
  */
 export class Package extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Package extends pulumi.CustomResource {
      * Metadata pertaining to creation and last modification of the resource.
      */
     public readonly allOf!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the contentLink of the Package.
      */
@@ -118,6 +120,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["packageName"] = args ? args.packageName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runtimeEnvironmentName"] = args ? args.runtimeEnvironmentName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -130,6 +133,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["allOf"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a InternalNetworks.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getInternalNetwork(args: GetInternalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetInternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,11 +22,11 @@ export function getInternalNetwork(args: GetInternalNetworkArgs, opts?: pulumi.I
 
 export interface GetInternalNetworkArgs {
     /**
-     * Name of the InternalNetwork
+     * Name of the Internal Network.
      */
     internalNetworkName: string;
     /**
-     * Name of the L3IsolationDomain
+     * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName: string;
     /**
@@ -38,11 +36,11 @@ export interface GetInternalNetworkArgs {
 }
 
 /**
- * Defines the InternalNetwork item.
+ * Defines the Internal Network resource.
  */
 export interface GetInternalNetworkResult {
     /**
-     * Administrative state of the InternalNetwork. Example: Enabled | Disabled.
+     * Administrative state of the resource.
      */
     readonly administrativeState: string;
     /**
@@ -50,45 +48,61 @@ export interface GetInternalNetworkResult {
      */
     readonly annotation?: string;
     /**
-     * List of resources the BFD for BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * The Azure API version of the resource.
      */
-    readonly bfdDisabledOnResources: string[];
+    readonly azureApiVersion: string;
     /**
-     * List of resources the BFD of StaticRoutes is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * BGP configuration properties.
      */
-    readonly bfdForStaticRoutesDisabledOnResources: string[];
+    readonly bgpConfiguration?: outputs.managednetworkfabric.InternalNetworkPropertiesResponseBgpConfiguration;
     /**
-     * BGP configuration properties
+     * Configuration state of the resource.
      */
-    readonly bgpConfiguration?: outputs.managednetworkfabric.BgpConfigurationResponse;
+    readonly configurationState: string;
     /**
-     * List of resources the BGP is disabled on. Can be either entire NetworkFabric or NetworkRack.
-     */
-    readonly bgpDisabledOnResources: string[];
-    /**
-     * List with object connected IPv4 Subnets.
+     * List of Connected IPv4 Subnets.
      */
     readonly connectedIPv4Subnets?: outputs.managednetworkfabric.ConnectedSubnetResponse[];
     /**
-     * List with object connected IPv6 Subnets.
+     * List of connected IPv6 Subnets.
      */
     readonly connectedIPv6Subnets?: outputs.managednetworkfabric.ConnectedSubnetResponse[];
     /**
-     * List of resources the InternalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * Egress Acl. ARM resource ID of Access Control Lists.
      */
-    readonly disabledOnResources: string[];
+    readonly egressAclId?: string;
     /**
-     * ARM resource ID of importRoutePolicy.
+     * Export Route Policy either IPv4 or IPv6.
+     */
+    readonly exportRoutePolicy?: outputs.managednetworkfabric.ExportRoutePolicyResponse;
+    /**
+     * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
     readonly exportRoutePolicyId?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Extension. Example: NoExtension | NPB.
+     */
+    readonly extension?: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * ARM resource ID of importRoutePolicy.
+     * Import Route Policy either IPv4 or IPv6.
+     */
+    readonly importRoutePolicy?: outputs.managednetworkfabric.ImportRoutePolicyResponse;
+    /**
+     * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
     readonly importRoutePolicyId?: string;
+    /**
+     * Ingress Acl. ARM resource ID of Access Control Lists.
+     */
+    readonly ingressAclId?: string;
+    /**
+     * To check whether monitoring of internal network is enabled or not.
+     */
+    readonly isMonitoringEnabled?: string;
     /**
      * Maximum transmission unit. Default value is 1500.
      */
@@ -98,13 +112,13 @@ export interface GetInternalNetworkResult {
      */
     readonly name: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
      * Static Route Configuration properties.
      */
-    readonly staticRouteConfiguration?: outputs.managednetworkfabric.StaticRouteConfigurationResponse;
+    readonly staticRouteConfiguration?: outputs.managednetworkfabric.InternalNetworkPropertiesResponseStaticRouteConfiguration;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -120,9 +134,7 @@ export interface GetInternalNetworkResult {
 }
 /**
  * Gets a InternalNetworks.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -135,11 +147,11 @@ export function getInternalNetworkOutput(args: GetInternalNetworkOutputArgs, opt
 
 export interface GetInternalNetworkOutputArgs {
     /**
-     * Name of the InternalNetwork
+     * Name of the Internal Network.
      */
     internalNetworkName: pulumi.Input<string>;
     /**
-     * Name of the L3IsolationDomain
+     * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName: pulumi.Input<string>;
     /**

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Administrator.
- * Azure REST API version: 2022-01-01.
- *
- * Other available API versions: 2023-06-01-preview, 2023-06-30, 2023-12-30.
+ * Azure REST API version: 2023-12-30. Prior API version in Azure Native 2.x: 2022-01-01.
  */
 export class AzureADAdministrator extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class AzureADAdministrator extends pulumi.CustomResource {
      */
     public readonly administratorType!: pulumi.Output<string | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource id of the identity used for AAD Authentication.
      */
     public readonly identityResourceId!: pulumi.Output<string | undefined>;
@@ -61,7 +63,7 @@ export class AzureADAdministrator extends pulumi.CustomResource {
      */
     public readonly sid!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
@@ -98,11 +100,13 @@ export class AzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sid"] = args ? args.sid : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administratorType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identityResourceId"] = undefined /*out*/;
             resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

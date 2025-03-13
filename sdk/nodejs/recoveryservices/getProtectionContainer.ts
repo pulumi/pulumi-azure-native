@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetProtectionContainerArgs {
  */
 export interface GetProtectionContainerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Optional ETag.
      */
     readonly eTag?: string;
@@ -77,9 +79,7 @@ export interface GetProtectionContainerResult {
 }
 /**
  * Gets details of the specific container registered to your Recovery Services Vault.
- * Azure REST API version: 2023-04-01.
- *
- * Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getProtectionContainerOutput(args: GetProtectionContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

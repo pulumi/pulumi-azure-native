@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Threat intelligence information object.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
- *
- * Other available API versions: 2021-04-01, 2021-09-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
         return obj['__pulumiType'] === ThreatIntelligenceIndicator.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
@@ -113,10 +115,12 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             resourceInputs["validFrom"] = args ? args.validFrom : undefined;
             resourceInputs["validUntil"] = args ? args.validUntil : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

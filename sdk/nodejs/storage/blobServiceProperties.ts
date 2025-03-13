@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of a storage account’s Blob service.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class BlobServiceProperties extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      * Deprecated in favor of isVersioningEnabled property.
      */
     public readonly automaticSnapshotPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The blob service properties for change feed events.
      */
@@ -118,11 +120,13 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             resourceInputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePolicy"] = args ? args.restorePolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["automaticSnapshotPolicyEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changeFeed"] = undefined /*out*/;
             resourceInputs["containerDeleteRetentionPolicy"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;

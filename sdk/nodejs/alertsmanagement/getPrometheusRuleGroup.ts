@@ -35,6 +35,10 @@ export interface GetPrometheusRuleGroupArgs {
  */
 export interface GetPrometheusRuleGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Apply rule to data from a specific cluster.
      */
     readonly clusterName?: string;

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a Template Spec version from a specific Template Spec.
  * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2019-06-01-preview.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetTemplateSpecVersionArgs {
  * Template Spec Version object.
  */
 export interface GetTemplateSpecVersionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Template Spec version description.
      */
@@ -89,8 +91,6 @@ export interface GetTemplateSpecVersionResult {
 /**
  * Gets a Template Spec version from a specific Template Spec.
  * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2019-06-01-preview.
  */
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateSpecVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

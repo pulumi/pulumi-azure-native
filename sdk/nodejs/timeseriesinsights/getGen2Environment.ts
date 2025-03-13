@@ -40,6 +40,10 @@ export interface GetGen2EnvironmentArgs {
  */
 export interface GetGen2EnvironmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The time the resource was created.
      */
     readonly creationTime: string;

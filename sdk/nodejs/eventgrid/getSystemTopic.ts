@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a system topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getSystemTopic(args: GetSystemTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetSystemTopicArgs {
  * EventGrid System Topic.
  */
 export interface GetSystemTopicResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified identifier of the resource.
      */
@@ -65,7 +67,7 @@ export interface GetSystemTopicResult {
      */
     readonly source?: string;
     /**
-     * The system metadata relating to System Topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     readonly systemData: outputs.eventgrid.SystemDataResponse;
     /**
@@ -83,9 +85,7 @@ export interface GetSystemTopicResult {
 }
 /**
  * Get properties of a system topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getSystemTopicOutput(args: GetSystemTopicOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

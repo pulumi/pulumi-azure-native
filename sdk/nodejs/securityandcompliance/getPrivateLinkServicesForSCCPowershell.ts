@@ -35,6 +35,10 @@ export interface GetPrivateLinkServicesForSCCPowershellArgs {
  */
 export interface GetPrivateLinkServicesForSCCPowershellResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
     readonly etag?: string;

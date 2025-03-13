@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The agentPool resource definition
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export class AgentPool extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class AgentPool extends pulumi.CustomResource {
      * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
      */
     public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The underlying cloud infra provider properties.
      */
@@ -149,12 +153,14 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudProviderProfile"] = undefined /*out*/;
             resourceInputs["count"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
@@ -176,7 +182,7 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220501preview:agentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:agentPool" }, { type: "azure-native:hybridcontainerservice:agentPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20220901preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20231115preview:AgentPool" }, { type: "azure-native:hybridcontainerservice/v20240101:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }

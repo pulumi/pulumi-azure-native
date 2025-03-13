@@ -49,6 +49,10 @@ export interface GetADLSGen1FileDataSetResult {
      */
     readonly accountName: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Unique id for identifying a data set resource
      */
     readonly dataSetId: string;

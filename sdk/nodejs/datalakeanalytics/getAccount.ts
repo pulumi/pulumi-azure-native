@@ -39,6 +39,10 @@ export interface GetAccountResult {
      */
     readonly accountId: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The list of compute policies associated with this account.
      */
     readonly computePolicies: outputs.datalakeanalytics.ComputePolicyResponse[];

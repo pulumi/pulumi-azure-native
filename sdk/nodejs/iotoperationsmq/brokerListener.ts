@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker/listener resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
  */
 export class BrokerListener extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class BrokerListener extends pulumi.CustomResource {
      * The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
      */
     public readonly authorizationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The k8s cr/resource reference of mq/broker.
      */
@@ -143,6 +147,7 @@ export class BrokerListener extends pulumi.CustomResource {
             resourceInputs["serviceType"] = (args ? args.serviceType : undefined) ?? "clusterIp";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.iotoperationsmq.tlsCertMethodArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -150,6 +155,7 @@ export class BrokerListener extends pulumi.CustomResource {
         } else {
             resourceInputs["authenticationEnabled"] = undefined /*out*/;
             resourceInputs["authorizationEnabled"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["brokerRef"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

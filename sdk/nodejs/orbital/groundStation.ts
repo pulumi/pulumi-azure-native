@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Ground Station contains one or more antennas.
- * Azure REST API version: 2024-03-01-preview.
- *
- * Other available API versions: 2024-03-01.
+ * Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2024-03-01-preview.
  */
 export class GroundStation extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class GroundStation extends pulumi.CustomResource {
      * Altitude of the ground station.
      */
     public readonly altitudeMeters!: pulumi.Output<number | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Ground station capabilities.
      */
@@ -124,12 +126,14 @@ export class GroundStation extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["releaseMode"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["altitudeMeters"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capabilities"] = undefined /*out*/;
             resourceInputs["city"] = undefined /*out*/;
             resourceInputs["globalCommunicationsSite"] = undefined /*out*/;

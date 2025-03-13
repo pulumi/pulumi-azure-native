@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the managed application definition.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetApplicationDefinitionResult {
      * The managed application provider authorizations.
      */
     readonly authorizations?: outputs.solutions.ApplicationAuthorizationResponse[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -132,8 +134,6 @@ export interface GetApplicationDefinitionResult {
 /**
  * Gets the managed application definition.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getApplicationDefinitionOutput(args: GetApplicationDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

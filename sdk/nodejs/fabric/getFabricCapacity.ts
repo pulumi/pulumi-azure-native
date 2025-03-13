@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get a FabricCapacity
  * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2025-01-15-preview.
  */
 export function getFabricCapacity(args: GetFabricCapacityArgs, opts?: pulumi.InvokeOptions): Promise<GetFabricCapacityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetFabricCapacityResult {
      * The capacity administration
      */
     readonly administration: outputs.fabric.CapacityAdministrationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -80,8 +82,6 @@ export interface GetFabricCapacityResult {
 /**
  * Get a FabricCapacity
  * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2025-01-15-preview.
  */
 export function getFabricCapacityOutput(args: GetFabricCapacityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFabricCapacityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

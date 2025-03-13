@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
- *
- * Other available API versions: 2021-06-30-preview.
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReferenceDataSet.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
@@ -100,11 +102,13 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             resourceInputs["referenceDataSetName"] = args ? args.referenceDataSetName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataStringComparisonBehavior"] = undefined /*out*/;
             resourceInputs["keyProperties"] = undefined /*out*/;

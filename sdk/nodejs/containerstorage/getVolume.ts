@@ -40,6 +40,10 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Requested capacity in GiB
      */
     readonly capacityGiB: number;

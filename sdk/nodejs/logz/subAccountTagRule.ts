@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class SubAccountTagRule extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SubAccountTagRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubAccountTagRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Name of the rule set.
      */
@@ -80,10 +84,12 @@ export class SubAccountTagRule extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
             resourceInputs["subAccountName"] = args ? args.subAccountName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

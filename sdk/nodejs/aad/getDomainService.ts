@@ -35,6 +35,10 @@ export interface GetDomainServiceArgs {
  */
 export interface GetDomainServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Configuration diagnostics data containing latest execution from client.
      */
     readonly configDiagnostics?: outputs.aad.ConfigDiagnosticsResponse;

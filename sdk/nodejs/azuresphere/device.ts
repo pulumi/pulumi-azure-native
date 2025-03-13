@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An device resource belonging to a device group resource.
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Device extends pulumi.CustomResource {
         return obj['__pulumiType'] === Device.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * SKU of the chip
      */
@@ -110,6 +112,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["productName"] = args ? args.productName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["chipSku"] = undefined /*out*/;
             resourceInputs["lastAvailableOsVersion"] = undefined /*out*/;
             resourceInputs["lastInstalledOsVersion"] = undefined /*out*/;
@@ -120,6 +123,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["chipSku"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;
             resourceInputs["lastAvailableOsVersion"] = undefined /*out*/;
