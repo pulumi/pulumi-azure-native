@@ -192,6 +192,53 @@ func TestFilterTokens(t *testing.T) {
 	require.Equal(t, "Application", names["azure-native:aad/v20221201:Application"])
 }
 
+func TestParseApiVersion(t *testing.T) {
+	t.Parallel()
+
+	t.Run("Valid", func(t *testing.T) {
+		t.Parallel()
+
+		for _, v := range [][]string{
+			{"2020-01-01", "v20200101"},
+			{"2027-01-01", "v20270101"},
+			{"2020-12-31", "v20201231"},
+			{"v2020-12-31", "v20201231"},
+			{"V2020-12-31", "v20201231"},
+			{"v20230301", "v20230301"},
+			{"V20230301", "v20230301"},
+			{"20230301", "v20230301"},
+			{" 20230301 ", "v20230301"},
+			{"2023-03-01-preview", "v20230301preview"},
+			{"2023-03-01-privatepreview ", "v20230301privatepreview"},
+			{"v20230301preview", "v20230301preview"},
+			{"v20230301privatepreview ", "v20230301privatepreview"},
+		} {
+			parsed, err := parseApiVersion(v[0])
+			require.NoError(t, err)
+			assert.Equal(t, v[1], parsed)
+		}
+	})
+
+	t.Run("Invalid", func(t *testing.T) {
+		t.Parallel()
+
+		for _, v := range []string{
+			"1999-01-01",
+			"2027-011-01",
+			"2020-12-311",
+			"2020-12-41",
+			"2020-22-31",
+			"v2023030",
+			"V202303011",
+			"19990301",
+			"2023-03-01-alpha",
+		} {
+			_, err := parseApiVersion(v)
+			assert.Error(t, err, v)
+		}
+	})
+}
+
 // Ensure that we can run `pulumi package add` with a local provider binary and get a new SDK.
 func TestParameterizePackageAdd(t *testing.T) {
 	t.Parallel()

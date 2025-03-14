@@ -10,8 +10,10 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -48,6 +50,33 @@ func deserializeParameterizeArgs(in []byte) (*parameterizeArgs, error) {
 	return &args, nil
 }
 
+// parseApiVersion parses an Azure API version from the given string. Since the input comes from users (via `package
+// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDL version" of
+// the form v20200101.
+func parseApiVersion(version string) (string, error) {
+	v := strings.TrimSpace(version)
+	v = strings.TrimLeft(v, "vV")
+
+	isApiVersion, err := regexp.MatchString(`^20\d{2}-[01]\d-[0-3]\d(-preview|-privatepreview)?$`, v)
+	if err != nil {
+		return "", status.Errorf(codes.InvalidArgument, "unexpected error parsing version %s: %v", version, err)
+	}
+	if isApiVersion {
+		apiVersion := openapi.ApiVersion(v)
+		return string(apiVersion.ToSdkVersion()), nil
+	}
+
+	isDigits, err := regexp.MatchString(`^20\d{6}(preview|privatepreview)?$`, v)
+	if err != nil {
+		return "", status.Errorf(codes.InvalidArgument, "unexpected error parsing version %s: %v", version, err)
+	}
+	if isDigits {
+		return "v" + v, nil
+	}
+
+	return "", status.Errorf(codes.InvalidArgument, "invalid API version: %s", version)
+}
+
 // "When generating an SDK (e.g. using a pulumi package add command), we need to boot up a provider and parameterize it
 // using only information from the command-line invocation. In this case, the parameter is a string array representing
 // the command-line arguments (args)."
@@ -62,9 +91,13 @@ func getParameterizeArgs(req *rpc.ParameterizeRequest) (*parameterizeArgs, error
 		if len(args) != 2 {
 			return nil, status.Errorf(codes.InvalidArgument, "expected 2 arguments (module and API version), got %d", len(args))
 		}
+		targetApiVersion, err := parseApiVersion(args[1])
+		if err != nil {
+			return nil, err
+		}
 		return &parameterizeArgs{
 			Module:  args[0],
-			Version: args[1], // TODO be more accepting of version format and convert
+			Version: targetApiVersion,
 		}, nil
 
 	// provider has already been parameterized and the arguments were serialized into the SDK
