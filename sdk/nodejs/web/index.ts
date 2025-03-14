@@ -45,11 +45,6 @@ export type ConnectionGateway = import("./connectionGateway").ConnectionGateway;
 export const ConnectionGateway: typeof import("./connectionGateway").ConnectionGateway = null as any;
 utilities.lazyLoad(exports, ["ConnectionGateway"], () => require("./connectionGateway"));
 
-export { ContainerAppArgs } from "./containerApp";
-export type ContainerApp = import("./containerApp").ContainerApp;
-export const ContainerApp: typeof import("./containerApp").ContainerApp = null as any;
-utilities.lazyLoad(exports, ["ContainerApp"], () => require("./containerApp"));
-
 export { CustomApiArgs } from "./customApi";
 export type CustomApi = import("./customApi").CustomApi;
 export const CustomApi: typeof import("./customApi").CustomApi = null as any;
@@ -89,11 +84,6 @@ export { GetConnectionGatewayArgs, GetConnectionGatewayResult, GetConnectionGate
 export const getConnectionGateway: typeof import("./getConnectionGateway").getConnectionGateway = null as any;
 export const getConnectionGatewayOutput: typeof import("./getConnectionGateway").getConnectionGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectionGateway","getConnectionGatewayOutput"], () => require("./getConnectionGateway"));
-
-export { GetContainerAppArgs, GetContainerAppResult, GetContainerAppOutputArgs } from "./getContainerApp";
-export const getContainerApp: typeof import("./getContainerApp").getContainerApp = null as any;
-export const getContainerAppOutput: typeof import("./getContainerApp").getContainerAppOutput = null as any;
-utilities.lazyLoad(exports, ["getContainerApp","getContainerAppOutput"], () => require("./getContainerApp"));
 
 export { GetCustomApiArgs, GetCustomApiResult, GetCustomApiOutputArgs } from "./getCustomApi";
 export const getCustomApi: typeof import("./getCustomApi").getCustomApi = null as any;
@@ -354,11 +344,6 @@ export { ListConnectionKeysArgs, ListConnectionKeysResult, ListConnectionKeysOut
 export const listConnectionKeys: typeof import("./listConnectionKeys").listConnectionKeys = null as any;
 export const listConnectionKeysOutput: typeof import("./listConnectionKeys").listConnectionKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listConnectionKeys","listConnectionKeysOutput"], () => require("./listConnectionKeys"));
-
-export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
-export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
-export const listContainerAppSecretsOutput: typeof import("./listContainerAppSecrets").listContainerAppSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listContainerAppSecrets","listContainerAppSecretsOutput"], () => require("./listContainerAppSecrets"));
 
 export { ListCustomApiWsdlInterfacesArgs, ListCustomApiWsdlInterfacesResult, ListCustomApiWsdlInterfacesOutputArgs } from "./listCustomApiWsdlInterfaces";
 export const listCustomApiWsdlInterfaces: typeof import("./listCustomApiWsdlInterfaces").listCustomApiWsdlInterfaces = null as any;
@@ -894,53 +879,6 @@ utilities.lazyLoad(exports, ["WebAppVnetConnectionSlot"], () => require("./webAp
 // Export enums:
 export * from "../types/enums/web";
 
-// Export sub-modules:
-import * as v20150801preview from "./v20150801preview";
-import * as v20160301 from "./v20160301";
-import * as v20160601 from "./v20160601";
-import * as v20160801 from "./v20160801";
-import * as v20160901 from "./v20160901";
-import * as v20180201 from "./v20180201";
-import * as v20181101 from "./v20181101";
-import * as v20190801 from "./v20190801";
-import * as v20200601 from "./v20200601";
-import * as v20200901 from "./v20200901";
-import * as v20201001 from "./v20201001";
-import * as v20201201 from "./v20201201";
-import * as v20210101 from "./v20210101";
-import * as v20210115 from "./v20210115";
-import * as v20210201 from "./v20210201";
-import * as v20210301 from "./v20210301";
-import * as v20220301 from "./v20220301";
-import * as v20220901 from "./v20220901";
-import * as v20230101 from "./v20230101";
-import * as v20231201 from "./v20231201";
-import * as v20240401 from "./v20240401";
-
-export {
-    v20150801preview,
-    v20160301,
-    v20160601,
-    v20160801,
-    v20160901,
-    v20180201,
-    v20181101,
-    v20190801,
-    v20200601,
-    v20200901,
-    v20201001,
-    v20201201,
-    v20210101,
-    v20210115,
-    v20210201,
-    v20210301,
-    v20220301,
-    v20220901,
-    v20230101,
-    v20231201,
-    v20240401,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -961,8 +899,6 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "azure-native:web:ConnectionGateway":
                 return new ConnectionGateway(name, <any>undefined, { urn })
-            case "azure-native:web:ContainerApp":
-                return new ContainerApp(name, <any>undefined, { urn })
             case "azure-native:web:CustomApi":
                 return new CustomApi(name, <any>undefined, { urn })
             case "azure-native:web:KubeEnvironment":

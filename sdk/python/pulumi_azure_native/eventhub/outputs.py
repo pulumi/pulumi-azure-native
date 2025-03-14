@@ -18,6 +18,7 @@ from ._enums import *
 
 __all__ = [
     'CaptureDescriptionResponse',
+    'CaptureIdentityResponse',
     'ClusterSkuResponse',
     'ConnectionStateResponse',
     'DestinationResponse',
@@ -142,6 +143,58 @@ class CaptureDescriptionResponse(dict):
 
 
 @pulumi.output_type
+class CaptureIdentityResponse(dict):
+    """
+    A value that indicates whether capture description is enabled.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CaptureIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CaptureIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CaptureIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        A value that indicates whether capture description is enabled.
+        :param str type: Type of Azure Active Directory Managed Identity.
+        :param str user_assigned_identity: ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of Azure Active Directory Managed Identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
 class ClusterSkuResponse(dict):
     """
     SKU parameters particular to a cluster instance.
@@ -248,6 +301,7 @@ class DestinationResponse(dict):
                  data_lake_account_name: Optional[str] = None,
                  data_lake_folder_path: Optional[str] = None,
                  data_lake_subscription_id: Optional[str] = None,
+                 identity: Optional['outputs.CaptureIdentityResponse'] = None,
                  name: Optional[str] = None,
                  storage_account_resource_id: Optional[str] = None):
         """
@@ -257,6 +311,7 @@ class DestinationResponse(dict):
         :param str data_lake_account_name: The Azure Data Lake Store name for the captured events
         :param str data_lake_folder_path: The destination folder path for the captured events
         :param str data_lake_subscription_id: Subscription Id of Azure Data Lake Store
+        :param 'CaptureIdentityResponse' identity: A value that indicates whether capture description is enabled.
         :param str name: Name for capture destination
         :param str storage_account_resource_id: Resource id of the storage account to be used to create the blobs
         """
@@ -270,6 +325,8 @@ class DestinationResponse(dict):
             pulumi.set(__self__, "data_lake_folder_path", data_lake_folder_path)
         if data_lake_subscription_id is not None:
             pulumi.set(__self__, "data_lake_subscription_id", data_lake_subscription_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_account_resource_id is not None:
@@ -314,6 +371,14 @@ class DestinationResponse(dict):
         Subscription Id of Azure Data Lake Store
         """
         return pulumi.get(self, "data_lake_subscription_id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.CaptureIdentityResponse']:
+        """
+        A value that indicates whether capture description is enabled.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

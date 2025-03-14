@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
-    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Extension resource name.
         /// </summary>

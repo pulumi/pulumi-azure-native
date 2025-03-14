@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly int? FileUploadLimitInMb;
         /// <summary>
+        /// Web Application Firewall JavaScript Challenge Cookie Expiration time in minutes.
+        /// </summary>
+        public readonly int? JsChallengeCookieExpirationInMins;
+        /// <summary>
         /// To scrub sensitive log fields
         /// </summary>
         public readonly Outputs.PolicySettingsResponseLogScrubbing? LogScrubbing;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             int? fileUploadLimitInMb,
 
+            int? jsChallengeCookieExpirationInMins,
+
             Outputs.PolicySettingsResponseLogScrubbing? logScrubbing,
 
             int? maxRequestBodySizeInKb,
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             CustomBlockResponseStatusCode = customBlockResponseStatusCode;
             FileUploadEnforcement = fileUploadEnforcement;
             FileUploadLimitInMb = fileUploadLimitInMb;
+            JsChallengeCookieExpirationInMins = jsChallengeCookieExpirationInMins;
             LogScrubbing = logScrubbing;
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;

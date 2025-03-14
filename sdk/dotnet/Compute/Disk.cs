@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Disk resource.
-    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2023-01-02, 2023-04-02, 2023-10-02, 2024-03-02.
+    /// Azure REST API version: 2024-03-02. Prior API version in Azure Native 2.x: 2022-07-02.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Disk")]
     public partial class Disk : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
         /// </summary>
@@ -119,6 +123,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("hyperVGeneration")]
         public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
+        /// </summary>
+        [Output("lastOwnershipUpdateTime")]
+        public Output<string> LastOwnershipUpdateTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource location

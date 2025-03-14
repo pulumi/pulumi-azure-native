@@ -53,6 +53,10 @@ export interface GetLiveOutputResult {
      */
     readonly assetName: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creation time the live output.
      */
     readonly created: string;

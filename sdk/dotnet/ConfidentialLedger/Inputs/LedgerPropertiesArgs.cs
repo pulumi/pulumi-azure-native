@@ -40,10 +40,22 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
         }
 
         /// <summary>
+        /// SKU associated with the ledger
+        /// </summary>
+        [Input("ledgerSku")]
+        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.LedgerSku>? LedgerSku { get; set; }
+
+        /// <summary>
         /// Type of Confidential Ledger
         /// </summary>
         [Input("ledgerType")]
         public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.LedgerType>? LedgerType { get; set; }
+
+        /// <summary>
+        /// Object representing RunningState for Ledger.
+        /// </summary>
+        [Input("runningState")]
+        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.RunningState>? RunningState { get; set; }
 
         public LedgerPropertiesArgs()
         {

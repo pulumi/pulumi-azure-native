@@ -117,7 +117,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  __props__=None):
         """
         The bandwidth setting.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,7 +135,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The bandwidth setting.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param BandwidthSettingArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +177,7 @@ class BandwidthSetting(pulumi.CustomResource):
             if schedules is None and not opts.urn:
                 raise TypeError("Missing required property 'schedules'")
             __props__.__dict__["schedules"] = schedules
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_count"] = None
@@ -204,12 +205,21 @@ class BandwidthSetting(pulumi.CustomResource):
 
         __props__ = BandwidthSettingArgs.__new__(BandwidthSettingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedules"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_count"] = None
         return BandwidthSetting(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

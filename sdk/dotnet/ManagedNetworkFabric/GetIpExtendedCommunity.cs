@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     {
         /// <summary>
         /// Implements IP Extended Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Task<GetIpExtendedCommunityResult> InvokeAsync(GetIpExtendedCommunityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpExtendedCommunityResult>("azure-native:managednetworkfabric:getIpExtendedCommunity", args ?? new GetIpExtendedCommunityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements IP Extended Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetIpExtendedCommunityResult> Invoke(GetIpExtendedCommunityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpExtendedCommunityResult>("azure-native:managednetworkfabric:getIpExtendedCommunity", args ?? new GetIpExtendedCommunityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements IP Extended Community GET method.
-        /// Azure REST API version: 2023-02-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-15.
+        /// Azure REST API version: 2023-06-15.
         /// </summary>
         public static Output<GetIpExtendedCommunityResult> Invoke(GetIpExtendedCommunityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpExtendedCommunityResult>("azure-native:managednetworkfabric:getIpExtendedCommunity", args ?? new GetIpExtendedCommunityInvokeArgs(), options.WithDefaults());
@@ -43,7 +37,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpExtendedCommunityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the IP Extended Community
+        /// Name of the IP Extended Community.
         /// </summary>
         [Input("ipExtendedCommunityName", required: true)]
         public string IpExtendedCommunityName { get; set; } = null!;
@@ -63,7 +57,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpExtendedCommunityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the IP Extended Community
+        /// Name of the IP Extended Community.
         /// </summary>
         [Input("ipExtendedCommunityName", required: true)]
         public Input<string> IpExtendedCommunityName { get; set; } = null!;
@@ -85,17 +79,29 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class GetIpExtendedCommunityResult
     {
         /// <summary>
-        /// Action to be taken on the configuration. Example: Permit | Deny.
+        /// Administrative state of the resource.
         /// </summary>
-        public readonly string Action;
+        public readonly string AdministrativeState;
         /// <summary>
         /// Switch configuration description.
         /// </summary>
         public readonly string? Annotation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        public readonly string ConfigurationState;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of IP Extended Community Rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpExtendedCommunityRuleResponse> IpExtendedCommunityRules;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -105,13 +111,9 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// Route Target List.The expected formats are ASN(plain):NN &gt;&gt; example 4294967294:50, ASN.ASN:NN &gt;&gt; example 65533.65333:40, IP-address:NN &gt;&gt; example 10.10.10.10:65535. The possible values of ASN,NN are in range of 0-65535, ASN(plain) is in range of 0-4294967295.
-        /// </summary>
-        public readonly ImmutableArray<string> RouteTargets;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -127,11 +129,17 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         [OutputConstructor]
         private GetIpExtendedCommunityResult(
-            string action,
+            string administrativeState,
 
             string? annotation,
 
+            string azureApiVersion,
+
+            string configurationState,
+
             string id,
+
+            ImmutableArray<Outputs.IpExtendedCommunityRuleResponse> ipExtendedCommunityRules,
 
             string location,
 
@@ -139,21 +147,21 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
             string provisioningState,
 
-            ImmutableArray<string> routeTargets,
-
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            Action = action;
+            AdministrativeState = administrativeState;
             Annotation = annotation;
+            AzureApiVersion = azureApiVersion;
+            ConfigurationState = configurationState;
             Id = id;
+            IpExtendedCommunityRules = ipExtendedCommunityRules;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            RouteTargets = routeTargets;
             SystemData = systemData;
             Tags = tags;
             Type = type;

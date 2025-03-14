@@ -32,6 +32,8 @@ __all__ = [
     'BillingProfilePropertiesSoldToArgsDict',
     'BillingProfilePropertiesArgs',
     'BillingProfilePropertiesArgsDict',
+    'BillingRoleAssignmentPropertiesArgs',
+    'BillingRoleAssignmentPropertiesArgsDict',
     'InvoiceSectionPropertiesArgs',
     'InvoiceSectionPropertiesArgsDict',
 ]
@@ -1538,6 +1540,161 @@ class BillingProfilePropertiesArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+if not MYPY:
+    class BillingRoleAssignmentPropertiesArgsDict(TypedDict):
+        """
+        The properties of the billing role assignment.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The ID of the role definition.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The object id of the user to whom the role was assigned.
+        """
+        principal_puid: NotRequired[pulumi.Input[str]]
+        """
+        The principal PUID of the user to whom the role was assigned.
+        """
+        principal_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The principal tenant id of the user to whom the role was assigned.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        The scope at which the role was assigned.
+        """
+        user_authentication_type: NotRequired[pulumi.Input[str]]
+        """
+        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        user_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+elif False:
+    BillingRoleAssignmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BillingRoleAssignmentPropertiesArgs:
+    def __init__(__self__, *,
+                 role_definition_id: pulumi.Input[str],
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 principal_puid: Optional[pulumi.Input[str]] = None,
+                 principal_tenant_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 user_authentication_type: Optional[pulumi.Input[str]] = None,
+                 user_email_address: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the billing role assignment.
+        :param pulumi.Input[str] role_definition_id: The ID of the role definition.
+        :param pulumi.Input[str] principal_id: The object id of the user to whom the role was assigned.
+        :param pulumi.Input[str] principal_puid: The principal PUID of the user to whom the role was assigned.
+        :param pulumi.Input[str] principal_tenant_id: The principal tenant id of the user to whom the role was assigned.
+        :param pulumi.Input[str] scope: The scope at which the role was assigned.
+        :param pulumi.Input[str] user_authentication_type: The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        :param pulumi.Input[str] user_email_address: The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if principal_puid is not None:
+            pulumi.set(__self__, "principal_puid", principal_puid)
+        if principal_tenant_id is not None:
+            pulumi.set(__self__, "principal_tenant_id", principal_tenant_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if user_authentication_type is not None:
+            pulumi.set(__self__, "user_authentication_type", user_authentication_type)
+        if user_email_address is not None:
+            pulumi.set(__self__, "user_email_address", user_email_address)
+
+    @property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the role definition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The object id of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="principalPuid")
+    def principal_puid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal PUID of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_puid")
+
+    @principal_puid.setter
+    def principal_puid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_puid", value)
+
+    @property
+    @pulumi.getter(name="principalTenantId")
+    def principal_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal tenant id of the user to whom the role was assigned.
+        """
+        return pulumi.get(self, "principal_tenant_id")
+
+    @principal_tenant_id.setter
+    def principal_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        The scope at which the role was assigned.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="userAuthenticationType")
+    def user_authentication_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The authentication type of the user, whether Organization or MSA, of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "user_authentication_type")
+
+    @user_authentication_type.setter
+    def user_authentication_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_authentication_type", value)
+
+    @property
+    @pulumi.getter(name="userEmailAddress")
+    def user_email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address of the user to whom the role was assigned. This is supported only for billing accounts with agreement type Enterprise Agreement.
+        """
+        return pulumi.get(self, "user_email_address")
+
+    @user_email_address.setter
+    def user_email_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_email_address", value)
 
 
 if not MYPY:

@@ -24,6 +24,10 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// A reference to the origin group override configuration. Leave empty to use the default origin group on route.
         /// </summary>
         public readonly Outputs.OriginGroupOverrideResponse? OriginGroupOverride;
+        /// <summary>
+        /// 
+        /// Expected value is 'DeliveryRuleRouteConfigurationOverrideActionParameters'.
+        /// </summary>
         public readonly string TypeName;
 
         [OutputConstructor]

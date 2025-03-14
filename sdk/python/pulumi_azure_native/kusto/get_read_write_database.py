@@ -27,7 +27,10 @@ class GetReadWriteDatabaseResult:
     """
     Class representing a read write database.
     """
-    def __init__(__self__, hot_cache_period=None, id=None, is_followed=None, kind=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, type=None):
+    def __init__(__self__, azure_api_version=None, hot_cache_period=None, id=None, is_followed=None, key_vault_properties=None, kind=None, location=None, name=None, provisioning_state=None, soft_delete_period=None, statistics=None, suspension_details=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if hot_cache_period and not isinstance(hot_cache_period, str):
             raise TypeError("Expected argument 'hot_cache_period' to be a str")
         pulumi.set(__self__, "hot_cache_period", hot_cache_period)
@@ -37,6 +40,9 @@ class GetReadWriteDatabaseResult:
         if is_followed and not isinstance(is_followed, bool):
             raise TypeError("Expected argument 'is_followed' to be a bool")
         pulumi.set(__self__, "is_followed", is_followed)
+        if key_vault_properties and not isinstance(key_vault_properties, dict):
+            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -55,9 +61,20 @@ class GetReadWriteDatabaseResult:
         if statistics and not isinstance(statistics, dict):
             raise TypeError("Expected argument 'statistics' to be a dict")
         pulumi.set(__self__, "statistics", statistics)
+        if suspension_details and not isinstance(suspension_details, dict):
+            raise TypeError("Expected argument 'suspension_details' to be a dict")
+        pulumi.set(__self__, "suspension_details", suspension_details)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="hotCachePeriod")
@@ -82,6 +99,14 @@ class GetReadWriteDatabaseResult:
         Indicates whether the database is followed.
         """
         return pulumi.get(self, "is_followed")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        KeyVault properties for the database encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
 
     @property
     @pulumi.getter
@@ -133,6 +158,14 @@ class GetReadWriteDatabaseResult:
         return pulumi.get(self, "statistics")
 
     @property
+    @pulumi.getter(name="suspensionDetails")
+    def suspension_details(self) -> 'outputs.SuspensionDetailsResponse':
+        """
+        The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+        """
+        return pulumi.get(self, "suspension_details")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -147,15 +180,18 @@ class AwaitableGetReadWriteDatabaseResult(GetReadWriteDatabaseResult):
         if False:
             yield self
         return GetReadWriteDatabaseResult(
+            azure_api_version=self.azure_api_version,
             hot_cache_period=self.hot_cache_period,
             id=self.id,
             is_followed=self.is_followed,
+            key_vault_properties=self.key_vault_properties,
             kind=self.kind,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             soft_delete_period=self.soft_delete_period,
             statistics=self.statistics,
+            suspension_details=self.suspension_details,
             type=self.type)
 
 
@@ -165,12 +201,12 @@ def get_read_write_database(cluster_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReadWriteDatabaseResult:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -180,15 +216,18 @@ def get_read_write_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult).value
 
     return AwaitableGetReadWriteDatabaseResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
         id=pulumi.get(__ret__, 'id'),
         is_followed=pulumi.get(__ret__, 'is_followed'),
+        key_vault_properties=pulumi.get(__ret__, 'key_vault_properties'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'),
         statistics=pulumi.get(__ret__, 'statistics'),
+        suspension_details=pulumi.get(__ret__, 'suspension_details'),
         type=pulumi.get(__ret__, 'type'))
 def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                    database_name: Optional[pulumi.Input[str]] = None,
@@ -196,12 +235,12 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadWriteDatabaseResult]:
     """
     Returns a database.
-    Azure REST API version: 2022-12-29.
+    Azure REST API version: 2024-04-13.
 
 
     :param str cluster_name: The name of the Kusto cluster.
     :param str database_name: The name of the database in the Kusto cluster.
-    :param str resource_group_name: The name of the resource group containing the Kusto cluster.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
@@ -210,13 +249,16 @@ def get_read_write_database_output(cluster_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kusto:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult)
     return __ret__.apply(lambda __response__: GetReadWriteDatabaseResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         hot_cache_period=pulumi.get(__response__, 'hot_cache_period'),
         id=pulumi.get(__response__, 'id'),
         is_followed=pulumi.get(__response__, 'is_followed'),
+        key_vault_properties=pulumi.get(__response__, 'key_vault_properties'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         soft_delete_period=pulumi.get(__response__, 'soft_delete_period'),
         statistics=pulumi.get(__response__, 'statistics'),
+        suspension_details=pulumi.get(__response__, 'suspension_details'),
         type=pulumi.get(__response__, 'type')))

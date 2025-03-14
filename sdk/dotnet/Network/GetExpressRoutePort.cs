@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRoutePortResult> InvokeAsync(GetExpressRoutePortArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the requested ExpressRoutePort resource.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRoutePortResult> Invoke(GetExpressRoutePortInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortResult>("azure-native:network:getExpressRoutePort", args ?? new GetExpressRoutePortInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.Network
         /// Date of the physical port allocation to be used in Letter of Authorization.
         /// </summary>
         public readonly string AllocationDate;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Bandwidth of procured ports in Gbps.
         /// </summary>
@@ -165,6 +163,8 @@ namespace Pulumi.AzureNative.Network
         private GetExpressRoutePortResult(
             string allocationDate,
 
+            string azureApiVersion,
+
             int? bandwidthInGbps,
 
             string? billingType,
@@ -202,6 +202,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AllocationDate = allocationDate;
+            AzureApiVersion = azureApiVersion;
             BandwidthInGbps = bandwidthInGbps;
             BillingType = billingType;
             Circuits = circuits;

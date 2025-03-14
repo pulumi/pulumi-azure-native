@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Task<GetB2CTenantResult> InvokeAsync(GetB2CTenantArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Azure AD B2C tenant resource.
-        /// Azure REST API version: 2021-04-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-01-18-preview, 2023-05-17-preview.
+        /// Azure REST API version: 2023-05-17-preview.
         /// </summary>
         public static Output<GetB2CTenantResult> Invoke(GetB2CTenantInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetB2CTenantResult>("azure-native:azureactivedirectory:getB2CTenant", args ?? new GetB2CTenantInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     public sealed class GetB2CTenantResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The billing configuration for the tenant.
         /// </summary>
         public readonly Outputs.B2CTenantResourcePropertiesResponseBillingConfig? BillingConfig;
@@ -92,6 +90,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// An identifier that represents the Azure AD B2C tenant resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Enable GoLocal add-on to store data at rest in the specific Geo. Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see local data residency options.
+        /// </summary>
+        public readonly bool? IsGoLocalTenant;
         /// <summary>
         /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
@@ -123,9 +125,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
         [OutputConstructor]
         private GetB2CTenantResult(
+            string azureApiVersion,
+
             Outputs.B2CTenantResourcePropertiesResponseBillingConfig? billingConfig,
 
             string id,
+
+            bool? isGoLocalTenant,
 
             string location,
 
@@ -141,8 +147,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BillingConfig = billingConfig;
             Id = id;
+            IsGoLocalTenant = isGoLocalTenant;
             Location = location;
             Name = name;
             Sku = sku;

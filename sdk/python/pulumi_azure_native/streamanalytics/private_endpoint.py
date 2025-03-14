@@ -100,9 +100,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Complete information about the private endpoint.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
-
-        Other available API versions: 2020-03-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Complete information about the private endpoint.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
-
-        Other available API versions: 2020-03-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -159,6 +155,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -187,12 +184,21 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_date"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["manual_private_link_service_connections"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")

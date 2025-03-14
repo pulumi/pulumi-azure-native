@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get an iSCSI Target.
  * Azure REST API version: 2021-08-01.
- *
- * Other available API versions: 2020-03-15-preview.
  */
 export function getIscsiTarget(args: GetIscsiTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetIscsiTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +43,10 @@ export interface GetIscsiTargetResult {
      * Mode for Target connectivity.
      */
     readonly aclMode: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * List of private IPv4 addresses to connect to the iSCSI Target.
      */
@@ -105,8 +107,6 @@ export interface GetIscsiTargetResult {
 /**
  * Get an iSCSI Target.
  * Azure REST API version: 2021-08-01.
- *
- * Other available API versions: 2020-03-15-preview.
  */
 export function getIscsiTargetOutput(args: GetIscsiTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIscsiTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

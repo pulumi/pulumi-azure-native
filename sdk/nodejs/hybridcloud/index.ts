@@ -29,13 +29,6 @@ utilities.lazyLoad(exports, ["getCloudConnector","getCloudConnectorOutput"], () 
 // Export enums:
 export * from "../types/enums/hybridcloud";
 
-// Export sub-modules:
-import * as v20230101preview from "./v20230101preview";
-
-export {
-    v20230101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

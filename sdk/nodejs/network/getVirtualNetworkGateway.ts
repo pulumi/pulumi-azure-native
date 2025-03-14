@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway by resource group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +50,14 @@ export interface GetVirtualNetworkGatewayResult {
      * Configures this gateway to accept traffic from remote Virtual WAN networks.
      */
     readonly allowVirtualWanTraffic?: boolean;
+    /**
+     * Autoscale configuration for virutal network gateway
+     */
+    readonly autoScaleConfiguration?: outputs.network.VirtualNetworkGatewayAutoScaleConfigurationResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Virtual network gateway's BGP speaker settings.
      */
@@ -101,6 +107,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly id?: string;
     /**
+     * The identity of the virtual network gateway, if configured.
+     */
+    readonly identity?: outputs.network.ManagedServiceIdentityResponse;
+    /**
      * The IP address allocated by the gateway to which dns requests can be sent.
      */
     readonly inboundDnsForwardingEndpoint: string;
@@ -124,6 +134,10 @@ export interface GetVirtualNetworkGatewayResult {
      * The provisioning state of the virtual network gateway resource.
      */
     readonly provisioningState: string;
+    /**
+     * Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+     */
+    readonly resiliencyModel?: string;
     /**
      * The resource GUID property of the virtual network gateway resource.
      */
@@ -163,9 +177,7 @@ export interface GetVirtualNetworkGatewayResult {
 }
 /**
  * Gets the specified virtual network gateway by resource group.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["MonitoredResource"], () => require("./monitoredRes
 // Export enums:
 export * from "../types/enums/scom";
 
-// Export sub-modules:
-import * as v20230707preview from "./v20230707preview";
-
-export {
-    v20230707preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -74,23 +74,6 @@ utilities.lazyLoad(exports, ["SuppressionListAddress"], () => require("./suppres
 // Export enums:
 export * from "../types/enums/communication";
 
-// Export sub-modules:
-import * as v20220701preview from "./v20220701preview";
-import * as v20230331 from "./v20230331";
-import * as v20230401 from "./v20230401";
-import * as v20230401preview from "./v20230401preview";
-import * as v20230601preview from "./v20230601preview";
-import * as v20240901preview from "./v20240901preview";
-
-export {
-    v20220701preview,
-    v20230331,
-    v20230401,
-    v20230401preview,
-    v20230601preview,
-    v20240901preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

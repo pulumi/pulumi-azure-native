@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// Trigger details.
-    /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:PeriodicTimerEventTrigger")]
     public partial class PeriodicTimerEventTrigger : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
         /// </summary>
@@ -105,9 +111,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220301:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20220401preview:PeriodicTimerEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20221201preview:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20230701:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:FileEventTrigger" },
                     new global::Pulumi.Alias { Type = "azure-native:databoxedge/v20231201:PeriodicTimerEventTrigger" },
+                    new global::Pulumi.Alias { Type = "azure-native:databoxedge:FileEventTrigger" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains the job information.
- * Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2020-08-01.
+ * Azure REST API version: 2021-01-01. Prior API version in Azure Native 2.x: 2021-01-01.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Job extends pulumi.CustomResource {
         return obj['__pulumiType'] === Job.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the job identity details
      */
@@ -86,11 +90,13 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.importexport.jobDetailsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

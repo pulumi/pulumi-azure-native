@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified Content Filters associated with the Azure OpenAI account.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<GetRaiPolicyResult> InvokeAsync(GetRaiPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiPolicyResult>("azure-native:cognitiveservices:getRaiPolicy", args ?? new GetRaiPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Content Filters associated with the Azure OpenAI account.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Content Filters associated with the Azure OpenAI account.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<GetRaiPolicyResult> Invoke(GetRaiPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiPolicyResult>("azure-native:cognitiveservices:getRaiPolicy", args ?? new GetRaiPolicyInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.CognitiveServices
     public sealed class GetRaiPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
         [OutputConstructor]
         private GetRaiPolicyResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

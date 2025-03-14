@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the value of the shared key of VpnLink connection specified.
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function listVpnLinkConnectionDefaultSharedKey(args: ListVpnLinkConnectionDefaultSharedKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListVpnLinkConnectionDefaultSharedKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -65,9 +63,7 @@ export interface ListVpnLinkConnectionDefaultSharedKeyResult {
 }
 /**
  * Gets the value of the shared key of VpnLink connection specified.
- * Azure REST API version: 2024-03-01.
- *
- * Other available API versions: 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function listVpnLinkConnectionDefaultSharedKeyOutput(args: ListVpnLinkConnectionDefaultSharedKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListVpnLinkConnectionDefaultSharedKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

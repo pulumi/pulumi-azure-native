@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Status of a managed network Outbound Rule of a machine learning workspace.
+        /// Type of a managed network Outbound Rule of a machine learning workspace.
         /// </summary>
         [Input("status")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.RuleStatus>? Status { get; set; }

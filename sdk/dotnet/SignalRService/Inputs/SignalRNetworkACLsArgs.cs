@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.SignalRService.Inputs
         [Input("defaultAction")]
         public InputUnion<string, Pulumi.AzureNative.SignalRService.ACLAction>? DefaultAction { get; set; }
 
+        [Input("ipRules")]
+        private InputList<Inputs.IPRuleArgs>? _ipRules;
+
+        /// <summary>
+        /// IP rules for filtering public traffic
+        /// </summary>
+        public InputList<Inputs.IPRuleArgs> IpRules
+        {
+            get => _ipRules ?? (_ipRules = new InputList<Inputs.IPRuleArgs>());
+            set => _ipRules = value;
+        }
+
         [Input("privateEndpoints")]
         private InputList<Inputs.PrivateEndpointACLArgs>? _privateEndpoints;
 

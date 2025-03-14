@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly int? AllocatedOutboundPorts;
         /// <summary>
+        /// The type of the managed inbound Load Balancer BackendPool.
+        /// </summary>
+        public readonly string? BackendPoolType;
+        /// <summary>
         /// The effective outbound IP resources of the cluster load balancer.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceResponse> EffectiveOutboundIPs;
@@ -49,6 +53,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private ManagedClusterLoadBalancerProfileResponse(
             int? allocatedOutboundPorts,
 
+            string? backendPoolType,
+
             ImmutableArray<Outputs.ResourceReferenceResponse> effectiveOutboundIPs,
 
             bool? enableMultipleStandardLoadBalancers,
@@ -62,6 +68,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             Outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPs? outboundIPs)
         {
             AllocatedOutboundPorts = allocatedOutboundPorts;
+            BackendPoolType = backendPoolType;
             EffectiveOutboundIPs = effectiveOutboundIPs;
             EnableMultipleStandardLoadBalancers = enableMultipleStandardLoadBalancers;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;

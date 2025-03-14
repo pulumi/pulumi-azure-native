@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// List predefined URL categories for rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<ListGlobalRulestackPredefinedUrlCategoriesResult> InvokeAsync(ListGlobalRulestackPredefinedUrlCategoriesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListGlobalRulestackPredefinedUrlCategoriesResult>("azure-native:cloudngfw:listGlobalRulestackPredefinedUrlCategories", args ?? new ListGlobalRulestackPredefinedUrlCategoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// List predefined URL categories for rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListGlobalRulestackPredefinedUrlCategoriesResult> Invoke(ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackPredefinedUrlCategoriesResult>("azure-native:cloudngfw:listGlobalRulestackPredefinedUrlCategories", args ?? new ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List predefined URL categories for rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListGlobalRulestackPredefinedUrlCategoriesResult> Invoke(ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListGlobalRulestackPredefinedUrlCategoriesResult>("azure-native:cloudngfw:listGlobalRulestackPredefinedUrlCategories", args ?? new ListGlobalRulestackPredefinedUrlCategoriesInvokeArgs(), options.WithDefaults());

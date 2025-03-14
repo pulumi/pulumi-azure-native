@@ -64,14 +64,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         }
 
         /// <summary>
-        /// Gets or sets the name of the table the connector will insert the data to.
-        /// This name can be used in other queries by specifying {{graphQueriesTableName}} placeholder
-        ///  in Query and LastDataReceivedQuery values.
-        /// </summary>
-        [Input("graphQueriesTableName")]
-        public Input<string>? GraphQueriesTableName { get; set; }
-
-        /// <summary>
         /// Gets or sets custom connector id. optional field.
         /// </summary>
         [Input("id")]
@@ -113,18 +105,6 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// </summary>
         [Input("publisher", required: true)]
         public Input<string> Publisher { get; set; } = null!;
-
-        [Input("sampleQueries", required: true)]
-        private InputList<Inputs.SampleQueryArgs>? _sampleQueries;
-
-        /// <summary>
-        /// Gets or sets the sample queries for the connector.
-        /// </summary>
-        public InputList<Inputs.SampleQueryArgs> SampleQueries
-        {
-            get => _sampleQueries ?? (_sampleQueries = new InputList<Inputs.SampleQueryArgs>());
-            set => _sampleQueries = value;
-        }
 
         /// <summary>
         /// Gets or sets the connector blade title.

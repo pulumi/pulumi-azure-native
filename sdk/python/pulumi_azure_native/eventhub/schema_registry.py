@@ -126,9 +126,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Schema Group operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,9 +143,7 @@ class SchemaRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Schema Group operation
-        Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview.
-
-        Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryArgs args: The arguments to use to populate this resource's properties.
@@ -189,6 +185,7 @@ class SchemaRegistry(pulumi.CustomResource):
             __props__.__dict__["schema_compatibility"] = schema_compatibility
             __props__.__dict__["schema_group_name"] = schema_group_name
             __props__.__dict__["schema_type"] = schema_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_at_utc"] = None
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["location"] = None
@@ -220,6 +217,7 @@ class SchemaRegistry(pulumi.CustomResource):
 
         __props__ = SchemaRegistryArgs.__new__(SchemaRegistryArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_at_utc"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["group_properties"] = None
@@ -231,6 +229,14 @@ class SchemaRegistry(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_at_utc"] = None
         return SchemaRegistry(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAtUtc")

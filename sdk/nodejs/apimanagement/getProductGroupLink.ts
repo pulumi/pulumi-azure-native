@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the group link for the product.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getProductGroupLink(args: GetProductGroupLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetProductGroupLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetProductGroupLinkArgs {
  */
 export interface GetProductGroupLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Full resource Id of a group.
      */
     readonly groupId: string;
@@ -63,8 +65,6 @@ export interface GetProductGroupLinkResult {
 /**
  * Gets the group link for the product.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getProductGroupLinkOutput(args: GetProductGroupLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProductGroupLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

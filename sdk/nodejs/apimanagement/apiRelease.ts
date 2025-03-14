@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * ApiRelease details.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class ApiRelease extends pulumi.CustomResource {
      * Identifier of the API the release belongs to.
      */
     public readonly apiId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
      */
@@ -87,12 +89,14 @@ export class ApiRelease extends pulumi.CustomResource {
             resourceInputs["releaseId"] = args ? args.releaseId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedDateTime"] = undefined /*out*/;
         } else {
             resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notes"] = undefined /*out*/;

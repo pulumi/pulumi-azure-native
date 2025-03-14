@@ -8,11 +8,3 @@ import typing
 from .authority import *
 from .get_authority import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.verifiedid.v20240126preview as __v20240126preview
-    v20240126preview = __v20240126preview
-else:
-    v20240126preview = _utilities.lazy_import('pulumi_azure_native.verifiedid.v20240126preview')
-

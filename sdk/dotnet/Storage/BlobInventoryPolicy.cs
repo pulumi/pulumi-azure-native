@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The storage account blob inventory policy.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Returns the last modified date and time of the blob inventory policy.
         /// </summary>

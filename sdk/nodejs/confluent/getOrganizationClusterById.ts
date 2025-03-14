@@ -45,6 +45,10 @@ export interface GetOrganizationClusterByIdArgs {
  */
 export interface GetOrganizationClusterByIdResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Id of the cluster
      */
     readonly id?: string;

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
         /// </summary>
         public readonly string LedgerName;
         /// <summary>
+        /// SKU associated with the ledger
+        /// </summary>
+        public readonly string? LedgerSku;
+        /// <summary>
         /// Type of Confidential Ledger
         /// </summary>
         public readonly string? LedgerType;
@@ -48,6 +52,10 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
         /// Provisioning state of Ledger Resource
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Object representing RunningState for Ledger.
+        /// </summary>
+        public readonly string? RunningState;
 
         [OutputConstructor]
         private LedgerPropertiesResponse(
@@ -61,20 +69,26 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Outputs
 
             string ledgerName,
 
+            string? ledgerSku,
+
             string? ledgerType,
 
             string ledgerUri,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? runningState)
         {
             AadBasedSecurityPrincipals = aadBasedSecurityPrincipals;
             CertBasedSecurityPrincipals = certBasedSecurityPrincipals;
             IdentityServiceUri = identityServiceUri;
             LedgerInternalNamespace = ledgerInternalNamespace;
             LedgerName = ledgerName;
+            LedgerSku = ledgerSku;
             LedgerType = ledgerType;
             LedgerUri = ledgerUri;
             ProvisioningState = provisioningState;
+            RunningState = runningState;
         }
     }
 }

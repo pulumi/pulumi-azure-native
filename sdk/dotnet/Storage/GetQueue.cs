@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the queue with the specified queue name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the queue with the specified queue name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the queue with the specified queue name, under the specified account if it exists.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:storage:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly int ApproximateMessageCount;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -121,6 +119,8 @@ namespace Pulumi.AzureNative.Storage
         private GetQueueResult(
             int approximateMessageCount,
 
+            string azureApiVersion,
+
             string id,
 
             ImmutableDictionary<string, string>? metadata,
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Storage
             string type)
         {
             ApproximateMessageCount = approximateMessageCount;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Metadata = metadata;
             Name = name;

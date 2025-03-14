@@ -30,13 +30,16 @@ class GetCloudServicesNetworkResult:
     of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     virtual machines and/or Hybrid AKS clusters.
     """
-    def __init__(__self__, additional_egress_endpoints=None, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, enable_default_egress_endpoints=None, enabled_egress_endpoints=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, id=None, interface_name=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+    def __init__(__self__, additional_egress_endpoints=None, associated_resource_ids=None, azure_api_version=None, cluster_id=None, detailed_status=None, detailed_status_message=None, enable_default_egress_endpoints=None, enabled_egress_endpoints=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, id=None, interface_name=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
         if additional_egress_endpoints and not isinstance(additional_egress_endpoints, list):
             raise TypeError("Expected argument 'additional_egress_endpoints' to be a list")
         pulumi.set(__self__, "additional_egress_endpoints", additional_egress_endpoints)
         if associated_resource_ids and not isinstance(associated_resource_ids, list):
             raise TypeError("Expected argument 'associated_resource_ids' to be a list")
         pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -101,6 +104,14 @@ class GetCloudServicesNetworkResult:
         The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
         """
         return pulumi.get(self, "associated_resource_ids")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -239,6 +250,7 @@ class AwaitableGetCloudServicesNetworkResult(GetCloudServicesNetworkResult):
         return GetCloudServicesNetworkResult(
             additional_egress_endpoints=self.additional_egress_endpoints,
             associated_resource_ids=self.associated_resource_ids,
+            azure_api_version=self.azure_api_version,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -262,9 +274,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServicesNetworkResult:
     """
     Get properties of the provided cloud services network.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -279,6 +289,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
     return AwaitableGetCloudServicesNetworkResult(
         additional_egress_endpoints=pulumi.get(__ret__, 'additional_egress_endpoints'),
         associated_resource_ids=pulumi.get(__ret__, 'associated_resource_ids'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
@@ -300,9 +311,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudServicesNetworkResult]:
     """
     Get properties of the provided cloud services network.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -316,6 +325,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
     return __ret__.apply(lambda __response__: GetCloudServicesNetworkResult(
         additional_egress_endpoints=pulumi.get(__response__, 'additional_egress_endpoints'),
         associated_resource_ids=pulumi.get(__response__, 'associated_resource_ids'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),

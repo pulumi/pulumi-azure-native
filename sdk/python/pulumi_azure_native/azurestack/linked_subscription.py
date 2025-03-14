@@ -116,7 +116,7 @@ class LinkedSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Linked Subscription information.
-        Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 1.x: 2020-06-01-preview.
+        Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 2.x: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class LinkedSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linked Subscription information.
-        Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 1.x: 2020-06-01-preview.
+        Azure REST API version: 2020-06-01-preview. Prior API version in Azure Native 2.x: 2020-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LinkedSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -176,6 +176,7 @@ class LinkedSubscription(pulumi.CustomResource):
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__.__dict__["resource_group"] = resource_group
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["device_connection_status"] = None
             __props__.__dict__["device_id"] = None
             __props__.__dict__["device_link_state"] = None
@@ -211,6 +212,7 @@ class LinkedSubscription(pulumi.CustomResource):
 
         __props__ = LinkedSubscriptionArgs.__new__(LinkedSubscriptionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["device_connection_status"] = None
         __props__.__dict__["device_id"] = None
         __props__.__dict__["device_link_state"] = None
@@ -226,6 +228,14 @@ class LinkedSubscription(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return LinkedSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deviceConnectionStatus")

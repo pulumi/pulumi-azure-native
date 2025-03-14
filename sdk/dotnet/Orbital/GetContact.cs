@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified contact in a specified resource group.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.Orbital
         /// The configuration associated with the allocated antenna.
         /// </summary>
         public readonly Outputs.ContactsPropertiesResponseAntennaConfiguration AntennaConfiguration;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The reference to the contact profile resource.
         /// </summary>
@@ -181,6 +179,8 @@ namespace Pulumi.AzureNative.Orbital
         private GetContactResult(
             Outputs.ContactsPropertiesResponseAntennaConfiguration antennaConfiguration,
 
+            string azureApiVersion,
+
             Outputs.ContactsPropertiesResponseContactProfile contactProfile,
 
             double endAzimuthDegrees,
@@ -220,6 +220,7 @@ namespace Pulumi.AzureNative.Orbital
             string type)
         {
             AntennaConfiguration = antennaConfiguration;
+            AzureApiVersion = azureApiVersion;
             ContactProfile = contactProfile;
             EndAzimuthDegrees = endAzimuthDegrees;
             EndElevationDegrees = endElevationDegrees;

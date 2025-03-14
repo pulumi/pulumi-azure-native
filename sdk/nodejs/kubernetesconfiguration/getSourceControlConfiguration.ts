@@ -50,6 +50,10 @@ export interface GetSourceControlConfigurationArgs {
  */
 export interface GetSourceControlConfigurationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Compliance Status of the Configuration
      */
     readonly complianceStatus: outputs.kubernetesconfiguration.ComplianceStatusResponse;

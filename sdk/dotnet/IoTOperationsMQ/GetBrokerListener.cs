@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         public readonly bool? AuthorizationEnabled;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The k8s cr/resource reference of mq/broker.
         /// </summary>
         public readonly string BrokerRef;
@@ -173,6 +177,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 
             bool? authorizationEnabled,
 
+            string azureApiVersion,
+
             string brokerRef,
 
             Outputs.ExtendedLocationPropertyResponse extendedLocation,
@@ -203,6 +209,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         {
             AuthenticationEnabled = authenticationEnabled;
             AuthorizationEnabled = authorizationEnabled;
+            AzureApiVersion = azureApiVersion;
             BrokerRef = brokerRef;
             ExtendedLocation = extendedLocation;
             Id = id;

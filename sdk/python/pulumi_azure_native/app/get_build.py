@@ -27,7 +27,10 @@ class GetBuildResult:
     """
     Information pertaining to an individual build.
     """
-    def __init__(__self__, build_status=None, configuration=None, destination_container_registry=None, id=None, log_stream_endpoint=None, name=None, provisioning_state=None, system_data=None, token_endpoint=None, type=None, upload_endpoint=None):
+    def __init__(__self__, azure_api_version=None, build_status=None, configuration=None, destination_container_registry=None, id=None, log_stream_endpoint=None, name=None, provisioning_state=None, system_data=None, token_endpoint=None, type=None, upload_endpoint=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if build_status and not isinstance(build_status, str):
             raise TypeError("Expected argument 'build_status' to be a str")
         pulumi.set(__self__, "build_status", build_status)
@@ -63,6 +66,14 @@ class GetBuildResult:
         pulumi.set(__self__, "upload_endpoint", upload_endpoint)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="buildStatus")
     def build_status(self) -> str:
         """
@@ -90,7 +101,7 @@ class GetBuildResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -157,6 +168,7 @@ class AwaitableGetBuildResult(GetBuildResult):
         if False:
             yield self
         return GetBuildResult(
+            azure_api_version=self.azure_api_version,
             build_status=self.build_status,
             configuration=self.configuration,
             destination_container_registry=self.destination_container_registry,
@@ -176,9 +188,7 @@ def get_build(build_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildResult:
     """
     Get a BuildResource
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str build_name: The name of a build.
@@ -193,6 +203,7 @@ def get_build(build_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getBuild', __args__, opts=opts, typ=GetBuildResult).value
 
     return AwaitableGetBuildResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         build_status=pulumi.get(__ret__, 'build_status'),
         configuration=pulumi.get(__ret__, 'configuration'),
         destination_container_registry=pulumi.get(__ret__, 'destination_container_registry'),
@@ -210,9 +221,7 @@ def get_build_output(build_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
     """
     Get a BuildResource
-    Azure REST API version: 2023-08-01-preview.
-
-    Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-10-02-preview.
 
 
     :param str build_name: The name of a build.
@@ -226,6 +235,7 @@ def get_build_output(build_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getBuild', __args__, opts=opts, typ=GetBuildResult)
     return __ret__.apply(lambda __response__: GetBuildResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         build_status=pulumi.get(__response__, 'build_status'),
         configuration=pulumi.get(__response__, 'configuration'),
         destination_container_registry=pulumi.get(__response__, 'destination_container_registry'),

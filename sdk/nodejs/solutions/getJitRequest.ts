@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the JIT request.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getJitRequest(args: GetJitRequestArgs, opts?: pulumi.InvokeOptions): Promise<GetJitRequestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetJitRequestResult {
      * The parent application id.
      */
     readonly applicationResourceId: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The client entity that created the JIT request.
      */
@@ -96,8 +98,6 @@ export interface GetJitRequestResult {
 /**
  * Gets the JIT request.
  * Azure REST API version: 2021-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
  */
 export function getJitRequestOutput(args: GetJitRequestOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJitRequestResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

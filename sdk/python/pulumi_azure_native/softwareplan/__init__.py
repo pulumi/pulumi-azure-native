@@ -9,11 +9,3 @@ from .get_hybrid_use_benefit import *
 from .hybrid_use_benefit import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.softwareplan.v20191201 as __v20191201
-    v20191201 = __v20191201
-else:
-    v20191201 = _utilities.lazy_import('pulumi_azure_native.softwareplan.v20191201')
-

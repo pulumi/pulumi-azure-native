@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// Value object for saved search results.
-    /// Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
-    /// 
-    /// Other available API versions: 2023-09-01.
+    /// Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:SavedSearch")]
     public partial class SavedSearch : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The category of the saved search. This helps the user to find a saved search faster. 
         /// </summary>

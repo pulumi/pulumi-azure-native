@@ -70,6 +70,10 @@ namespace Pulumi.AzureNative.Security
         /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         /// </summary>
         public readonly string AssessmentType;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly ImmutableArray<string> Categories;
         /// <summary>
         /// Human readable description of the assessment
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.Security
         private GetAssessmentMetadataInSubscriptionResult(
             string assessmentType,
 
+            string azureApiVersion,
+
             ImmutableArray<string> categories,
 
             string? description,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNative.Security
             string? userImpact)
         {
             AssessmentType = assessmentType;
+            AzureApiVersion = azureApiVersion;
             Categories = categories;
             Description = description;
             DisplayName = displayName;

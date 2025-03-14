@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level storage insight resource container.
- * Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
  */
 export class StorageInsightConfig extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageInsightConfig.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The names of the blob containers that the workspace should read
      */
@@ -101,10 +103,12 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             resourceInputs["tables"] = args ? args.tables : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

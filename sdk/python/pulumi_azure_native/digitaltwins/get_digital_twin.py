@@ -27,7 +27,10 @@ class GetDigitalTwinResult:
     """
     The description of the DigitalTwins service.
     """
-    def __init__(__self__, created_time=None, host_name=None, id=None, identity=None, last_updated_time=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_time=None, host_name=None, id=None, identity=None, last_updated_time=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -67,6 +70,14 @@ class GetDigitalTwinResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -179,6 +190,7 @@ class AwaitableGetDigitalTwinResult(GetDigitalTwinResult):
         if False:
             yield self
         return GetDigitalTwinResult(
+            azure_api_version=self.azure_api_version,
             created_time=self.created_time,
             host_name=self.host_name,
             id=self.id,
@@ -212,6 +224,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:digitaltwins:getDigitalTwin', __args__, opts=opts, typ=GetDigitalTwinResult).value
 
     return AwaitableGetDigitalTwinResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_time=pulumi.get(__ret__, 'created_time'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -242,6 +255,7 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:digitaltwins:getDigitalTwin', __args__, opts=opts, typ=GetDigitalTwinResult)
     return __ret__.apply(lambda __response__: GetDigitalTwinResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_time=pulumi.get(__response__, 'created_time'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),

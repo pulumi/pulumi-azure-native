@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
 {
 
     /// <summary>
-    /// layer2Configuration
+    /// Common properties for Layer2 Configuration.
     /// </summary>
     [OutputType]
     public sealed class Layer2ConfigurationResponse
@@ -23,23 +23,16 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Outputs
         /// <summary>
         /// MTU of the packets between PE &amp; CE.
         /// </summary>
-        public readonly int Mtu;
-        /// <summary>
-        /// Number of ports connected between PE/CE. Maximum value depends on FabricSKU.
-        /// </summary>
-        public readonly int? PortCount;
+        public readonly int? Mtu;
 
         [OutputConstructor]
         private Layer2ConfigurationResponse(
             ImmutableArray<string> interfaces,
 
-            int mtu,
-
-            int? portCount)
+            int? mtu)
         {
             Interfaces = interfaces;
             Mtu = mtu;
-            PortCount = portCount;
         }
     }
 }

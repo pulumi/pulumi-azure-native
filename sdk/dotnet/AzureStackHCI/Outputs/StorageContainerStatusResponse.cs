@@ -32,7 +32,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        public readonly Outputs.StorageContainerStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Storage container's provisioning status
+        /// </summary>
+        public readonly Outputs.StorageContainerStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private StorageContainerStatusResponse(
@@ -44,7 +47,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? errorMessage,
 
-            Outputs.StorageContainerStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.StorageContainerStatusProvisioningStatusResponse? provisioningStatus)
         {
             AvailableSizeMB = availableSizeMB;
             ContainerSizeMB = containerSizeMB;

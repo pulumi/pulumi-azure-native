@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified ground station in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetGroundStationResult> InvokeAsync(GetGroundStationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroundStationResult>("azure-native:orbital:getGroundStation", args ?? new GetGroundStationArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified ground station in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified ground station in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetGroundStationResult> Invoke(GetGroundStationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroundStationResult>("azure-native:orbital:getGroundStation", args ?? new GetGroundStationInvokeArgs(), options.WithDefaults());
@@ -88,6 +82,10 @@ namespace Pulumi.AzureNative.Orbital
         /// Altitude of the ground station.
         /// </summary>
         public readonly double? AltitudeMeters;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Ground station capabilities.
         /// </summary>
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.Orbital
         private GetGroundStationResult(
             double? altitudeMeters,
 
+            string azureApiVersion,
+
             ImmutableArray<string> capabilities,
 
             string? city,
@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Orbital
             string type)
         {
             AltitudeMeters = altitudeMeters;
+            AzureApiVersion = azureApiVersion;
             Capabilities = capabilities;
             City = city;
             GlobalCommunicationsSite = globalCommunicationsSite;

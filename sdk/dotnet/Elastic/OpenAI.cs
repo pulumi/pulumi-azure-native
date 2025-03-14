@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Elastic
 {
     /// <summary>
     /// Capture properties of Open AI resource Integration.
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-01-01-preview, 2024-05-01-preview, 2024-06-15-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:OpenAI")]
     public partial class OpenAI : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Name of the integration.
         /// </summary>

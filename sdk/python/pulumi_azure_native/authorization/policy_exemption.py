@@ -221,7 +221,7 @@ class PolicyExemption(pulumi.CustomResource):
                  __props__=None):
         """
         The policy exemption.
-        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,7 +245,7 @@ class PolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy exemption.
-        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PolicyExemptionArgs args: The arguments to use to populate this resource's properties.
@@ -301,6 +301,7 @@ class PolicyExemption(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -329,6 +330,7 @@ class PolicyExemption(pulumi.CustomResource):
         __props__ = PolicyExemptionArgs.__new__(PolicyExemptionArgs)
 
         __props__.__dict__["assignment_scope_validation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["exemption_category"] = None
@@ -349,6 +351,14 @@ class PolicyExemption(pulumi.CustomResource):
         The option whether validate the exemption is at or under the assignment scope.
         """
         return pulumi.get(self, "assignment_scope_validation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

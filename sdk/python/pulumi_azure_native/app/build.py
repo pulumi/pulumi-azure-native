@@ -117,9 +117,7 @@ class Build(pulumi.CustomResource):
                  __props__=None):
         """
         Information pertaining to an individual build.
-        Azure REST API version: 2023-08-01-preview.
-
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class Build(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information pertaining to an individual build.
-        Azure REST API version: 2023-08-01-preview.
-
-        Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+        Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BuildArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +175,7 @@ class Build(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["build_status"] = None
             __props__.__dict__["log_stream_endpoint"] = None
             __props__.__dict__["name"] = None
@@ -211,6 +208,7 @@ class Build(pulumi.CustomResource):
 
         __props__ = BuildArgs.__new__(BuildArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["build_status"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["destination_container_registry"] = None
@@ -222,6 +220,14 @@ class Build(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["upload_endpoint"] = None
         return Build(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="buildStatus")

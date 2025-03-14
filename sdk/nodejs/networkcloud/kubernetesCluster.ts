@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
@@ -56,6 +54,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly availableUpgrades!: pulumi.Output<outputs.networkcloud.AvailableUpgradeResponse[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The resource ID of the Network Cloud cluster.
      */
     public /*out*/ readonly clusterId!: pulumi.Output<string>;
@@ -92,7 +94,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly initialAgentPoolConfigurations!: pulumi.Output<outputs.networkcloud.InitialAgentPoolConfigurationResponse[]>;
     /**
-     * The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+     * The Kubernetes version for this cluster.
      */
     public readonly kubernetesVersion!: pulumi.Output<string>;
     /**
@@ -175,6 +177,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["attachedNetworkIds"] = undefined /*out*/;
             resourceInputs["availableUpgrades"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["connectedClusterId"] = undefined /*out*/;
             resourceInputs["controlPlaneKubernetesVersion"] = undefined /*out*/;
@@ -191,6 +194,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["administratorConfiguration"] = undefined /*out*/;
             resourceInputs["attachedNetworkIds"] = undefined /*out*/;
             resourceInputs["availableUpgrades"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["connectedClusterId"] = undefined /*out*/;
             resourceInputs["controlPlaneKubernetesVersion"] = undefined /*out*/;
@@ -247,7 +251,7 @@ export interface KubernetesClusterArgs {
      */
     kubernetesClusterName?: pulumi.Input<string>;
     /**
-     * The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.
+     * The Kubernetes version for this cluster.
      */
     kubernetesVersion: pulumi.Input<string>;
     /**

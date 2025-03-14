@@ -25,9 +25,13 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identityType which can be either SystemAssigned or None
+        /// The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Gets or sets the user assigned identities.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private DppIdentityDetailsResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             string tenantId,
 
-            string? type)
+            string? type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

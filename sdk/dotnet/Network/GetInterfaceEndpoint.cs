@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetInterfaceEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A reference to the service being brought into the virtual network.
         /// </summary>
         public readonly Outputs.EndpointServiceResponse? EndpointService;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetInterfaceEndpointResult(
+            string azureApiVersion,
+
             Outputs.EndpointServiceResponse? endpointService,
 
             string? etag,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndpointService = endpointService;
             Etag = etag;
             Fqdn = fqdn;

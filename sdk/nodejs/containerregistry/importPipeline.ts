@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents an import pipeline for a container registry.
- * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
  */
 export class ImportPipeline extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ImportPipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImportPipeline.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the import pipeline.
      */
@@ -105,11 +107,13 @@ export class ImportPipeline extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["source"] = args ? (args.source ? pulumi.output(args.source).apply(inputs.containerregistry.importPipelineSourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.pipelineTriggerPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

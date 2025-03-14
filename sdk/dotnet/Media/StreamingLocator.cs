@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Streaming Locator resource
-    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
-    /// 
-    /// Other available API versions: 2018-03-30-preview.
+    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:media:StreamingLocator")]
     public partial class StreamingLocator : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Output("assetName")]
         public Output<string> AssetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ContentKeys used by this Streaming Locator.

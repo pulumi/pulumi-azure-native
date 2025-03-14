@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountSessionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The changed time.
         /// </summary>
         public readonly string ChangedTime;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountSessionResult(
+            string azureApiVersion,
+
             string changedTime,
 
             object? content,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ChangedTime = changedTime;
             Content = content;
             CreatedTime = createdTime;

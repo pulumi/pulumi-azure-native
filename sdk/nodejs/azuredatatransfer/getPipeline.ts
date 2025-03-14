@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets pipeline resource.
- * Azure REST API version: 2023-10-11-preview.
- *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Azure REST API version: 2024-09-27.
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetPipelineArgs {
  * The pipeline resource definition.
  */
 export interface GetPipelineResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -67,9 +69,7 @@ export interface GetPipelineResult {
 }
 /**
  * Gets pipeline resource.
- * Azure REST API version: 2023-10-11-preview.
- *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Azure REST API version: 2024-09-27.
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

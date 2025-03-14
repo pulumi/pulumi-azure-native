@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetResourceManagementPrivateLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The rmplResourceID.
         /// </summary>
         public readonly string Id;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetResourceManagementPrivateLinkResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

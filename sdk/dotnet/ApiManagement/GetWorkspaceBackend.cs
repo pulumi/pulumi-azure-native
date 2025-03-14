@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Task<GetWorkspaceBackendResult> InvokeAsync(GetWorkspaceBackendArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceBackendResult>("azure-native:apimanagement:getWorkspaceBackend", args ?? new GetWorkspaceBackendArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceBackendResult> Invoke(GetWorkspaceBackendInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceBackendResult>("azure-native:apimanagement:getWorkspaceBackend", args ?? new GetWorkspaceBackendInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the backend specified by its identifier.
-        /// Azure REST API version: 2023-09-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetWorkspaceBackendResult> Invoke(GetWorkspaceBackendInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceBackendResult>("azure-native:apimanagement:getWorkspaceBackend", args ?? new GetWorkspaceBackendInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetWorkspaceBackendResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Backend Circuit Breaker Configuration
         /// </summary>
         public readonly Outputs.BackendCircuitBreakerResponse? CircuitBreaker;
@@ -164,6 +162,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetWorkspaceBackendResult(
+            string azureApiVersion,
+
             Outputs.BackendCircuitBreakerResponse? circuitBreaker,
 
             Outputs.BackendCredentialsContractResponse? credentials,
@@ -192,6 +192,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string url)
         {
+            AzureApiVersion = azureApiVersion;
             CircuitBreaker = circuitBreaker;
             Credentials = credentials;
             Description = description;

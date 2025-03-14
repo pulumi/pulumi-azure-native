@@ -85,6 +85,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
         /// </summary>
         public readonly string? RequirementId;
         /// <summary>
+        /// The schema URIs for this connection
+        /// </summary>
+        public readonly ImmutableArray<string> SchemaUris;
+        /// <summary>
         /// The schemas for this connection
         /// </summary>
         public readonly ImmutableArray<Outputs.SchemaResponse> Schemas;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
 
             string? requirementId,
 
+            ImmutableArray<string> schemaUris,
+
             ImmutableArray<Outputs.SchemaResponse> schemas,
 
             ImmutableArray<string> secondaryContacts,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer.Outputs
             ProvisioningState = provisioningState;
             RemoteSubscriptionId = remoteSubscriptionId;
             RequirementId = requirementId;
+            SchemaUris = schemaUris;
             Schemas = schemas;
             SecondaryContacts = secondaryContacts;
             Status = status;

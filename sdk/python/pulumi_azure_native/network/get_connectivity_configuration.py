@@ -27,10 +27,13 @@ class GetConnectivityConfigurationResult:
     """
     The network manager connectivity configuration resource
     """
-    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, azure_api_version=None, connectivity_topology=None, delete_existing_peering=None, description=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connectivity_topology and not isinstance(connectivity_topology, str):
             raise TypeError("Expected argument 'connectivity_topology' to be a str")
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
@@ -75,6 +78,14 @@ class GetConnectivityConfigurationResult:
         Groups for configuration
         """
         return pulumi.get(self, "applies_to_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectivityTopology")
@@ -180,6 +191,7 @@ class AwaitableGetConnectivityConfigurationResult(GetConnectivityConfigurationRe
             yield self
         return GetConnectivityConfigurationResult(
             applies_to_groups=self.applies_to_groups,
+            azure_api_version=self.azure_api_version,
             connectivity_topology=self.connectivity_topology,
             delete_existing_peering=self.delete_existing_peering,
             description=self.description,
@@ -200,9 +212,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectivityConfigurationResult:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.
@@ -218,6 +228,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
 
     return AwaitableGetConnectivityConfigurationResult(
         applies_to_groups=pulumi.get(__ret__, 'applies_to_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connectivity_topology=pulumi.get(__ret__, 'connectivity_topology'),
         delete_existing_peering=pulumi.get(__ret__, 'delete_existing_peering'),
         description=pulumi.get(__ret__, 'description'),
@@ -236,9 +247,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-02-01-preview, 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.
@@ -253,6 +262,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getConnectivityConfiguration', __args__, opts=opts, typ=GetConnectivityConfigurationResult)
     return __ret__.apply(lambda __response__: GetConnectivityConfigurationResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connectivity_topology=pulumi.get(__response__, 'connectivity_topology'),
         delete_existing_peering=pulumi.get(__response__, 'delete_existing_peering'),
         description=pulumi.get(__response__, 'description'),

@@ -169,43 +169,6 @@ utilities.lazyLoad(exports, ["ViewByScope"], () => require("./viewByScope"));
 // Export enums:
 export * from "../types/enums/costmanagement";
 
-// Export sub-modules:
-import * as v20180801preview from "./v20180801preview";
-import * as v20190301preview from "./v20190301preview";
-import * as v20190401preview from "./v20190401preview";
-import * as v20191001 from "./v20191001";
-import * as v20191101 from "./v20191101";
-import * as v20200301preview from "./v20200301preview";
-import * as v20200601 from "./v20200601";
-import * as v20221001 from "./v20221001";
-import * as v20221005preview from "./v20221005preview";
-import * as v20230301 from "./v20230301";
-import * as v20230401preview from "./v20230401preview";
-import * as v20230701preview from "./v20230701preview";
-import * as v20230801 from "./v20230801";
-import * as v20230901 from "./v20230901";
-import * as v20231101 from "./v20231101";
-import * as v20240801 from "./v20240801";
-
-export {
-    v20180801preview,
-    v20190301preview,
-    v20190401preview,
-    v20191001,
-    v20191101,
-    v20200301preview,
-    v20200601,
-    v20221001,
-    v20221005preview,
-    v20230301,
-    v20230401preview,
-    v20230701preview,
-    v20230801,
-    v20230901,
-    v20231101,
-    v20240801,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

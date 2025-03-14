@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the virtualMachineTemplate.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualMachineTemplate.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
@@ -111,7 +113,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly osType!: pulumi.Output<string>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -170,6 +172,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
             resourceInputs["virtualMachineTemplateName"] = args ? args.virtualMachineTemplateName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["disks"] = undefined /*out*/;
             resourceInputs["firmwareType"] = undefined /*out*/;
@@ -190,6 +193,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["disks"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;

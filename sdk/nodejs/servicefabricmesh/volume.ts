@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This type describes a volume resource.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Volume extends pulumi.CustomResource {
         return obj['__pulumiType'] === Volume.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * This type describes a volume provided by an Azure Files file share.
      */
@@ -103,12 +107,14 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumeResourceName"] = args ? args.volumeResourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureFileParameters"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

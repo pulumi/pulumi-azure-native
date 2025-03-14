@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAPICollectionByAzureApiManagementServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The base URI for this API collection. All endpoints of this API collection extend this base URI.
         /// </summary>
         public readonly string BaseUrl;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetAPICollectionByAzureApiManagementServiceResult(
+            string azureApiVersion,
+
             string baseUrl,
 
             string discoveredVia,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BaseUrl = baseUrl;
             DiscoveredVia = discoveredVia;
             DisplayName = displayName;

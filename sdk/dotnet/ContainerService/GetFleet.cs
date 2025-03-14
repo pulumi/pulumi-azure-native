@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Task<GetFleetResult> InvokeAsync(GetFleetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Fleet.
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("azure-native:containerservice:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetFleetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string ETag;
@@ -96,6 +94,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Managed identity.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -123,11 +125,15 @@ namespace Pulumi.AzureNative.ContainerService
 
         [OutputConstructor]
         private GetFleetResult(
+            string azureApiVersion,
+
             string eTag,
 
             Outputs.FleetHubProfileResponse? hubProfile,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -141,9 +147,11 @@ namespace Pulumi.AzureNative.ContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             HubProfile = hubProfile;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

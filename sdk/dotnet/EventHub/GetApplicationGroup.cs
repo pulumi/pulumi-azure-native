@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets an ApplicationGroup for a Namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an ApplicationGroup for a Namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an ApplicationGroup for a Namespace.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:eventhub:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetApplicationGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
         /// </summary>
         public readonly string ClientAppGroupIdentifier;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.EventHub
 
         [OutputConstructor]
         private GetApplicationGroupResult(
+            string azureApiVersion,
+
             string clientAppGroupIdentifier,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.EventHub
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClientAppGroupIdentifier = clientAppGroupIdentifier;
             Id = id;
             IsEnabled = isEnabled;

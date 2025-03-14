@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An application type version resource for the specified application type name resource.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  */
 export class ManagedClusterApplicationTypeVersion extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class ManagedClusterApplicationTypeVersion extends pulumi.CustomResource 
      * The URL to the application package
      */
     public readonly appPackageUrl!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location depends on the parent resource.
      */
@@ -99,12 +101,14 @@ export class ManagedClusterApplicationTypeVersion extends pulumi.CustomResource 
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["appPackageUrl"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

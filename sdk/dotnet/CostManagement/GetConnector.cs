@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Collection information
         /// </summary>
         public readonly Outputs.ConnectorCollectionInfoResponse Collection;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetConnectorResult(
+            string azureApiVersion,
+
             Outputs.ConnectorCollectionInfoResponse collection,
 
             string createdOn,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Collection = collection;
             CreatedOn = createdOn;
             CredentialsKey = credentialsKey;

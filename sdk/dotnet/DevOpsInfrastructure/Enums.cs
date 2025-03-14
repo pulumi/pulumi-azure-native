@@ -8,6 +8,203 @@ using Pulumi;
 namespace Pulumi.AzureNative.DevOpsInfrastructure
 {
     /// <summary>
+    /// Determines who has admin permissions to the Azure DevOps pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureDevOpsPermissionType : IEquatable<AzureDevOpsPermissionType>
+    {
+        private readonly string _value;
+
+        private AzureDevOpsPermissionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Pool will inherit permissions from the project or organization.
+        /// </summary>
+        public static AzureDevOpsPermissionType Inherit { get; } = new AzureDevOpsPermissionType("Inherit");
+        /// <summary>
+        /// Only the pool creator will be an admin of the pool.
+        /// </summary>
+        public static AzureDevOpsPermissionType CreatorOnly { get; } = new AzureDevOpsPermissionType("CreatorOnly");
+        /// <summary>
+        /// Only the specified accounts will be admins of the pool.
+        /// </summary>
+        public static AzureDevOpsPermissionType SpecificAccounts { get; } = new AzureDevOpsPermissionType("SpecificAccounts");
+
+        public static bool operator ==(AzureDevOpsPermissionType left, AzureDevOpsPermissionType right) => left.Equals(right);
+        public static bool operator !=(AzureDevOpsPermissionType left, AzureDevOpsPermissionType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureDevOpsPermissionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureDevOpsPermissionType other && Equals(other);
+        public bool Equals(AzureDevOpsPermissionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+    /// </summary>
+    [EnumType]
+    public readonly struct CachingType : IEquatable<CachingType>
+    {
+        private readonly string _value;
+
+        private CachingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Don't use host caching.
+        /// </summary>
+        public static CachingType None { get; } = new CachingType("None");
+        /// <summary>
+        /// For workloads that only do read operations.
+        /// </summary>
+        public static CachingType ReadOnly { get; } = new CachingType("ReadOnly");
+        /// <summary>
+        /// For workloads that do a balance of read and write operations.
+        /// </summary>
+        public static CachingType ReadWrite { get; } = new CachingType("ReadWrite");
+
+        public static bool operator ==(CachingType left, CachingType right) => left.Equals(right);
+        public static bool operator !=(CachingType left, CachingType right) => !left.Equals(right);
+
+        public static explicit operator string(CachingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CachingType other && Equals(other);
+        public bool Equals(CachingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateStoreNameOption : IEquatable<CertificateStoreNameOption>
+    {
+        private readonly string _value;
+
+        private CertificateStoreNameOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The X.509 certificate store for personal certificates.
+        /// </summary>
+        public static CertificateStoreNameOption My { get; } = new CertificateStoreNameOption("My");
+        /// <summary>
+        /// The X.509 certificate store for trusted root certificate authorities (CAs).
+        /// </summary>
+        public static CertificateStoreNameOption Root { get; } = new CertificateStoreNameOption("Root");
+
+        public static bool operator ==(CertificateStoreNameOption left, CertificateStoreNameOption right) => left.Equals(right);
+        public static bool operator !=(CertificateStoreNameOption left, CertificateStoreNameOption right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateStoreNameOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateStoreNameOption other && Equals(other);
+        public bool Equals(CertificateStoreNameOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The ephemeral type of the image.
+    /// </summary>
+    [EnumType]
+    public readonly struct EphemeralType : IEquatable<EphemeralType>
+    {
+        private readonly string _value;
+
+        private EphemeralType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Ephemeral is handled by Managed DevOps Pools service.
+        /// </summary>
+        public static EphemeralType Automatic { get; } = new EphemeralType("Automatic");
+        /// <summary>
+        /// CacheDisk ephemeral only, requires that the SKU has a cache that is large enough for the image.
+        /// </summary>
+        public static EphemeralType CacheDisk { get; } = new EphemeralType("CacheDisk");
+        /// <summary>
+        /// ResourceDisk ephemeral only, requires only that the SKU supports it.
+        /// </summary>
+        public static EphemeralType ResourceDisk { get; } = new EphemeralType("ResourceDisk");
+
+        public static bool operator ==(EphemeralType left, EphemeralType right) => left.Equals(right);
+        public static bool operator !=(EphemeralType left, EphemeralType right) => !left.Equals(right);
+
+        public static explicit operator string(EphemeralType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EphemeralType other && Equals(other);
+        public bool Equals(EphemeralType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how the service should be run. By default, this will be set to Service.
+    /// </summary>
+    [EnumType]
+    public readonly struct LogonType : IEquatable<LogonType>
+    {
+        private readonly string _value;
+
+        private LogonType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Run as a service.
+        /// </summary>
+        public static LogonType Service { get; } = new LogonType("Service");
+        /// <summary>
+        /// Run in interactive mode.
+        /// </summary>
+        public static LogonType Interactive { get; } = new LogonType("Interactive");
+
+        public static bool operator ==(LogonType left, LogonType right) => left.Equals(right);
+        public static bool operator !=(LogonType left, LogonType right) => !left.Equals(right);
+
+        public static explicit operator string(LogonType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogonType other && Equals(other);
+        public bool Equals(LogonType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
@@ -23,7 +220,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
@@ -33,6 +230,96 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Azure SKU name of the machines in the pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct OsDiskStorageAccountType : IEquatable<OsDiskStorageAccountType>
+    {
+        private readonly string _value;
+
+        private OsDiskStorageAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard OS disk type.
+        /// </summary>
+        public static OsDiskStorageAccountType Standard { get; } = new OsDiskStorageAccountType("Standard");
+        /// <summary>
+        /// Premium OS disk type.
+        /// </summary>
+        public static OsDiskStorageAccountType Premium { get; } = new OsDiskStorageAccountType("Premium");
+        /// <summary>
+        /// Standard SSD OS disk type.
+        /// </summary>
+        public static OsDiskStorageAccountType StandardSSD { get; } = new OsDiskStorageAccountType("StandardSSD");
+
+        public static bool operator ==(OsDiskStorageAccountType left, OsDiskStorageAccountType right) => left.Equals(right);
+        public static bool operator !=(OsDiskStorageAccountType left, OsDiskStorageAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(OsDiskStorageAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OsDiskStorageAccountType other && Equals(other);
+        public bool Equals(OsDiskStorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines the balance between cost and performance.
+    /// </summary>
+    [EnumType]
+    public readonly struct PredictionPreference : IEquatable<PredictionPreference>
+    {
+        private readonly string _value;
+
+        private PredictionPreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Balance between cost and performance.
+        /// </summary>
+        public static PredictionPreference Balanced { get; } = new PredictionPreference("Balanced");
+        /// <summary>
+        /// Optimizes for cost over performance.
+        /// </summary>
+        public static PredictionPreference MostCostEffective { get; } = new PredictionPreference("MostCostEffective");
+        /// <summary>
+        /// Halfway through cost and balanced.
+        /// </summary>
+        public static PredictionPreference MoreCostEffective { get; } = new PredictionPreference("MoreCostEffective");
+        /// <summary>
+        /// Halfway through balanced and performance.
+        /// </summary>
+        public static PredictionPreference MorePerformance { get; } = new PredictionPreference("MorePerformance");
+        /// <summary>
+        /// Optimizes for performance over cost.
+        /// </summary>
+        public static PredictionPreference BestPerformance { get; } = new PredictionPreference("BestPerformance");
+
+        public static bool operator ==(PredictionPreference left, PredictionPreference right) => left.Equals(right);
+        public static bool operator !=(PredictionPreference left, PredictionPreference right) => !left.Equals(right);
+
+        public static explicit operator string(PredictionPreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PredictionPreference other && Equals(other);
+        public bool Equals(PredictionPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -90,6 +377,92 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
         public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how the stand-by scheme should be provided.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourcePredictionsProfileType : IEquatable<ResourcePredictionsProfileType>
+    {
+        private readonly string _value;
+
+        private ResourcePredictionsProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Customer provides the stand-by agent scheme.
+        /// </summary>
+        public static ResourcePredictionsProfileType Manual { get; } = new ResourcePredictionsProfileType("Manual");
+        /// <summary>
+        /// The stand-by agent scheme is determined based on historical demand.
+        /// </summary>
+        public static ResourcePredictionsProfileType Automatic { get; } = new ResourcePredictionsProfileType("Automatic");
+
+        public static bool operator ==(ResourcePredictionsProfileType left, ResourcePredictionsProfileType right) => left.Equals(right);
+        public static bool operator !=(ResourcePredictionsProfileType left, ResourcePredictionsProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourcePredictionsProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourcePredictionsProfileType other && Equals(other);
+        public bool Equals(ResourcePredictionsProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAccountType : IEquatable<StorageAccountType>
+    {
+        private readonly string _value;
+
+        private StorageAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The data disk should use standard locally redundant storage.
+        /// </summary>
+        public static StorageAccountType StandardLRS { get; } = new StorageAccountType("Standard_LRS");
+        /// <summary>
+        /// The data disk should use premium locally redundant storage.
+        /// </summary>
+        public static StorageAccountType PremiumLRS { get; } = new StorageAccountType("Premium_LRS");
+        /// <summary>
+        /// The data disk should use standard SSD locally redundant storage.
+        /// </summary>
+        public static StorageAccountType StandardSSDLRS { get; } = new StorageAccountType("StandardSSD_LRS");
+        /// <summary>
+        /// The data disk should use premium SSD zonal redundant storage.
+        /// </summary>
+        public static StorageAccountType PremiumZRS { get; } = new StorageAccountType("Premium_ZRS");
+        /// <summary>
+        /// The data disk should use standard SSD zonal redundant storage.
+        /// </summary>
+        public static StorageAccountType StandardSSDZRS { get; } = new StorageAccountType("StandardSSD_ZRS");
+
+        public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
+        public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
+        public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -27,10 +27,13 @@ class GetVpnSiteResult:
     """
     VpnSite Resource.
     """
-    def __init__(__self__, address_space=None, bgp_properties=None, device_properties=None, etag=None, id=None, ip_address=None, is_security_site=None, location=None, name=None, o365_policy=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None, vpn_site_links=None):
+    def __init__(__self__, address_space=None, azure_api_version=None, bgp_properties=None, device_properties=None, etag=None, id=None, ip_address=None, is_security_site=None, location=None, name=None, o365_policy=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None, vpn_site_links=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bgp_properties and not isinstance(bgp_properties, dict):
             raise TypeError("Expected argument 'bgp_properties' to be a dict")
         pulumi.set(__self__, "bgp_properties", bgp_properties)
@@ -84,6 +87,14 @@ class GetVpnSiteResult:
         The AddressSpace that contains an array of IP address ranges.
         """
         return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpProperties")
@@ -213,6 +224,7 @@ class AwaitableGetVpnSiteResult(GetVpnSiteResult):
             yield self
         return GetVpnSiteResult(
             address_space=self.address_space,
+            azure_api_version=self.azure_api_version,
             bgp_properties=self.bgp_properties,
             device_properties=self.device_properties,
             etag=self.etag,
@@ -235,9 +247,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnSiteResult:
     """
     Retrieves the details of a VPN site.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VpnSite.
@@ -251,6 +261,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVpnSiteResult(
         address_space=pulumi.get(__ret__, 'address_space'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bgp_properties=pulumi.get(__ret__, 'bgp_properties'),
         device_properties=pulumi.get(__ret__, 'device_properties'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -271,9 +282,7 @@ def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnSiteResult]:
     """
     Retrieves the details of a VPN site.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VpnSite.
@@ -286,6 +295,7 @@ def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getVpnSite', __args__, opts=opts, typ=GetVpnSiteResult)
     return __ret__.apply(lambda __response__: GetVpnSiteResult(
         address_space=pulumi.get(__response__, 'address_space'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bgp_properties=pulumi.get(__response__, 'bgp_properties'),
         device_properties=pulumi.get(__response__, 'device_properties'),
         etag=pulumi.get(__response__, 'etag'),

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.StorageMover
 {
     /// <summary>
     /// The Job Definition resource.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+    /// Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.StorageMover
         /// </summary>
         [Output("agentResourceId")]
         public Output<string> AgentResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Strategy to use for copy.
@@ -91,7 +95,7 @@ namespace Pulumi.AzureNative.StorageMover
         public Output<string?> SourceSubpath { get; private set; } = null!;
 
         /// <summary>
-        /// Resource system metadata.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

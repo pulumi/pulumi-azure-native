@@ -16,6 +16,15 @@ namespace Pulumi.AzureNative.AzureFleet.Inputs
     public sealed class ComputeProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies VMSS and VM API entity models support two additional capabilities as of today: ultraSSDEnabled and hibernationEnabled.
+        /// ultraSSDEnabled: Enables UltraSSD_LRS storage account type on the VMSS VMs.
+        /// hibernationEnabled: Enables the hibernation capability on the VMSS VMs.
+        /// Default value is null if not specified. This property cannot be updated once set.
+        /// </summary>
+        [Input("additionalVirtualMachineCapabilities")]
+        public Input<Inputs.AdditionalCapabilitiesArgs>? AdditionalVirtualMachineCapabilities { get; set; }
+
+        /// <summary>
         /// Base Virtual Machine Profile Properties to be specified according to "specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile"
         /// </summary>
         [Input("baseVirtualMachineProfile", required: true)]

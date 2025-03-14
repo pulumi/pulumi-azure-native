@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class Target extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Target extends pulumi.CustomResource {
         return obj['__pulumiType'] === Target.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The server name to use in the connection string when connecting to a target. Port number and instance name must be specified separately.
      */
@@ -106,11 +108,13 @@ export class Target extends pulumi.CustomResource {
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["targetVault"] = args ? args.targetVault : undefined;
             resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionServerName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

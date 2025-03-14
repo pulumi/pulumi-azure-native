@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> Artifacts;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource identifier (Microsoft.Compute) of the virtual machine.
         /// </summary>
         public readonly string ComputeId;
@@ -273,6 +277,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
             ImmutableArray<Outputs.ArtifactInstallPropertiesResponse> artifacts,
 
+            string azureApiVersion,
+
             string computeId,
 
             Outputs.ComputeVmPropertiesResponse computeVm,
@@ -349,6 +355,7 @@ namespace Pulumi.AzureNative.DevTestLab
             ApplicableSchedule = applicableSchedule;
             ArtifactDeploymentStatus = artifactDeploymentStatus;
             Artifacts = artifacts;
+            AzureApiVersion = azureApiVersion;
             ComputeId = computeId;
             ComputeVm = computeVm;
             CreatedByUser = createdByUser;

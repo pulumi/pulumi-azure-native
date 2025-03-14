@@ -27,10 +27,10 @@ class GetSecurityUserConfigurationResult:
     """
     Defines the security user configuration
     """
-    def __init__(__self__, delete_existing_nsgs=None, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
-        if delete_existing_nsgs and not isinstance(delete_existing_nsgs, str):
-            raise TypeError("Expected argument 'delete_existing_nsgs' to be a str")
-        pulumi.set(__self__, "delete_existing_nsgs", delete_existing_nsgs)
+    def __init__(__self__, azure_api_version=None, description=None, etag=None, id=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -46,6 +46,9 @@ class GetSecurityUserConfigurationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -54,12 +57,12 @@ class GetSecurityUserConfigurationResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="deleteExistingNSGs")
-    def delete_existing_nsgs(self) -> Optional[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        Flag if need to delete existing network security groups.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "delete_existing_nsgs")
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +105,14 @@ class GetSecurityUserConfigurationResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -124,12 +135,13 @@ class AwaitableGetSecurityUserConfigurationResult(GetSecurityUserConfigurationRe
         if False:
             yield self
         return GetSecurityUserConfigurationResult(
-            delete_existing_nsgs=self.delete_existing_nsgs,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             etag=self.etag,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             system_data=self.system_data,
             type=self.type)
 
@@ -140,14 +152,12 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityUserConfigurationResult:
     """
     Retrieves a network manager security user configuration.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['configurationName'] = configuration_name
@@ -157,12 +167,13 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getSecurityUserConfiguration', __args__, opts=opts, typ=GetSecurityUserConfigurationResult).value
 
     return AwaitableGetSecurityUserConfigurationResult(
-        delete_existing_nsgs=pulumi.get(__ret__, 'delete_existing_nsgs'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_user_configuration_output(configuration_name: Optional[pulumi.Input[str]] = None,
@@ -171,14 +182,12 @@ def get_security_user_configuration_output(configuration_name: Optional[pulumi.I
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityUserConfigurationResult]:
     """
     Retrieves a network manager security user configuration.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['configurationName'] = configuration_name
@@ -187,11 +196,12 @@ def get_security_user_configuration_output(configuration_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getSecurityUserConfiguration', __args__, opts=opts, typ=GetSecurityUserConfigurationResult)
     return __ret__.apply(lambda __response__: GetSecurityUserConfigurationResult(
-        delete_existing_nsgs=pulumi.get(__response__, 'delete_existing_nsgs'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_guid=pulumi.get(__response__, 'resource_guid'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

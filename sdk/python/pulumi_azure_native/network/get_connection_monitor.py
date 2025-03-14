@@ -27,10 +27,13 @@ class GetConnectionMonitorResult:
     """
     Information about the connection monitor.
     """
-    def __init__(__self__, auto_start=None, connection_monitor_type=None, destination=None, endpoints=None, etag=None, id=None, location=None, monitoring_interval_in_seconds=None, monitoring_status=None, name=None, notes=None, outputs=None, provisioning_state=None, source=None, start_time=None, tags=None, test_configurations=None, test_groups=None, type=None):
+    def __init__(__self__, auto_start=None, azure_api_version=None, connection_monitor_type=None, destination=None, endpoints=None, etag=None, id=None, location=None, monitoring_interval_in_seconds=None, monitoring_status=None, name=None, notes=None, outputs=None, provisioning_state=None, source=None, start_time=None, tags=None, test_configurations=None, test_groups=None, type=None):
         if auto_start and not isinstance(auto_start, bool):
             raise TypeError("Expected argument 'auto_start' to be a bool")
         pulumi.set(__self__, "auto_start", auto_start)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_monitor_type and not isinstance(connection_monitor_type, str):
             raise TypeError("Expected argument 'connection_monitor_type' to be a str")
         pulumi.set(__self__, "connection_monitor_type", connection_monitor_type)
@@ -93,6 +96,14 @@ class GetConnectionMonitorResult:
         Determines if the connection monitor will start automatically once created.
         """
         return pulumi.get(self, "auto_start")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionMonitorType")
@@ -246,6 +257,7 @@ class AwaitableGetConnectionMonitorResult(GetConnectionMonitorResult):
             yield self
         return GetConnectionMonitorResult(
             auto_start=self.auto_start,
+            azure_api_version=self.azure_api_version,
             connection_monitor_type=self.connection_monitor_type,
             destination=self.destination,
             endpoints=self.endpoints,
@@ -272,9 +284,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
     Gets a connection monitor by name.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-09-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.
@@ -290,6 +300,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
 
     return AwaitableGetConnectionMonitorResult(
         auto_start=pulumi.get(__ret__, 'auto_start'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_monitor_type=pulumi.get(__ret__, 'connection_monitor_type'),
         destination=pulumi.get(__ret__, 'destination'),
         endpoints=pulumi.get(__ret__, 'endpoints'),
@@ -314,9 +325,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
     Gets a connection monitor by name.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-09-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.
@@ -331,6 +340,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getConnectionMonitor', __args__, opts=opts, typ=GetConnectionMonitorResult)
     return __ret__.apply(lambda __response__: GetConnectionMonitorResult(
         auto_start=pulumi.get(__response__, 'auto_start'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_monitor_type=pulumi.get(__response__, 'connection_monitor_type'),
         destination=pulumi.get(__response__, 'destination'),
         endpoints=pulumi.get(__response__, 'endpoints'),

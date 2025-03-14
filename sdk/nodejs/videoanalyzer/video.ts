@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
- * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview.
- *
- * Other available API versions: 2021-05-01-preview.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-11-01-preview.
  */
 export class Video extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Video extends pulumi.CustomResource {
      * Video archival properties.
      */
     public readonly archival!: pulumi.Output<outputs.videoanalyzer.VideoArchivalResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Set of URLs to the video content.
      */
@@ -101,6 +103,7 @@ export class Video extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["videoName"] = args ? args.videoName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -108,6 +111,7 @@ export class Video extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archival"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;

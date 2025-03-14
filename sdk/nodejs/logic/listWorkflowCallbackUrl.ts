@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Get the workflow callback Url.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
 export function listWorkflowCallbackUrl(args: ListWorkflowCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkflowCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,8 +72,6 @@ export interface ListWorkflowCallbackUrlResult {
 /**
  * Get the workflow callback Url.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2016-06-01, 2018-07-01-preview.
  */
 export function listWorkflowCallbackUrlOutput(args: ListWorkflowCallbackUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListWorkflowCallbackUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -27,7 +27,10 @@ class GetAuthorizationProviderResult:
     """
     Authorization Provider contract.
     """
-    def __init__(__self__, display_name=None, id=None, identity_provider=None, name=None, oauth2=None, type=None):
+    def __init__(__self__, azure_api_version=None, display_name=None, id=None, identity_provider=None, name=None, oauth2=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -46,6 +49,14 @@ class GetAuthorizationProviderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -102,6 +113,7 @@ class AwaitableGetAuthorizationProviderResult(GetAuthorizationProviderResult):
         if False:
             yield self
         return GetAuthorizationProviderResult(
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             identity_provider=self.identity_provider,
@@ -116,9 +128,7 @@ def get_authorization_provider(authorization_provider_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationProviderResult:
     """
     Gets the details of the authorization provider specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authorization_provider_id: Identifier of the authorization provider.
@@ -133,6 +143,7 @@ def get_authorization_provider(authorization_provider_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getAuthorizationProvider', __args__, opts=opts, typ=GetAuthorizationProviderResult).value
 
     return AwaitableGetAuthorizationProviderResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         identity_provider=pulumi.get(__ret__, 'identity_provider'),
@@ -145,9 +156,7 @@ def get_authorization_provider_output(authorization_provider_id: Optional[pulumi
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationProviderResult]:
     """
     Gets the details of the authorization provider specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authorization_provider_id: Identifier of the authorization provider.
@@ -161,6 +170,7 @@ def get_authorization_provider_output(authorization_provider_id: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getAuthorizationProvider', __args__, opts=opts, typ=GetAuthorizationProviderResult)
     return __ret__.apply(lambda __response__: GetAuthorizationProviderResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         identity_provider=pulumi.get(__response__, 'identity_provider'),

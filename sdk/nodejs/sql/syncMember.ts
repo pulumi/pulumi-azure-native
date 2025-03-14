@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database sync member.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class SyncMember extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SyncMember extends pulumi.CustomResource {
         return obj['__pulumiType'] === SyncMember.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Database name of the member database in the sync member.
      */
@@ -129,11 +131,13 @@ export class SyncMember extends pulumi.CustomResource {
             resourceInputs["syncMemberName"] = args ? args.syncMemberName : undefined;
             resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointName"] = undefined /*out*/;
             resourceInputs["syncState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["databaseType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

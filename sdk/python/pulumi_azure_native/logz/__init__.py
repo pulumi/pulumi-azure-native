@@ -25,11 +25,3 @@ from .sub_account_tag_rule import *
 from .tag_rule import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.logz.v20220101preview as __v20220101preview
-    v20220101preview = __v20220101preview
-else:
-    v20220101preview = _utilities.lazy_import('pulumi_azure_native.logz.v20220101preview')
-

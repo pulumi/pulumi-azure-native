@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
- * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2016-11-01.
+ * Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 2.x: 2019-11-01-preview.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Account extends pulumi.CustomResource {
      * The unique identifier associated with this Data Lake Analytics account.
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The list of compute policies associated with this account.
      */
@@ -213,6 +217,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentTier"] = undefined /*out*/;
             resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
@@ -233,6 +238,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         } else {
             resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["computePolicies"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentTier"] = undefined /*out*/;

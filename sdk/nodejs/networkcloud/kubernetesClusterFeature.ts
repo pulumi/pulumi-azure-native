@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-06-01-preview.
- *
- * Other available API versions: 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2024-06-01-preview.
  */
 export class KubernetesClusterFeature extends pulumi.CustomResource {
     /**
@@ -43,6 +41,10 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
      * The lifecycle indicator of the feature.
      */
     public /*out*/ readonly availabilityLifecycle!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The detailed status of the feature.
      */
@@ -112,6 +114,7 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["availabilityLifecycle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -122,6 +125,7 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["availabilityLifecycle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

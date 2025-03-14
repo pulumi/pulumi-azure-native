@@ -45,6 +45,10 @@ export interface GetInvitationArgs {
  */
 export interface GetInvitationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The expiration date for the invitation and share subscription.
      */
     readonly expirationDate?: string;

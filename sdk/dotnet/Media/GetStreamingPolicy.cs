@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Media
     public sealed class GetStreamingPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Configuration of CommonEncryptionCbcs
         /// </summary>
         public readonly Outputs.CommonEncryptionCbcsResponse? CommonEncryptionCbcs;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Media
 
         [OutputConstructor]
         private GetStreamingPolicyResult(
+            string azureApiVersion,
+
             Outputs.CommonEncryptionCbcsResponse? commonEncryptionCbcs,
 
             Outputs.CommonEncryptionCencResponse? commonEncryptionCenc,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Media
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CommonEncryptionCbcs = commonEncryptionCbcs;
             CommonEncryptionCenc = commonEncryptionCenc;
             Created = created;

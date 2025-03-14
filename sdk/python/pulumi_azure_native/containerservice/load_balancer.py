@@ -184,9 +184,7 @@ class LoadBalancer(pulumi.CustomResource):
                  __props__=None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        Azure REST API version: 2024-03-02-preview.
-
-        Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        Azure REST API version: 2024-09-02-preview. Prior API version in Azure Native 2.x: 2024-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,9 +206,7 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configurations regarding multiple standard load balancers. If not supplied, single load balancer mode will be used. Multiple standard load balancers mode will be used if at lease one configuration is supplied. There has to be a configuration named `kubernetes`.
-        Azure REST API version: 2024-03-02-preview.
-
-        Other available API versions: 2024-04-02-preview, 2024-05-02-preview, 2024-06-02-preview, 2024-07-02-preview, 2024-09-02-preview.
+        Azure REST API version: 2024-09-02-preview. Prior API version in Azure Native 2.x: 2024-03-02-preview.
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerArgs args: The arguments to use to populate this resource's properties.
@@ -262,6 +258,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["service_label_selector"] = service_label_selector
             __props__.__dict__["service_namespace_selector"] = service_namespace_selector
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -290,6 +287,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
         __props__.__dict__["allow_service_placement"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["node_selector"] = None
         __props__.__dict__["primary_agent_pool_name"] = None
@@ -307,6 +305,14 @@ class LoadBalancer(pulumi.CustomResource):
         Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
         """
         return pulumi.get(self, "allow_service_placement")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

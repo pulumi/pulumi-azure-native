@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// Observability config to deploy AzureStackHCI Cluster.
         /// </summary>
-        public readonly Outputs.ClusterResponse? Cluster;
+        public readonly Outputs.DeploymentClusterResponse? Cluster;
         /// <summary>
         /// FQDN to deploy cluster
         /// </summary>
@@ -53,13 +53,21 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PhysicalNodesResponse> PhysicalNodes;
         /// <summary>
-        /// The URI to the keyvault / secret store.
+        /// SDN Integration config to deploy AzureStackHCI Cluster.
+        /// </summary>
+        public readonly Outputs.SdnIntegrationResponse? SdnIntegration;
+        /// <summary>
+        /// secrets used for cloud deployment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EceDeploymentSecretsResponse> Secrets;
+        /// <summary>
+        /// Azure keyvault endpoint. This property is deprecated from 2023-12-01-preview. Please use secrets property instead.
         /// </summary>
         public readonly string? SecretsLocation;
         /// <summary>
         /// SecuritySettings to deploy AzureStackHCI Cluster.
         /// </summary>
-        public readonly Outputs.SecuritySettingsResponse? SecuritySettings;
+        public readonly Outputs.DeploymentSecuritySettingsResponse? SecuritySettings;
         /// <summary>
         /// Storage config to deploy AzureStackHCI Cluster.
         /// </summary>
@@ -69,7 +77,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         private DeploymentDataResponse(
             string? adouPath,
 
-            Outputs.ClusterResponse? cluster,
+            Outputs.DeploymentClusterResponse? cluster,
 
             string? domainFqdn,
 
@@ -85,9 +93,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             ImmutableArray<Outputs.PhysicalNodesResponse> physicalNodes,
 
+            Outputs.SdnIntegrationResponse? sdnIntegration,
+
+            ImmutableArray<Outputs.EceDeploymentSecretsResponse> secrets,
+
             string? secretsLocation,
 
-            Outputs.SecuritySettingsResponse? securitySettings,
+            Outputs.DeploymentSecuritySettingsResponse? securitySettings,
 
             Outputs.StorageResponse? storage)
         {
@@ -100,6 +112,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             Observability = observability;
             OptionalServices = optionalServices;
             PhysicalNodes = physicalNodes;
+            SdnIntegration = sdnIntegration;
+            Secrets = secrets;
             SecretsLocation = secretsLocation;
             SecuritySettings = securitySettings;
             Storage = storage;

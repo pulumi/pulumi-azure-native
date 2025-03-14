@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.ApiCenter
         /// </summary>
         public readonly Outputs.AzureApiManagementSourceResponse? AzureApiManagementSource;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -143,6 +147,8 @@ namespace Pulumi.AzureNative.ApiCenter
         private GetApiSourceResult(
             Outputs.AzureApiManagementSourceResponse? azureApiManagementSource,
 
+            string azureApiVersion,
+
             string id,
 
             string? importSpecification,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.ApiCenter
             string type)
         {
             AzureApiManagementSource = azureApiManagementSource;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             ImportSpecification = importSpecification;
             LinkState = linkState;

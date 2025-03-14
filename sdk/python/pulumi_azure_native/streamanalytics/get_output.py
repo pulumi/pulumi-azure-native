@@ -27,7 +27,10 @@ class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     """
-    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, name=None, serialization=None, size_window=None, time_window=None, type=None):
+    def __init__(__self__, azure_api_version=None, datasource=None, diagnostics=None, etag=None, id=None, name=None, serialization=None, size_window=None, time_window=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if datasource and not isinstance(datasource, dict):
             raise TypeError("Expected argument 'datasource' to be a dict")
         pulumi.set(__self__, "datasource", datasource)
@@ -55,6 +58,14 @@ class GetOutputResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetOutputResult(GetOutputResult):
         if False:
             yield self
         return GetOutputResult(
+            azure_api_version=self.azure_api_version,
             datasource=self.datasource,
             diagnostics=self.diagnostics,
             etag=self.etag,
@@ -154,8 +166,6 @@ def get_output(job_name: Optional[str] = None,
     Gets details about the specified output.
     Azure REST API version: 2020-03-01.
 
-    Other available API versions: 2021-10-01-preview.
-
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.
@@ -169,6 +179,7 @@ def get_output(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getOutput', __args__, opts=opts, typ=GetOutputResult).value
 
     return AwaitableGetOutputResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         datasource=pulumi.get(__ret__, 'datasource'),
         diagnostics=pulumi.get(__ret__, 'diagnostics'),
         etag=pulumi.get(__ret__, 'etag'),
@@ -186,8 +197,6 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     Gets details about the specified output.
     Azure REST API version: 2020-03-01.
 
-    Other available API versions: 2021-10-01-preview.
-
 
     :param str job_name: The name of the streaming job.
     :param str output_name: The name of the output.
@@ -200,6 +209,7 @@ def get_output_output(job_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:streamanalytics:getOutput', __args__, opts=opts, typ=GetOutputResult)
     return __ret__.apply(lambda __response__: GetOutputResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         datasource=pulumi.get(__response__, 'datasource'),
         diagnostics=pulumi.get(__response__, 'diagnostics'),
         etag=pulumi.get(__response__, 'etag'),

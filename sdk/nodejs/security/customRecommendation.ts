@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Recommendation
- * Azure REST API version: 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2024-08-01.
  */
 export class CustomRecommendation extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class CustomRecommendation extends pulumi.CustomResource {
      * The assessment metadata key used when an assessment is generated for this Recommendation.
      */
     public /*out*/ readonly assessmentKey!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * List of all standard supported clouds.
      */
@@ -107,11 +111,13 @@ export class CustomRecommendation extends pulumi.CustomResource {
             resourceInputs["securityIssue"] = args ? args.securityIssue : undefined;
             resourceInputs["severity"] = args ? args.severity : undefined;
             resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudProviders"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

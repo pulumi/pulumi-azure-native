@@ -22,8 +22,6 @@ __all__ = [
     'AuthorizationConfigArgsDict',
     'AuthorizationRuleArgs',
     'AuthorizationRuleArgsDict',
-    'AutomaticCertMethodArgs',
-    'AutomaticCertMethodArgsDict',
     'BackendChainArgs',
     'BackendChainArgsDict',
     'BatchingConfigurationArgs',
@@ -56,60 +54,72 @@ __all__ = [
     'CardinalityArgsDict',
     'CertManagerCertOptionsArgs',
     'CertManagerCertOptionsArgsDict',
+    'CertManagerCertificateSpecArgs',
+    'CertManagerCertificateSpecArgsDict',
     'CertManagerIssuerRefArgs',
     'CertManagerIssuerRefArgsDict',
     'CertManagerPrivateKeyArgs',
     'CertManagerPrivateKeyArgsDict',
     'ClientConfigArgs',
     'ClientConfigArgsDict',
-    'DataFlowBuiltInTransformationDatasetArgs',
-    'DataFlowBuiltInTransformationDatasetArgsDict',
-    'DataFlowBuiltInTransformationFilterArgs',
-    'DataFlowBuiltInTransformationFilterArgsDict',
-    'DataFlowBuiltInTransformationMapArgs',
-    'DataFlowBuiltInTransformationMapArgsDict',
-    'DataFlowBuiltInTransformationArgs',
-    'DataFlowBuiltInTransformationArgsDict',
-    'DataFlowDestinationOperationArgs',
-    'DataFlowDestinationOperationArgsDict',
-    'DataFlowEndpointAuthenticationSaslArgs',
-    'DataFlowEndpointAuthenticationSaslArgsDict',
-    'DataFlowEndpointAuthenticationServiceAccountTokenArgs',
-    'DataFlowEndpointAuthenticationServiceAccountTokenArgsDict',
-    'DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs',
-    'DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict',
-    'DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs',
-    'DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgsDict',
-    'DataFlowEndpointAuthenticationX509Args',
-    'DataFlowEndpointAuthenticationX509ArgsDict',
-    'DataFlowEndpointAuthenticationArgs',
-    'DataFlowEndpointAuthenticationArgsDict',
-    'DataFlowEndpointDataExplorerArgs',
-    'DataFlowEndpointDataExplorerArgsDict',
-    'DataFlowEndpointDataLakeStorageArgs',
-    'DataFlowEndpointDataLakeStorageArgsDict',
-    'DataFlowEndpointFabricOneLakeNamesArgs',
-    'DataFlowEndpointFabricOneLakeNamesArgsDict',
-    'DataFlowEndpointFabricOneLakeArgs',
-    'DataFlowEndpointFabricOneLakeArgsDict',
-    'DataFlowEndpointKafkaBatchingArgs',
-    'DataFlowEndpointKafkaBatchingArgsDict',
-    'DataFlowEndpointKafkaArgs',
-    'DataFlowEndpointKafkaArgsDict',
-    'DataFlowEndpointLocalStorageArgs',
-    'DataFlowEndpointLocalStorageArgsDict',
-    'DataFlowEndpointMqttArgs',
-    'DataFlowEndpointMqttArgsDict',
-    'DataFlowEndpointPropertiesArgs',
-    'DataFlowEndpointPropertiesArgsDict',
-    'DataFlowOperationArgs',
-    'DataFlowOperationArgsDict',
-    'DataFlowProfilePropertiesArgs',
-    'DataFlowProfilePropertiesArgsDict',
-    'DataFlowPropertiesArgs',
-    'DataFlowPropertiesArgsDict',
-    'DataFlowSourceOperationArgs',
-    'DataFlowSourceOperationArgsDict',
+    'DataflowBuiltInTransformationDatasetArgs',
+    'DataflowBuiltInTransformationDatasetArgsDict',
+    'DataflowBuiltInTransformationFilterArgs',
+    'DataflowBuiltInTransformationFilterArgsDict',
+    'DataflowBuiltInTransformationMapArgs',
+    'DataflowBuiltInTransformationMapArgsDict',
+    'DataflowBuiltInTransformationSettingsArgs',
+    'DataflowBuiltInTransformationSettingsArgsDict',
+    'DataflowDestinationOperationSettingsArgs',
+    'DataflowDestinationOperationSettingsArgsDict',
+    'DataflowEndpointAuthenticationAccessTokenArgs',
+    'DataflowEndpointAuthenticationAccessTokenArgsDict',
+    'DataflowEndpointAuthenticationSaslArgs',
+    'DataflowEndpointAuthenticationSaslArgsDict',
+    'DataflowEndpointAuthenticationServiceAccountTokenArgs',
+    'DataflowEndpointAuthenticationServiceAccountTokenArgsDict',
+    'DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs',
+    'DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict',
+    'DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs',
+    'DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict',
+    'DataflowEndpointAuthenticationX509Args',
+    'DataflowEndpointAuthenticationX509ArgsDict',
+    'DataflowEndpointDataExplorerAuthenticationArgs',
+    'DataflowEndpointDataExplorerAuthenticationArgsDict',
+    'DataflowEndpointDataExplorerArgs',
+    'DataflowEndpointDataExplorerArgsDict',
+    'DataflowEndpointDataLakeStorageAuthenticationArgs',
+    'DataflowEndpointDataLakeStorageAuthenticationArgsDict',
+    'DataflowEndpointDataLakeStorageArgs',
+    'DataflowEndpointDataLakeStorageArgsDict',
+    'DataflowEndpointFabricOneLakeAuthenticationArgs',
+    'DataflowEndpointFabricOneLakeAuthenticationArgsDict',
+    'DataflowEndpointFabricOneLakeNamesArgs',
+    'DataflowEndpointFabricOneLakeNamesArgsDict',
+    'DataflowEndpointFabricOneLakeArgs',
+    'DataflowEndpointFabricOneLakeArgsDict',
+    'DataflowEndpointKafkaAuthenticationArgs',
+    'DataflowEndpointKafkaAuthenticationArgsDict',
+    'DataflowEndpointKafkaBatchingArgs',
+    'DataflowEndpointKafkaBatchingArgsDict',
+    'DataflowEndpointKafkaArgs',
+    'DataflowEndpointKafkaArgsDict',
+    'DataflowEndpointLocalStorageArgs',
+    'DataflowEndpointLocalStorageArgsDict',
+    'DataflowEndpointMqttAuthenticationArgs',
+    'DataflowEndpointMqttAuthenticationArgsDict',
+    'DataflowEndpointMqttArgs',
+    'DataflowEndpointMqttArgsDict',
+    'DataflowEndpointPropertiesArgs',
+    'DataflowEndpointPropertiesArgsDict',
+    'DataflowOperationArgs',
+    'DataflowOperationArgsDict',
+    'DataflowProfilePropertiesArgs',
+    'DataflowProfilePropertiesArgsDict',
+    'DataflowPropertiesArgs',
+    'DataflowPropertiesArgsDict',
+    'DataflowSourceOperationSettingsArgs',
+    'DataflowSourceOperationSettingsArgsDict',
     'DiagnosticsLogsArgs',
     'DiagnosticsLogsArgsDict',
     'DiskBackedMessageBufferArgs',
@@ -128,18 +138,18 @@ __all__ = [
     'ListenerPortArgsDict',
     'LocalKubernetesReferenceArgs',
     'LocalKubernetesReferenceArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MetricsArgs',
     'MetricsArgsDict',
-    'OpenTelemetryExportConfigArgs',
-    'OpenTelemetryExportConfigArgsDict',
-    'OpenTelemetryLogExportConfigArgs',
-    'OpenTelemetryLogExportConfigArgsDict',
     'PrincipalDefinitionArgs',
     'PrincipalDefinitionArgsDict',
     'ProfileDiagnosticsArgs',
     'ProfileDiagnosticsArgsDict',
     'SanForCertArgs',
     'SanForCertArgsDict',
+    'SchemaRegistryRefArgs',
+    'SchemaRegistryRefArgsDict',
     'SelfCheckArgs',
     'SelfCheckArgsDict',
     'SelfTracingArgs',
@@ -376,141 +386,6 @@ class AuthorizationRuleArgs:
     @state_store_resources.setter
     def state_store_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StateStoreResourceRuleArgs']]]]):
         pulumi.set(self, "state_store_resources", value)
-
-
-if not MYPY:
-    class AutomaticCertMethodArgsDict(TypedDict):
-        """
-        Automatic TLS server certificate management with cert-manager
-        """
-        issuer_ref: pulumi.Input['CertManagerIssuerRefArgsDict']
-        """
-        cert-manager issuerRef.
-        """
-        duration: NotRequired[pulumi.Input[str]]
-        """
-        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        private_key: NotRequired[pulumi.Input['CertManagerPrivateKeyArgsDict']]
-        """
-        Type of certificate private key.
-        """
-        renew_before: NotRequired[pulumi.Input[str]]
-        """
-        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        san: NotRequired[pulumi.Input['SanForCertArgsDict']]
-        """
-        Additional Subject Alternative Names (SANs) to include in the certificate.
-        """
-        secret_ref: NotRequired[pulumi.Input[str]]
-        """
-        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
-        """
-elif False:
-    AutomaticCertMethodArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AutomaticCertMethodArgs:
-    def __init__(__self__, *,
-                 issuer_ref: pulumi.Input['CertManagerIssuerRefArgs'],
-                 duration: Optional[pulumi.Input[str]] = None,
-                 private_key: Optional[pulumi.Input['CertManagerPrivateKeyArgs']] = None,
-                 renew_before: Optional[pulumi.Input[str]] = None,
-                 san: Optional[pulumi.Input['SanForCertArgs']] = None,
-                 secret_ref: Optional[pulumi.Input[str]] = None):
-        """
-        Automatic TLS server certificate management with cert-manager
-        :param pulumi.Input['CertManagerIssuerRefArgs'] issuer_ref: cert-manager issuerRef.
-        :param pulumi.Input[str] duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        :param pulumi.Input['CertManagerPrivateKeyArgs'] private_key: Type of certificate private key.
-        :param pulumi.Input[str] renew_before: When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        :param pulumi.Input['SanForCertArgs'] san: Additional Subject Alternative Names (SANs) to include in the certificate.
-        :param pulumi.Input[str] secret_ref: Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
-        """
-        pulumi.set(__self__, "issuer_ref", issuer_ref)
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
-        if renew_before is not None:
-            pulumi.set(__self__, "renew_before", renew_before)
-        if san is not None:
-            pulumi.set(__self__, "san", san)
-        if secret_ref is not None:
-            pulumi.set(__self__, "secret_ref", secret_ref)
-
-    @property
-    @pulumi.getter(name="issuerRef")
-    def issuer_ref(self) -> pulumi.Input['CertManagerIssuerRefArgs']:
-        """
-        cert-manager issuerRef.
-        """
-        return pulumi.get(self, "issuer_ref")
-
-    @issuer_ref.setter
-    def issuer_ref(self, value: pulumi.Input['CertManagerIssuerRefArgs']):
-        pulumi.set(self, "issuer_ref", value)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[pulumi.Input[str]]:
-        """
-        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        return pulumi.get(self, "duration")
-
-    @duration.setter
-    def duration(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "duration", value)
-
-    @property
-    @pulumi.getter(name="privateKey")
-    def private_key(self) -> Optional[pulumi.Input['CertManagerPrivateKeyArgs']]:
-        """
-        Type of certificate private key.
-        """
-        return pulumi.get(self, "private_key")
-
-    @private_key.setter
-    def private_key(self, value: Optional[pulumi.Input['CertManagerPrivateKeyArgs']]):
-        pulumi.set(self, "private_key", value)
-
-    @property
-    @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> Optional[pulumi.Input[str]]:
-        """
-        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
-        """
-        return pulumi.get(self, "renew_before")
-
-    @renew_before.setter
-    def renew_before(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "renew_before", value)
-
-    @property
-    @pulumi.getter
-    def san(self) -> Optional[pulumi.Input['SanForCertArgs']]:
-        """
-        Additional Subject Alternative Names (SANs) to include in the certificate.
-        """
-        return pulumi.get(self, "san")
-
-    @san.setter
-    def san(self, value: Optional[pulumi.Input['SanForCertArgs']]):
-        pulumi.set(self, "san", value)
-
-    @property
-    @pulumi.getter(name="secretRef")
-    def secret_ref(self) -> Optional[pulumi.Input[str]]:
-        """
-        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
-        """
-        return pulumi.get(self, "secret_ref")
-
-    @secret_ref.setter
-    def secret_ref(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret_ref", value)
 
 
 if not MYPY:
@@ -970,15 +845,15 @@ if not MYPY:
         """
         Custom authentication configuration.
         """
-        custom: NotRequired[pulumi.Input['BrokerAuthenticatorMethodCustomArgsDict']]
+        custom_settings: NotRequired[pulumi.Input['BrokerAuthenticatorMethodCustomArgsDict']]
         """
         Custom authentication configuration.
         """
-        service_account_token: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSatArgsDict']]
+        service_account_token_settings: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSatArgsDict']]
         """
         ServiceAccountToken authentication configuration.
         """
-        x509_credentials: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509ArgsDict']]
+        x509_settings: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509ArgsDict']]
         """
         X.509 authentication configuration.
         """
@@ -989,23 +864,23 @@ elif False:
 class BrokerAuthenticatorMethodsArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[Union[str, 'BrokerAuthenticationMethod']],
-                 custom: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']] = None,
-                 service_account_token: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']] = None,
-                 x509_credentials: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']] = None):
+                 custom_settings: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']] = None,
+                 service_account_token_settings: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']] = None,
+                 x509_settings: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']] = None):
         """
         Set of broker authentication policies. Only one method is supported for each entry.
         :param pulumi.Input[Union[str, 'BrokerAuthenticationMethod']] method: Custom authentication configuration.
-        :param pulumi.Input['BrokerAuthenticatorMethodCustomArgs'] custom: Custom authentication configuration.
-        :param pulumi.Input['BrokerAuthenticatorMethodSatArgs'] service_account_token: ServiceAccountToken authentication configuration.
-        :param pulumi.Input['BrokerAuthenticatorMethodX509Args'] x509_credentials: X.509 authentication configuration.
+        :param pulumi.Input['BrokerAuthenticatorMethodCustomArgs'] custom_settings: Custom authentication configuration.
+        :param pulumi.Input['BrokerAuthenticatorMethodSatArgs'] service_account_token_settings: ServiceAccountToken authentication configuration.
+        :param pulumi.Input['BrokerAuthenticatorMethodX509Args'] x509_settings: X.509 authentication configuration.
         """
         pulumi.set(__self__, "method", method)
-        if custom is not None:
-            pulumi.set(__self__, "custom", custom)
-        if service_account_token is not None:
-            pulumi.set(__self__, "service_account_token", service_account_token)
-        if x509_credentials is not None:
-            pulumi.set(__self__, "x509_credentials", x509_credentials)
+        if custom_settings is not None:
+            pulumi.set(__self__, "custom_settings", custom_settings)
+        if service_account_token_settings is not None:
+            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+        if x509_settings is not None:
+            pulumi.set(__self__, "x509_settings", x509_settings)
 
     @property
     @pulumi.getter
@@ -1020,40 +895,40 @@ class BrokerAuthenticatorMethodsArgs:
         pulumi.set(self, "method", value)
 
     @property
-    @pulumi.getter
-    def custom(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]:
+    @pulumi.getter(name="customSettings")
+    def custom_settings(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]:
         """
         Custom authentication configuration.
         """
-        return pulumi.get(self, "custom")
+        return pulumi.get(self, "custom_settings")
 
-    @custom.setter
-    def custom(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]):
-        pulumi.set(self, "custom", value)
+    @custom_settings.setter
+    def custom_settings(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]):
+        pulumi.set(self, "custom_settings", value)
 
     @property
-    @pulumi.getter(name="serviceAccountToken")
-    def service_account_token(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]:
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]:
         """
         ServiceAccountToken authentication configuration.
         """
-        return pulumi.get(self, "service_account_token")
+        return pulumi.get(self, "service_account_token_settings")
 
-    @service_account_token.setter
-    def service_account_token(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]):
-        pulumi.set(self, "service_account_token", value)
+    @service_account_token_settings.setter
+    def service_account_token_settings(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]):
+        pulumi.set(self, "service_account_token_settings", value)
 
     @property
-    @pulumi.getter(name="x509Credentials")
-    def x509_credentials(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]:
+    @pulumi.getter(name="x509Settings")
+    def x509_settings(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]:
         """
         X.509 authentication configuration.
         """
-        return pulumi.get(self, "x509_credentials")
+        return pulumi.get(self, "x509_settings")
 
-    @x509_credentials.setter
-    def x509_credentials(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]):
-        pulumi.set(self, "x509_credentials", value)
+    @x509_settings.setter
+    def x509_settings(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]):
+        pulumi.set(self, "x509_settings", value)
 
 
 if not MYPY:
@@ -1192,10 +1067,6 @@ if not MYPY:
         """
         Defines a Broker listener. A listener is a collection of ports on which the broker accepts connections from clients.
         """
-        broker_ref: pulumi.Input[str]
-        """
-        Broker associated with this listener.
-        """
         ports: pulumi.Input[Sequence[pulumi.Input['ListenerPortArgsDict']]]
         """
         Ports on which this listener accepts client connections.
@@ -1214,39 +1085,22 @@ elif False:
 @pulumi.input_type
 class BrokerListenerPropertiesArgs:
     def __init__(__self__, *,
-                 broker_ref: pulumi.Input[str],
                  ports: pulumi.Input[Sequence[pulumi.Input['ListenerPortArgs']]],
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[Union[str, 'ServiceType']]] = None):
         """
         Defines a Broker listener. A listener is a collection of ports on which the broker accepts connections from clients.
-        :param pulumi.Input[str] broker_ref: Broker associated with this listener.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerPortArgs']]] ports: Ports on which this listener accepts client connections.
         :param pulumi.Input[str] service_name: Kubernetes Service name of this listener.
         :param pulumi.Input[Union[str, 'ServiceType']] service_type: Kubernetes Service type of this listener.
         """
-        pulumi.set(__self__, "broker_ref", broker_ref)
         pulumi.set(__self__, "ports", ports)
-        if service_name is None:
-            service_name = 'aio-mq-dmqtt-frontend'
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_type is None:
             service_type = 'ClusterIp'
         if service_type is not None:
             pulumi.set(__self__, "service_type", service_type)
-
-    @property
-    @pulumi.getter(name="brokerRef")
-    def broker_ref(self) -> pulumi.Input[str]:
-        """
-        Broker associated with this listener.
-        """
-        return pulumi.get(self, "broker_ref")
-
-    @broker_ref.setter
-    def broker_ref(self, value: pulumi.Input[str]):
-        pulumi.set(self, "broker_ref", value)
 
     @property
     @pulumi.getter
@@ -1432,6 +1286,10 @@ if not MYPY:
         """
         Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
         """
+        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
+        """
         topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
@@ -1443,13 +1301,17 @@ elif False:
 class BrokerResourceRuleArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[Union[str, 'BrokerResourceDefinitionMethods']],
+                 client_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  topics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Broker Resource Rule properties. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
         :param pulumi.Input[Union[str, 'BrokerResourceDefinitionMethods']] method: Give access for a Broker method (i.e., Connect, Subscribe, or Publish).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids: A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] topics: A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
         """
         pulumi.set(__self__, "method", method)
+        if client_ids is not None:
+            pulumi.set(__self__, "client_ids", client_ids)
         if topics is not None:
             pulumi.set(__self__, "topics", topics)
 
@@ -1464,6 +1326,18 @@ class BrokerResourceRuleArgs:
     @method.setter
     def method(self, value: pulumi.Input[Union[str, 'BrokerResourceDefinitionMethods']]):
         pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="clientIds")
+    def client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. This subfield may be set if the method is Connect.
+        """
+        return pulumi.get(self, "client_ids")
+
+    @client_ids.setter
+    def client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_ids", value)
 
     @property
     @pulumi.getter
@@ -1606,11 +1480,146 @@ class CertManagerCertOptionsArgs:
 
 
 if not MYPY:
+    class CertManagerCertificateSpecArgsDict(TypedDict):
+        """
+        Automatic TLS server certificate management with cert-manager
+        """
+        issuer_ref: pulumi.Input['CertManagerIssuerRefArgsDict']
+        """
+        cert-manager issuerRef.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        private_key: NotRequired[pulumi.Input['CertManagerPrivateKeyArgsDict']]
+        """
+        Type of certificate private key.
+        """
+        renew_before: NotRequired[pulumi.Input[str]]
+        """
+        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        san: NotRequired[pulumi.Input['SanForCertArgsDict']]
+        """
+        Additional Subject Alternative Names (SANs) to include in the certificate.
+        """
+        secret_name: NotRequired[pulumi.Input[str]]
+        """
+        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
+        """
+elif False:
+    CertManagerCertificateSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertManagerCertificateSpecArgs:
+    def __init__(__self__, *,
+                 issuer_ref: pulumi.Input['CertManagerIssuerRefArgs'],
+                 duration: Optional[pulumi.Input[str]] = None,
+                 private_key: Optional[pulumi.Input['CertManagerPrivateKeyArgs']] = None,
+                 renew_before: Optional[pulumi.Input[str]] = None,
+                 san: Optional[pulumi.Input['SanForCertArgs']] = None,
+                 secret_name: Optional[pulumi.Input[str]] = None):
+        """
+        Automatic TLS server certificate management with cert-manager
+        :param pulumi.Input['CertManagerIssuerRefArgs'] issuer_ref: cert-manager issuerRef.
+        :param pulumi.Input[str] duration: Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        :param pulumi.Input['CertManagerPrivateKeyArgs'] private_key: Type of certificate private key.
+        :param pulumi.Input[str] renew_before: When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        :param pulumi.Input['SanForCertArgs'] san: Additional Subject Alternative Names (SANs) to include in the certificate.
+        :param pulumi.Input[str] secret_name: Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
+        """
+        pulumi.set(__self__, "issuer_ref", issuer_ref)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if private_key is not None:
+            pulumi.set(__self__, "private_key", private_key)
+        if renew_before is not None:
+            pulumi.set(__self__, "renew_before", renew_before)
+        if san is not None:
+            pulumi.set(__self__, "san", san)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="issuerRef")
+    def issuer_ref(self) -> pulumi.Input['CertManagerIssuerRefArgs']:
+        """
+        cert-manager issuerRef.
+        """
+        return pulumi.get(self, "issuer_ref")
+
+    @issuer_ref.setter
+    def issuer_ref(self, value: pulumi.Input['CertManagerIssuerRefArgs']):
+        pulumi.set(self, "issuer_ref", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Lifetime of certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="privateKey")
+    def private_key(self) -> Optional[pulumi.Input['CertManagerPrivateKeyArgs']]:
+        """
+        Type of certificate private key.
+        """
+        return pulumi.get(self, "private_key")
+
+    @private_key.setter
+    def private_key(self, value: Optional[pulumi.Input['CertManagerPrivateKeyArgs']]):
+        pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter(name="renewBefore")
+    def renew_before(self) -> Optional[pulumi.Input[str]]:
+        """
+        When to begin renewing certificate. Must be specified using a Go time.Duration format (h|m|s). E.g. 240h for 240 hours and 45m for 45 minutes.
+        """
+        return pulumi.get(self, "renew_before")
+
+    @renew_before.setter
+    def renew_before(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "renew_before", value)
+
+    @property
+    @pulumi.getter
+    def san(self) -> Optional[pulumi.Input['SanForCertArgs']]:
+        """
+        Additional Subject Alternative Names (SANs) to include in the certificate.
+        """
+        return pulumi.get(self, "san")
+
+    @san.setter
+    def san(self, value: Optional[pulumi.Input['SanForCertArgs']]):
+        pulumi.set(self, "san", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secret_name", value)
+
+
+if not MYPY:
     class CertManagerIssuerRefArgsDict(TypedDict):
         """
         Cert-Manager issuerRef properties
         """
-        api_group: pulumi.Input[str]
+        group: pulumi.Input[str]
         """
         group of issuer.
         """
@@ -1628,32 +1637,32 @@ elif False:
 @pulumi.input_type
 class CertManagerIssuerRefArgs:
     def __init__(__self__, *,
-                 api_group: Optional[pulumi.Input[str]] = None,
+                 group: Optional[pulumi.Input[str]] = None,
                  kind: pulumi.Input[Union[str, 'CertManagerIssuerKind']],
                  name: pulumi.Input[str]):
         """
         Cert-Manager issuerRef properties
-        :param pulumi.Input[str] api_group: group of issuer.
+        :param pulumi.Input[str] group: group of issuer.
         :param pulumi.Input[Union[str, 'CertManagerIssuerKind']] kind: kind of issuer (Issuer or ClusterIssuer).
         :param pulumi.Input[str] name: name of issuer.
         """
-        if api_group is None:
-            api_group = 'cert-manager.io'
-        pulumi.set(__self__, "api_group", api_group)
+        if group is None:
+            group = 'cert-manager.io'
+        pulumi.set(__self__, "group", group)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter(name="apiGroup")
-    def api_group(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def group(self) -> pulumi.Input[str]:
         """
         group of issuer.
         """
-        return pulumi.get(self, "api_group")
+        return pulumi.get(self, "group")
 
-    @api_group.setter
-    def api_group(self, value: pulumi.Input[str]):
-        pulumi.set(self, "api_group", value)
+    @group.setter
+    def group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group", value)
 
     @property
     @pulumi.getter
@@ -1871,9 +1880,9 @@ class ClientConfigArgs:
 
 
 if not MYPY:
-    class DataFlowBuiltInTransformationDatasetArgsDict(TypedDict):
+    class DataflowBuiltInTransformationDatasetArgsDict(TypedDict):
         """
-        DataFlow BuiltIn Transformation dataset properties
+        Dataflow BuiltIn Transformation dataset properties
         """
         inputs: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -1896,10 +1905,10 @@ if not MYPY:
         The reference to the schema that describes the dataset. Allowed: JSON Schema/draft-7.
         """
 elif False:
-    DataFlowBuiltInTransformationDatasetArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowBuiltInTransformationDatasetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowBuiltInTransformationDatasetArgs:
+class DataflowBuiltInTransformationDatasetArgs:
     def __init__(__self__, *,
                  inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  key: pulumi.Input[str],
@@ -1907,7 +1916,7 @@ class DataFlowBuiltInTransformationDatasetArgs:
                  expression: Optional[pulumi.Input[str]] = None,
                  schema_ref: Optional[pulumi.Input[str]] = None):
         """
-        DataFlow BuiltIn Transformation dataset properties
+        Dataflow BuiltIn Transformation dataset properties
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: List of fields for enriching from the Broker State Store.
         :param pulumi.Input[str] key: The key of the dataset.
         :param pulumi.Input[str] description: A user provided optional description of the dataset.
@@ -1985,9 +1994,9 @@ class DataFlowBuiltInTransformationDatasetArgs:
 
 
 if not MYPY:
-    class DataFlowBuiltInTransformationFilterArgsDict(TypedDict):
+    class DataflowBuiltInTransformationFilterArgsDict(TypedDict):
         """
-        DataFlow BuiltIn Transformation filter properties
+        Dataflow BuiltIn Transformation filter properties
         """
         expression: pulumi.Input[str]
         """
@@ -2006,17 +2015,17 @@ if not MYPY:
         The type of dataflow operation.
         """
 elif False:
-    DataFlowBuiltInTransformationFilterArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowBuiltInTransformationFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowBuiltInTransformationFilterArgs:
+class DataflowBuiltInTransformationFilterArgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
                  inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None):
         """
-        DataFlow BuiltIn Transformation filter properties
+        Dataflow BuiltIn Transformation filter properties
         :param pulumi.Input[str] expression: Condition to filter data. Can reference input fields with {n} where n is the index of the input field starting from 1. Example: $1 < 0 || $1 > $2 (Assuming inputs section $1 and $2 are provided)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: List of fields for filtering in JSON path expression.
         :param pulumi.Input[str] description: A user provided optional description of the filter.
@@ -2081,9 +2090,9 @@ class DataFlowBuiltInTransformationFilterArgs:
 
 
 if not MYPY:
-    class DataFlowBuiltInTransformationMapArgsDict(TypedDict):
+    class DataflowBuiltInTransformationMapArgsDict(TypedDict):
         """
-        DataFlow BuiltIn Transformation map properties
+        Dataflow BuiltIn Transformation map properties
         """
         inputs: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -2101,28 +2110,28 @@ if not MYPY:
         """
         Modify the inputs field(s) to the final output field. Example: $1 * 2.2 (Assuming inputs section $1 is provided)
         """
-        type: NotRequired[pulumi.Input[Union[str, 'DataFlowMappingType']]]
+        type: NotRequired[pulumi.Input[Union[str, 'DataflowMappingType']]]
         """
         Type of transformation.
         """
 elif False:
-    DataFlowBuiltInTransformationMapArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowBuiltInTransformationMapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowBuiltInTransformationMapArgs:
+class DataflowBuiltInTransformationMapArgs:
     def __init__(__self__, *,
                  inputs: pulumi.Input[Sequence[pulumi.Input[str]]],
                  output: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'DataFlowMappingType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'DataflowMappingType']]] = None):
         """
-        DataFlow BuiltIn Transformation map properties
+        Dataflow BuiltIn Transformation map properties
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inputs: List of fields for mapping in JSON path expression.
         :param pulumi.Input[str] output: Where and how the input fields to be organized in the output record.
         :param pulumi.Input[str] description: A user provided optional description of the mapping function.
         :param pulumi.Input[str] expression: Modify the inputs field(s) to the final output field. Example: $1 * 2.2 (Assuming inputs section $1 is provided)
-        :param pulumi.Input[Union[str, 'DataFlowMappingType']] type: Type of transformation.
+        :param pulumi.Input[Union[str, 'DataflowMappingType']] type: Type of transformation.
         """
         pulumi.set(__self__, "inputs", inputs)
         pulumi.set(__self__, "output", output)
@@ -2183,31 +2192,31 @@ class DataFlowBuiltInTransformationMapArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'DataFlowMappingType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'DataflowMappingType']]]:
         """
         Type of transformation.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'DataFlowMappingType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'DataflowMappingType']]]):
         pulumi.set(self, "type", value)
 
 
 if not MYPY:
-    class DataFlowBuiltInTransformationArgsDict(TypedDict):
+    class DataflowBuiltInTransformationSettingsArgsDict(TypedDict):
         """
-        DataFlow BuiltIn Transformation properties
+        Dataflow BuiltIn Transformation properties
         """
-        datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationDatasetArgsDict']]]]
+        datasets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationDatasetArgsDict']]]]
         """
         Enrich data from Broker State Store. Dataset references a key in Broker State Store.
         """
-        filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationFilterArgsDict']]]]
+        filter: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationFilterArgsDict']]]]
         """
         Filters input record or datapoints based on condition.
         """
-        map: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationMapArgsDict']]]]
+        map: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationMapArgsDict']]]]
         """
         Maps input to output message.
         """
@@ -2220,21 +2229,21 @@ if not MYPY:
         Serialization format. Optional; defaults to JSON. Allowed value JSON Schema/draft-7, Parquet. Default: Json
         """
 elif False:
-    DataFlowBuiltInTransformationArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowBuiltInTransformationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowBuiltInTransformationArgs:
+class DataflowBuiltInTransformationSettingsArgs:
     def __init__(__self__, *,
-                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationDatasetArgs']]]] = None,
-                 filter: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationFilterArgs']]]] = None,
-                 map: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationMapArgs']]]] = None,
+                 datasets: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationDatasetArgs']]]] = None,
+                 filter: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationFilterArgs']]]] = None,
+                 map: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationMapArgs']]]] = None,
                  schema_ref: Optional[pulumi.Input[str]] = None,
                  serialization_format: Optional[pulumi.Input[Union[str, 'TransformationSerializationFormat']]] = None):
         """
-        DataFlow BuiltIn Transformation properties
-        :param pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationDatasetArgs']]] datasets: Enrich data from Broker State Store. Dataset references a key in Broker State Store.
-        :param pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationFilterArgs']]] filter: Filters input record or datapoints based on condition.
-        :param pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationMapArgs']]] map: Maps input to output message.
+        Dataflow BuiltIn Transformation properties
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationDatasetArgs']]] datasets: Enrich data from Broker State Store. Dataset references a key in Broker State Store.
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationFilterArgs']]] filter: Filters input record or datapoints based on condition.
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationMapArgs']]] map: Maps input to output message.
         :param pulumi.Input[str] schema_ref: Reference to the schema that describes the output of the transformation.
         :param pulumi.Input[Union[str, 'TransformationSerializationFormat']] serialization_format: Serialization format. Optional; defaults to JSON. Allowed value JSON Schema/draft-7, Parquet. Default: Json
         """
@@ -2253,38 +2262,38 @@ class DataFlowBuiltInTransformationArgs:
 
     @property
     @pulumi.getter
-    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationDatasetArgs']]]]:
+    def datasets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationDatasetArgs']]]]:
         """
         Enrich data from Broker State Store. Dataset references a key in Broker State Store.
         """
         return pulumi.get(self, "datasets")
 
     @datasets.setter
-    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationDatasetArgs']]]]):
+    def datasets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationDatasetArgs']]]]):
         pulumi.set(self, "datasets", value)
 
     @property
     @pulumi.getter
-    def filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationFilterArgs']]]]:
+    def filter(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationFilterArgs']]]]:
         """
         Filters input record or datapoints based on condition.
         """
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationFilterArgs']]]]):
+    def filter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationFilterArgs']]]]):
         pulumi.set(self, "filter", value)
 
     @property
     @pulumi.getter
-    def map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationMapArgs']]]]:
+    def map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationMapArgs']]]]:
         """
         Maps input to output message.
         """
         return pulumi.get(self, "map")
 
     @map.setter
-    def map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowBuiltInTransformationMapArgs']]]]):
+    def map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataflowBuiltInTransformationMapArgs']]]]):
         pulumi.set(self, "map", value)
 
     @property
@@ -2313,9 +2322,9 @@ class DataFlowBuiltInTransformationArgs:
 
 
 if not MYPY:
-    class DataFlowDestinationOperationArgsDict(TypedDict):
+    class DataflowDestinationOperationSettingsArgsDict(TypedDict):
         """
-        DataFlow Destination Operation properties
+        Dataflow Destination Operation properties
         """
         data_destination: pulumi.Input[str]
         """
@@ -2326,15 +2335,15 @@ if not MYPY:
         Reference to the Endpoint CR. Can be of Broker, Kafka, Fabric, ADLS, ADX type.
         """
 elif False:
-    DataFlowDestinationOperationArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowDestinationOperationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowDestinationOperationArgs:
+class DataflowDestinationOperationSettingsArgs:
     def __init__(__self__, *,
                  data_destination: pulumi.Input[str],
                  endpoint_ref: pulumi.Input[str]):
         """
-        DataFlow Destination Operation properties
+        Dataflow Destination Operation properties
         :param pulumi.Input[str] data_destination: Destination location, can be a topic or table name. Supports dynamic values with $topic, $systemProperties, $userProperties, $payload, $context, and $subscription.
         :param pulumi.Input[str] endpoint_ref: Reference to the Endpoint CR. Can be of Broker, Kafka, Fabric, ADLS, ADX type.
         """
@@ -2367,61 +2376,96 @@ class DataFlowDestinationOperationArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationSaslArgsDict(TypedDict):
+    class DataflowEndpointAuthenticationAccessTokenArgsDict(TypedDict):
         """
-        DataFlowEndpoint Authentication Sasl properties
+        DataflowEndpoint Authentication Access Token properties
         """
-        sasl_type: pulumi.Input[Union[str, 'DataFlowEndpointAuthenticationSaslType']]
-        """
-        Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
-        """
-        token_secret_ref: pulumi.Input[str]
+        secret_ref: pulumi.Input[str]
         """
         Token secret name.
         """
 elif False:
-    DataFlowEndpointAuthenticationSaslArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointAuthenticationAccessTokenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointAuthenticationSaslArgs:
+class DataflowEndpointAuthenticationAccessTokenArgs:
     def __init__(__self__, *,
-                 sasl_type: pulumi.Input[Union[str, 'DataFlowEndpointAuthenticationSaslType']],
-                 token_secret_ref: pulumi.Input[str]):
+                 secret_ref: pulumi.Input[str]):
         """
-        DataFlowEndpoint Authentication Sasl properties
-        :param pulumi.Input[Union[str, 'DataFlowEndpointAuthenticationSaslType']] sasl_type: Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
-        :param pulumi.Input[str] token_secret_ref: Token secret name.
+        DataflowEndpoint Authentication Access Token properties
+        :param pulumi.Input[str] secret_ref: Token secret name.
+        """
+        pulumi.set(__self__, "secret_ref", secret_ref)
+
+    @property
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[str]:
+        """
+        Token secret name.
+        """
+        return pulumi.get(self, "secret_ref")
+
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_ref", value)
+
+
+if not MYPY:
+    class DataflowEndpointAuthenticationSaslArgsDict(TypedDict):
+        """
+        DataflowEndpoint Authentication Sasl properties
+        """
+        sasl_type: pulumi.Input[Union[str, 'DataflowEndpointAuthenticationSaslType']]
+        """
+        Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
+        """
+        secret_ref: pulumi.Input[str]
+        """
+        Token secret name.
+        """
+elif False:
+    DataflowEndpointAuthenticationSaslArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointAuthenticationSaslArgs:
+    def __init__(__self__, *,
+                 sasl_type: pulumi.Input[Union[str, 'DataflowEndpointAuthenticationSaslType']],
+                 secret_ref: pulumi.Input[str]):
+        """
+        DataflowEndpoint Authentication Sasl properties
+        :param pulumi.Input[Union[str, 'DataflowEndpointAuthenticationSaslType']] sasl_type: Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
+        :param pulumi.Input[str] secret_ref: Token secret name.
         """
         pulumi.set(__self__, "sasl_type", sasl_type)
-        pulumi.set(__self__, "token_secret_ref", token_secret_ref)
+        pulumi.set(__self__, "secret_ref", secret_ref)
 
     @property
     @pulumi.getter(name="saslType")
-    def sasl_type(self) -> pulumi.Input[Union[str, 'DataFlowEndpointAuthenticationSaslType']]:
+    def sasl_type(self) -> pulumi.Input[Union[str, 'DataflowEndpointAuthenticationSaslType']]:
         """
         Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
         """
         return pulumi.get(self, "sasl_type")
 
     @sasl_type.setter
-    def sasl_type(self, value: pulumi.Input[Union[str, 'DataFlowEndpointAuthenticationSaslType']]):
+    def sasl_type(self, value: pulumi.Input[Union[str, 'DataflowEndpointAuthenticationSaslType']]):
         pulumi.set(self, "sasl_type", value)
 
     @property
-    @pulumi.getter(name="tokenSecretRef")
-    def token_secret_ref(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="secretRef")
+    def secret_ref(self) -> pulumi.Input[str]:
         """
         Token secret name.
         """
-        return pulumi.get(self, "token_secret_ref")
+        return pulumi.get(self, "secret_ref")
 
-    @token_secret_ref.setter
-    def token_secret_ref(self, value: pulumi.Input[str]):
-        pulumi.set(self, "token_secret_ref", value)
+    @secret_ref.setter
+    def secret_ref(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_ref", value)
 
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationServiceAccountTokenArgsDict(TypedDict):
+    class DataflowEndpointAuthenticationServiceAccountTokenArgsDict(TypedDict):
         """
         Service Account Token for BrokerAuthentication
         """
@@ -2430,10 +2474,10 @@ if not MYPY:
         Audience of the service account. Optional, defaults to the broker internal service account audience.
         """
 elif False:
-    DataFlowEndpointAuthenticationServiceAccountTokenArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointAuthenticationServiceAccountTokenArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointAuthenticationServiceAccountTokenArgs:
+class DataflowEndpointAuthenticationServiceAccountTokenArgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[str]):
         """
@@ -2456,48 +2500,45 @@ class DataFlowEndpointAuthenticationServiceAccountTokenArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict(TypedDict):
+    class DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict(TypedDict):
         """
-        DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+        DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
         """
-        audience: pulumi.Input[str]
+        audience: NotRequired[pulumi.Input[str]]
         """
         Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
 elif False:
-    DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs:
+class DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs:
     def __init__(__self__, *,
-                 audience: pulumi.Input[str]):
+                 audience: Optional[pulumi.Input[str]] = None):
         """
-        DataFlowEndpoint Authentication SystemAssignedManagedIdentity properties
+        DataflowEndpoint Authentication SystemAssignedManagedIdentity properties
         :param pulumi.Input[str] audience: Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
-        pulumi.set(__self__, "audience", audience)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
 
     @property
     @pulumi.getter
-    def audience(self) -> pulumi.Input[str]:
+    def audience(self) -> Optional[pulumi.Input[str]]:
         """
         Audience of the service to authenticate against. Optional; defaults to the audience for Service host configuration.
         """
         return pulumi.get(self, "audience")
 
     @audience.setter
-    def audience(self, value: pulumi.Input[str]):
+    def audience(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "audience", value)
 
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgsDict(TypedDict):
+    class DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict(TypedDict):
         """
-        DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
-        """
-        audience: pulumi.Input[str]
-        """
-        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        DataflowEndpoint Authentication UserAssignedManagedIdentity properties
         """
         client_id: pulumi.Input[str]
         """
@@ -2507,36 +2548,29 @@ if not MYPY:
         """
         Tenant ID.
         """
-elif False:
-    DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs:
-    def __init__(__self__, *,
-                 audience: pulumi.Input[str],
-                 client_id: pulumi.Input[str],
-                 tenant_id: pulumi.Input[str]):
-        """
-        DataFlowEndpoint Authentication UserAssignedManagedIdentity properties
-        :param pulumi.Input[str] audience: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
-        :param pulumi.Input[str] client_id: Client ID for the user-assigned managed identity.
-        :param pulumi.Input[str] tenant_id: Tenant ID.
-        """
-        pulumi.set(__self__, "audience", audience)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @property
-    @pulumi.getter
-    def audience(self) -> pulumi.Input[str]:
+        scope: NotRequired[pulumi.Input[str]]
         """
         Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
         """
-        return pulumi.get(self, "audience")
+elif False:
+    DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
-    @audience.setter
-    def audience(self, value: pulumi.Input[str]):
-        pulumi.set(self, "audience", value)
+@pulumi.input_type
+class DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 tenant_id: pulumi.Input[str],
+                 scope: Optional[pulumi.Input[str]] = None):
+        """
+        DataflowEndpoint Authentication UserAssignedManagedIdentity properties
+        :param pulumi.Input[str] client_id: Client ID for the user-assigned managed identity.
+        :param pulumi.Input[str] tenant_id: Tenant ID.
+        :param pulumi.Input[str] scope: Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter(name="clientId")
@@ -2562,25 +2596,37 @@ class DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs:
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
 
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource identifier (application ID URI) of the resource, affixed with the .default suffix.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationX509ArgsDict(TypedDict):
+    class DataflowEndpointAuthenticationX509ArgsDict(TypedDict):
         """
-        DataFlowEndpoint Authentication X509 properties
+        DataflowEndpoint Authentication X509 properties
         """
         secret_ref: pulumi.Input[str]
         """
         Secret reference of the X.509 certificate.
         """
 elif False:
-    DataFlowEndpointAuthenticationX509ArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointAuthenticationX509ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointAuthenticationX509Args:
+class DataflowEndpointAuthenticationX509Args:
     def __init__(__self__, *,
                  secret_ref: pulumi.Input[str]):
         """
-        DataFlowEndpoint Authentication X509 properties
+        DataflowEndpoint Authentication X509 properties
         :param pulumi.Input[str] secret_ref: Secret reference of the X.509 certificate.
         """
         pulumi.set(__self__, "secret_ref", secret_ref)
@@ -2599,164 +2645,88 @@ class DataFlowEndpointAuthenticationX509Args:
 
 
 if not MYPY:
-    class DataFlowEndpointAuthenticationArgsDict(TypedDict):
+    class DataflowEndpointDataExplorerAuthenticationArgsDict(TypedDict):
         """
         Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
         """
-        method: pulumi.Input[Union[str, 'AuthenticationMethod']]
+        method: Any
         """
         Mode of Authentication.
         """
-        access_token_secret_ref: NotRequired[pulumi.Input[str]]
-        """
-        SAS token authentication.
-        """
-        sasl_settings: NotRequired[pulumi.Input['DataFlowEndpointAuthenticationSaslArgsDict']]
-        """
-        SASL authentication.
-        """
-        service_account_token_settings: NotRequired[pulumi.Input['DataFlowEndpointAuthenticationServiceAccountTokenArgsDict']]
-        """
-        Service Account Token authentication.
-        """
-        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
+        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
         """
         System-assigned managed identity authentication.
         """
-        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
+        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
         """
         User-assigned managed identity authentication.
         """
-        x509_credentials_settings: NotRequired[pulumi.Input['DataFlowEndpointAuthenticationX509ArgsDict']]
-        """
-        X.509 certificate authentication.
-        """
 elif False:
-    DataFlowEndpointAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointDataExplorerAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointAuthenticationArgs:
+class DataflowEndpointDataExplorerAuthenticationArgs:
     def __init__(__self__, *,
-                 method: pulumi.Input[Union[str, 'AuthenticationMethod']],
-                 access_token_secret_ref: Optional[pulumi.Input[str]] = None,
-                 sasl_settings: Optional[pulumi.Input['DataFlowEndpointAuthenticationSaslArgs']] = None,
-                 service_account_token_settings: Optional[pulumi.Input['DataFlowEndpointAuthenticationServiceAccountTokenArgs']] = None,
-                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
-                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None,
-                 x509_credentials_settings: Optional[pulumi.Input['DataFlowEndpointAuthenticationX509Args']] = None):
+                 method: Any,
+                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
+                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None):
         """
         Azure Data Explorer Authentication properties. NOTE - only authentication property is allowed per entry.
-        :param pulumi.Input[Union[str, 'AuthenticationMethod']] method: Mode of Authentication.
-        :param pulumi.Input[str] access_token_secret_ref: SAS token authentication.
-        :param pulumi.Input['DataFlowEndpointAuthenticationSaslArgs'] sasl_settings: SASL authentication.
-        :param pulumi.Input['DataFlowEndpointAuthenticationServiceAccountTokenArgs'] service_account_token_settings: Service Account Token authentication.
-        :param pulumi.Input['DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
-        :param pulumi.Input['DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
-        :param pulumi.Input['DataFlowEndpointAuthenticationX509Args'] x509_credentials_settings: X.509 certificate authentication.
+        :param Any method: Mode of Authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
         """
         pulumi.set(__self__, "method", method)
-        if access_token_secret_ref is not None:
-            pulumi.set(__self__, "access_token_secret_ref", access_token_secret_ref)
-        if sasl_settings is not None:
-            pulumi.set(__self__, "sasl_settings", sasl_settings)
-        if service_account_token_settings is not None:
-            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
         if system_assigned_managed_identity_settings is not None:
             pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
         if user_assigned_managed_identity_settings is not None:
             pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
-        if x509_credentials_settings is not None:
-            pulumi.set(__self__, "x509_credentials_settings", x509_credentials_settings)
 
     @property
     @pulumi.getter
-    def method(self) -> pulumi.Input[Union[str, 'AuthenticationMethod']]:
+    def method(self) -> Any:
         """
         Mode of Authentication.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: pulumi.Input[Union[str, 'AuthenticationMethod']]):
+    def method(self, value: Any):
         pulumi.set(self, "method", value)
 
     @property
-    @pulumi.getter(name="accessTokenSecretRef")
-    def access_token_secret_ref(self) -> Optional[pulumi.Input[str]]:
-        """
-        SAS token authentication.
-        """
-        return pulumi.get(self, "access_token_secret_ref")
-
-    @access_token_secret_ref.setter
-    def access_token_secret_ref(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "access_token_secret_ref", value)
-
-    @property
-    @pulumi.getter(name="saslSettings")
-    def sasl_settings(self) -> Optional[pulumi.Input['DataFlowEndpointAuthenticationSaslArgs']]:
-        """
-        SASL authentication.
-        """
-        return pulumi.get(self, "sasl_settings")
-
-    @sasl_settings.setter
-    def sasl_settings(self, value: Optional[pulumi.Input['DataFlowEndpointAuthenticationSaslArgs']]):
-        pulumi.set(self, "sasl_settings", value)
-
-    @property
-    @pulumi.getter(name="serviceAccountTokenSettings")
-    def service_account_token_settings(self) -> Optional[pulumi.Input['DataFlowEndpointAuthenticationServiceAccountTokenArgs']]:
-        """
-        Service Account Token authentication.
-        """
-        return pulumi.get(self, "service_account_token_settings")
-
-    @service_account_token_settings.setter
-    def service_account_token_settings(self, value: Optional[pulumi.Input['DataFlowEndpointAuthenticationServiceAccountTokenArgs']]):
-        pulumi.set(self, "service_account_token_settings", value)
-
-    @property
     @pulumi.getter(name="systemAssignedManagedIdentitySettings")
-    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
+    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
         """
         System-assigned managed identity authentication.
         """
         return pulumi.get(self, "system_assigned_managed_identity_settings")
 
     @system_assigned_managed_identity_settings.setter
-    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataFlowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
+    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
         pulumi.set(self, "system_assigned_managed_identity_settings", value)
 
     @property
     @pulumi.getter(name="userAssignedManagedIdentitySettings")
-    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
+    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
         """
         User-assigned managed identity authentication.
         """
         return pulumi.get(self, "user_assigned_managed_identity_settings")
 
     @user_assigned_managed_identity_settings.setter
-    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataFlowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
+    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
         pulumi.set(self, "user_assigned_managed_identity_settings", value)
-
-    @property
-    @pulumi.getter(name="x509CredentialsSettings")
-    def x509_credentials_settings(self) -> Optional[pulumi.Input['DataFlowEndpointAuthenticationX509Args']]:
-        """
-        X.509 certificate authentication.
-        """
-        return pulumi.get(self, "x509_credentials_settings")
-
-    @x509_credentials_settings.setter
-    def x509_credentials_settings(self, value: Optional[pulumi.Input['DataFlowEndpointAuthenticationX509Args']]):
-        pulumi.set(self, "x509_credentials_settings", value)
 
 
 if not MYPY:
-    class DataFlowEndpointDataExplorerArgsDict(TypedDict):
+    class DataflowEndpointDataExplorerArgsDict(TypedDict):
         """
         Azure Data Explorer endpoint properties
+        """
+        authentication: pulumi.Input['DataflowEndpointDataExplorerAuthenticationArgsDict']
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
         database: pulumi.Input[str]
         """
@@ -2771,24 +2741,39 @@ if not MYPY:
         Azure Data Explorer endpoint batching configuration.
         """
 elif False:
-    DataFlowEndpointDataExplorerArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointDataExplorerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointDataExplorerArgs:
+class DataflowEndpointDataExplorerArgs:
     def __init__(__self__, *,
+                 authentication: pulumi.Input['DataflowEndpointDataExplorerAuthenticationArgs'],
                  database: pulumi.Input[str],
                  host: pulumi.Input[str],
                  batching: Optional[pulumi.Input['BatchingConfigurationArgs']] = None):
         """
         Azure Data Explorer endpoint properties
+        :param pulumi.Input['DataflowEndpointDataExplorerAuthenticationArgs'] authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param pulumi.Input[str] database: Database name.
         :param pulumi.Input[str] host: Host of the Azure Data Explorer in the form of <cluster>.<region>.kusto.windows.net .
         :param pulumi.Input['BatchingConfigurationArgs'] batching: Azure Data Explorer endpoint batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input['DataflowEndpointDataExplorerAuthenticationArgs']:
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input['DataflowEndpointDataExplorerAuthenticationArgs']):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter
@@ -2828,9 +2813,108 @@ class DataFlowEndpointDataExplorerArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointDataLakeStorageArgsDict(TypedDict):
+    class DataflowEndpointDataLakeStorageAuthenticationArgsDict(TypedDict):
+        """
+        Azure Data Lake endpoint Authentication properties.  NOTE Enum - Only one method is supported for one entry
+        """
+        method: pulumi.Input[Union[str, 'DataLakeStorageAuthMethod']]
+        """
+        Mode of Authentication.
+        """
+        access_token_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationAccessTokenArgsDict']]
+        """
+        SAS token authentication.
+        """
+        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
+        """
+        System-assigned managed identity authentication.
+        """
+        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
+        """
+        User-assigned managed identity authentication.
+        """
+elif False:
+    DataflowEndpointDataLakeStorageAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointDataLakeStorageAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[Union[str, 'DataLakeStorageAuthMethod']],
+                 access_token_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationAccessTokenArgs']] = None,
+                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
+                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None):
+        """
+        Azure Data Lake endpoint Authentication properties.  NOTE Enum - Only one method is supported for one entry
+        :param pulumi.Input[Union[str, 'DataLakeStorageAuthMethod']] method: Mode of Authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationAccessTokenArgs'] access_token_settings: SAS token authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if access_token_settings is not None:
+            pulumi.set(__self__, "access_token_settings", access_token_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[Union[str, 'DataLakeStorageAuthMethod']]:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[Union[str, 'DataLakeStorageAuthMethod']]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="accessTokenSettings")
+    def access_token_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationAccessTokenArgs']]:
+        """
+        SAS token authentication.
+        """
+        return pulumi.get(self, "access_token_settings")
+
+    @access_token_settings.setter
+    def access_token_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationAccessTokenArgs']]):
+        pulumi.set(self, "access_token_settings", value)
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @system_assigned_managed_identity_settings.setter
+    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "system_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @user_assigned_managed_identity_settings.setter
+    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_settings", value)
+
+
+if not MYPY:
+    class DataflowEndpointDataLakeStorageArgsDict(TypedDict):
         """
         Azure Data Lake endpoint properties
+        """
+        authentication: pulumi.Input['DataflowEndpointDataLakeStorageAuthenticationArgsDict']
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
         host: pulumi.Input[str]
         """
@@ -2841,21 +2925,36 @@ if not MYPY:
         Azure Data Lake endpoint batching configuration.
         """
 elif False:
-    DataFlowEndpointDataLakeStorageArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointDataLakeStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointDataLakeStorageArgs:
+class DataflowEndpointDataLakeStorageArgs:
     def __init__(__self__, *,
+                 authentication: pulumi.Input['DataflowEndpointDataLakeStorageAuthenticationArgs'],
                  host: pulumi.Input[str],
                  batching: Optional[pulumi.Input['BatchingConfigurationArgs']] = None):
         """
         Azure Data Lake endpoint properties
+        :param pulumi.Input['DataflowEndpointDataLakeStorageAuthenticationArgs'] authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
         :param pulumi.Input[str] host: Host of the Azure Data Lake in the form of <account>.blob.core.windows.net .
         :param pulumi.Input['BatchingConfigurationArgs'] batching: Azure Data Lake endpoint batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input['DataflowEndpointDataLakeStorageAuthenticationArgs']:
+        """
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input['DataflowEndpointDataLakeStorageAuthenticationArgs']):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter
@@ -2883,7 +2982,82 @@ class DataFlowEndpointDataLakeStorageArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointFabricOneLakeNamesArgsDict(TypedDict):
+    class DataflowEndpointFabricOneLakeAuthenticationArgsDict(TypedDict):
+        """
+        Microsoft Fabric endpoint. Authentication properties. NOTE - Only one method is supported for one entry
+        """
+        method: Any
+        """
+        Mode of Authentication.
+        """
+        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
+        """
+        System-assigned managed identity authentication.
+        """
+        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
+        """
+        User-assigned managed identity authentication.
+        """
+elif False:
+    DataflowEndpointFabricOneLakeAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointFabricOneLakeAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: Any,
+                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
+                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None):
+        """
+        Microsoft Fabric endpoint. Authentication properties. NOTE - Only one method is supported for one entry
+        :param Any method: Mode of Authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Any:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Any):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @system_assigned_managed_identity_settings.setter
+    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "system_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @user_assigned_managed_identity_settings.setter
+    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_settings", value)
+
+
+if not MYPY:
+    class DataflowEndpointFabricOneLakeNamesArgsDict(TypedDict):
         """
         Microsoft Fabric endpoint Names properties
         """
@@ -2896,10 +3070,10 @@ if not MYPY:
         Workspace name.
         """
 elif False:
-    DataFlowEndpointFabricOneLakeNamesArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointFabricOneLakeNamesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointFabricOneLakeNamesArgs:
+class DataflowEndpointFabricOneLakeNamesArgs:
     def __init__(__self__, *,
                  lakehouse_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str]):
@@ -2937,19 +3111,23 @@ class DataFlowEndpointFabricOneLakeNamesArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointFabricOneLakeArgsDict(TypedDict):
+    class DataflowEndpointFabricOneLakeArgsDict(TypedDict):
         """
         Microsoft Fabric endpoint properties
+        """
+        authentication: pulumi.Input['DataflowEndpointFabricOneLakeAuthenticationArgsDict']
+        """
+        Authentication configuration. NOTE - only one authentication property is allowed per entry.
         """
         host: pulumi.Input[str]
         """
         Host of the Microsoft Fabric in the form of https://<host>.fabric.microsoft.com.
         """
-        names: pulumi.Input['DataFlowEndpointFabricOneLakeNamesArgsDict']
+        names: pulumi.Input['DataflowEndpointFabricOneLakeNamesArgsDict']
         """
         Names of the workspace and lakehouse.
         """
-        one_lake_path_type: pulumi.Input[Union[str, 'DataFlowEndpointFabricPathType']]
+        one_lake_path_type: pulumi.Input[Union[str, 'DataflowEndpointFabricPathType']]
         """
         Type of location of the data in the workspace. Can be either tables or files.
         """
@@ -2958,27 +3136,42 @@ if not MYPY:
         Batching configuration.
         """
 elif False:
-    DataFlowEndpointFabricOneLakeArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointFabricOneLakeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointFabricOneLakeArgs:
+class DataflowEndpointFabricOneLakeArgs:
     def __init__(__self__, *,
+                 authentication: pulumi.Input['DataflowEndpointFabricOneLakeAuthenticationArgs'],
                  host: pulumi.Input[str],
-                 names: pulumi.Input['DataFlowEndpointFabricOneLakeNamesArgs'],
-                 one_lake_path_type: pulumi.Input[Union[str, 'DataFlowEndpointFabricPathType']],
+                 names: pulumi.Input['DataflowEndpointFabricOneLakeNamesArgs'],
+                 one_lake_path_type: pulumi.Input[Union[str, 'DataflowEndpointFabricPathType']],
                  batching: Optional[pulumi.Input['BatchingConfigurationArgs']] = None):
         """
         Microsoft Fabric endpoint properties
+        :param pulumi.Input['DataflowEndpointFabricOneLakeAuthenticationArgs'] authentication: Authentication configuration. NOTE - only one authentication property is allowed per entry.
         :param pulumi.Input[str] host: Host of the Microsoft Fabric in the form of https://<host>.fabric.microsoft.com.
-        :param pulumi.Input['DataFlowEndpointFabricOneLakeNamesArgs'] names: Names of the workspace and lakehouse.
-        :param pulumi.Input[Union[str, 'DataFlowEndpointFabricPathType']] one_lake_path_type: Type of location of the data in the workspace. Can be either tables or files.
+        :param pulumi.Input['DataflowEndpointFabricOneLakeNamesArgs'] names: Names of the workspace and lakehouse.
+        :param pulumi.Input[Union[str, 'DataflowEndpointFabricPathType']] one_lake_path_type: Type of location of the data in the workspace. Can be either tables or files.
         :param pulumi.Input['BatchingConfigurationArgs'] batching: Batching configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "names", names)
         pulumi.set(__self__, "one_lake_path_type", one_lake_path_type)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input['DataflowEndpointFabricOneLakeAuthenticationArgs']:
+        """
+        Authentication configuration. NOTE - only one authentication property is allowed per entry.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input['DataflowEndpointFabricOneLakeAuthenticationArgs']):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter
@@ -2994,26 +3187,26 @@ class DataFlowEndpointFabricOneLakeArgs:
 
     @property
     @pulumi.getter
-    def names(self) -> pulumi.Input['DataFlowEndpointFabricOneLakeNamesArgs']:
+    def names(self) -> pulumi.Input['DataflowEndpointFabricOneLakeNamesArgs']:
         """
         Names of the workspace and lakehouse.
         """
         return pulumi.get(self, "names")
 
     @names.setter
-    def names(self, value: pulumi.Input['DataFlowEndpointFabricOneLakeNamesArgs']):
+    def names(self, value: pulumi.Input['DataflowEndpointFabricOneLakeNamesArgs']):
         pulumi.set(self, "names", value)
 
     @property
     @pulumi.getter(name="oneLakePathType")
-    def one_lake_path_type(self) -> pulumi.Input[Union[str, 'DataFlowEndpointFabricPathType']]:
+    def one_lake_path_type(self) -> pulumi.Input[Union[str, 'DataflowEndpointFabricPathType']]:
         """
         Type of location of the data in the workspace. Can be either tables or files.
         """
         return pulumi.get(self, "one_lake_path_type")
 
     @one_lake_path_type.setter
-    def one_lake_path_type(self, value: pulumi.Input[Union[str, 'DataFlowEndpointFabricPathType']]):
+    def one_lake_path_type(self, value: pulumi.Input[Union[str, 'DataflowEndpointFabricPathType']]):
         pulumi.set(self, "one_lake_path_type", value)
 
     @property
@@ -3030,7 +3223,122 @@ class DataFlowEndpointFabricOneLakeArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointKafkaBatchingArgsDict(TypedDict):
+    class DataflowEndpointKafkaAuthenticationArgsDict(TypedDict):
+        """
+        Kafka endpoint Authentication properties. NOTE - only authentication property is allowed per entry
+        """
+        method: pulumi.Input[Union[str, 'KafkaAuthMethod']]
+        """
+        Mode of Authentication.
+        """
+        sasl_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSaslArgsDict']]
+        """
+        SASL authentication.
+        """
+        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
+        """
+        System-assigned managed identity authentication.
+        """
+        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
+        """
+        User-assigned managed identity authentication.
+        """
+        x509_certificate_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationX509ArgsDict']]
+        """
+        X.509 certificate authentication.
+        """
+elif False:
+    DataflowEndpointKafkaAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointKafkaAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[Union[str, 'KafkaAuthMethod']],
+                 sasl_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSaslArgs']] = None,
+                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
+                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None,
+                 x509_certificate_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']] = None):
+        """
+        Kafka endpoint Authentication properties. NOTE - only authentication property is allowed per entry
+        :param pulumi.Input[Union[str, 'KafkaAuthMethod']] method: Mode of Authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationSaslArgs'] sasl_settings: SASL authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationX509Args'] x509_certificate_settings: X.509 certificate authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if sasl_settings is not None:
+            pulumi.set(__self__, "sasl_settings", sasl_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+        if x509_certificate_settings is not None:
+            pulumi.set(__self__, "x509_certificate_settings", x509_certificate_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[Union[str, 'KafkaAuthMethod']]:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[Union[str, 'KafkaAuthMethod']]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="saslSettings")
+    def sasl_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSaslArgs']]:
+        """
+        SASL authentication.
+        """
+        return pulumi.get(self, "sasl_settings")
+
+    @sasl_settings.setter
+    def sasl_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSaslArgs']]):
+        pulumi.set(self, "sasl_settings", value)
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @system_assigned_managed_identity_settings.setter
+    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "system_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @user_assigned_managed_identity_settings.setter
+    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="x509CertificateSettings")
+    def x509_certificate_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']]:
+        """
+        X.509 certificate authentication.
+        """
+        return pulumi.get(self, "x509_certificate_settings")
+
+    @x509_certificate_settings.setter
+    def x509_certificate_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']]):
+        pulumi.set(self, "x509_certificate_settings", value)
+
+
+if not MYPY:
+    class DataflowEndpointKafkaBatchingArgsDict(TypedDict):
         """
         Kafka endpoint Batching properties
         """
@@ -3051,10 +3359,10 @@ if not MYPY:
         Mode for batching.
         """
 elif False:
-    DataFlowEndpointKafkaBatchingArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointKafkaBatchingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointKafkaBatchingArgs:
+class DataflowEndpointKafkaBatchingArgs:
     def __init__(__self__, *,
                  latency_ms: Optional[pulumi.Input[int]] = None,
                  max_bytes: Optional[pulumi.Input[int]] = None,
@@ -3134,19 +3442,27 @@ class DataFlowEndpointKafkaBatchingArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointKafkaArgsDict(TypedDict):
+    class DataflowEndpointKafkaArgsDict(TypedDict):
         """
         Kafka endpoint properties
         """
-        tls: pulumi.Input['TlsPropertiesArgsDict']
+        authentication: pulumi.Input['DataflowEndpointKafkaAuthenticationArgsDict']
         """
-        TLS configuration.
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
-        batching: NotRequired[pulumi.Input['DataFlowEndpointKafkaBatchingArgsDict']]
+        host: pulumi.Input[str]
+        """
+        Kafka endpoint host.
+        """
+        batching: NotRequired[pulumi.Input['DataflowEndpointKafkaBatchingArgsDict']]
         """
         Batching configuration.
         """
-        compression: NotRequired[pulumi.Input[Union[str, 'DataFlowEndpointKafkaCompression']]]
+        cloud_event_attributes: NotRequired[pulumi.Input[Union[str, 'CloudEventAttributeType']]]
+        """
+        Cloud event mapping config.
+        """
+        compression: NotRequired[pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']]]
         """
         Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         """
@@ -3158,46 +3474,53 @@ if not MYPY:
         """
         Copy Broker properties. No effect if the endpoint is used as a source or if the dataflow doesn't have an Broker source.
         """
-        host: NotRequired[pulumi.Input[str]]
-        """
-        Kafka endpoint host.
-        """
-        kafka_acks: NotRequired[pulumi.Input[Union[str, 'DataFlowEndpointKafkaAcks']]]
+        kafka_acks: NotRequired[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]]
         """
         Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         """
-        partition_strategy: NotRequired[pulumi.Input[Union[str, 'DataFlowEndpointKafkaPartitionStrategy']]]
+        partition_strategy: NotRequired[pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']]]
         """
         Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
         """
+        tls: NotRequired[pulumi.Input['TlsPropertiesArgsDict']]
+        """
+        TLS configuration.
+        """
 elif False:
-    DataFlowEndpointKafkaArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointKafkaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointKafkaArgs:
+class DataflowEndpointKafkaArgs:
     def __init__(__self__, *,
-                 tls: pulumi.Input['TlsPropertiesArgs'],
-                 batching: Optional[pulumi.Input['DataFlowEndpointKafkaBatchingArgs']] = None,
-                 compression: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaCompression']]] = None,
+                 authentication: pulumi.Input['DataflowEndpointKafkaAuthenticationArgs'],
+                 host: pulumi.Input[str],
+                 batching: Optional[pulumi.Input['DataflowEndpointKafkaBatchingArgs']] = None,
+                 cloud_event_attributes: Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]] = None,
+                 compression: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']]] = None,
                  consumer_group_id: Optional[pulumi.Input[str]] = None,
                  copy_mqtt_properties: Optional[pulumi.Input[Union[str, 'OperationalMode']]] = None,
-                 host: Optional[pulumi.Input[str]] = None,
-                 kafka_acks: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaAcks']]] = None,
-                 partition_strategy: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaPartitionStrategy']]] = None):
+                 kafka_acks: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]] = None,
+                 partition_strategy: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']]] = None,
+                 tls: Optional[pulumi.Input['TlsPropertiesArgs']] = None):
         """
         Kafka endpoint properties
-        :param pulumi.Input['TlsPropertiesArgs'] tls: TLS configuration.
-        :param pulumi.Input['DataFlowEndpointKafkaBatchingArgs'] batching: Batching configuration.
-        :param pulumi.Input[Union[str, 'DataFlowEndpointKafkaCompression']] compression: Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
+        :param pulumi.Input['DataflowEndpointKafkaAuthenticationArgs'] authentication: Authentication configuration. NOTE - only authentication property is allowed per entry.
+        :param pulumi.Input[str] host: Kafka endpoint host.
+        :param pulumi.Input['DataflowEndpointKafkaBatchingArgs'] batching: Batching configuration.
+        :param pulumi.Input[Union[str, 'CloudEventAttributeType']] cloud_event_attributes: Cloud event mapping config.
+        :param pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']] compression: Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         :param pulumi.Input[str] consumer_group_id: Consumer group ID.
         :param pulumi.Input[Union[str, 'OperationalMode']] copy_mqtt_properties: Copy Broker properties. No effect if the endpoint is used as a source or if the dataflow doesn't have an Broker source.
-        :param pulumi.Input[str] host: Kafka endpoint host.
-        :param pulumi.Input[Union[str, 'DataFlowEndpointKafkaAcks']] kafka_acks: Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
-        :param pulumi.Input[Union[str, 'DataFlowEndpointKafkaPartitionStrategy']] partition_strategy: Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
+        :param pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']] kafka_acks: Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
+        :param pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']] partition_strategy: Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
+        :param pulumi.Input['TlsPropertiesArgs'] tls: TLS configuration.
         """
-        pulumi.set(__self__, "tls", tls)
+        pulumi.set(__self__, "authentication", authentication)
+        pulumi.set(__self__, "host", host)
         if batching is not None:
             pulumi.set(__self__, "batching", batching)
+        if cloud_event_attributes is not None:
+            pulumi.set(__self__, "cloud_event_attributes", cloud_event_attributes)
         if compression is None:
             compression = 'None'
         if compression is not None:
@@ -3205,11 +3528,9 @@ class DataFlowEndpointKafkaArgs:
         if consumer_group_id is not None:
             pulumi.set(__self__, "consumer_group_id", consumer_group_id)
         if copy_mqtt_properties is None:
-            copy_mqtt_properties = 'Disabled'
+            copy_mqtt_properties = 'Enabled'
         if copy_mqtt_properties is not None:
             pulumi.set(__self__, "copy_mqtt_properties", copy_mqtt_properties)
-        if host is not None:
-            pulumi.set(__self__, "host", host)
         if kafka_acks is None:
             kafka_acks = 'All'
         if kafka_acks is not None:
@@ -3218,41 +3539,67 @@ class DataFlowEndpointKafkaArgs:
             partition_strategy = 'Default'
         if partition_strategy is not None:
             pulumi.set(__self__, "partition_strategy", partition_strategy)
+        if tls is not None:
+            pulumi.set(__self__, "tls", tls)
 
     @property
     @pulumi.getter
-    def tls(self) -> pulumi.Input['TlsPropertiesArgs']:
+    def authentication(self) -> pulumi.Input['DataflowEndpointKafkaAuthenticationArgs']:
         """
-        TLS configuration.
+        Authentication configuration. NOTE - only authentication property is allowed per entry.
         """
-        return pulumi.get(self, "tls")
+        return pulumi.get(self, "authentication")
 
-    @tls.setter
-    def tls(self, value: pulumi.Input['TlsPropertiesArgs']):
-        pulumi.set(self, "tls", value)
+    @authentication.setter
+    def authentication(self, value: pulumi.Input['DataflowEndpointKafkaAuthenticationArgs']):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter
-    def batching(self) -> Optional[pulumi.Input['DataFlowEndpointKafkaBatchingArgs']]:
+    def host(self) -> pulumi.Input[str]:
+        """
+        Kafka endpoint host.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def batching(self) -> Optional[pulumi.Input['DataflowEndpointKafkaBatchingArgs']]:
         """
         Batching configuration.
         """
         return pulumi.get(self, "batching")
 
     @batching.setter
-    def batching(self, value: Optional[pulumi.Input['DataFlowEndpointKafkaBatchingArgs']]):
+    def batching(self, value: Optional[pulumi.Input['DataflowEndpointKafkaBatchingArgs']]):
         pulumi.set(self, "batching", value)
 
     @property
+    @pulumi.getter(name="cloudEventAttributes")
+    def cloud_event_attributes(self) -> Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]]:
+        """
+        Cloud event mapping config.
+        """
+        return pulumi.get(self, "cloud_event_attributes")
+
+    @cloud_event_attributes.setter
+    def cloud_event_attributes(self, value: Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]]):
+        pulumi.set(self, "cloud_event_attributes", value)
+
+    @property
     @pulumi.getter
-    def compression(self) -> Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaCompression']]]:
+    def compression(self) -> Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']]]:
         """
         Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
         """
         return pulumi.get(self, "compression")
 
     @compression.setter
-    def compression(self, value: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaCompression']]]):
+    def compression(self, value: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaCompression']]]):
         pulumi.set(self, "compression", value)
 
     @property
@@ -3280,44 +3627,44 @@ class DataFlowEndpointKafkaArgs:
         pulumi.set(self, "copy_mqtt_properties", value)
 
     @property
-    @pulumi.getter
-    def host(self) -> Optional[pulumi.Input[str]]:
-        """
-        Kafka endpoint host.
-        """
-        return pulumi.get(self, "host")
-
-    @host.setter
-    def host(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "host", value)
-
-    @property
     @pulumi.getter(name="kafkaAcks")
-    def kafka_acks(self) -> Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaAcks']]]:
+    def kafka_acks(self) -> Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]]:
         """
         Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
         """
         return pulumi.get(self, "kafka_acks")
 
     @kafka_acks.setter
-    def kafka_acks(self, value: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaAcks']]]):
+    def kafka_acks(self, value: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaAcks']]]):
         pulumi.set(self, "kafka_acks", value)
 
     @property
     @pulumi.getter(name="partitionStrategy")
-    def partition_strategy(self) -> Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaPartitionStrategy']]]:
+    def partition_strategy(self) -> Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']]]:
         """
         Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
         """
         return pulumi.get(self, "partition_strategy")
 
     @partition_strategy.setter
-    def partition_strategy(self, value: Optional[pulumi.Input[Union[str, 'DataFlowEndpointKafkaPartitionStrategy']]]):
+    def partition_strategy(self, value: Optional[pulumi.Input[Union[str, 'DataflowEndpointKafkaPartitionStrategy']]]):
         pulumi.set(self, "partition_strategy", value)
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional[pulumi.Input['TlsPropertiesArgs']]:
+        """
+        TLS configuration.
+        """
+        return pulumi.get(self, "tls")
+
+    @tls.setter
+    def tls(self, value: Optional[pulumi.Input['TlsPropertiesArgs']]):
+        pulumi.set(self, "tls", value)
 
 
 if not MYPY:
-    class DataFlowEndpointLocalStorageArgsDict(TypedDict):
+    class DataflowEndpointLocalStorageArgsDict(TypedDict):
         """
         Local persistent volume endpoint properties
         """
@@ -3326,10 +3673,10 @@ if not MYPY:
         Persistent volume claim name.
         """
 elif False:
-    DataFlowEndpointLocalStorageArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointLocalStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointLocalStorageArgs:
+class DataflowEndpointLocalStorageArgs:
     def __init__(__self__, *,
                  persistent_volume_claim_ref: pulumi.Input[str]):
         """
@@ -3352,13 +3699,136 @@ class DataFlowEndpointLocalStorageArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointMqttArgsDict(TypedDict):
+    class DataflowEndpointMqttAuthenticationArgsDict(TypedDict):
+        """
+        Mqtt endpoint Authentication properties. NOTE - only authentication property is allowed per entry.
+        """
+        method: pulumi.Input[Union[str, 'MqttAuthMethod']]
+        """
+        Mode of Authentication.
+        """
+        service_account_token_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationServiceAccountTokenArgsDict']]
+        """
+        Kubernetes service account token authentication. Default audience if not set is aio-internal
+        """
+        system_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgsDict']]
+        """
+        System-assigned managed identity authentication.
+        """
+        user_assigned_managed_identity_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgsDict']]
+        """
+        User-assigned managed identity authentication.
+        """
+        x509_certificate_settings: NotRequired[pulumi.Input['DataflowEndpointAuthenticationX509ArgsDict']]
+        """
+        X.509 certificate authentication.
+        """
+elif False:
+    DataflowEndpointMqttAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataflowEndpointMqttAuthenticationArgs:
+    def __init__(__self__, *,
+                 method: pulumi.Input[Union[str, 'MqttAuthMethod']],
+                 service_account_token_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationServiceAccountTokenArgs']] = None,
+                 system_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']] = None,
+                 user_assigned_managed_identity_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']] = None,
+                 x509_certificate_settings: Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']] = None):
+        """
+        Mqtt endpoint Authentication properties. NOTE - only authentication property is allowed per entry.
+        :param pulumi.Input[Union[str, 'MqttAuthMethod']] method: Mode of Authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationServiceAccountTokenArgs'] service_account_token_settings: Kubernetes service account token authentication. Default audience if not set is aio-internal
+        :param pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs'] system_assigned_managed_identity_settings: System-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs'] user_assigned_managed_identity_settings: User-assigned managed identity authentication.
+        :param pulumi.Input['DataflowEndpointAuthenticationX509Args'] x509_certificate_settings: X.509 certificate authentication.
+        """
+        pulumi.set(__self__, "method", method)
+        if service_account_token_settings is not None:
+            pulumi.set(__self__, "service_account_token_settings", service_account_token_settings)
+        if system_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "system_assigned_managed_identity_settings", system_assigned_managed_identity_settings)
+        if user_assigned_managed_identity_settings is not None:
+            pulumi.set(__self__, "user_assigned_managed_identity_settings", user_assigned_managed_identity_settings)
+        if x509_certificate_settings is not None:
+            pulumi.set(__self__, "x509_certificate_settings", x509_certificate_settings)
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Input[Union[str, 'MqttAuthMethod']]:
+        """
+        Mode of Authentication.
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: pulumi.Input[Union[str, 'MqttAuthMethod']]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountTokenSettings")
+    def service_account_token_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationServiceAccountTokenArgs']]:
+        """
+        Kubernetes service account token authentication. Default audience if not set is aio-internal
+        """
+        return pulumi.get(self, "service_account_token_settings")
+
+    @service_account_token_settings.setter
+    def service_account_token_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationServiceAccountTokenArgs']]):
+        pulumi.set(self, "service_account_token_settings", value)
+
+    @property
+    @pulumi.getter(name="systemAssignedManagedIdentitySettings")
+    def system_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]:
+        """
+        System-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "system_assigned_managed_identity_settings")
+
+    @system_assigned_managed_identity_settings.setter
+    def system_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationSystemAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "system_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="userAssignedManagedIdentitySettings")
+    def user_assigned_managed_identity_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]:
+        """
+        User-assigned managed identity authentication.
+        """
+        return pulumi.get(self, "user_assigned_managed_identity_settings")
+
+    @user_assigned_managed_identity_settings.setter
+    def user_assigned_managed_identity_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationUserAssignedManagedIdentityArgs']]):
+        pulumi.set(self, "user_assigned_managed_identity_settings", value)
+
+    @property
+    @pulumi.getter(name="x509CertificateSettings")
+    def x509_certificate_settings(self) -> Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']]:
+        """
+        X.509 certificate authentication.
+        """
+        return pulumi.get(self, "x509_certificate_settings")
+
+    @x509_certificate_settings.setter
+    def x509_certificate_settings(self, value: Optional[pulumi.Input['DataflowEndpointAuthenticationX509Args']]):
+        pulumi.set(self, "x509_certificate_settings", value)
+
+
+if not MYPY:
+    class DataflowEndpointMqttArgsDict(TypedDict):
         """
         Broker endpoint properties
+        """
+        authentication: pulumi.Input['DataflowEndpointMqttAuthenticationArgsDict']
+        """
+        authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
         """
         client_id_prefix: NotRequired[pulumi.Input[str]]
         """
         Client ID prefix. Client ID generated by the dataflow is <prefix>-TBD. Optional; no prefix if omitted.
+        """
+        cloud_event_attributes: NotRequired[pulumi.Input[Union[str, 'CloudEventAttributeType']]]
+        """
+        Cloud event mapping config.
         """
         host: NotRequired[pulumi.Input[str]]
         """
@@ -3393,12 +3863,14 @@ if not MYPY:
         TLS configuration.
         """
 elif False:
-    DataFlowEndpointMqttArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointMqttArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointMqttArgs:
+class DataflowEndpointMqttArgs:
     def __init__(__self__, *,
+                 authentication: pulumi.Input['DataflowEndpointMqttAuthenticationArgs'],
                  client_id_prefix: Optional[pulumi.Input[str]] = None,
+                 cloud_event_attributes: Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  keep_alive_seconds: Optional[pulumi.Input[int]] = None,
                  max_inflight_messages: Optional[pulumi.Input[int]] = None,
@@ -3409,7 +3881,9 @@ class DataFlowEndpointMqttArgs:
                  tls: Optional[pulumi.Input['TlsPropertiesArgs']] = None):
         """
         Broker endpoint properties
+        :param pulumi.Input['DataflowEndpointMqttAuthenticationArgs'] authentication: authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
         :param pulumi.Input[str] client_id_prefix: Client ID prefix. Client ID generated by the dataflow is <prefix>-TBD. Optional; no prefix if omitted.
+        :param pulumi.Input[Union[str, 'CloudEventAttributeType']] cloud_event_attributes: Cloud event mapping config.
         :param pulumi.Input[str] host: Host of the Broker in the form of <hostname>:<port>. Optional; connects to Broker if omitted.
         :param pulumi.Input[int] keep_alive_seconds: Broker KeepAlive for connection in seconds.
         :param pulumi.Input[int] max_inflight_messages: The max number of messages to keep in flight. For subscribe, this is the receive maximum. For publish, this is the maximum number of messages to send before waiting for an ack.
@@ -3419,10 +3893,11 @@ class DataFlowEndpointMqttArgs:
         :param pulumi.Input[int] session_expiry_seconds: Session expiry in seconds.
         :param pulumi.Input['TlsPropertiesArgs'] tls: TLS configuration.
         """
+        pulumi.set(__self__, "authentication", authentication)
         if client_id_prefix is not None:
             pulumi.set(__self__, "client_id_prefix", client_id_prefix)
-        if host is None:
-            host = 'aio-mq-dmqtt-frontend:1883'
+        if cloud_event_attributes is not None:
+            pulumi.set(__self__, "cloud_event_attributes", cloud_event_attributes)
         if host is not None:
             pulumi.set(__self__, "host", host)
         if keep_alive_seconds is None:
@@ -3445,12 +3920,22 @@ class DataFlowEndpointMqttArgs:
             retain = 'Keep'
         if retain is not None:
             pulumi.set(__self__, "retain", retain)
-        if session_expiry_seconds is None:
-            session_expiry_seconds = 3600
         if session_expiry_seconds is not None:
             pulumi.set(__self__, "session_expiry_seconds", session_expiry_seconds)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Input['DataflowEndpointMqttAuthenticationArgs']:
+        """
+        authentication properties. DEFAULT: kubernetes.audience=aio-internal. NOTE - Enum field only property is allowed
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: pulumi.Input['DataflowEndpointMqttAuthenticationArgs']):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="clientIdPrefix")
@@ -3463,6 +3948,18 @@ class DataFlowEndpointMqttArgs:
     @client_id_prefix.setter
     def client_id_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id_prefix", value)
+
+    @property
+    @pulumi.getter(name="cloudEventAttributes")
+    def cloud_event_attributes(self) -> Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]]:
+        """
+        Cloud event mapping config.
+        """
+        return pulumi.get(self, "cloud_event_attributes")
+
+    @cloud_event_attributes.setter
+    def cloud_event_attributes(self, value: Optional[pulumi.Input[Union[str, 'CloudEventAttributeType']]]):
+        pulumi.set(self, "cloud_event_attributes", value)
 
     @property
     @pulumi.getter
@@ -3562,68 +4059,61 @@ class DataFlowEndpointMqttArgs:
 
 
 if not MYPY:
-    class DataFlowEndpointPropertiesArgsDict(TypedDict):
+    class DataflowEndpointPropertiesArgsDict(TypedDict):
         """
-        DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
-        """
-        authentication: pulumi.Input['DataFlowEndpointAuthenticationArgsDict']
-        """
-        Authentication configuration.
+        DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
         """
         endpoint_type: pulumi.Input[Union[str, 'EndpointType']]
         """
         Endpoint Type.
         """
-        data_explorer_settings: NotRequired[pulumi.Input['DataFlowEndpointDataExplorerArgsDict']]
+        data_explorer_settings: NotRequired[pulumi.Input['DataflowEndpointDataExplorerArgsDict']]
         """
         Azure Data Explorer endpoint.
         """
-        data_lake_storage_settings: NotRequired[pulumi.Input['DataFlowEndpointDataLakeStorageArgsDict']]
+        data_lake_storage_settings: NotRequired[pulumi.Input['DataflowEndpointDataLakeStorageArgsDict']]
         """
         Azure Data Lake endpoint.
         """
-        fabric_one_lake_settings: NotRequired[pulumi.Input['DataFlowEndpointFabricOneLakeArgsDict']]
+        fabric_one_lake_settings: NotRequired[pulumi.Input['DataflowEndpointFabricOneLakeArgsDict']]
         """
         Microsoft Fabric endpoint.
         """
-        kafka_settings: NotRequired[pulumi.Input['DataFlowEndpointKafkaArgsDict']]
+        kafka_settings: NotRequired[pulumi.Input['DataflowEndpointKafkaArgsDict']]
         """
         Kafka endpoint.
         """
-        local_storage_settings: NotRequired[pulumi.Input['DataFlowEndpointLocalStorageArgsDict']]
+        local_storage_settings: NotRequired[pulumi.Input['DataflowEndpointLocalStorageArgsDict']]
         """
         Local persistent volume endpoint.
         """
-        mqtt_settings: NotRequired[pulumi.Input['DataFlowEndpointMqttArgsDict']]
+        mqtt_settings: NotRequired[pulumi.Input['DataflowEndpointMqttArgsDict']]
         """
         Broker endpoint.
         """
 elif False:
-    DataFlowEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowEndpointPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowEndpointPropertiesArgs:
+class DataflowEndpointPropertiesArgs:
     def __init__(__self__, *,
-                 authentication: pulumi.Input['DataFlowEndpointAuthenticationArgs'],
                  endpoint_type: pulumi.Input[Union[str, 'EndpointType']],
-                 data_explorer_settings: Optional[pulumi.Input['DataFlowEndpointDataExplorerArgs']] = None,
-                 data_lake_storage_settings: Optional[pulumi.Input['DataFlowEndpointDataLakeStorageArgs']] = None,
-                 fabric_one_lake_settings: Optional[pulumi.Input['DataFlowEndpointFabricOneLakeArgs']] = None,
-                 kafka_settings: Optional[pulumi.Input['DataFlowEndpointKafkaArgs']] = None,
-                 local_storage_settings: Optional[pulumi.Input['DataFlowEndpointLocalStorageArgs']] = None,
-                 mqtt_settings: Optional[pulumi.Input['DataFlowEndpointMqttArgs']] = None):
+                 data_explorer_settings: Optional[pulumi.Input['DataflowEndpointDataExplorerArgs']] = None,
+                 data_lake_storage_settings: Optional[pulumi.Input['DataflowEndpointDataLakeStorageArgs']] = None,
+                 fabric_one_lake_settings: Optional[pulumi.Input['DataflowEndpointFabricOneLakeArgs']] = None,
+                 kafka_settings: Optional[pulumi.Input['DataflowEndpointKafkaArgs']] = None,
+                 local_storage_settings: Optional[pulumi.Input['DataflowEndpointLocalStorageArgs']] = None,
+                 mqtt_settings: Optional[pulumi.Input['DataflowEndpointMqttArgs']] = None):
         """
-        DataFlowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
-        :param pulumi.Input['DataFlowEndpointAuthenticationArgs'] authentication: Authentication configuration.
+        DataflowEndpoint Resource properties. NOTE - Only one type of endpoint is supported for one Resource
         :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Endpoint Type.
-        :param pulumi.Input['DataFlowEndpointDataExplorerArgs'] data_explorer_settings: Azure Data Explorer endpoint.
-        :param pulumi.Input['DataFlowEndpointDataLakeStorageArgs'] data_lake_storage_settings: Azure Data Lake endpoint.
-        :param pulumi.Input['DataFlowEndpointFabricOneLakeArgs'] fabric_one_lake_settings: Microsoft Fabric endpoint.
-        :param pulumi.Input['DataFlowEndpointKafkaArgs'] kafka_settings: Kafka endpoint.
-        :param pulumi.Input['DataFlowEndpointLocalStorageArgs'] local_storage_settings: Local persistent volume endpoint.
-        :param pulumi.Input['DataFlowEndpointMqttArgs'] mqtt_settings: Broker endpoint.
+        :param pulumi.Input['DataflowEndpointDataExplorerArgs'] data_explorer_settings: Azure Data Explorer endpoint.
+        :param pulumi.Input['DataflowEndpointDataLakeStorageArgs'] data_lake_storage_settings: Azure Data Lake endpoint.
+        :param pulumi.Input['DataflowEndpointFabricOneLakeArgs'] fabric_one_lake_settings: Microsoft Fabric endpoint.
+        :param pulumi.Input['DataflowEndpointKafkaArgs'] kafka_settings: Kafka endpoint.
+        :param pulumi.Input['DataflowEndpointLocalStorageArgs'] local_storage_settings: Local persistent volume endpoint.
+        :param pulumi.Input['DataflowEndpointMqttArgs'] mqtt_settings: Broker endpoint.
         """
-        pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if data_explorer_settings is not None:
             pulumi.set(__self__, "data_explorer_settings", data_explorer_settings)
@@ -3639,18 +4129,6 @@ class DataFlowEndpointPropertiesArgs:
             pulumi.set(__self__, "mqtt_settings", mqtt_settings)
 
     @property
-    @pulumi.getter
-    def authentication(self) -> pulumi.Input['DataFlowEndpointAuthenticationArgs']:
-        """
-        Authentication configuration.
-        """
-        return pulumi.get(self, "authentication")
-
-    @authentication.setter
-    def authentication(self, value: pulumi.Input['DataFlowEndpointAuthenticationArgs']):
-        pulumi.set(self, "authentication", value)
-
-    @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[Union[str, 'EndpointType']]:
         """
@@ -3664,140 +4142,130 @@ class DataFlowEndpointPropertiesArgs:
 
     @property
     @pulumi.getter(name="dataExplorerSettings")
-    def data_explorer_settings(self) -> Optional[pulumi.Input['DataFlowEndpointDataExplorerArgs']]:
+    def data_explorer_settings(self) -> Optional[pulumi.Input['DataflowEndpointDataExplorerArgs']]:
         """
         Azure Data Explorer endpoint.
         """
         return pulumi.get(self, "data_explorer_settings")
 
     @data_explorer_settings.setter
-    def data_explorer_settings(self, value: Optional[pulumi.Input['DataFlowEndpointDataExplorerArgs']]):
+    def data_explorer_settings(self, value: Optional[pulumi.Input['DataflowEndpointDataExplorerArgs']]):
         pulumi.set(self, "data_explorer_settings", value)
 
     @property
     @pulumi.getter(name="dataLakeStorageSettings")
-    def data_lake_storage_settings(self) -> Optional[pulumi.Input['DataFlowEndpointDataLakeStorageArgs']]:
+    def data_lake_storage_settings(self) -> Optional[pulumi.Input['DataflowEndpointDataLakeStorageArgs']]:
         """
         Azure Data Lake endpoint.
         """
         return pulumi.get(self, "data_lake_storage_settings")
 
     @data_lake_storage_settings.setter
-    def data_lake_storage_settings(self, value: Optional[pulumi.Input['DataFlowEndpointDataLakeStorageArgs']]):
+    def data_lake_storage_settings(self, value: Optional[pulumi.Input['DataflowEndpointDataLakeStorageArgs']]):
         pulumi.set(self, "data_lake_storage_settings", value)
 
     @property
     @pulumi.getter(name="fabricOneLakeSettings")
-    def fabric_one_lake_settings(self) -> Optional[pulumi.Input['DataFlowEndpointFabricOneLakeArgs']]:
+    def fabric_one_lake_settings(self) -> Optional[pulumi.Input['DataflowEndpointFabricOneLakeArgs']]:
         """
         Microsoft Fabric endpoint.
         """
         return pulumi.get(self, "fabric_one_lake_settings")
 
     @fabric_one_lake_settings.setter
-    def fabric_one_lake_settings(self, value: Optional[pulumi.Input['DataFlowEndpointFabricOneLakeArgs']]):
+    def fabric_one_lake_settings(self, value: Optional[pulumi.Input['DataflowEndpointFabricOneLakeArgs']]):
         pulumi.set(self, "fabric_one_lake_settings", value)
 
     @property
     @pulumi.getter(name="kafkaSettings")
-    def kafka_settings(self) -> Optional[pulumi.Input['DataFlowEndpointKafkaArgs']]:
+    def kafka_settings(self) -> Optional[pulumi.Input['DataflowEndpointKafkaArgs']]:
         """
         Kafka endpoint.
         """
         return pulumi.get(self, "kafka_settings")
 
     @kafka_settings.setter
-    def kafka_settings(self, value: Optional[pulumi.Input['DataFlowEndpointKafkaArgs']]):
+    def kafka_settings(self, value: Optional[pulumi.Input['DataflowEndpointKafkaArgs']]):
         pulumi.set(self, "kafka_settings", value)
 
     @property
     @pulumi.getter(name="localStorageSettings")
-    def local_storage_settings(self) -> Optional[pulumi.Input['DataFlowEndpointLocalStorageArgs']]:
+    def local_storage_settings(self) -> Optional[pulumi.Input['DataflowEndpointLocalStorageArgs']]:
         """
         Local persistent volume endpoint.
         """
         return pulumi.get(self, "local_storage_settings")
 
     @local_storage_settings.setter
-    def local_storage_settings(self, value: Optional[pulumi.Input['DataFlowEndpointLocalStorageArgs']]):
+    def local_storage_settings(self, value: Optional[pulumi.Input['DataflowEndpointLocalStorageArgs']]):
         pulumi.set(self, "local_storage_settings", value)
 
     @property
     @pulumi.getter(name="mqttSettings")
-    def mqtt_settings(self) -> Optional[pulumi.Input['DataFlowEndpointMqttArgs']]:
+    def mqtt_settings(self) -> Optional[pulumi.Input['DataflowEndpointMqttArgs']]:
         """
         Broker endpoint.
         """
         return pulumi.get(self, "mqtt_settings")
 
     @mqtt_settings.setter
-    def mqtt_settings(self, value: Optional[pulumi.Input['DataFlowEndpointMqttArgs']]):
+    def mqtt_settings(self, value: Optional[pulumi.Input['DataflowEndpointMqttArgs']]):
         pulumi.set(self, "mqtt_settings", value)
 
 
 if not MYPY:
-    class DataFlowOperationArgsDict(TypedDict):
+    class DataflowOperationArgsDict(TypedDict):
         """
-        DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
-        """
-        destination_settings: pulumi.Input['DataFlowDestinationOperationArgsDict']
-        """
-        Destination configuration.
+        Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
         """
         operation_type: pulumi.Input[Union[str, 'OperationType']]
         """
         Type of operation.
         """
-        source_settings: pulumi.Input['DataFlowSourceOperationArgsDict']
+        built_in_transformation_settings: NotRequired[pulumi.Input['DataflowBuiltInTransformationSettingsArgsDict']]
         """
-        Source configuration.
+        Built In Transformation configuration.
         """
-        built_in_transformation_settings: NotRequired[pulumi.Input['DataFlowBuiltInTransformationArgsDict']]
+        destination_settings: NotRequired[pulumi.Input['DataflowDestinationOperationSettingsArgsDict']]
         """
-        Transformation configuration.
+        Destination configuration.
         """
         name: NotRequired[pulumi.Input[str]]
         """
         Optional user provided name of the transformation.
         """
+        source_settings: NotRequired[pulumi.Input['DataflowSourceOperationSettingsArgsDict']]
+        """
+        Source configuration.
+        """
 elif False:
-    DataFlowOperationArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowOperationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowOperationArgs:
+class DataflowOperationArgs:
     def __init__(__self__, *,
-                 destination_settings: pulumi.Input['DataFlowDestinationOperationArgs'],
                  operation_type: pulumi.Input[Union[str, 'OperationType']],
-                 source_settings: pulumi.Input['DataFlowSourceOperationArgs'],
-                 built_in_transformation_settings: Optional[pulumi.Input['DataFlowBuiltInTransformationArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 built_in_transformation_settings: Optional[pulumi.Input['DataflowBuiltInTransformationSettingsArgs']] = None,
+                 destination_settings: Optional[pulumi.Input['DataflowDestinationOperationSettingsArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 source_settings: Optional[pulumi.Input['DataflowSourceOperationSettingsArgs']] = None):
         """
-        DataFlow Operation properties. NOTE - One only method is allowed to be used for one entry.
-        :param pulumi.Input['DataFlowDestinationOperationArgs'] destination_settings: Destination configuration.
+        Dataflow Operation properties. NOTE - One only method is allowed to be used for one entry.
         :param pulumi.Input[Union[str, 'OperationType']] operation_type: Type of operation.
-        :param pulumi.Input['DataFlowSourceOperationArgs'] source_settings: Source configuration.
-        :param pulumi.Input['DataFlowBuiltInTransformationArgs'] built_in_transformation_settings: Transformation configuration.
+        :param pulumi.Input['DataflowBuiltInTransformationSettingsArgs'] built_in_transformation_settings: Built In Transformation configuration.
+        :param pulumi.Input['DataflowDestinationOperationSettingsArgs'] destination_settings: Destination configuration.
         :param pulumi.Input[str] name: Optional user provided name of the transformation.
+        :param pulumi.Input['DataflowSourceOperationSettingsArgs'] source_settings: Source configuration.
         """
-        pulumi.set(__self__, "destination_settings", destination_settings)
         pulumi.set(__self__, "operation_type", operation_type)
-        pulumi.set(__self__, "source_settings", source_settings)
         if built_in_transformation_settings is not None:
             pulumi.set(__self__, "built_in_transformation_settings", built_in_transformation_settings)
+        if destination_settings is not None:
+            pulumi.set(__self__, "destination_settings", destination_settings)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="destinationSettings")
-    def destination_settings(self) -> pulumi.Input['DataFlowDestinationOperationArgs']:
-        """
-        Destination configuration.
-        """
-        return pulumi.get(self, "destination_settings")
-
-    @destination_settings.setter
-    def destination_settings(self, value: pulumi.Input['DataFlowDestinationOperationArgs']):
-        pulumi.set(self, "destination_settings", value)
+        if source_settings is not None:
+            pulumi.set(__self__, "source_settings", source_settings)
 
     @property
     @pulumi.getter(name="operationType")
@@ -3812,28 +4280,28 @@ class DataFlowOperationArgs:
         pulumi.set(self, "operation_type", value)
 
     @property
-    @pulumi.getter(name="sourceSettings")
-    def source_settings(self) -> pulumi.Input['DataFlowSourceOperationArgs']:
-        """
-        Source configuration.
-        """
-        return pulumi.get(self, "source_settings")
-
-    @source_settings.setter
-    def source_settings(self, value: pulumi.Input['DataFlowSourceOperationArgs']):
-        pulumi.set(self, "source_settings", value)
-
-    @property
     @pulumi.getter(name="builtInTransformationSettings")
-    def built_in_transformation_settings(self) -> Optional[pulumi.Input['DataFlowBuiltInTransformationArgs']]:
+    def built_in_transformation_settings(self) -> Optional[pulumi.Input['DataflowBuiltInTransformationSettingsArgs']]:
         """
-        Transformation configuration.
+        Built In Transformation configuration.
         """
         return pulumi.get(self, "built_in_transformation_settings")
 
     @built_in_transformation_settings.setter
-    def built_in_transformation_settings(self, value: Optional[pulumi.Input['DataFlowBuiltInTransformationArgs']]):
+    def built_in_transformation_settings(self, value: Optional[pulumi.Input['DataflowBuiltInTransformationSettingsArgs']]):
         pulumi.set(self, "built_in_transformation_settings", value)
+
+    @property
+    @pulumi.getter(name="destinationSettings")
+    def destination_settings(self) -> Optional[pulumi.Input['DataflowDestinationOperationSettingsArgs']]:
+        """
+        Destination configuration.
+        """
+        return pulumi.get(self, "destination_settings")
+
+    @destination_settings.setter
+    def destination_settings(self, value: Optional[pulumi.Input['DataflowDestinationOperationSettingsArgs']]):
+        pulumi.set(self, "destination_settings", value)
 
     @property
     @pulumi.getter
@@ -3847,11 +4315,23 @@ class DataFlowOperationArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="sourceSettings")
+    def source_settings(self) -> Optional[pulumi.Input['DataflowSourceOperationSettingsArgs']]:
+        """
+        Source configuration.
+        """
+        return pulumi.get(self, "source_settings")
+
+    @source_settings.setter
+    def source_settings(self, value: Optional[pulumi.Input['DataflowSourceOperationSettingsArgs']]):
+        pulumi.set(self, "source_settings", value)
+
 
 if not MYPY:
-    class DataFlowProfilePropertiesArgsDict(TypedDict):
+    class DataflowProfilePropertiesArgsDict(TypedDict):
         """
-        DataFlowProfile Resource properties
+        DataflowProfile Resource properties
         """
         diagnostics: NotRequired[pulumi.Input['ProfileDiagnosticsArgsDict']]
         """
@@ -3862,20 +4342,22 @@ if not MYPY:
         To manually scale the dataflow profile, specify the maximum number of instances you want to run.
         """
 elif False:
-    DataFlowProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowProfilePropertiesArgs:
+class DataflowProfilePropertiesArgs:
     def __init__(__self__, *,
                  diagnostics: Optional[pulumi.Input['ProfileDiagnosticsArgs']] = None,
                  instance_count: Optional[pulumi.Input[int]] = None):
         """
-        DataFlowProfile Resource properties
+        DataflowProfile Resource properties
         :param pulumi.Input['ProfileDiagnosticsArgs'] diagnostics: Spec defines the desired identities of NBC diagnostics settings.
         :param pulumi.Input[int] instance_count: To manually scale the dataflow profile, specify the maximum number of instances you want to run.
         """
         if diagnostics is not None:
             pulumi.set(__self__, "diagnostics", diagnostics)
+        if instance_count is None:
+            instance_count = 1
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
 
@@ -3905,39 +4387,32 @@ class DataFlowProfilePropertiesArgs:
 
 
 if not MYPY:
-    class DataFlowPropertiesArgsDict(TypedDict):
+    class DataflowPropertiesArgsDict(TypedDict):
         """
-        DataFlow Resource properties
+        Dataflow Resource properties
         """
-        operations: pulumi.Input[Sequence[pulumi.Input['DataFlowOperationArgsDict']]]
+        operations: pulumi.Input[Sequence[pulumi.Input['DataflowOperationArgsDict']]]
         """
         List of operations including source and destination references as well as transformation.
         """
-        profile_ref: pulumi.Input[str]
-        """
-        Reference to the DataflowProfile CR.
-        """
         mode: NotRequired[pulumi.Input[Union[str, 'OperationalMode']]]
         """
-        Mode for DataFlow. Optional; defaults to Enabled.
+        Mode for Dataflow. Optional; defaults to Enabled.
         """
 elif False:
-    DataFlowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowPropertiesArgs:
+class DataflowPropertiesArgs:
     def __init__(__self__, *,
-                 operations: pulumi.Input[Sequence[pulumi.Input['DataFlowOperationArgs']]],
-                 profile_ref: pulumi.Input[str],
+                 operations: pulumi.Input[Sequence[pulumi.Input['DataflowOperationArgs']]],
                  mode: Optional[pulumi.Input[Union[str, 'OperationalMode']]] = None):
         """
-        DataFlow Resource properties
-        :param pulumi.Input[Sequence[pulumi.Input['DataFlowOperationArgs']]] operations: List of operations including source and destination references as well as transformation.
-        :param pulumi.Input[str] profile_ref: Reference to the DataflowProfile CR.
-        :param pulumi.Input[Union[str, 'OperationalMode']] mode: Mode for DataFlow. Optional; defaults to Enabled.
+        Dataflow Resource properties
+        :param pulumi.Input[Sequence[pulumi.Input['DataflowOperationArgs']]] operations: List of operations including source and destination references as well as transformation.
+        :param pulumi.Input[Union[str, 'OperationalMode']] mode: Mode for Dataflow. Optional; defaults to Enabled.
         """
         pulumi.set(__self__, "operations", operations)
-        pulumi.set(__self__, "profile_ref", profile_ref)
         if mode is None:
             mode = 'Enabled'
         if mode is not None:
@@ -3945,33 +4420,21 @@ class DataFlowPropertiesArgs:
 
     @property
     @pulumi.getter
-    def operations(self) -> pulumi.Input[Sequence[pulumi.Input['DataFlowOperationArgs']]]:
+    def operations(self) -> pulumi.Input[Sequence[pulumi.Input['DataflowOperationArgs']]]:
         """
         List of operations including source and destination references as well as transformation.
         """
         return pulumi.get(self, "operations")
 
     @operations.setter
-    def operations(self, value: pulumi.Input[Sequence[pulumi.Input['DataFlowOperationArgs']]]):
+    def operations(self, value: pulumi.Input[Sequence[pulumi.Input['DataflowOperationArgs']]]):
         pulumi.set(self, "operations", value)
-
-    @property
-    @pulumi.getter(name="profileRef")
-    def profile_ref(self) -> pulumi.Input[str]:
-        """
-        Reference to the DataflowProfile CR.
-        """
-        return pulumi.get(self, "profile_ref")
-
-    @profile_ref.setter
-    def profile_ref(self, value: pulumi.Input[str]):
-        pulumi.set(self, "profile_ref", value)
 
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[str, 'OperationalMode']]]:
         """
-        Mode for DataFlow. Optional; defaults to Enabled.
+        Mode for Dataflow. Optional; defaults to Enabled.
         """
         return pulumi.get(self, "mode")
 
@@ -3981,9 +4444,9 @@ class DataFlowPropertiesArgs:
 
 
 if not MYPY:
-    class DataFlowSourceOperationArgsDict(TypedDict):
+    class DataflowSourceOperationSettingsArgsDict(TypedDict):
         """
-        DataFlow Source Operation properties
+        Dataflow Source Operation properties
         """
         data_sources: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
@@ -4006,10 +4469,10 @@ if not MYPY:
         Content is a JSON Schema. Allowed: JSON Schema/draft-7.
         """
 elif False:
-    DataFlowSourceOperationArgsDict: TypeAlias = Mapping[str, Any]
+    DataflowSourceOperationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class DataFlowSourceOperationArgs:
+class DataflowSourceOperationSettingsArgs:
     def __init__(__self__, *,
                  data_sources: pulumi.Input[Sequence[pulumi.Input[str]]],
                  endpoint_ref: pulumi.Input[str],
@@ -4017,7 +4480,7 @@ class DataFlowSourceOperationArgs:
                  schema_ref: Optional[pulumi.Input[str]] = None,
                  serialization_format: Optional[pulumi.Input[Union[str, 'SourceSerializationFormat']]] = None):
         """
-        DataFlow Source Operation properties
+        Dataflow Source Operation properties
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_sources: List of source locations. Can be Broker or Kafka topics. Supports wildcards # and +.
         :param pulumi.Input[str] endpoint_ref: Reference to the Dataflow Endpoint resource. Can only be of Broker and Kafka type.
         :param pulumi.Input[str] asset_ref: Reference to the resource in Azure Device Registry where the data in the endpoint originates from.
@@ -4105,29 +4568,21 @@ if not MYPY:
         """
         The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
         """
-        opentelemetry_export_config: NotRequired[pulumi.Input['OpenTelemetryLogExportConfigArgsDict']]
-        """
-        The open telemetry export configuration.
-        """
 elif False:
     DiagnosticsLogsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticsLogsArgs:
     def __init__(__self__, *,
-                 level: Optional[pulumi.Input[str]] = None,
-                 opentelemetry_export_config: Optional[pulumi.Input['OpenTelemetryLogExportConfigArgs']] = None):
+                 level: Optional[pulumi.Input[str]] = None):
         """
         Diagnostic Log properties
         :param pulumi.Input[str] level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        :param pulumi.Input['OpenTelemetryLogExportConfigArgs'] opentelemetry_export_config: The open telemetry export configuration.
         """
         if level is None:
             level = 'info'
         if level is not None:
             pulumi.set(__self__, "level", level)
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
 
     @property
     @pulumi.getter
@@ -4140,18 +4595,6 @@ class DiagnosticsLogsArgs:
     @level.setter
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
-
-    @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional[pulumi.Input['OpenTelemetryLogExportConfigArgs']]:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
-
-    @opentelemetry_export_config.setter
-    def opentelemetry_export_config(self, value: Optional[pulumi.Input['OpenTelemetryLogExportConfigArgs']]):
-        pulumi.set(self, "opentelemetry_export_config", value)
 
 
 if not MYPY:
@@ -4381,7 +4824,11 @@ class GenerateResourceLimitsArgs:
 if not MYPY:
     class InstancePropertiesArgsDict(TypedDict):
         """
-        The properties of a Instance resource.
+        The properties of the Instance resource.
+        """
+        schema_registry_ref: pulumi.Input['SchemaRegistryRefArgsDict']
+        """
+        The reference to the Schema Registry for this AIO Instance.
         """
         description: NotRequired[pulumi.Input[str]]
         """
@@ -4393,13 +4840,28 @@ elif False:
 @pulumi.input_type
 class InstancePropertiesArgs:
     def __init__(__self__, *,
+                 schema_registry_ref: pulumi.Input['SchemaRegistryRefArgs'],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        The properties of a Instance resource.
+        The properties of the Instance resource.
+        :param pulumi.Input['SchemaRegistryRefArgs'] schema_registry_ref: The reference to the Schema Registry for this AIO Instance.
         :param pulumi.Input[str] description: Detailed description of the Instance.
         """
+        pulumi.set(__self__, "schema_registry_ref", schema_registry_ref)
         if description is not None:
             pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="schemaRegistryRef")
+    def schema_registry_ref(self) -> pulumi.Input['SchemaRegistryRefArgs']:
+        """
+        The reference to the Schema Registry for this AIO Instance.
+        """
+        return pulumi.get(self, "schema_registry_ref")
+
+    @schema_registry_ref.setter
+    def schema_registry_ref(self, value: pulumi.Input['SchemaRegistryRefArgs']):
+        pulumi.set(self, "schema_registry_ref", value)
 
     @property
     @pulumi.getter
@@ -4720,13 +5182,64 @@ class LocalKubernetesReferenceArgs:
 
 
 if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
     class MetricsArgsDict(TypedDict):
         """
         Diagnostic Metrics properties
-        """
-        opentelemetry_export_config: NotRequired[pulumi.Input['OpenTelemetryExportConfigArgsDict']]
-        """
-        The open telemetry export configuration.
         """
         prometheus_port: NotRequired[pulumi.Input[int]]
         """
@@ -4738,31 +5251,15 @@ elif False:
 @pulumi.input_type
 class MetricsArgs:
     def __init__(__self__, *,
-                 opentelemetry_export_config: Optional[pulumi.Input['OpenTelemetryExportConfigArgs']] = None,
                  prometheus_port: Optional[pulumi.Input[int]] = None):
         """
         Diagnostic Metrics properties
-        :param pulumi.Input['OpenTelemetryExportConfigArgs'] opentelemetry_export_config: The open telemetry export configuration.
         :param pulumi.Input[int] prometheus_port: The prometheus port to expose the metrics.
         """
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
         if prometheus_port is None:
             prometheus_port = 9600
         if prometheus_port is not None:
             pulumi.set(__self__, "prometheus_port", prometheus_port)
-
-    @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional[pulumi.Input['OpenTelemetryExportConfigArgs']]:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
-
-    @opentelemetry_export_config.setter
-    def opentelemetry_export_config(self, value: Optional[pulumi.Input['OpenTelemetryExportConfigArgs']]):
-        pulumi.set(self, "opentelemetry_export_config", value)
 
     @property
     @pulumi.getter(name="prometheusPort")
@@ -4775,142 +5272,6 @@ class MetricsArgs:
     @prometheus_port.setter
     def prometheus_port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "prometheus_port", value)
-
-
-if not MYPY:
-    class OpenTelemetryExportConfigArgsDict(TypedDict):
-        """
-        OpenTelemetry Export Configuration properties
-        """
-        otlp_grpc_endpoint: pulumi.Input[str]
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        interval_seconds: NotRequired[pulumi.Input[int]]
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-elif False:
-    OpenTelemetryExportConfigArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenTelemetryExportConfigArgs:
-    def __init__(__self__, *,
-                 otlp_grpc_endpoint: pulumi.Input[str],
-                 interval_seconds: Optional[pulumi.Input[int]] = None):
-        """
-        OpenTelemetry Export Configuration properties
-        :param pulumi.Input[str] otlp_grpc_endpoint: The open telemetry collector endpoint to export to.
-        :param pulumi.Input[int] interval_seconds: How often to export the metrics to the open telemetry collector.
-        """
-        pulumi.set(__self__, "otlp_grpc_endpoint", otlp_grpc_endpoint)
-        if interval_seconds is None:
-            interval_seconds = 30
-        if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
-
-    @property
-    @pulumi.getter(name="otlpGrpcEndpoint")
-    def otlp_grpc_endpoint(self) -> pulumi.Input[str]:
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        return pulumi.get(self, "otlp_grpc_endpoint")
-
-    @otlp_grpc_endpoint.setter
-    def otlp_grpc_endpoint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "otlp_grpc_endpoint", value)
-
-    @property
-    @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-        return pulumi.get(self, "interval_seconds")
-
-    @interval_seconds.setter
-    def interval_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "interval_seconds", value)
-
-
-if not MYPY:
-    class OpenTelemetryLogExportConfigArgsDict(TypedDict):
-        """
-        OpenTelemetry Log Export Configuration properties
-        """
-        otlp_grpc_endpoint: pulumi.Input[str]
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        interval_seconds: NotRequired[pulumi.Input[int]]
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-        level: NotRequired[pulumi.Input[str]]
-        """
-        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        """
-elif False:
-    OpenTelemetryLogExportConfigArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OpenTelemetryLogExportConfigArgs:
-    def __init__(__self__, *,
-                 otlp_grpc_endpoint: pulumi.Input[str],
-                 interval_seconds: Optional[pulumi.Input[int]] = None,
-                 level: Optional[pulumi.Input[str]] = None):
-        """
-        OpenTelemetry Log Export Configuration properties
-        :param pulumi.Input[str] otlp_grpc_endpoint: The open telemetry collector endpoint to export to.
-        :param pulumi.Input[int] interval_seconds: How often to export the metrics to the open telemetry collector.
-        :param pulumi.Input[str] level: The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        """
-        pulumi.set(__self__, "otlp_grpc_endpoint", otlp_grpc_endpoint)
-        if interval_seconds is None:
-            interval_seconds = 30
-        if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
-        if level is None:
-            level = 'error'
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter(name="otlpGrpcEndpoint")
-    def otlp_grpc_endpoint(self) -> pulumi.Input[str]:
-        """
-        The open telemetry collector endpoint to export to.
-        """
-        return pulumi.get(self, "otlp_grpc_endpoint")
-
-    @otlp_grpc_endpoint.setter
-    def otlp_grpc_endpoint(self, value: pulumi.Input[str]):
-        pulumi.set(self, "otlp_grpc_endpoint", value)
-
-    @property
-    @pulumi.getter(name="intervalSeconds")
-    def interval_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        How often to export the metrics to the open telemetry collector.
-        """
-        return pulumi.get(self, "interval_seconds")
-
-    @interval_seconds.setter
-    def interval_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "interval_seconds", value)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
-        """
-        The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
-        """
-        return pulumi.get(self, "level")
-
-    @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "level", value)
 
 
 if not MYPY:
@@ -4992,7 +5353,7 @@ class PrincipalDefinitionArgs:
 if not MYPY:
     class ProfileDiagnosticsArgsDict(TypedDict):
         """
-        DataFlowProfile Diagnostics properties
+        DataflowProfile Diagnostics properties
         """
         logs: NotRequired[pulumi.Input['DiagnosticsLogsArgsDict']]
         """
@@ -5011,7 +5372,7 @@ class ProfileDiagnosticsArgs:
                  logs: Optional[pulumi.Input['DiagnosticsLogsArgs']] = None,
                  metrics: Optional[pulumi.Input['MetricsArgs']] = None):
         """
-        DataFlowProfile Diagnostics properties
+        DataflowProfile Diagnostics properties
         :param pulumi.Input['DiagnosticsLogsArgs'] logs: Diagnostic log settings for the resource.
         :param pulumi.Input['MetricsArgs'] metrics: The metrics settings for the resource.
         """
@@ -5097,6 +5458,41 @@ class SanForCertArgs:
     @ip.setter
     def ip(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "ip", value)
+
+
+if not MYPY:
+    class SchemaRegistryRefArgsDict(TypedDict):
+        """
+        The reference to the Schema Registry for this AIO Instance.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Schema Registry.
+        """
+elif False:
+    SchemaRegistryRefArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SchemaRegistryRefArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[str]):
+        """
+        The reference to the Schema Registry for this AIO Instance.
+        :param pulumi.Input[str] resource_id: The resource ID of the Schema Registry.
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of the Schema Registry.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:
@@ -5381,7 +5777,7 @@ if not MYPY:
         """
         Mode of TLS server certificate management.
         """
-        automatic: NotRequired[pulumi.Input['AutomaticCertMethodArgsDict']]
+        cert_manager_certificate_spec: NotRequired[pulumi.Input['CertManagerCertificateSpecArgsDict']]
         """
         Option 1 - Automatic TLS server certificate management with cert-manager.
         """
@@ -5396,17 +5792,17 @@ elif False:
 class TlsCertMethodArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[Union[str, 'TlsCertMethodMode']],
-                 automatic: Optional[pulumi.Input['AutomaticCertMethodArgs']] = None,
+                 cert_manager_certificate_spec: Optional[pulumi.Input['CertManagerCertificateSpecArgs']] = None,
                  manual: Optional[pulumi.Input['X509ManualCertificateArgs']] = None):
         """
         Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
         :param pulumi.Input[Union[str, 'TlsCertMethodMode']] mode: Mode of TLS server certificate management.
-        :param pulumi.Input['AutomaticCertMethodArgs'] automatic: Option 1 - Automatic TLS server certificate management with cert-manager.
+        :param pulumi.Input['CertManagerCertificateSpecArgs'] cert_manager_certificate_spec: Option 1 - Automatic TLS server certificate management with cert-manager.
         :param pulumi.Input['X509ManualCertificateArgs'] manual: Option 2 - Manual TLS server certificate management through a defined secret.
         """
         pulumi.set(__self__, "mode", mode)
-        if automatic is not None:
-            pulumi.set(__self__, "automatic", automatic)
+        if cert_manager_certificate_spec is not None:
+            pulumi.set(__self__, "cert_manager_certificate_spec", cert_manager_certificate_spec)
         if manual is not None:
             pulumi.set(__self__, "manual", manual)
 
@@ -5423,16 +5819,16 @@ class TlsCertMethodArgs:
         pulumi.set(self, "mode", value)
 
     @property
-    @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input['AutomaticCertMethodArgs']]:
+    @pulumi.getter(name="certManagerCertificateSpec")
+    def cert_manager_certificate_spec(self) -> Optional[pulumi.Input['CertManagerCertificateSpecArgs']]:
         """
         Option 1 - Automatic TLS server certificate management with cert-manager.
         """
-        return pulumi.get(self, "automatic")
+        return pulumi.get(self, "cert_manager_certificate_spec")
 
-    @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input['AutomaticCertMethodArgs']]):
-        pulumi.set(self, "automatic", value)
+    @cert_manager_certificate_spec.setter
+    def cert_manager_certificate_spec(self, value: Optional[pulumi.Input['CertManagerCertificateSpecArgs']]):
+        pulumi.set(self, "cert_manager_certificate_spec", value)
 
     @property
     @pulumi.getter
@@ -5518,10 +5914,6 @@ if not MYPY:
         """
         The toggle to enable/disable traces.
         """
-        opentelemetry_export_config: NotRequired[pulumi.Input['OpenTelemetryExportConfigArgsDict']]
-        """
-        The open telemetry export configuration.
-        """
         self_tracing: NotRequired[pulumi.Input['SelfTracingArgsDict']]
         """
         The self tracing properties.
@@ -5538,14 +5930,12 @@ class TracesArgs:
     def __init__(__self__, *,
                  cache_size_megabytes: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'OperationalMode']]] = None,
-                 opentelemetry_export_config: Optional[pulumi.Input['OpenTelemetryExportConfigArgs']] = None,
                  self_tracing: Optional[pulumi.Input['SelfTracingArgs']] = None,
                  span_channel_capacity: Optional[pulumi.Input[int]] = None):
         """
         Broker Diagnostic Trace properties
         :param pulumi.Input[int] cache_size_megabytes: The cache size in megabytes.
         :param pulumi.Input[Union[str, 'OperationalMode']] mode: The toggle to enable/disable traces.
-        :param pulumi.Input['OpenTelemetryExportConfigArgs'] opentelemetry_export_config: The open telemetry export configuration.
         :param pulumi.Input['SelfTracingArgs'] self_tracing: The self tracing properties.
         :param pulumi.Input[int] span_channel_capacity: The span channel capacity.
         """
@@ -5557,8 +5947,6 @@ class TracesArgs:
             mode = 'Enabled'
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-        if opentelemetry_export_config is not None:
-            pulumi.set(__self__, "opentelemetry_export_config", opentelemetry_export_config)
         if self_tracing is not None:
             pulumi.set(__self__, "self_tracing", self_tracing)
         if span_channel_capacity is None:
@@ -5589,18 +5977,6 @@ class TracesArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[str, 'OperationalMode']]]):
         pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="opentelemetryExportConfig")
-    def opentelemetry_export_config(self) -> Optional[pulumi.Input['OpenTelemetryExportConfigArgs']]:
-        """
-        The open telemetry export configuration.
-        """
-        return pulumi.get(self, "opentelemetry_export_config")
-
-    @opentelemetry_export_config.setter
-    def opentelemetry_export_config(self, value: Optional[pulumi.Input['OpenTelemetryExportConfigArgs']]):
-        pulumi.set(self, "opentelemetry_export_config", value)
 
     @property
     @pulumi.getter(name="selfTracing")

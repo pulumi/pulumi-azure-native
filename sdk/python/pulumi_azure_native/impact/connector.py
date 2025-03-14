@@ -69,7 +69,7 @@ class Connector(pulumi.CustomResource):
                  __props__=None):
         """
         A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +84,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A connector is a resource that can be used to proactively report impacts against workloads in Azure to Microsoft.
-        Azure REST API version: 2024-05-01-preview.
+        Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -114,6 +114,7 @@ class Connector(pulumi.CustomResource):
 
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -141,11 +142,20 @@ class Connector(pulumi.CustomResource):
 
         __props__ = ConnectorArgs.__new__(ConnectorArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Connector(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

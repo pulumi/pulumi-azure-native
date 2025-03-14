@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Solution Configuration
- * Azure REST API version: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
  */
 export class SolutionConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SolutionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === SolutionConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -72,10 +76,12 @@ export class SolutionConfiguration extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["solutionConfiguration"] = args ? args.solutionConfiguration : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

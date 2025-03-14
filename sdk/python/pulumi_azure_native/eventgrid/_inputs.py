@@ -22,18 +22,14 @@ __all__ = [
     'BoolEqualsAdvancedFilterArgsDict',
     'BoolEqualsFilterArgs',
     'BoolEqualsFilterArgsDict',
-    'ClientAuthenticationSettingsArgs',
-    'ClientAuthenticationSettingsArgsDict',
-    'ClientAuthenticationArgs',
-    'ClientAuthenticationArgsDict',
     'ClientCertificateAuthenticationArgs',
     'ClientCertificateAuthenticationArgsDict',
-    'ClientCertificateSubjectDistinguishedNameArgs',
-    'ClientCertificateSubjectDistinguishedNameArgsDict',
-    'ClientCertificateThumbprintArgs',
-    'ClientCertificateThumbprintArgsDict',
     'ConnectionStateArgs',
     'ConnectionStateArgsDict',
+    'CustomDomainConfigurationArgs',
+    'CustomDomainConfigurationArgsDict',
+    'CustomDomainIdentityArgs',
+    'CustomDomainIdentityArgsDict',
     'DeadLetterWithResourceIdentityArgs',
     'DeadLetterWithResourceIdentityArgsDict',
     'DeliveryConfigurationArgs',
@@ -76,8 +72,12 @@ __all__ = [
     'JsonFieldArgsDict',
     'JsonInputSchemaMappingArgs',
     'JsonInputSchemaMappingArgsDict',
+    'MonitorAlertEventSubscriptionDestinationArgs',
+    'MonitorAlertEventSubscriptionDestinationArgsDict',
     'NamespaceSkuArgs',
     'NamespaceSkuArgsDict',
+    'NamespaceTopicEventSubscriptionDestinationArgs',
+    'NamespaceTopicEventSubscriptionDestinationArgsDict',
     'NumberGreaterThanAdvancedFilterArgs',
     'NumberGreaterThanAdvancedFilterArgsDict',
     'NumberGreaterThanFilterArgs',
@@ -120,6 +120,8 @@ __all__ = [
     'PrivateEndpointConnectionArgsDict',
     'PrivateEndpointArgs',
     'PrivateEndpointArgsDict',
+    'PushInfoArgs',
+    'PushInfoArgsDict',
     'QueueInfoArgs',
     'QueueInfoArgsDict',
     'RetryPolicyArgs',
@@ -134,8 +136,8 @@ __all__ = [
     'ServiceBusTopicEventSubscriptionDestinationArgsDict',
     'StaticDeliveryAttributeMappingArgs',
     'StaticDeliveryAttributeMappingArgsDict',
-    'StaticRoutingEnrichmentArgs',
-    'StaticRoutingEnrichmentArgsDict',
+    'StaticStringRoutingEnrichmentArgs',
+    'StaticStringRoutingEnrichmentArgsDict',
     'StorageBlobDeadLetterDestinationArgs',
     'StorageBlobDeadLetterDestinationArgsDict',
     'StorageQueueEventSubscriptionDestinationArgs',
@@ -174,6 +176,8 @@ __all__ = [
     'StringNotInFilterArgsDict',
     'TopicSpacesConfigurationArgs',
     'TopicSpacesConfigurationArgsDict',
+    'TopicsConfigurationArgs',
+    'TopicsConfigurationArgsDict',
     'UserIdentityPropertiesArgs',
     'UserIdentityPropertiesArgsDict',
     'WebHookEventSubscriptionDestinationArgs',
@@ -461,98 +465,6 @@ class BoolEqualsFilterArgs:
 
 
 if not MYPY:
-    class ClientAuthenticationSettingsArgsDict(TypedDict):
-        """
-        Client authentication settings for namespace resource.
-        """
-        alternative_authentication_name_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]]
-        """
-        Alternative authentication name sources related to client authentication settings for namespace resource.
-        """
-elif False:
-    ClientAuthenticationSettingsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClientAuthenticationSettingsArgs:
-    def __init__(__self__, *,
-                 alternative_authentication_name_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]] = None):
-        """
-        Client authentication settings for namespace resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]] alternative_authentication_name_sources: Alternative authentication name sources related to client authentication settings for namespace resource.
-        """
-        if alternative_authentication_name_sources is not None:
-            pulumi.set(__self__, "alternative_authentication_name_sources", alternative_authentication_name_sources)
-
-    @property
-    @pulumi.getter(name="alternativeAuthenticationNameSources")
-    def alternative_authentication_name_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]]:
-        """
-        Alternative authentication name sources related to client authentication settings for namespace resource.
-        """
-        return pulumi.get(self, "alternative_authentication_name_sources")
-
-    @alternative_authentication_name_sources.setter
-    def alternative_authentication_name_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AlternativeAuthenticationNameSource']]]]]):
-        pulumi.set(self, "alternative_authentication_name_sources", value)
-
-
-if not MYPY:
-    class ClientAuthenticationArgsDict(TypedDict):
-        """
-        The Authentication properties for the client.
-        """
-        certificate_subject: NotRequired[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgsDict']]
-        """
-        The CA certificate subject name used for authentication.
-        """
-        certificate_thumbprint: NotRequired[pulumi.Input['ClientCertificateThumbprintArgsDict']]
-        """
-        The self signed certificate's thumbprints data used for authentication.
-        """
-elif False:
-    ClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClientAuthenticationArgs:
-    def __init__(__self__, *,
-                 certificate_subject: Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']] = None,
-                 certificate_thumbprint: Optional[pulumi.Input['ClientCertificateThumbprintArgs']] = None):
-        """
-        The Authentication properties for the client.
-        :param pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs'] certificate_subject: The CA certificate subject name used for authentication.
-        :param pulumi.Input['ClientCertificateThumbprintArgs'] certificate_thumbprint: The self signed certificate's thumbprints data used for authentication.
-        """
-        if certificate_subject is not None:
-            pulumi.set(__self__, "certificate_subject", certificate_subject)
-        if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
-
-    @property
-    @pulumi.getter(name="certificateSubject")
-    def certificate_subject(self) -> Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']]:
-        """
-        The CA certificate subject name used for authentication.
-        """
-        return pulumi.get(self, "certificate_subject")
-
-    @certificate_subject.setter
-    def certificate_subject(self, value: Optional[pulumi.Input['ClientCertificateSubjectDistinguishedNameArgs']]):
-        pulumi.set(self, "certificate_subject", value)
-
-    @property
-    @pulumi.getter(name="certificateThumbprint")
-    def certificate_thumbprint(self) -> Optional[pulumi.Input['ClientCertificateThumbprintArgs']]:
-        """
-        The self signed certificate's thumbprints data used for authentication.
-        """
-        return pulumi.get(self, "certificate_thumbprint")
-
-    @certificate_thumbprint.setter
-    def certificate_thumbprint(self, value: Optional[pulumi.Input['ClientCertificateThumbprintArgs']]):
-        pulumi.set(self, "certificate_thumbprint", value)
-
-
-if not MYPY:
     class ClientCertificateAuthenticationArgsDict(TypedDict):
         """
         The certificate authentication properties for the client.
@@ -606,160 +518,6 @@ class ClientCertificateAuthenticationArgs:
     @validation_scheme.setter
     def validation_scheme(self, value: Optional[pulumi.Input[Union[str, 'ClientCertificateValidationScheme']]]):
         pulumi.set(self, "validation_scheme", value)
-
-
-if not MYPY:
-    class ClientCertificateSubjectDistinguishedNameArgsDict(TypedDict):
-        """
-        CA certificate subject distinguished name information used by service to authenticate clients.
-        For more information, see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x500distinguishedname?view=net-6.0#remarks
-        """
-        common_name: NotRequired[pulumi.Input[str]]
-        """
-        The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
-        """
-        country_code: NotRequired[pulumi.Input[str]]
-        """
-        The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
-        """
-        organization: NotRequired[pulumi.Input[str]]
-        """
-        The organization field in the subject name. If present, the allowed limit is 64 characters.
-        """
-        organization_unit: NotRequired[pulumi.Input[str]]
-        """
-        The organization unit field in the subject name. If present, the allowed limit is 32 characters.
-        """
-elif False:
-    ClientCertificateSubjectDistinguishedNameArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClientCertificateSubjectDistinguishedNameArgs:
-    def __init__(__self__, *,
-                 common_name: Optional[pulumi.Input[str]] = None,
-                 country_code: Optional[pulumi.Input[str]] = None,
-                 organization: Optional[pulumi.Input[str]] = None,
-                 organization_unit: Optional[pulumi.Input[str]] = None):
-        """
-        CA certificate subject distinguished name information used by service to authenticate clients.
-        For more information, see https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x500distinguishedname?view=net-6.0#remarks
-        :param pulumi.Input[str] common_name: The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
-        :param pulumi.Input[str] country_code: The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
-        :param pulumi.Input[str] organization: The organization field in the subject name. If present, the allowed limit is 64 characters.
-        :param pulumi.Input[str] organization_unit: The organization unit field in the subject name. If present, the allowed limit is 32 characters.
-        """
-        if common_name is not None:
-            pulumi.set(__self__, "common_name", common_name)
-        if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
-        if organization is not None:
-            pulumi.set(__self__, "organization", organization)
-        if organization_unit is not None:
-            pulumi.set(__self__, "organization_unit", organization_unit)
-
-    @property
-    @pulumi.getter(name="commonName")
-    def common_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The common name field in the subject name. The allowed limit is 64 characters and it should be specified.
-        """
-        return pulumi.get(self, "common_name")
-
-    @common_name.setter
-    def common_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "common_name", value)
-
-    @property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> Optional[pulumi.Input[str]]:
-        """
-        The country code field in the subject name. If present, the country code should be represented by two-letter code defined in ISO 2166-1 (alpha-2). For example: 'US'.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "country_code", value)
-
-    @property
-    @pulumi.getter
-    def organization(self) -> Optional[pulumi.Input[str]]:
-        """
-        The organization field in the subject name. If present, the allowed limit is 64 characters.
-        """
-        return pulumi.get(self, "organization")
-
-    @organization.setter
-    def organization(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "organization", value)
-
-    @property
-    @pulumi.getter(name="organizationUnit")
-    def organization_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        The organization unit field in the subject name. If present, the allowed limit is 32 characters.
-        """
-        return pulumi.get(self, "organization_unit")
-
-    @organization_unit.setter
-    def organization_unit(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "organization_unit", value)
-
-
-if not MYPY:
-    class ClientCertificateThumbprintArgsDict(TypedDict):
-        """
-        Thumbprints are used by the service to validate the device permission when authentication is done using self signed certificate.
-        """
-        primary: NotRequired[pulumi.Input[str]]
-        """
-        The primary thumbprint used for validation.
-        """
-        secondary: NotRequired[pulumi.Input[str]]
-        """
-        The secondary thumbprint used for validation.
-        """
-elif False:
-    ClientCertificateThumbprintArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ClientCertificateThumbprintArgs:
-    def __init__(__self__, *,
-                 primary: Optional[pulumi.Input[str]] = None,
-                 secondary: Optional[pulumi.Input[str]] = None):
-        """
-        Thumbprints are used by the service to validate the device permission when authentication is done using self signed certificate.
-        :param pulumi.Input[str] primary: The primary thumbprint used for validation.
-        :param pulumi.Input[str] secondary: The secondary thumbprint used for validation.
-        """
-        if primary is not None:
-            pulumi.set(__self__, "primary", primary)
-        if secondary is not None:
-            pulumi.set(__self__, "secondary", secondary)
-
-    @property
-    @pulumi.getter
-    def primary(self) -> Optional[pulumi.Input[str]]:
-        """
-        The primary thumbprint used for validation.
-        """
-        return pulumi.get(self, "primary")
-
-    @primary.setter
-    def primary(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary", value)
-
-    @property
-    @pulumi.getter
-    def secondary(self) -> Optional[pulumi.Input[str]]:
-        """
-        The secondary thumbprint used for validation.
-        """
-        return pulumi.get(self, "secondary")
-
-    @secondary.setter
-    def secondary(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secondary", value)
 
 
 if not MYPY:
@@ -839,6 +597,206 @@ class ConnectionStateArgs:
 
 
 if not MYPY:
+    class CustomDomainConfigurationArgsDict(TypedDict):
+        """
+        A custom domain configuration that allows users to publish to their own domain name.
+        """
+        fully_qualified_domain_name: pulumi.Input[str]
+        """
+        Fully Qualified Domain Name (FQDN) for the custom domain.
+        """
+        certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
+        versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
+        https://contosovault.vault.azure.net/certificates/contosocert, we support unversioned certificate URL only (e.g., https://contosovault.vault.azure.net/certificates/contosocert)
+        """
+        expected_txt_record_name: NotRequired[pulumi.Input[str]]
+        """
+        Expected DNS TXT record name. Event Grid will check for a TXT record with this name in the DNS record set of the custom domain name to prove ownership over the domain.
+        The values under this TXT record must contain the expected TXT record value.
+        """
+        expected_txt_record_value: NotRequired[pulumi.Input[str]]
+        """
+        Expected DNS TXT record value. Event Grid will check for a TXT record with this value in the DNS record set of the custom domain name to prove ownership over the domain.
+        """
+        identity: NotRequired[pulumi.Input['CustomDomainIdentityArgsDict']]
+        """
+        Identity info for accessing the certificate for the custom domain. This identity info must match an identity that has been set on the namespace.
+        """
+        validation_state: NotRequired[pulumi.Input[Union[str, 'CustomDomainValidationState']]]
+        """
+        Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+        """
+elif False:
+    CustomDomainConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomDomainConfigurationArgs:
+    def __init__(__self__, *,
+                 fully_qualified_domain_name: pulumi.Input[str],
+                 certificate_url: Optional[pulumi.Input[str]] = None,
+                 expected_txt_record_name: Optional[pulumi.Input[str]] = None,
+                 expected_txt_record_value: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['CustomDomainIdentityArgs']] = None,
+                 validation_state: Optional[pulumi.Input[Union[str, 'CustomDomainValidationState']]] = None):
+        """
+        A custom domain configuration that allows users to publish to their own domain name.
+        :param pulumi.Input[str] fully_qualified_domain_name: Fully Qualified Domain Name (FQDN) for the custom domain.
+        :param pulumi.Input[str] certificate_url: The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
+               versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
+               https://contosovault.vault.azure.net/certificates/contosocert, we support unversioned certificate URL only (e.g., https://contosovault.vault.azure.net/certificates/contosocert)
+        :param pulumi.Input[str] expected_txt_record_name: Expected DNS TXT record name. Event Grid will check for a TXT record with this name in the DNS record set of the custom domain name to prove ownership over the domain.
+               The values under this TXT record must contain the expected TXT record value.
+        :param pulumi.Input[str] expected_txt_record_value: Expected DNS TXT record value. Event Grid will check for a TXT record with this value in the DNS record set of the custom domain name to prove ownership over the domain.
+        :param pulumi.Input['CustomDomainIdentityArgs'] identity: Identity info for accessing the certificate for the custom domain. This identity info must match an identity that has been set on the namespace.
+        :param pulumi.Input[Union[str, 'CustomDomainValidationState']] validation_state: Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+        """
+        pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if certificate_url is not None:
+            pulumi.set(__self__, "certificate_url", certificate_url)
+        if expected_txt_record_name is not None:
+            pulumi.set(__self__, "expected_txt_record_name", expected_txt_record_name)
+        if expected_txt_record_value is not None:
+            pulumi.set(__self__, "expected_txt_record_value", expected_txt_record_value)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if validation_state is not None:
+            pulumi.set(__self__, "validation_state", validation_state)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedDomainName")
+    def fully_qualified_domain_name(self) -> pulumi.Input[str]:
+        """
+        Fully Qualified Domain Name (FQDN) for the custom domain.
+        """
+        return pulumi.get(self, "fully_qualified_domain_name")
+
+    @fully_qualified_domain_name.setter
+    def fully_qualified_domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "fully_qualified_domain_name", value)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the certificate that is used for publishing to the custom domain. We currently support certificates stored in Azure Key Vault only. While certificate URL can be either
+        versioned URL of the following format https://{key-vault-name}.vault.azure.net/certificates/{certificate-name}/{version-id}, or unversioned URL of the following format (e.g.,
+        https://contosovault.vault.azure.net/certificates/contosocert, we support unversioned certificate URL only (e.g., https://contosovault.vault.azure.net/certificates/contosocert)
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @certificate_url.setter
+    def certificate_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_url", value)
+
+    @property
+    @pulumi.getter(name="expectedTxtRecordName")
+    def expected_txt_record_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expected DNS TXT record name. Event Grid will check for a TXT record with this name in the DNS record set of the custom domain name to prove ownership over the domain.
+        The values under this TXT record must contain the expected TXT record value.
+        """
+        return pulumi.get(self, "expected_txt_record_name")
+
+    @expected_txt_record_name.setter
+    def expected_txt_record_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_txt_record_name", value)
+
+    @property
+    @pulumi.getter(name="expectedTxtRecordValue")
+    def expected_txt_record_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expected DNS TXT record value. Event Grid will check for a TXT record with this value in the DNS record set of the custom domain name to prove ownership over the domain.
+        """
+        return pulumi.get(self, "expected_txt_record_value")
+
+    @expected_txt_record_value.setter
+    def expected_txt_record_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_txt_record_value", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CustomDomainIdentityArgs']]:
+        """
+        Identity info for accessing the certificate for the custom domain. This identity info must match an identity that has been set on the namespace.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CustomDomainIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="validationState")
+    def validation_state(self) -> Optional[pulumi.Input[Union[str, 'CustomDomainValidationState']]]:
+        """
+        Validation state for the custom domain. This is a read only property and is initially set to 'Pending' and will be updated to 'Approved' by Event Grid only after ownership of the domain name has been successfully validated.
+        """
+        return pulumi.get(self, "validation_state")
+
+    @validation_state.setter
+    def validation_state(self, value: Optional[pulumi.Input[Union[str, 'CustomDomainValidationState']]]):
+        pulumi.set(self, "validation_state", value)
+
+
+if not MYPY:
+    class CustomDomainIdentityArgsDict(TypedDict):
+        """
+        The identity information for retrieving the certificate for the custom domain.
+        """
+        type: NotRequired[pulumi.Input[Union[str, 'CustomDomainIdentityType']]]
+        """
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        The user identity associated with the resource.
+        """
+elif False:
+    CustomDomainIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomDomainIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'CustomDomainIdentityType']]] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        The identity information for retrieving the certificate for the custom domain.
+        :param pulumi.Input[Union[str, 'CustomDomainIdentityType']] type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'CustomDomainIdentityType']]]:
+        """
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'CustomDomainIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user identity associated with the resource.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+if not MYPY:
     class DeadLetterWithResourceIdentityArgsDict(TypedDict):
         """
         Information about the deadletter destination with resource identity.
@@ -846,7 +804,7 @@ if not MYPY:
         dead_letter_destination: NotRequired[pulumi.Input['StorageBlobDeadLetterDestinationArgsDict']]
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         """
         identity: NotRequired[pulumi.Input['EventSubscriptionIdentityArgsDict']]
         """
@@ -863,7 +821,7 @@ class DeadLetterWithResourceIdentityArgs:
         """
         Information about the deadletter destination with resource identity.
         :param pulumi.Input['StorageBlobDeadLetterDestinationArgs'] dead_letter_destination: Information about the destination where events have to be delivered for the event subscription.
-               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when dead-lettering events.
         """
         if dead_letter_destination is not None:
@@ -876,7 +834,7 @@ class DeadLetterWithResourceIdentityArgs:
     def dead_letter_destination(self) -> Optional[pulumi.Input['StorageBlobDeadLetterDestinationArgs']]:
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during dead-lettering.
         """
         return pulumi.get(self, "dead_letter_destination")
 
@@ -906,6 +864,10 @@ if not MYPY:
         """
         Delivery mode of the event subscription.
         """
+        push: NotRequired[pulumi.Input['PushInfoArgsDict']]
+        """
+        This property should be populated when deliveryMode is push and represents information about the push subscription.
+        """
         queue: NotRequired[pulumi.Input['QueueInfoArgsDict']]
         """
         This property should be populated when deliveryMode is queue and represents information about the queue subscription.
@@ -917,14 +879,18 @@ elif False:
 class DeliveryConfigurationArgs:
     def __init__(__self__, *,
                  delivery_mode: Optional[pulumi.Input[Union[str, 'DeliveryMode']]] = None,
+                 push: Optional[pulumi.Input['PushInfoArgs']] = None,
                  queue: Optional[pulumi.Input['QueueInfoArgs']] = None):
         """
         Properties of the delivery configuration information of the event subscription.
         :param pulumi.Input[Union[str, 'DeliveryMode']] delivery_mode: Delivery mode of the event subscription.
+        :param pulumi.Input['PushInfoArgs'] push: This property should be populated when deliveryMode is push and represents information about the push subscription.
         :param pulumi.Input['QueueInfoArgs'] queue: This property should be populated when deliveryMode is queue and represents information about the queue subscription.
         """
         if delivery_mode is not None:
             pulumi.set(__self__, "delivery_mode", delivery_mode)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
         if queue is not None:
             pulumi.set(__self__, "queue", queue)
 
@@ -939,6 +905,18 @@ class DeliveryConfigurationArgs:
     @delivery_mode.setter
     def delivery_mode(self, value: Optional[pulumi.Input[Union[str, 'DeliveryMode']]]):
         pulumi.set(self, "delivery_mode", value)
+
+    @property
+    @pulumi.getter
+    def push(self) -> Optional[pulumi.Input['PushInfoArgs']]:
+        """
+        This property should be populated when deliveryMode is push and represents information about the push subscription.
+        """
+        return pulumi.get(self, "push")
+
+    @push.setter
+    def push(self, value: Optional[pulumi.Input['PushInfoArgs']]):
+        pulumi.set(self, "push", value)
 
     @property
     @pulumi.getter
@@ -958,10 +936,10 @@ if not MYPY:
         """
         Information about the delivery for an event subscription with resource identity.
         """
-        destination: NotRequired[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgsDict', 'EventHubEventSubscriptionDestinationArgsDict', 'HybridConnectionEventSubscriptionDestinationArgsDict', 'ServiceBusQueueEventSubscriptionDestinationArgsDict', 'ServiceBusTopicEventSubscriptionDestinationArgsDict', 'StorageQueueEventSubscriptionDestinationArgsDict', 'WebHookEventSubscriptionDestinationArgsDict']]]
+        destination: NotRequired[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgsDict', 'EventHubEventSubscriptionDestinationArgsDict', 'HybridConnectionEventSubscriptionDestinationArgsDict', 'MonitorAlertEventSubscriptionDestinationArgsDict', 'NamespaceTopicEventSubscriptionDestinationArgsDict', 'ServiceBusQueueEventSubscriptionDestinationArgsDict', 'ServiceBusTopicEventSubscriptionDestinationArgsDict', 'StorageQueueEventSubscriptionDestinationArgsDict', 'WebHookEventSubscriptionDestinationArgsDict']]]
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         """
         identity: NotRequired[pulumi.Input['EventSubscriptionIdentityArgsDict']]
         """
@@ -973,12 +951,12 @@ elif False:
 @pulumi.input_type
 class DeliveryWithResourceIdentityArgs:
     def __init__(__self__, *,
-                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
                  identity: Optional[pulumi.Input['EventSubscriptionIdentityArgs']] = None):
         """
         Information about the delivery for an event subscription with resource identity.
-        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
-               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         :param pulumi.Input['EventSubscriptionIdentityArgs'] identity: The identity to use when delivering events.
         """
         if destination is not None:
@@ -988,15 +966,15 @@ class DeliveryWithResourceIdentityArgs:
 
     @property
     @pulumi.getter
-    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
         """
         Information about the destination where events have to be delivered for the event subscription.
-        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
         """
         return pulumi.get(self, "destination")
 
     @destination.setter
-    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
         pulumi.set(self, "destination", value)
 
     @property
@@ -1377,7 +1355,7 @@ if not MYPY:
         """
         type: NotRequired[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]]
         """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         """
         user_assigned_identity: NotRequired[pulumi.Input[str]]
         """
@@ -1393,7 +1371,7 @@ class EventSubscriptionIdentityArgs:
                  user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
         The identity information with the event subscription.
-        :param pulumi.Input[Union[str, 'EventSubscriptionIdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param pulumi.Input[Union[str, 'EventSubscriptionIdentityType']] type: The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
         """
         if type is not None:
@@ -1405,7 +1383,7 @@ class EventSubscriptionIdentityArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]]:
         """
-        The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        The type of managed identity used. Can be either 'SystemAssigned' or 'UserAssigned'.
         """
         return pulumi.get(self, "type")
 
@@ -2361,6 +2339,110 @@ class JsonInputSchemaMappingArgs:
 
 
 if not MYPY:
+    class MonitorAlertEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the Monitor Alert destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'MonitorAlert'.
+        """
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
+        Each resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description that will be attached to every Alert fired through this event subscription.
+        """
+        severity: NotRequired[pulumi.Input[Union[str, 'MonitorAlertSeverity']]]
+        """
+        The severity that will be attached to every Alert fired through this event subscription.
+        This field must be provided.
+        """
+elif False:
+    MonitorAlertEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MonitorAlertEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'MonitorAlertSeverity']]] = None):
+        """
+        Information about the Monitor Alert destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'MonitorAlert'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
+               Each resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.
+        :param pulumi.Input[str] description: The description that will be attached to every Alert fired through this event subscription.
+        :param pulumi.Input[Union[str, 'MonitorAlertSeverity']] severity: The severity that will be attached to every Alert fired through this event subscription.
+               This field must be provided.
+        """
+        pulumi.set(__self__, "endpoint_type", 'MonitorAlert')
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'MonitorAlert'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.
+        Each resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @action_groups.setter
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_groups", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description that will be attached to every Alert fired through this event subscription.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input[Union[str, 'MonitorAlertSeverity']]]:
+        """
+        The severity that will be attached to every Alert fired through this event subscription.
+        This field must be provided.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input[Union[str, 'MonitorAlertSeverity']]]):
+        pulumi.set(self, "severity", value)
+
+
+if not MYPY:
     class NamespaceSkuArgsDict(TypedDict):
         """
         Represents available Sku pricing tiers.
@@ -2420,6 +2502,70 @@ class NamespaceSkuArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class NamespaceTopicEventSubscriptionDestinationArgsDict(TypedDict):
+        """
+        Information about the Namespace Topic destination for an event subscription.
+        """
+        endpoint_type: pulumi.Input[str]
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'NamespaceTopic'.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
+        This field is required and the Namespace Topic resource listed must already exist.
+        The resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.EventGrid/namespaces/{NamespaceName}/topics/{TopicName}.
+        """
+elif False:
+    NamespaceTopicEventSubscriptionDestinationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespaceTopicEventSubscriptionDestinationArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Information about the Namespace Topic destination for an event subscription.
+        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
+               Expected value is 'NamespaceTopic'.
+        :param pulumi.Input[str] resource_id: The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
+               This field is required and the Namespace Topic resource listed must already exist.
+               The resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.EventGrid/namespaces/{NamespaceName}/topics/{TopicName}.
+        """
+        pulumi.set(__self__, "endpoint_type", 'NamespaceTopic')
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of the endpoint for the event subscription destination.
+        Expected value is 'NamespaceTopic'.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure resource Id that represents the endpoint of the Event Grid Namespace Topic destination of an event subscription.
+        This field is required and the Namespace Topic resource listed must already exist.
+        The resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.EventGrid/namespaces/{NamespaceName}/topics/{TopicName}.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:
@@ -4071,6 +4217,176 @@ class PrivateEndpointArgs:
 
 
 if not MYPY:
+    class PushInfoArgsDict(TypedDict):
+        """
+        Properties of the destination info for event subscription supporting push.
+        """
+        dead_letter_destination_with_resource_identity: NotRequired[pulumi.Input['DeadLetterWithResourceIdentityArgsDict']]
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
+        """
+        delivery_with_resource_identity: NotRequired[pulumi.Input['DeliveryWithResourceIdentityArgsDict']]
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
+        """
+        destination: NotRequired[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgsDict', 'EventHubEventSubscriptionDestinationArgsDict', 'HybridConnectionEventSubscriptionDestinationArgsDict', 'MonitorAlertEventSubscriptionDestinationArgsDict', 'NamespaceTopicEventSubscriptionDestinationArgsDict', 'ServiceBusQueueEventSubscriptionDestinationArgsDict', 'ServiceBusTopicEventSubscriptionDestinationArgsDict', 'StorageQueueEventSubscriptionDestinationArgsDict', 'WebHookEventSubscriptionDestinationArgsDict']]]
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery.
+        """
+        event_time_to_live: NotRequired[pulumi.Input[str]]
+        """
+        Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+        This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+            - (n) is replaced by the value of each time element that follows the (n).
+            - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+            - Y is the year designator, and it follows the value for the number of years.
+            - M is the month designator, and it follows the value for the number of months.
+            - W is the week designator, and it follows the value for the number of weeks.
+            - D is the day designator, and it follows the value for the number of days.
+            - T is the time designator, and it precedes the time components.
+            - H is the hour designator, and it follows the value for the number of hours.
+            - M is the minute designator, and it follows the value for the number of minutes.
+            - S is the second designator, and it follows the value for the number of seconds.
+        This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+        by topic’s EventRetentionInDays value. The followings are examples of valid values:
+            - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+            - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum delivery count of the events.
+        """
+elif False:
+    PushInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PushInfoArgs:
+    def __init__(__self__, *,
+                 dead_letter_destination_with_resource_identity: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']] = None,
+                 delivery_with_resource_identity: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']] = None,
+                 destination: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]] = None,
+                 event_time_to_live: Optional[pulumi.Input[str]] = None,
+                 max_delivery_count: Optional[pulumi.Input[int]] = None):
+        """
+        Properties of the destination info for event subscription supporting push.
+        :param pulumi.Input['DeadLetterWithResourceIdentityArgs'] dead_letter_destination_with_resource_identity: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+               Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
+        :param pulumi.Input['DeliveryWithResourceIdentityArgs'] delivery_with_resource_identity: Information about the destination where events have to be delivered for the event subscription.
+               Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
+        :param pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
+               Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery.
+        :param pulumi.Input[str] event_time_to_live: Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+               This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+                   - (n) is replaced by the value of each time element that follows the (n).
+                   - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+                   - Y is the year designator, and it follows the value for the number of years.
+                   - M is the month designator, and it follows the value for the number of months.
+                   - W is the week designator, and it follows the value for the number of weeks.
+                   - D is the day designator, and it follows the value for the number of days.
+                   - T is the time designator, and it precedes the time components.
+                   - H is the hour designator, and it follows the value for the number of hours.
+                   - M is the minute designator, and it follows the value for the number of minutes.
+                   - S is the second designator, and it follows the value for the number of seconds.
+               This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+               by topic’s EventRetentionInDays value. The followings are examples of valid values:
+                   - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+                   - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        :param pulumi.Input[int] max_delivery_count: The maximum delivery count of the events.
+        """
+        if dead_letter_destination_with_resource_identity is not None:
+            pulumi.set(__self__, "dead_letter_destination_with_resource_identity", dead_letter_destination_with_resource_identity)
+        if delivery_with_resource_identity is not None:
+            pulumi.set(__self__, "delivery_with_resource_identity", delivery_with_resource_identity)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if event_time_to_live is not None:
+            pulumi.set(__self__, "event_time_to_live", event_time_to_live)
+        if max_delivery_count is not None:
+            pulumi.set(__self__, "max_delivery_count", max_delivery_count)
+
+    @property
+    @pulumi.getter(name="deadLetterDestinationWithResourceIdentity")
+    def dead_letter_destination_with_resource_identity(self) -> Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]:
+        """
+        The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        Uses the managed identity setup on the parent resource (namely, namespace) to acquire the authentication tokens being used during dead-lettering.
+        """
+        return pulumi.get(self, "dead_letter_destination_with_resource_identity")
+
+    @dead_letter_destination_with_resource_identity.setter
+    def dead_letter_destination_with_resource_identity(self, value: Optional[pulumi.Input['DeadLetterWithResourceIdentityArgs']]):
+        pulumi.set(self, "dead_letter_destination_with_resource_identity", value)
+
+    @property
+    @pulumi.getter(name="deliveryWithResourceIdentity")
+    def delivery_with_resource_identity(self) -> Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery.
+        """
+        return pulumi.get(self, "delivery_with_resource_identity")
+
+    @delivery_with_resource_identity.setter
+    def delivery_with_resource_identity(self, value: Optional[pulumi.Input['DeliveryWithResourceIdentityArgs']]):
+        pulumi.set(self, "delivery_with_resource_identity", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]:
+        """
+        Information about the destination where events have to be delivered for the event subscription.
+        Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[Union['AzureFunctionEventSubscriptionDestinationArgs', 'EventHubEventSubscriptionDestinationArgs', 'HybridConnectionEventSubscriptionDestinationArgs', 'MonitorAlertEventSubscriptionDestinationArgs', 'NamespaceTopicEventSubscriptionDestinationArgs', 'ServiceBusQueueEventSubscriptionDestinationArgs', 'ServiceBusTopicEventSubscriptionDestinationArgs', 'StorageQueueEventSubscriptionDestinationArgs', 'WebHookEventSubscriptionDestinationArgs']]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="eventTimeToLive")
+    def event_time_to_live(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time span duration in ISO 8601 format that determines how long messages are available to the subscription from the time the message was published.
+        This duration value is expressed using the following format: \\'P(n)Y(n)M(n)DT(n)H(n)M(n)S\\', where:
+            - (n) is replaced by the value of each time element that follows the (n).
+            - P is the duration (or Period) designator and is always placed at the beginning of the duration.
+            - Y is the year designator, and it follows the value for the number of years.
+            - M is the month designator, and it follows the value for the number of months.
+            - W is the week designator, and it follows the value for the number of weeks.
+            - D is the day designator, and it follows the value for the number of days.
+            - T is the time designator, and it precedes the time components.
+            - H is the hour designator, and it follows the value for the number of hours.
+            - M is the minute designator, and it follows the value for the number of minutes.
+            - S is the second designator, and it follows the value for the number of seconds.
+        This duration value cannot be set greater than the topic’s EventRetentionInDays. It is is an optional field where its minimum value is 1 minute, and its maximum is determined
+        by topic’s EventRetentionInDays value. The followings are examples of valid values:
+            - \\'P0DT23H12M\\' or \\'PT23H12M\\': for duration of 23 hours and 12 minutes.
+            - \\'P1D\\' or \\'P1DT0H0M0S\\': for duration of 1 day.
+        """
+        return pulumi.get(self, "event_time_to_live")
+
+    @event_time_to_live.setter
+    def event_time_to_live(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_time_to_live", value)
+
+    @property
+    @pulumi.getter(name="maxDeliveryCount")
+    def max_delivery_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum delivery count of the events.
+        """
+        return pulumi.get(self, "max_delivery_count")
+
+    @max_delivery_count.setter
+    def max_delivery_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_delivery_count", value)
+
+
+if not MYPY:
     class QueueInfoArgsDict(TypedDict):
         """
         Properties of the Queue info for event subscription.
@@ -4283,7 +4599,7 @@ class RetryPolicyArgs:
 if not MYPY:
     class RoutingEnrichmentsArgsDict(TypedDict):
         dynamic: NotRequired[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgsDict']]]]
-        static: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgsDict']]]]
+        static: NotRequired[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgsDict']]]]
 elif False:
     RoutingEnrichmentsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -4291,7 +4607,7 @@ elif False:
 class RoutingEnrichmentsArgs:
     def __init__(__self__, *,
                  dynamic: Optional[pulumi.Input[Sequence[pulumi.Input['DynamicRoutingEnrichmentArgs']]]] = None,
-                 static: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]] = None):
+                 static: Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]] = None):
         if dynamic is not None:
             pulumi.set(__self__, "dynamic", dynamic)
         if static is not None:
@@ -4308,11 +4624,11 @@ class RoutingEnrichmentsArgs:
 
     @property
     @pulumi.getter
-    def static(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]:
+    def static(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]]:
         return pulumi.get(self, "static")
 
     @static.setter
-    def static(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticRoutingEnrichmentArgs']]]]):
+    def static(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticStringRoutingEnrichmentArgs']]]]):
         pulumi.set(self, "static", value)
 
 
@@ -4322,6 +4638,9 @@ if not MYPY:
         Routing identity info for topic spaces configuration.
         """
         type: NotRequired[pulumi.Input[Union[str, 'RoutingIdentityType']]]
+        """
+        Routing identity type for topic spaces configuration.
+        """
         user_assigned_identity: NotRequired[pulumi.Input[str]]
 elif False:
     RoutingIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
@@ -4333,6 +4652,7 @@ class RoutingIdentityInfoArgs:
                  user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
         Routing identity info for topic spaces configuration.
+        :param pulumi.Input[Union[str, 'RoutingIdentityType']] type: Routing identity type for topic spaces configuration.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -4342,6 +4662,9 @@ class RoutingIdentityInfoArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'RoutingIdentityType']]]:
+        """
+        Routing identity type for topic spaces configuration.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -4615,31 +4938,53 @@ class StaticDeliveryAttributeMappingArgs:
 
 
 if not MYPY:
-    class StaticRoutingEnrichmentArgsDict(TypedDict):
+    class StaticStringRoutingEnrichmentArgsDict(TypedDict):
+        value_type: pulumi.Input[str]
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        Expected value is 'String'.
+        """
         key: NotRequired[pulumi.Input[str]]
         """
         Static routing enrichment key.
         """
-        value_type: NotRequired[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]
+        value: NotRequired[pulumi.Input[str]]
         """
-        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        String type routing enrichment value.
         """
 elif False:
-    StaticRoutingEnrichmentArgsDict: TypeAlias = Mapping[str, Any]
+    StaticStringRoutingEnrichmentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class StaticRoutingEnrichmentArgs:
+class StaticStringRoutingEnrichmentArgs:
     def __init__(__self__, *,
+                 value_type: pulumi.Input[str],
                  key: Optional[pulumi.Input[str]] = None,
-                 value_type: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]] = None):
+                 value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+               Expected value is 'String'.
         :param pulumi.Input[str] key: Static routing enrichment key.
-        :param pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']] value_type: Static routing enrichment value type. For e.g. this property value can be 'String'.
+        :param pulumi.Input[str] value: String type routing enrichment value.
         """
+        pulumi.set(__self__, "value_type", 'String')
         if key is not None:
             pulumi.set(__self__, "key", key)
-        if value_type is not None:
-            pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input[str]:
+        """
+        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        Expected value is 'String'.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_type", value)
 
     @property
     @pulumi.getter
@@ -4654,16 +4999,16 @@ class StaticRoutingEnrichmentArgs:
         pulumi.set(self, "key", value)
 
     @property
-    @pulumi.getter(name="valueType")
-    def value_type(self) -> Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]:
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
-        Static routing enrichment value type. For e.g. this property value can be 'String'.
+        String type routing enrichment value.
         """
-        return pulumi.get(self, "value_type")
+        return pulumi.get(self, "value")
 
-    @value_type.setter
-    def value_type(self, value: Optional[pulumi.Input[Union[str, 'StaticRoutingEnrichmentType']]]):
-        pulumi.set(self, "value_type", value)
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -4756,7 +5101,7 @@ if not MYPY:
         """
         queue_message_time_to_live_in_seconds: NotRequired[pulumi.Input[float]]
         """
-        Storage queue message time to live in seconds.
+        Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         """
         queue_name: NotRequired[pulumi.Input[str]]
         """
@@ -4780,7 +5125,7 @@ class StorageQueueEventSubscriptionDestinationArgs:
         Information about the storage queue destination for an event subscription.
         :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination.
                Expected value is 'StorageQueue'.
-        :param pulumi.Input[float] queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds.
+        :param pulumi.Input[float] queue_message_time_to_live_in_seconds: Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         :param pulumi.Input[str] queue_name: The name of the Storage queue under a storage account that is the destination of an event subscription.
         :param pulumi.Input[str] resource_id: The Azure Resource ID of the storage account that contains the queue that is the destination of an event subscription.
         """
@@ -4809,7 +5154,7 @@ class StorageQueueEventSubscriptionDestinationArgs:
     @pulumi.getter(name="queueMessageTimeToLiveInSeconds")
     def queue_message_time_to_live_in_seconds(self) -> Optional[pulumi.Input[float]]:
         """
-        Storage queue message time to live in seconds.
+        Storage queue message time to live in seconds. This value cannot be zero or negative with the exception of using -1 to indicate that the Time To Live of the message is Infinite.
         """
         return pulumi.get(self, "queue_message_time_to_live_in_seconds")
 
@@ -6095,9 +6440,9 @@ if not MYPY:
         """
         Properties of the Topic Spaces Configuration.
         """
-        client_authentication: NotRequired[pulumi.Input['ClientAuthenticationSettingsArgsDict']]
+        custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgsDict']]]]
         """
-        Client authentication settings for topic spaces configuration.
+        List of custom domain configurations for the namespace.
         """
         maximum_client_sessions_per_authentication_name: NotRequired[pulumi.Input[int]]
         """
@@ -6133,7 +6478,7 @@ elif False:
 @pulumi.input_type
 class TopicSpacesConfigurationArgs:
     def __init__(__self__, *,
-                 client_authentication: Optional[pulumi.Input['ClientAuthenticationSettingsArgs']] = None,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]] = None,
                  maximum_client_sessions_per_authentication_name: Optional[pulumi.Input[int]] = None,
                  maximum_session_expiry_in_hours: Optional[pulumi.Input[int]] = None,
                  route_topic_resource_id: Optional[pulumi.Input[str]] = None,
@@ -6142,7 +6487,7 @@ class TopicSpacesConfigurationArgs:
                  state: Optional[pulumi.Input[Union[str, 'TopicSpacesConfigurationState']]] = None):
         """
         Properties of the Topic Spaces Configuration.
-        :param pulumi.Input['ClientAuthenticationSettingsArgs'] client_authentication: Client authentication settings for topic spaces configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]] custom_domains: List of custom domain configurations for the namespace.
         :param pulumi.Input[int] maximum_client_sessions_per_authentication_name: The maximum number of sessions per authentication name. The property default value is 1.
                Min allowed value is 1 and max allowed value is 100.
         :param pulumi.Input[int] maximum_session_expiry_in_hours: The maximum session expiry in hours. The property default value is 1 hour.
@@ -6154,8 +6499,8 @@ class TopicSpacesConfigurationArgs:
         :param pulumi.Input['RoutingIdentityInfoArgs'] routing_identity_info: Routing identity info for topic spaces configuration.
         :param pulumi.Input[Union[str, 'TopicSpacesConfigurationState']] state: Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
         """
-        if client_authentication is not None:
-            pulumi.set(__self__, "client_authentication", client_authentication)
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
         if maximum_client_sessions_per_authentication_name is not None:
             pulumi.set(__self__, "maximum_client_sessions_per_authentication_name", maximum_client_sessions_per_authentication_name)
         if maximum_session_expiry_in_hours is not None:
@@ -6172,16 +6517,16 @@ class TopicSpacesConfigurationArgs:
             pulumi.set(__self__, "state", state)
 
     @property
-    @pulumi.getter(name="clientAuthentication")
-    def client_authentication(self) -> Optional[pulumi.Input['ClientAuthenticationSettingsArgs']]:
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]]:
         """
-        Client authentication settings for topic spaces configuration.
+        List of custom domain configurations for the namespace.
         """
-        return pulumi.get(self, "client_authentication")
+        return pulumi.get(self, "custom_domains")
 
-    @client_authentication.setter
-    def client_authentication(self, value: Optional[pulumi.Input['ClientAuthenticationSettingsArgs']]):
-        pulumi.set(self, "client_authentication", value)
+    @custom_domains.setter
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]]):
+        pulumi.set(self, "custom_domains", value)
 
     @property
     @pulumi.getter(name="maximumClientSessionsPerAuthenticationName")
@@ -6258,6 +6603,42 @@ class TopicSpacesConfigurationArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[Union[str, 'TopicSpacesConfigurationState']]]):
         pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class TopicsConfigurationArgsDict(TypedDict):
+        """
+        Properties of the Topics Configuration.
+        """
+        custom_domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgsDict']]]]
+        """
+        List of custom domain configurations for the namespace.
+        """
+elif False:
+    TopicsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TopicsConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]] = None):
+        """
+        Properties of the Topics Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]] custom_domains: List of custom domain configurations for the namespace.
+        """
+        if custom_domains is not None:
+            pulumi.set(__self__, "custom_domains", custom_domains)
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]]:
+        """
+        List of custom domain configurations for the namespace.
+        """
+        return pulumi.get(self, "custom_domains")
+
+    @custom_domains.setter
+    def custom_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDomainConfigurationArgs']]]]):
+        pulumi.set(self, "custom_domains", value)
 
 
 if not MYPY:
@@ -6346,6 +6727,10 @@ if not MYPY:
         """
         Maximum number of events per batch.
         """
+        minimum_tls_version_allowed: NotRequired[pulumi.Input[Union[str, 'TlsVersion']]]
+        """
+        Minimum TLS version that should be supported by webhook endpoint
+        """
         preferred_batch_size_in_kilobytes: NotRequired[pulumi.Input[int]]
         """
         Preferred batch size in Kilobytes.
@@ -6362,6 +6747,7 @@ class WebHookEventSubscriptionDestinationArgs:
                  delivery_attribute_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None,
                  max_events_per_batch: Optional[pulumi.Input[int]] = None,
+                 minimum_tls_version_allowed: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  preferred_batch_size_in_kilobytes: Optional[pulumi.Input[int]] = None):
         """
         Information about the webhook destination for an event subscription.
@@ -6372,6 +6758,7 @@ class WebHookEventSubscriptionDestinationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DynamicDeliveryAttributeMappingArgs', 'StaticDeliveryAttributeMappingArgs']]]] delivery_attribute_mappings: Delivery attribute details.
         :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         :param pulumi.Input[int] max_events_per_batch: Maximum number of events per batch.
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version that should be supported by webhook endpoint
         :param pulumi.Input[int] preferred_batch_size_in_kilobytes: Preferred batch size in Kilobytes.
         """
         pulumi.set(__self__, "endpoint_type", 'WebHook')
@@ -6387,6 +6774,8 @@ class WebHookEventSubscriptionDestinationArgs:
             max_events_per_batch = 1
         if max_events_per_batch is not None:
             pulumi.set(__self__, "max_events_per_batch", max_events_per_batch)
+        if minimum_tls_version_allowed is not None:
+            pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
         if preferred_batch_size_in_kilobytes is None:
             preferred_batch_size_in_kilobytes = 64
         if preferred_batch_size_in_kilobytes is not None:
@@ -6464,6 +6853,18 @@ class WebHookEventSubscriptionDestinationArgs:
     @max_events_per_batch.setter
     def max_events_per_batch(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_events_per_batch", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersionAllowed")
+    def minimum_tls_version_allowed(self) -> Optional[pulumi.Input[Union[str, 'TlsVersion']]]:
+        """
+        Minimum TLS version that should be supported by webhook endpoint
+        """
+        return pulumi.get(self, "minimum_tls_version_allowed")
+
+    @minimum_tls_version_allowed.setter
+    def minimum_tls_version_allowed(self, value: Optional[pulumi.Input[Union[str, 'TlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version_allowed", value)
 
     @property
     @pulumi.getter(name="preferredBatchSizeInKilobytes")

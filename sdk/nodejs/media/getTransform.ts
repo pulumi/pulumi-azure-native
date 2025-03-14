@@ -40,6 +40,10 @@ export interface GetTransformArgs {
  */
 export interface GetTransformResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     readonly created: string;

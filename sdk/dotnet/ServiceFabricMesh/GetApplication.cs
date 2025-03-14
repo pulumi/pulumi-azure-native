@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Internal - used by Visual Studio to setup the debugging session on the local development environment.
         /// </summary>
         public readonly string? DebugParams;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetApplicationResult(
+            string azureApiVersion,
+
             string? debugParams,
 
             string? description,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
             string unhealthyEvaluation)
         {
+            AzureApiVersion = azureApiVersion;
             DebugParams = debugParams;
             Description = description;
             Diagnostics = diagnostics;

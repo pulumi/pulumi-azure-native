@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The StorSimple Manager.
- * Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+ * Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
  */
 export class Manager extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Manager extends pulumi.CustomResource {
         return obj['__pulumiType'] === Manager.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Represents the type of StorSimple Manager.
      */
@@ -92,10 +96,12 @@ export class Manager extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cisIntrinsicSettings"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

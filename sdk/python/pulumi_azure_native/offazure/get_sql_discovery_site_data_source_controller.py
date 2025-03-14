@@ -27,7 +27,10 @@ class GetSqlDiscoverySiteDataSourceControllerResult:
     """
     A SQL discovery site data source resource.
     """
-    def __init__(__self__, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, discovery_site_id=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if discovery_site_id and not isinstance(discovery_site_id, str):
             raise TypeError("Expected argument 'discovery_site_id' to be a str")
         pulumi.set(__self__, "discovery_site_id", discovery_site_id)
@@ -46,6 +49,14 @@ class GetSqlDiscoverySiteDataSourceControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoverySiteId")
@@ -102,6 +113,7 @@ class AwaitableGetSqlDiscoverySiteDataSourceControllerResult(GetSqlDiscoverySite
         if False:
             yield self
         return GetSqlDiscoverySiteDataSourceControllerResult(
+            azure_api_version=self.azure_api_version,
             discovery_site_id=self.discovery_site_id,
             id=self.id,
             name=self.name,
@@ -117,9 +129,7 @@ def get_sql_discovery_site_data_source_controller(discovery_site_data_source_nam
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlDiscoverySiteDataSourceControllerResult:
     """
     Get a SqlDiscoverySiteDataSource
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: SQL Discovery site data source name.
@@ -136,6 +146,7 @@ def get_sql_discovery_site_data_source_controller(discovery_site_data_source_nam
     __ret__ = pulumi.runtime.invoke('azure-native:offazure:getSqlDiscoverySiteDataSourceController', __args__, opts=opts, typ=GetSqlDiscoverySiteDataSourceControllerResult).value
 
     return AwaitableGetSqlDiscoverySiteDataSourceControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         discovery_site_id=pulumi.get(__ret__, 'discovery_site_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -149,9 +160,7 @@ def get_sql_discovery_site_data_source_controller_output(discovery_site_data_sou
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlDiscoverySiteDataSourceControllerResult]:
     """
     Get a SqlDiscoverySiteDataSource
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str discovery_site_data_source_name: SQL Discovery site data source name.
@@ -167,6 +176,7 @@ def get_sql_discovery_site_data_source_controller_output(discovery_site_data_sou
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getSqlDiscoverySiteDataSourceController', __args__, opts=opts, typ=GetSqlDiscoverySiteDataSourceControllerResult)
     return __ret__.apply(lambda __response__: GetSqlDiscoverySiteDataSourceControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         discovery_site_id=pulumi.get(__response__, 'discovery_site_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

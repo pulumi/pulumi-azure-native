@@ -46,6 +46,10 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
         /// </summary>
         public readonly int? MaxEventsPerBatch;
         /// <summary>
+        /// Minimum TLS version that should be supported by webhook endpoint
+        /// </summary>
+        public readonly string? MinimumTlsVersionAllowed;
+        /// <summary>
         /// Preferred batch size in Kilobytes.
         /// </summary>
         public readonly int? PreferredBatchSizeInKilobytes;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
             int? maxEventsPerBatch,
 
+            string? minimumTlsVersionAllowed,
+
             int? preferredBatchSizeInKilobytes)
         {
             AzureActiveDirectoryApplicationIdOrUri = azureActiveDirectoryApplicationIdOrUri;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
             EndpointType = endpointType;
             EndpointUrl = endpointUrl;
             MaxEventsPerBatch = maxEventsPerBatch;
+            MinimumTlsVersionAllowed = minimumTlsVersionAllowed;
             PreferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
         }
     }

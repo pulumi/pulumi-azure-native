@@ -26,10 +26,13 @@ class GetDataMaskingPolicyResult:
     """
     A database data masking policy.
     """
-    def __init__(__self__, application_principals=None, data_masking_state=None, exempt_principals=None, id=None, kind=None, location=None, masking_level=None, name=None, type=None):
+    def __init__(__self__, application_principals=None, azure_api_version=None, data_masking_state=None, exempt_principals=None, id=None, kind=None, location=None, masking_level=None, name=None, type=None):
         if application_principals and not isinstance(application_principals, str):
             raise TypeError("Expected argument 'application_principals' to be a str")
         pulumi.set(__self__, "application_principals", application_principals)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_masking_state and not isinstance(data_masking_state, str):
             raise TypeError("Expected argument 'data_masking_state' to be a str")
         pulumi.set(__self__, "data_masking_state", data_masking_state)
@@ -62,6 +65,14 @@ class GetDataMaskingPolicyResult:
         The list of the application principals. This is a legacy parameter and is no longer used.
         """
         return pulumi.get(self, "application_principals")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataMaskingState")
@@ -135,6 +146,7 @@ class AwaitableGetDataMaskingPolicyResult(GetDataMaskingPolicyResult):
             yield self
         return GetDataMaskingPolicyResult(
             application_principals=self.application_principals,
+            azure_api_version=self.azure_api_version,
             data_masking_state=self.data_masking_state,
             exempt_principals=self.exempt_principals,
             id=self.id,
@@ -154,8 +166,6 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
     Gets the database data masking policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str data_masking_policy_name: The name of the database for which the data masking policy applies.
     :param str database_name: The name of the database.
@@ -172,6 +182,7 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
 
     return AwaitableGetDataMaskingPolicyResult(
         application_principals=pulumi.get(__ret__, 'application_principals'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_masking_state=pulumi.get(__ret__, 'data_masking_state'),
         exempt_principals=pulumi.get(__ret__, 'exempt_principals'),
         id=pulumi.get(__ret__, 'id'),
@@ -189,8 +200,6 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
     Gets the database data masking policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str data_masking_policy_name: The name of the database for which the data masking policy applies.
     :param str database_name: The name of the database.
@@ -206,6 +215,7 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDataMaskingPolicy', __args__, opts=opts, typ=GetDataMaskingPolicyResult)
     return __ret__.apply(lambda __response__: GetDataMaskingPolicyResult(
         application_principals=pulumi.get(__response__, 'application_principals'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_masking_state=pulumi.get(__response__, 'data_masking_state'),
         exempt_principals=pulumi.get(__response__, 'exempt_principals'),
         id=pulumi.get(__response__, 'id'),

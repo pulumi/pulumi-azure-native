@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network security perimeter by the name.
- * Azure REST API version: 2021-03-01-preview.
- *
- * Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeter(args: GetNetworkSecurityPerimeterArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityPerimeterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,17 +32,9 @@ export interface GetNetworkSecurityPerimeterArgs {
  */
 export interface GetNetworkSecurityPerimeterResult {
     /**
-     * A description of the network security perimeter.
+     * The Azure API version of the resource.
      */
-    readonly description?: string;
-    /**
-     * A friendly name for the network security perimeter.
-     */
-    readonly displayName?: string;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: string;
+    readonly azureApiVersion: string;
     /**
      * Resource ID.
      */
@@ -57,6 +47,10 @@ export interface GetNetworkSecurityPerimeterResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * perimeter guid of the network security perimeter.
+     */
+    readonly perimeterGuid: string;
     /**
      * The provisioning state of the scope assignment resource.
      */
@@ -72,9 +66,7 @@ export interface GetNetworkSecurityPerimeterResult {
 }
 /**
  * Gets the specified network security perimeter by the name.
- * Azure REST API version: 2021-03-01-preview.
- *
- * Other available API versions: 2021-02-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview.
  */
 export function getNetworkSecurityPerimeterOutput(args: GetNetworkSecurityPerimeterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSecurityPerimeterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

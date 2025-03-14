@@ -116,9 +116,7 @@ class StaticCidr(pulumi.CustomResource):
                  __props__=None):
         """
         Instance of StaticCidr resource.
-        Azure REST API version: 2024-01-01-preview.
-
-        Other available API versions: 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class StaticCidr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance of StaticCidr resource.
-        Azure REST API version: 2024-01-01-preview.
-
-        Other available API versions: 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param StaticCidrArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class StaticCidr(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["static_cidr_name"] = static_cidr_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -207,11 +204,20 @@ class StaticCidr(pulumi.CustomResource):
 
         __props__ = StaticCidrArgs.__new__(StaticCidrArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return StaticCidr(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

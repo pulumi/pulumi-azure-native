@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the GuestAgent.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2023-03-01-preview.
  */
 export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
         return obj['__pulumiType'] === VMInstanceGuestAgent.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Username / Password Credentials to provision guest agent.
      */
@@ -108,6 +110,7 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
             resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -117,6 +120,7 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["httpProxyConfig"] = undefined /*out*/;

@@ -26,7 +26,10 @@ class GetSyncAgentResult:
     """
     An Azure SQL Database sync agent.
     """
-    def __init__(__self__, expiry_time=None, id=None, is_up_to_date=None, last_alive_time=None, name=None, state=None, sync_database_id=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, expiry_time=None, id=None, is_up_to_date=None, last_alive_time=None, name=None, state=None, sync_database_id=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiry_time and not isinstance(expiry_time, str):
             raise TypeError("Expected argument 'expiry_time' to be a str")
         pulumi.set(__self__, "expiry_time", expiry_time)
@@ -54,6 +57,14 @@ class GetSyncAgentResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expiryTime")
@@ -134,6 +145,7 @@ class AwaitableGetSyncAgentResult(GetSyncAgentResult):
         if False:
             yield self
         return GetSyncAgentResult(
+            azure_api_version=self.azure_api_version,
             expiry_time=self.expiry_time,
             id=self.id,
             is_up_to_date=self.is_up_to_date,
@@ -153,8 +165,6 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
     Gets a sync agent.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server on which the sync agent is hosted.
@@ -168,6 +178,7 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getSyncAgent', __args__, opts=opts, typ=GetSyncAgentResult).value
 
     return AwaitableGetSyncAgentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiry_time=pulumi.get(__ret__, 'expiry_time'),
         id=pulumi.get(__ret__, 'id'),
         is_up_to_date=pulumi.get(__ret__, 'is_up_to_date'),
@@ -185,8 +196,6 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     Gets a sync agent.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server on which the sync agent is hosted.
@@ -199,6 +208,7 @@ def get_sync_agent_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getSyncAgent', __args__, opts=opts, typ=GetSyncAgentResult)
     return __ret__.apply(lambda __response__: GetSyncAgentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiry_time=pulumi.get(__response__, 'expiry_time'),
         id=pulumi.get(__response__, 'id'),
         is_up_to_date=pulumi.get(__response__, 'is_up_to_date'),

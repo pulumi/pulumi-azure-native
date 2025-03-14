@@ -40,6 +40,10 @@ export interface GetExtensionArgs {
  */
 export interface GetExtensionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Unique identifier of the resource.
      */
     readonly id: string;

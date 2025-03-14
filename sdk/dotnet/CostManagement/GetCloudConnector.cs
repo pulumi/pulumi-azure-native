@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetCloudConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Connector billing model
         /// </summary>
         public readonly string? BillingModel;
@@ -153,6 +157,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetCloudConnectorResult(
+            string azureApiVersion,
+
             string? billingModel,
 
             Outputs.ConnectorCollectionInfoResponse collectionInfo,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BillingModel = billingModel;
             CollectionInfo = collectionInfo;
             CreatedOn = createdOn;

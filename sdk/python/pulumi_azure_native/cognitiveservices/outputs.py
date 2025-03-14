@@ -25,6 +25,8 @@ __all__ = [
     'CommitmentPlanAssociationResponse',
     'CommitmentPlanPropertiesResponse',
     'CommitmentQuotaResponse',
+    'CustomBlocklistConfigResponse',
+    'DeploymentCapacitySettingsResponse',
     'DeploymentModelResponse',
     'DeploymentPropertiesResponse',
     'DeploymentScaleSettingsResponse',
@@ -40,9 +42,9 @@ __all__ = [
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'QuotaLimitResponse',
-    'RaiBlocklistConfigResponse',
     'RaiBlocklistItemPropertiesResponse',
     'RaiBlocklistPropertiesResponse',
+    'RaiMonitorConfigResponse',
     'RaiPolicyContentFilterResponse',
     'RaiPolicyPropertiesResponse',
     'RegionSettingResponse',
@@ -53,6 +55,7 @@ __all__ = [
     'SystemDataResponse',
     'ThrottlingRuleResponse',
     'UserAssignedIdentityResponse',
+    'UserOwnedAmlWorkspaceResponse',
     'UserOwnedStorageResponse',
     'VirtualNetworkRuleResponse',
 ]
@@ -155,6 +158,8 @@ class AccountPropertiesResponse(dict):
             suggest = "sku_change_info"
         elif key == "allowedFqdnList":
             suggest = "allowed_fqdn_list"
+        elif key == "amlWorkspace":
+            suggest = "aml_workspace"
         elif key == "apiProperties":
             suggest = "api_properties"
         elif key == "customSubDomainName":
@@ -169,6 +174,8 @@ class AccountPropertiesResponse(dict):
             suggest = "network_acls"
         elif key == "publicNetworkAccess":
             suggest = "public_network_access"
+        elif key == "raiMonitorConfig":
+            suggest = "rai_monitor_config"
         elif key == "restrictOutboundNetworkAccess":
             suggest = "restrict_outbound_network_access"
         elif key == "userOwnedStorage":
@@ -202,6 +209,7 @@ class AccountPropertiesResponse(dict):
                  scheduled_purge_date: str,
                  sku_change_info: 'outputs.SkuChangeInfoResponse',
                  allowed_fqdn_list: Optional[Sequence[str]] = None,
+                 aml_workspace: Optional['outputs.UserOwnedAmlWorkspaceResponse'] = None,
                  api_properties: Optional['outputs.ApiPropertiesResponse'] = None,
                  custom_sub_domain_name: Optional[str] = None,
                  disable_local_auth: Optional[bool] = None,
@@ -211,6 +219,7 @@ class AccountPropertiesResponse(dict):
                  migration_token: Optional[str] = None,
                  network_acls: Optional['outputs.NetworkRuleSetResponse'] = None,
                  public_network_access: Optional[str] = None,
+                 rai_monitor_config: Optional['outputs.RaiMonitorConfigResponse'] = None,
                  restrict_outbound_network_access: Optional[bool] = None,
                  user_owned_storage: Optional[Sequence['outputs.UserOwnedStorageResponse']] = None):
         """
@@ -228,6 +237,7 @@ class AccountPropertiesResponse(dict):
         :param str provisioning_state: Gets the status of the cognitive services account at the time the operation was called.
         :param str scheduled_purge_date: The scheduled purge date, only available for deleted account.
         :param 'SkuChangeInfoResponse' sku_change_info: Sku change info of account.
+        :param 'UserOwnedAmlWorkspaceResponse' aml_workspace: The user owned AML workspace properties.
         :param 'ApiPropertiesResponse' api_properties: The api properties for special APIs.
         :param str custom_sub_domain_name: Optional subdomain name used for token-based authentication.
         :param bool dynamic_throttling_enabled: The flag to enable dynamic throttling.
@@ -236,6 +246,7 @@ class AccountPropertiesResponse(dict):
         :param str migration_token: Resource migration token.
         :param 'NetworkRuleSetResponse' network_acls: A collection of rules governing the accessibility from specific network locations.
         :param str public_network_access: Whether or not public endpoint access is allowed for this account.
+        :param 'RaiMonitorConfigResponse' rai_monitor_config: Cognitive Services Rai Monitor Config.
         :param Sequence['UserOwnedStorageResponse'] user_owned_storage: The storage accounts for this resource.
         """
         pulumi.set(__self__, "abuse_penalty", abuse_penalty)
@@ -255,6 +266,8 @@ class AccountPropertiesResponse(dict):
         pulumi.set(__self__, "sku_change_info", sku_change_info)
         if allowed_fqdn_list is not None:
             pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+        if aml_workspace is not None:
+            pulumi.set(__self__, "aml_workspace", aml_workspace)
         if api_properties is not None:
             pulumi.set(__self__, "api_properties", api_properties)
         if custom_sub_domain_name is not None:
@@ -273,6 +286,8 @@ class AccountPropertiesResponse(dict):
             pulumi.set(__self__, "network_acls", network_acls)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if rai_monitor_config is not None:
+            pulumi.set(__self__, "rai_monitor_config", rai_monitor_config)
         if restrict_outbound_network_access is not None:
             pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if user_owned_storage is not None:
@@ -398,6 +413,14 @@ class AccountPropertiesResponse(dict):
         return pulumi.get(self, "allowed_fqdn_list")
 
     @property
+    @pulumi.getter(name="amlWorkspace")
+    def aml_workspace(self) -> Optional['outputs.UserOwnedAmlWorkspaceResponse']:
+        """
+        The user owned AML workspace properties.
+        """
+        return pulumi.get(self, "aml_workspace")
+
+    @property
     @pulumi.getter(name="apiProperties")
     def api_properties(self) -> Optional['outputs.ApiPropertiesResponse']:
         """
@@ -465,6 +488,14 @@ class AccountPropertiesResponse(dict):
         Whether or not public endpoint access is allowed for this account.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="raiMonitorConfig")
+    def rai_monitor_config(self) -> Optional['outputs.RaiMonitorConfigResponse']:
+        """
+        Cognitive Services Rai Monitor Config.
+        """
+        return pulumi.get(self, "rai_monitor_config")
 
     @property
     @pulumi.getter(name="restrictOutboundNetworkAccess")
@@ -1026,6 +1057,122 @@ class CommitmentQuotaResponse(dict):
 
 
 @pulumi.output_type
+class CustomBlocklistConfigResponse(dict):
+    """
+    Gets or sets the source to which filter applies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blocklistName":
+            suggest = "blocklist_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomBlocklistConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomBlocklistConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomBlocklistConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocking: Optional[bool] = None,
+                 blocklist_name: Optional[str] = None,
+                 source: Optional[str] = None):
+        """
+        Gets or sets the source to which filter applies.
+        :param bool blocking: If blocking would occur.
+        :param str blocklist_name: Name of ContentFilter.
+        :param str source: Content source to apply the Content Filters.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if blocklist_name is not None:
+            pulumi.set(__self__, "blocklist_name", blocklist_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter(name="blocklistName")
+    def blocklist_name(self) -> Optional[str]:
+        """
+        Name of ContentFilter.
+        """
+        return pulumi.get(self, "blocklist_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class DeploymentCapacitySettingsResponse(dict):
+    """
+    Internal use only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "designatedCapacity":
+            suggest = "designated_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentCapacitySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentCapacitySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentCapacitySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 designated_capacity: Optional[int] = None,
+                 priority: Optional[int] = None):
+        """
+        Internal use only.
+        :param int designated_capacity: The designated capacity.
+        :param int priority: The priority of this capacity setting.
+        """
+        if designated_capacity is not None:
+            pulumi.set(__self__, "designated_capacity", designated_capacity)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter(name="designatedCapacity")
+    def designated_capacity(self) -> Optional[int]:
+        """
+        The designated capacity.
+        """
+        return pulumi.get(self, "designated_capacity")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of this capacity setting.
+        """
+        return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
 class DeploymentModelResponse(dict):
     """
     Properties of Cognitive Services account deployment model.
@@ -1035,6 +1182,8 @@ class DeploymentModelResponse(dict):
         suggest = None
         if key == "callRateLimit":
             suggest = "call_rate_limit"
+        elif key == "sourceAccount":
+            suggest = "source_account"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DeploymentModelResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1051,14 +1200,18 @@ class DeploymentModelResponse(dict):
                  call_rate_limit: 'outputs.CallRateLimitResponse',
                  format: Optional[str] = None,
                  name: Optional[str] = None,
+                 publisher: Optional[str] = None,
                  source: Optional[str] = None,
+                 source_account: Optional[str] = None,
                  version: Optional[str] = None):
         """
         Properties of Cognitive Services account deployment model.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param str format: Deployment model format.
         :param str name: Deployment model name.
+        :param str publisher: Deployment model publisher.
         :param str source: Optional. Deployment model source ARM resource ID.
+        :param str source_account: Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
         :param str version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
@@ -1066,8 +1219,12 @@ class DeploymentModelResponse(dict):
             pulumi.set(__self__, "format", format)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
         if source is not None:
             pulumi.set(__self__, "source", source)
+        if source_account is not None:
+            pulumi.set(__self__, "source_account", source_account)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -1097,11 +1254,27 @@ class DeploymentModelResponse(dict):
 
     @property
     @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        Deployment model publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
     def source(self) -> Optional[str]:
         """
         Optional. Deployment model source ARM resource ID.
         """
         return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceAccount")
+    def source_account(self) -> Optional[str]:
+        """
+        Optional. Source of the model, another Microsoft.CognitiveServices accounts ARM resource ID.
+        """
+        return pulumi.get(self, "source_account")
 
     @property
     @pulumi.getter
@@ -1122,10 +1295,18 @@ class DeploymentPropertiesResponse(dict):
         suggest = None
         if key == "callRateLimit":
             suggest = "call_rate_limit"
+        elif key == "dynamicThrottlingEnabled":
+            suggest = "dynamic_throttling_enabled"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "rateLimits":
             suggest = "rate_limits"
+        elif key == "capacitySettings":
+            suggest = "capacity_settings"
+        elif key == "currentCapacity":
+            suggest = "current_capacity"
+        elif key == "parentDeploymentName":
+            suggest = "parent_deployment_name"
         elif key == "raiPolicyName":
             suggest = "rai_policy_name"
         elif key == "scaleSettings":
@@ -1147,9 +1328,13 @@ class DeploymentPropertiesResponse(dict):
     def __init__(__self__, *,
                  call_rate_limit: 'outputs.CallRateLimitResponse',
                  capabilities: Mapping[str, str],
+                 dynamic_throttling_enabled: bool,
                  provisioning_state: str,
                  rate_limits: Sequence['outputs.ThrottlingRuleResponse'],
+                 capacity_settings: Optional['outputs.DeploymentCapacitySettingsResponse'] = None,
+                 current_capacity: Optional[int] = None,
                  model: Optional['outputs.DeploymentModelResponse'] = None,
+                 parent_deployment_name: Optional[str] = None,
                  rai_policy_name: Optional[str] = None,
                  scale_settings: Optional['outputs.DeploymentScaleSettingsResponse'] = None,
                  version_upgrade_option: Optional[str] = None):
@@ -1157,18 +1342,29 @@ class DeploymentPropertiesResponse(dict):
         Properties of Cognitive Services account deployment.
         :param 'CallRateLimitResponse' call_rate_limit: The call rate limit Cognitive Services account.
         :param Mapping[str, str] capabilities: The capabilities.
+        :param bool dynamic_throttling_enabled: If the dynamic throttling is enabled.
         :param str provisioning_state: Gets the status of the resource at the time the operation was called.
+        :param 'DeploymentCapacitySettingsResponse' capacity_settings: Internal use only.
+        :param int current_capacity: The current capacity.
         :param 'DeploymentModelResponse' model: Properties of Cognitive Services account deployment model.
+        :param str parent_deployment_name: The name of parent deployment.
         :param str rai_policy_name: The name of RAI policy.
-        :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model.
+        :param 'DeploymentScaleSettingsResponse' scale_settings: Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param str version_upgrade_option: Deployment model version upgrade option.
         """
         pulumi.set(__self__, "call_rate_limit", call_rate_limit)
         pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "rate_limits", rate_limits)
+        if capacity_settings is not None:
+            pulumi.set(__self__, "capacity_settings", capacity_settings)
+        if current_capacity is not None:
+            pulumi.set(__self__, "current_capacity", current_capacity)
         if model is not None:
             pulumi.set(__self__, "model", model)
+        if parent_deployment_name is not None:
+            pulumi.set(__self__, "parent_deployment_name", parent_deployment_name)
         if rai_policy_name is not None:
             pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
@@ -1193,6 +1389,14 @@ class DeploymentPropertiesResponse(dict):
         return pulumi.get(self, "capabilities")
 
     @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> bool:
+        """
+        If the dynamic throttling is enabled.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -1206,12 +1410,36 @@ class DeploymentPropertiesResponse(dict):
         return pulumi.get(self, "rate_limits")
 
     @property
+    @pulumi.getter(name="capacitySettings")
+    def capacity_settings(self) -> Optional['outputs.DeploymentCapacitySettingsResponse']:
+        """
+        Internal use only.
+        """
+        return pulumi.get(self, "capacity_settings")
+
+    @property
+    @pulumi.getter(name="currentCapacity")
+    def current_capacity(self) -> Optional[int]:
+        """
+        The current capacity.
+        """
+        return pulumi.get(self, "current_capacity")
+
+    @property
     @pulumi.getter
     def model(self) -> Optional['outputs.DeploymentModelResponse']:
         """
         Properties of Cognitive Services account deployment model.
         """
         return pulumi.get(self, "model")
+
+    @property
+    @pulumi.getter(name="parentDeploymentName")
+    def parent_deployment_name(self) -> Optional[str]:
+        """
+        The name of parent deployment.
+        """
+        return pulumi.get(self, "parent_deployment_name")
 
     @property
     @pulumi.getter(name="raiPolicyName")
@@ -1225,7 +1453,7 @@ class DeploymentPropertiesResponse(dict):
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional['outputs.DeploymentScaleSettingsResponse']:
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         """
         return pulumi.get(self, "scale_settings")
 
@@ -1241,7 +1469,7 @@ class DeploymentPropertiesResponse(dict):
 @pulumi.output_type
 class DeploymentScaleSettingsResponse(dict):
     """
-    Properties of Cognitive Services account deployment model.
+    Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1267,7 +1495,7 @@ class DeploymentScaleSettingsResponse(dict):
                  capacity: Optional[int] = None,
                  scale_type: Optional[str] = None):
         """
-        Properties of Cognitive Services account deployment model.
+        Properties of Cognitive Services account deployment model. (Deprecated, please use Deployment.sku instead.)
         :param int active_capacity: Deployment active capacity. This value might be different from `capacity` if customer recently updated `capacity`.
         :param int capacity: Deployment capacity.
         :param str scale_type: Deployment scale type.
@@ -1693,21 +1921,33 @@ class NetworkRuleSetResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bypass: Optional[str] = None,
                  default_action: Optional[str] = None,
                  ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None,
                  virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
         """
         A set of rules governing the network accessibility.
+        :param str bypass: Setting for trusted services.
         :param str default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param Sequence['IpRuleResponse'] ip_rules: The list of IP address rules.
         :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The list of virtual network rules.
         """
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
             pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[str]:
+        """
+        Setting for trusted services.
+        """
+        return pulumi.get(self, "bypass")
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -2054,58 +2294,6 @@ class QuotaLimitResponse(dict):
 
 
 @pulumi.output_type
-class RaiBlocklistConfigResponse(dict):
-    """
-    Azure OpenAI blocklist config.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "blocklistName":
-            suggest = "blocklist_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RaiBlocklistConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RaiBlocklistConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RaiBlocklistConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 blocking: Optional[bool] = None,
-                 blocklist_name: Optional[str] = None):
-        """
-        Azure OpenAI blocklist config.
-        :param bool blocking: If blocking would occur.
-        :param str blocklist_name: Name of ContentFilter.
-        """
-        if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
-        if blocklist_name is not None:
-            pulumi.set(__self__, "blocklist_name", blocklist_name)
-
-    @property
-    @pulumi.getter
-    def blocking(self) -> Optional[bool]:
-        """
-        If blocking would occur.
-        """
-        return pulumi.get(self, "blocking")
-
-    @property
-    @pulumi.getter(name="blocklistName")
-    def blocklist_name(self) -> Optional[str]:
-        """
-        Name of ContentFilter.
-        """
-        return pulumi.get(self, "blocklist_name")
-
-
-@pulumi.output_type
 class RaiBlocklistItemPropertiesResponse(dict):
     """
     RAI Custom Blocklist Item properties.
@@ -2181,6 +2369,60 @@ class RaiBlocklistPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class RaiMonitorConfigResponse(dict):
+    """
+    Cognitive Services Rai Monitor Config.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adxStorageResourceId":
+            suggest = "adx_storage_resource_id"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RaiMonitorConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RaiMonitorConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RaiMonitorConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adx_storage_resource_id: Optional[str] = None,
+                 identity_client_id: Optional[str] = None):
+        """
+        Cognitive Services Rai Monitor Config.
+        :param str adx_storage_resource_id: The storage resource Id.
+        :param str identity_client_id: The identity client Id to access the storage.
+        """
+        if adx_storage_resource_id is not None:
+            pulumi.set(__self__, "adx_storage_resource_id", adx_storage_resource_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="adxStorageResourceId")
+    def adx_storage_resource_id(self) -> Optional[str]:
+        """
+        The storage resource Id.
+        """
+        return pulumi.get(self, "adx_storage_resource_id")
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        The identity client Id to access the storage.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+
+@pulumi.output_type
 class RaiPolicyContentFilterResponse(dict):
     """
     Azure OpenAI Content Filter.
@@ -2188,8 +2430,8 @@ class RaiPolicyContentFilterResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedContentLevel":
-            suggest = "allowed_content_level"
+        if key == "severityThreshold":
+            suggest = "severity_threshold"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RaiPolicyContentFilterResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2203,37 +2445,29 @@ class RaiPolicyContentFilterResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_content_level: Optional[str] = None,
                  blocking: Optional[bool] = None,
                  enabled: Optional[bool] = None,
                  name: Optional[str] = None,
+                 severity_threshold: Optional[str] = None,
                  source: Optional[str] = None):
         """
         Azure OpenAI Content Filter.
-        :param str allowed_content_level: Level at which content is filtered.
         :param bool blocking: If blocking would occur.
         :param bool enabled: If the ContentFilter is enabled.
         :param str name: Name of ContentFilter.
+        :param str severity_threshold: Level at which content is filtered.
         :param str source: Content source to apply the Content Filters.
         """
-        if allowed_content_level is not None:
-            pulumi.set(__self__, "allowed_content_level", allowed_content_level)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if severity_threshold is not None:
+            pulumi.set(__self__, "severity_threshold", severity_threshold)
         if source is not None:
             pulumi.set(__self__, "source", source)
-
-    @property
-    @pulumi.getter(name="allowedContentLevel")
-    def allowed_content_level(self) -> Optional[str]:
-        """
-        Level at which content is filtered.
-        """
-        return pulumi.get(self, "allowed_content_level")
 
     @property
     @pulumi.getter
@@ -2260,6 +2494,14 @@ class RaiPolicyContentFilterResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> Optional[str]:
+        """
+        Level at which content is filtered.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[str]:
         """
@@ -2276,16 +2518,12 @@ class RaiPolicyPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "policyType":
-            suggest = "policy_type"
-        elif key == "basePolicyName":
+        if key == "basePolicyName":
             suggest = "base_policy_name"
-        elif key == "completionBlocklists":
-            suggest = "completion_blocklists"
         elif key == "contentFilters":
             suggest = "content_filters"
-        elif key == "promptBlocklists":
-            suggest = "prompt_blocklists"
+        elif key == "customBlocklists":
+            suggest = "custom_blocklists"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RaiPolicyPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2299,56 +2537,44 @@ class RaiPolicyPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 policy_type: str,
+                 type: str,
                  base_policy_name: Optional[str] = None,
-                 completion_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None,
                  content_filters: Optional[Sequence['outputs.RaiPolicyContentFilterResponse']] = None,
-                 mode: Optional[str] = None,
-                 prompt_blocklists: Optional[Sequence['outputs.RaiBlocklistConfigResponse']] = None):
+                 custom_blocklists: Optional[Sequence['outputs.CustomBlocklistConfigResponse']] = None,
+                 mode: Optional[str] = None):
         """
         Azure OpenAI Content Filters properties.
-        :param str policy_type: Content Filters policy type.
-        :param str base_policy_name: Name of the base Content Filters.
-        :param Sequence['RaiBlocklistConfigResponse'] completion_blocklists: The list of blocklists for completion.
+        :param str type: Content Filters policy type.
+        :param str base_policy_name: Name of Rai policy.
         :param Sequence['RaiPolicyContentFilterResponse'] content_filters: The list of Content Filters.
-        :param str mode: Content Filters mode.
-        :param Sequence['RaiBlocklistConfigResponse'] prompt_blocklists: The list of blocklists for prompt.
+        :param Sequence['CustomBlocklistConfigResponse'] custom_blocklists: The list of custom Blocklist.
+        :param str mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         """
-        pulumi.set(__self__, "policy_type", policy_type)
+        pulumi.set(__self__, "type", type)
         if base_policy_name is not None:
             pulumi.set(__self__, "base_policy_name", base_policy_name)
-        if completion_blocklists is not None:
-            pulumi.set(__self__, "completion_blocklists", completion_blocklists)
         if content_filters is not None:
             pulumi.set(__self__, "content_filters", content_filters)
+        if custom_blocklists is not None:
+            pulumi.set(__self__, "custom_blocklists", custom_blocklists)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
-        if prompt_blocklists is not None:
-            pulumi.set(__self__, "prompt_blocklists", prompt_blocklists)
 
     @property
-    @pulumi.getter(name="policyType")
-    def policy_type(self) -> str:
+    @pulumi.getter
+    def type(self) -> str:
         """
         Content Filters policy type.
         """
-        return pulumi.get(self, "policy_type")
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="basePolicyName")
     def base_policy_name(self) -> Optional[str]:
         """
-        Name of the base Content Filters.
+        Name of Rai policy.
         """
         return pulumi.get(self, "base_policy_name")
-
-    @property
-    @pulumi.getter(name="completionBlocklists")
-    def completion_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
-        """
-        The list of blocklists for completion.
-        """
-        return pulumi.get(self, "completion_blocklists")
 
     @property
     @pulumi.getter(name="contentFilters")
@@ -2359,20 +2585,20 @@ class RaiPolicyPropertiesResponse(dict):
         return pulumi.get(self, "content_filters")
 
     @property
+    @pulumi.getter(name="customBlocklists")
+    def custom_blocklists(self) -> Optional[Sequence['outputs.CustomBlocklistConfigResponse']]:
+        """
+        The list of custom Blocklist.
+        """
+        return pulumi.get(self, "custom_blocklists")
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        Content Filters mode.
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
         """
         return pulumi.get(self, "mode")
-
-    @property
-    @pulumi.getter(name="promptBlocklists")
-    def prompt_blocklists(self) -> Optional[Sequence['outputs.RaiBlocklistConfigResponse']]:
-        """
-        The list of blocklists for prompt.
-        """
-        return pulumi.get(self, "prompt_blocklists")
 
 
 @pulumi.output_type
@@ -2852,6 +3078,60 @@ class UserAssignedIdentityResponse(dict):
         Azure Active Directory principal ID associated with this Identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class UserOwnedAmlWorkspaceResponse(dict):
+    """
+    The user owned AML workspace for Cognitive Services account.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserOwnedAmlWorkspaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserOwnedAmlWorkspaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserOwnedAmlWorkspaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_client_id: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        """
+        The user owned AML workspace for Cognitive Services account.
+        :param str identity_client_id: Identity Client id of a AML workspace resource.
+        :param str resource_id: Full resource id of a AML workspace resource.
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        Identity Client id of a AML workspace resource.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Full resource id of a AML workspace resource.
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type

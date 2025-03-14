@@ -42,8 +42,14 @@ __all__ = [
     'BackupVaultArgsDict',
     'BlobBackupDatasourceParametersArgs',
     'BlobBackupDatasourceParametersArgsDict',
+    'CmkKekIdentityArgs',
+    'CmkKekIdentityArgsDict',
+    'CmkKeyVaultPropertiesArgs',
+    'CmkKeyVaultPropertiesArgsDict',
     'CopyOnExpiryOptionArgs',
     'CopyOnExpiryOptionArgsDict',
+    'CrossRegionRestoreSettingsArgs',
+    'CrossRegionRestoreSettingsArgsDict',
     'CrossSubscriptionRestoreSettingsArgs',
     'CrossSubscriptionRestoreSettingsArgsDict',
     'CustomCopyOptionArgs',
@@ -56,10 +62,16 @@ __all__ = [
     'DatasourceArgsDict',
     'DayArgs',
     'DayArgsDict',
+    'DefaultResourcePropertiesArgs',
+    'DefaultResourcePropertiesArgsDict',
     'DppIdentityDetailsArgs',
     'DppIdentityDetailsArgsDict',
+    'EncryptionSettingsArgs',
+    'EncryptionSettingsArgsDict',
     'FeatureSettingsArgs',
     'FeatureSettingsArgsDict',
+    'IdentityDetailsArgs',
+    'IdentityDetailsArgsDict',
     'ImmediateCopyOptionArgs',
     'ImmediateCopyOptionArgsDict',
     'ImmutabilitySettingsArgs',
@@ -68,6 +80,8 @@ __all__ = [
     'KubernetesClusterBackupDatasourceParametersArgsDict',
     'MonitoringSettingsArgs',
     'MonitoringSettingsArgsDict',
+    'NamespacedNameResourceArgs',
+    'NamespacedNameResourceArgsDict',
     'PolicyInfoArgs',
     'PolicyInfoArgsDict',
     'PolicyParametersArgs',
@@ -626,6 +640,15 @@ if not MYPY:
         """
         Gets or sets the Backup Instance friendly name.
         """
+        identity_details: NotRequired[pulumi.Input['IdentityDetailsArgsDict']]
+        """
+        Contains information of the Identity Details for the BI.
+        If it is null, default will be considered as System Assigned.
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
         validation_type: NotRequired[pulumi.Input[Union[str, 'ValidationType']]]
         """
         Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
@@ -642,6 +665,8 @@ class BackupInstanceArgs:
                  data_source_set_info: Optional[pulumi.Input['DatasourceSetArgs']] = None,
                  datasource_auth_credentials: Optional[pulumi.Input['SecretStoreBasedAuthCredentialsArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
+                 identity_details: Optional[pulumi.Input['IdentityDetailsArgs']] = None,
+                 resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  validation_type: Optional[pulumi.Input[Union[str, 'ValidationType']]] = None):
         """
         Backup Instance
@@ -650,6 +675,9 @@ class BackupInstanceArgs:
         :param pulumi.Input['DatasourceSetArgs'] data_source_set_info: Gets or sets the data source set information.
         :param pulumi.Input['SecretStoreBasedAuthCredentialsArgs'] datasource_auth_credentials: Credentials to use to authenticate with data source provider.
         :param pulumi.Input[str] friendly_name: Gets or sets the Backup Instance friendly name.
+        :param pulumi.Input['IdentityDetailsArgs'] identity_details: Contains information of the Identity Details for the BI.
+               If it is null, default will be considered as System Assigned.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input[Union[str, 'ValidationType']] validation_type: Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
         """
         pulumi.set(__self__, "data_source_info", data_source_info)
@@ -661,6 +689,10 @@ class BackupInstanceArgs:
             pulumi.set(__self__, "datasource_auth_credentials", datasource_auth_credentials)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if identity_details is not None:
+            pulumi.set(__self__, "identity_details", identity_details)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if validation_type is not None:
             pulumi.set(__self__, "validation_type", validation_type)
 
@@ -732,6 +764,31 @@ class BackupInstanceArgs:
     @friendly_name.setter
     def friendly_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @property
+    @pulumi.getter(name="identityDetails")
+    def identity_details(self) -> Optional[pulumi.Input['IdentityDetailsArgs']]:
+        """
+        Contains information of the Identity Details for the BI.
+        If it is null, default will be considered as System Assigned.
+        """
+        return pulumi.get(self, "identity_details")
+
+    @identity_details.setter
+    def identity_details(self, value: Optional[pulumi.Input['IdentityDetailsArgs']]):
+        pulumi.set(self, "identity_details", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @resource_guard_operation_requests.setter
+    def resource_guard_operation_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
     @pulumi.getter(name="validationType")
@@ -894,6 +951,14 @@ if not MYPY:
         """
         Monitoring Settings
         """
+        replicated_regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of replicated regions for Backup Vault
+        """
+        resource_guard_operation_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
         security_settings: NotRequired[pulumi.Input['SecuritySettingsArgsDict']]
         """
         Security Settings
@@ -907,12 +972,16 @@ class BackupVaultArgs:
                  storage_settings: pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]],
                  feature_settings: Optional[pulumi.Input['FeatureSettingsArgs']] = None,
                  monitoring_settings: Optional[pulumi.Input['MonitoringSettingsArgs']] = None,
+                 replicated_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_guard_operation_requests: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_settings: Optional[pulumi.Input['SecuritySettingsArgs']] = None):
         """
         Backup Vault
         :param pulumi.Input[Sequence[pulumi.Input['StorageSettingArgs']]] storage_settings: Storage Settings
         :param pulumi.Input['FeatureSettingsArgs'] feature_settings: Feature Settings
         :param pulumi.Input['MonitoringSettingsArgs'] monitoring_settings: Monitoring Settings
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_regions: List of replicated regions for Backup Vault
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param pulumi.Input['SecuritySettingsArgs'] security_settings: Security Settings
         """
         pulumi.set(__self__, "storage_settings", storage_settings)
@@ -920,6 +989,10 @@ class BackupVaultArgs:
             pulumi.set(__self__, "feature_settings", feature_settings)
         if monitoring_settings is not None:
             pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+        if replicated_regions is not None:
+            pulumi.set(__self__, "replicated_regions", replicated_regions)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if security_settings is not None:
             pulumi.set(__self__, "security_settings", security_settings)
 
@@ -958,6 +1031,30 @@ class BackupVaultArgs:
     @monitoring_settings.setter
     def monitoring_settings(self, value: Optional[pulumi.Input['MonitoringSettingsArgs']]):
         pulumi.set(self, "monitoring_settings", value)
+
+    @property
+    @pulumi.getter(name="replicatedRegions")
+    def replicated_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of replicated regions for Backup Vault
+        """
+        return pulumi.get(self, "replicated_regions")
+
+    @replicated_regions.setter
+    def replicated_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "replicated_regions", value)
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @resource_guard_operation_requests.setter
+    def resource_guard_operation_requests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_guard_operation_requests", value)
 
     @property
     @pulumi.getter(name="securitySettings")
@@ -1030,6 +1127,98 @@ class BlobBackupDatasourceParametersArgs:
 
 
 if not MYPY:
+    class CmkKekIdentityArgsDict(TypedDict):
+        """
+        The details of the managed identity used for CMK
+        """
+        identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
+        """
+        identity_type: NotRequired[pulumi.Input[Union[str, 'IdentityType']]]
+        """
+        The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+        """
+elif False:
+    CmkKekIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CmkKekIdentityArgs:
+    def __init__(__self__, *,
+                 identity_id: Optional[pulumi.Input[str]] = None,
+                 identity_type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
+        """
+        The details of the managed identity used for CMK
+        :param pulumi.Input[str] identity_id: The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
+        :param pulumi.Input[Union[str, 'IdentityType']] identity_type: The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+        """
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The managed identity to be used which has access permissions to the Key Vault. Provide a value here in case identity types: 'UserAssigned' only.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @identity_id.setter
+    def identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_id", value)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
+        """
+        The identity type. 'SystemAssigned' and 'UserAssigned' are mutually exclusive. 'SystemAssigned' will use implicitly created managed identity.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
+        pulumi.set(self, "identity_type", value)
+
+
+if not MYPY:
+    class CmkKeyVaultPropertiesArgsDict(TypedDict):
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        key_uri: NotRequired[pulumi.Input[str]]
+        """
+        The key uri of the Customer Managed Key
+        """
+elif False:
+    CmkKeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CmkKeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_uri: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the Key Vault which hosts CMK
+        :param pulumi.Input[str] key_uri: The key uri of the Customer Managed Key
+        """
+        if key_uri is not None:
+            pulumi.set(__self__, "key_uri", key_uri)
+
+    @property
+    @pulumi.getter(name="keyUri")
+    def key_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key uri of the Customer Managed Key
+        """
+        return pulumi.get(self, "key_uri")
+
+    @key_uri.setter
+    def key_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_uri", value)
+
+
+if not MYPY:
     class CopyOnExpiryOptionArgsDict(TypedDict):
         """
         Copy on Expiry Option
@@ -1065,6 +1254,38 @@ class CopyOnExpiryOptionArgs:
     @object_type.setter
     def object_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "object_type", value)
+
+
+if not MYPY:
+    class CrossRegionRestoreSettingsArgsDict(TypedDict):
+        state: NotRequired[pulumi.Input[Union[str, 'CrossRegionRestoreState']]]
+        """
+        CrossRegionRestore state
+        """
+elif False:
+    CrossRegionRestoreSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CrossRegionRestoreSettingsArgs:
+    def __init__(__self__, *,
+                 state: Optional[pulumi.Input[Union[str, 'CrossRegionRestoreState']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'CrossRegionRestoreState']] state: CrossRegionRestore state
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'CrossRegionRestoreState']]]:
+        """
+        CrossRegionRestore state
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'CrossRegionRestoreState']]]):
+        pulumi.set(self, "state", value)
 
 
 if not MYPY:
@@ -1240,6 +1461,10 @@ if not MYPY:
         """
         Unique identifier of the resource in the context of parent.
         """
+        resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
+        """
+        Properties specific to data source set
+        """
         resource_type: NotRequired[pulumi.Input[str]]
         """
         Resource Type of Datasource.
@@ -1259,6 +1484,7 @@ class DatasourceSetArgs:
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 resource_properties: Optional[pulumi.Input['DefaultResourcePropertiesArgs']] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1268,6 +1494,7 @@ class DatasourceSetArgs:
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type
         :param pulumi.Input[str] resource_location: Location of datasource.
         :param pulumi.Input[str] resource_name: Unique identifier of the resource in the context of parent.
+        :param pulumi.Input['DefaultResourcePropertiesArgs'] resource_properties: Properties specific to data source set
         :param pulumi.Input[str] resource_type: Resource Type of Datasource.
         :param pulumi.Input[str] resource_uri: Uri of the resource.
         """
@@ -1280,6 +1507,8 @@ class DatasourceSetArgs:
             pulumi.set(__self__, "resource_location", resource_location)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if resource_properties is not None:
+            pulumi.set(__self__, "resource_properties", resource_properties)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if resource_uri is not None:
@@ -1344,6 +1573,18 @@ class DatasourceSetArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="resourceProperties")
+    def resource_properties(self) -> Optional[pulumi.Input['DefaultResourcePropertiesArgs']]:
+        """
+        Properties specific to data source set
+        """
+        return pulumi.get(self, "resource_properties")
+
+    @resource_properties.setter
+    def resource_properties(self, value: Optional[pulumi.Input['DefaultResourcePropertiesArgs']]):
+        pulumi.set(self, "resource_properties", value)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1395,6 +1636,10 @@ if not MYPY:
         """
         Unique identifier of the resource in the context of parent.
         """
+        resource_properties: NotRequired[pulumi.Input['DefaultResourcePropertiesArgsDict']]
+        """
+        Properties specific to data source
+        """
         resource_type: NotRequired[pulumi.Input[str]]
         """
         Resource Type of Datasource.
@@ -1414,6 +1659,7 @@ class DatasourceArgs:
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
+                 resource_properties: Optional[pulumi.Input['DefaultResourcePropertiesArgs']] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1423,6 +1669,7 @@ class DatasourceArgs:
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type
         :param pulumi.Input[str] resource_location: Location of datasource.
         :param pulumi.Input[str] resource_name: Unique identifier of the resource in the context of parent.
+        :param pulumi.Input['DefaultResourcePropertiesArgs'] resource_properties: Properties specific to data source
         :param pulumi.Input[str] resource_type: Resource Type of Datasource.
         :param pulumi.Input[str] resource_uri: Uri of the resource.
         """
@@ -1435,6 +1682,8 @@ class DatasourceArgs:
             pulumi.set(__self__, "resource_location", resource_location)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
+        if resource_properties is not None:
+            pulumi.set(__self__, "resource_properties", resource_properties)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if resource_uri is not None:
@@ -1499,6 +1748,18 @@ class DatasourceArgs:
     @resource_name.setter
     def resource_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_name", value)
+
+    @property
+    @pulumi.getter(name="resourceProperties")
+    def resource_properties(self) -> Optional[pulumi.Input['DefaultResourcePropertiesArgs']]:
+        """
+        Properties specific to data source
+        """
+        return pulumi.get(self, "resource_properties")
+
+    @resource_properties.setter
+    def resource_properties(self, value: Optional[pulumi.Input['DefaultResourcePropertiesArgs']]):
+        pulumi.set(self, "resource_properties", value)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -1582,13 +1843,55 @@ class DayArgs:
 
 
 if not MYPY:
+    class DefaultResourcePropertiesArgsDict(TypedDict):
+        """
+        Default source properties
+        """
+        object_type: pulumi.Input[str]
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'DefaultResourceProperties'.
+        """
+elif False:
+    DefaultResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DefaultResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 object_type: pulumi.Input[str]):
+        """
+        Default source properties
+        :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
+               Expected value is 'DefaultResourceProperties'.
+        """
+        pulumi.set(__self__, "object_type", 'DefaultResourceProperties')
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[str]:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'DefaultResourceProperties'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type", value)
+
+
+if not MYPY:
     class DppIdentityDetailsArgsDict(TypedDict):
         """
         Identity details
         """
         type: NotRequired[pulumi.Input[str]]
         """
-        The identityType which can be either SystemAssigned or None
+        The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets the user assigned identities.
         """
 elif False:
     DppIdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1596,19 +1899,23 @@ elif False:
 @pulumi.input_type
 class DppIdentityDetailsArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity details
-        :param pulumi.Input[str] type: The identityType which can be either SystemAssigned or None
+        :param pulumi.Input[str] type: The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Gets or sets the user assigned identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The identityType which can be either SystemAssigned or None
+        The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
         """
         return pulumi.get(self, "type")
 
@@ -1616,12 +1923,121 @@ class DppIdentityDetailsArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets the user assigned identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class EncryptionSettingsArgsDict(TypedDict):
+        """
+        Customer Managed Key details of the resource.
+        """
+        infrastructure_encryption: NotRequired[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]]
+        """
+        Enabling/Disabling the Double Encryption state
+        """
+        kek_identity: NotRequired[pulumi.Input['CmkKekIdentityArgsDict']]
+        """
+        The details of the managed identity used for CMK
+        """
+        key_vault_properties: NotRequired[pulumi.Input['CmkKeyVaultPropertiesArgsDict']]
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        state: NotRequired[pulumi.Input[Union[str, 'EncryptionState']]]
+        """
+        Encryption state of the Backup Vault.
+        """
+elif False:
+    EncryptionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]] = None,
+                 kek_identity: Optional[pulumi.Input['CmkKekIdentityArgs']] = None,
+                 key_vault_properties: Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']] = None,
+                 state: Optional[pulumi.Input[Union[str, 'EncryptionState']]] = None):
+        """
+        Customer Managed Key details of the resource.
+        :param pulumi.Input[Union[str, 'InfrastructureEncryptionState']] infrastructure_encryption: Enabling/Disabling the Double Encryption state
+        :param pulumi.Input['CmkKekIdentityArgs'] kek_identity: The details of the managed identity used for CMK
+        :param pulumi.Input['CmkKeyVaultPropertiesArgs'] key_vault_properties: The properties of the Key Vault which hosts CMK
+        :param pulumi.Input[Union[str, 'EncryptionState']] state: Encryption state of the Backup Vault.
+        """
+        if infrastructure_encryption is not None:
+            pulumi.set(__self__, "infrastructure_encryption", infrastructure_encryption)
+        if kek_identity is not None:
+            pulumi.set(__self__, "kek_identity", kek_identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="infrastructureEncryption")
+    def infrastructure_encryption(self) -> Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]]:
+        """
+        Enabling/Disabling the Double Encryption state
+        """
+        return pulumi.get(self, "infrastructure_encryption")
+
+    @infrastructure_encryption.setter
+    def infrastructure_encryption(self, value: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionState']]]):
+        pulumi.set(self, "infrastructure_encryption", value)
+
+    @property
+    @pulumi.getter(name="kekIdentity")
+    def kek_identity(self) -> Optional[pulumi.Input['CmkKekIdentityArgs']]:
+        """
+        The details of the managed identity used for CMK
+        """
+        return pulumi.get(self, "kek_identity")
+
+    @kek_identity.setter
+    def kek_identity(self, value: Optional[pulumi.Input['CmkKekIdentityArgs']]):
+        pulumi.set(self, "kek_identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']]:
+        """
+        The properties of the Key Vault which hosts CMK
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['CmkKeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'EncryptionState']]]:
+        """
+        Encryption state of the Backup Vault.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'EncryptionState']]]):
+        pulumi.set(self, "state", value)
+
 
 if not MYPY:
     class FeatureSettingsArgsDict(TypedDict):
         """
         Class containing feature settings of vault
         """
+        cross_region_restore_settings: NotRequired[pulumi.Input['CrossRegionRestoreSettingsArgsDict']]
         cross_subscription_restore_settings: NotRequired[pulumi.Input['CrossSubscriptionRestoreSettingsArgsDict']]
         """
         CrossSubscriptionRestore Settings
@@ -1632,13 +2048,25 @@ elif False:
 @pulumi.input_type
 class FeatureSettingsArgs:
     def __init__(__self__, *,
+                 cross_region_restore_settings: Optional[pulumi.Input['CrossRegionRestoreSettingsArgs']] = None,
                  cross_subscription_restore_settings: Optional[pulumi.Input['CrossSubscriptionRestoreSettingsArgs']] = None):
         """
         Class containing feature settings of vault
         :param pulumi.Input['CrossSubscriptionRestoreSettingsArgs'] cross_subscription_restore_settings: CrossSubscriptionRestore Settings
         """
+        if cross_region_restore_settings is not None:
+            pulumi.set(__self__, "cross_region_restore_settings", cross_region_restore_settings)
         if cross_subscription_restore_settings is not None:
             pulumi.set(__self__, "cross_subscription_restore_settings", cross_subscription_restore_settings)
+
+    @property
+    @pulumi.getter(name="crossRegionRestoreSettings")
+    def cross_region_restore_settings(self) -> Optional[pulumi.Input['CrossRegionRestoreSettingsArgs']]:
+        return pulumi.get(self, "cross_region_restore_settings")
+
+    @cross_region_restore_settings.setter
+    def cross_region_restore_settings(self, value: Optional[pulumi.Input['CrossRegionRestoreSettingsArgs']]):
+        pulumi.set(self, "cross_region_restore_settings", value)
 
     @property
     @pulumi.getter(name="crossSubscriptionRestoreSettings")
@@ -1651,6 +2079,58 @@ class FeatureSettingsArgs:
     @cross_subscription_restore_settings.setter
     def cross_subscription_restore_settings(self, value: Optional[pulumi.Input['CrossSubscriptionRestoreSettingsArgs']]):
         pulumi.set(self, "cross_subscription_restore_settings", value)
+
+
+if not MYPY:
+    class IdentityDetailsArgsDict(TypedDict):
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the BI is protected by System Identity.
+        """
+        user_assigned_identity_arm_url: NotRequired[pulumi.Input[str]]
+        """
+        ARM URL for User Assigned Identity.
+        """
+elif False:
+    IdentityDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityDetailsArgs:
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+                 user_assigned_identity_arm_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] use_system_assigned_identity: Specifies if the BI is protected by System Identity.
+        :param pulumi.Input[str] user_assigned_identity_arm_url: ARM URL for User Assigned Identity.
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity_arm_url is not None:
+            pulumi.set(__self__, "user_assigned_identity_arm_url", user_assigned_identity_arm_url)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if the BI is protected by System Identity.
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @use_system_assigned_identity.setter
+    def use_system_assigned_identity(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_system_assigned_identity", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityArmUrl")
+    def user_assigned_identity_arm_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM URL for User Assigned Identity.
+        """
+        return pulumi.get(self, "user_assigned_identity_arm_url")
+
+    @user_assigned_identity_arm_url.setter
+    def user_assigned_identity_arm_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_arm_url", value)
 
 
 if not MYPY:
@@ -1734,7 +2214,7 @@ if not MYPY:
         """
         include_cluster_scope_resources: pulumi.Input[bool]
         """
-        Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore.
+        Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         """
         object_type: pulumi.Input[str]
         """
@@ -1743,27 +2223,35 @@ if not MYPY:
         """
         snapshot_volumes: pulumi.Input[bool]
         """
-        Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during restore.
+        Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
+        """
+        backup_hook_references: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgsDict']]]]
+        """
+        Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
         """
         excluded_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore.
+        Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
         """
         excluded_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore.
+        Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
         """
         included_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Gets or sets the include namespaces property. This property sets the namespaces to be included during restore.
+        Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
         """
         included_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Gets or sets the include resource types property. This property sets the resource types to be included during restore.
+        Gets or sets the include resource types property. This property sets the resource types to be included during backup.
+        """
+        included_volume_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AKSVolumeTypes']]]]]
+        """
+        Gets or sets the include volume types property. This property sets the volume types to be included during backup.
         """
         label_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
+        Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
         """
 elif False:
     KubernetesClusterBackupDatasourceParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -1774,26 +2262,32 @@ class KubernetesClusterBackupDatasourceParametersArgs:
                  include_cluster_scope_resources: pulumi.Input[bool],
                  object_type: pulumi.Input[str],
                  snapshot_volumes: pulumi.Input[bool],
+                 backup_hook_references: Optional[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgs']]]] = None,
                  excluded_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 included_volume_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AKSVolumeTypes']]]]] = None,
                  label_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Parameters for Kubernetes Cluster Backup Datasource
-        :param pulumi.Input[bool] include_cluster_scope_resources: Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore.
+        :param pulumi.Input[bool] include_cluster_scope_resources: Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
                Expected value is 'KubernetesClusterBackupDatasourceParameters'.
-        :param pulumi.Input[bool] snapshot_volumes: Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during restore.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_resource_types: Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_namespaces: Gets or sets the include namespaces property. This property sets the namespaces to be included during restore.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_resource_types: Gets or sets the include resource types property. This property sets the resource types to be included during restore.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] label_selectors: Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
+        :param pulumi.Input[bool] snapshot_volumes: Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgs']]] backup_hook_references: Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_namespaces: Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_resource_types: Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_namespaces: Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] included_resource_types: Gets or sets the include resource types property. This property sets the resource types to be included during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AKSVolumeTypes']]]] included_volume_types: Gets or sets the include volume types property. This property sets the volume types to be included during backup.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] label_selectors: Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
         """
         pulumi.set(__self__, "include_cluster_scope_resources", include_cluster_scope_resources)
         pulumi.set(__self__, "object_type", 'KubernetesClusterBackupDatasourceParameters')
         pulumi.set(__self__, "snapshot_volumes", snapshot_volumes)
+        if backup_hook_references is not None:
+            pulumi.set(__self__, "backup_hook_references", backup_hook_references)
         if excluded_namespaces is not None:
             pulumi.set(__self__, "excluded_namespaces", excluded_namespaces)
         if excluded_resource_types is not None:
@@ -1802,6 +2296,8 @@ class KubernetesClusterBackupDatasourceParametersArgs:
             pulumi.set(__self__, "included_namespaces", included_namespaces)
         if included_resource_types is not None:
             pulumi.set(__self__, "included_resource_types", included_resource_types)
+        if included_volume_types is not None:
+            pulumi.set(__self__, "included_volume_types", included_volume_types)
         if label_selectors is not None:
             pulumi.set(__self__, "label_selectors", label_selectors)
 
@@ -1809,7 +2305,7 @@ class KubernetesClusterBackupDatasourceParametersArgs:
     @pulumi.getter(name="includeClusterScopeResources")
     def include_cluster_scope_resources(self) -> pulumi.Input[bool]:
         """
-        Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore.
+        Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup.
         """
         return pulumi.get(self, "include_cluster_scope_resources")
 
@@ -1834,7 +2330,7 @@ class KubernetesClusterBackupDatasourceParametersArgs:
     @pulumi.getter(name="snapshotVolumes")
     def snapshot_volumes(self) -> pulumi.Input[bool]:
         """
-        Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during restore.
+        Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup.
         """
         return pulumi.get(self, "snapshot_volumes")
 
@@ -1843,10 +2339,22 @@ class KubernetesClusterBackupDatasourceParametersArgs:
         pulumi.set(self, "snapshot_volumes", value)
 
     @property
+    @pulumi.getter(name="backupHookReferences")
+    def backup_hook_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgs']]]]:
+        """
+        Gets or sets the backup hook references. This property sets the hook reference to be executed during backup.
+        """
+        return pulumi.get(self, "backup_hook_references")
+
+    @backup_hook_references.setter
+    def backup_hook_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespacedNameResourceArgs']]]]):
+        pulumi.set(self, "backup_hook_references", value)
+
+    @property
     @pulumi.getter(name="excludedNamespaces")
     def excluded_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore.
+        Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup.
         """
         return pulumi.get(self, "excluded_namespaces")
 
@@ -1858,7 +2366,7 @@ class KubernetesClusterBackupDatasourceParametersArgs:
     @pulumi.getter(name="excludedResourceTypes")
     def excluded_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore.
+        Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup.
         """
         return pulumi.get(self, "excluded_resource_types")
 
@@ -1870,7 +2378,7 @@ class KubernetesClusterBackupDatasourceParametersArgs:
     @pulumi.getter(name="includedNamespaces")
     def included_namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Gets or sets the include namespaces property. This property sets the namespaces to be included during restore.
+        Gets or sets the include namespaces property. This property sets the namespaces to be included during backup.
         """
         return pulumi.get(self, "included_namespaces")
 
@@ -1882,7 +2390,7 @@ class KubernetesClusterBackupDatasourceParametersArgs:
     @pulumi.getter(name="includedResourceTypes")
     def included_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Gets or sets the include resource types property. This property sets the resource types to be included during restore.
+        Gets or sets the include resource types property. This property sets the resource types to be included during backup.
         """
         return pulumi.get(self, "included_resource_types")
 
@@ -1891,10 +2399,22 @@ class KubernetesClusterBackupDatasourceParametersArgs:
         pulumi.set(self, "included_resource_types", value)
 
     @property
+    @pulumi.getter(name="includedVolumeTypes")
+    def included_volume_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AKSVolumeTypes']]]]]:
+        """
+        Gets or sets the include volume types property. This property sets the volume types to be included during backup.
+        """
+        return pulumi.get(self, "included_volume_types")
+
+    @included_volume_types.setter
+    def included_volume_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AKSVolumeTypes']]]]]):
+        pulumi.set(self, "included_volume_types", value)
+
+    @property
     @pulumi.getter(name="labelSelectors")
     def label_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore.
+        Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup.
         """
         return pulumi.get(self, "label_selectors")
 
@@ -1937,6 +2457,62 @@ class MonitoringSettingsArgs:
     @azure_monitor_alert_settings.setter
     def azure_monitor_alert_settings(self, value: Optional[pulumi.Input['AzureMonitorAlertSettingsArgs']]):
         pulumi.set(self, "azure_monitor_alert_settings", value)
+
+
+if not MYPY:
+    class NamespacedNameResourceArgsDict(TypedDict):
+        """
+        Class to refer resources which contains namespace and name
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the resource
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        Namespace in which the resource exists
+        """
+elif False:
+    NamespacedNameResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NamespacedNameResourceArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        Class to refer resources which contains namespace and name
+        :param pulumi.Input[str] name: Name of the resource
+        :param pulumi.Input[str] namespace: Namespace in which the resource exists
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        Namespace in which the resource exists
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
 
 
 if not MYPY:
@@ -2595,6 +3171,10 @@ if not MYPY:
         """
         Class containing security settings of vault
         """
+        encryption_settings: NotRequired[pulumi.Input['EncryptionSettingsArgsDict']]
+        """
+        Customer Managed Key details of the resource.
+        """
         immutability_settings: NotRequired[pulumi.Input['ImmutabilitySettingsArgsDict']]
         """
         Immutability Settings at vault level
@@ -2609,17 +3189,33 @@ elif False:
 @pulumi.input_type
 class SecuritySettingsArgs:
     def __init__(__self__, *,
+                 encryption_settings: Optional[pulumi.Input['EncryptionSettingsArgs']] = None,
                  immutability_settings: Optional[pulumi.Input['ImmutabilitySettingsArgs']] = None,
                  soft_delete_settings: Optional[pulumi.Input['SoftDeleteSettingsArgs']] = None):
         """
         Class containing security settings of vault
+        :param pulumi.Input['EncryptionSettingsArgs'] encryption_settings: Customer Managed Key details of the resource.
         :param pulumi.Input['ImmutabilitySettingsArgs'] immutability_settings: Immutability Settings at vault level
         :param pulumi.Input['SoftDeleteSettingsArgs'] soft_delete_settings: Soft delete related settings
         """
+        if encryption_settings is not None:
+            pulumi.set(__self__, "encryption_settings", encryption_settings)
         if immutability_settings is not None:
             pulumi.set(__self__, "immutability_settings", immutability_settings)
         if soft_delete_settings is not None:
             pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Optional[pulumi.Input['EncryptionSettingsArgs']]:
+        """
+        Customer Managed Key details of the resource.
+        """
+        return pulumi.get(self, "encryption_settings")
+
+    @encryption_settings.setter
+    def encryption_settings(self, value: Optional[pulumi.Input['EncryptionSettingsArgs']]):
+        pulumi.set(self, "encryption_settings", value)
 
     @property
     @pulumi.getter(name="immutabilitySettings")

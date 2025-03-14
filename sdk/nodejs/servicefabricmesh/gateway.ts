@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This type describes a gateway resource.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class Gateway extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Gateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === Gateway.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * User readable description of the gateway.
      */
@@ -120,6 +124,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tcp"] = args ? args.tcp : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -127,6 +132,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationNetwork"] = undefined /*out*/;
             resourceInputs["http"] = undefined /*out*/;

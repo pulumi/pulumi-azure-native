@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Inputs
         public Input<string>? CertificateStoreLocation { get; set; }
 
         /// <summary>
+        /// Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+        /// </summary>
+        [Input("certificateStoreName")]
+        public InputUnion<string, Pulumi.AzureNative.DevOpsInfrastructure.CertificateStoreNameOption>? CertificateStoreName { get; set; }
+
+        /// <summary>
         /// Defines if the key of the certificates should be exportable.
         /// </summary>
         [Input("keyExportable", required: true)]

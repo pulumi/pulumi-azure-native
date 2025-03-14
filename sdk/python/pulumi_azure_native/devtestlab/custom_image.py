@@ -271,7 +271,7 @@ class CustomImage(pulumi.CustomResource):
                  __props__=None):
         """
         A custom image.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,7 +298,7 @@ class CustomImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A custom image.
-        Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+        Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
 
         :param str resource_name: The name of the resource.
         :param CustomImageArgs args: The arguments to use to populate this resource's properties.
@@ -356,6 +356,7 @@ class CustomImage(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vhd"] = vhd
             __props__.__dict__["vm"] = vm
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -385,6 +386,7 @@ class CustomImage(pulumi.CustomResource):
         __props__ = CustomImageArgs.__new__(CustomImageArgs)
 
         __props__.__dict__["author"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["custom_image_plan"] = None
         __props__.__dict__["data_disk_storage_info"] = None
@@ -409,6 +411,14 @@ class CustomImage(pulumi.CustomResource):
         The author of the custom image.
         """
         return pulumi.get(self, "author")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetDiagnosticResult> InvokeAsync(GetDiagnosticArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticResult>("azure-native:apimanagement:getDiagnostic", args ?? new GetDiagnosticArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDiagnosticResult> Invoke(GetDiagnosticInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticResult>("azure-native:apimanagement:getDiagnostic", args ?? new GetDiagnosticInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Diagnostic specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetDiagnosticResult> Invoke(GetDiagnosticInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticResult>("azure-native:apimanagement:getDiagnostic", args ?? new GetDiagnosticInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? AlwaysLog;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         /// </summary>
         public readonly Outputs.PipelineDiagnosticSettingsResponse? Backend;
@@ -153,6 +151,8 @@ namespace Pulumi.AzureNative.ApiManagement
         private GetDiagnosticResult(
             string? alwaysLog,
 
+            string azureApiVersion,
+
             Outputs.PipelineDiagnosticSettingsResponse? backend,
 
             Outputs.PipelineDiagnosticSettingsResponse? frontend,
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.ApiManagement
             string? verbosity)
         {
             AlwaysLog = alwaysLog;
+            AzureApiVersion = azureApiVersion;
             Backend = backend;
             Frontend = frontend;
             HttpCorrelationProtocol = httpCorrelationProtocol;

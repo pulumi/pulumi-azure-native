@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * Azure REST API version: 2021-04-01.
- *
- * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+ * Azure REST API version: 2023-05-17-preview.
  */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetGuestUsageArgs {
  * Guest Usages Resource
  */
 export interface GetGuestUsageResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * An identifier that represents the Guest Usages resource.
      */
@@ -67,9 +69,7 @@ export interface GetGuestUsageResult {
 }
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
- * Azure REST API version: 2021-04-01.
- *
- * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+ * Azure REST API version: 2023-05-17-preview.
  */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestUsageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

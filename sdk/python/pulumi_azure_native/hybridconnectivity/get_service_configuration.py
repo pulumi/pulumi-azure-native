@@ -27,7 +27,10 @@ class GetServiceConfigurationResult:
     """
     The service configuration details associated with the target resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, port=None, provisioning_state=None, resource_id=None, service_name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, port=None, provisioning_state=None, resource_id=None, service_name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -70,6 +73,14 @@ class GetServiceConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -190,6 +201,7 @@ class AwaitableGetServiceConfigurationResult(GetServiceConfigurationResult):
         if False:
             yield self
         return GetServiceConfigurationResult(
+            azure_api_version=self.azure_api_version,
             created_at=self.created_at,
             created_by=self.created_by,
             created_by_type=self.created_by_type,
@@ -212,9 +224,7 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceConfigurationResult:
     """
     Gets the details about the service to the resource.
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
@@ -229,6 +239,7 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:getServiceConfiguration', __args__, opts=opts, typ=GetServiceConfigurationResult).value
 
     return AwaitableGetServiceConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_at=pulumi.get(__ret__, 'created_at'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_by_type=pulumi.get(__ret__, 'created_by_type'),
@@ -249,9 +260,7 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceConfigurationResult]:
     """
     Gets the details about the service to the resource.
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
@@ -265,6 +274,7 @@ def get_service_configuration_output(endpoint_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:hybridconnectivity:getServiceConfiguration', __args__, opts=opts, typ=GetServiceConfigurationResult)
     return __ret__.apply(lambda __response__: GetServiceConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_at=pulumi.get(__response__, 'created_at'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_by_type=pulumi.get(__response__, 'created_by_type'),

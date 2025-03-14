@@ -26,7 +26,10 @@ class GetGroupResult:
     """
     Contract details.
     """
-    def __init__(__self__, built_in=None, description=None, display_name=None, external_id=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, built_in=None, description=None, display_name=None, external_id=None, id=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if built_in and not isinstance(built_in, bool):
             raise TypeError("Expected argument 'built_in' to be a bool")
         pulumi.set(__self__, "built_in", built_in)
@@ -48,6 +51,14 @@ class GetGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="builtIn")
@@ -112,6 +123,7 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            azure_api_version=self.azure_api_version,
             built_in=self.built_in,
             description=self.description,
             display_name=self.display_name,
@@ -127,9 +139,7 @@ def get_group(group_id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Gets the details of the group specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -144,6 +154,7 @@ def get_group(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         built_in=pulumi.get(__ret__, 'built_in'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -157,9 +168,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Gets the details of the group specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -173,6 +182,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         built_in=pulumi.get(__response__, 'built_in'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

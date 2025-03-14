@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
- * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
  */
 export class Transform extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Transform extends pulumi.CustomResource {
         return obj['__pulumiType'] === Transform.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
@@ -92,12 +96,14 @@ export class Transform extends pulumi.CustomResource {
             resourceInputs["outputs"] = args ? args.outputs : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["transformName"] = args ? args.transformName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;

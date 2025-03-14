@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+ * Azure REST API version: 2021-03-08.
  */
 export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
         return obj['__pulumiType'] === PrivateLinkServicesForO365ManagementActivityAPI.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -99,11 +103,13 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -115,7 +121,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForO365ManagementActivityAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForO365ManagementActivityAPI.__pulumiType, name, resourceInputs, opts);
     }

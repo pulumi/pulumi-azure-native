@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Portal
     {
         /// <summary>
         /// Gets the Dashboard.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Dashboard.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Dashboard.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:portal:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Portal
     public sealed class GetDashboardResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.Portal
 
         [OutputConstructor]
         private GetDashboardResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Portal
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

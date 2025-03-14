@@ -27,7 +27,10 @@ class GetFirewallPolicyDraftResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, dns_settings=None, explicit_proxy=None, id=None, insights=None, intrusion_detection=None, location=None, name=None, snat=None, sql=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
+    def __init__(__self__, azure_api_version=None, base_policy=None, dns_settings=None, explicit_proxy=None, id=None, insights=None, intrusion_detection=None, location=None, name=None, snat=None, sql=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -70,6 +73,14 @@ class GetFirewallPolicyDraftResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="basePolicy")
@@ -190,6 +201,7 @@ class AwaitableGetFirewallPolicyDraftResult(GetFirewallPolicyDraftResult):
         if False:
             yield self
         return GetFirewallPolicyDraftResult(
+            azure_api_version=self.azure_api_version,
             base_policy=self.base_policy,
             dns_settings=self.dns_settings,
             explicit_proxy=self.explicit_proxy,
@@ -211,9 +223,7 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyDraftResult:
     """
     Get a draft Firewall Policy.
-    Azure REST API version: 2023-11-01.
-
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -226,6 +236,7 @@ def get_firewall_policy_draft(firewall_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getFirewallPolicyDraft', __args__, opts=opts, typ=GetFirewallPolicyDraftResult).value
 
     return AwaitableGetFirewallPolicyDraftResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         base_policy=pulumi.get(__ret__, 'base_policy'),
         dns_settings=pulumi.get(__ret__, 'dns_settings'),
         explicit_proxy=pulumi.get(__ret__, 'explicit_proxy'),
@@ -245,9 +256,7 @@ def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyDraftResult]:
     """
     Get a draft Firewall Policy.
-    Azure REST API version: 2023-11-01.
-
-    Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str firewall_policy_name: The name of the Firewall Policy.
@@ -259,6 +268,7 @@ def get_firewall_policy_draft_output(firewall_policy_name: Optional[pulumi.Input
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getFirewallPolicyDraft', __args__, opts=opts, typ=GetFirewallPolicyDraftResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyDraftResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         base_policy=pulumi.get(__response__, 'base_policy'),
         dns_settings=pulumi.get(__response__, 'dns_settings'),
         explicit_proxy=pulumi.get(__response__, 'explicit_proxy'),

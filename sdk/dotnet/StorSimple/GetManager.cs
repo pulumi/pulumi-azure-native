@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.StorSimple
     public sealed class GetManagerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Represents the type of StorSimple Manager.
         /// </summary>
         public readonly Outputs.ManagerIntrinsicSettingsResponse? CisIntrinsicSettings;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.StorSimple
 
         [OutputConstructor]
         private GetManagerResult(
+            string azureApiVersion,
+
             Outputs.ManagerIntrinsicSettingsResponse? cisIntrinsicSettings,
 
             string? etag,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.StorSimple
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CisIntrinsicSettings = cisIntrinsicSettings;
             Etag = etag;
             Id = id;

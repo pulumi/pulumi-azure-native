@@ -21,20 +21,3 @@ from .user_settings import *
 from .user_settings_with_location import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.portal.v20181001 as __v20181001
-    v20181001 = __v20181001
-    import pulumi_azure_native.portal.v20190101preview as __v20190101preview
-    v20190101preview = __v20190101preview
-    import pulumi_azure_native.portal.v20200901preview as __v20200901preview
-    v20200901preview = __v20200901preview
-    import pulumi_azure_native.portal.v20221201preview as __v20221201preview
-    v20221201preview = __v20221201preview
-else:
-    v20181001 = _utilities.lazy_import('pulumi_azure_native.portal.v20181001')
-    v20190101preview = _utilities.lazy_import('pulumi_azure_native.portal.v20190101preview')
-    v20200901preview = _utilities.lazy_import('pulumi_azure_native.portal.v20200901preview')
-    v20221201preview = _utilities.lazy_import('pulumi_azure_native.portal.v20221201preview')
-

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets details about the specified input.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2021-10-01-preview.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetInputArgs {
  */
 export interface GetInputResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;
@@ -61,8 +63,6 @@ export interface GetInputResult {
 /**
  * Gets details about the specified input.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2021-10-01-preview.
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInputResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of hybrid runbook worker group.
- * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
- *
- * Other available API versions: 2021-06-22, 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
  */
 export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === HybridRunbookWorkerGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Sets the credential of a worker group.
      */
@@ -83,10 +85,12 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
             resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["credential"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

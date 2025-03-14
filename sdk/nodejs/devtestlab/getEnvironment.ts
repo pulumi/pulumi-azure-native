@@ -54,6 +54,10 @@ export interface GetEnvironmentResult {
      */
     readonly armTemplateDisplayName?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The creator of the environment.
      */
     readonly createdByUser: string;

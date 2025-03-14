@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the API specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +71,10 @@ export interface GetApiResult {
      * Collection of authentication settings included into this API.
      */
     readonly authenticationSettings?: outputs.apimanagement.AuthenticationSettingsContractResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Contact information for the API.
      */
@@ -140,9 +142,7 @@ export interface GetApiResult {
 }
 /**
  * Gets the details of the API specified by its identifier.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getLinkedStorageAccount(args: GetLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetLinkedStorageAccountArgs {
  */
 export interface GetLinkedStorageAccountResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Linked storage accounts type.
      */
     readonly dataSourceType: string;
@@ -61,9 +63,7 @@ export interface GetLinkedStorageAccountResult {
 }
 /**
  * Gets all linked storage account of a specific data source type associated with the specified workspace.
- * Azure REST API version: 2020-08-01.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01.
  */
 export function getLinkedStorageAccountOutput(args: GetLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkedStorageAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

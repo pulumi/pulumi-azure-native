@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// A ImportSite
-    /// Azure REST API version: 2023-06-06.
-    /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:ImportSitesController")]
     public partial class ImportSitesController : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the ARM ID of migration hub solution for SDS.
         /// </summary>

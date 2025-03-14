@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
- * Azure REST API version: 2021-06-30.
- *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.
+ * Azure REST API version: 2023-07-15-preview.
  */
 export function getTask(args: GetTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,6 +50,10 @@ export interface GetTaskArgs {
  */
 export interface GetTaskResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
     readonly etag?: string;
@@ -77,10 +79,8 @@ export interface GetTaskResult {
     readonly type: string;
 }
 /**
- * The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
- * Azure REST API version: 2021-06-30.
- *
- * Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+ * The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.
+ * Azure REST API version: 2023-07-15-preview.
  */
 export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

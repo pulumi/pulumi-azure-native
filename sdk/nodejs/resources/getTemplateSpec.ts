@@ -40,6 +40,10 @@ export interface GetTemplateSpecArgs {
  */
 export interface GetTemplateSpecResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Template Spec description.
      */
     readonly description?: string;

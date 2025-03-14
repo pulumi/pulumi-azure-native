@@ -301,9 +301,7 @@ class AgentPool(pulumi.CustomResource):
                  vm_sku_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -331,9 +329,7 @@ class AgentPool(pulumi.CustomResource):
                  args: AgentPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.
@@ -401,6 +397,7 @@ class AgentPool(pulumi.CustomResource):
             if vm_sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_sku_name'")
             __props__.__dict__["vm_sku_name"] = vm_sku_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["kubernetes_version"] = None
@@ -436,6 +433,7 @@ class AgentPool(pulumi.CustomResource):
         __props__.__dict__["agent_options"] = None
         __props__.__dict__["attached_network_configuration"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["count"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
@@ -485,6 +483,14 @@ class AgentPool(pulumi.CustomResource):
         The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

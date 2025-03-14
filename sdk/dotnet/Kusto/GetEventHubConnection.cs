@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Kusto
     public sealed class GetEventHubConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The event hub consumer group.
         /// </summary>
         public readonly string ConsumerGroup;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetEventHubConnectionResult(
+            string azureApiVersion,
+
             string consumerGroup,
 
             string? dataFormat,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
             EventHubResourceId = eventHubResourceId;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab user.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserResult>("azure-native:labservices:getUser", args ?? new GetUserInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string? AdditionalUsageQuota;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Display name of the user, for example user's full name.
         /// </summary>
         public readonly string DisplayName;
@@ -133,6 +131,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly string RegistrationState;
         /// <summary>
+        /// Error details of last operation done on lab plan.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -148,6 +150,8 @@ namespace Pulumi.AzureNative.LabServices
         [OutputConstructor]
         private GetUserResult(
             string? additionalUsageQuota,
+
+            string azureApiVersion,
 
             string displayName,
 
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.LabServices
 
             string registrationState,
 
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
+
             Outputs.SystemDataResponse systemData,
 
             string totalUsage,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.LabServices
             string type)
         {
             AdditionalUsageQuota = additionalUsageQuota;
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Email = email;
             Id = id;
@@ -180,6 +187,7 @@ namespace Pulumi.AzureNative.LabServices
             Name = name;
             ProvisioningState = provisioningState;
             RegistrationState = registrationState;
+            ResourceOperationError = resourceOperationError;
             SystemData = systemData;
             TotalUsage = totalUsage;
             Type = type;

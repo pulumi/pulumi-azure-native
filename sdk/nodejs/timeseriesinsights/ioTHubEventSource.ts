@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An event source that receives its data from an Azure IoTHub.
- * Azure REST API version: 2020-05-15. Prior API version in Azure Native 1.x: 2020-05-15.
+ * Azure REST API version: 2020-05-15. Prior API version in Azure Native 2.x: 2020-05-15.
  */
 export class IoTHubEventSource extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IoTHubEventSource extends pulumi.CustomResource {
         return obj['__pulumiType'] === IoTHubEventSource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the iot hub's consumer group that holds the partitions from which events will be read.
      */
@@ -146,10 +150,12 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             resourceInputs["time"] = args ? args.time : undefined;
             resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consumerGroupName"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["eventSourceResourceId"] = undefined /*out*/;
@@ -166,7 +172,7 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20171115:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource" }, { type: "azure-native:timeseriesinsights:EventHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTHubEventSource.__pulumiType, name, resourceInputs, opts);
     }

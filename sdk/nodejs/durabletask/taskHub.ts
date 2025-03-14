@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Task Hub resource belonging to the scheduler
- * Azure REST API version: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-10-01-preview.
  */
 export class TaskHub extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class TaskHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === TaskHub.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -75,11 +79,13 @@ export class TaskHub extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schedulerName"] = args ? args.schedulerName : undefined;
             resourceInputs["taskHubName"] = args ? args.taskHubName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

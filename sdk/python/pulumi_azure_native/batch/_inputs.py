@@ -24,6 +24,8 @@ __all__ = [
     'AutoStorageBasePropertiesArgsDict',
     'AutoUserSpecificationArgs',
     'AutoUserSpecificationArgsDict',
+    'AutomaticOSUpgradePolicyArgs',
+    'AutomaticOSUpgradePolicyArgsDict',
     'AzureBlobFileSystemConfigurationArgs',
     'AzureBlobFileSystemConfigurationArgsDict',
     'AzureFileShareConfigurationArgs',
@@ -36,12 +38,12 @@ __all__ = [
     'CIFSMountConfigurationArgsDict',
     'CertificateReferenceArgs',
     'CertificateReferenceArgsDict',
-    'CloudServiceConfigurationArgs',
-    'CloudServiceConfigurationArgsDict',
     'ComputeNodeIdentityReferenceArgs',
     'ComputeNodeIdentityReferenceArgsDict',
     'ContainerConfigurationArgs',
     'ContainerConfigurationArgsDict',
+    'ContainerHostBatchBindMountEntryArgs',
+    'ContainerHostBatchBindMountEntryArgsDict',
     'ContainerRegistryArgs',
     'ContainerRegistryArgsDict',
     'DataDiskArgs',
@@ -72,6 +74,8 @@ __all__ = [
     'KeyVaultReferenceArgsDict',
     'LinuxUserConfigurationArgs',
     'LinuxUserConfigurationArgsDict',
+    'ManagedDiskArgs',
+    'ManagedDiskArgsDict',
     'MetadataItemArgs',
     'MetadataItemArgsDict',
     'MountConfigurationArgs',
@@ -94,18 +98,30 @@ __all__ = [
     'PublicIPAddressConfigurationArgsDict',
     'ResourceFileArgs',
     'ResourceFileArgsDict',
+    'RollingUpgradePolicyArgs',
+    'RollingUpgradePolicyArgsDict',
     'ScaleSettingsArgs',
     'ScaleSettingsArgsDict',
+    'SecurityProfileArgs',
+    'SecurityProfileArgsDict',
+    'ServiceArtifactReferenceArgs',
+    'ServiceArtifactReferenceArgsDict',
     'StartTaskArgs',
     'StartTaskArgsDict',
     'TaskContainerSettingsArgs',
     'TaskContainerSettingsArgsDict',
     'TaskSchedulingPolicyArgs',
     'TaskSchedulingPolicyArgsDict',
+    'UefiSettingsArgs',
+    'UefiSettingsArgsDict',
+    'UpgradePolicyArgs',
+    'UpgradePolicyArgsDict',
     'UserAccountArgs',
     'UserAccountArgsDict',
     'UserIdentityArgs',
     'UserIdentityArgsDict',
+    'VMDiskSecurityProfileArgs',
+    'VMDiskSecurityProfileArgsDict',
     'VMExtensionArgs',
     'VMExtensionArgsDict',
     'VirtualMachineConfigurationArgs',
@@ -333,6 +349,102 @@ class AutoUserSpecificationArgs:
     @scope.setter
     def scope(self, value: Optional[pulumi.Input['AutoUserScope']]):
         pulumi.set(self, "scope", value)
+
+
+if not MYPY:
+    class AutomaticOSUpgradePolicyArgsDict(TypedDict):
+        """
+        The configuration parameters used for performing automatic OS upgrade.
+        """
+        disable_automatic_rollback: NotRequired[pulumi.Input[bool]]
+        """
+        Whether OS image rollback feature should be disabled.
+        """
+        enable_automatic_os_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
+        """
+        os_rolling_upgrade_deferral: NotRequired[pulumi.Input[bool]]
+        """
+        Defer OS upgrades on the TVMs if they are running tasks.
+        """
+        use_rolling_upgrade_policy: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
+        """
+elif False:
+    AutomaticOSUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomaticOSUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 disable_automatic_rollback: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
+                 os_rolling_upgrade_deferral: Optional[pulumi.Input[bool]] = None,
+                 use_rolling_upgrade_policy: Optional[pulumi.Input[bool]] = None):
+        """
+        The configuration parameters used for performing automatic OS upgrade.
+        :param pulumi.Input[bool] disable_automatic_rollback: Whether OS image rollback feature should be disabled.
+        :param pulumi.Input[bool] enable_automatic_os_upgrade: Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
+        :param pulumi.Input[bool] os_rolling_upgrade_deferral: Defer OS upgrades on the TVMs if they are running tasks.
+        :param pulumi.Input[bool] use_rolling_upgrade_policy: Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
+        """
+        if disable_automatic_rollback is not None:
+            pulumi.set(__self__, "disable_automatic_rollback", disable_automatic_rollback)
+        if enable_automatic_os_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_os_upgrade", enable_automatic_os_upgrade)
+        if os_rolling_upgrade_deferral is not None:
+            pulumi.set(__self__, "os_rolling_upgrade_deferral", os_rolling_upgrade_deferral)
+        if use_rolling_upgrade_policy is not None:
+            pulumi.set(__self__, "use_rolling_upgrade_policy", use_rolling_upgrade_policy)
+
+    @property
+    @pulumi.getter(name="disableAutomaticRollback")
+    def disable_automatic_rollback(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether OS image rollback feature should be disabled.
+        """
+        return pulumi.get(self, "disable_automatic_rollback")
+
+    @disable_automatic_rollback.setter
+    def disable_automatic_rollback(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_automatic_rollback", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticOSUpgrade")
+    def enable_automatic_os_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. <br /><br /> If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.
+        """
+        return pulumi.get(self, "enable_automatic_os_upgrade")
+
+    @enable_automatic_os_upgrade.setter
+    def enable_automatic_os_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_os_upgrade", value)
+
+    @property
+    @pulumi.getter(name="osRollingUpgradeDeferral")
+    def os_rolling_upgrade_deferral(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defer OS upgrades on the TVMs if they are running tasks.
+        """
+        return pulumi.get(self, "os_rolling_upgrade_deferral")
+
+    @os_rolling_upgrade_deferral.setter
+    def os_rolling_upgrade_deferral(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "os_rolling_upgrade_deferral", value)
+
+    @property
+    @pulumi.getter(name="useRollingUpgradePolicy")
+    def use_rolling_upgrade_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.
+        """
+        return pulumi.get(self, "use_rolling_upgrade_policy")
+
+    @use_rolling_upgrade_policy.setter
+    def use_rolling_upgrade_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_rolling_upgrade_policy", value)
 
 
 if not MYPY:
@@ -769,11 +881,11 @@ if not MYPY:
         id: pulumi.Input[str]
         store_location: NotRequired[pulumi.Input['CertificateStoreLocation']]
         """
-        The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
         store_name: NotRequired[pulumi.Input[str]]
         """
-        This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
+        This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
         """
         visibility: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]
 elif False:
@@ -788,8 +900,8 @@ class CertificateReferenceArgs:
                  visibility: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]] = None):
         """
         Warning: This object is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
-        :param pulumi.Input['CertificateStoreLocation'] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-        :param pulumi.Input[str] store_name: This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
+        :param pulumi.Input['CertificateStoreLocation'] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        :param pulumi.Input[str] store_name: This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
         """
         pulumi.set(__self__, "id", id)
         if store_location is not None:
@@ -812,7 +924,7 @@ class CertificateReferenceArgs:
     @pulumi.getter(name="storeLocation")
     def store_location(self) -> Optional[pulumi.Input['CertificateStoreLocation']]:
         """
-        The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
         return pulumi.get(self, "store_location")
 
@@ -824,7 +936,7 @@ class CertificateReferenceArgs:
     @pulumi.getter(name="storeName")
     def store_name(self) -> Optional[pulumi.Input[str]]:
         """
-        This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
+        This property is applicable only for pools configured with Windows compute nodes. Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
         """
         return pulumi.get(self, "store_name")
 
@@ -840,57 +952,6 @@ class CertificateReferenceArgs:
     @visibility.setter
     def visibility(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]):
         pulumi.set(self, "visibility", value)
-
-
-if not MYPY:
-    class CloudServiceConfigurationArgsDict(TypedDict):
-        os_family: pulumi.Input[str]
-        """
-        Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. 6 - OS Family 6, equivalent to Windows Server 2019. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
-        """
-        os_version: NotRequired[pulumi.Input[str]]
-        """
-        The default value is * which specifies the latest operating system version for the specified OS family.
-        """
-elif False:
-    CloudServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class CloudServiceConfigurationArgs:
-    def __init__(__self__, *,
-                 os_family: pulumi.Input[str],
-                 os_version: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] os_family: Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. 6 - OS Family 6, equivalent to Windows Server 2019. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
-        :param pulumi.Input[str] os_version: The default value is * which specifies the latest operating system version for the specified OS family.
-        """
-        pulumi.set(__self__, "os_family", os_family)
-        if os_version is not None:
-            pulumi.set(__self__, "os_version", os_version)
-
-    @property
-    @pulumi.getter(name="osFamily")
-    def os_family(self) -> pulumi.Input[str]:
-        """
-        Possible values are: 2 - OS Family 2, equivalent to Windows Server 2008 R2 SP1. 3 - OS Family 3, equivalent to Windows Server 2012. 4 - OS Family 4, equivalent to Windows Server 2012 R2. 5 - OS Family 5, equivalent to Windows Server 2016. 6 - OS Family 6, equivalent to Windows Server 2019. For more information, see Azure Guest OS Releases (https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).
-        """
-        return pulumi.get(self, "os_family")
-
-    @os_family.setter
-    def os_family(self, value: pulumi.Input[str]):
-        pulumi.set(self, "os_family", value)
-
-    @property
-    @pulumi.getter(name="osVersion")
-    def os_version(self) -> Optional[pulumi.Input[str]]:
-        """
-        The default value is * which specifies the latest operating system version for the specified OS family.
-        """
-        return pulumi.get(self, "os_version")
-
-    @os_version.setter
-    def os_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "os_version", value)
 
 
 if not MYPY:
@@ -991,6 +1052,51 @@ class ContainerConfigurationArgs:
     @container_registries.setter
     def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]]):
         pulumi.set(self, "container_registries", value)
+
+
+if not MYPY:
+    class ContainerHostBatchBindMountEntryArgsDict(TypedDict):
+        is_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
+        """
+        source: NotRequired[pulumi.Input[Union[str, 'ContainerHostDataPath']]]
+elif False:
+    ContainerHostBatchBindMountEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerHostBatchBindMountEntryArgs:
+    def __init__(__self__, *,
+                 is_read_only: Optional[pulumi.Input[bool]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'ContainerHostDataPath']]] = None):
+        """
+        :param pulumi.Input[bool] is_read_only: For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
+        """
+        if is_read_only is not None:
+            pulumi.set(__self__, "is_read_only", is_read_only)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> Optional[pulumi.Input[bool]]:
+        """
+        For Linux, if you mount this path as a read/write mode, this does not mean that all users in container have the read/write access for the path, it depends on the access in host VM. If this path is mounted read-only, all users within the container will not be able to modify the path.
+        """
+        return pulumi.get(self, "is_read_only")
+
+    @is_read_only.setter
+    def is_read_only(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_read_only", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[str, 'ContainerHostDataPath']]]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[str, 'ContainerHostDataPath']]]):
+        pulumi.set(self, "source", value)
 
 
 if not MYPY:
@@ -1187,49 +1293,20 @@ class DataDiskArgs:
 
 if not MYPY:
     class DeploymentConfigurationArgsDict(TypedDict):
-        cloud_service_configuration: NotRequired[pulumi.Input['CloudServiceConfigurationArgsDict']]
-        """
-        This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
-        """
         virtual_machine_configuration: NotRequired[pulumi.Input['VirtualMachineConfigurationArgsDict']]
-        """
-        This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
-        """
 elif False:
     DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigurationArgs:
     def __init__(__self__, *,
-                 cloud_service_configuration: Optional[pulumi.Input['CloudServiceConfigurationArgs']] = None,
                  virtual_machine_configuration: Optional[pulumi.Input['VirtualMachineConfigurationArgs']] = None):
-        """
-        :param pulumi.Input['CloudServiceConfigurationArgs'] cloud_service_configuration: This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
-        :param pulumi.Input['VirtualMachineConfigurationArgs'] virtual_machine_configuration: This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
-        """
-        if cloud_service_configuration is not None:
-            pulumi.set(__self__, "cloud_service_configuration", cloud_service_configuration)
         if virtual_machine_configuration is not None:
             pulumi.set(__self__, "virtual_machine_configuration", virtual_machine_configuration)
 
     @property
-    @pulumi.getter(name="cloudServiceConfiguration")
-    def cloud_service_configuration(self) -> Optional[pulumi.Input['CloudServiceConfigurationArgs']]:
-        """
-        This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.
-        """
-        return pulumi.get(self, "cloud_service_configuration")
-
-    @cloud_service_configuration.setter
-    def cloud_service_configuration(self, value: Optional[pulumi.Input['CloudServiceConfigurationArgs']]):
-        pulumi.set(self, "cloud_service_configuration", value)
-
-    @property
     @pulumi.getter(name="virtualMachineConfiguration")
     def virtual_machine_configuration(self) -> Optional[pulumi.Input['VirtualMachineConfigurationArgs']]:
-        """
-        This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.
-        """
         return pulumi.get(self, "virtual_machine_configuration")
 
     @virtual_machine_configuration.setter
@@ -1241,7 +1318,7 @@ if not MYPY:
     class DiffDiskSettingsArgsDict(TypedDict):
         placement: NotRequired[pulumi.Input['DiffDiskPlacement']]
         """
-        This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
         """
 elif False:
     DiffDiskSettingsArgsDict: TypeAlias = Mapping[str, Any]
@@ -1251,7 +1328,7 @@ class DiffDiskSettingsArgs:
     def __init__(__self__, *,
                  placement: Optional[pulumi.Input['DiffDiskPlacement']] = None):
         """
-        :param pulumi.Input['DiffDiskPlacement'] placement: This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        :param pulumi.Input['DiffDiskPlacement'] placement: This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
         """
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
@@ -1260,7 +1337,7 @@ class DiffDiskSettingsArgs:
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input['DiffDiskPlacement']]:
         """
-        This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
         """
         return pulumi.get(self, "placement")
 
@@ -1272,7 +1349,7 @@ class DiffDiskSettingsArgs:
 if not MYPY:
     class DiskEncryptionConfigurationArgsDict(TypedDict):
         """
-        The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Azure Compute Gallery Image.
         """
         targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['DiskEncryptionTarget']]]]
         """
@@ -1286,7 +1363,7 @@ class DiskEncryptionConfigurationArgs:
     def __init__(__self__, *,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['DiskEncryptionTarget']]]] = None):
         """
-        The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        The disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Azure Compute Gallery Image.
         :param pulumi.Input[Sequence[pulumi.Input['DiskEncryptionTarget']]] targets: On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
         """
         if targets is not None:
@@ -1601,9 +1678,13 @@ class IPRuleArgs:
 
 if not MYPY:
     class ImageReferenceArgsDict(TypedDict):
+        community_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
+        """
         id: NotRequired[pulumi.Input[str]]
         """
-        This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         """
         offer: NotRequired[pulumi.Input[str]]
         """
@@ -1612,6 +1693,10 @@ if not MYPY:
         publisher: NotRequired[pulumi.Input[str]]
         """
         For example, Canonical or MicrosoftWindowsServer.
+        """
+        shared_gallery_image_id: NotRequired[pulumi.Input[str]]
+        """
+        This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
         """
         sku: NotRequired[pulumi.Input[str]]
         """
@@ -1627,36 +1712,54 @@ elif False:
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
+                 community_gallery_image_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
+                 shared_gallery_image_id: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] id: This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        :param pulumi.Input[str] community_gallery_image_id: This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
+        :param pulumi.Input[str] id: This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         :param pulumi.Input[str] offer: For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] publisher: For example, Canonical or MicrosoftWindowsServer.
+        :param pulumi.Input[str] shared_gallery_image_id: This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
         :param pulumi.Input[str] sku: For example, 18.04-LTS or 2022-datacenter.
         :param pulumi.Input[str] version: A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
         """
+        if community_gallery_image_id is not None:
+            pulumi.set(__self__, "community_gallery_image_id", community_gallery_image_id)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if offer is not None:
             pulumi.set(__self__, "offer", offer)
         if publisher is not None:
             pulumi.set(__self__, "publisher", publisher)
+        if shared_gallery_image_id is not None:
+            pulumi.set(__self__, "shared_gallery_image_id", shared_gallery_image_id)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if version is None:
-            version = 'latest'
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="communityGalleryImageId")
+    def community_gallery_image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This property is mutually exclusive with other properties and can be fetched from community gallery image GET call.
+        """
+        return pulumi.get(self, "community_gallery_image_id")
+
+    @community_gallery_image_id.setter
+    def community_gallery_image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "community_gallery_image_id", value)
 
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
         """
-        This property is mutually exclusive with other properties. The Shared Image Gallery image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
+        This property is mutually exclusive with other properties. The Azure Compute Gallery Image must have replicas in the same region as the Azure Batch account. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration.
         """
         return pulumi.get(self, "id")
 
@@ -1689,6 +1792,18 @@ class ImageReferenceArgs:
         pulumi.set(self, "publisher", value)
 
     @property
+    @pulumi.getter(name="sharedGalleryImageId")
+    def shared_gallery_image_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This property is mutually exclusive with other properties and can be fetched from shared gallery image GET call.
+        """
+        return pulumi.get(self, "shared_gallery_image_id")
+
+    @shared_gallery_image_id.setter
+    def shared_gallery_image_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shared_gallery_image_id", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1717,7 +1832,7 @@ if not MYPY:
     class InboundNatPoolArgsDict(TypedDict):
         backend_port: pulumi.Input[int]
         """
-        This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+        This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         """
         frontend_port_range_end: pulumi.Input[int]
         """
@@ -1749,7 +1864,7 @@ class InboundNatPoolArgs:
                  protocol: pulumi.Input['InboundEndpointProtocol'],
                  network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]] = None):
         """
-        :param pulumi.Input[int] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+        :param pulumi.Input[int] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[int] frontend_port_range_end: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[int] frontend_port_range_start: Acceptable values range between 1 and 65534 except ports from 50000 to 55000 which are reserved. All ranges within a pool must be distinct and cannot overlap. If any reserved or overlapping values are provided the request fails with HTTP status code 400.
         :param pulumi.Input[str] name: The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters.  If any invalid values are provided the request fails with HTTP status code 400.
@@ -1767,7 +1882,7 @@ class InboundNatPoolArgs:
     @pulumi.getter(name="backendPort")
     def backend_port(self) -> pulumi.Input[int]:
         """
-        This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
+        This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
         """
         return pulumi.get(self, "backend_port")
 
@@ -2008,6 +2123,51 @@ class LinuxUserConfigurationArgs:
 
 
 if not MYPY:
+    class ManagedDiskArgsDict(TypedDict):
+        security_profile: NotRequired[pulumi.Input['VMDiskSecurityProfileArgsDict']]
+        """
+        Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        """
+        storage_account_type: NotRequired[pulumi.Input['StorageAccountType']]
+elif False:
+    ManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedDiskArgs:
+    def __init__(__self__, *,
+                 security_profile: Optional[pulumi.Input['VMDiskSecurityProfileArgs']] = None,
+                 storage_account_type: Optional[pulumi.Input['StorageAccountType']] = None):
+        """
+        :param pulumi.Input['VMDiskSecurityProfileArgs'] security_profile: Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        """
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['VMDiskSecurityProfileArgs']]:
+        """
+        Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['VMDiskSecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input['StorageAccountType']]:
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input['StorageAccountType']]):
+        pulumi.set(self, "storage_account_type", value)
+
+
+if not MYPY:
     class MetadataItemArgsDict(TypedDict):
         """
         The Batch service does not assign any meaning to this metadata; it is solely for the use of user code.
@@ -2213,16 +2373,13 @@ if not MYPY:
         Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         """
         endpoint_configuration: NotRequired[pulumi.Input['PoolEndpointConfigurationArgsDict']]
-        """
-        Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
-        """
         public_ip_address_configuration: NotRequired[pulumi.Input['PublicIPAddressConfigurationArgsDict']]
         """
-        This property is only supported on Pools with the virtualMachineConfiguration property.
+        The public IP Address configuration of the networking configuration of a Pool.
         """
         subnet_id: NotRequired[pulumi.Input[str]]
         """
-        The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
+        The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication，including ports 29876 and 29877. Also enable outbound connections to Azure Storage on port 443. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
 elif False:
     NetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2238,9 +2395,8 @@ class NetworkConfigurationArgs:
         """
         The network configuration for a pool.
         :param pulumi.Input[bool] enable_accelerated_networking: Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
-        :param pulumi.Input['PoolEndpointConfigurationArgs'] endpoint_configuration: Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
-        :param pulumi.Input['PublicIPAddressConfigurationArgs'] public_ip_address_configuration: This property is only supported on Pools with the virtualMachineConfiguration property.
-        :param pulumi.Input[str] subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
+        :param pulumi.Input['PublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP Address configuration of the networking configuration of a Pool.
+        :param pulumi.Input[str] subnet_id: The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication，including ports 29876 and 29877. Also enable outbound connections to Azure Storage on port 443. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         if dynamic_vnet_assignment_scope is None:
             dynamic_vnet_assignment_scope = 'none'
@@ -2279,9 +2435,6 @@ class NetworkConfigurationArgs:
     @property
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> Optional[pulumi.Input['PoolEndpointConfigurationArgs']]:
-        """
-        Pool endpoint configuration is only supported on pools with the virtualMachineConfiguration property.
-        """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
@@ -2292,7 +2445,7 @@ class NetworkConfigurationArgs:
     @pulumi.getter(name="publicIPAddressConfiguration")
     def public_ip_address_configuration(self) -> Optional[pulumi.Input['PublicIPAddressConfigurationArgs']]:
         """
-        This property is only supported on Pools with the virtualMachineConfiguration property.
+        The public IP Address configuration of the networking configuration of a Pool.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
@@ -2304,7 +2457,7 @@ class NetworkConfigurationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication. For pools created with a virtual machine configuration, enable ports 29876 and 29877, as well as port 22 for Linux and port 3389 for Windows. For pools created with a cloud service configuration, enable ports 10100, 20100, and 30100. Also enable outbound connections to Azure Storage on port 443. For cloudServiceConfiguration pools, only 'classic' VNETs are supported. For more details see: https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
+        The virtual network must be in the same region and subscription as the Azure Batch account. The specified subnet should have enough free IP addresses to accommodate the number of nodes in the pool. If the subnet doesn't have enough free IP addresses, the pool will partially allocate compute nodes and a resize error will occur. The 'MicrosoftAzureBatch' service principal must have the 'Classic Virtual Machine Contributor' Role-Based Access Control (RBAC) role for the specified VNet. The specified subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes. This can be verified by checking if the specified VNet has any associated Network Security Groups (NSG). If communication to the compute nodes in the specified subnet is denied by an NSG, then the Batch service will set the state of the compute nodes to unusable. If the specified VNet has any associated Network Security Groups (NSG), then a few reserved system ports must be enabled for inbound communication，including ports 29876 and 29877. Also enable outbound connections to Azure Storage on port 443. For more details see: https://learn.microsoft.com/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration
         """
         return pulumi.get(self, "subnet_id")
 
@@ -2489,16 +2642,50 @@ class NodePlacementConfigurationArgs:
 
 if not MYPY:
     class OSDiskArgsDict(TypedDict):
+        caching: NotRequired[pulumi.Input['CachingType']]
+        disk_size_gb: NotRequired[pulumi.Input[int]]
         ephemeral_os_disk_settings: NotRequired[pulumi.Input['DiffDiskSettingsArgsDict']]
+        managed_disk: NotRequired[pulumi.Input['ManagedDiskArgsDict']]
+        write_accelerator_enabled: NotRequired[pulumi.Input[bool]]
 elif False:
     OSDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OSDiskArgs:
     def __init__(__self__, *,
-                 ephemeral_os_disk_settings: Optional[pulumi.Input['DiffDiskSettingsArgs']] = None):
+                 caching: Optional[pulumi.Input['CachingType']] = None,
+                 disk_size_gb: Optional[pulumi.Input[int]] = None,
+                 ephemeral_os_disk_settings: Optional[pulumi.Input['DiffDiskSettingsArgs']] = None,
+                 managed_disk: Optional[pulumi.Input['ManagedDiskArgs']] = None,
+                 write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if disk_size_gb is not None:
+            pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if ephemeral_os_disk_settings is not None:
             pulumi.set(__self__, "ephemeral_os_disk_settings", ephemeral_os_disk_settings)
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
+        if write_accelerator_enabled is not None:
+            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[pulumi.Input['CachingType']]:
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: Optional[pulumi.Input['CachingType']]):
+        pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gb", value)
 
     @property
     @pulumi.getter(name="ephemeralOSDiskSettings")
@@ -2508,6 +2695,24 @@ class OSDiskArgs:
     @ephemeral_os_disk_settings.setter
     def ephemeral_os_disk_settings(self, value: Optional[pulumi.Input['DiffDiskSettingsArgs']]):
         pulumi.set(self, "ephemeral_os_disk_settings", value)
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional[pulumi.Input['ManagedDiskArgs']]:
+        return pulumi.get(self, "managed_disk")
+
+    @managed_disk.setter
+    def managed_disk(self, value: Optional[pulumi.Input['ManagedDiskArgs']]):
+        pulumi.set(self, "managed_disk", value)
+
+    @property
+    @pulumi.getter(name="writeAcceleratorEnabled")
+    def write_accelerator_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "write_accelerator_enabled")
+
+    @write_accelerator_enabled.setter
+    def write_accelerator_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "write_accelerator_enabled", value)
 
 
 if not MYPY:
@@ -2750,6 +2955,162 @@ class ResourceFileArgs:
 
 
 if not MYPY:
+    class RollingUpgradePolicyArgsDict(TypedDict):
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        """
+        enable_cross_zone_upgrade: NotRequired[pulumi.Input[bool]]
+        """
+        Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size. If this field is not set, Azure Azure Batch will not set its default value. The value of enableCrossZoneUpgrade on the created VirtualMachineScaleSet will be decided by the default configurations on VirtualMachineScaleSet. This field is able to be set to true or false only when using NodePlacementConfiguration as Zonal.
+        """
+        max_batch_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        """
+        max_unhealthy_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        """
+        max_unhealthy_upgraded_instance_percent: NotRequired[pulumi.Input[int]]
+        """
+        The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The value of this field should be between 0 and 100, inclusive.
+        """
+        pause_time_between_batches: NotRequired[pulumi.Input[str]]
+        """
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
+        """
+        prioritize_unhealthy_instances: NotRequired[pulumi.Input[bool]]
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances.
+        """
+        rollback_failed_instances_on_policy_breach: NotRequired[pulumi.Input[bool]]
+        """
+        Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        """
+elif False:
+    RollingUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RollingUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 enable_cross_zone_upgrade: Optional[pulumi.Input[bool]] = None,
+                 max_batch_instance_percent: Optional[pulumi.Input[int]] = None,
+                 max_unhealthy_instance_percent: Optional[pulumi.Input[int]] = None,
+                 max_unhealthy_upgraded_instance_percent: Optional[pulumi.Input[int]] = None,
+                 pause_time_between_batches: Optional[pulumi.Input[str]] = None,
+                 prioritize_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
+                 rollback_failed_instances_on_policy_breach: Optional[pulumi.Input[bool]] = None):
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        :param pulumi.Input[bool] enable_cross_zone_upgrade: Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size. If this field is not set, Azure Azure Batch will not set its default value. The value of enableCrossZoneUpgrade on the created VirtualMachineScaleSet will be decided by the default configurations on VirtualMachineScaleSet. This field is able to be set to true or false only when using NodePlacementConfiguration as Zonal.
+        :param pulumi.Input[int] max_batch_instance_percent: The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        :param pulumi.Input[int] max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        :param pulumi.Input[int] max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The value of this field should be between 0 and 100, inclusive.
+        :param pulumi.Input[str] pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
+        :param pulumi.Input[bool] prioritize_unhealthy_instances: Upgrade all unhealthy instances in a scale set before any healthy instances.
+        :param pulumi.Input[bool] rollback_failed_instances_on_policy_breach: Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        """
+        if enable_cross_zone_upgrade is not None:
+            pulumi.set(__self__, "enable_cross_zone_upgrade", enable_cross_zone_upgrade)
+        if max_batch_instance_percent is not None:
+            pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
+        if max_unhealthy_instance_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_instance_percent", max_unhealthy_instance_percent)
+        if max_unhealthy_upgraded_instance_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_upgraded_instance_percent", max_unhealthy_upgraded_instance_percent)
+        if pause_time_between_batches is not None:
+            pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
+        if prioritize_unhealthy_instances is not None:
+            pulumi.set(__self__, "prioritize_unhealthy_instances", prioritize_unhealthy_instances)
+        if rollback_failed_instances_on_policy_breach is not None:
+            pulumi.set(__self__, "rollback_failed_instances_on_policy_breach", rollback_failed_instances_on_policy_breach)
+
+    @property
+    @pulumi.getter(name="enableCrossZoneUpgrade")
+    def enable_cross_zone_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow VMSS to ignore AZ boundaries when constructing upgrade batches. Take into consideration the Update Domain and maxBatchInstancePercent to determine the batch size. If this field is not set, Azure Azure Batch will not set its default value. The value of enableCrossZoneUpgrade on the created VirtualMachineScaleSet will be decided by the default configurations on VirtualMachineScaleSet. This field is able to be set to true or false only when using NodePlacementConfiguration as Zonal.
+        """
+        return pulumi.get(self, "enable_cross_zone_upgrade")
+
+    @enable_cross_zone_upgrade.setter
+    def enable_cross_zone_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_cross_zone_upgrade", value)
+
+    @property
+    @pulumi.getter(name="maxBatchInstancePercent")
+    def max_batch_instance_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        """
+        return pulumi.get(self, "max_batch_instance_percent")
+
+    @max_batch_instance_percent.setter
+    def max_batch_instance_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_batch_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyInstancePercent")
+    def max_unhealthy_instance_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The value of this field should be between 5 and 100, inclusive. If both maxBatchInstancePercent and maxUnhealthyInstancePercent are assigned with value, the value of maxBatchInstancePercent should not be more than maxUnhealthyInstancePercent.
+        """
+        return pulumi.get(self, "max_unhealthy_instance_percent")
+
+    @max_unhealthy_instance_percent.setter
+    def max_unhealthy_instance_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unhealthy_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyUpgradedInstancePercent")
+    def max_unhealthy_upgraded_instance_percent(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The value of this field should be between 0 and 100, inclusive.
+        """
+        return pulumi.get(self, "max_unhealthy_upgraded_instance_percent")
+
+    @max_unhealthy_upgraded_instance_percent.setter
+    def max_unhealthy_upgraded_instance_percent(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unhealthy_upgraded_instance_percent", value)
+
+    @property
+    @pulumi.getter(name="pauseTimeBetweenBatches")
+    def pause_time_between_batches(self) -> Optional[pulumi.Input[str]]:
+        """
+        The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
+        """
+        return pulumi.get(self, "pause_time_between_batches")
+
+    @pause_time_between_batches.setter
+    def pause_time_between_batches(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pause_time_between_batches", value)
+
+    @property
+    @pulumi.getter(name="prioritizeUnhealthyInstances")
+    def prioritize_unhealthy_instances(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Upgrade all unhealthy instances in a scale set before any healthy instances.
+        """
+        return pulumi.get(self, "prioritize_unhealthy_instances")
+
+    @prioritize_unhealthy_instances.setter
+    def prioritize_unhealthy_instances(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "prioritize_unhealthy_instances", value)
+
+    @property
+    @pulumi.getter(name="rollbackFailedInstancesOnPolicyBreach")
+    def rollback_failed_instances_on_policy_breach(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Rollback failed instances to previous model if the Rolling Upgrade policy is violated.
+        """
+        return pulumi.get(self, "rollback_failed_instances_on_policy_breach")
+
+    @rollback_failed_instances_on_policy_breach.setter
+    def rollback_failed_instances_on_policy_breach(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rollback_failed_instances_on_policy_breach", value)
+
+
+if not MYPY:
     class ScaleSettingsArgsDict(TypedDict):
         """
         Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
@@ -2806,6 +3167,110 @@ class ScaleSettingsArgs:
 
 
 if not MYPY:
+    class SecurityProfileArgsDict(TypedDict):
+        """
+        Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        """
+        encryption_at_host: NotRequired[pulumi.Input[bool]]
+        """
+        This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
+        """
+        security_type: NotRequired[pulumi.Input['SecurityTypes']]
+        uefi_settings: NotRequired[pulumi.Input['UefiSettingsArgsDict']]
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+        """
+elif False:
+    SecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityProfileArgs:
+    def __init__(__self__, *,
+                 encryption_at_host: Optional[pulumi.Input[bool]] = None,
+                 security_type: Optional[pulumi.Input['SecurityTypes']] = None,
+                 uefi_settings: Optional[pulumi.Input['UefiSettingsArgs']] = None):
+        """
+        Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        :param pulumi.Input[bool] encryption_at_host: This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
+        :param pulumi.Input['UefiSettingsArgs'] uefi_settings: Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+        """
+        if encryption_at_host is not None:
+            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+        if uefi_settings is not None:
+            pulumi.set(__self__, "uefi_settings", uefi_settings)
+
+    @property
+    @pulumi.getter(name="encryptionAtHost")
+    def encryption_at_host(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself.
+        """
+        return pulumi.get(self, "encryption_at_host")
+
+    @encryption_at_host.setter
+    def encryption_at_host(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host", value)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input['SecurityTypes']]:
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input['SecurityTypes']]):
+        pulumi.set(self, "security_type", value)
+
+    @property
+    @pulumi.getter(name="uefiSettings")
+    def uefi_settings(self) -> Optional[pulumi.Input['UefiSettingsArgs']]:
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+        """
+        return pulumi.get(self, "uefi_settings")
+
+    @uefi_settings.setter
+    def uefi_settings(self, value: Optional[pulumi.Input['UefiSettingsArgs']]):
+        pulumi.set(self, "uefi_settings", value)
+
+
+if not MYPY:
+    class ServiceArtifactReferenceArgsDict(TypedDict):
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        """
+        id: pulumi.Input[str]
+        """
+        The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
+elif False:
+    ServiceArtifactReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceArtifactReferenceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
+        :param pulumi.Input[str] id: The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
     class StartTaskArgsDict(TypedDict):
         """
         In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
@@ -2821,7 +3286,7 @@ if not MYPY:
         environment_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgsDict']]]]
         max_task_retry_count: NotRequired[pulumi.Input[int]]
         """
-        The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0.
+        The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
         """
         resource_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResourceFileArgsDict']]]]
         user_identity: NotRequired[pulumi.Input['UserIdentityArgsDict']]
@@ -2849,7 +3314,7 @@ class StartTaskArgs:
         In some cases the start task may be re-run even though the node was not rebooted. Due to this, start tasks should be idempotent and exit gracefully if the setup they're performing has already been done. Special care should be taken to avoid start tasks which create breakaway process or install/launch services from the start task working directory, as this will block Batch from being able to re-run the start task.
         :param pulumi.Input[str] command_line: The command line does not run under a shell, and therefore cannot take advantage of shell features such as environment variable expansion. If you want to take advantage of such features, you should invoke the shell in the command line, for example using "cmd /c MyCommand" in Windows or "/bin/sh -c MyCommand" in Linux. Required if any other properties of the startTask are specified.
         :param pulumi.Input['TaskContainerSettingsArgs'] container_settings: When this is specified, all directories recursively below the AZ_BATCH_NODE_ROOT_DIR (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-        :param pulumi.Input[int] max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0.
+        :param pulumi.Input[int] max_task_retry_count: The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
         :param pulumi.Input['UserIdentityArgs'] user_identity: If omitted, the task runs as a non-administrative user unique to the task.
         :param pulumi.Input[bool] wait_for_success: If true and the start task fails on a compute node, the Batch service retries the start task up to its maximum retry count (maxTaskRetryCount). If the task has still not completed successfully after all retries, then the Batch service marks the compute node unusable, and will not schedule tasks to it. This condition can be detected via the node state and scheduling error detail. If false, the Batch service will not wait for the start task to complete. In this case, other tasks can start executing on the compute node while the start task is still running; and even if the start task fails, new tasks will continue to be scheduled on the node. The default is true.
         """
@@ -2907,7 +3372,7 @@ class StartTaskArgs:
     @pulumi.getter(name="maxTaskRetryCount")
     def max_task_retry_count(self) -> Optional[pulumi.Input[int]]:
         """
-        The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0.
+        The Batch service retries a task if its exit code is nonzero. Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries the task up to 4 times (one initial try and 3 retries). If the maximum retry count is 0, the Batch service does not retry the task. If the maximum retry count is -1, the Batch service retries the task without limit. Default is 0
         """
         return pulumi.get(self, "max_task_retry_count")
 
@@ -2955,6 +3420,10 @@ if not MYPY:
         """
         This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
         """
+        container_host_batch_bind_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgsDict']]]]
+        """
+        If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
+        """
         container_run_options: NotRequired[pulumi.Input[str]]
         """
         These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
@@ -2971,15 +3440,19 @@ elif False:
 class TaskContainerSettingsArgs:
     def __init__(__self__, *,
                  image_name: pulumi.Input[str],
+                 container_host_batch_bind_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgs']]]] = None,
                  container_run_options: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input['ContainerRegistryArgs']] = None,
                  working_directory: Optional[pulumi.Input['ContainerWorkingDirectory']] = None):
         """
         :param pulumi.Input[str] image_name: This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgs']]] container_host_batch_bind_mounts: If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
         :param pulumi.Input[str] container_run_options: These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
         :param pulumi.Input['ContainerRegistryArgs'] registry: This setting can be omitted if was already provided at pool creation.
         """
         pulumi.set(__self__, "image_name", image_name)
+        if container_host_batch_bind_mounts is not None:
+            pulumi.set(__self__, "container_host_batch_bind_mounts", container_host_batch_bind_mounts)
         if container_run_options is not None:
             pulumi.set(__self__, "container_run_options", container_run_options)
         if registry is not None:
@@ -2998,6 +3471,18 @@ class TaskContainerSettingsArgs:
     @image_name.setter
     def image_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter(name="containerHostBatchBindMounts")
+    def container_host_batch_bind_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgs']]]]:
+        """
+        If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.
+        """
+        return pulumi.get(self, "container_host_batch_bind_mounts")
+
+    @container_host_batch_bind_mounts.setter
+    def container_host_batch_bind_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerHostBatchBindMountEntryArgs']]]]):
+        pulumi.set(self, "container_host_batch_bind_mounts", value)
 
     @property
     @pulumi.getter(name="containerRunOptions")
@@ -3055,6 +3540,130 @@ class TaskSchedulingPolicyArgs:
     @node_fill_type.setter
     def node_fill_type(self, value: pulumi.Input['ComputeNodeFillType']):
         pulumi.set(self, "node_fill_type", value)
+
+
+if not MYPY:
+    class UefiSettingsArgsDict(TypedDict):
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+        """
+        secure_boot_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether secure boot should be enabled on the virtual machine.
+        """
+        v_tpm_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether vTPM should be enabled on the virtual machine.
+        """
+elif False:
+    UefiSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UefiSettingsArgs:
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+                 v_tpm_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Specifies the security settings like secure boot and vTPM used while creating the virtual machine.
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
+        :param pulumi.Input[bool] v_tpm_enabled: Specifies whether vTPM should be enabled on the virtual machine.
+        """
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+        if v_tpm_enabled is not None:
+            pulumi.set(__self__, "v_tpm_enabled", v_tpm_enabled)
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+    @property
+    @pulumi.getter(name="vTpmEnabled")
+    def v_tpm_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether vTPM should be enabled on the virtual machine.
+        """
+        return pulumi.get(self, "v_tpm_enabled")
+
+    @v_tpm_enabled.setter
+    def v_tpm_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "v_tpm_enabled", value)
+
+
+if not MYPY:
+    class UpgradePolicyArgsDict(TypedDict):
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        """
+        mode: pulumi.Input['UpgradeMode']
+        automatic_os_upgrade_policy: NotRequired[pulumi.Input['AutomaticOSUpgradePolicyArgsDict']]
+        """
+        The configuration parameters used for performing automatic OS upgrade.
+        """
+        rolling_upgrade_policy: NotRequired[pulumi.Input['RollingUpgradePolicyArgsDict']]
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        """
+elif False:
+    UpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpgradePolicyArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input['UpgradeMode'],
+                 automatic_os_upgrade_policy: Optional[pulumi.Input['AutomaticOSUpgradePolicyArgs']] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input['RollingUpgradePolicyArgs']] = None):
+        """
+        Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input['AutomaticOSUpgradePolicyArgs'] automatic_os_upgrade_policy: The configuration parameters used for performing automatic OS upgrade.
+        :param pulumi.Input['RollingUpgradePolicyArgs'] rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if automatic_os_upgrade_policy is not None:
+            pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
+        if rolling_upgrade_policy is not None:
+            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input['UpgradeMode']:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input['UpgradeMode']):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="automaticOSUpgradePolicy")
+    def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['AutomaticOSUpgradePolicyArgs']]:
+        """
+        The configuration parameters used for performing automatic OS upgrade.
+        """
+        return pulumi.get(self, "automatic_os_upgrade_policy")
+
+    @automatic_os_upgrade_policy.setter
+    def automatic_os_upgrade_policy(self, value: Optional[pulumi.Input['AutomaticOSUpgradePolicyArgs']]):
+        pulumi.set(self, "automatic_os_upgrade_policy", value)
+
+    @property
+    @pulumi.getter(name="rollingUpgradePolicy")
+    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['RollingUpgradePolicyArgs']]:
+        """
+        The configuration parameters used while performing a rolling upgrade.
+        """
+        return pulumi.get(self, "rolling_upgrade_policy")
+
+    @rolling_upgrade_policy.setter
+    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['RollingUpgradePolicyArgs']]):
+        pulumi.set(self, "rolling_upgrade_policy", value)
 
 
 if not MYPY:
@@ -3207,6 +3816,35 @@ class UserIdentityArgs:
     @user_name.setter
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
+
+
+if not MYPY:
+    class VMDiskSecurityProfileArgsDict(TypedDict):
+        """
+        Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        """
+        security_encryption_type: NotRequired[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]]
+elif False:
+    VMDiskSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VMDiskSecurityProfileArgs:
+    def __init__(__self__, *,
+                 security_encryption_type: Optional[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]] = None):
+        """
+        Specifies the security profile settings for the managed disk. **Note**: It can only be set for Confidential VMs and is required when using Confidential VMs.
+        """
+        if security_encryption_type is not None:
+            pulumi.set(__self__, "security_encryption_type", security_encryption_type)
+
+    @property
+    @pulumi.getter(name="securityEncryptionType")
+    def security_encryption_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]]:
+        return pulumi.get(self, "security_encryption_type")
+
+    @security_encryption_type.setter
+    def security_encryption_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityEncryptionTypes']]]):
+        pulumi.set(self, "security_encryption_type", value)
 
 
 if not MYPY:
@@ -3401,6 +4039,14 @@ if not MYPY:
         """
         Contains configuration for ephemeral OSDisk settings.
         """
+        security_profile: NotRequired[pulumi.Input['SecurityProfileArgsDict']]
+        """
+        Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        """
+        service_artifact_reference: NotRequired[pulumi.Input['ServiceArtifactReferenceArgsDict']]
+        """
+        The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
         windows_configuration: NotRequired[pulumi.Input['WindowsConfigurationArgsDict']]
         """
         This property must not be specified if the imageReference specifies a Linux OS image.
@@ -3420,6 +4066,8 @@ class VirtualMachineConfigurationArgs:
                  license_type: Optional[pulumi.Input[str]] = None,
                  node_placement_configuration: Optional[pulumi.Input['NodePlacementConfigurationArgs']] = None,
                  os_disk: Optional[pulumi.Input['OSDiskArgs']] = None,
+                 security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
+                 service_artifact_reference: Optional[pulumi.Input['ServiceArtifactReferenceArgs']] = None,
                  windows_configuration: Optional[pulumi.Input['WindowsConfigurationArgs']] = None):
         """
         :param pulumi.Input[str] node_agent_sku_id: The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.
@@ -3433,6 +4081,8 @@ class VirtualMachineConfigurationArgs:
                 Windows_Client - The on-premises license is for Windows Client.
         :param pulumi.Input['NodePlacementConfigurationArgs'] node_placement_configuration: This configuration will specify rules on how nodes in the pool will be physically allocated.
         :param pulumi.Input['OSDiskArgs'] os_disk: Contains configuration for ephemeral OSDisk settings.
+        :param pulumi.Input['SecurityProfileArgs'] security_profile: Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        :param pulumi.Input['ServiceArtifactReferenceArgs'] service_artifact_reference: The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
         :param pulumi.Input['WindowsConfigurationArgs'] windows_configuration: This property must not be specified if the imageReference specifies a Linux OS image.
         """
         pulumi.set(__self__, "image_reference", image_reference)
@@ -3451,6 +4101,10 @@ class VirtualMachineConfigurationArgs:
             pulumi.set(__self__, "node_placement_configuration", node_placement_configuration)
         if os_disk is not None:
             pulumi.set(__self__, "os_disk", os_disk)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
+        if service_artifact_reference is not None:
+            pulumi.set(__self__, "service_artifact_reference", service_artifact_reference)
         if windows_configuration is not None:
             pulumi.set(__self__, "windows_configuration", windows_configuration)
 
@@ -3563,6 +4217,30 @@ class VirtualMachineConfigurationArgs:
         pulumi.set(self, "os_disk", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
+        """
+        Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['SecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
+    @pulumi.getter(name="serviceArtifactReference")
+    def service_artifact_reference(self) -> Optional[pulumi.Input['ServiceArtifactReferenceArgs']]:
+        """
+        The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        """
+        return pulumi.get(self, "service_artifact_reference")
+
+    @service_artifact_reference.setter
+    def service_artifact_reference(self, value: Optional[pulumi.Input['ServiceArtifactReferenceArgs']]):
+        pulumi.set(self, "service_artifact_reference", value)
+
+    @property
     @pulumi.getter(name="windowsConfiguration")
     def windows_configuration(self) -> Optional[pulumi.Input['WindowsConfigurationArgs']]:
         """
@@ -3611,7 +4289,7 @@ if not MYPY:
     class WindowsUserConfigurationArgsDict(TypedDict):
         login_mode: NotRequired[pulumi.Input['LoginMode']]
         """
-        Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+        Specifies login mode for the user. The default value is Interactive.
         """
 elif False:
     WindowsUserConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3621,7 +4299,7 @@ class WindowsUserConfigurationArgs:
     def __init__(__self__, *,
                  login_mode: Optional[pulumi.Input['LoginMode']] = None):
         """
-        :param pulumi.Input['LoginMode'] login_mode: Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+        :param pulumi.Input['LoginMode'] login_mode: Specifies login mode for the user. The default value is Interactive.
         """
         if login_mode is not None:
             pulumi.set(__self__, "login_mode", login_mode)
@@ -3630,7 +4308,7 @@ class WindowsUserConfigurationArgs:
     @pulumi.getter(name="loginMode")
     def login_mode(self) -> Optional[pulumi.Input['LoginMode']]:
         """
-        Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+        Specifies login mode for the user. The default value is Interactive.
         """
         return pulumi.get(self, "login_mode")
 

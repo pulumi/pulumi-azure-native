@@ -16,15 +16,229 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiBridgePropertiesArgs',
+    'ApiBridgePropertiesArgsDict',
+    'CustomSipHeadersPropertiesArgs',
+    'CustomSipHeadersPropertiesArgsDict',
+    'CustomSipHeaderArgs',
+    'CustomSipHeaderArgsDict',
+    'DnsDelegationPropertiesArgs',
+    'DnsDelegationPropertiesArgsDict',
+    'DnsDelegationsPropertiesArgs',
+    'DnsDelegationsPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
     'PrimaryRegionPropertiesArgs',
     'PrimaryRegionPropertiesArgsDict',
     'ServiceRegionPropertiesArgs',
     'ServiceRegionPropertiesArgsDict',
+    'SkuArgs',
+    'SkuArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiBridgePropertiesArgsDict(TypedDict):
+        """
+        Configuration of the API Bridge.
+        """
+        allowed_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The allowed source IP addresses or CIDR ranges for accessing the API Bridge
+        """
+        configure_api_bridge: NotRequired[pulumi.Input[Union[str, 'ApiBridgeActivationState']]]
+        """
+        The activation state of the API Bridge for this Communications Gateway
+        """
+elif False:
+    ApiBridgePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiBridgePropertiesArgs:
+    def __init__(__self__, *,
+                 allowed_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configure_api_bridge: Optional[pulumi.Input[Union[str, 'ApiBridgeActivationState']]] = None):
+        """
+        Configuration of the API Bridge.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_address_prefixes: The allowed source IP addresses or CIDR ranges for accessing the API Bridge
+        :param pulumi.Input[Union[str, 'ApiBridgeActivationState']] configure_api_bridge: The activation state of the API Bridge for this Communications Gateway
+        """
+        if allowed_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_address_prefixes", allowed_address_prefixes)
+        if configure_api_bridge is None:
+            configure_api_bridge = 'disabled'
+        if configure_api_bridge is not None:
+            pulumi.set(__self__, "configure_api_bridge", configure_api_bridge)
+
+    @property
+    @pulumi.getter(name="allowedAddressPrefixes")
+    def allowed_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed source IP addresses or CIDR ranges for accessing the API Bridge
+        """
+        return pulumi.get(self, "allowed_address_prefixes")
+
+    @allowed_address_prefixes.setter
+    def allowed_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_address_prefixes", value)
+
+    @property
+    @pulumi.getter(name="configureApiBridge")
+    def configure_api_bridge(self) -> Optional[pulumi.Input[Union[str, 'ApiBridgeActivationState']]]:
+        """
+        The activation state of the API Bridge for this Communications Gateway
+        """
+        return pulumi.get(self, "configure_api_bridge")
+
+    @configure_api_bridge.setter
+    def configure_api_bridge(self, value: Optional[pulumi.Input[Union[str, 'ApiBridgeActivationState']]]):
+        pulumi.set(self, "configure_api_bridge", value)
+
+
+if not MYPY:
+    class CustomSipHeadersPropertiesArgsDict(TypedDict):
+        """
+        Properties of Custom SIP Headers.
+        """
+        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgsDict']]]]
+        """
+        The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
+        """
+elif False:
+    CustomSipHeadersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomSipHeadersPropertiesArgs:
+    def __init__(__self__, *,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgs']]]] = None):
+        """
+        Properties of Custom SIP Headers.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgs']]] headers: The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
+        """
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgs']]]]:
+        """
+        The Custom SIP Headers to apply to the calls which traverse the Communications Gateway
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomSipHeaderArgs']]]]):
+        pulumi.set(self, "headers", value)
+
+
+if not MYPY:
+    class CustomSipHeaderArgsDict(TypedDict):
+        """
+        Details of a Custom SIP Header.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Custom SIP Header
+        """
+elif False:
+    CustomSipHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomSipHeaderArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Details of a Custom SIP Header.
+        :param pulumi.Input[str] name: The name of the Custom SIP Header
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Custom SIP Header
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class DnsDelegationPropertiesArgsDict(TypedDict):
+        """
+        Details of a DNS Domain delegated to the Communications Gateway.
+        """
+        domain: NotRequired[pulumi.Input[str]]
+        """
+        Domain name to delegate
+        """
+elif False:
+    DnsDelegationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DnsDelegationPropertiesArgs:
+    def __init__(__self__, *,
+                 domain: Optional[pulumi.Input[str]] = None):
+        """
+        Details of a DNS Domain delegated to the Communications Gateway.
+        :param pulumi.Input[str] domain: Domain name to delegate
+        """
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Domain name to delegate
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
+
+
+if not MYPY:
+    class DnsDelegationsPropertiesArgsDict(TypedDict):
+        """
+        Details of DNS Domains delegated to the Communications Gateway.
+        """
+        delegations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgsDict']]]]
+        """
+        DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
+        """
+elif False:
+    DnsDelegationsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DnsDelegationsPropertiesArgs:
+    def __init__(__self__, *,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgs']]]] = None):
+        """
+        Details of DNS Domains delegated to the Communications Gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgs']]] delegations: DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
+        """
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
+
+    @property
+    @pulumi.getter
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgs']]]]:
+        """
+        DNS Domains to delegate for the creation of DNS Zones by the Azure Communications Gateway
+        """
+        return pulumi.get(self, "delegations")
+
+    @delegations.setter
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DnsDelegationPropertiesArgs']]]]):
+        pulumi.set(self, "delegations", value)
+
 
 if not MYPY:
     class ManagedServiceIdentityArgsDict(TypedDict):
@@ -92,11 +306,11 @@ if not MYPY:
         """
         allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The allowed source IP address or CIDR ranges for media
+        The allowed source IP addresses or CIDR ranges for media
         """
         allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The allowed source IP address or CIDR ranges for signaling
+        The allowed source IP addresses or CIDR ranges for signaling
         """
         esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -115,8 +329,8 @@ class PrimaryRegionPropertiesArgs:
         """
         The configuration used in this region as primary, and other regions as backup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] operator_addresses: IP address to use to contact the operator network from this region
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_media_source_address_prefixes: The allowed source IP address or CIDR ranges for media
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_signaling_source_address_prefixes: The allowed source IP address or CIDR ranges for signaling
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_media_source_address_prefixes: The allowed source IP addresses or CIDR ranges for media
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_signaling_source_address_prefixes: The allowed source IP addresses or CIDR ranges for signaling
         :param pulumi.Input[Sequence[pulumi.Input[str]]] esrp_addresses: IP address to use to contact the ESRP from this region
         """
         pulumi.set(__self__, "operator_addresses", operator_addresses)
@@ -143,7 +357,7 @@ class PrimaryRegionPropertiesArgs:
     @pulumi.getter(name="allowedMediaSourceAddressPrefixes")
     def allowed_media_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The allowed source IP address or CIDR ranges for media
+        The allowed source IP addresses or CIDR ranges for media
         """
         return pulumi.get(self, "allowed_media_source_address_prefixes")
 
@@ -155,7 +369,7 @@ class PrimaryRegionPropertiesArgs:
     @pulumi.getter(name="allowedSignalingSourceAddressPrefixes")
     def allowed_signaling_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The allowed source IP address or CIDR ranges for signaling
+        The allowed source IP addresses or CIDR ranges for signaling
         """
         return pulumi.get(self, "allowed_signaling_source_address_prefixes")
 
@@ -228,5 +442,120 @@ class ServiceRegionPropertiesArgs:
     @primary_region_properties.setter
     def primary_region_properties(self, value: pulumi.Input['PrimaryRegionPropertiesArgs']):
         pulumi.set(self, "primary_region_properties", value)
+
+
+if not MYPY:
+    class SkuArgsDict(TypedDict):
+        """
+        The resource model definition representing SKU
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        tier: NotRequired[pulumi.Input['SkuTier']]
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+elif False:
+    SkuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
+        """
+        The resource model definition representing SKU
+        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the SKU. Ex - P3. It is typically a letter+number code
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
+        pulumi.set(self, "tier", value)
 
 

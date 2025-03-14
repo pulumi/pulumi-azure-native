@@ -49,7 +49,7 @@ class Partner(pulumi.CustomResource):
                  __props__=None):
         """
         this is the management partner operations response
-        Azure REST API version: 2018-02-01. Prior API version in Azure Native 1.x: 2018-02-01.
+        Azure REST API version: 2018-02-01. Prior API version in Azure Native 2.x: 2018-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,7 +63,7 @@ class Partner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         this is the management partner operations response
-        Azure REST API version: 2018-02-01. Prior API version in Azure Native 1.x: 2018-02-01.
+        Azure REST API version: 2018-02-01. Prior API version in Azure Native 2.x: 2018-02-01.
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.
@@ -91,6 +91,7 @@ class Partner(pulumi.CustomResource):
             __props__ = PartnerArgs.__new__(PartnerArgs)
 
             __props__.__dict__["partner_id"] = partner_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -124,6 +125,7 @@ class Partner(pulumi.CustomResource):
 
         __props__ = PartnerArgs.__new__(PartnerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
@@ -135,6 +137,14 @@ class Partner(pulumi.CustomResource):
         __props__.__dict__["updated_time"] = None
         __props__.__dict__["version"] = None
         return Partner(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")

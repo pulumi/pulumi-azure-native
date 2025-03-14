@@ -16,13 +16,6 @@ export const getCopilotSettingOutput: typeof import("./getCopilotSetting").getCo
 utilities.lazyLoad(exports, ["getCopilotSetting","getCopilotSettingOutput"], () => require("./getCopilotSetting"));
 
 
-// Export sub-modules:
-import * as v20240401preview from "./v20240401preview";
-
-export {
-    v20240401preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

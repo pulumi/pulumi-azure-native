@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of a specified container.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getBlobContainer(args: GetBlobContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetBlobContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetBlobContainerArgs {
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  */
 export interface GetBlobContainerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Default the container to use specified encryption scope for all writes.
      */
@@ -136,9 +138,7 @@ export interface GetBlobContainerResult {
 }
 /**
  * Gets properties of a specified container.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function getBlobContainerOutput(args: GetBlobContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBlobContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

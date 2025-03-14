@@ -182,9 +182,7 @@ class Console(pulumi.CustomResource):
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,9 +203,7 @@ class Console(pulumi.CustomResource):
                  args: ConsoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-
-        Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConsoleArgs args: The arguments to use to populate this resource's properties.
@@ -261,6 +257,7 @@ class Console(pulumi.CustomResource):
             if virtual_machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
             __props__.__dict__["name"] = None
@@ -293,6 +290,7 @@ class Console(pulumi.CustomResource):
 
         __props__ = ConsoleArgs.__new__(ConsoleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
         __props__.__dict__["enabled"] = None
@@ -308,6 +306,14 @@ class Console(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machine_access_id"] = None
         return Console(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="detailedStatus")

@@ -74,17 +74,6 @@ utilities.lazyLoad(exports, ["listBillingAccountInvoiceSectionsByCreateSubscript
 // Export enums:
 export * from "../types/enums/billing";
 
-// Export sub-modules:
-import * as v20191001preview from "./v20191001preview";
-import * as v20200501 from "./v20200501";
-import * as v20240401 from "./v20240401";
-
-export {
-    v20191001preview,
-    v20200501,
-    v20240401,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

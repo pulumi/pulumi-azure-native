@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Gets the properties of the specified FHIR Service.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified FHIR Service.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified FHIR Service.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure-native:healthcareapis:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
@@ -97,10 +91,6 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetFhirServiceResult
     {
         /// <summary>
-        /// Fhir Service access policies.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.FhirServiceAccessPolicyEntryResponse> AccessPolicies;
-        /// <summary>
         /// Fhir Service Azure container registry configuration.
         /// </summary>
         public readonly Outputs.FhirServiceAcrConfigurationResponse? AcrConfiguration;
@@ -109,9 +99,17 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly Outputs.FhirServiceAuthenticationConfigurationResponse? AuthenticationConfiguration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fhir Service Cors configuration.
         /// </summary>
         public readonly Outputs.FhirServiceCorsConfigurationResponse? CorsConfiguration;
+        /// <summary>
+        /// The encryption settings of the FHIR service
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
@@ -183,13 +181,15 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetFhirServiceResult(
-            ImmutableArray<Outputs.FhirServiceAccessPolicyEntryResponse> accessPolicies,
-
             Outputs.FhirServiceAcrConfigurationResponse? acrConfiguration,
 
             Outputs.FhirServiceAuthenticationConfigurationResponse? authenticationConfiguration,
 
+            string azureApiVersion,
+
             Outputs.FhirServiceCorsConfigurationResponse? corsConfiguration,
+
+            Outputs.EncryptionResponse? encryption,
 
             string? etag,
 
@@ -225,10 +225,11 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
-            AccessPolicies = accessPolicies;
             AcrConfiguration = acrConfiguration;
             AuthenticationConfiguration = authenticationConfiguration;
+            AzureApiVersion = azureApiVersion;
             CorsConfiguration = corsConfiguration;
+            Encryption = encryption;
             Etag = etag;
             EventState = eventState;
             ExportConfiguration = exportConfiguration;

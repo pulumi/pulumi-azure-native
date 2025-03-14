@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The connector mapping resource format.
- * Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+ * Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
  */
 export class ConnectorMapping extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ConnectorMapping extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectorMapping.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The connector mapping name
      */
@@ -146,6 +150,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
             resourceInputs["mappingName"] = args ? args.mappingName : undefined;
             resourceInputs["mappingProperties"] = args ? args.mappingProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorMappingName"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["dataFormatId"] = undefined /*out*/;
@@ -157,6 +162,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorMappingName"] = undefined /*out*/;
             resourceInputs["connectorName"] = undefined /*out*/;
             resourceInputs["connectorType"] = undefined /*out*/;

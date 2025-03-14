@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves the policy definition version in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Task<GetPolicyDefinitionVersionAtManagementGroupResult> InvokeAsync(GetPolicyDefinitionVersionAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionVersionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup", args ?? new GetPolicyDefinitionVersionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy definition version in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetPolicyDefinitionVersionAtManagementGroupResult> Invoke(GetPolicyDefinitionVersionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionVersionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup", args ?? new GetPolicyDefinitionVersionAtManagementGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy definition version in the given management group with the given name.
-        /// Azure REST API version: 2023-04-01.
-        /// 
-        /// Other available API versions: 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetPolicyDefinitionVersionAtManagementGroupResult> Invoke(GetPolicyDefinitionVersionAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionVersionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionVersionAtManagementGroup", args ?? new GetPolicyDefinitionVersionAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetPolicyDefinitionVersionAtManagementGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The policy definition description.
         /// </summary>
         public readonly string? Description;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetPolicyDefinitionVersionAtManagementGroupResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

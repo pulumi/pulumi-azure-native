@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetShareResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Time at which the share was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetShareResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string? description,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string userName)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             Description = description;
             Id = id;

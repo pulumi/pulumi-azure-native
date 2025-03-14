@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a virtual network rule.
  * Azure REST API version: 2018-06-01.
- *
- * Other available API versions: 2018-06-01-preview.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +37,10 @@ export interface GetVirtualNetworkRuleArgs {
  */
 export interface GetVirtualNetworkRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -66,8 +68,6 @@ export interface GetVirtualNetworkRuleResult {
 /**
  * Gets a virtual network rule.
  * Azure REST API version: 2018-06-01.
- *
- * Other available API versions: 2018-06-01-preview.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

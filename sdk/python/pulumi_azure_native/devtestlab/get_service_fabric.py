@@ -27,10 +27,13 @@ class GetServiceFabricResult:
     """
     A Service Fabric.
     """
-    def __init__(__self__, applicable_schedule=None, environment_id=None, external_service_fabric_id=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, applicable_schedule=None, azure_api_version=None, environment_id=None, external_service_fabric_id=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
         if applicable_schedule and not isinstance(applicable_schedule, dict):
             raise TypeError("Expected argument 'applicable_schedule' to be a dict")
         pulumi.set(__self__, "applicable_schedule", applicable_schedule)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if environment_id and not isinstance(environment_id, str):
             raise TypeError("Expected argument 'environment_id' to be a str")
         pulumi.set(__self__, "environment_id", environment_id)
@@ -66,6 +69,14 @@ class GetServiceFabricResult:
         The applicable schedule for the virtual machine.
         """
         return pulumi.get(self, "applicable_schedule")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="environmentId")
@@ -147,6 +158,7 @@ class AwaitableGetServiceFabricResult(GetServiceFabricResult):
             yield self
         return GetServiceFabricResult(
             applicable_schedule=self.applicable_schedule,
+            azure_api_version=self.azure_api_version,
             environment_id=self.environment_id,
             external_service_fabric_id=self.external_service_fabric_id,
             id=self.id,
@@ -186,6 +198,7 @@ def get_service_fabric(expand: Optional[str] = None,
 
     return AwaitableGetServiceFabricResult(
         applicable_schedule=pulumi.get(__ret__, 'applicable_schedule'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
         external_service_fabric_id=pulumi.get(__ret__, 'external_service_fabric_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -222,6 +235,7 @@ def get_service_fabric_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:devtestlab:getServiceFabric', __args__, opts=opts, typ=GetServiceFabricResult)
     return __ret__.apply(lambda __response__: GetServiceFabricResult(
         applicable_schedule=pulumi.get(__response__, 'applicable_schedule'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         environment_id=pulumi.get(__response__, 'environment_id'),
         external_service_fabric_id=pulumi.get(__response__, 'external_service_fabric_id'),
         id=pulumi.get(__response__, 'id'),

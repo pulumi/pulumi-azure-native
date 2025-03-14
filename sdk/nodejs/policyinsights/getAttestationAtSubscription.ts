@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing attestation at subscription scope.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +33,10 @@ export interface GetAttestationAtSubscriptionResult {
      * The time the evidence was assessed
      */
     readonly assessmentDate?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Comments describing why this attestation was created.
      */
@@ -94,9 +96,7 @@ export interface GetAttestationAtSubscriptionResult {
 }
 /**
  * Gets an existing attestation at subscription scope.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01.
  */
 export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

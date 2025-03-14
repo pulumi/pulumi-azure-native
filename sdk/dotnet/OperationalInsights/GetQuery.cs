@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
-        /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Task<GetQueryResult> InvokeAsync(GetQueryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueryResult>("azure-native:operationalinsights:getQuery", args ?? new GetQueryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
-        /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-        /// Azure REST API version: 2019-09-01.
-        /// 
-        /// Other available API versions: 2019-09-01-preview, 2023-09-01.
+        /// Azure REST API version: 2023-09-01.
         /// </summary>
         public static Output<GetQueryResult> Invoke(GetQueryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryResult>("azure-native:operationalinsights:getQuery", args ?? new GetQueryInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string Author;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Body of the query.
         /// </summary>
         public readonly string Body;
@@ -113,11 +111,11 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -129,7 +127,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly Outputs.LogAnalyticsQueryPackQueryPropertiesResponseRelated? Related;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -145,13 +143,15 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string TimeModified;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetQueryResult(
             string author,
+
+            string azureApiVersion,
 
             string body,
 
@@ -178,6 +178,7 @@ namespace Pulumi.AzureNative.OperationalInsights
             string type)
         {
             Author = author;
+            AzureApiVersion = azureApiVersion;
             Body = body;
             Description = description;
             DisplayName = displayName;

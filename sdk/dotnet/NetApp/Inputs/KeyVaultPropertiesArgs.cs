@@ -24,8 +24,8 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// <summary>
         /// The resource ID of KeyVault.
         /// </summary>
-        [Input("keyVaultResourceId", required: true)]
-        public Input<string> KeyVaultResourceId { get; set; } = null!;
+        [Input("keyVaultResourceId")]
+        public Input<string>? KeyVaultResourceId { get; set; }
 
         /// <summary>
         /// The Uri of KeyVault.

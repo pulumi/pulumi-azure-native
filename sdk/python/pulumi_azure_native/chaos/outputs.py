@@ -124,13 +124,13 @@ class ActionStatusResponse(dict):
 @pulumi.output_type
 class BranchResponse(dict):
     """
-    Model that represents a branch in the step.
+    Model that represents a branch in the step. 9 total per experiment.
     """
     def __init__(__self__, *,
                  actions: Sequence[Any],
                  name: str):
         """
-        Model that represents a branch in the step.
+        Model that represents a branch in the step. 9 total per experiment.
         :param Sequence[Union['ContinuousActionResponse', 'DelayActionResponse', 'DiscreteActionResponse']] actions: List of actions.
         :param str name: String of the branch name.
         """
@@ -628,8 +628,8 @@ class ExperimentPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "startOnCreation":
-            suggest = "start_on_creation"
+        if key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExperimentPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -643,19 +643,26 @@ class ExperimentPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 provisioning_state: str,
                  selectors: Sequence[Any],
-                 steps: Sequence['outputs.StepResponse'],
-                 start_on_creation: Optional[bool] = None):
+                 steps: Sequence['outputs.StepResponse']):
         """
         Model that represents the Experiment properties model.
+        :param str provisioning_state: Most recent provisioning state for the given experiment resource.
         :param Sequence[Union['ListSelectorResponse', 'QuerySelectorResponse']] selectors: List of selectors.
         :param Sequence['StepResponse'] steps: List of steps.
-        :param bool start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "selectors", selectors)
         pulumi.set(__self__, "steps", steps)
-        if start_on_creation is not None:
-            pulumi.set(__self__, "start_on_creation", start_on_creation)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Most recent provisioning state for the given experiment resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -672,14 +679,6 @@ class ExperimentPropertiesResponse(dict):
         List of steps.
         """
         return pulumi.get(self, "steps")
-
-    @property
-    @pulumi.getter(name="startOnCreation")
-    def start_on_creation(self) -> Optional[bool]:
-        """
-        A boolean value that indicates if experiment should be started on creation or not.
-        """
-        return pulumi.get(self, "start_on_creation")
 
 
 @pulumi.output_type

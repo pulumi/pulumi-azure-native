@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets the details of the user provided function app registered with a static site
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSite(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs {
  * Static Site User Provided Function App ARM resource.
  */
 export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The date and time on which the function app was registered with the static site.
      */
@@ -69,9 +71,7 @@ export interface GetStaticSiteUserProvidedFunctionAppForStaticSiteResult {
 }
 /**
  * Description for Gets the details of the user provided function app registered with a static site
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getStaticSiteUserProvidedFunctionAppForStaticSiteOutput(args: GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -301,6 +301,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         }
 
         public static ClusterUpdateStrategyType Rack { get; } = new ClusterUpdateStrategyType("Rack");
+        public static ClusterUpdateStrategyType PauseAfterRack { get; } = new ClusterUpdateStrategyType("PauseAfterRack");
 
         public static bool operator ==(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => left.Equals(right);
         public static bool operator !=(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => !left.Equals(right);
@@ -595,6 +596,70 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is L3NetworkConfigurationIpamEnabled other && Equals(other);
         public bool Equals(L3NetworkConfigurationIpamEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of managed identity that is being selected.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentitySelectorType : IEquatable<ManagedServiceIdentitySelectorType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentitySelectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentitySelectorType SystemAssignedIdentity { get; } = new ManagedServiceIdentitySelectorType("SystemAssignedIdentity");
+        public static ManagedServiceIdentitySelectorType UserAssignedIdentity { get; } = new ManagedServiceIdentitySelectorType("UserAssignedIdentity");
+
+        public static bool operator ==(ManagedServiceIdentitySelectorType left, ManagedServiceIdentitySelectorType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentitySelectorType left, ManagedServiceIdentitySelectorType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentitySelectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentitySelectorType other && Equals(other);
+        public bool Equals(ManagedServiceIdentitySelectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

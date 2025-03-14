@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetNetworkProfileResult> InvokeAsync(GetNetworkProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network profile in a specified resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetNetworkProfileResult> Invoke(GetNetworkProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkProfileResult>("azure-native:network:getNetworkProfile", args ?? new GetNetworkProfileInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkProfileResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of chid container network interface configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponse> ContainerNetworkInterfaceConfigurations;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkProfileResult(
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ContainerNetworkInterfaceConfigurationResponse> containerNetworkInterfaceConfigurations,
 
             ImmutableArray<Outputs.ContainerNetworkInterfaceResponse> containerNetworkInterfaces,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContainerNetworkInterfaceConfigurations = containerNetworkInterfaceConfigurations;
             ContainerNetworkInterfaces = containerNetworkInterfaces;
             Etag = etag;

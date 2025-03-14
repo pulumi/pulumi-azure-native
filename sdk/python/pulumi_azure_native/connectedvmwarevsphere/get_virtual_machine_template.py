@@ -27,7 +27,10 @@ class GetVirtualMachineTemplateResult:
     """
     Define the virtualMachineTemplate.
     """
-    def __init__(__self__, custom_resource_name=None, disks=None, extended_location=None, firmware_type=None, folder_path=None, id=None, inventory_item_id=None, kind=None, location=None, memory_size_mb=None, mo_name=None, mo_ref_id=None, name=None, network_interfaces=None, num_cpus=None, num_cores_per_socket=None, os_name=None, os_type=None, provisioning_state=None, statuses=None, system_data=None, tags=None, tools_version=None, tools_version_status=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, azure_api_version=None, custom_resource_name=None, disks=None, extended_location=None, firmware_type=None, folder_path=None, id=None, inventory_item_id=None, kind=None, location=None, memory_size_mb=None, mo_name=None, mo_ref_id=None, name=None, network_interfaces=None, num_cpus=None, num_cores_per_socket=None, os_name=None, os_type=None, provisioning_state=None, statuses=None, system_data=None, tags=None, tools_version=None, tools_version_status=None, type=None, uuid=None, v_center_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
@@ -109,6 +112,14 @@ class GetVirtualMachineTemplateResult:
         if v_center_id and not isinstance(v_center_id, str):
             raise TypeError("Expected argument 'v_center_id' to be a str")
         pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -260,7 +271,7 @@ class GetVirtualMachineTemplateResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -335,6 +346,7 @@ class AwaitableGetVirtualMachineTemplateResult(GetVirtualMachineTemplateResult):
         if False:
             yield self
         return GetVirtualMachineTemplateResult(
+            azure_api_version=self.azure_api_version,
             custom_resource_name=self.custom_resource_name,
             disks=self.disks,
             extended_location=self.extended_location,
@@ -369,9 +381,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineTemplateResult:
     """
     Implements virtual machine template GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -384,6 +394,7 @@ def get_virtual_machine_template(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult).value
 
     return AwaitableGetVirtualMachineTemplateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         disks=pulumi.get(__ret__, 'disks'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -416,9 +427,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
     """
     Implements virtual machine template GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -430,6 +439,7 @@ def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getVirtualMachineTemplate', __args__, opts=opts, typ=GetVirtualMachineTemplateResult)
     return __ret__.apply(lambda __response__: GetVirtualMachineTemplateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         disks=pulumi.get(__response__, 'disks'),
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
     /// The integration account agreement.
-    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-    /// 
-    /// Other available API versions: 2015-08-01-preview.
+    /// Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountAgreement")]
     public partial class IntegrationAccountAgreement : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Logic
         /// </summary>
         [Output("agreementType")]
         public Output<string> AgreementType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The changed time.
@@ -122,6 +126,7 @@ namespace Pulumi.AzureNative.Logic
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20150801preview:IntegrationAccountAgreement" },
+                    new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:Agreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20160601:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20180701preview:IntegrationAccountAgreement" },
                     new global::Pulumi.Alias { Type = "azure-native:logic/v20190501:IntegrationAccountAgreement" },

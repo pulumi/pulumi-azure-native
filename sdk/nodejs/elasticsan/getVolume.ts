@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an Volume.
- * Azure REST API version: 2021-11-20-preview.
- *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,35 +45,43 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * State of the operation on the resource.
      */
     readonly creationData?: outputs.elasticsan.SourceCreationDataResponse;
     /**
-     * Azure resource identifier.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Azure resource name.
+     * Parent resource information.
+     */
+    readonly managedBy?: outputs.elasticsan.ManagedByInfoResponse;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
+     * State of the operation on the resource.
+     */
+    readonly provisioningState: string;
+    /**
      * Volume size.
      */
-    readonly sizeGiB?: number;
+    readonly sizeGiB: number;
     /**
      * Storage target information
      */
     readonly storageTarget: outputs.elasticsan.IscsiTargetInfoResponse;
     /**
-     * Resource metadata required by ARM RPC
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.elasticsan.SystemDataResponse;
     /**
-     * Azure resource tags.
-     */
-    readonly tags?: {[key: string]: string};
-    /**
-     * Azure resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -85,9 +91,7 @@ export interface GetVolumeResult {
 }
 /**
  * Get an Volume.
- * Azure REST API version: 2021-11-20-preview.
- *
- * Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-05-01.
  */
 export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

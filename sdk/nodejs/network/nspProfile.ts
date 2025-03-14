@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network security perimeter profile resource
- * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
  */
 export class NspProfile extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class NspProfile extends pulumi.CustomResource {
      * Version number that increases with every update to access rules within the profile.
      */
     public /*out*/ readonly accessRulesVersion!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Version number that increases with every update to diagnostic settings within the profile.
      */
@@ -87,10 +89,12 @@ export class NspProfile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticSettingsVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

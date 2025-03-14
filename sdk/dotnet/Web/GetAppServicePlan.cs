@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get an App Service plan.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get an App Service plan.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get an App Service plan.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure-native:web:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetAppServicePlanResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
         /// </summary>
         public readonly bool? ElasticScaleEnabled;
@@ -121,7 +119,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool? IsXenon;
         /// <summary>
-        /// Kind of resource.
+        /// Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -213,6 +211,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetAppServicePlanResult(
+            string azureApiVersion,
+
             bool? elasticScaleEnabled,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -275,6 +275,7 @@ namespace Pulumi.AzureNative.Web
 
             bool? zoneRedundant)
         {
+            AzureApiVersion = azureApiVersion;
             ElasticScaleEnabled = elasticScaleEnabled;
             ExtendedLocation = extendedLocation;
             FreeOfferExpirationTime = freeOfferExpirationTime;

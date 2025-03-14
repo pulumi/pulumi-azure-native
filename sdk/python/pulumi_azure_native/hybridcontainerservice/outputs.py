@@ -31,10 +31,13 @@ __all__ = [
     'CloudProviderProfileResponseInfraStorageProfile',
     'ControlPlaneEndpointProfileResponseControlPlaneEndpoint',
     'ControlPlaneProfileResponse',
+    'CredentialResultResponse',
     'HttpProxyConfigResponseResponse',
     'LinuxProfilePropertiesResponse',
     'LinuxProfilePropertiesResponsePublicKeys',
     'LinuxProfilePropertiesResponseSsh',
+    'ListCredentialResponseResponseError',
+    'ListCredentialResponseResponseProperties',
     'LoadBalancerProfileResponse',
     'NamedAgentPoolProfileResponse',
     'NetworkProfileResponse',
@@ -1068,6 +1071,39 @@ class ControlPlaneProfileResponse(dict):
 
 
 @pulumi.output_type
+class CredentialResultResponse(dict):
+    """
+    The credential result response.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        The credential result response.
+        :param str name: The name of the credential.
+        :param str value: Base64-encoded Kubernetes configuration file.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the credential.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Base64-encoded Kubernetes configuration file.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class HttpProxyConfigResponseResponse(dict):
     """
     Configurations for provisioning the cluster with HTTP proxy servers.
@@ -1287,6 +1323,45 @@ class LinuxProfilePropertiesResponseSsh(dict):
         PublicKeys - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
         """
         return pulumi.get(self, "public_keys")
+
+
+@pulumi.output_type
+class ListCredentialResponseResponseError(dict):
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 message: Optional[str] = None):
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class ListCredentialResponseResponseProperties(dict):
+    def __init__(__self__, *,
+                 kubeconfigs: Sequence['outputs.CredentialResultResponse']):
+        """
+        :param Sequence['CredentialResultResponse'] kubeconfigs: Base64-encoded Kubernetes configuration file.
+        """
+        pulumi.set(__self__, "kubeconfigs", kubeconfigs)
+
+    @property
+    @pulumi.getter
+    def kubeconfigs(self) -> Sequence['outputs.CredentialResultResponse']:
+        """
+        Base64-encoded Kubernetes configuration file.
+        """
+        return pulumi.get(self, "kubeconfigs")
 
 
 @pulumi.output_type

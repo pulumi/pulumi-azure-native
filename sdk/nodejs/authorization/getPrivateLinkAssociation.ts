@@ -32,6 +32,10 @@ export interface GetPrivateLinkAssociationArgs {
 
 export interface GetPrivateLinkAssociationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The plaResourceID.
      */
     readonly id: string;

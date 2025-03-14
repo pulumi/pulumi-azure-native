@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AzureDataTransfer
 {
     /// <summary>
     /// The connection resource definition.
-    /// Azure REST API version: 2023-10-11-preview.
-    /// 
-    /// Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+    /// Azure REST API version: 2024-09-27. Prior API version in Azure Native 2.x: 2023-10-11-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredatatransfer:Connection")]
     public partial class Connection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

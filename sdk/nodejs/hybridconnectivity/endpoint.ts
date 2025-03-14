@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The endpoint for the target resource.
- * Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview.
- *
- * Other available API versions: 2022-05-01-preview, 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-03-15.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -104,10 +106,12 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;

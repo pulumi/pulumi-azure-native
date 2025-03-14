@@ -27,10 +27,19 @@ class GetPacketCaptureResult:
     """
     Information about packet capture session.
     """
-    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, scope=None, storage_location=None, target=None, target_type=None, time_limit_in_seconds=None, total_bytes_per_session=None):
+    def __init__(__self__, azure_api_version=None, bytes_to_capture_per_packet=None, capture_settings=None, continuous_capture=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, scope=None, storage_location=None, target=None, target_type=None, time_limit_in_seconds=None, total_bytes_per_session=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, float):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a float")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
+        if capture_settings and not isinstance(capture_settings, dict):
+            raise TypeError("Expected argument 'capture_settings' to be a dict")
+        pulumi.set(__self__, "capture_settings", capture_settings)
+        if continuous_capture and not isinstance(continuous_capture, bool):
+            raise TypeError("Expected argument 'continuous_capture' to be a bool")
+        pulumi.set(__self__, "continuous_capture", continuous_capture)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -66,12 +75,36 @@ class GetPacketCaptureResult:
         pulumi.set(__self__, "total_bytes_per_session", total_bytes_per_session)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="bytesToCapturePerPacket")
     def bytes_to_capture_per_packet(self) -> Optional[float]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
         return pulumi.get(self, "bytes_to_capture_per_packet")
+
+    @property
+    @pulumi.getter(name="captureSettings")
+    def capture_settings(self) -> Optional['outputs.PacketCaptureSettingsResponse']:
+        """
+        The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+        """
+        return pulumi.get(self, "capture_settings")
+
+    @property
+    @pulumi.getter(name="continuousCapture")
+    def continuous_capture(self) -> Optional[bool]:
+        """
+        This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+        """
+        return pulumi.get(self, "continuous_capture")
 
     @property
     @pulumi.getter
@@ -168,7 +201,10 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
         if False:
             yield self
         return GetPacketCaptureResult(
+            azure_api_version=self.azure_api_version,
             bytes_to_capture_per_packet=self.bytes_to_capture_per_packet,
+            capture_settings=self.capture_settings,
+            continuous_capture=self.continuous_capture,
             etag=self.etag,
             filters=self.filters,
             id=self.id,
@@ -188,9 +224,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPacketCaptureResult:
     """
     Gets a packet capture session by name.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -205,7 +239,10 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult).value
 
     return AwaitableGetPacketCaptureResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bytes_to_capture_per_packet=pulumi.get(__ret__, 'bytes_to_capture_per_packet'),
+        capture_settings=pulumi.get(__ret__, 'capture_settings'),
+        continuous_capture=pulumi.get(__ret__, 'continuous_capture'),
         etag=pulumi.get(__ret__, 'etag'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
@@ -223,9 +260,7 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """
     Gets a packet capture session by name.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str network_watcher_name: The name of the network watcher.
@@ -239,7 +274,10 @@ def get_packet_capture_output(network_watcher_name: Optional[pulumi.Input[str]] 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:network:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult)
     return __ret__.apply(lambda __response__: GetPacketCaptureResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bytes_to_capture_per_packet=pulumi.get(__response__, 'bytes_to_capture_per_packet'),
+        capture_settings=pulumi.get(__response__, 'capture_settings'),
+        continuous_capture=pulumi.get(__response__, 'continuous_capture'),
         etag=pulumi.get(__response__, 'etag'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),

@@ -16,12 +16,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     [OutputType]
     public sealed class AzureMonitorAlertSettingsResponse
     {
+        public readonly string? AlertsForAllFailoverIssues;
         public readonly string? AlertsForAllJobFailures;
+        public readonly string? AlertsForAllReplicationIssues;
 
         [OutputConstructor]
-        private AzureMonitorAlertSettingsResponse(string? alertsForAllJobFailures)
+        private AzureMonitorAlertSettingsResponse(
+            string? alertsForAllFailoverIssues,
+
+            string? alertsForAllJobFailures,
+
+            string? alertsForAllReplicationIssues)
         {
+            AlertsForAllFailoverIssues = alertsForAllFailoverIssues;
             AlertsForAllJobFailures = alertsForAllJobFailures;
+            AlertsForAllReplicationIssues = alertsForAllReplicationIssues;
         }
     }
 }

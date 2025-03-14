@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["SerialPort"], () => require("./serialPort"));
 // Export enums:
 export * from "../types/enums/serialconsole";
 
-// Export sub-modules:
-import * as v20180501 from "./v20180501";
-
-export {
-    v20180501,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

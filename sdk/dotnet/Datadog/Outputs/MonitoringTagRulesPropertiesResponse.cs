@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         /// </summary>
         public readonly bool? Automuting;
         /// <summary>
+        /// Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
+        /// </summary>
+        public readonly bool? CustomMetrics;
+        /// <summary>
         /// Set of rules for sending logs for the Monitor resource.
         /// </summary>
         public readonly Outputs.LogRulesResponse? LogRules;
@@ -34,6 +38,8 @@ namespace Pulumi.AzureNative.Datadog.Outputs
         private MonitoringTagRulesPropertiesResponse(
             bool? automuting,
 
+            bool? customMetrics,
+
             Outputs.LogRulesResponse? logRules,
 
             Outputs.MetricRulesResponse? metricRules,
@@ -41,6 +47,7 @@ namespace Pulumi.AzureNative.Datadog.Outputs
             string provisioningState)
         {
             Automuting = automuting;
+            CustomMetrics = customMetrics;
             LogRules = logRules;
             MetricRules = metricRules;
             ProvisioningState = provisioningState;

@@ -134,9 +134,7 @@ class SqlServerDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         Arc Sql Server database
-        Azure REST API version: 2023-01-15-preview.
-
-        Other available API versions: 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,9 +153,7 @@ class SqlServerDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Sql Server database
-        Azure REST API version: 2023-01-15-preview.
-
-        Other available API versions: 2024-01-01, 2024-05-01-preview.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlServerDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +197,7 @@ class SqlServerDatabase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_server_instance_name'")
             __props__.__dict__["sql_server_instance_name"] = sql_server_instance_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -228,6 +225,7 @@ class SqlServerDatabase(pulumi.CustomResource):
 
         __props__ = SqlServerDatabaseArgs.__new__(SqlServerDatabaseArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -235,6 +233,14 @@ class SqlServerDatabase(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SqlServerDatabase(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

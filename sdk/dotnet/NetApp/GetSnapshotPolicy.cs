@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get a snapshot Policy
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a snapshot Policy
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a snapshot Policy
-        /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure-native:netapp:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.NetApp
     public sealed class GetSnapshotPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Schedule for daily snapshots
         /// </summary>
         public readonly Outputs.DailyScheduleResponse? DailySchedule;
@@ -113,7 +111,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.NetApp
 
         [OutputConstructor]
         private GetSnapshotPolicyResult(
+            string azureApiVersion,
+
             Outputs.DailyScheduleResponse? dailySchedule,
 
             bool? enabled,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.NetApp
 
             Outputs.WeeklyScheduleResponse? weeklySchedule)
         {
+            AzureApiVersion = azureApiVersion;
             DailySchedule = dailySchedule;
             Enabled = enabled;
             Etag = etag;

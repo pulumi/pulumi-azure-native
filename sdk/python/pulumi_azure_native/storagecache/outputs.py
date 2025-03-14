@@ -27,6 +27,7 @@ __all__ = [
     'AmlFilesystemIdentityResponse',
     'AmlFilesystemResponseHsm',
     'AmlFilesystemResponseMaintenanceWindow',
+    'AmlFilesystemRootSquashSettingsResponse',
     'BlobNfsTargetResponse',
     'CacheActiveDirectorySettingsResponse',
     'CacheActiveDirectorySettingsResponseCredentials',
@@ -471,6 +472,8 @@ class AmlFilesystemHsmSettingsResponse(dict):
             suggest = "logging_container"
         elif key == "importPrefix":
             suggest = "import_prefix"
+        elif key == "importPrefixesInitial":
+            suggest = "import_prefixes_initial"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemHsmSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -486,12 +489,14 @@ class AmlFilesystemHsmSettingsResponse(dict):
     def __init__(__self__, *,
                  container: str,
                  logging_container: str,
-                 import_prefix: Optional[str] = None):
+                 import_prefix: Optional[str] = None,
+                 import_prefixes_initial: Optional[Sequence[str]] = None):
         """
         AML file system HSM settings.
         :param str container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
         :param str logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
-        :param str import_prefix: Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        :param str import_prefix: Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
+        :param Sequence[str] import_prefixes_initial: Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
         """
         pulumi.set(__self__, "container", container)
         pulumi.set(__self__, "logging_container", logging_container)
@@ -499,6 +504,8 @@ class AmlFilesystemHsmSettingsResponse(dict):
             import_prefix = '/'
         if import_prefix is not None:
             pulumi.set(__self__, "import_prefix", import_prefix)
+        if import_prefixes_initial is not None:
+            pulumi.set(__self__, "import_prefixes_initial", import_prefixes_initial)
 
     @property
     @pulumi.getter
@@ -520,9 +527,17 @@ class AmlFilesystemHsmSettingsResponse(dict):
     @pulumi.getter(name="importPrefix")
     def import_prefix(self) -> Optional[str]:
         """
-        Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        Only blobs in the non-logging container that start with this path/prefix get imported into the cluster namespace. This is only used during initial creation of the AML file system. It automatically creates an import job resource that can be deleted.
         """
         return pulumi.get(self, "import_prefix")
+
+    @property
+    @pulumi.getter(name="importPrefixesInitial")
+    def import_prefixes_initial(self) -> Optional[Sequence[str]]:
+        """
+        Only blobs in the non-logging container that start with one of the paths/prefixes in this array get imported into the cluster namespace. This is only used during initial creation of the AML file system and has '/' as the default value. It automatically creates an import job resource that can be deleted.
+        """
+        return pulumi.get(self, "import_prefixes_initial")
 
 
 @pulumi.output_type
@@ -706,6 +721,97 @@ class AmlFilesystemResponseMaintenanceWindow(dict):
         The time of day (in UTC) to start the maintenance window.
         """
         return pulumi.get(self, "time_of_day_utc")
+
+
+@pulumi.output_type
+class AmlFilesystemRootSquashSettingsResponse(dict):
+    """
+    AML file system squash settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "noSquashNidLists":
+            suggest = "no_squash_nid_lists"
+        elif key == "squashGID":
+            suggest = "squash_gid"
+        elif key == "squashUID":
+            suggest = "squash_uid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemRootSquashSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemRootSquashSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemRootSquashSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: str,
+                 mode: Optional[str] = None,
+                 no_squash_nid_lists: Optional[str] = None,
+                 squash_gid: Optional[float] = None,
+                 squash_uid: Optional[float] = None):
+        """
+        AML file system squash settings.
+        :param str status: AML file system squash status.
+        :param str mode: Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+        :param str no_squash_nid_lists: Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+        :param float squash_gid: Group ID to squash to.
+        :param float squash_uid: User ID to squash to.
+        """
+        pulumi.set(__self__, "status", status)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if no_squash_nid_lists is not None:
+            pulumi.set(__self__, "no_squash_nid_lists", no_squash_nid_lists)
+        if squash_gid is not None:
+            pulumi.set(__self__, "squash_gid", squash_gid)
+        if squash_uid is not None:
+            pulumi.set(__self__, "squash_uid", squash_uid)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        AML file system squash status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Squash mode of the AML file system. 'All': User and Group IDs on files will be squashed to the provided values for all users on non-trusted systems. 'RootOnly': User and Group IDs on files will be squashed to provided values for solely the root user on non-trusted systems. 'None': No squashing of User and Group IDs is performed for any users on any systems.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="noSquashNidLists")
+    def no_squash_nid_lists(self) -> Optional[str]:
+        """
+        Semicolon separated NID IP Address list(s) to be added to the TrustedSystems.
+        """
+        return pulumi.get(self, "no_squash_nid_lists")
+
+    @property
+    @pulumi.getter(name="squashGID")
+    def squash_gid(self) -> Optional[float]:
+        """
+        Group ID to squash to.
+        """
+        return pulumi.get(self, "squash_gid")
+
+    @property
+    @pulumi.getter(name="squashUID")
+    def squash_uid(self) -> Optional[float]:
+        """
+        User ID to squash to.
+        """
+        return pulumi.get(self, "squash_uid")
 
 
 @pulumi.output_type

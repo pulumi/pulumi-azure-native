@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Contains a list of references of UrlSigningKey type secret objects.
-    /// Azure REST API version: 2023-07-01-preview.
-    /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:KeyGroup")]
     public partial class KeyGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("deploymentStatus")]
         public Output<string> DeploymentStatus { get; private set; } = null!;
 
@@ -127,7 +131,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

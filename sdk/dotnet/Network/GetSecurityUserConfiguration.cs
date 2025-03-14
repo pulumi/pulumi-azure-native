@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager security user configuration.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityUserConfigurationResult> InvokeAsync(GetSecurityUserConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security user configuration.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security user configuration.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.Network
         public string NetworkManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +75,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string> NetworkManagerName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -97,9 +91,9 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityUserConfigurationResult
     {
         /// <summary>
-        /// Flag if need to delete existing network security groups.
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly string? DeleteExistingNSGs;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// A description of the security user configuration.
         /// </summary>
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -131,7 +129,7 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetSecurityUserConfigurationResult(
-            string? deleteExistingNSGs,
+            string azureApiVersion,
 
             string? description,
 
@@ -143,16 +141,19 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DeleteExistingNSGs = deleteExistingNSGs;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

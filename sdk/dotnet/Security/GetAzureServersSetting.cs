@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAzureServersSettingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetAzureServersSettingResult(
+            string azureApiVersion,
+
             string id,
 
             string kind,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

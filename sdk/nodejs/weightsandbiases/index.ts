@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 // Export enums:
 export * from "../types/enums/weightsandbiases";
 
-// Export sub-modules:
-import * as v20240918preview from "./v20240918preview";
-
-export {
-    v20240918preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

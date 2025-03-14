@@ -27,10 +27,13 @@ class GetExtensionResult:
     """
     Extension resource.
     """
-    def __init__(__self__, additional_api_properties=None, e_tag=None, extension_api_docs_link=None, extension_auth_link=None, extension_category=None, extension_id=None, id=None, installed_extension_version=None, name=None, system_data=None, type=None):
+    def __init__(__self__, additional_api_properties=None, azure_api_version=None, e_tag=None, extension_api_docs_link=None, extension_auth_link=None, extension_category=None, extension_id=None, id=None, installed_extension_version=None, name=None, system_data=None, type=None):
         if additional_api_properties and not isinstance(additional_api_properties, dict):
             raise TypeError("Expected argument 'additional_api_properties' to be a dict")
         pulumi.set(__self__, "additional_api_properties", additional_api_properties)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -69,6 +72,14 @@ class GetExtensionResult:
         Additional Api Properties.
         """
         return pulumi.get(self, "additional_api_properties")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -158,6 +169,7 @@ class AwaitableGetExtensionResult(GetExtensionResult):
             yield self
         return GetExtensionResult(
             additional_api_properties=self.additional_api_properties,
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             extension_api_docs_link=self.extension_api_docs_link,
             extension_auth_link=self.extension_auth_link,
@@ -178,8 +190,6 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
     Get installed extension details by extension id.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str extension_id: Id of extension resource.
@@ -194,6 +204,7 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
 
     return AwaitableGetExtensionResult(
         additional_api_properties=pulumi.get(__ret__, 'additional_api_properties'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         extension_api_docs_link=pulumi.get(__ret__, 'extension_api_docs_link'),
         extension_auth_link=pulumi.get(__ret__, 'extension_auth_link'),
@@ -212,8 +223,6 @@ def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pu
     Get installed extension details by extension id.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str extension_id: Id of extension resource.
@@ -227,6 +236,7 @@ def get_extension_output(data_manager_for_agriculture_resource_name: Optional[pu
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getExtension', __args__, opts=opts, typ=GetExtensionResult)
     return __ret__.apply(lambda __response__: GetExtensionResult(
         additional_api_properties=pulumi.get(__response__, 'additional_api_properties'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         extension_api_docs_link=pulumi.get(__response__, 'extension_api_docs_link'),
         extension_auth_link=pulumi.get(__response__, 'extension_auth_link'),

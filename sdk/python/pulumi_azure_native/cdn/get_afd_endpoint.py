@@ -27,10 +27,13 @@ class GetAFDEndpointResult:
     """
     Azure Front Door endpoint is the entity within a Azure Front Door profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, auto_generated_domain_name_label_scope=None, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_generated_domain_name_label_scope=None, azure_api_version=None, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, profile_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
             raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
         pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -72,6 +75,14 @@ class GetAFDEndpointResult:
         Indicates the endpoint name reuse scope. The default value is TenantReuse.
         """
         return pulumi.get(self, "auto_generated_domain_name_label_scope")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="deploymentStatus")
@@ -166,6 +177,7 @@ class AwaitableGetAFDEndpointResult(GetAFDEndpointResult):
             yield self
         return GetAFDEndpointResult(
             auto_generated_domain_name_label_scope=self.auto_generated_domain_name_label_scope,
+            azure_api_version=self.azure_api_version,
             deployment_status=self.deployment_status,
             enabled_state=self.enabled_state,
             host_name=self.host_name,
@@ -185,9 +197,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDEndpointResult:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -203,6 +213,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
 
     return AwaitableGetAFDEndpointResult(
         auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         enabled_state=pulumi.get(__ret__, 'enabled_state'),
         host_name=pulumi.get(__ret__, 'host_name'),
@@ -220,9 +231,7 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDEndpointResult]:
     """
     Gets an existing AzureFrontDoor endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -237,6 +246,7 @@ def get_afd_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDEndpoint', __args__, opts=opts, typ=GetAFDEndpointResult)
     return __ret__.apply(lambda __response__: GetAFDEndpointResult(
         auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         enabled_state=pulumi.get(__response__, 'enabled_state'),
         host_name=pulumi.get(__response__, 'host_name'),

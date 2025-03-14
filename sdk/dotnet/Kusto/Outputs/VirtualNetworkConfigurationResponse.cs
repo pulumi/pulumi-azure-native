@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Kusto.Outputs
         /// </summary>
         public readonly string EnginePublicIpId;
         /// <summary>
+        /// When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// The subnet resource id.
         /// </summary>
         public readonly string SubnetId;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.Kusto.Outputs
 
             string enginePublicIpId,
 
+            string? state,
+
             string subnetId)
         {
             DataManagementPublicIpId = dataManagementPublicIpId;
             EnginePublicIpId = enginePublicIpId;
+            State = state;
             SubnetId = subnetId;
         }
     }

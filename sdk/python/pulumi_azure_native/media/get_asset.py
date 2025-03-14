@@ -27,13 +27,16 @@ class GetAssetResult:
     """
     An Asset.
     """
-    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, encryption_scope=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, system_data=None, type=None):
+    def __init__(__self__, alternate_id=None, asset_id=None, azure_api_version=None, container=None, created=None, description=None, encryption_scope=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, system_data=None, type=None):
         if alternate_id and not isinstance(alternate_id, str):
             raise TypeError("Expected argument 'alternate_id' to be a str")
         pulumi.set(__self__, "alternate_id", alternate_id)
         if asset_id and not isinstance(asset_id, str):
             raise TypeError("Expected argument 'asset_id' to be a str")
         pulumi.set(__self__, "asset_id", asset_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if container and not isinstance(container, str):
             raise TypeError("Expected argument 'container' to be a str")
         pulumi.set(__self__, "container", container)
@@ -83,6 +86,14 @@ class GetAssetResult:
         The Asset ID.
         """
         return pulumi.get(self, "asset_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -181,6 +192,7 @@ class AwaitableGetAssetResult(GetAssetResult):
         return GetAssetResult(
             alternate_id=self.alternate_id,
             asset_id=self.asset_id,
+            azure_api_version=self.azure_api_version,
             container=self.container,
             created=self.created,
             description=self.description,
@@ -217,6 +229,7 @@ def get_asset(account_name: Optional[str] = None,
     return AwaitableGetAssetResult(
         alternate_id=pulumi.get(__ret__, 'alternate_id'),
         asset_id=pulumi.get(__ret__, 'asset_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         container=pulumi.get(__ret__, 'container'),
         created=pulumi.get(__ret__, 'created'),
         description=pulumi.get(__ret__, 'description'),
@@ -250,6 +263,7 @@ def get_asset_output(account_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetAssetResult(
         alternate_id=pulumi.get(__response__, 'alternate_id'),
         asset_id=pulumi.get(__response__, 'asset_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         container=pulumi.get(__response__, 'container'),
         created=pulumi.get(__response__, 'created'),
         description=pulumi.get(__response__, 'description'),

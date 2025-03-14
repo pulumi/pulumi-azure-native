@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["MultipleActivationKey"], () => require("./multiple
 // Export enums:
 export * from "../types/enums/windowsesu";
 
-// Export sub-modules:
-import * as v20190916preview from "./v20190916preview";
-
-export {
-    v20190916preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

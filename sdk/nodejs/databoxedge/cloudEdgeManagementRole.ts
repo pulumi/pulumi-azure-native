@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  * The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
  * For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
  * By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class CloudEdgeManagementRole extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudEdgeManagementRole.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Edge Profile of the resource
      */
@@ -98,11 +102,13 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["edgeProfile"] = undefined /*out*/;
             resourceInputs["localManagementStatus"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["edgeProfile"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["localManagementStatus"] = undefined /*out*/;
@@ -112,7 +118,7 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190801:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20201201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20220301:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20221201preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20190801:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20201201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20220301:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20220401preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20221201preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230101preview:IoTRole" }, { type: "azure-native:databoxedge/v20230101preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230101preview:MECRole" }, { type: "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230701:IoTRole" }, { type: "azure-native:databoxedge/v20230701:KubernetesRole" }, { type: "azure-native:databoxedge/v20230701:MECRole" }, { type: "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20231201:IoTRole" }, { type: "azure-native:databoxedge/v20231201:KubernetesRole" }, { type: "azure-native:databoxedge/v20231201:MECRole" }, { type: "azure-native:databoxedge:IoTRole" }, { type: "azure-native:databoxedge:KubernetesRole" }, { type: "azure-native:databoxedge:MECRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CloudEdgeManagementRole.__pulumiType, name, resourceInputs, opts);
     }

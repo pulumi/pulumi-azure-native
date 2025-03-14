@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.DataProtection.Inputs
     public sealed class DppIdentityDetailsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identityType which can be either SystemAssigned or None
+        /// The identityType which can be either SystemAssigned, UserAssigned, 'SystemAssigned,UserAssigned' or None
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// Gets or sets the user assigned identities.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
 
         public DppIdentityDetailsArgs()
         {

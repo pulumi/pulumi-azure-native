@@ -25,24 +25,33 @@ __all__ = [
 @pulumi.output_type
 class GetExternalNetworkResult:
     """
-    Defines the ExternalNetwork item.
+    Defines the External Network resource.
     """
-    def __init__(__self__, administrative_state=None, annotation=None, disabled_on_resources=None, export_route_policy_id=None, id=None, import_route_policy_id=None, name=None, network_to_network_interconnect_id=None, option_a_properties=None, option_b_properties=None, peering_option=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, administrative_state=None, annotation=None, azure_api_version=None, configuration_state=None, export_route_policy=None, export_route_policy_id=None, id=None, import_route_policy=None, import_route_policy_id=None, name=None, network_to_network_interconnect_id=None, option_a_properties=None, option_b_properties=None, peering_option=None, provisioning_state=None, system_data=None, type=None):
         if administrative_state and not isinstance(administrative_state, str):
             raise TypeError("Expected argument 'administrative_state' to be a str")
         pulumi.set(__self__, "administrative_state", administrative_state)
         if annotation and not isinstance(annotation, str):
             raise TypeError("Expected argument 'annotation' to be a str")
         pulumi.set(__self__, "annotation", annotation)
-        if disabled_on_resources and not isinstance(disabled_on_resources, list):
-            raise TypeError("Expected argument 'disabled_on_resources' to be a list")
-        pulumi.set(__self__, "disabled_on_resources", disabled_on_resources)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        pulumi.set(__self__, "configuration_state", configuration_state)
+        if export_route_policy and not isinstance(export_route_policy, dict):
+            raise TypeError("Expected argument 'export_route_policy' to be a dict")
+        pulumi.set(__self__, "export_route_policy", export_route_policy)
         if export_route_policy_id and not isinstance(export_route_policy_id, str):
             raise TypeError("Expected argument 'export_route_policy_id' to be a str")
         pulumi.set(__self__, "export_route_policy_id", export_route_policy_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if import_route_policy and not isinstance(import_route_policy, dict):
+            raise TypeError("Expected argument 'import_route_policy' to be a dict")
+        pulumi.set(__self__, "import_route_policy", import_route_policy)
         if import_route_policy_id and not isinstance(import_route_policy_id, str):
             raise TypeError("Expected argument 'import_route_policy_id' to be a str")
         pulumi.set(__self__, "import_route_policy_id", import_route_policy_id)
@@ -75,7 +84,7 @@ class GetExternalNetworkResult:
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> str:
         """
-        AdministrativeState of the externalNetwork. Example: Enabled | Disabled.
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -88,18 +97,34 @@ class GetExternalNetworkResult:
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> Sequence[str]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
         """
-        List of resources the externalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "disabled_on_resources")
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> str:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
+
+    @property
+    @pulumi.getter(name="exportRoutePolicy")
+    def export_route_policy(self) -> Optional['outputs.ExportRoutePolicyResponse']:
+        """
+        Export Route Policy either IPv4 or IPv6.
+        """
+        return pulumi.get(self, "export_route_policy")
 
     @property
     @pulumi.getter(name="exportRoutePolicyId")
     def export_route_policy_id(self) -> Optional[str]:
         """
-        ARM resource ID of exportRoutePolicy.
+        ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         """
         return pulumi.get(self, "export_route_policy_id")
 
@@ -107,15 +132,23 @@ class GetExternalNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="importRoutePolicy")
+    def import_route_policy(self) -> Optional['outputs.ImportRoutePolicyResponse']:
+        """
+        Import Route Policy either IPv4 or IPv6.
+        """
+        return pulumi.get(self, "import_route_policy")
 
     @property
     @pulumi.getter(name="importRoutePolicyId")
     def import_route_policy_id(self) -> Optional[str]:
         """
-        ARM resource ID of importRoutePolicy.
+        ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
         """
         return pulumi.get(self, "import_route_policy_id")
 
@@ -129,9 +162,9 @@ class GetExternalNetworkResult:
 
     @property
     @pulumi.getter(name="networkToNetworkInterconnectId")
-    def network_to_network_interconnect_id(self) -> str:
+    def network_to_network_interconnect_id(self) -> Optional[str]:
         """
-        Gets the networkToNetworkInterconnectId of the resource.
+        ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
         """
         return pulumi.get(self, "network_to_network_interconnect_id")
 
@@ -145,7 +178,7 @@ class GetExternalNetworkResult:
 
     @property
     @pulumi.getter(name="optionBProperties")
-    def option_b_properties(self) -> Optional['outputs.OptionBPropertiesResponse']:
+    def option_b_properties(self) -> Optional['outputs.L3OptionBPropertiesResponse']:
         """
         option B properties object
         """
@@ -163,7 +196,7 @@ class GetExternalNetworkResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -192,9 +225,12 @@ class AwaitableGetExternalNetworkResult(GetExternalNetworkResult):
         return GetExternalNetworkResult(
             administrative_state=self.administrative_state,
             annotation=self.annotation,
-            disabled_on_resources=self.disabled_on_resources,
+            azure_api_version=self.azure_api_version,
+            configuration_state=self.configuration_state,
+            export_route_policy=self.export_route_policy,
             export_route_policy_id=self.export_route_policy_id,
             id=self.id,
+            import_route_policy=self.import_route_policy,
             import_route_policy_id=self.import_route_policy_id,
             name=self.name,
             network_to_network_interconnect_id=self.network_to_network_interconnect_id,
@@ -212,13 +248,11 @@ def get_external_network(external_network_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExternalNetworkResult:
     """
     Implements ExternalNetworks GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str external_network_name: Name of the ExternalNetwork
-    :param str l3_isolation_domain_name: Name of the L3IsolationDomain
+    :param str external_network_name: Name of the External Network.
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -231,9 +265,12 @@ def get_external_network(external_network_name: Optional[str] = None,
     return AwaitableGetExternalNetworkResult(
         administrative_state=pulumi.get(__ret__, 'administrative_state'),
         annotation=pulumi.get(__ret__, 'annotation'),
-        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        export_route_policy=pulumi.get(__ret__, 'export_route_policy'),
         export_route_policy_id=pulumi.get(__ret__, 'export_route_policy_id'),
         id=pulumi.get(__ret__, 'id'),
+        import_route_policy=pulumi.get(__ret__, 'import_route_policy'),
         import_route_policy_id=pulumi.get(__ret__, 'import_route_policy_id'),
         name=pulumi.get(__ret__, 'name'),
         network_to_network_interconnect_id=pulumi.get(__ret__, 'network_to_network_interconnect_id'),
@@ -249,13 +286,11 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExternalNetworkResult]:
     """
     Implements ExternalNetworks GET method.
-    Azure REST API version: 2023-02-01-preview.
-
-    Other available API versions: 2023-06-15.
+    Azure REST API version: 2023-06-15.
 
 
-    :param str external_network_name: Name of the ExternalNetwork
-    :param str l3_isolation_domain_name: Name of the L3IsolationDomain
+    :param str external_network_name: Name of the External Network.
+    :param str l3_isolation_domain_name: Name of the L3 Isolation Domain.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -267,9 +302,12 @@ def get_external_network_output(external_network_name: Optional[pulumi.Input[str
     return __ret__.apply(lambda __response__: GetExternalNetworkResult(
         administrative_state=pulumi.get(__response__, 'administrative_state'),
         annotation=pulumi.get(__response__, 'annotation'),
-        disabled_on_resources=pulumi.get(__response__, 'disabled_on_resources'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        configuration_state=pulumi.get(__response__, 'configuration_state'),
+        export_route_policy=pulumi.get(__response__, 'export_route_policy'),
         export_route_policy_id=pulumi.get(__response__, 'export_route_policy_id'),
         id=pulumi.get(__response__, 'id'),
+        import_route_policy=pulumi.get(__response__, 'import_route_policy'),
         import_route_policy_id=pulumi.get(__response__, 'import_route_policy_id'),
         name=pulumi.get(__response__, 'name'),
         network_to_network_interconnect_id=pulumi.get(__response__, 'network_to_network_interconnect_id'),

@@ -32,7 +32,10 @@ class GetPipelineTopologyResult:
       - Processors: list of nodes which perform data analysis or transformations.
       - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
     """
-    def __init__(__self__, description=None, id=None, kind=None, name=None, parameters=None, processors=None, sinks=None, sku=None, sources=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, kind=None, name=None, parameters=None, processors=None, sinks=None, sku=None, sources=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -66,6 +69,14 @@ class GetPipelineTopologyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -162,6 +173,7 @@ class AwaitableGetPipelineTopologyResult(GetPipelineTopologyResult):
         if False:
             yield self
         return GetPipelineTopologyResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             kind=self.kind,
@@ -196,6 +208,7 @@ def get_pipeline_topology(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getPipelineTopology', __args__, opts=opts, typ=GetPipelineTopologyResult).value
 
     return AwaitableGetPipelineTopologyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -227,6 +240,7 @@ def get_pipeline_topology_output(account_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getPipelineTopology', __args__, opts=opts, typ=GetPipelineTopologyResult)
     return __ret__.apply(lambda __response__: GetPipelineTopologyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

@@ -269,9 +269,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         Schema for Application properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,9 +296,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for Application properties.
-        Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-
-        Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-09-09.
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -360,6 +356,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["show_in_portal"] = show_in_portal
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["icon_content"] = None
             __props__.__dict__["icon_hash"] = None
             __props__.__dict__["name"] = None
@@ -391,6 +388,7 @@ class Application(pulumi.CustomResource):
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
         __props__.__dict__["application_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["command_line_arguments"] = None
         __props__.__dict__["command_line_setting"] = None
         __props__.__dict__["description"] = None
@@ -416,6 +414,14 @@ class Application(pulumi.CustomResource):
         Resource Type of Application.
         """
         return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="commandLineArguments")
@@ -533,7 +539,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

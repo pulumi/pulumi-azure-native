@@ -27,10 +27,13 @@ class GetCustomLocationResult:
     """
     Custom Locations definition.
     """
-    def __init__(__self__, authentication=None, cluster_extension_ids=None, display_name=None, host_resource_id=None, host_type=None, id=None, identity=None, location=None, name=None, namespace=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication=None, azure_api_version=None, cluster_extension_ids=None, display_name=None, host_resource_id=None, host_type=None, id=None, identity=None, location=None, name=None, namespace=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if authentication and not isinstance(authentication, dict):
             raise TypeError("Expected argument 'authentication' to be a dict")
         pulumi.set(__self__, "authentication", authentication)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_extension_ids and not isinstance(cluster_extension_ids, list):
             raise TypeError("Expected argument 'cluster_extension_ids' to be a list")
         pulumi.set(__self__, "cluster_extension_ids", cluster_extension_ids)
@@ -78,6 +81,14 @@ class GetCustomLocationResult:
         This is optional input that contains the authentication that should be used to generate the namespace.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterExtensionIds")
@@ -191,6 +202,7 @@ class AwaitableGetCustomLocationResult(GetCustomLocationResult):
             yield self
         return GetCustomLocationResult(
             authentication=self.authentication,
+            azure_api_version=self.azure_api_version,
             cluster_extension_ids=self.cluster_extension_ids,
             display_name=self.display_name,
             host_resource_id=self.host_resource_id,
@@ -211,9 +223,7 @@ def get_custom_location(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomLocationResult:
     """
     Gets the details of the customLocation with a specified resource group and name.
-    Azure REST API version: 2021-08-15.
-
-    Other available API versions: 2021-08-31-preview.
+    Azure REST API version: 2021-08-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -227,6 +237,7 @@ def get_custom_location(resource_group_name: Optional[str] = None,
 
     return AwaitableGetCustomLocationResult(
         authentication=pulumi.get(__ret__, 'authentication'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_extension_ids=pulumi.get(__ret__, 'cluster_extension_ids'),
         display_name=pulumi.get(__ret__, 'display_name'),
         host_resource_id=pulumi.get(__ret__, 'host_resource_id'),
@@ -245,9 +256,7 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomLocationResult]:
     """
     Gets the details of the customLocation with a specified resource group and name.
-    Azure REST API version: 2021-08-15.
-
-    Other available API versions: 2021-08-31-preview.
+    Azure REST API version: 2021-08-31-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -260,6 +269,7 @@ def get_custom_location_output(resource_group_name: Optional[pulumi.Input[str]] 
     __ret__ = pulumi.runtime.invoke_output('azure-native:extendedlocation:getCustomLocation', __args__, opts=opts, typ=GetCustomLocationResult)
     return __ret__.apply(lambda __response__: GetCustomLocationResult(
         authentication=pulumi.get(__response__, 'authentication'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_extension_ids=pulumi.get(__response__, 'cluster_extension_ids'),
         display_name=pulumi.get(__response__, 'display_name'),
         host_resource_id=pulumi.get(__response__, 'host_resource_id'),

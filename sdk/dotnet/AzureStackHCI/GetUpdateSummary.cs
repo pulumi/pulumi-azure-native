@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get all Update summaries under the HCI cluster
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetUpdateSummaryResult> InvokeAsync(GetUpdateSummaryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateSummaryResult>("azure-native:azurestackhci:getUpdateSummary", args ?? new GetUpdateSummaryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get all Update summaries under the HCI cluster
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetUpdateSummaryResult> Invoke(GetUpdateSummaryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateSummaryResult>("azure-native:azurestackhci:getUpdateSummary", args ?? new GetUpdateSummaryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get all Update summaries under the HCI cluster
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetUpdateSummaryResult> Invoke(GetUpdateSummaryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateSummaryResult>("azure-native:azurestackhci:getUpdateSummary", args ?? new GetUpdateSummaryInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,18 @@ namespace Pulumi.AzureNative.AzureStackHCI
     [OutputType]
     public sealed class GetUpdateSummaryResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Current OEM Version.
+        /// </summary>
+        public readonly string? CurrentOemVersion;
+        /// <summary>
+        /// Current Sbe version of the stamp.
+        /// </summary>
+        public readonly string? CurrentSbeVersion;
         /// <summary>
         /// Current Solution Bundle version of the stamp.
         /// </summary>
@@ -139,6 +145,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetUpdateSummaryResult(
+            string azureApiVersion,
+
+            string? currentOemVersion,
+
+            string? currentSbeVersion,
+
             string? currentVersion,
 
             string? hardwareModel,
@@ -165,6 +177,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
+            CurrentOemVersion = currentOemVersion;
+            CurrentSbeVersion = currentSbeVersion;
             CurrentVersion = currentVersion;
             HardwareModel = hardwareModel;
             HealthCheckDate = healthCheckDate;

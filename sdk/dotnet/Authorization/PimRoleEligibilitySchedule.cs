@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.Authorization
     /// [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
     /// API to create and delete the schedules.
     /// 
-    /// Azure REST API version: 2020-10-01.
+    /// Azure REST API version: 2020-10-01. Prior API version in Azure Native 2.x: 2020-10-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PimRoleEligibilitySchedule")]
     public partial class PimRoleEligibilitySchedule : global::Pulumi.CustomResource
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("approvalId")]
         public Output<string> ApprovalId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'

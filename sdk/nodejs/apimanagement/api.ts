@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * API details.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-10-10, 2017-03-01, 2018-06-01-preview, 2020-12-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -72,6 +70,10 @@ export class Api extends pulumi.CustomResource {
      * Collection of authentication settings included into this API.
      */
     public readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Contact information for the API.
      */
@@ -181,6 +183,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["translateRequiredQueryParametersConduct"] = args ? args.translateRequiredQueryParametersConduct : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -193,6 +196,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["apiVersionSet"] = undefined /*out*/;
             resourceInputs["apiVersionSetId"] = undefined /*out*/;
             resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contact"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

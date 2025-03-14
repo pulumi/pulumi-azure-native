@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
-    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         [Output("identity")]
         public Output<Outputs.IdentityPropertiesResponse?> Identity { get; private set; } = null!;
 

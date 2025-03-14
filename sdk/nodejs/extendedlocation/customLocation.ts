@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom Locations definition.
- * Azure REST API version: 2021-08-15. Prior API version in Azure Native 1.x: 2021-03-15-preview.
- *
- * Other available API versions: 2021-08-31-preview.
+ * Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 2.x: 2021-08-15.
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class CustomLocation extends pulumi.CustomResource {
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
     public readonly authentication!: pulumi.Output<outputs.extendedlocation.CustomLocationPropertiesResponseAuthentication | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Contains the reference to the add-on that contains charts to deploy CRDs and operators.
      */
@@ -119,11 +121,13 @@ export class CustomLocation extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterExtensionIds"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["hostResourceId"] = undefined /*out*/;

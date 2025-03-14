@@ -40,6 +40,10 @@ export interface GetCapabilityHostArgs {
  */
 export interface GetCapabilityHostResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * [Required] Additional attributes of the entity.
      */
     readonly capabilityHostProperties: outputs.machinelearningservices.CapabilityHostResponse;

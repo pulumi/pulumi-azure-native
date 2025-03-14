@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// <summary>
         /// The facilities cost.
         /// </summary>
-        [Input("facilitiesCost", required: true)]
-        public Input<double> FacilitiesCost { get; set; } = null!;
+        [Input("facilitiesCostPerKwh")]
+        public Input<double>? FacilitiesCostPerKwh { get; set; }
 
         public FacilitySettingsArgs()
         {

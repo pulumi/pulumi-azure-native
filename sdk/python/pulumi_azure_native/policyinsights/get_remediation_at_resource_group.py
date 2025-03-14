@@ -27,7 +27,10 @@ class GetRemediationAtResourceGroupResult:
     """
     The remediation definition.
     """
-    def __init__(__self__, correlation_id=None, created_on=None, deployment_status=None, failure_threshold=None, filters=None, id=None, last_updated_on=None, name=None, parallel_deployments=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_count=None, resource_discovery_mode=None, status_message=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, correlation_id=None, created_on=None, deployment_status=None, failure_threshold=None, filters=None, id=None, last_updated_on=None, name=None, parallel_deployments=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_count=None, resource_discovery_mode=None, status_message=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if correlation_id and not isinstance(correlation_id, str):
             raise TypeError("Expected argument 'correlation_id' to be a str")
         pulumi.set(__self__, "correlation_id", correlation_id)
@@ -79,6 +82,14 @@ class GetRemediationAtResourceGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="correlationId")
@@ -223,6 +234,7 @@ class AwaitableGetRemediationAtResourceGroupResult(GetRemediationAtResourceGroup
         if False:
             yield self
         return GetRemediationAtResourceGroupResult(
+            azure_api_version=self.azure_api_version,
             correlation_id=self.correlation_id,
             created_on=self.created_on,
             deployment_status=self.deployment_status,
@@ -247,9 +259,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
     Gets an existing remediation at resource group scope.
-    Azure REST API version: 2021-10-01.
-
-    Other available API versions: 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -262,6 +272,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights:getRemediationAtResourceGroup', __args__, opts=opts, typ=GetRemediationAtResourceGroupResult).value
 
     return AwaitableGetRemediationAtResourceGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         correlation_id=pulumi.get(__ret__, 'correlation_id'),
         created_on=pulumi.get(__ret__, 'created_on'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
@@ -284,9 +295,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
     """
     Gets an existing remediation at resource group scope.
-    Azure REST API version: 2021-10-01.
-
-    Other available API versions: 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -298,6 +307,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:policyinsights:getRemediationAtResourceGroup', __args__, opts=opts, typ=GetRemediationAtResourceGroupResult)
     return __ret__.apply(lambda __response__: GetRemediationAtResourceGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         correlation_id=pulumi.get(__response__, 'correlation_id'),
         created_on=pulumi.get(__response__, 'created_on'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),

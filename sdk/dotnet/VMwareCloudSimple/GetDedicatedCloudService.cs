@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     public sealed class GetDedicatedCloudServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         /// </summary>
         public readonly string GatewaySubnet;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 
         [OutputConstructor]
         private GetDedicatedCloudServiceResult(
+            string azureApiVersion,
+
             string gatewaySubnet,
 
             string id,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GatewaySubnet = gatewaySubnet;
             Id = id;
             IsAccountOnboarded = isAccountOnboarded;

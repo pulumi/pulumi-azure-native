@@ -27,10 +27,13 @@ class GetApplicationResult:
     """
     Schema for Application properties.
     """
-    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, object_id=None, show_in_portal=None, system_data=None, type=None):
+    def __init__(__self__, application_type=None, azure_api_version=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, object_id=None, show_in_portal=None, system_data=None, type=None):
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if command_line_arguments and not isinstance(command_line_arguments, str):
             raise TypeError("Expected argument 'command_line_arguments' to be a str")
         pulumi.set(__self__, "command_line_arguments", command_line_arguments)
@@ -90,6 +93,14 @@ class GetApplicationResult:
         Resource Type of Application.
         """
         return pulumi.get(self, "application_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="commandLineArguments")
@@ -167,7 +178,7 @@ class GetApplicationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -215,7 +226,7 @@ class GetApplicationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -235,6 +246,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             application_type=self.application_type,
+            azure_api_version=self.azure_api_version,
             command_line_arguments=self.command_line_arguments,
             command_line_setting=self.command_line_setting,
             description=self.description,
@@ -260,9 +272,7 @@ def get_application(application_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Get an application.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str application_group_name: The name of the application group
@@ -278,6 +288,7 @@ def get_application(application_group_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         application_type=pulumi.get(__ret__, 'application_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         command_line_arguments=pulumi.get(__ret__, 'command_line_arguments'),
         command_line_setting=pulumi.get(__ret__, 'command_line_setting'),
         description=pulumi.get(__ret__, 'description'),
@@ -301,9 +312,7 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Get an application.
-    Azure REST API version: 2022-09-09.
-
-    Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+    Azure REST API version: 2024-04-03.
 
 
     :param str application_group_name: The name of the application group
@@ -318,6 +327,7 @@ def get_application_output(application_group_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:desktopvirtualization:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         application_type=pulumi.get(__response__, 'application_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         command_line_arguments=pulumi.get(__response__, 'command_line_arguments'),
         command_line_setting=pulumi.get(__response__, 'command_line_setting'),
         description=pulumi.get(__response__, 'description'),

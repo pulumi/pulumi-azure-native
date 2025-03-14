@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:dbformariadb:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbformariadb:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets information about a database.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:dbformariadb:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DBforMariaDB
     public sealed class GetDatabaseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The charset of the database.
         /// </summary>
         public readonly string? Charset;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
 
         [OutputConstructor]
         private GetDatabaseResult(
+            string azureApiVersion,
+
             string? charset,
 
             string? collation,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Charset = charset;
             Collation = collation;
             Id = id;

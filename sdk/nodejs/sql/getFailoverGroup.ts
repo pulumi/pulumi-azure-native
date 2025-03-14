@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a failover group.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getFailoverGroup(args: GetFailoverGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetFailoverGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetFailoverGroupArgs {
  * A failover group.
  */
 export interface GetFailoverGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * List of databases in the failover group.
      */
@@ -89,8 +91,6 @@ export interface GetFailoverGroupResult {
 /**
  * Gets a failover group.
  * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
  */
 export function getFailoverGroupOutput(args: GetFailoverGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFailoverGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

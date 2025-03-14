@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of RP resources which supports pagination.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function listAzureDevOpsOrgAvailable(args: ListAzureDevOpsOrgAvailableArgs, opts?: pulumi.InvokeOptions): Promise<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,9 +45,7 @@ export interface ListAzureDevOpsOrgAvailableResult {
 }
 /**
  * List of RP resources which supports pagination.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-04-01, 2024-05-15-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function listAzureDevOpsOrgAvailableOutput(args: ListAzureDevOpsOrgAvailableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAzureDevOpsOrgAvailableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

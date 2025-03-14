@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class SubAccount extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class SubAccount extends pulumi.CustomResource {
         return obj['__pulumiType'] === SubAccount.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.logz.IdentityPropertiesResponse | undefined>;
     public readonly location!: pulumi.Output<string>;
     /**
@@ -81,10 +85,12 @@ export class SubAccount extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subAccountName"] = args ? args.subAccountName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2024-02-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure-native:azurestackhci:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2024-02-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:azurestackhci:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified network security group.
-        /// Azure REST API version: 2024-02-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure-native:azurestackhci:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class GetNetworkSecurityGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string ETag;
@@ -113,6 +111,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The observed state of Network Security Group
+        /// </summary>
+        public readonly Outputs.NetworkSecurityGroupStatusResponse Status;
+        /// <summary>
         /// A collection of references to logical networks that are currently using this NSG
         /// </summary>
         public readonly ImmutableArray<Outputs.LogicalNetworkArmReferenceResponse> Subnets;
@@ -131,6 +133,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetNetworkSecurityGroupResult(
+            string azureApiVersion,
+
             string eTag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string provisioningState,
 
+            Outputs.NetworkSecurityGroupStatusResponse status,
+
             ImmutableArray<Outputs.LogicalNetworkArmReferenceResponse> subnets,
 
             Outputs.SystemDataResponse systemData,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             ExtendedLocation = extendedLocation;
             Id = id;
@@ -160,6 +167,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
             Name = name;
             NetworkInterfaces = networkInterfaces;
             ProvisioningState = provisioningState;
+            Status = status;
             Subnets = subnets;
             SystemData = systemData;
             Tags = tags;

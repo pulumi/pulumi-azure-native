@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetBillingHubServiceUsageResult> InvokeAsync(GetBillingHubServiceUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceUsageResult> Invoke(GetBillingHubServiceUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetBillingHubServiceUsageResult> Invoke(GetBillingHubServiceUsageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingHubServiceUsageResult>("azure-native:testbase:getBillingHubServiceUsage", args ?? new GetBillingHubServiceUsageInvokeArgs(), options.WithDefaults());
@@ -52,7 +46,7 @@ namespace Pulumi.AzureNative.TestBase
         public int? PageSize { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -84,7 +78,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<int>? PageSize { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

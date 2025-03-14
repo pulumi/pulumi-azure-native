@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a HypervHost
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getHypervHostController(args: GetHypervHostControllerArgs, opts?: pulumi.InvokeOptions): Promise<GetHypervHostControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetHypervHostControllerArgs {
  * A host resource belonging to a site resource.
  */
 export interface GetHypervHostControllerResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets the timestamp marking Hyper-V host creation.
      */
@@ -88,9 +90,7 @@ export interface GetHypervHostControllerResult {
 }
 /**
  * Get a HypervHost
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview.
  */
 export function getHypervHostControllerOutput(args: GetHypervHostControllerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervHostControllerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

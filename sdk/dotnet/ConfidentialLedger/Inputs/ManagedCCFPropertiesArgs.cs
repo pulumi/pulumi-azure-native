@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.ConfidentialLedger.Inputs
         [Input("nodeCount")]
         public Input<int>? NodeCount { get; set; }
 
+        /// <summary>
+        /// Object representing RunningState for Managed CCF.
+        /// </summary>
+        [Input("runningState")]
+        public InputUnion<string, Pulumi.AzureNative.ConfidentialLedger.RunningState>? RunningState { get; set; }
+
         public ManagedCCFPropertiesArgs()
         {
         }

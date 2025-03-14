@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The batch configuration resource definition.
- * Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
+ * Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
  */
 export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         return obj['__pulumiType'] === IntegrationAccountBatchConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource location.
      */
@@ -85,9 +89,11 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

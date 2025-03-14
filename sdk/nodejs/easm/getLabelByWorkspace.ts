@@ -40,6 +40,10 @@ export interface GetLabelByWorkspaceArgs {
  */
 export interface GetLabelByWorkspaceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Label color.
      */
     readonly color?: string;

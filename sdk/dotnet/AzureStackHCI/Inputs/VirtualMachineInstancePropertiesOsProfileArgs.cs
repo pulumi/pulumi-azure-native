@@ -37,13 +37,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// LinuxConfiguration - linux specific configuration values for the virtual machine instance
         /// </summary>
         [Input("linuxConfiguration")]
-        public Input<Inputs.VirtualMachineInstancePropertiesLinuxConfigurationArgs>? LinuxConfiguration { get; set; }
+        public Input<Inputs.VirtualMachineInstancePropertiesOsProfileLinuxConfigurationArgs>? LinuxConfiguration { get; set; }
 
         /// <summary>
-        /// Windows Configuration for the virtual machine instance 
+        /// Windows Configuration for the virtual machine instance
         /// </summary>
         [Input("windowsConfiguration")]
-        public Input<Inputs.VirtualMachineInstancePropertiesWindowsConfigurationArgs>? WindowsConfiguration { get; set; }
+        public Input<Inputs.VirtualMachineInstancePropertiesOsProfileWindowsConfigurationArgs>? WindowsConfiguration { get; set; }
 
         public VirtualMachineInstancePropertiesOsProfileArgs()
         {

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the issue Comment for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiIssueCommentResult> InvokeAsync(GetApiIssueCommentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiIssueCommentResult>("azure-native:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the issue Comment for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the issue Comment for an API specified by its identifier.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiIssueCommentResult> Invoke(GetApiIssueCommentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiIssueCommentResult>("azure-native:apimanagement:getApiIssueComment", args ?? new GetApiIssueCommentInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetApiIssueCommentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Date and time when the comment was created.
         /// </summary>
         public readonly string? CreatedDate;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetApiIssueCommentResult(
+            string azureApiVersion,
+
             string? createdDate,
 
             string id,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string userId)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             Id = id;
             Name = name;

@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Monitor.Outputs
 {
 
     /// <summary>
-    /// The private endpoint resource.
+    /// The Private Endpoint resource.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
-        /// The ARM identifier for private endpoint.
+        /// The ARM identifier for Private Endpoint
         /// </summary>
         public readonly string Id;
 

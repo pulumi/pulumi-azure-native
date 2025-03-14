@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Task<GetVirtualEndpointResult> InvokeAsync(GetVirtualEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a virtual endpoint.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetVirtualEndpointResult> Invoke(GetVirtualEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualEndpointResult>("azure-native:dbforpostgresql:getVirtualEndpoint", args ?? new GetVirtualEndpointInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetVirtualEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The endpoint type for the virtual endpoint.
         /// </summary>
         public readonly string? EndpointType;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
         [OutputConstructor]
         private GetVirtualEndpointResult(
+            string azureApiVersion,
+
             string? endpointType,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             ImmutableArray<string> virtualEndpoints)
         {
+            AzureApiVersion = azureApiVersion;
             EndpointType = endpointType;
             Id = id;
             Members = members;

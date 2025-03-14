@@ -33,9 +33,9 @@ namespace Pulumi.AzureNative.Databricks.Outputs
         /// </summary>
         public readonly Outputs.WorkspaceCustomStringParameterResponse? CustomVirtualNetworkId;
         /// <summary>
-        /// Should the Public IP be Disabled?
+        /// Boolean indicating whether the public IP should be disabled. Default value is true
         /// </summary>
-        public readonly Outputs.WorkspaceCustomBooleanParameterResponse? EnableNoPublicIp;
+        public readonly Outputs.WorkspaceNoPublicIPBooleanParameterResponse? EnableNoPublicIp;
         /// <summary>
         /// Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
         /// </summary>
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.Databricks.Outputs
 
             Outputs.WorkspaceCustomStringParameterResponse? customVirtualNetworkId,
 
-            Outputs.WorkspaceCustomBooleanParameterResponse? enableNoPublicIp,
+            Outputs.WorkspaceNoPublicIPBooleanParameterResponse? enableNoPublicIp,
 
             Outputs.WorkspaceEncryptionParameterResponse? encryption,
 

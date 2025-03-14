@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class EventResponse
     {
         /// <summary>
-        /// The path to the type definition of the capability (e.g. DTMI, OPC UA information model node id, etc.), for example dtmi:com:example:Robot:_contents:__prop1;1.
-        /// </summary>
-        public readonly string? CapabilityId;
-        /// <summary>
         /// Stringified JSON that contains connector-specific configuration for the event. For OPC UA, this could include configuration like, publishingInterval, samplingInterval, and queueSize.
         /// </summary>
         public readonly string? EventConfiguration;
@@ -31,29 +27,33 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
         /// <summary>
         /// The name of the event.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// An indication of how the event should be mapped to OpenTelemetry.
         /// </summary>
         public readonly string? ObservabilityMode;
+        /// <summary>
+        /// Object that describes the topic information for the specific event.
+        /// </summary>
+        public readonly Outputs.TopicResponse? Topic;
 
         [OutputConstructor]
         private EventResponse(
-            string? capabilityId,
-
             string? eventConfiguration,
 
             string eventNotifier,
 
-            string? name,
+            string name,
 
-            string? observabilityMode)
+            string? observabilityMode,
+
+            Outputs.TopicResponse? topic)
         {
-            CapabilityId = capabilityId;
             EventConfiguration = eventConfiguration;
             EventNotifier = eventNotifier;
             Name = name;
             ObservabilityMode = observabilityMode;
+            Topic = topic;
         }
     }
 }

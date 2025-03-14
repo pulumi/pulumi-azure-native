@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// Route Policy Statement properties..
+    /// Route Policy Statement properties.
     /// </summary>
     public sealed class RoutePolicyStatementPropertiesArgs : global::Pulumi.ResourceArgs
     {

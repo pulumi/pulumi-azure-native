@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified application package.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getApplicationPackage(args: GetApplicationPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetApplicationPackageArgs {
  */
 export interface GetApplicationPackageResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ETag of the resource, used for concurrency statements.
      */
     readonly etag: string;
@@ -76,15 +78,17 @@ export interface GetApplicationPackageResult {
      */
     readonly storageUrlExpiry: string;
     /**
+     * The tags of the resource.
+     */
+    readonly tags?: {[key: string]: string};
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Gets information about the specified application package.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-11-01, 2024-02-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getApplicationPackageOutput(args: GetApplicationPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

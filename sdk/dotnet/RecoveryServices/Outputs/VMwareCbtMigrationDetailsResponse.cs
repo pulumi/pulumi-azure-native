@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class VMwareCbtMigrationDetailsResponse
     {
         /// <summary>
+        /// A value indicating the appliance monitoring details.
+        /// </summary>
+        public readonly Outputs.ApplianceMonitoringDetailsResponse ApplianceMonitoringDetails;
+        /// <summary>
         /// The confidential VM key vault Id for ADE installation.
         /// </summary>
         public readonly string? ConfidentialVmKeyVaultId;
@@ -25,9 +29,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string DataMoverRunAsAccountId;
         /// <summary>
+        /// The delta sync progress percentage.
+        /// </summary>
+        public readonly int DeltaSyncProgressPercentage;
+        /// <summary>
+        /// The delta sync retry count.
+        /// </summary>
+        public readonly double DeltaSyncRetryCount;
+        /// <summary>
         /// The firmware type.
         /// </summary>
         public readonly string FirmwareType;
+        /// <summary>
+        /// A value indicating the gateway operation details.
+        /// </summary>
+        public readonly Outputs.GatewayOperationDetailsResponse GatewayOperationDetails;
         /// <summary>
         /// The initial seeding progress percentage.
         /// </summary>
@@ -42,6 +58,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// A value indicating whether checksum resync cycle is in progress.
+        /// </summary>
+        public readonly string IsCheckSumResyncCycle;
+        /// <summary>
         /// The last recovery point Id.
         /// </summary>
         public readonly string LastRecoveryPointId;
@@ -54,6 +74,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
+        /// The license type for Linux VM's.
+        /// </summary>
+        public readonly string? LinuxLicenseType;
+        /// <summary>
         /// The migration progress percentage.
         /// </summary>
         public readonly int MigrationProgressPercentage;
@@ -61,6 +85,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The recovery point Id to which the VM was migrated.
         /// </summary>
         public readonly string MigrationRecoveryPointId;
+        /// <summary>
+        /// A value indicating the SRS operation name.
+        /// </summary>
+        public readonly string OperationName;
         /// <summary>
         /// The name of the OS on the VM.
         /// </summary>
@@ -118,7 +146,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string StorageAccountId;
         /// <summary>
-        /// List of supported inplace OS Upgrade versions.
+        /// A value indicating the inplace OS Upgrade version.
         /// </summary>
         public readonly ImmutableArray<string> SupportedOSVersions;
         /// <summary>
@@ -192,11 +220,19 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private VMwareCbtMigrationDetailsResponse(
+            Outputs.ApplianceMonitoringDetailsResponse applianceMonitoringDetails,
+
             string? confidentialVmKeyVaultId,
 
             string dataMoverRunAsAccountId,
 
+            int deltaSyncProgressPercentage,
+
+            double deltaSyncRetryCount,
+
             string firmwareType,
+
+            Outputs.GatewayOperationDetailsResponse gatewayOperationDetails,
 
             int initialSeedingProgressPercentage,
 
@@ -204,15 +240,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string instanceType,
 
+            string isCheckSumResyncCycle,
+
             string lastRecoveryPointId,
 
             string lastRecoveryPointReceived,
 
             string? licenseType,
 
+            string? linuxLicenseType,
+
             int migrationProgressPercentage,
 
             string migrationRecoveryPointId,
+
+            string operationName,
 
             string osName,
 
@@ -278,17 +320,24 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string vmwareMachineId)
         {
+            ApplianceMonitoringDetails = applianceMonitoringDetails;
             ConfidentialVmKeyVaultId = confidentialVmKeyVaultId;
             DataMoverRunAsAccountId = dataMoverRunAsAccountId;
+            DeltaSyncProgressPercentage = deltaSyncProgressPercentage;
+            DeltaSyncRetryCount = deltaSyncRetryCount;
             FirmwareType = firmwareType;
+            GatewayOperationDetails = gatewayOperationDetails;
             InitialSeedingProgressPercentage = initialSeedingProgressPercentage;
             InitialSeedingRetryCount = initialSeedingRetryCount;
             InstanceType = instanceType;
+            IsCheckSumResyncCycle = isCheckSumResyncCycle;
             LastRecoveryPointId = lastRecoveryPointId;
             LastRecoveryPointReceived = lastRecoveryPointReceived;
             LicenseType = licenseType;
+            LinuxLicenseType = linuxLicenseType;
             MigrationProgressPercentage = migrationProgressPercentage;
             MigrationRecoveryPointId = migrationRecoveryPointId;
+            OperationName = operationName;
             OsName = osName;
             OsType = osType;
             PerformAutoResync = performAutoResync;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of a lab resource.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-10-15, 2023-06-07.
+        /// Azure REST API version: 2023-06-07.
         /// </summary>
         public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:labservices:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.LabServices
         /// </summary>
         public readonly Outputs.AutoShutdownProfileResponse AutoShutdownProfile;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
         /// </summary>
         public readonly Outputs.ConnectionProfileResponse ConnectionProfile;
@@ -120,6 +118,10 @@ namespace Pulumi.AzureNative.LabServices
         /// Current provisioning state of the lab.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Error details of last operation done on lab.
+        /// </summary>
+        public readonly Outputs.ResourceOperationErrorResponse ResourceOperationError;
         /// <summary>
         /// The lab user list management profile.
         /// </summary>
@@ -157,6 +159,8 @@ namespace Pulumi.AzureNative.LabServices
         private GetLabResult(
             Outputs.AutoShutdownProfileResponse autoShutdownProfile,
 
+            string azureApiVersion,
+
             Outputs.ConnectionProfileResponse connectionProfile,
 
             string? description,
@@ -172,6 +176,8 @@ namespace Pulumi.AzureNative.LabServices
             Outputs.LabNetworkProfileResponse? networkProfile,
 
             string provisioningState,
+
+            Outputs.ResourceOperationErrorResponse resourceOperationError,
 
             Outputs.RosterProfileResponse? rosterProfile,
 
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.LabServices
             Outputs.VirtualMachineProfileResponse virtualMachineProfile)
         {
             AutoShutdownProfile = autoShutdownProfile;
+            AzureApiVersion = azureApiVersion;
             ConnectionProfile = connectionProfile;
             Description = description;
             Id = id;
@@ -198,6 +205,7 @@ namespace Pulumi.AzureNative.LabServices
             Name = name;
             NetworkProfile = networkProfile;
             ProvisioningState = provisioningState;
+            ResourceOperationError = resourceOperationError;
             RosterProfile = rosterProfile;
             SecurityProfile = securityProfile;
             State = state;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the cloud service.
- * Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2024-11-04.
+ * Azure REST API version: 2022-09-04. Prior API version in Azure Native 2.x: 2022-09-04.
  */
 export class CloudService extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class CloudService extends pulumi.CustomResource {
         return obj['__pulumiType'] === CloudService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -89,10 +91,12 @@ export class CloudService extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

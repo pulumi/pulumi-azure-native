@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomaliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetAnomaliesArgs {
  * Settings with single toggle.
  */
 export interface GetAnomaliesResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Etag of the azure resource
      */
@@ -71,7 +75,7 @@ export interface GetAnomaliesResult {
 }
 /**
  * Gets a setting.
- * Azure REST API version: 2023-06-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomaliesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -37,6 +37,10 @@ export interface GetTagRuleArgs {
  */
 export interface GetTagRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the rule set.
      */
     readonly id: string;

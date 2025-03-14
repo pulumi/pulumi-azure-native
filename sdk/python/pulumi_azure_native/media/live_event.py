@@ -287,9 +287,7 @@ class LiveEvent(pulumi.CustomResource):
                  __props__=None):
         """
         The live event.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -317,9 +315,7 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The live event.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
-
-        Other available API versions: 2018-06-01-preview, 2019-05-01-preview.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param LiveEventArgs args: The arguments to use to populate this resource's properties.
@@ -381,6 +377,7 @@ class LiveEvent(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transcriptions"] = transcriptions
             __props__.__dict__["use_static_hostname"] = use_static_hostname
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
@@ -412,6 +409,7 @@ class LiveEvent(pulumi.CustomResource):
 
         __props__ = LiveEventArgs.__new__(LiveEventArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["cross_site_access_policies"] = None
         __props__.__dict__["description"] = None
@@ -431,6 +429,14 @@ class LiveEvent(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["use_static_hostname"] = None
         return LiveEvent(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

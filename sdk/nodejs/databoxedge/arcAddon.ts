@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Arc Addon.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class ArcAddon extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ArcAddon extends pulumi.CustomResource {
         return obj['__pulumiType'] === ArcAddon.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Host OS supported by the Arc addon.
      */
@@ -128,6 +132,7 @@ export class ArcAddon extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class ArcAddon extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -150,7 +156,7 @@ export class ArcAddon extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }, { type: "azure-native:databoxedge/v20220301:ArcAddon" }, { type: "azure-native:databoxedge/v20220401preview:ArcAddon" }, { type: "azure-native:databoxedge/v20221201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230101preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230701:ArcAddon" }, { type: "azure-native:databoxedge/v20231201:ArcAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }, { type: "azure-native:databoxedge/v20220301:ArcAddon" }, { type: "azure-native:databoxedge/v20220301:IoTAddon" }, { type: "azure-native:databoxedge/v20220401preview:ArcAddon" }, { type: "azure-native:databoxedge/v20221201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230101preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230701:ArcAddon" }, { type: "azure-native:databoxedge/v20230701:IoTAddon" }, { type: "azure-native:databoxedge/v20231201:ArcAddon" }, { type: "azure-native:databoxedge/v20231201:IoTAddon" }, { type: "azure-native:databoxedge:IoTAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcAddon.__pulumiType, name, resourceInputs, opts);
     }

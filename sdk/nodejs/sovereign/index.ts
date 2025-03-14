@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["LandingZoneRegistrationOperation"], () => require(
 // Export enums:
 export * from "../types/enums/sovereign";
 
-// Export sub-modules:
-import * as v20250227preview from "./v20250227preview";
-
-export {
-    v20250227preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

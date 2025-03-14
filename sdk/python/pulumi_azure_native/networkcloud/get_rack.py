@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRackResult:
-    def __init__(__self__, availability_zone=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, rack_location=None, rack_serial_number=None, rack_sku_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, availability_zone=None, azure_api_version=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, rack_location=None, rack_serial_number=None, rack_sku_id=None, system_data=None, tags=None, type=None):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -78,6 +81,14 @@ class GetRackResult:
         The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
         """
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -199,6 +210,7 @@ class AwaitableGetRackResult(GetRackResult):
             yield self
         return GetRackResult(
             availability_zone=self.availability_zone,
+            azure_api_version=self.azure_api_version,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -220,9 +232,7 @@ def get_rack(rack_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRackResult:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str rack_name: The name of the rack.
@@ -236,6 +246,7 @@ def get_rack(rack_name: Optional[str] = None,
 
     return AwaitableGetRackResult(
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
@@ -255,9 +266,7 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRackResult]:
     """
     Get properties of the provided rack.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2024-07-01.
 
 
     :param str rack_name: The name of the rack.
@@ -270,6 +279,7 @@ def get_rack_output(rack_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getRack', __args__, opts=opts, typ=GetRackResult)
     return __ret__.apply(lambda __response__: GetRackResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),

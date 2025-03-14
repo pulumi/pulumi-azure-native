@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetVariableValueResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the variable.
         /// </summary>
         public readonly string Id;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetVariableValueResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.PolicyVariableValueColumnValueResponse> values)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             SystemData = systemData;

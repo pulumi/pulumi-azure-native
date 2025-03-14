@@ -218,9 +218,7 @@ class DiskPool(pulumi.CustomResource):
                  __props__=None):
         """
         Response for Disk Pool request.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
-
-        Other available API versions: 2020-03-15-preview.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -244,9 +242,7 @@ class DiskPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for Disk Pool request.
-        Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-03-15-preview.
-
-        Other available API versions: 2020-03-15-preview.
+        Azure REST API version: 2021-08-01. Prior API version in Azure Native 2.x: 2021-08-01.
 
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.
@@ -300,6 +296,7 @@ class DiskPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -332,6 +329,7 @@ class DiskPool(pulumi.CustomResource):
 
         __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["availability_zones"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["disks"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_by"] = None
@@ -361,6 +359,14 @@ class DiskPool(pulumi.CustomResource):
         Logical zone for Disk Pool resource; example: ["1"].
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

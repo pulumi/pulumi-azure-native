@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Diagnostic details.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiDiagnostic")]
     public partial class ApiDiagnostic : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("alwaysLog")]
         public Output<string?> AlwaysLog { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend

@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Advisor
     public sealed class GetSuppressionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the expiration time stamp.
         /// </summary>
         public readonly string ExpirationTimeStamp;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Advisor
 
         [OutputConstructor]
         private GetSuppressionResult(
+            string azureApiVersion,
+
             string expirationTimeStamp,
 
             string id,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Advisor
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExpirationTimeStamp = expirationTimeStamp;
             Id = id;
             Name = name;

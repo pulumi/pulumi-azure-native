@@ -27,10 +27,13 @@ class GetQueryResult:
     """
     A Log Analytics QueryPack-Query definition.
     """
-    def __init__(__self__, author=None, body=None, description=None, display_name=None, id=None, name=None, properties=None, related=None, system_data=None, tags=None, time_created=None, time_modified=None, type=None):
+    def __init__(__self__, author=None, azure_api_version=None, body=None, description=None, display_name=None, id=None, name=None, properties=None, related=None, system_data=None, tags=None, time_created=None, time_modified=None, type=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -77,6 +80,14 @@ class GetQueryResult:
         return pulumi.get(self, "author")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def body(self) -> str:
         """
@@ -104,7 +115,7 @@ class GetQueryResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -112,7 +123,7 @@ class GetQueryResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -136,7 +147,7 @@ class GetQueryResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -168,7 +179,7 @@ class GetQueryResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -180,6 +191,7 @@ class AwaitableGetQueryResult(GetQueryResult):
             yield self
         return GetQueryResult(
             author=self.author,
+            azure_api_version=self.azure_api_version,
             body=self.body,
             description=self.description,
             display_name=self.display_name,
@@ -200,9 +212,7 @@ def get_query(id: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryResult:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
-
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
@@ -218,6 +228,7 @@ def get_query(id: Optional[str] = None,
 
     return AwaitableGetQueryResult(
         author=pulumi.get(__ret__, 'author'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         body=pulumi.get(__ret__, 'body'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -236,9 +247,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryResult]:
     """
     Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
-    Azure REST API version: 2019-09-01.
-
-    Other available API versions: 2019-09-01-preview, 2023-09-01.
+    Azure REST API version: 2023-09-01.
 
 
     :param str id: The id of a specific query defined in the Log Analytics QueryPack
@@ -253,6 +262,7 @@ def get_query_output(id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:operationalinsights:getQuery', __args__, opts=opts, typ=GetQueryResult)
     return __ret__.apply(lambda __response__: GetQueryResult(
         author=pulumi.get(__response__, 'author'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         body=pulumi.get(__response__, 'body'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

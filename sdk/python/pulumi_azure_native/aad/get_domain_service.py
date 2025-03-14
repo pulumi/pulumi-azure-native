@@ -27,7 +27,10 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, config_diagnostics=None, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_application_id=None, sync_owner=None, sync_scope=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, config_diagnostics=None, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_application_id=None, sync_owner=None, sync_scope=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if config_diagnostics and not isinstance(config_diagnostics, dict):
             raise TypeError("Expected argument 'config_diagnostics' to be a dict")
         pulumi.set(__self__, "config_diagnostics", config_diagnostics)
@@ -103,6 +106,14 @@ class GetDomainServiceResult:
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configDiagnostics")
@@ -311,6 +322,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            azure_api_version=self.azure_api_version,
             config_diagnostics=self.config_diagnostics,
             deployment_id=self.deployment_id,
             domain_configuration_type=self.domain_configuration_type,
@@ -356,6 +368,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aad:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         config_diagnostics=pulumi.get(__ret__, 'config_diagnostics'),
         deployment_id=pulumi.get(__ret__, 'deployment_id'),
         domain_configuration_type=pulumi.get(__ret__, 'domain_configuration_type'),
@@ -398,6 +411,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:aad:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult)
     return __ret__.apply(lambda __response__: GetDomainServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         config_diagnostics=pulumi.get(__response__, 'config_diagnostics'),
         deployment_id=pulumi.get(__response__, 'deployment_id'),
         domain_configuration_type=pulumi.get(__response__, 'domain_configuration_type'),

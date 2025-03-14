@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List the authorization keys associated with this account.
- * Azure REST API version: 2021-12-01.
- *
- * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,7 +28,7 @@ export interface ListAccountKeysArgs {
 }
 
 /**
- * The Account access keys.
+ * The Purview Account access keys.
  */
 export interface ListAccountKeysResult {
     /**
@@ -44,9 +42,7 @@ export interface ListAccountKeysResult {
 }
 /**
  * List the authorization keys associated with this account.
- * Azure REST API version: 2021-12-01.
- *
- * Other available API versions: 2020-12-01-preview, 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListAccountKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

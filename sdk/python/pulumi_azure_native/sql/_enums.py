@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AdministratorType',
     'AutoExecuteStatus',
+    'BackupStorageAccessTier',
     'BackupStorageRedundancy',
     'BlobAuditingPolicyState',
     'CatalogCollationType',
@@ -69,6 +70,14 @@ class AutoExecuteStatus(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     DEFAULT = "Default"
+
+
+class BackupStorageAccessTier(str, Enum):
+    """
+    The BackupStorageAccessTier for the LTR backups
+    """
+    HOT = "Hot"
+    ARCHIVE = "Archive"
 
 
 class BackupStorageRedundancy(str, Enum):

@@ -24,15 +24,22 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Optional. The name to assign the downloaded package file on the VM. This is limited to 4096 characters. If not specified, the package file will be named the same as the Gallery Application name.
         /// </summary>
         public readonly string? PackageFileName;
+        /// <summary>
+        /// Optional. The action to be taken with regards to install/update/remove of the gallery application in the event of a reboot.
+        /// </summary>
+        public readonly string? ScriptBehaviorAfterReboot;
 
         [OutputConstructor]
         private UserArtifactSettingsResponse(
             string? configFileName,
 
-            string? packageFileName)
+            string? packageFileName,
+
+            string? scriptBehaviorAfterReboot)
         {
             ConfigFileName = configFileName;
             PackageFileName = packageFileName;
+            ScriptBehaviorAfterReboot = scriptBehaviorAfterReboot;
         }
     }
 }

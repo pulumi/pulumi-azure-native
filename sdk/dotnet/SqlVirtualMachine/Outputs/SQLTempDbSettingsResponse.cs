@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 {
 
+    /// <summary>
+    /// Set tempDb storage settings for SQL Server.
+    /// </summary>
     [OutputType]
     public sealed class SQLTempDbSettingsResponse
     {
@@ -49,6 +52,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// SQL Server tempdb persist folder location
         /// </summary>
         public readonly string? PersistFolderPath;
+        /// <summary>
+        /// Use storage pool to build a drive if true or not provided
+        /// </summary>
+        public readonly bool? UseStoragePool;
 
         [OutputConstructor]
         private SQLTempDbSettingsResponse(
@@ -68,7 +75,9 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             bool? persistFolder,
 
-            string? persistFolderPath)
+            string? persistFolderPath,
+
+            bool? useStoragePool)
         {
             DataFileCount = dataFileCount;
             DataFileSize = dataFileSize;
@@ -79,6 +88,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
             Luns = luns;
             PersistFolder = persistFolder;
             PersistFolderPath = persistFolderPath;
+            UseStoragePool = useStoragePool;
         }
     }
 }

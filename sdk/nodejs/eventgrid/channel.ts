@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Channel info.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Channel extends pulumi.CustomResource {
         return obj['__pulumiType'] === Channel.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The type of the event channel which represents the direction flow of events.
      */
@@ -70,7 +72,7 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly readinessState!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Channel resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -104,10 +106,12 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["readinessState"] = args ? args.readinessState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["channelType"] = undefined /*out*/;
             resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
             resourceInputs["messageForActivation"] = undefined /*out*/;

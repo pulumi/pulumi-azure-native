@@ -10,11 +10,3 @@ from .configuration_profile import *
 from .get_configuration_profile import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.changeanalysis.v20200401preview as __v20200401preview
-    v20200401preview = __v20200401preview
-else:
-    v20200401preview = _utilities.lazy_import('pulumi_azure_native.changeanalysis.v20200401preview')
-

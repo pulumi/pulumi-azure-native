@@ -215,7 +215,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
 
-        Azure REST API version: 2020-10-01.
+        Azure REST API version: 2020-10-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,7 +251,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         [Role Eligibility Schedule Requests](https://learn.microsoft.com/en-us/rest/api/authorization/role-eligibility-schedule-requests?view=rest-authorization-2020-10-01)
         API to create and delete the schedules.
 
-        Azure REST API version: 2020-10-01.
+        Azure REST API version: 2020-10-01. Prior API version in Azure Native 2.x: 2020-10-01.
 
         :param str resource_name: The name of the resource.
         :param PimRoleEligibilityScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -304,6 +304,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
             __props__.__dict__["target_role_eligibility_schedule_instance_id"] = target_role_eligibility_schedule_instance_id
             __props__.__dict__["ticket_info"] = ticket_info
             __props__.__dict__["approval_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_on"] = None
             __props__.__dict__["expanded_properties"] = None
             __props__.__dict__["name"] = None
@@ -337,6 +338,7 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         __props__ = PimRoleEligibilityScheduleArgs.__new__(PimRoleEligibilityScheduleArgs)
 
         __props__.__dict__["approval_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["condition"] = None
         __props__.__dict__["condition_version"] = None
         __props__.__dict__["created_on"] = None
@@ -364,6 +366,14 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
         The approvalId of the role eligibility schedule request.
         """
         return pulumi.get(self, "approval_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

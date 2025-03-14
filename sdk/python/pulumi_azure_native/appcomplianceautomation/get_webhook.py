@@ -27,7 +27,10 @@ class GetWebhookResult:
     """
     A class represent an AppComplianceAutomation webhook resource.
     """
-    def __init__(__self__, content_type=None, delivery_status=None, enable_ssl_verification=None, events=None, id=None, name=None, payload_url=None, provisioning_state=None, send_all_events=None, status=None, system_data=None, tenant_id=None, type=None, update_webhook_key=None, webhook_id=None, webhook_key=None, webhook_key_enabled=None):
+    def __init__(__self__, azure_api_version=None, content_type=None, delivery_status=None, enable_ssl_verification=None, events=None, id=None, name=None, payload_url=None, provisioning_state=None, send_all_events=None, status=None, system_data=None, tenant_id=None, type=None, update_webhook_key=None, webhook_id=None, webhook_key=None, webhook_key_enabled=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -79,6 +82,14 @@ class GetWebhookResult:
         if webhook_key_enabled and not isinstance(webhook_key_enabled, str):
             raise TypeError("Expected argument 'webhook_key_enabled' to be a str")
         pulumi.set(__self__, "webhook_key_enabled", webhook_key_enabled)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentType")
@@ -223,6 +234,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
         if False:
             yield self
         return GetWebhookResult(
+            azure_api_version=self.azure_api_version,
             content_type=self.content_type,
             delivery_status=self.delivery_status,
             enable_ssl_verification=self.enable_ssl_verification,
@@ -260,6 +272,7 @@ def get_webhook(report_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appcomplianceautomation:getWebhook', __args__, opts=opts, typ=GetWebhookResult).value
 
     return AwaitableGetWebhookResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content_type=pulumi.get(__ret__, 'content_type'),
         delivery_status=pulumi.get(__ret__, 'delivery_status'),
         enable_ssl_verification=pulumi.get(__ret__, 'enable_ssl_verification'),
@@ -294,6 +307,7 @@ def get_webhook_output(report_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:appcomplianceautomation:getWebhook', __args__, opts=opts, typ=GetWebhookResult)
     return __ret__.apply(lambda __response__: GetWebhookResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content_type=pulumi.get(__response__, 'content_type'),
         delivery_status=pulumi.get(__response__, 'delivery_status'),
         enable_ssl_verification=pulumi.get(__response__, 'enable_ssl_verification'),

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets details about the specified streaming job.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
 export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetStreamingJobArgs {
  * A streaming job object, containing all information associated with the named streaming job.
  */
 export interface GetStreamingJobResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The cluster which streaming jobs will run on.
      */
@@ -161,8 +163,6 @@ export interface GetStreamingJobResult {
 /**
  * Gets details about the specified streaming job.
  * Azure REST API version: 2020-03-01.
- *
- * Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
  */
 export function getStreamingJobOutput(args: GetStreamingJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

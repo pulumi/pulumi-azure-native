@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The security automation resource.
- * Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
  */
 export class Automation extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Automation extends pulumi.CustomResource {
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
     public readonly actions!: pulumi.Output<(outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse)[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The security automation description.
      */
@@ -109,11 +111,13 @@ export class Automation extends pulumi.CustomResource {
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;

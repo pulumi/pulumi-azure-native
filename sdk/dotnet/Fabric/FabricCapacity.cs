@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Fabric
 {
     /// <summary>
     /// Fabric Capacity resource
-    /// Azure REST API version: 2023-11-01.
-    /// 
-    /// Other available API versions: 2025-01-15-preview.
+    /// Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:fabric:FabricCapacity")]
     public partial class FabricCapacity : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Fabric
         /// </summary>
         [Output("administration")]
         public Output<Outputs.CapacityAdministrationResponse> Administration { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

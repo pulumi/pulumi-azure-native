@@ -27,7 +27,10 @@ class GetNamespaceNetworkRuleSetResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, default_action=None, id=None, ip_rules=None, location=None, name=None, public_network_access=None, system_data=None, trusted_service_access_enabled=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, azure_api_version=None, default_action=None, id=None, ip_rules=None, location=None, name=None, public_network_access=None, system_data=None, trusted_service_access_enabled=None, type=None, virtual_network_rules=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_action and not isinstance(default_action, str):
             raise TypeError("Expected argument 'default_action' to be a str")
         pulumi.set(__self__, "default_action", default_action)
@@ -58,6 +61,14 @@ class GetNamespaceNetworkRuleSetResult:
         if virtual_network_rules and not isinstance(virtual_network_rules, list):
             raise TypeError("Expected argument 'virtual_network_rules' to be a list")
         pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -146,6 +157,7 @@ class AwaitableGetNamespaceNetworkRuleSetResult(GetNamespaceNetworkRuleSetResult
         if False:
             yield self
         return GetNamespaceNetworkRuleSetResult(
+            azure_api_version=self.azure_api_version,
             default_action=self.default_action,
             id=self.id,
             ip_rules=self.ip_rules,
@@ -163,9 +175,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceNetworkRuleSetResult:
     """
     Gets NetworkRuleSet for a Namespace.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The Namespace name
@@ -178,6 +188,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getNamespaceNetworkRuleSet', __args__, opts=opts, typ=GetNamespaceNetworkRuleSetResult).value
 
     return AwaitableGetNamespaceNetworkRuleSetResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_action=pulumi.get(__ret__, 'default_action'),
         id=pulumi.get(__ret__, 'id'),
         ip_rules=pulumi.get(__ret__, 'ip_rules'),
@@ -193,9 +204,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceNetworkRuleSetResult]:
     """
     Gets NetworkRuleSet for a Namespace.
-    Azure REST API version: 2022-10-01-preview.
-
-    Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+    Azure REST API version: 2024-01-01.
 
 
     :param str namespace_name: The Namespace name
@@ -207,6 +216,7 @@ def get_namespace_network_rule_set_output(namespace_name: Optional[pulumi.Input[
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:eventhub:getNamespaceNetworkRuleSet', __args__, opts=opts, typ=GetNamespaceNetworkRuleSetResult)
     return __ret__.apply(lambda __response__: GetNamespaceNetworkRuleSetResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_action=pulumi.get(__response__, 'default_action'),
         id=pulumi.get(__response__, 'id'),
         ip_rules=pulumi.get(__response__, 'ip_rules'),

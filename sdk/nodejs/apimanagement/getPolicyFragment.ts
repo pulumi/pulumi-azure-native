@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a policy fragment.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,6 +42,10 @@ export interface GetPolicyFragmentArgs {
  */
 export interface GetPolicyFragmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Policy fragment description.
      */
     readonly description?: string;
@@ -70,9 +72,7 @@ export interface GetPolicyFragmentResult {
 }
 /**
  * Gets a policy fragment.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyFragmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

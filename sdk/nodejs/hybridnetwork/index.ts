@@ -194,17 +194,6 @@ utilities.lazyLoad(exports, ["VendorSkus"], () => require("./vendorSkus"));
 // Export enums:
 export * from "../types/enums/hybridnetwork";
 
-// Export sub-modules:
-import * as v20220101preview from "./v20220101preview";
-import * as v20230901 from "./v20230901";
-import * as v20240415 from "./v20240415";
-
-export {
-    v20220101preview,
-    v20230901,
-    v20240415,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets all deployments for a remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Task<ListRemediationDeploymentsAtResourceResult> InvokeAsync(ListRemediationDeploymentsAtResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all deployments for a remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceResult> Invoke(ListRemediationDeploymentsAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all deployments for a remediation at resource scope.
-        /// Azure REST API version: 2021-10-01.
-        /// 
-        /// Other available API versions: 2024-10-01.
+        /// Azure REST API version: 2024-10-01.
         /// </summary>
         public static Output<ListRemediationDeploymentsAtResourceResult> Invoke(ListRemediationDeploymentsAtResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListRemediationDeploymentsAtResourceResult>("azure-native:policyinsights:listRemediationDeploymentsAtResource", args ?? new ListRemediationDeploymentsAtResourceInvokeArgs(), options.WithDefaults());

@@ -34,10 +34,40 @@ namespace Pulumi.AzureNative.Dashboard.Inputs
         public InputUnion<string, Pulumi.AzureNative.Dashboard.DeterministicOutboundIP>? DeterministicOutboundIP { get; set; }
 
         /// <summary>
+        /// Enterprise settings of a Grafana instance
+        /// </summary>
+        [Input("enterpriseConfigurations")]
+        public Input<Inputs.EnterpriseConfigurationsArgs>? EnterpriseConfigurations { get; set; }
+
+        /// <summary>
+        /// Server configurations of a Grafana instance
+        /// </summary>
+        [Input("grafanaConfigurations")]
+        public Input<Inputs.GrafanaConfigurationsArgs>? GrafanaConfigurations { get; set; }
+
+        /// <summary>
         /// GrafanaIntegrations is a bundled observability experience (e.g. pre-configured data source, tailored Grafana dashboards, alerting defaults) for common monitoring scenarios.
         /// </summary>
         [Input("grafanaIntegrations")]
         public Input<Inputs.GrafanaIntegrationsArgs>? GrafanaIntegrations { get; set; }
+
+        /// <summary>
+        /// The major Grafana software version to target.
+        /// </summary>
+        [Input("grafanaMajorVersion")]
+        public Input<string>? GrafanaMajorVersion { get; set; }
+
+        [Input("grafanaPlugins")]
+        private InputList<string>? _grafanaPlugins;
+
+        /// <summary>
+        /// Installed plugin list of the Grafana instance. Key is plugin id, value is plugin definition.
+        /// </summary>
+        public InputList<string> GrafanaPlugins
+        {
+            get => _grafanaPlugins ?? (_grafanaPlugins = new InputList<string>());
+            set => _grafanaPlugins = value;
+        }
 
         /// <summary>
         /// Indicate the state for enable or disable traffic over the public interface.

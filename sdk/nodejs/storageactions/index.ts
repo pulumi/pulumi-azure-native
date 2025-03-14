@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["StorageTask"], () => require("./storageTask"));
 // Export enums:
 export * from "../types/enums/storageactions";
 
-// Export sub-modules:
-import * as v20230101 from "./v20230101";
-
-export {
-    v20230101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Function information.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppInstanceFunctionSlot.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Config information.
      */
@@ -140,8 +142,10 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             resourceInputs["slot"] = args ? args.slot : undefined;
             resourceInputs["testData"] = args ? args.testData : undefined;
             resourceInputs["testDataHref"] = args ? args.testDataHref : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["config"] = undefined /*out*/;
             resourceInputs["configHref"] = undefined /*out*/;
             resourceInputs["files"] = undefined /*out*/;

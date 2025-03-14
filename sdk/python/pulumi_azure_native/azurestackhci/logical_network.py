@@ -170,9 +170,7 @@ class LogicalNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         The logical network resource definition.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -193,9 +191,7 @@ class LogicalNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The logical network resource definition.
-        Azure REST API version: 2023-09-01-preview.
-
-        Other available API versions: 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        Azure REST API version: 2025-02-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LogicalNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -239,6 +235,7 @@ class LogicalNetwork(pulumi.CustomResource):
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vm_switch_name"] = vm_switch_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
@@ -268,6 +265,7 @@ class LogicalNetwork(pulumi.CustomResource):
 
         __props__ = LogicalNetworkArgs.__new__(LogicalNetworkArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dhcp_options"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["location"] = None
@@ -282,8 +280,16 @@ class LogicalNetwork(pulumi.CustomResource):
         return LogicalNetwork(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="dhcpOptions")
-    def dhcp_options(self) -> pulumi.Output[Optional['outputs.LogicalNetworkPropertiesResponseDhcpOptions']]:
+    def dhcp_options(self) -> pulumi.Output[Optional['outputs.LogicalNetworkPropertiesDhcpOptionsResponse']]:
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
         """

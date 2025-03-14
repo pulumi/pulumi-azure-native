@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Package identified by Package name.
         /// Azure REST API version: 2023-05-15-preview.
-        /// 
-        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Task<GetPackageResult> InvokeAsync(GetPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPackageResult>("azure-native:automation:getPackage", args ?? new GetPackageArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Package identified by Package name.
         /// Azure REST API version: 2023-05-15-preview.
-        /// 
-        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:automation:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// Retrieve the Package identified by Package name.
         /// Azure REST API version: 2023-05-15-preview.
-        /// 
-        /// Other available API versions: 2024-10-23.
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("azure-native:automation:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly Outputs.SystemDataResponse AllOf;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the contentLink of the Package.
         /// </summary>
         public readonly Outputs.ContentLinkResponse? ContentLink;
@@ -165,6 +163,8 @@ namespace Pulumi.AzureNative.Automation
         private GetPackageResult(
             Outputs.SystemDataResponse allOf,
 
+            string azureApiVersion,
+
             Outputs.ContentLinkResponse? contentLink,
 
             bool? @default,
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.Automation
             string? version)
         {
             AllOf = allOf;
+            AzureApiVersion = azureApiVersion;
             ContentLink = contentLink;
             Default = @default;
             Error = error;

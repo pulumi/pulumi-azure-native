@@ -27,7 +27,10 @@ class GetAutoScaleVCoreResult:
     """
     Represents an instance of an auto scale v-core resource.
     """
-    def __init__(__self__, capacity_limit=None, capacity_object_id=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, capacity_limit=None, capacity_object_id=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacity_limit and not isinstance(capacity_limit, int):
             raise TypeError("Expected argument 'capacity_limit' to be a int")
         pulumi.set(__self__, "capacity_limit", capacity_limit)
@@ -58,6 +61,14 @@ class GetAutoScaleVCoreResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="capacityLimit")
@@ -146,6 +157,7 @@ class AwaitableGetAutoScaleVCoreResult(GetAutoScaleVCoreResult):
         if False:
             yield self
         return GetAutoScaleVCoreResult(
+            azure_api_version=self.azure_api_version,
             capacity_limit=self.capacity_limit,
             capacity_object_id=self.capacity_object_id,
             id=self.id,
@@ -176,6 +188,7 @@ def get_auto_scale_v_core(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerbidedicated:getAutoScaleVCore', __args__, opts=opts, typ=GetAutoScaleVCoreResult).value
 
     return AwaitableGetAutoScaleVCoreResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacity_limit=pulumi.get(__ret__, 'capacity_limit'),
         capacity_object_id=pulumi.get(__ret__, 'capacity_object_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -203,6 +216,7 @@ def get_auto_scale_v_core_output(resource_group_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbidedicated:getAutoScaleVCore', __args__, opts=opts, typ=GetAutoScaleVCoreResult)
     return __ret__.apply(lambda __response__: GetAutoScaleVCoreResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacity_limit=pulumi.get(__response__, 'capacity_limit'),
         capacity_object_id=pulumi.get(__response__, 'capacity_object_id'),
         id=pulumi.get(__response__, 'id'),

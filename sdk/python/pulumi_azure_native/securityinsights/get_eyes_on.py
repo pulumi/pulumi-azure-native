@@ -27,7 +27,10 @@ class GetEyesOnResult:
     """
     Settings with single toggle.
     """
-    def __init__(__self__, etag=None, id=None, is_enabled=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, is_enabled=None, kind=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -49,6 +52,14 @@ class GetEyesOnResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -114,6 +125,7 @@ class AwaitableGetEyesOnResult(GetEyesOnResult):
         if False:
             yield self
         return GetEyesOnResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             is_enabled=self.is_enabled,
@@ -129,7 +141,7 @@ def get_eyes_on(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEyesOnResult:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -144,6 +156,7 @@ def get_eyes_on(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getEyesOn', __args__, opts=opts, typ=GetEyesOnResult).value
 
     return AwaitableGetEyesOnResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         is_enabled=pulumi.get(__ret__, 'is_enabled'),
@@ -157,7 +170,7 @@ def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEyesOnResult]:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,6 +184,7 @@ def get_eyes_on_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getEyesOn', __args__, opts=opts, typ=GetEyesOnResult)
     return __ret__.apply(lambda __response__: GetEyesOnResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         is_enabled=pulumi.get(__response__, 'is_enabled'),

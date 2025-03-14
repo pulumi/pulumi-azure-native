@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.SecretSyncController
     public sealed class GetAzureKeyVaultSecretProviderClassResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The user assigned managed identity client ID that should be used to access the Azure Key Vault.
         /// </summary>
         public readonly string ClientId;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.SecretSyncController
 
         [OutputConstructor]
         private GetAzureKeyVaultSecretProviderClassResult(
+            string azureApiVersion,
+
             string clientId,
 
             Outputs.AzureResourceManagerCommonTypesExtendedLocationResponse? extendedLocation,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.SecretSyncController
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClientId = clientId;
             ExtendedLocation = extendedLocation;
             Id = id;

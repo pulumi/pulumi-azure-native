@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets the identity.
  * Azure REST API version: 2023-01-31.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetUserAssignedIdentityArgs {
  * Describes an identity resource.
  */
 export interface GetUserAssignedIdentityResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The id of the app associated with the identity. This is a random generated UUID by MSI.
      */
@@ -76,8 +78,6 @@ export interface GetUserAssignedIdentityResult {
 /**
  * Gets the identity.
  * Azure REST API version: 2023-01-31.
- *
- * Other available API versions: 2023-07-31-preview, 2024-11-30.
  */
 export function getUserAssignedIdentityOutput(args: GetUserAssignedIdentityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserAssignedIdentityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

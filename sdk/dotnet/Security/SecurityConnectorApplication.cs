@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Security Application over a given scope
-    /// Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2022-07-01-preview.
+    /// Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnectorApplication")]
     public partial class SecurityConnectorApplication : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// description of the application
         /// </summary>

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Linked service resource type.
-    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>

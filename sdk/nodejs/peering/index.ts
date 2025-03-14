@@ -79,15 +79,6 @@ utilities.lazyLoad(exports, ["RegisteredPrefix"], () => require("./registeredPre
 // Export enums:
 export * from "../types/enums/peering";
 
-// Export sub-modules:
-import * as v20210101 from "./v20210101";
-import * as v20221001 from "./v20221001";
-
-export {
-    v20210101,
-    v20221001,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

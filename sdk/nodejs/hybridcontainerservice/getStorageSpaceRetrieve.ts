@@ -34,6 +34,10 @@ export interface GetStorageSpaceRetrieveArgs {
  * The storageSpaces resource definition.
  */
 export interface GetStorageSpaceRetrieveResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly extendedLocation?: outputs.hybridcontainerservice.StorageSpacesResponseExtendedLocation;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}

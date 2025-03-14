@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Media Services account.
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2015-10-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class MediaService extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class MediaService extends pulumi.CustomResource {
         return obj['__pulumiType'] === MediaService.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The account encryption properties.
      */
@@ -123,6 +125,7 @@ export class MediaService extends pulumi.CustomResource {
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["storageAuthentication"] = args ? args.storageAuthentication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["mediaServiceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -130,6 +133,7 @@ export class MediaService extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["keyDelivery"] = undefined /*out*/;

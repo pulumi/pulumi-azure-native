@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// </summary>
         public readonly string? AppId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Network API for the current operator in the country/region provided in the linked Operator API Plan.
         /// </summary>
         public readonly string CamaraApiName;
@@ -149,6 +153,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 
             string? appId,
 
+            string azureApiVersion,
+
             string camaraApiName,
 
             Outputs.ApplicationPropertiesResponse? configuredApplication,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         {
             AccountType = accountType;
             AppId = appId;
+            AzureApiVersion = azureApiVersion;
             CamaraApiName = camaraApiName;
             ConfiguredApplication = configuredApplication;
             GatewayId = gatewayId;

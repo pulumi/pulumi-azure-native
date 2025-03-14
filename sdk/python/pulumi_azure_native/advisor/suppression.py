@@ -116,7 +116,7 @@ class Suppression(pulumi.CustomResource):
                  __props__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class Suppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.
@@ -174,6 +174,7 @@ class Suppression(pulumi.CustomResource):
             __props__.__dict__["resource_uri"] = resource_uri
             __props__.__dict__["suppression_id"] = suppression_id
             __props__.__dict__["ttl"] = ttl
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["expiration_time_stamp"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -201,6 +202,7 @@ class Suppression(pulumi.CustomResource):
 
         __props__ = SuppressionArgs.__new__(SuppressionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["expiration_time_stamp"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["suppression_id"] = None
@@ -208,6 +210,14 @@ class Suppression(pulumi.CustomResource):
         __props__.__dict__["ttl"] = None
         __props__.__dict__["type"] = None
         return Suppression(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationTimeStamp")

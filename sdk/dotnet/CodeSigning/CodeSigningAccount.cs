@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.CodeSigning
 {
     /// <summary>
     /// Trusted signing account resource.
-    /// Azure REST API version: 2024-02-05-preview.
-    /// 
-    /// Other available API versions: 2024-09-30-preview.
+    /// Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 2.x: 2024-02-05-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:codesigning:CodeSigningAccount")]
     public partial class CodeSigningAccount : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         [Output("accountUri")]
         public Output<string> AccountUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

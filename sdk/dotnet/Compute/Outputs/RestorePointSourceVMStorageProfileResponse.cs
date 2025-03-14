@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RestorePointSourceVMDataDiskResponse> DataDisks;
         /// <summary>
+        /// Gets the disk controller type of the VM captured at the time of the restore point creation.
+        /// </summary>
+        public readonly string DiskControllerType;
+        /// <summary>
         /// Gets the OS disk of the VM captured at the time of the restore point creation.
         /// </summary>
         public readonly Outputs.RestorePointSourceVMOSDiskResponse? OsDisk;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private RestorePointSourceVMStorageProfileResponse(
             ImmutableArray<Outputs.RestorePointSourceVMDataDiskResponse> dataDisks,
 
+            string diskControllerType,
+
             Outputs.RestorePointSourceVMOSDiskResponse? osDisk)
         {
             DataDisks = dataDisks;
+            DiskControllerType = diskControllerType;
             OsDisk = osDisk;
         }
     }

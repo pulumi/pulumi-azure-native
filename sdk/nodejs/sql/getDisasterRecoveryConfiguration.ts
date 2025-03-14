@@ -41,6 +41,10 @@ export interface GetDisasterRecoveryConfigurationResult {
      */
     readonly autoFailover: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * How aggressive the automatic failover should be.
      */
     readonly failoverPolicy: string;

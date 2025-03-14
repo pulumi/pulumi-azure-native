@@ -27,13 +27,16 @@ class GetExpressRouteGatewayResult:
     """
     ExpressRoute gateway resource.
     """
-    def __init__(__self__, allow_non_virtual_wan_traffic=None, auto_scale_configuration=None, etag=None, express_route_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, allow_non_virtual_wan_traffic=None, auto_scale_configuration=None, azure_api_version=None, etag=None, express_route_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
         if allow_non_virtual_wan_traffic and not isinstance(allow_non_virtual_wan_traffic, bool):
             raise TypeError("Expected argument 'allow_non_virtual_wan_traffic' to be a bool")
         pulumi.set(__self__, "allow_non_virtual_wan_traffic", allow_non_virtual_wan_traffic)
         if auto_scale_configuration and not isinstance(auto_scale_configuration, dict):
             raise TypeError("Expected argument 'auto_scale_configuration' to be a dict")
         pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -77,6 +80,14 @@ class GetExpressRouteGatewayResult:
         Configuration for auto scaling.
         """
         return pulumi.get(self, "auto_scale_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -159,6 +170,7 @@ class AwaitableGetExpressRouteGatewayResult(GetExpressRouteGatewayResult):
         return GetExpressRouteGatewayResult(
             allow_non_virtual_wan_traffic=self.allow_non_virtual_wan_traffic,
             auto_scale_configuration=self.auto_scale_configuration,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             express_route_connections=self.express_route_connections,
             id=self.id,
@@ -175,9 +187,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteGatewayResult:
     """
     Fetches the details of a ExpressRoute gateway in a resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -192,6 +202,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
     return AwaitableGetExpressRouteGatewayResult(
         allow_non_virtual_wan_traffic=pulumi.get(__ret__, 'allow_non_virtual_wan_traffic'),
         auto_scale_configuration=pulumi.get(__ret__, 'auto_scale_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         express_route_connections=pulumi.get(__ret__, 'express_route_connections'),
         id=pulumi.get(__ret__, 'id'),
@@ -206,9 +217,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
     """
     Fetches the details of a ExpressRoute gateway in a resource group.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -222,6 +231,7 @@ def get_express_route_gateway_output(express_route_gateway_name: Optional[pulumi
     return __ret__.apply(lambda __response__: GetExpressRouteGatewayResult(
         allow_non_virtual_wan_traffic=pulumi.get(__response__, 'allow_non_virtual_wan_traffic'),
         auto_scale_configuration=pulumi.get(__response__, 'auto_scale_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         express_route_connections=pulumi.get(__response__, 'express_route_connections'),
         id=pulumi.get(__response__, 'id'),

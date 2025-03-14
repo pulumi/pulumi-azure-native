@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getClusterManager(args: GetClusterManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetClusterManagerResult {
      */
     readonly availabilityZones?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
      */
     readonly clusterVersions: outputs.networkcloud.ClusterAvailableVersionResponse[];
@@ -61,6 +63,10 @@ export interface GetClusterManagerResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity of the cluster manager.
+     */
+    readonly identity?: outputs.networkcloud.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -100,9 +106,7 @@ export interface GetClusterManagerResult {
 }
 /**
  * Get the properties of the provided cluster manager.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getClusterManagerOutput(args: GetClusterManagerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterManagerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

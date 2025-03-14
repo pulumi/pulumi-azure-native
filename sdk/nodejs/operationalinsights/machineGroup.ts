@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A user-defined logical grouping of machines.
- * Azure REST API version: 2015-11-01-preview. Prior API version in Azure Native 1.x: 2015-11-01-preview.
+ * Azure REST API version: 2015-11-01-preview. Prior API version in Azure Native 2.x: 2015-11-01-preview.
  */
 export class MachineGroup extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class MachineGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === MachineGroup.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
      */
@@ -103,10 +107,12 @@ export class MachineGroup extends pulumi.CustomResource {
             resourceInputs["machines"] = args ? args.machines : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["count"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

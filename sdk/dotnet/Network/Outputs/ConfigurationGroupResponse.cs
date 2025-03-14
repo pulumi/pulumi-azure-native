@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Group member type.
+        /// The type of the group member.
         /// </summary>
         public readonly string? MemberType;
         /// <summary>

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector definition.
- * Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
- *
- * Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+ * Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
  */
 export class IotConnector extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class IotConnector extends pulumi.CustomResource {
         return obj['__pulumiType'] === IotConnector.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Device Mappings.
      */
@@ -106,12 +108,14 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deviceMapping"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

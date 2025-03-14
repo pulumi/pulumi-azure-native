@@ -66,9 +66,7 @@ class TagAtScope(pulumi.CustomResource):
                  __props__=None):
         """
         Wrapper resource for tags API requests and responses.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,9 +81,7 @@ class TagAtScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Wrapper resource for tags API requests and responses.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-10-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param TagAtScopeArgs args: The arguments to use to populate this resource's properties.
@@ -119,6 +115,7 @@ class TagAtScope(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20240301:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20240701:TagAtScope"), pulumi.Alias(type_="azure-native:resources/v20241101:TagAtScope")])
@@ -145,10 +142,19 @@ class TagAtScope(pulumi.CustomResource):
 
         __props__ = TagAtScopeArgs.__new__(TagAtScopeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return TagAtScope(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

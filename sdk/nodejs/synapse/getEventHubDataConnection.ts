@@ -50,6 +50,10 @@ export interface GetEventHubDataConnectionArgs {
  */
 export interface GetEventHubDataConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The event hub messages compression type
      */
     readonly compression?: string;

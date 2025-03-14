@@ -27,7 +27,10 @@ class GetApplicationResult:
     """
     This type describes an application resource.
     """
-    def __init__(__self__, debug_params=None, description=None, diagnostics=None, health_state=None, id=None, location=None, name=None, provisioning_state=None, service_names=None, services=None, status=None, status_details=None, tags=None, type=None, unhealthy_evaluation=None):
+    def __init__(__self__, azure_api_version=None, debug_params=None, description=None, diagnostics=None, health_state=None, id=None, location=None, name=None, provisioning_state=None, service_names=None, services=None, status=None, status_details=None, tags=None, type=None, unhealthy_evaluation=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if debug_params and not isinstance(debug_params, str):
             raise TypeError("Expected argument 'debug_params' to be a str")
         pulumi.set(__self__, "debug_params", debug_params)
@@ -73,6 +76,14 @@ class GetApplicationResult:
         if unhealthy_evaluation and not isinstance(unhealthy_evaluation, str):
             raise TypeError("Expected argument 'unhealthy_evaluation' to be a str")
         pulumi.set(__self__, "unhealthy_evaluation", unhealthy_evaluation)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="debugParams")
@@ -201,6 +212,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            azure_api_version=self.azure_api_version,
             debug_params=self.debug_params,
             description=self.description,
             diagnostics=self.diagnostics,
@@ -236,6 +248,7 @@ def get_application(application_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         debug_params=pulumi.get(__ret__, 'debug_params'),
         description=pulumi.get(__ret__, 'description'),
         diagnostics=pulumi.get(__ret__, 'diagnostics'),
@@ -268,6 +281,7 @@ def get_application_output(application_resource_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         debug_params=pulumi.get(__response__, 'debug_params'),
         description=pulumi.get(__response__, 'description'),
         diagnostics=pulumi.get(__response__, 'diagnostics'),

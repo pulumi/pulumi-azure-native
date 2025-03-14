@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['AgentArgs', 'Agent']
 
@@ -25,7 +27,8 @@ class AgentArgs:
                  resource_group_name: pulumi.Input[str],
                  storage_mover_name: pulumi.Input[str],
                  agent_name: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 upload_limit_schedule: Optional[pulumi.Input['UploadLimitScheduleArgs']] = None):
         """
         The set of arguments for constructing a Agent resource.
         :param pulumi.Input[str] arc_resource_id: The fully qualified resource ID of the Hybrid Compute resource for the Agent.
@@ -34,6 +37,7 @@ class AgentArgs:
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
         :param pulumi.Input[str] agent_name: The name of the Agent resource.
         :param pulumi.Input[str] description: A description for the Agent.
+        :param pulumi.Input['UploadLimitScheduleArgs'] upload_limit_schedule: The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
         """
         pulumi.set(__self__, "arc_resource_id", arc_resource_id)
         pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
@@ -43,6 +47,8 @@ class AgentArgs:
             pulumi.set(__self__, "agent_name", agent_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if upload_limit_schedule is not None:
+            pulumi.set(__self__, "upload_limit_schedule", upload_limit_schedule)
 
     @property
     @pulumi.getter(name="arcResourceId")
@@ -116,6 +122,18 @@ class AgentArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter(name="uploadLimitSchedule")
+    def upload_limit_schedule(self) -> Optional[pulumi.Input['UploadLimitScheduleArgs']]:
+        """
+        The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        """
+        return pulumi.get(self, "upload_limit_schedule")
+
+    @upload_limit_schedule.setter
+    def upload_limit_schedule(self, value: Optional[pulumi.Input['UploadLimitScheduleArgs']]):
+        pulumi.set(self, "upload_limit_schedule", value)
+
 
 class Agent(pulumi.CustomResource):
     @overload
@@ -128,12 +146,11 @@ class Agent(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
+                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         """
         The Agent resource.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,6 +160,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Agent.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_mover_name: The name of the Storage Mover resource.
+        :param pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']] upload_limit_schedule: The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
         """
         ...
     @overload
@@ -152,9 +170,7 @@ class Agent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Agent resource.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +193,7 @@ class Agent(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_mover_name: Optional[pulumi.Input[str]] = None,
+                 upload_limit_schedule: Optional[pulumi.Input[Union['UploadLimitScheduleArgs', 'UploadLimitScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -200,8 +217,10 @@ class Agent(pulumi.CustomResource):
             if storage_mover_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_mover_name'")
             __props__.__dict__["storage_mover_name"] = storage_mover_name
+            __props__.__dict__["upload_limit_schedule"] = upload_limit_schedule
             __props__.__dict__["agent_status"] = None
             __props__.__dict__["agent_version"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["error_details"] = None
             __props__.__dict__["last_status_update"] = None
             __props__.__dict__["local_ip_address"] = None
@@ -210,6 +229,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["number_of_cores"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["time_zone"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uptime_in_seconds"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover/v20220701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230301:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20231001:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20240701:Agent")])
@@ -240,6 +260,7 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["agent_version"] = None
         __props__.__dict__["arc_resource_id"] = None
         __props__.__dict__["arc_vm_uuid"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["error_details"] = None
         __props__.__dict__["last_status_update"] = None
@@ -249,7 +270,9 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["number_of_cores"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["time_zone"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["upload_limit_schedule"] = None
         __props__.__dict__["uptime_in_seconds"] = None
         return Agent(resource_name, opts=opts, __props__=__props__)
 
@@ -284,6 +307,14 @@ class Agent(pulumi.CustomResource):
         The VM UUID of the Hybrid Compute resource for the Agent.
         """
         return pulumi.get(self, "arc_vm_uuid")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -350,9 +381,17 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Output[str]:
+        """
+        The agent's local time zone represented in Windows format.
+        """
+        return pulumi.get(self, "time_zone")
 
     @property
     @pulumi.getter
@@ -361,6 +400,14 @@ class Agent(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="uploadLimitSchedule")
+    def upload_limit_schedule(self) -> pulumi.Output[Optional['outputs.UploadLimitScheduleResponse']]:
+        """
+        The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
+        """
+        return pulumi.get(self, "upload_limit_schedule")
 
     @property
     @pulumi.getter(name="uptimeInSeconds")

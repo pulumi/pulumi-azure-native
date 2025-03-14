@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetGuestAgentArgs {
  */
 export interface GetGuestAgentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Username / Password Credentials to provision guest agent.
      */
     readonly credentials?: outputs.connectedvmwarevsphere.GuestCredentialResponse;
@@ -54,7 +56,7 @@ export interface GetGuestAgentResult {
      */
     readonly httpProxyConfig?: outputs.connectedvmwarevsphere.HttpProxyConfigurationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -62,11 +64,15 @@ export interface GetGuestAgentResult {
      */
     readonly name: string;
     /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    readonly privateLinkScopeResourceId?: string;
+    /**
      * Gets or sets the guest agent provisioning action.
      */
     readonly provisioningAction?: string;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     readonly provisioningState: string;
     /**
@@ -78,7 +84,7 @@ export interface GetGuestAgentResult {
      */
     readonly statuses: outputs.connectedvmwarevsphere.ResourceStatusResponse[];
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.connectedvmwarevsphere.SystemDataResponse;
     /**
@@ -92,9 +98,7 @@ export interface GetGuestAgentResult {
 }
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2022-07-15-preview.
- *
- * Other available API versions: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

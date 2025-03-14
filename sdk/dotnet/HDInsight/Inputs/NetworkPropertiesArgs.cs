@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.HDInsight.Inputs
     public sealed class NetworkPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A value to describe how the outbound dependencies of a HDInsight cluster are managed. 'Managed' means that the outbound dependencies are managed by the HDInsight service. 'External' means that the outbound dependencies are managed by a customer specific solution.
+        /// </summary>
+        [Input("outboundDependenciesManagedType")]
+        public InputUnion<string, Pulumi.AzureNative.HDInsight.OutboundDependenciesManagedType>? OutboundDependenciesManagedType { get; set; }
+
+        /// <summary>
         /// Indicates whether or not private link is enabled.
         /// </summary>
         [Input("privateLink")]
         public InputUnion<string, Pulumi.AzureNative.HDInsight.PrivateLink>? PrivateLink { get; set; }
+
+        /// <summary>
+        /// Gets or sets the IP tag for the public IPs created along with the HDInsight Clusters. 
+        /// </summary>
+        [Input("publicIpTag")]
+        public Input<Inputs.IpTagArgs>? PublicIpTag { get; set; }
 
         /// <summary>
         /// The direction for the resource provider connection.

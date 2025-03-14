@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the connection type identified by connection type name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Task<GetConnectionTypeResult> InvokeAsync(GetConnectionTypeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the connection type identified by connection type name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetConnectionTypeResult> Invoke(GetConnectionTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the connection type identified by connection type name.
-        /// Azure REST API version: 2022-08-08.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+        /// Azure REST API version: 2023-11-01.
         /// </summary>
         public static Output<GetConnectionTypeResult> Invoke(GetConnectionTypeInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionTypeResult>("azure-native:automation:getConnectionType", args ?? new GetConnectionTypeInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetConnectionTypeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets the creation time.
         /// </summary>
         public readonly string CreationTime;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.Automation
 
         [OutputConstructor]
         private GetConnectionTypeResult(
+            string azureApiVersion,
+
             string creationTime,
 
             string? description,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Automation
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Description = description;
             FieldDefinitions = fieldDefinitions;

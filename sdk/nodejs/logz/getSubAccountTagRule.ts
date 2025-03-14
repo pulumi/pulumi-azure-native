@@ -42,6 +42,10 @@ export interface GetSubAccountTagRuleArgs {
  */
 export interface GetSubAccountTagRuleResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The id of the rule set.
      */
     readonly id: string;

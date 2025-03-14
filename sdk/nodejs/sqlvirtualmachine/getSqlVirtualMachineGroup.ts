@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a SQL virtual machine group.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01.
  */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetSqlVirtualMachineGroupArgs {
  * A SQL virtual machine group.
  */
 export interface GetSqlVirtualMachineGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Cluster type.
      */
@@ -91,9 +93,7 @@ export interface GetSqlVirtualMachineGroupResult {
 }
 /**
  * Gets a SQL virtual machine group.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-10-01.
+ * Azure REST API version: 2023-10-01.
  */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

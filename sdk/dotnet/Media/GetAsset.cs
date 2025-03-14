@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string AssetId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of the asset blob container.
         /// </summary>
         public readonly string? Container;
@@ -149,6 +153,8 @@ namespace Pulumi.AzureNative.Media
 
             string assetId,
 
+            string azureApiVersion,
+
             string? container,
 
             string created,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNative.Media
         {
             AlternateId = alternateId;
             AssetId = assetId;
+            AzureApiVersion = azureApiVersion;
             Container = container;
             Created = created;
             Description = description;

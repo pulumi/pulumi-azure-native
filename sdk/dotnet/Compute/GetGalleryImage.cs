@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery image definition.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Task<GetGalleryImageResult> InvokeAsync(GetGalleryImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image definition.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image definition.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryImageResult> Invoke(GetGalleryImageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageResult>("azure-native:compute:getGalleryImage", args ?? new GetGalleryImageInvokeArgs(), options.WithDefaults());
@@ -97,9 +91,17 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryImageResult
     {
         /// <summary>
+        /// Optional. Must be set to true if the gallery image features are being updated.
+        /// </summary>
+        public readonly bool? AllowUpdateImage;
+        /// <summary>
         /// The architecture of the image. Applicable to OS disks only.
         /// </summary>
         public readonly string? Architecture;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The description of this gallery image definition resource. This property is updatable.
         /// </summary>
@@ -145,7 +147,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string OsState;
         /// <summary>
-        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
         /// </summary>
         public readonly string OsType;
         /// <summary>
@@ -179,7 +181,11 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryImageResult(
+            bool? allowUpdateImage,
+
             string? architecture,
+
+            string azureApiVersion,
 
             string? description,
 
@@ -219,7 +225,9 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            AllowUpdateImage = allowUpdateImage;
             Architecture = architecture;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Disallowed = disallowed;
             EndOfLifeDate = endOfLifeDate;

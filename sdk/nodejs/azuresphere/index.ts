@@ -89,15 +89,6 @@ utilities.lazyLoad(exports, ["Product"], () => require("./product"));
 // Export enums:
 export * from "../types/enums/azuresphere";
 
-// Export sub-modules:
-import * as v20220901preview from "./v20220901preview";
-import * as v20240401 from "./v20240401";
-
-export {
-    v20220901preview,
-    v20240401,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly string? FileShareWitnessPath;
         /// <summary>
+        /// The flag to check if SQL service account is GMSA.
+        /// </summary>
+        public readonly bool? IsSqlServiceAccountGmsa;
+        /// <summary>
         /// Organizational Unit path in which the nodes and cluster will be present.
         /// </summary>
         public readonly string? OuPath;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             string? fileShareWitnessPath,
 
+            bool? isSqlServiceAccountGmsa,
+
             string? ouPath,
 
             string? sqlServiceAccount,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
             ClusterSubnetType = clusterSubnetType;
             DomainFqdn = domainFqdn;
             FileShareWitnessPath = fileShareWitnessPath;
+            IsSqlServiceAccountGmsa = isSqlServiceAccountGmsa;
             OuPath = ouPath;
             SqlServiceAccount = sqlServiceAccount;
             StorageAccountUrl = storageAccountUrl;

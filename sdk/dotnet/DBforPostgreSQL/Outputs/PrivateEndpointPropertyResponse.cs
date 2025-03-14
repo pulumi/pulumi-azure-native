@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
-    /// <summary>
-    /// Property to represent resource id of the private endpoint.
-    /// </summary>
     [OutputType]
     public sealed class PrivateEndpointPropertyResponse
     {

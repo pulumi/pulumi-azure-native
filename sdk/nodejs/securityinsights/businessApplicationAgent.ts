@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the configuration of a Business Application Agent.
- * Azure REST API version: 2024-04-01-preview.
- *
- * Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
  */
 export class BusinessApplicationAgent extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly agentSystems!: pulumi.Output<outputs.securityinsights.AgentSystemResponse[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Describes the configuration of a Business Application Agent.
      */
@@ -93,6 +95,7 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["agentSystems"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["agentSystems"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

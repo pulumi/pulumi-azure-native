@@ -9,6 +9,7 @@ __all__ = [
     'AzureBareMetalInstancePowerStateEnum',
     'AzureBareMetalInstanceSizeNamesEnum',
     'ProvisioningState',
+    'ResourceIdentityType',
 ]
 
 
@@ -95,3 +96,11 @@ class ProvisioningState(str, Enum):
     DELETING = "Deleting"
     CANCELED = "Canceled"
     MIGRATING = "Migrating"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the Azure Bare Metal Storage Instance. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Azure Bare Metal Storage Instance.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"

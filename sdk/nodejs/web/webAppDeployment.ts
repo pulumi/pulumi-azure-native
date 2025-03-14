@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * User credentials used for publishing activity.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class WebAppDeployment extends pulumi.CustomResource {
     /**
@@ -49,6 +47,10 @@ export class WebAppDeployment extends pulumi.CustomResource {
      * Author email.
      */
     public readonly authorEmail!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Who performed the deployment.
      */
@@ -116,11 +118,13 @@ export class WebAppDeployment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["active"] = undefined /*out*/;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["authorEmail"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deployer"] = undefined /*out*/;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["endTime"] = undefined /*out*/;

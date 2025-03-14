@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         public Input<string>? TimeZone { get; set; }
 
         /// <summary>
+        /// Retention policy with the details on hardened backup copy retention ranges.
+        /// </summary>
+        [Input("vaultRetentionPolicy")]
+        public Input<Inputs.VaultRetentionPolicyArgs>? VaultRetentionPolicy { get; set; }
+
+        /// <summary>
         /// Type of workload for the backup management
         /// </summary>
         [Input("workLoadType")]

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The resource definition of this association.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class Association extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class Association extends pulumi.CustomResource {
         return obj['__pulumiType'] === Association.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The association name.
      */
@@ -69,10 +73,12 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["associationName"] = args ? args.associationName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["targetResourceId"] = undefined /*out*/;

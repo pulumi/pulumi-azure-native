@@ -17,14 +17,14 @@ namespace Pulumi.AzureNative.DeviceRegistry.Outputs
     public sealed class X509CredentialsResponse
     {
         /// <summary>
-        /// A reference to secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
+        /// The name of the secret containing the certificate and private key (e.g. stored as .der/.pem or .der/.pfx).
         /// </summary>
-        public readonly string CertificateReference;
+        public readonly string CertificateSecretName;
 
         [OutputConstructor]
-        private X509CredentialsResponse(string certificateReference)
+        private X509CredentialsResponse(string certificateSecretName)
         {
-            CertificateReference = certificateReference;
+            CertificateSecretName = certificateSecretName;
         }
     }
 }

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The Advanced Threat Protection resource.
-    /// Azure REST API version: 2019-01-01. Prior API version in Azure Native 1.x: 2019-01-01.
+    /// Azure REST API version: 2019-01-01. Prior API version in Azure Native 2.x: 2019-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AdvancedThreatProtection")]
     public partial class AdvancedThreatProtection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether Advanced Threat Protection is enabled.
         /// </summary>

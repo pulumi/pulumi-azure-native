@@ -36,13 +36,6 @@ export const Solution: typeof import("./solution").Solution = null as any;
 utilities.lazyLoad(exports, ["Solution"], () => require("./solution"));
 
 
-// Export sub-modules:
-import * as v20151101preview from "./v20151101preview";
-
-export {
-    v20151101preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

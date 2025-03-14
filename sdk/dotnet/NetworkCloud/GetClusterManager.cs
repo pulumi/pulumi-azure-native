@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<GetClusterManagerResult> InvokeAsync(GetClusterManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterAvailableVersionResponse> ClusterVersions;
@@ -112,6 +110,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the cluster manager.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -155,6 +157,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             ImmutableArray<string> availabilityZones,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ClusterAvailableVersionResponse> clusterVersions,
 
             string detailedStatus,
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             string fabricControllerId,
 
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -185,11 +191,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         {
             AnalyticsWorkspaceId = analyticsWorkspaceId;
             AvailabilityZones = availabilityZones;
+            AzureApiVersion = azureApiVersion;
             ClusterVersions = clusterVersions;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
             FabricControllerId = fabricControllerId;
             Id = id;
+            Identity = identity;
             Location = location;
             ManagedResourceGroupConfiguration = managedResourceGroupConfiguration;
             ManagerExtendedLocation = managerExtendedLocation;

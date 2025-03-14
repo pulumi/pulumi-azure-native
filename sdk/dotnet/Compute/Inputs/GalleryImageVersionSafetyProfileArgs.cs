@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         [Input("allowDeletionOfReplicatedLocations")]
         public Input<bool>? AllowDeletionOfReplicatedLocations { get; set; }
 
+        /// <summary>
+        /// Indicates whether or not the deletion is blocked for this Gallery Image Version if its End Of Life has not expired.
+        /// </summary>
+        [Input("blockDeletionBeforeEndOfLife")]
+        public Input<bool>? BlockDeletionBeforeEndOfLife { get; set; }
+
         public GalleryImageVersionSafetyProfileArgs()
         {
         }

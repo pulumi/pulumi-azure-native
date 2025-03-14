@@ -21,6 +21,7 @@ __all__ = [
     'EventHubEndpointResponse',
     'EventListenerResponse',
     'EventNameFilterResponse',
+    'IPRuleResponse',
     'LiveTraceCategoryResponse',
     'LiveTraceConfigurationResponse',
     'ManagedIdentityResponse',
@@ -40,6 +41,7 @@ __all__ = [
     'UserAssignedIdentityPropertyResponse',
     'WebPubSubHubPropertiesResponse',
     'WebPubSubNetworkACLsResponse',
+    'WebPubSubSocketIOSettingsResponse',
     'WebPubSubTlsSettingsResponse',
 ]
 
@@ -305,6 +307,41 @@ class EventNameFilterResponse(dict):
             3. A single event name, for example, "event1", it matches "event1"
         """
         return pulumi.get(self, "user_event_pattern")
+
+
+@pulumi.output_type
+class IPRuleResponse(dict):
+    """
+    An IP rule
+    """
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        An IP rule
+        :param str action: Azure Networking ACL Action.
+        :param str value: An IP or CIDR or ServiceTag
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Azure Networking ACL Action.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        An IP or CIDR or ServiceTag
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -625,11 +662,11 @@ class PrivateEndpointConnectionResponse(dict):
         """
         A private endpoint connection to an azure resource
         :param Sequence[str] group_ids: Group IDs
-        :param str id: Fully qualified resource Id for the resource.
-        :param str name: The name of the resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
         :param str provisioning_state: Provisioning state of the resource.
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: Private endpoint
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Connection state of the private endpoint connection
         """
@@ -656,7 +693,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -664,7 +701,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -680,7 +717,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -688,7 +725,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -901,14 +938,16 @@ class ResourceSkuResponse(dict):
         :param str family: Not used. Retained for future use.
         :param str name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1, Premium_P1
+               Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         :param str size: Not used. Retained for future use.
-        :param int capacity: Optional, integer. The unit count of the resource. 1 by default.
+        :param int capacity: Optional, integer. The unit count of the resource.
+               1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
                
                If present, following values are allowed:
-                   Free: 1;
-                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Free_F1: 1;
+                   Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         :param str tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -935,7 +974,7 @@ class ResourceSkuResponse(dict):
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1, Premium_P1
+        Allowed values: Standard_S1, Free_F1, Premium_P1, Premium_P2
         """
         return pulumi.get(self, "name")
 
@@ -951,12 +990,14 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[int]:
         """
-        Optional, integer. The unit count of the resource. 1 by default.
+        Optional, integer. The unit count of the resource.
+        1 for Free_F1/Standard_S1/Premium_P1, 100 for Premium_P2 by default.
         
         If present, following values are allowed:
-            Free: 1;
-            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
-            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Free_F1: 1;
+            Standard_S1: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P1:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium_P2:  100,200,300,400,500,600,700,800,900,1000;
         """
         return pulumi.get(self, "capacity")
 
@@ -1014,13 +1055,13 @@ class SharedPrivateLinkResourceResponse(dict):
         """
         Describes a Shared Private Link Resource
         :param str group_id: The group id from the provider of resource the shared private link resource is for
-        :param str id: Fully qualified resource Id for the resource.
-        :param str name: The name of the resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
         :param str private_link_resource_id: The resource id of the resource the shared private link resource is for
         :param str provisioning_state: Provisioning state of the resource.
         :param str status: Status of the shared private link resource
-        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
-        :param str type: The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param str request_message: The request message for requesting approval of the shared private link resource
         """
         pulumi.set(__self__, "group_id", group_id)
@@ -1046,7 +1087,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -1054,7 +1095,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -1086,7 +1127,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -1094,7 +1135,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -1335,6 +1376,8 @@ class WebPubSubHubPropertiesResponse(dict):
             suggest = "event_handlers"
         elif key == "eventListeners":
             suggest = "event_listeners"
+        elif key == "webSocketKeepAliveIntervalInSeconds":
+            suggest = "web_socket_keep_alive_interval_in_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebPubSubHubPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1350,7 +1393,8 @@ class WebPubSubHubPropertiesResponse(dict):
     def __init__(__self__, *,
                  anonymous_connect_policy: Optional[str] = None,
                  event_handlers: Optional[Sequence['outputs.EventHandlerResponse']] = None,
-                 event_listeners: Optional[Sequence['outputs.EventListenerResponse']] = None):
+                 event_listeners: Optional[Sequence['outputs.EventListenerResponse']] = None,
+                 web_socket_keep_alive_interval_in_seconds: Optional[int] = None):
         """
         Properties of a hub.
         :param str anonymous_connect_policy: The settings for configuring if anonymous connections are allowed for this hub: "allow" or "deny". Default to "deny".
@@ -1359,6 +1403,7 @@ class WebPubSubHubPropertiesResponse(dict):
                Event listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.
                One event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.
                Maximum count of event listeners among all hubs is 10.
+        :param int web_socket_keep_alive_interval_in_seconds: The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
         """
         if anonymous_connect_policy is None:
             anonymous_connect_policy = 'deny'
@@ -1368,6 +1413,10 @@ class WebPubSubHubPropertiesResponse(dict):
             pulumi.set(__self__, "event_handlers", event_handlers)
         if event_listeners is not None:
             pulumi.set(__self__, "event_listeners", event_listeners)
+        if web_socket_keep_alive_interval_in_seconds is None:
+            web_socket_keep_alive_interval_in_seconds = 20
+        if web_socket_keep_alive_interval_in_seconds is not None:
+            pulumi.set(__self__, "web_socket_keep_alive_interval_in_seconds", web_socket_keep_alive_interval_in_seconds)
 
     @property
     @pulumi.getter(name="anonymousConnectPolicy")
@@ -1396,6 +1445,14 @@ class WebPubSubHubPropertiesResponse(dict):
         """
         return pulumi.get(self, "event_listeners")
 
+    @property
+    @pulumi.getter(name="webSocketKeepAliveIntervalInSeconds")
+    def web_socket_keep_alive_interval_in_seconds(self) -> Optional[int]:
+        """
+        The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.
+        """
+        return pulumi.get(self, "web_socket_keep_alive_interval_in_seconds")
+
 
 @pulumi.output_type
 class WebPubSubNetworkACLsResponse(dict):
@@ -1407,6 +1464,8 @@ class WebPubSubNetworkACLsResponse(dict):
         suggest = None
         if key == "defaultAction":
             suggest = "default_action"
+        elif key == "ipRules":
+            suggest = "ip_rules"
         elif key == "privateEndpoints":
             suggest = "private_endpoints"
         elif key == "publicNetwork":
@@ -1425,16 +1484,20 @@ class WebPubSubNetworkACLsResponse(dict):
 
     def __init__(__self__, *,
                  default_action: Optional[str] = None,
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
                  private_endpoints: Optional[Sequence['outputs.PrivateEndpointACLResponse']] = None,
                  public_network: Optional['outputs.NetworkACLResponse'] = None):
         """
         Network ACLs for the resource
         :param str default_action: Azure Networking ACL Action.
+        :param Sequence['IPRuleResponse'] ip_rules: IP rules for filtering public traffic
         :param Sequence['PrivateEndpointACLResponse'] private_endpoints: ACLs for requests from private endpoints
         :param 'NetworkACLResponse' public_network: Network ACL
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
         if private_endpoints is not None:
             pulumi.set(__self__, "private_endpoints", private_endpoints)
         if public_network is not None:
@@ -1447,6 +1510,14 @@ class WebPubSubNetworkACLsResponse(dict):
         Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[Sequence['outputs.IPRuleResponse']]:
+        """
+        IP rules for filtering public traffic
+        """
+        return pulumi.get(self, "ip_rules")
 
     @property
     @pulumi.getter(name="privateEndpoints")
@@ -1463,6 +1534,50 @@ class WebPubSubNetworkACLsResponse(dict):
         Network ACL
         """
         return pulumi.get(self, "public_network")
+
+
+@pulumi.output_type
+class WebPubSubSocketIOSettingsResponse(dict):
+    """
+    SocketIO settings for the resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceMode":
+            suggest = "service_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebPubSubSocketIOSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebPubSubSocketIOSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebPubSubSocketIOSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_mode: Optional[str] = None):
+        """
+        SocketIO settings for the resource
+        :param str service_mode: The service mode of Web PubSub for Socket.IO. Values allowed: 
+               "Default": have your own backend Socket.IO server
+               "Serverless": your application doesn't have a backend server
+        """
+        if service_mode is not None:
+            pulumi.set(__self__, "service_mode", service_mode)
+
+    @property
+    @pulumi.getter(name="serviceMode")
+    def service_mode(self) -> Optional[str]:
+        """
+        The service mode of Web PubSub for Socket.IO. Values allowed: 
+        "Default": have your own backend Socket.IO server
+        "Serverless": your application doesn't have a backend server
+        """
+        return pulumi.get(self, "service_mode")
 
 
 @pulumi.output_type
@@ -1491,10 +1606,10 @@ class WebPubSubTlsSettingsResponse(dict):
                  client_cert_enabled: Optional[bool] = None):
         """
         TLS settings for the resource
-        :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled
+        :param bool client_cert_enabled: Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         if client_cert_enabled is None:
-            client_cert_enabled = True
+            client_cert_enabled = False
         if client_cert_enabled is not None:
             pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
 
@@ -1502,7 +1617,7 @@ class WebPubSubTlsSettingsResponse(dict):
     @pulumi.getter(name="clientCertEnabled")
     def client_cert_enabled(self) -> Optional[bool]:
         """
-        Request client certificate during TLS handshake if enabled
+        Request client certificate during TLS handshake if enabled. Not supported for free tier. Any input will be ignored for free tier.
         """
         return pulumi.get(self, "client_cert_enabled")
 

@@ -40,6 +40,10 @@ export interface GetDigitalTwinsEndpointArgs {
  */
 export interface GetDigitalTwinsEndpointResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource identifier.
      */
     readonly id: string;

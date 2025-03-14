@@ -19,17 +19,6 @@ utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./ge
 // Export enums:
 export * from "../types/enums/consumption";
 
-// Export sub-modules:
-import * as v20230501 from "./v20230501";
-import * as v20231101 from "./v20231101";
-import * as v20240801 from "./v20240801";
-
-export {
-    v20230501,
-    v20231101,
-    v20240801,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

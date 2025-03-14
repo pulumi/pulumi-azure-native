@@ -17,24 +17,45 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'APIServerAccessProfileResponse',
+    'AbsoluteMonthlyScheduleResponse',
+    'AdvancedNetworkingObservabilityResponse',
+    'AdvancedNetworkingResponse',
+    'AdvancedNetworkingSecurityResponse',
+    'AgentPoolNetworkProfileResponse',
+    'AgentPoolSecurityProfileResponse',
     'AgentPoolUpgradeSettingsResponse',
+    'AgentPoolWindowsProfileResponse',
+    'AgentProfileResponse',
     'AutoUpgradeNodeImageSelectionResponse',
     'AzureKeyVaultKmsResponse',
+    'ClusterUpgradeSettingsResponse',
     'ContainerServiceLinuxProfileResponse',
     'ContainerServiceNetworkProfileResponse',
     'ContainerServiceSshConfigurationResponse',
     'ContainerServiceSshPublicKeyResponse',
     'CreationDataResponse',
     'CredentialResultResponse',
+    'DailyScheduleResponse',
+    'DateSpanResponse',
+    'DelegatedResourceResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ExtendedLocationResponse',
     'FleetCredentialResultResponse',
     'FleetHubProfileResponse',
+    'IPTagResponse',
+    'IstioCertificateAuthorityResponse',
+    'IstioComponentsResponse',
+    'IstioEgressGatewayResponse',
+    'IstioIngressGatewayResponse',
+    'IstioPluginCertificateAuthorityResponse',
+    'IstioServiceMeshResponse',
     'KubeletConfigResponse',
     'LabelSelectorRequirementResponse',
     'LabelSelectorResponse',
     'LinuxOSConfigResponse',
+    'MaintenanceWindowResponse',
     'ManagedClusterAADProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
     'ManagedClusterAddonProfileResponse',
@@ -44,15 +65,20 @@ __all__ = [
     'ManagedClusterAzureMonitorProfileKubeStateMetricsResponse',
     'ManagedClusterAzureMonitorProfileMetricsResponse',
     'ManagedClusterAzureMonitorProfileResponse',
+    'ManagedClusterCostAnalysisResponse',
     'ManagedClusterHTTPProxyConfigResponse',
     'ManagedClusterIdentityResponse',
     'ManagedClusterIdentityResponseUserAssignedIdentities',
+    'ManagedClusterIngressProfileResponse',
+    'ManagedClusterIngressProfileWebAppRoutingResponse',
     'ManagedClusterLoadBalancerProfileResponse',
     'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs',
     'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes',
     'ManagedClusterLoadBalancerProfileResponseOutboundIPs',
     'ManagedClusterManagedOutboundIPProfileResponse',
+    'ManagedClusterMetricsProfileResponse',
     'ManagedClusterNATGatewayProfileResponse',
+    'ManagedClusterNodeResourceGroupProfileResponse',
     'ManagedClusterOIDCIssuerProfileResponse',
     'ManagedClusterPodIdentityExceptionResponse',
     'ManagedClusterPodIdentityProfileResponse',
@@ -79,23 +105,22 @@ __all__ = [
     'ManagedClusterWindowsProfileResponse',
     'ManagedClusterWorkloadAutoScalerProfileKedaResponse',
     'ManagedClusterWorkloadAutoScalerProfileResponse',
+    'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse',
+    'ManagedServiceIdentityResponse',
     'MemberUpdateStatusResponse',
     'NetworkProfileForSnapshotResponse',
-    'NetworkProfileResponse',
-    'OpenShiftAPIPropertiesResponse',
-    'OpenShiftManagedClusterAADIdentityProviderResponse',
-    'OpenShiftManagedClusterAgentPoolProfileResponse',
-    'OpenShiftManagedClusterAuthProfileResponse',
-    'OpenShiftManagedClusterIdentityProviderResponse',
-    'OpenShiftManagedClusterMasterPoolProfileResponse',
-    'OpenShiftManagedClusterMonitorProfileResponse',
-    'OpenShiftRouterProfileResponse',
+    'NodeImageSelectionResponse',
+    'NodeImageSelectionStatusResponse',
+    'NodeImageVersionResponse',
+    'PortRangeResponse',
     'PowerStateResponse',
     'PrivateEndpointResponse',
     'PrivateLinkResourceResponse',
     'PrivateLinkServiceConnectionStateResponse',
-    'PurchasePlanResponse',
+    'RelativeMonthlyScheduleResponse',
     'ResourceReferenceResponse',
+    'ScheduleResponse',
+    'ServiceMeshProfileResponse',
     'SysctlConfigResponse',
     'SystemDataResponse',
     'TimeInWeekResponse',
@@ -107,10 +132,347 @@ __all__ = [
     'UpdateStageResponse',
     'UpdateStageStatusResponse',
     'UpdateStatusResponse',
+    'UpgradeOverrideSettingsResponse',
     'UserAssignedIdentityResponse',
     'WaitStatusResponse',
+    'WeeklyScheduleResponse',
     'WindowsGmsaProfileResponse',
 ]
+
+@pulumi.output_type
+class APIServerAccessProfileResponse(dict):
+    """
+    Access profile for the Fleet hub API server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enablePrivateCluster":
+            suggest = "enable_private_cluster"
+        elif key == "enableVnetIntegration":
+            suggest = "enable_vnet_integration"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in APIServerAccessProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        APIServerAccessProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        APIServerAccessProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_private_cluster: Optional[bool] = None,
+                 enable_vnet_integration: Optional[bool] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        Access profile for the Fleet hub API server.
+        :param bool enable_private_cluster: Whether to create the Fleet hub as a private cluster or not.
+        :param bool enable_vnet_integration: Whether to enable apiserver vnet integration for the Fleet hub or not.
+        :param str subnet_id: The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
+        """
+        if enable_private_cluster is not None:
+            pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
+        if enable_vnet_integration is not None:
+            pulumi.set(__self__, "enable_vnet_integration", enable_vnet_integration)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="enablePrivateCluster")
+    def enable_private_cluster(self) -> Optional[bool]:
+        """
+        Whether to create the Fleet hub as a private cluster or not.
+        """
+        return pulumi.get(self, "enable_private_cluster")
+
+    @property
+    @pulumi.getter(name="enableVnetIntegration")
+    def enable_vnet_integration(self) -> Optional[bool]:
+        """
+        Whether to enable apiserver vnet integration for the Fleet hub or not.
+        """
+        return pulumi.get(self, "enable_vnet_integration")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new Fleet with BYO vnet.
+        """
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class AbsoluteMonthlyScheduleResponse(dict):
+    """
+    For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfMonth":
+            suggest = "day_of_month"
+        elif key == "intervalMonths":
+            suggest = "interval_months"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AbsoluteMonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AbsoluteMonthlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AbsoluteMonthlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_month: int,
+                 interval_months: int):
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        :param int day_of_month: The date of the month.
+        :param int interval_months: Specifies the number of months between each set of occurrences.
+        """
+        pulumi.set(__self__, "day_of_month", day_of_month)
+        pulumi.set(__self__, "interval_months", interval_months)
+
+    @property
+    @pulumi.getter(name="dayOfMonth")
+    def day_of_month(self) -> int:
+        """
+        The date of the month.
+        """
+        return pulumi.get(self, "day_of_month")
+
+    @property
+    @pulumi.getter(name="intervalMonths")
+    def interval_months(self) -> int:
+        """
+        Specifies the number of months between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_months")
+
+
+@pulumi.output_type
+class AdvancedNetworkingObservabilityResponse(dict):
+    """
+    Observability profile to enable advanced network metrics and flow logs with historical contexts.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        :param bool enabled: Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates the enablement of Advanced Networking observability functionalities on clusters.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AdvancedNetworkingResponse(dict):
+    """
+    Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 observability: Optional['outputs.AdvancedNetworkingObservabilityResponse'] = None,
+                 security: Optional['outputs.AdvancedNetworkingSecurityResponse'] = None):
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        :param bool enabled: Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
+        :param 'AdvancedNetworkingObservabilityResponse' observability: Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        :param 'AdvancedNetworkingSecurityResponse' security: Security profile to enable security features on cilium based cluster.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if observability is not None:
+            pulumi.set(__self__, "observability", observability)
+        if security is not None:
+            pulumi.set(__self__, "security", security)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates the enablement of Advanced Networking functionalities of observability and security on AKS clusters. When this is set to true, all observability and security features will be set to enabled unless explicitly disabled. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def observability(self) -> Optional['outputs.AdvancedNetworkingObservabilityResponse']:
+        """
+        Observability profile to enable advanced network metrics and flow logs with historical contexts.
+        """
+        return pulumi.get(self, "observability")
+
+    @property
+    @pulumi.getter
+    def security(self) -> Optional['outputs.AdvancedNetworkingSecurityResponse']:
+        """
+        Security profile to enable security features on cilium based cluster.
+        """
+        return pulumi.get(self, "security")
+
+
+@pulumi.output_type
+class AdvancedNetworkingSecurityResponse(dict):
+    """
+    Security profile to enable security features on cilium based cluster.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Security profile to enable security features on cilium based cluster.
+        :param bool enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AgentPoolNetworkProfileResponse(dict):
+    """
+    Network settings of an agent pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHostPorts":
+            suggest = "allowed_host_ports"
+        elif key == "applicationSecurityGroups":
+            suggest = "application_security_groups"
+        elif key == "nodePublicIPTags":
+            suggest = "node_public_ip_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolNetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolNetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_host_ports: Optional[Sequence['outputs.PortRangeResponse']] = None,
+                 application_security_groups: Optional[Sequence[str]] = None,
+                 node_public_ip_tags: Optional[Sequence['outputs.IPTagResponse']] = None):
+        """
+        Network settings of an agent pool.
+        :param Sequence['PortRangeResponse'] allowed_host_ports: The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        :param Sequence[str] application_security_groups: The IDs of the application security groups which agent pool will associate when created.
+        :param Sequence['IPTagResponse'] node_public_ip_tags: IPTags of instance-level public IPs.
+        """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if node_public_ip_tags is not None:
+            pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[Sequence['outputs.PortRangeResponse']]:
+        """
+        The port ranges that are allowed to access. The specified ranges are allowed to overlap.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The IDs of the application security groups which agent pool will associate when created.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @property
+    @pulumi.getter(name="nodePublicIPTags")
+    def node_public_ip_tags(self) -> Optional[Sequence['outputs.IPTagResponse']]:
+        """
+        IPTags of instance-level public IPs.
+        """
+        return pulumi.get(self, "node_public_ip_tags")
+
+
+@pulumi.output_type
+class AgentPoolSecurityProfileResponse(dict):
+    """
+    The security settings of an agent pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableSecureBoot":
+            suggest = "enable_secure_boot"
+        elif key == "enableVTPM":
+            suggest = "enable_vtpm"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolSecurityProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolSecurityProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolSecurityProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_secure_boot: Optional[bool] = None,
+                 enable_vtpm: Optional[bool] = None):
+        """
+        The security settings of an agent pool.
+        :param bool enable_secure_boot: Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
+        :param bool enable_vtpm: vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        """
+        if enable_secure_boot is not None:
+            pulumi.set(__self__, "enable_secure_boot", enable_secure_boot)
+        if enable_vtpm is not None:
+            pulumi.set(__self__, "enable_vtpm", enable_vtpm)
+
+    @property
+    @pulumi.getter(name="enableSecureBoot")
+    def enable_secure_boot(self) -> Optional[bool]:
+        """
+        Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
+        """
+        return pulumi.get(self, "enable_secure_boot")
+
+    @property
+    @pulumi.getter(name="enableVTPM")
+    def enable_vtpm(self) -> Optional[bool]:
+        """
+        vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        """
+        return pulumi.get(self, "enable_vtpm")
+
 
 @pulumi.output_type
 class AgentPoolUpgradeSettingsResponse(dict):
@@ -120,8 +482,12 @@ class AgentPoolUpgradeSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxSurge":
+        if key == "drainTimeoutInMinutes":
+            suggest = "drain_timeout_in_minutes"
+        elif key == "maxSurge":
             suggest = "max_surge"
+        elif key == "nodeSoakDurationInMinutes":
+            suggest = "node_soak_duration_in_minutes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -135,13 +501,29 @@ class AgentPoolUpgradeSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_surge: Optional[str] = None):
+                 drain_timeout_in_minutes: Optional[int] = None,
+                 max_surge: Optional[str] = None,
+                 node_soak_duration_in_minutes: Optional[int] = None):
         """
         Settings for upgrading an agentpool
+        :param int drain_timeout_in_minutes: The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         :param str max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        :param int node_soak_duration_in_minutes: The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
+        if drain_timeout_in_minutes is not None:
+            pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         if max_surge is not None:
             pulumi.set(__self__, "max_surge", max_surge)
+        if node_soak_duration_in_minutes is not None:
+            pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInMinutes")
+    def drain_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        """
+        return pulumi.get(self, "drain_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="maxSurge")
@@ -150,6 +532,108 @@ class AgentPoolUpgradeSettingsResponse(dict):
         This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="nodeSoakDurationInMinutes")
+    def node_soak_duration_in_minutes(self) -> Optional[int]:
+        """
+        The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        """
+        return pulumi.get(self, "node_soak_duration_in_minutes")
+
+
+@pulumi.output_type
+class AgentPoolWindowsProfileResponse(dict):
+    """
+    The Windows agent pool's specific profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableOutboundNat":
+            suggest = "disable_outbound_nat"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolWindowsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolWindowsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolWindowsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disable_outbound_nat: Optional[bool] = None):
+        """
+        The Windows agent pool's specific profile.
+        :param bool disable_outbound_nat: The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        """
+        if disable_outbound_nat is not None:
+            pulumi.set(__self__, "disable_outbound_nat", disable_outbound_nat)
+
+    @property
+    @pulumi.getter(name="disableOutboundNat")
+    def disable_outbound_nat(self) -> Optional[bool]:
+        """
+        The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        """
+        return pulumi.get(self, "disable_outbound_nat")
+
+
+@pulumi.output_type
+class AgentProfileResponse(dict):
+    """
+    Agent profile for the Fleet hub.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+        elif key == "vmSize":
+            suggest = "vm_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: Optional[str] = None,
+                 vm_size: Optional[str] = None):
+        """
+        Agent profile for the Fleet hub.
+        :param str subnet_id: The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
+        :param str vm_size: The virtual machine size of the Fleet hub.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of the subnet which the Fleet hub node will join on startup. If this is not specified, a vnet and subnet will be generated and used.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[str]:
+        """
+        The virtual machine size of the Fleet hub.
+        """
+        return pulumi.get(self, "vm_size")
 
 
 @pulumi.output_type
@@ -257,6 +741,46 @@ class AzureKeyVaultKmsResponse(dict):
 
 
 @pulumi.output_type
+class ClusterUpgradeSettingsResponse(dict):
+    """
+    Settings for upgrading a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "overrideSettings":
+            suggest = "override_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterUpgradeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterUpgradeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 override_settings: Optional['outputs.UpgradeOverrideSettingsResponse'] = None):
+        """
+        Settings for upgrading a cluster.
+        :param 'UpgradeOverrideSettingsResponse' override_settings: Settings for overrides.
+        """
+        if override_settings is not None:
+            pulumi.set(__self__, "override_settings", override_settings)
+
+    @property
+    @pulumi.getter(name="overrideSettings")
+    def override_settings(self) -> Optional['outputs.UpgradeOverrideSettingsResponse']:
+        """
+        Settings for overrides.
+        """
+        return pulumi.get(self, "override_settings")
+
+
+@pulumi.output_type
 class ContainerServiceLinuxProfileResponse(dict):
     """
     Profile for Linux VMs in the container service cluster.
@@ -314,7 +838,9 @@ class ContainerServiceNetworkProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dnsServiceIP":
+        if key == "advancedNetworking":
+            suggest = "advanced_networking"
+        elif key == "dnsServiceIP":
             suggest = "dns_service_ip"
         elif key == "ipFamilies":
             suggest = "ip_families"
@@ -357,6 +883,7 @@ class ContainerServiceNetworkProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 advanced_networking: Optional['outputs.AdvancedNetworkingResponse'] = None,
                  dns_service_ip: Optional[str] = None,
                  ip_families: Optional[Sequence[str]] = None,
                  load_balancer_profile: Optional['outputs.ManagedClusterLoadBalancerProfileResponse'] = None,
@@ -374,6 +901,7 @@ class ContainerServiceNetworkProfileResponse(dict):
                  service_cidrs: Optional[Sequence[str]] = None):
         """
         Profile of network configuration.
+        :param 'AdvancedNetworkingResponse' advanced_networking: Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         :param str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param Sequence[str] ip_families: IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         :param 'ManagedClusterLoadBalancerProfileResponse' load_balancer_profile: Profile of the cluster load balancer.
@@ -390,6 +918,8 @@ class ContainerServiceNetworkProfileResponse(dict):
         :param str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         :param Sequence[str] service_cidrs: One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         """
+        if advanced_networking is not None:
+            pulumi.set(__self__, "advanced_networking", advanced_networking)
         if dns_service_ip is None:
             dns_service_ip = '10.0.0.10'
         if dns_service_ip is not None:
@@ -406,8 +936,6 @@ class ContainerServiceNetworkProfileResponse(dict):
             pulumi.set(__self__, "network_dataplane", network_dataplane)
         if network_mode is not None:
             pulumi.set(__self__, "network_mode", network_mode)
-        if network_plugin is None:
-            network_plugin = 'kubenet'
         if network_plugin is not None:
             pulumi.set(__self__, "network_plugin", network_plugin)
         if network_plugin_mode is not None:
@@ -430,6 +958,14 @@ class ContainerServiceNetworkProfileResponse(dict):
             pulumi.set(__self__, "service_cidr", service_cidr)
         if service_cidrs is not None:
             pulumi.set(__self__, "service_cidrs", service_cidrs)
+
+    @property
+    @pulumi.getter(name="advancedNetworking")
+    def advanced_networking(self) -> Optional['outputs.AdvancedNetworkingResponse']:
+        """
+        Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        """
+        return pulumi.get(self, "advanced_networking")
 
     @property
     @pulumi.getter(name="dnsServiceIP")
@@ -704,6 +1240,158 @@ class CredentialResultResponse(dict):
 
 
 @pulumi.output_type
+class DailyScheduleResponse(dict):
+    """
+    For schedules like: 'recur every day' or 'recur every 3 days'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalDays":
+            suggest = "interval_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DailyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval_days: int):
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        :param int interval_days: Specifies the number of days between each set of occurrences.
+        """
+        pulumi.set(__self__, "interval_days", interval_days)
+
+    @property
+    @pulumi.getter(name="intervalDays")
+    def interval_days(self) -> int:
+        """
+        Specifies the number of days between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_days")
+
+
+@pulumi.output_type
+class DateSpanResponse(dict):
+    """
+    For example, between '2022-12-23' and '2023-01-05'.
+    """
+    def __init__(__self__, *,
+                 end: str,
+                 start: str):
+        """
+        For example, between '2022-12-23' and '2023-01-05'.
+        :param str end: The end date of the date span.
+        :param str start: The start date of the date span.
+        """
+        pulumi.set(__self__, "end", end)
+        pulumi.set(__self__, "start", start)
+
+    @property
+    @pulumi.getter
+    def end(self) -> str:
+        """
+        The end date of the date span.
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter
+    def start(self) -> str:
+        """
+        The start date of the date span.
+        """
+        return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class DelegatedResourceResponse(dict):
+    """
+    Delegated resource properties - internal use only.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "referralResource":
+            suggest = "referral_resource"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegatedResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegatedResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegatedResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: Optional[str] = None,
+                 referral_resource: Optional[str] = None,
+                 resource_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Delegated resource properties - internal use only.
+        :param str location: The source resource location - internal use only.
+        :param str referral_resource: The delegation id of the referral delegation (optional) - internal use only.
+        :param str resource_id: The ARM resource id of the delegated resource - internal use only.
+        :param str tenant_id: The tenant id of the delegated resource - internal use only.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if referral_resource is not None:
+            pulumi.set(__self__, "referral_resource", referral_resource)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The source resource location - internal use only.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="referralResource")
+    def referral_resource(self) -> Optional[str]:
+        """
+        The delegation id of the referral delegation (optional) - internal use only.
+        """
+        return pulumi.get(self, "referral_resource")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The ARM resource id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The tenant id of the delegated resource - internal use only.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
 class ErrorAdditionalInfoResponse(dict):
     """
     The resource management error additional info.
@@ -897,6 +1585,12 @@ class FleetHubProfileResponse(dict):
         suggest = None
         if key == "kubernetesVersion":
             suggest = "kubernetes_version"
+        elif key == "portalFqdn":
+            suggest = "portal_fqdn"
+        elif key == "agentProfile":
+            suggest = "agent_profile"
+        elif key == "apiServerAccessProfile":
+            suggest = "api_server_access_profile"
         elif key == "dnsPrefix":
             suggest = "dns_prefix"
 
@@ -914,15 +1608,26 @@ class FleetHubProfileResponse(dict):
     def __init__(__self__, *,
                  fqdn: str,
                  kubernetes_version: str,
+                 portal_fqdn: str,
+                 agent_profile: Optional['outputs.AgentProfileResponse'] = None,
+                 api_server_access_profile: Optional['outputs.APIServerAccessProfileResponse'] = None,
                  dns_prefix: Optional[str] = None):
         """
         The FleetHubProfile configures the fleet hub.
         :param str fqdn: The FQDN of the Fleet hub.
         :param str kubernetes_version: The Kubernetes version of the Fleet hub.
+        :param str portal_fqdn: The Azure Portal FQDN of the Fleet hub.
+        :param 'AgentProfileResponse' agent_profile: The agent profile for the Fleet hub.
+        :param 'APIServerAccessProfileResponse' api_server_access_profile: The access profile for the Fleet hub API server.
         :param str dns_prefix: DNS prefix used to create the FQDN for the Fleet hub.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        pulumi.set(__self__, "portal_fqdn", portal_fqdn)
+        if agent_profile is not None:
+            pulumi.set(__self__, "agent_profile", agent_profile)
+        if api_server_access_profile is not None:
+            pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
         if dns_prefix is not None:
             pulumi.set(__self__, "dns_prefix", dns_prefix)
 
@@ -943,12 +1648,380 @@ class FleetHubProfileResponse(dict):
         return pulumi.get(self, "kubernetes_version")
 
     @property
+    @pulumi.getter(name="portalFqdn")
+    def portal_fqdn(self) -> str:
+        """
+        The Azure Portal FQDN of the Fleet hub.
+        """
+        return pulumi.get(self, "portal_fqdn")
+
+    @property
+    @pulumi.getter(name="agentProfile")
+    def agent_profile(self) -> Optional['outputs.AgentProfileResponse']:
+        """
+        The agent profile for the Fleet hub.
+        """
+        return pulumi.get(self, "agent_profile")
+
+    @property
+    @pulumi.getter(name="apiServerAccessProfile")
+    def api_server_access_profile(self) -> Optional['outputs.APIServerAccessProfileResponse']:
+        """
+        The access profile for the Fleet hub API server.
+        """
+        return pulumi.get(self, "api_server_access_profile")
+
+    @property
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> Optional[str]:
         """
         DNS prefix used to create the FQDN for the Fleet hub.
         """
         return pulumi.get(self, "dns_prefix")
+
+
+@pulumi.output_type
+class IPTagResponse(dict):
+    """
+    Contains the IPTag associated with the object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipTagType":
+            suggest = "ip_tag_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPTagResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPTagResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPTagResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_tag_type: Optional[str] = None,
+                 tag: Optional[str] = None):
+        """
+        Contains the IPTag associated with the object.
+        :param str ip_tag_type: The IP tag type. Example: RoutingPreference.
+        :param str tag: The value of the IP tag associated with the public IP. Example: Internet.
+        """
+        if ip_tag_type is not None:
+            pulumi.set(__self__, "ip_tag_type", ip_tag_type)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="ipTagType")
+    def ip_tag_type(self) -> Optional[str]:
+        """
+        The IP tag type. Example: RoutingPreference.
+        """
+        return pulumi.get(self, "ip_tag_type")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        The value of the IP tag associated with the public IP. Example: Internet.
+        """
+        return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class IstioCertificateAuthorityResponse(dict):
+    """
+    Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+    """
+    def __init__(__self__, *,
+                 plugin: Optional['outputs.IstioPluginCertificateAuthorityResponse'] = None):
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        :param 'IstioPluginCertificateAuthorityResponse' plugin: Plugin certificates information for Service Mesh.
+        """
+        if plugin is not None:
+            pulumi.set(__self__, "plugin", plugin)
+
+    @property
+    @pulumi.getter
+    def plugin(self) -> Optional['outputs.IstioPluginCertificateAuthorityResponse']:
+        """
+        Plugin certificates information for Service Mesh.
+        """
+        return pulumi.get(self, "plugin")
+
+
+@pulumi.output_type
+class IstioComponentsResponse(dict):
+    """
+    Istio components configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "egressGateways":
+            suggest = "egress_gateways"
+        elif key == "ingressGateways":
+            suggest = "ingress_gateways"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IstioComponentsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IstioComponentsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IstioComponentsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 egress_gateways: Optional[Sequence['outputs.IstioEgressGatewayResponse']] = None,
+                 ingress_gateways: Optional[Sequence['outputs.IstioIngressGatewayResponse']] = None):
+        """
+        Istio components configuration.
+        :param Sequence['IstioEgressGatewayResponse'] egress_gateways: Istio egress gateways.
+        :param Sequence['IstioIngressGatewayResponse'] ingress_gateways: Istio ingress gateways.
+        """
+        if egress_gateways is not None:
+            pulumi.set(__self__, "egress_gateways", egress_gateways)
+        if ingress_gateways is not None:
+            pulumi.set(__self__, "ingress_gateways", ingress_gateways)
+
+    @property
+    @pulumi.getter(name="egressGateways")
+    def egress_gateways(self) -> Optional[Sequence['outputs.IstioEgressGatewayResponse']]:
+        """
+        Istio egress gateways.
+        """
+        return pulumi.get(self, "egress_gateways")
+
+    @property
+    @pulumi.getter(name="ingressGateways")
+    def ingress_gateways(self) -> Optional[Sequence['outputs.IstioIngressGatewayResponse']]:
+        """
+        Istio ingress gateways.
+        """
+        return pulumi.get(self, "ingress_gateways")
+
+
+@pulumi.output_type
+class IstioEgressGatewayResponse(dict):
+    """
+    Istio egress gateway configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        Istio egress gateway configuration.
+        :param bool enabled: Whether to enable the egress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether to enable the egress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class IstioIngressGatewayResponse(dict):
+    """
+    Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+    """
+    def __init__(__self__, *,
+                 enabled: bool,
+                 mode: str):
+        """
+        Istio ingress gateway configuration. For now, we support up to one external ingress gateway named `aks-istio-ingressgateway-external` and one internal ingress gateway named `aks-istio-ingressgateway-internal`.
+        :param bool enabled: Whether to enable the ingress gateway.
+        :param str mode: Mode of an ingress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether to enable the ingress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Mode of an ingress gateway.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class IstioPluginCertificateAuthorityResponse(dict):
+    """
+    Plugin certificates information for Service Mesh.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certChainObjectName":
+            suggest = "cert_chain_object_name"
+        elif key == "certObjectName":
+            suggest = "cert_object_name"
+        elif key == "keyObjectName":
+            suggest = "key_object_name"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "rootCertObjectName":
+            suggest = "root_cert_object_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IstioPluginCertificateAuthorityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IstioPluginCertificateAuthorityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IstioPluginCertificateAuthorityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_chain_object_name: Optional[str] = None,
+                 cert_object_name: Optional[str] = None,
+                 key_object_name: Optional[str] = None,
+                 key_vault_id: Optional[str] = None,
+                 root_cert_object_name: Optional[str] = None):
+        """
+        Plugin certificates information for Service Mesh.
+        :param str cert_chain_object_name: Certificate chain object name in Azure Key Vault.
+        :param str cert_object_name: Intermediate certificate object name in Azure Key Vault.
+        :param str key_object_name: Intermediate certificate private key object name in Azure Key Vault.
+        :param str key_vault_id: The resource ID of the Key Vault.
+        :param str root_cert_object_name: Root certificate object name in Azure Key Vault.
+        """
+        if cert_chain_object_name is not None:
+            pulumi.set(__self__, "cert_chain_object_name", cert_chain_object_name)
+        if cert_object_name is not None:
+            pulumi.set(__self__, "cert_object_name", cert_object_name)
+        if key_object_name is not None:
+            pulumi.set(__self__, "key_object_name", key_object_name)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if root_cert_object_name is not None:
+            pulumi.set(__self__, "root_cert_object_name", root_cert_object_name)
+
+    @property
+    @pulumi.getter(name="certChainObjectName")
+    def cert_chain_object_name(self) -> Optional[str]:
+        """
+        Certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_chain_object_name")
+
+    @property
+    @pulumi.getter(name="certObjectName")
+    def cert_object_name(self) -> Optional[str]:
+        """
+        Intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_object_name")
+
+    @property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> Optional[str]:
+        """
+        Intermediate certificate private key object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="rootCertObjectName")
+    def root_cert_object_name(self) -> Optional[str]:
+        """
+        Root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_cert_object_name")
+
+
+@pulumi.output_type
+class IstioServiceMeshResponse(dict):
+    """
+    Istio service mesh configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthority":
+            suggest = "certificate_authority"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IstioServiceMeshResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IstioServiceMeshResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IstioServiceMeshResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority: Optional['outputs.IstioCertificateAuthorityResponse'] = None,
+                 components: Optional['outputs.IstioComponentsResponse'] = None,
+                 revisions: Optional[Sequence[str]] = None):
+        """
+        Istio service mesh configuration.
+        :param 'IstioCertificateAuthorityResponse' certificate_authority: Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        :param 'IstioComponentsResponse' components: Istio components configuration.
+        :param Sequence[str] revisions: The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if revisions is not None:
+            pulumi.set(__self__, "revisions", revisions)
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional['outputs.IstioCertificateAuthorityResponse']:
+        """
+        Istio Service Mesh Certificate Authority (CA) configuration. For now, we only support plugin certificates as described here https://aka.ms/asm-plugin-ca
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional['outputs.IstioComponentsResponse']:
+        """
+        Istio components configuration.
+        """
+        return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter
+    def revisions(self) -> Optional[Sequence[str]]:
+        """
+        The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade
+        """
+        return pulumi.get(self, "revisions")
 
 
 @pulumi.output_type
@@ -1313,6 +2386,113 @@ class LinuxOSConfigResponse(dict):
 
 
 @pulumi.output_type
+class MaintenanceWindowResponse(dict):
+    """
+    Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationHours":
+            suggest = "duration_hours"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "notAllowedDates":
+            suggest = "not_allowed_dates"
+        elif key == "startDate":
+            suggest = "start_date"
+        elif key == "utcOffset":
+            suggest = "utc_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MaintenanceWindowResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MaintenanceWindowResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration_hours: Optional[int] = None,
+                 schedule: 'outputs.ScheduleResponse',
+                 start_time: str,
+                 not_allowed_dates: Optional[Sequence['outputs.DateSpanResponse']] = None,
+                 start_date: Optional[str] = None,
+                 utc_offset: Optional[str] = None):
+        """
+        Maintenance window used to configure scheduled auto-upgrade for a Managed Cluster.
+        :param int duration_hours: Length of maintenance window range from 4 to 24 hours.
+        :param 'ScheduleResponse' schedule: Recurrence schedule for the maintenance window.
+        :param str start_time: The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        :param Sequence['DateSpanResponse'] not_allowed_dates: Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        :param str start_date: The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        :param str utc_offset: The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+        if duration_hours is None:
+            duration_hours = 24
+        pulumi.set(__self__, "duration_hours", duration_hours)
+        pulumi.set(__self__, "schedule", schedule)
+        pulumi.set(__self__, "start_time", start_time)
+        if not_allowed_dates is not None:
+            pulumi.set(__self__, "not_allowed_dates", not_allowed_dates)
+        if start_date is not None:
+            pulumi.set(__self__, "start_date", start_date)
+        if utc_offset is not None:
+            pulumi.set(__self__, "utc_offset", utc_offset)
+
+    @property
+    @pulumi.getter(name="durationHours")
+    def duration_hours(self) -> int:
+        """
+        Length of maintenance window range from 4 to 24 hours.
+        """
+        return pulumi.get(self, "duration_hours")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> 'outputs.ScheduleResponse':
+        """
+        Recurrence schedule for the maintenance window.
+        """
+        return pulumi.get(self, "schedule")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the maintenance window. Accepted values are from '00:00' to '23:59'. 'utcOffset' applies to this field. For example: '02:00' with 'utcOffset: +02:00' means UTC time '00:00'.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="notAllowedDates")
+    def not_allowed_dates(self) -> Optional[Sequence['outputs.DateSpanResponse']]:
+        """
+        Date ranges on which upgrade is not allowed. 'utcOffset' applies to this field. For example, with 'utcOffset: +02:00' and 'dateSpan' being '2022-12-23' to '2023-01-03', maintenance will be blocked from '2022-12-22 22:00' to '2023-01-03 22:00' in UTC time.
+        """
+        return pulumi.get(self, "not_allowed_dates")
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> Optional[str]:
+        """
+        The date the maintenance window activates. If the current date is before this date, the maintenance window is inactive and will not be used for upgrades. If not specified, the maintenance window will be active right away.
+        """
+        return pulumi.get(self, "start_date")
+
+    @property
+    @pulumi.getter(name="utcOffset")
+    def utc_offset(self) -> Optional[str]:
+        """
+        The UTC offset in format +/-HH:mm. For example, '+05:30' for IST and '-07:00' for PST. If not specified, the default is '+00:00'.
+        """
+        return pulumi.get(self, "utc_offset")
+
+
+@pulumi.output_type
 class ManagedClusterAADProfileResponse(dict):
     """
     For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
@@ -1653,12 +2833,16 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         suggest = None
         if key == "currentOrchestratorVersion":
             suggest = "current_orchestrator_version"
+        elif key == "eTag":
+            suggest = "e_tag"
         elif key == "nodeImageVersion":
             suggest = "node_image_version"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "availabilityZones":
             suggest = "availability_zones"
+        elif key == "capacityReservationGroupID":
+            suggest = "capacity_reservation_group_id"
         elif key == "creationData":
             suggest = "creation_data"
         elif key == "enableAutoScaling":
@@ -1685,8 +2869,12 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "max_count"
         elif key == "maxPods":
             suggest = "max_pods"
+        elif key == "messageOfTheDay":
+            suggest = "message_of_the_day"
         elif key == "minCount":
             suggest = "min_count"
+        elif key == "networkProfile":
+            suggest = "network_profile"
         elif key == "nodeLabels":
             suggest = "node_labels"
         elif key == "nodePublicIPPrefixID":
@@ -1715,6 +2903,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "scale_set_eviction_policy"
         elif key == "scaleSetPriority":
             suggest = "scale_set_priority"
+        elif key == "securityProfile":
+            suggest = "security_profile"
         elif key == "spotMaxPrice":
             suggest = "spot_max_price"
         elif key == "upgradeSettings":
@@ -1723,6 +2913,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "vm_size"
         elif key == "vnetSubnetID":
             suggest = "vnet_subnet_id"
+        elif key == "windowsProfile":
+            suggest = "windows_profile"
         elif key == "workloadRuntime":
             suggest = "workload_runtime"
 
@@ -1739,10 +2931,12 @@ class ManagedClusterAgentPoolProfileResponse(dict):
 
     def __init__(__self__, *,
                  current_orchestrator_version: str,
+                 e_tag: str,
                  name: str,
                  node_image_version: str,
                  provisioning_state: str,
                  availability_zones: Optional[Sequence[str]] = None,
+                 capacity_reservation_group_id: Optional[str] = None,
                  count: Optional[int] = None,
                  creation_data: Optional['outputs.CreationDataResponse'] = None,
                  enable_auto_scaling: Optional[bool] = None,
@@ -1757,8 +2951,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  linux_os_config: Optional['outputs.LinuxOSConfigResponse'] = None,
                  max_count: Optional[int] = None,
                  max_pods: Optional[int] = None,
+                 message_of_the_day: Optional[str] = None,
                  min_count: Optional[int] = None,
                  mode: Optional[str] = None,
+                 network_profile: Optional['outputs.AgentPoolNetworkProfileResponse'] = None,
                  node_labels: Optional[Mapping[str, str]] = None,
                  node_public_ip_prefix_id: Optional[str] = None,
                  node_taints: Optional[Sequence[str]] = None,
@@ -1773,20 +2969,24 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  scale_down_mode: Optional[str] = None,
                  scale_set_eviction_policy: Optional[str] = None,
                  scale_set_priority: Optional[str] = None,
+                 security_profile: Optional['outputs.AgentPoolSecurityProfileResponse'] = None,
                  spot_max_price: Optional[float] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  type: Optional[str] = None,
                  upgrade_settings: Optional['outputs.AgentPoolUpgradeSettingsResponse'] = None,
                  vm_size: Optional[str] = None,
                  vnet_subnet_id: Optional[str] = None,
+                 windows_profile: Optional['outputs.AgentPoolWindowsProfileResponse'] = None,
                  workload_runtime: Optional[str] = None):
         """
         Profile for the container service agent pool.
         :param str current_orchestrator_version: If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+        :param str e_tag: Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
         :param str name: Windows agent pool names must be 6 characters or less.
         :param str node_image_version: The version of node image
         :param str provisioning_state: The current deployment or provisioning state.
         :param Sequence[str] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
+        :param str capacity_reservation_group_id: AKS will associate the specified agent pool with the Capacity Reservation Group.
         :param int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param 'CreationDataResponse' creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param bool enable_auto_scaling: Whether to enable auto-scaler
@@ -1801,8 +3001,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param 'LinuxOSConfigResponse' linux_os_config: The OS configuration of Linux agent nodes.
         :param int max_count: The maximum number of nodes for auto-scaling
         :param int max_pods: The maximum number of pods that can run on a node.
+        :param str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         :param int min_count: The minimum number of nodes for auto-scaling
         :param str mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param 'AgentPoolNetworkProfileResponse' network_profile: Network-related settings of an agent pool.
         :param Mapping[str, str] node_labels: The node labels to be persisted across all nodes in agent pool.
         :param str node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         :param Sequence[str] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
@@ -1817,20 +3019,25 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param str scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         :param str scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         :param str scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+        :param 'AgentPoolSecurityProfileResponse' security_profile: The security settings of an agent pool.
         :param float spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         :param Mapping[str, str] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param str type: The type of Agent Pool.
         :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: Settings for upgrading the agentpool
         :param str vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         :param str vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param 'AgentPoolWindowsProfileResponse' windows_profile: The Windows agent pool's specific profile.
         :param str workload_runtime: Determines the type of workload a node can run.
         """
         pulumi.set(__self__, "current_orchestrator_version", current_orchestrator_version)
+        pulumi.set(__self__, "e_tag", e_tag)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_image_version", node_image_version)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
         if count is not None:
             pulumi.set(__self__, "count", count)
         if creation_data is not None:
@@ -1859,10 +3066,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "max_count", max_count)
         if max_pods is not None:
             pulumi.set(__self__, "max_pods", max_pods)
+        if message_of_the_day is not None:
+            pulumi.set(__self__, "message_of_the_day", message_of_the_day)
         if min_count is not None:
             pulumi.set(__self__, "min_count", min_count)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if node_labels is not None:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_public_ip_prefix_id is not None:
@@ -1891,6 +3102,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "scale_set_eviction_policy", scale_set_eviction_policy)
         if scale_set_priority is not None:
             pulumi.set(__self__, "scale_set_priority", scale_set_priority)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
         if tags is not None:
@@ -1903,6 +3116,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
             pulumi.set(__self__, "vnet_subnet_id", vnet_subnet_id)
+        if windows_profile is not None:
+            pulumi.set(__self__, "windows_profile", windows_profile)
         if workload_runtime is not None:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
 
@@ -1913,6 +3128,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         """
         return pulumi.get(self, "current_orchestrator_version")
+
+    @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> str:
+        """
+        Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
+        """
+        return pulumi.get(self, "e_tag")
 
     @property
     @pulumi.getter
@@ -1945,6 +3168,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         """
         return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="capacityReservationGroupID")
+    def capacity_reservation_group_id(self) -> Optional[str]:
+        """
+        AKS will associate the specified agent pool with the Capacity Reservation Group.
+        """
+        return pulumi.get(self, "capacity_reservation_group_id")
 
     @property
     @pulumi.getter
@@ -2059,6 +3290,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "max_pods")
 
     @property
+    @pulumi.getter(name="messageOfTheDay")
+    def message_of_the_day(self) -> Optional[str]:
+        """
+        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        """
+        return pulumi.get(self, "message_of_the_day")
+
+    @property
     @pulumi.getter(name="minCount")
     def min_count(self) -> Optional[int]:
         """
@@ -2073,6 +3312,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.AgentPoolNetworkProfileResponse']:
+        """
+        Network-related settings of an agent pool.
+        """
+        return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="nodeLabels")
@@ -2187,6 +3434,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "scale_set_priority")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.AgentPoolSecurityProfileResponse']:
+        """
+        The security settings of an agent pool.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[float]:
         """
@@ -2235,6 +3490,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "vnet_subnet_id")
 
     @property
+    @pulumi.getter(name="windowsProfile")
+    def windows_profile(self) -> Optional['outputs.AgentPoolWindowsProfileResponse']:
+        """
+        The Windows agent pool's specific profile.
+        """
+        return pulumi.get(self, "windows_profile")
+
+    @property
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> Optional[str]:
         """
@@ -2251,7 +3514,9 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "upgradeChannel":
+        if key == "nodeOSUpgradeChannel":
+            suggest = "node_os_upgrade_channel"
+        elif key == "upgradeChannel":
             suggest = "upgrade_channel"
 
         if suggest:
@@ -2266,13 +3531,25 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 node_os_upgrade_channel: Optional[str] = None,
                  upgrade_channel: Optional[str] = None):
         """
         Auto upgrade profile for a managed cluster.
+        :param str node_os_upgrade_channel: Manner in which the OS on your nodes is updated. The default is NodeImage.
         :param str upgrade_channel: For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
+        if node_os_upgrade_channel is not None:
+            pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
         if upgrade_channel is not None:
             pulumi.set(__self__, "upgrade_channel", upgrade_channel)
+
+    @property
+    @pulumi.getter(name="nodeOSUpgradeChannel")
+    def node_os_upgrade_channel(self) -> Optional[str]:
+        """
+        Manner in which the OS on your nodes is updated. The default is NodeImage.
+        """
+        return pulumi.get(self, "node_os_upgrade_channel")
 
     @property
     @pulumi.getter(name="upgradeChannel")
@@ -2412,6 +3689,29 @@ class ManagedClusterAzureMonitorProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterCostAnalysisResponse(dict):
+    """
+    The cost analysis configuration for the cluster
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The cost analysis configuration for the cluster
+        :param bool enabled: The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ManagedClusterHTTPProxyConfigResponse(dict):
     """
     Cluster HTTP proxy configuration.
@@ -2505,6 +3805,8 @@ class ManagedClusterIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "delegatedResources":
+            suggest = "delegated_resources"
         elif key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
@@ -2522,17 +3824,21 @@ class ManagedClusterIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
+                 delegated_resources: Optional[Mapping[str, 'outputs.DelegatedResourceResponse']] = None,
                  type: Optional[str] = None,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedClusterIdentityResponseUserAssignedIdentities']] = None):
         """
         Identity for the managed cluster.
         :param str principal_id: The principal id of the system assigned identity which is used by master components.
         :param str tenant_id: The tenant id of the system assigned identity which is used by master components.
+        :param Mapping[str, 'DelegatedResourceResponse'] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
         :param str type: For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         :param Mapping[str, 'ManagedClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if delegated_resources is not None:
+            pulumi.set(__self__, "delegated_resources", delegated_resources)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -2553,6 +3859,14 @@ class ManagedClusterIdentityResponse(dict):
         The tenant id of the system assigned identity which is used by master components.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="delegatedResources")
+    def delegated_resources(self) -> Optional[Mapping[str, 'outputs.DelegatedResourceResponse']]:
+        """
+        The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
+        """
+        return pulumi.get(self, "delegated_resources")
 
     @property
     @pulumi.getter
@@ -2620,6 +3934,109 @@ class ManagedClusterIdentityResponseUserAssignedIdentities(dict):
 
 
 @pulumi.output_type
+class ManagedClusterIngressProfileResponse(dict):
+    """
+    Ingress profile for the container service cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "webAppRouting":
+            suggest = "web_app_routing"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterIngressProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterIngressProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterIngressProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 web_app_routing: Optional['outputs.ManagedClusterIngressProfileWebAppRoutingResponse'] = None):
+        """
+        Ingress profile for the container service cluster.
+        :param 'ManagedClusterIngressProfileWebAppRoutingResponse' web_app_routing: App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        if web_app_routing is not None:
+            pulumi.set(__self__, "web_app_routing", web_app_routing)
+
+    @property
+    @pulumi.getter(name="webAppRouting")
+    def web_app_routing(self) -> Optional['outputs.ManagedClusterIngressProfileWebAppRoutingResponse']:
+        """
+        App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.
+        """
+        return pulumi.get(self, "web_app_routing")
+
+
+@pulumi.output_type
+class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
+    """
+    Application Routing add-on settings for the ingress profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsZoneResourceIds":
+            suggest = "dns_zone_resource_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterIngressProfileWebAppRoutingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterIngressProfileWebAppRoutingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterIngressProfileWebAppRoutingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: 'outputs.UserAssignedIdentityResponse',
+                 dns_zone_resource_ids: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None):
+        """
+        Application Routing add-on settings for the ingress profile.
+        :param 'UserAssignedIdentityResponse' identity: Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
+        :param Sequence[str] dns_zone_resource_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        :param bool enabled: Whether to enable the Application Routing add-on.
+        """
+        pulumi.set(__self__, "identity", identity)
+        if dns_zone_resource_ids is not None:
+            pulumi.set(__self__, "dns_zone_resource_ids", dns_zone_resource_ids)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> 'outputs.UserAssignedIdentityResponse':
+        """
+        Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="dnsZoneResourceIds")
+    def dns_zone_resource_ids(self) -> Optional[Sequence[str]]:
+        """
+        Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        """
+        return pulumi.get(self, "dns_zone_resource_ids")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether to enable the Application Routing add-on.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponse(dict):
     """
     Profile of the managed cluster load balancer.
@@ -2629,6 +4046,8 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         suggest = None
         if key == "allocatedOutboundPorts":
             suggest = "allocated_outbound_ports"
+        elif key == "backendPoolType":
+            suggest = "backend_pool_type"
         elif key == "effectiveOutboundIPs":
             suggest = "effective_outbound_ips"
         elif key == "enableMultipleStandardLoadBalancers":
@@ -2655,6 +4074,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
 
     def __init__(__self__, *,
                  allocated_outbound_ports: Optional[int] = None,
+                 backend_pool_type: Optional[str] = None,
                  effective_outbound_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
                  enable_multiple_standard_load_balancers: Optional[bool] = None,
                  idle_timeout_in_minutes: Optional[int] = None,
@@ -2664,6 +4084,7 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         """
         Profile of the managed cluster load balancer.
         :param int allocated_outbound_ports: The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
+        :param str backend_pool_type: The type of the managed inbound Load Balancer BackendPool.
         :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param bool enable_multiple_standard_load_balancers: Enable multiple standard load balancers per AKS cluster or not.
         :param int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
@@ -2675,6 +4096,10 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
             allocated_outbound_ports = 0
         if allocated_outbound_ports is not None:
             pulumi.set(__self__, "allocated_outbound_ports", allocated_outbound_ports)
+        if backend_pool_type is None:
+            backend_pool_type = 'NodeIPConfiguration'
+        if backend_pool_type is not None:
+            pulumi.set(__self__, "backend_pool_type", backend_pool_type)
         if effective_outbound_ips is not None:
             pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if enable_multiple_standard_load_balancers is not None:
@@ -2697,6 +4122,14 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         """
         return pulumi.get(self, "allocated_outbound_ports")
+
+    @property
+    @pulumi.getter(name="backendPoolType")
+    def backend_pool_type(self) -> Optional[str]:
+        """
+        The type of the managed inbound Load Balancer BackendPool.
+        """
+        return pulumi.get(self, "backend_pool_type")
 
     @property
     @pulumi.getter(name="effectiveOutboundIPs")
@@ -2909,6 +4342,46 @@ class ManagedClusterManagedOutboundIPProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterMetricsProfileResponse(dict):
+    """
+    The metrics profile for the ManagedCluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "costAnalysis":
+            suggest = "cost_analysis"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterMetricsProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterMetricsProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterMetricsProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cost_analysis: Optional['outputs.ManagedClusterCostAnalysisResponse'] = None):
+        """
+        The metrics profile for the ManagedCluster.
+        :param 'ManagedClusterCostAnalysisResponse' cost_analysis: The cost analysis configuration for the cluster
+        """
+        if cost_analysis is not None:
+            pulumi.set(__self__, "cost_analysis", cost_analysis)
+
+    @property
+    @pulumi.getter(name="costAnalysis")
+    def cost_analysis(self) -> Optional['outputs.ManagedClusterCostAnalysisResponse']:
+        """
+        The cost analysis configuration for the cluster
+        """
+        return pulumi.get(self, "cost_analysis")
+
+
+@pulumi.output_type
 class ManagedClusterNATGatewayProfileResponse(dict):
     """
     Profile of the managed cluster NAT gateway.
@@ -2976,6 +4449,46 @@ class ManagedClusterNATGatewayProfileResponse(dict):
         Profile of the managed outbound IP resources of the cluster NAT gateway.
         """
         return pulumi.get(self, "managed_outbound_ip_profile")
+
+
+@pulumi.output_type
+class ManagedClusterNodeResourceGroupProfileResponse(dict):
+    """
+    Node resource group lockdown profile for a managed cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "restrictionLevel":
+            suggest = "restriction_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterNodeResourceGroupProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterNodeResourceGroupProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterNodeResourceGroupProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 restriction_level: Optional[str] = None):
+        """
+        Node resource group lockdown profile for a managed cluster.
+        :param str restriction_level: The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+        """
+        if restriction_level is not None:
+            pulumi.set(__self__, "restriction_level", restriction_level)
+
+    @property
+    @pulumi.getter(name="restrictionLevel")
+    def restriction_level(self) -> Optional[str]:
+        """
+        The restriction level applied to the cluster's node resource group. If not specified, the default is 'Unrestricted'
+        """
+        return pulumi.get(self, "restriction_level")
 
 
 @pulumi.output_type
@@ -3455,6 +4968,12 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
         suggest = None
         if key == "balanceSimilarNodeGroups":
             suggest = "balance_similar_node_groups"
+        elif key == "daemonsetEvictionForEmptyNodes":
+            suggest = "daemonset_eviction_for_empty_nodes"
+        elif key == "daemonsetEvictionForOccupiedNodes":
+            suggest = "daemonset_eviction_for_occupied_nodes"
+        elif key == "ignoreDaemonsetsUtilization":
+            suggest = "ignore_daemonsets_utilization"
         elif key == "maxEmptyBulkDelete":
             suggest = "max_empty_bulk_delete"
         elif key == "maxGracefulTerminationSec":
@@ -3499,7 +5018,10 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
 
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[str] = None,
+                 daemonset_eviction_for_empty_nodes: Optional[bool] = None,
+                 daemonset_eviction_for_occupied_nodes: Optional[bool] = None,
                  expander: Optional[str] = None,
+                 ignore_daemonsets_utilization: Optional[bool] = None,
                  max_empty_bulk_delete: Optional[str] = None,
                  max_graceful_termination_sec: Optional[str] = None,
                  max_node_provision_time: Optional[str] = None,
@@ -3518,7 +5040,10 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
         :param str balance_similar_node_groups: Valid values are 'true' and 'false'
+        :param bool daemonset_eviction_for_empty_nodes: If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        :param bool daemonset_eviction_for_occupied_nodes: If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         :param str expander: If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        :param bool ignore_daemonsets_utilization: If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         :param str max_empty_bulk_delete: The default is 10.
         :param str max_graceful_termination_sec: The default is 600.
         :param str max_node_provision_time: The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
@@ -3537,8 +5062,14 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
+        if daemonset_eviction_for_empty_nodes is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_empty_nodes", daemonset_eviction_for_empty_nodes)
+        if daemonset_eviction_for_occupied_nodes is not None:
+            pulumi.set(__self__, "daemonset_eviction_for_occupied_nodes", daemonset_eviction_for_occupied_nodes)
         if expander is not None:
             pulumi.set(__self__, "expander", expander)
+        if ignore_daemonsets_utilization is not None:
+            pulumi.set(__self__, "ignore_daemonsets_utilization", ignore_daemonsets_utilization)
         if max_empty_bulk_delete is not None:
             pulumi.set(__self__, "max_empty_bulk_delete", max_empty_bulk_delete)
         if max_graceful_termination_sec is not None:
@@ -3579,12 +5110,36 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
         return pulumi.get(self, "balance_similar_node_groups")
 
     @property
+    @pulumi.getter(name="daemonsetEvictionForEmptyNodes")
+    def daemonset_eviction_for_empty_nodes(self) -> Optional[bool]:
+        """
+        If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_empty_nodes")
+
+    @property
+    @pulumi.getter(name="daemonsetEvictionForOccupiedNodes")
+    def daemonset_eviction_for_occupied_nodes(self) -> Optional[bool]:
+        """
+        If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        """
+        return pulumi.get(self, "daemonset_eviction_for_occupied_nodes")
+
+    @property
     @pulumi.getter
     def expander(self) -> Optional[str]:
         """
         If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
         """
         return pulumi.get(self, "expander")
+
+    @property
+    @pulumi.getter(name="ignoreDaemonsetsUtilization")
+    def ignore_daemonsets_utilization(self) -> Optional[bool]:
+        """
+        If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        """
+        return pulumi.get(self, "ignore_daemonsets_utilization")
 
     @property
     @pulumi.getter(name="maxEmptyBulkDelete")
@@ -4204,13 +5759,34 @@ class ManagedClusterUpdateResponse(dict):
     """
     The update to be applied to the ManagedClusters.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeImageSelection":
+            suggest = "node_image_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterUpdateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterUpdateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterUpdateResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 upgrade: 'outputs.ManagedClusterUpgradeSpecResponse'):
+                 upgrade: 'outputs.ManagedClusterUpgradeSpecResponse',
+                 node_image_selection: Optional['outputs.NodeImageSelectionResponse'] = None):
         """
         The update to be applied to the ManagedClusters.
         :param 'ManagedClusterUpgradeSpecResponse' upgrade: The upgrade to apply to the ManagedClusters.
+        :param 'NodeImageSelectionResponse' node_image_selection: The node image upgrade to be applied to the target nodes in update run.
         """
         pulumi.set(__self__, "upgrade", upgrade)
+        if node_image_selection is not None:
+            pulumi.set(__self__, "node_image_selection", node_image_selection)
 
     @property
     @pulumi.getter
@@ -4219,6 +5795,14 @@ class ManagedClusterUpdateResponse(dict):
         The upgrade to apply to the ManagedClusters.
         """
         return pulumi.get(self, "upgrade")
+
+    @property
+    @pulumi.getter(name="nodeImageSelection")
+    def node_image_selection(self) -> Optional['outputs.NodeImageSelectionResponse']:
+        """
+        The node image upgrade to be applied to the target nodes in update run.
+        """
+        return pulumi.get(self, "node_image_selection")
 
 
 @pulumi.output_type
@@ -4394,14 +5978,35 @@ class ManagedClusterWorkloadAutoScalerProfileResponse(dict):
     """
     Workload Auto-scaler profile for the managed cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "verticalPodAutoscaler":
+            suggest = "vertical_pod_autoscaler"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterWorkloadAutoScalerProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterWorkloadAutoScalerProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterWorkloadAutoScalerProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 keda: Optional['outputs.ManagedClusterWorkloadAutoScalerProfileKedaResponse'] = None):
+                 keda: Optional['outputs.ManagedClusterWorkloadAutoScalerProfileKedaResponse'] = None,
+                 vertical_pod_autoscaler: Optional['outputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse'] = None):
         """
         Workload Auto-scaler profile for the managed cluster.
         :param 'ManagedClusterWorkloadAutoScalerProfileKedaResponse' keda: KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
+        :param 'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse' vertical_pod_autoscaler: VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
         """
         if keda is not None:
             pulumi.set(__self__, "keda", keda)
+        if vertical_pod_autoscaler is not None:
+            pulumi.set(__self__, "vertical_pod_autoscaler", vertical_pod_autoscaler)
 
     @property
     @pulumi.getter
@@ -4410,6 +6015,115 @@ class ManagedClusterWorkloadAutoScalerProfileResponse(dict):
         KEDA (Kubernetes Event-driven Autoscaling) settings for the workload auto-scaler profile.
         """
         return pulumi.get(self, "keda")
+
+    @property
+    @pulumi.getter(name="verticalPodAutoscaler")
+    def vertical_pod_autoscaler(self) -> Optional['outputs.ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse']:
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        """
+        return pulumi.get(self, "vertical_pod_autoscaler")
+
+
+@pulumi.output_type
+class ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse(dict):
+    """
+    VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        VPA (Vertical Pod Autoscaler) settings for the workload auto-scaler profile.
+        :param bool enabled: Whether to enable VPA. Default value is false.
+        """
+        if enabled is None:
+            enabled = False
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether to enable VPA. Default value is false.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -4438,17 +6152,20 @@ class MemberUpdateStatusResponse(dict):
 
     def __init__(__self__, *,
                  cluster_resource_id: str,
+                 message: str,
                  name: str,
                  operation_id: str,
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a member update operation.
         :param str cluster_resource_id: The Azure resource id of the target Kubernetes cluster.
+        :param str message: The status message after processing the member update operation.
         :param str name: The name of the FleetMember.
         :param str operation_id: The operation resource id of the latest attempt to perform the operation.
         :param 'UpdateStatusResponse' status: The status of the MemberUpdate operation.
         """
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "operation_id", operation_id)
         pulumi.set(__self__, "status", status)
@@ -4460,6 +6177,14 @@ class MemberUpdateStatusResponse(dict):
         The Azure resource id of the target Kubernetes cluster.
         """
         return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The status message after processing the member update operation.
+        """
+        return pulumi.get(self, "message")
 
     @property
     @pulumi.getter
@@ -4583,576 +6308,181 @@ class NetworkProfileForSnapshotResponse(dict):
 
 
 @pulumi.output_type
-class NetworkProfileResponse(dict):
+class NodeImageSelectionResponse(dict):
     """
-    Represents the OpenShift networking configuration
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "managementSubnetCidr":
-            suggest = "management_subnet_cidr"
-        elif key == "vnetCidr":
-            suggest = "vnet_cidr"
-        elif key == "vnetId":
-            suggest = "vnet_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        NetworkProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        NetworkProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 management_subnet_cidr: Optional[str] = None,
-                 vnet_cidr: Optional[str] = None,
-                 vnet_id: Optional[str] = None):
-        """
-        Represents the OpenShift networking configuration
-        :param str management_subnet_cidr: CIDR of subnet used to create PLS needed for management of the cluster
-        :param str vnet_cidr: CIDR for the OpenShift Vnet.
-        :param str vnet_id: ID of the Vnet created for OSA cluster.
-        """
-        if management_subnet_cidr is not None:
-            pulumi.set(__self__, "management_subnet_cidr", management_subnet_cidr)
-        if vnet_cidr is None:
-            vnet_cidr = '10.0.0.0/8'
-        if vnet_cidr is not None:
-            pulumi.set(__self__, "vnet_cidr", vnet_cidr)
-        if vnet_id is not None:
-            pulumi.set(__self__, "vnet_id", vnet_id)
-
-    @property
-    @pulumi.getter(name="managementSubnetCidr")
-    def management_subnet_cidr(self) -> Optional[str]:
-        """
-        CIDR of subnet used to create PLS needed for management of the cluster
-        """
-        return pulumi.get(self, "management_subnet_cidr")
-
-    @property
-    @pulumi.getter(name="vnetCidr")
-    def vnet_cidr(self) -> Optional[str]:
-        """
-        CIDR for the OpenShift Vnet.
-        """
-        return pulumi.get(self, "vnet_cidr")
-
-    @property
-    @pulumi.getter(name="vnetId")
-    def vnet_id(self) -> Optional[str]:
-        """
-        ID of the Vnet created for OSA cluster.
-        """
-        return pulumi.get(self, "vnet_id")
-
-
-@pulumi.output_type
-class OpenShiftAPIPropertiesResponse(dict):
-    """
-    Defines further properties on the API.
+    The node image upgrade to be applied to the target nodes in update run.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateApiServer":
-            suggest = "private_api_server"
+        if key == "customNodeImageVersions":
+            suggest = "custom_node_image_versions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftAPIPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NodeImageSelectionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OpenShiftAPIPropertiesResponse.__key_warning(key)
+        NodeImageSelectionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OpenShiftAPIPropertiesResponse.__key_warning(key)
+        NodeImageSelectionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 private_api_server: Optional[bool] = None):
+                 type: str,
+                 custom_node_image_versions: Optional[Sequence['outputs.NodeImageVersionResponse']] = None):
         """
-        Defines further properties on the API.
-        :param bool private_api_server: Specifies if API server is public or private.
+        The node image upgrade to be applied to the target nodes in update run.
+        :param str type: The node image upgrade type.
+        :param Sequence['NodeImageVersionResponse'] custom_node_image_versions: Custom node image versions to upgrade the nodes to. This field is required if node image selection type is Custom. Otherwise, it must be empty. For each node image family (e.g., 'AKSUbuntu-1804gen2containerd'), this field can contain at most one version (e.g., only one of 'AKSUbuntu-1804gen2containerd-2023.01.12' or 'AKSUbuntu-1804gen2containerd-2023.02.12', not both). If the nodes belong to a family without a matching image version in this field, they are not upgraded.
         """
-        if private_api_server is not None:
-            pulumi.set(__self__, "private_api_server", private_api_server)
+        pulumi.set(__self__, "type", type)
+        if custom_node_image_versions is not None:
+            pulumi.set(__self__, "custom_node_image_versions", custom_node_image_versions)
 
     @property
-    @pulumi.getter(name="privateApiServer")
-    def private_api_server(self) -> Optional[bool]:
+    @pulumi.getter
+    def type(self) -> str:
         """
-        Specifies if API server is public or private.
+        The node image upgrade type.
         """
-        return pulumi.get(self, "private_api_server")
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="customNodeImageVersions")
+    def custom_node_image_versions(self) -> Optional[Sequence['outputs.NodeImageVersionResponse']]:
+        """
+        Custom node image versions to upgrade the nodes to. This field is required if node image selection type is Custom. Otherwise, it must be empty. For each node image family (e.g., 'AKSUbuntu-1804gen2containerd'), this field can contain at most one version (e.g., only one of 'AKSUbuntu-1804gen2containerd-2023.01.12' or 'AKSUbuntu-1804gen2containerd-2023.02.12', not both). If the nodes belong to a family without a matching image version in this field, they are not upgraded.
+        """
+        return pulumi.get(self, "custom_node_image_versions")
 
 
 @pulumi.output_type
-class OpenShiftManagedClusterAADIdentityProviderResponse(dict):
+class NodeImageSelectionStatusResponse(dict):
     """
-    Defines the Identity provider for MS AAD.
+    The node image upgrade specs for the update run.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "customerAdminGroupId":
-            suggest = "customer_admin_group_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
+        if key == "selectedNodeImageVersions":
+            suggest = "selected_node_image_versions"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterAADIdentityProviderResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in NodeImageSelectionStatusResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OpenShiftManagedClusterAADIdentityProviderResponse.__key_warning(key)
+        NodeImageSelectionStatusResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OpenShiftManagedClusterAADIdentityProviderResponse.__key_warning(key)
+        NodeImageSelectionStatusResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 kind: str,
-                 client_id: Optional[str] = None,
-                 customer_admin_group_id: Optional[str] = None,
-                 secret: Optional[str] = None,
-                 tenant_id: Optional[str] = None):
+                 selected_node_image_versions: Sequence['outputs.NodeImageVersionResponse']):
         """
-        Defines the Identity provider for MS AAD.
-        :param str kind: The kind of the provider.
-               Expected value is 'AADIdentityProvider'.
-        :param str client_id: The clientId password associated with the provider.
-        :param str customer_admin_group_id: The groupId to be granted cluster admin role.
-        :param str secret: The secret password associated with the provider.
-        :param str tenant_id: The tenantId associated with the provider.
+        The node image upgrade specs for the update run.
+        :param Sequence['NodeImageVersionResponse'] selected_node_image_versions: The image versions to upgrade the nodes to.
         """
-        pulumi.set(__self__, "kind", 'AADIdentityProvider')
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if customer_admin_group_id is not None:
-            pulumi.set(__self__, "customer_admin_group_id", customer_admin_group_id)
-        if secret is not None:
-            pulumi.set(__self__, "secret", secret)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "selected_node_image_versions", selected_node_image_versions)
 
     @property
-    @pulumi.getter
-    def kind(self) -> str:
+    @pulumi.getter(name="selectedNodeImageVersions")
+    def selected_node_image_versions(self) -> Sequence['outputs.NodeImageVersionResponse']:
         """
-        The kind of the provider.
-        Expected value is 'AADIdentityProvider'.
+        The image versions to upgrade the nodes to.
         """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[str]:
-        """
-        The clientId password associated with the provider.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="customerAdminGroupId")
-    def customer_admin_group_id(self) -> Optional[str]:
-        """
-        The groupId to be granted cluster admin role.
-        """
-        return pulumi.get(self, "customer_admin_group_id")
-
-    @property
-    @pulumi.getter
-    def secret(self) -> Optional[str]:
-        """
-        The secret password associated with the provider.
-        """
-        return pulumi.get(self, "secret")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[str]:
-        """
-        The tenantId associated with the provider.
-        """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "selected_node_image_versions")
 
 
 @pulumi.output_type
-class OpenShiftManagedClusterAgentPoolProfileResponse(dict):
+class NodeImageVersionResponse(dict):
     """
-    Defines the configuration of the OpenShift cluster VMs.
+    The node upgrade image version.
+    """
+    def __init__(__self__, *,
+                 version: str):
+        """
+        The node upgrade image version.
+        :param str version: The image version to upgrade the nodes to (e.g., 'AKSUbuntu-1804gen2containerd-2022.12.13').
+        """
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The image version to upgrade the nodes to (e.g., 'AKSUbuntu-1804gen2containerd-2022.12.13').
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PortRangeResponse(dict):
+    """
+    The port range.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "osType":
-            suggest = "os_type"
-        elif key == "subnetCidr":
-            suggest = "subnet_cidr"
+        if key == "portEnd":
+            suggest = "port_end"
+        elif key == "portStart":
+            suggest = "port_start"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterAgentPoolProfileResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in PortRangeResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        OpenShiftManagedClusterAgentPoolProfileResponse.__key_warning(key)
+        PortRangeResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        OpenShiftManagedClusterAgentPoolProfileResponse.__key_warning(key)
+        PortRangeResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 count: int,
-                 name: str,
-                 vm_size: str,
-                 os_type: Optional[str] = None,
-                 role: Optional[str] = None,
-                 subnet_cidr: Optional[str] = None):
+                 port_end: Optional[int] = None,
+                 port_start: Optional[int] = None,
+                 protocol: Optional[str] = None):
         """
-        Defines the configuration of the OpenShift cluster VMs.
-        :param int count: Number of agents (VMs) to host docker containers.
-        :param str name: Unique name of the pool profile in the context of the subscription and resource group.
-        :param str vm_size: Size of agent VMs.
-        :param str os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param str role: Define the role of the AgentPoolProfile.
-        :param str subnet_cidr: Subnet CIDR for the peering.
+        The port range.
+        :param int port_end: The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
+        :param int port_start: The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
+        :param str protocol: The network protocol of the port.
         """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
-        if role is not None:
-            pulumi.set(__self__, "role", role)
-        if subnet_cidr is None:
-            subnet_cidr = '10.0.0.0/24'
-        if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[int]:
+        """
+        The maximum port that is included in the range. It should be ranged from 1 to 65535, and be greater than or equal to portStart.
+        """
+        return pulumi.get(self, "port_end")
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[int]:
+        """
+        The minimum port that is included in the range. It should be ranged from 1 to 65535, and be less than or equal to portEnd.
+        """
+        return pulumi.get(self, "port_start")
 
     @property
     @pulumi.getter
-    def count(self) -> int:
+    def protocol(self) -> Optional[str]:
         """
-        Number of agents (VMs) to host docker containers.
+        The network protocol of the port.
         """
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Unique name of the pool profile in the context of the subscription and resource group.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        Size of agent VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[str]:
-        """
-        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        """
-        return pulumi.get(self, "os_type")
-
-    @property
-    @pulumi.getter
-    def role(self) -> Optional[str]:
-        """
-        Define the role of the AgentPoolProfile.
-        """
-        return pulumi.get(self, "role")
-
-    @property
-    @pulumi.getter(name="subnetCidr")
-    def subnet_cidr(self) -> Optional[str]:
-        """
-        Subnet CIDR for the peering.
-        """
-        return pulumi.get(self, "subnet_cidr")
-
-
-@pulumi.output_type
-class OpenShiftManagedClusterAuthProfileResponse(dict):
-    """
-    Defines all possible authentication profiles for the OpenShift cluster.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "identityProviders":
-            suggest = "identity_providers"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterAuthProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenShiftManagedClusterAuthProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenShiftManagedClusterAuthProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 identity_providers: Optional[Sequence['outputs.OpenShiftManagedClusterIdentityProviderResponse']] = None):
-        """
-        Defines all possible authentication profiles for the OpenShift cluster.
-        :param Sequence['OpenShiftManagedClusterIdentityProviderResponse'] identity_providers: Type of authentication profile to use.
-        """
-        if identity_providers is not None:
-            pulumi.set(__self__, "identity_providers", identity_providers)
-
-    @property
-    @pulumi.getter(name="identityProviders")
-    def identity_providers(self) -> Optional[Sequence['outputs.OpenShiftManagedClusterIdentityProviderResponse']]:
-        """
-        Type of authentication profile to use.
-        """
-        return pulumi.get(self, "identity_providers")
-
-
-@pulumi.output_type
-class OpenShiftManagedClusterIdentityProviderResponse(dict):
-    """
-    Defines the configuration of the identity providers to be used in the OpenShift cluster.
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 provider: Optional['outputs.OpenShiftManagedClusterAADIdentityProviderResponse'] = None):
-        """
-        Defines the configuration of the identity providers to be used in the OpenShift cluster.
-        :param str name: Name of the provider.
-        :param 'OpenShiftManagedClusterAADIdentityProviderResponse' provider: Configuration of the provider.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if provider is not None:
-            pulumi.set(__self__, "provider", provider)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the provider.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def provider(self) -> Optional['outputs.OpenShiftManagedClusterAADIdentityProviderResponse']:
-        """
-        Configuration of the provider.
-        """
-        return pulumi.get(self, "provider")
-
-
-@pulumi.output_type
-class OpenShiftManagedClusterMasterPoolProfileResponse(dict):
-    """
-    OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "vmSize":
-            suggest = "vm_size"
-        elif key == "apiProperties":
-            suggest = "api_properties"
-        elif key == "subnetCidr":
-            suggest = "subnet_cidr"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterMasterPoolProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenShiftManagedClusterMasterPoolProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenShiftManagedClusterMasterPoolProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 count: int,
-                 vm_size: str,
-                 api_properties: Optional['outputs.OpenShiftAPIPropertiesResponse'] = None,
-                 subnet_cidr: Optional[str] = None):
-        """
-        OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
-        :param int count: Number of masters (VMs) to host docker containers. The default value is 3.
-        :param str vm_size: Size of agent VMs.
-        :param 'OpenShiftAPIPropertiesResponse' api_properties: Defines further properties on the API.
-        :param str subnet_cidr: Subnet CIDR for the peering.
-        """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "vm_size", vm_size)
-        if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
-        if subnet_cidr is not None:
-            pulumi.set(__self__, "subnet_cidr", subnet_cidr)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        """
-        Number of masters (VMs) to host docker containers. The default value is 3.
-        """
-        return pulumi.get(self, "count")
-
-    @property
-    @pulumi.getter(name="vmSize")
-    def vm_size(self) -> str:
-        """
-        Size of agent VMs.
-        """
-        return pulumi.get(self, "vm_size")
-
-    @property
-    @pulumi.getter(name="apiProperties")
-    def api_properties(self) -> Optional['outputs.OpenShiftAPIPropertiesResponse']:
-        """
-        Defines further properties on the API.
-        """
-        return pulumi.get(self, "api_properties")
-
-    @property
-    @pulumi.getter(name="subnetCidr")
-    def subnet_cidr(self) -> Optional[str]:
-        """
-        Subnet CIDR for the peering.
-        """
-        return pulumi.get(self, "subnet_cidr")
-
-
-@pulumi.output_type
-class OpenShiftManagedClusterMonitorProfileResponse(dict):
-    """
-    Defines the configuration for Log Analytics integration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "workspaceResourceID":
-            suggest = "workspace_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftManagedClusterMonitorProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenShiftManagedClusterMonitorProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenShiftManagedClusterMonitorProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 workspace_resource_id: Optional[str] = None):
-        """
-        Defines the configuration for Log Analytics integration.
-        :param bool enabled: If the Log analytics integration should be turned on or off
-        :param str workspace_resource_id: Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        If the Log analytics integration should be turned on or off
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="workspaceResourceID")
-    def workspace_resource_id(self) -> Optional[str]:
-        """
-        Azure Resource Manager Resource ID for the Log Analytics workspace to integrate with.
-        """
-        return pulumi.get(self, "workspace_resource_id")
-
-
-@pulumi.output_type
-class OpenShiftRouterProfileResponse(dict):
-    """
-    Represents an OpenShift router
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "publicSubdomain":
-            suggest = "public_subdomain"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in OpenShiftRouterProfileResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        OpenShiftRouterProfileResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        OpenShiftRouterProfileResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 fqdn: str,
-                 public_subdomain: str,
-                 name: Optional[str] = None):
-        """
-        Represents an OpenShift router
-        :param str fqdn: Auto-allocated FQDN for the OpenShift router.
-        :param str public_subdomain: DNS subdomain for OpenShift router.
-        :param str name: Name of the router profile.
-        """
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "public_subdomain", public_subdomain)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def fqdn(self) -> str:
-        """
-        Auto-allocated FQDN for the OpenShift router.
-        """
-        return pulumi.get(self, "fqdn")
-
-    @property
-    @pulumi.getter(name="publicSubdomain")
-    def public_subdomain(self) -> str:
-        """
-        DNS subdomain for OpenShift router.
-        """
-        return pulumi.get(self, "public_subdomain")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of the router profile.
-        """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
@@ -5340,79 +6670,68 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 
 
 @pulumi.output_type
-class PurchasePlanResponse(dict):
+class RelativeMonthlyScheduleResponse(dict):
     """
-    Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
+    For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "promotionCode":
-            suggest = "promotion_code"
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "intervalMonths":
+            suggest = "interval_months"
+        elif key == "weekIndex":
+            suggest = "week_index"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PurchasePlanResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in RelativeMonthlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        PurchasePlanResponse.__key_warning(key)
+        RelativeMonthlyScheduleResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        PurchasePlanResponse.__key_warning(key)
+        RelativeMonthlyScheduleResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: Optional[str] = None,
-                 product: Optional[str] = None,
-                 promotion_code: Optional[str] = None,
-                 publisher: Optional[str] = None):
+                 day_of_week: str,
+                 interval_months: int,
+                 week_index: str):
         """
-        Used for establishing the purchase context of any 3rd Party artifact through MarketPlace.
-        :param str name: The plan ID.
-        :param str product: Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
-        :param str promotion_code: The promotion code.
-        :param str publisher: The plan ID.
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        :param str day_of_week: Specifies on which day of the week the maintenance occurs.
+        :param int interval_months: Specifies the number of months between each set of occurrences.
+        :param str week_index: Specifies on which week of the month the dayOfWeek applies.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if product is not None:
-            pulumi.set(__self__, "product", product)
-        if promotion_code is not None:
-            pulumi.set(__self__, "promotion_code", promotion_code)
-        if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "interval_months", interval_months)
+        pulumi.set(__self__, "week_index", week_index)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
         """
-        The plan ID.
+        Specifies on which day of the week the maintenance occurs.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "day_of_week")
 
     @property
-    @pulumi.getter
-    def product(self) -> Optional[str]:
+    @pulumi.getter(name="intervalMonths")
+    def interval_months(self) -> int:
         """
-        Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+        Specifies the number of months between each set of occurrences.
         """
-        return pulumi.get(self, "product")
+        return pulumi.get(self, "interval_months")
 
     @property
-    @pulumi.getter(name="promotionCode")
-    def promotion_code(self) -> Optional[str]:
+    @pulumi.getter(name="weekIndex")
+    def week_index(self) -> str:
         """
-        The promotion code.
+        Specifies on which week of the month the dayOfWeek applies.
         """
-        return pulumi.get(self, "promotion_code")
-
-    @property
-    @pulumi.getter
-    def publisher(self) -> Optional[str]:
-        """
-        The plan ID.
-        """
-        return pulumi.get(self, "publisher")
+        return pulumi.get(self, "week_index")
 
 
 @pulumi.output_type
@@ -5436,6 +6755,118 @@ class ResourceReferenceResponse(dict):
         The fully qualified Azure resource id.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ScheduleResponse(dict):
+    """
+    One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "absoluteMonthly":
+            suggest = "absolute_monthly"
+        elif key == "relativeMonthly":
+            suggest = "relative_monthly"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 absolute_monthly: Optional['outputs.AbsoluteMonthlyScheduleResponse'] = None,
+                 daily: Optional['outputs.DailyScheduleResponse'] = None,
+                 relative_monthly: Optional['outputs.RelativeMonthlyScheduleResponse'] = None,
+                 weekly: Optional['outputs.WeeklyScheduleResponse'] = None):
+        """
+        One and only one of the schedule types should be specified. Choose either 'daily', 'weekly', 'absoluteMonthly' or 'relativeMonthly' for your maintenance schedule.
+        :param 'AbsoluteMonthlyScheduleResponse' absolute_monthly: For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        :param 'DailyScheduleResponse' daily: For schedules like: 'recur every day' or 'recur every 3 days'.
+        :param 'RelativeMonthlyScheduleResponse' relative_monthly: For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        :param 'WeeklyScheduleResponse' weekly: For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        if absolute_monthly is not None:
+            pulumi.set(__self__, "absolute_monthly", absolute_monthly)
+        if daily is not None:
+            pulumi.set(__self__, "daily", daily)
+        if relative_monthly is not None:
+            pulumi.set(__self__, "relative_monthly", relative_monthly)
+        if weekly is not None:
+            pulumi.set(__self__, "weekly", weekly)
+
+    @property
+    @pulumi.getter(name="absoluteMonthly")
+    def absolute_monthly(self) -> Optional['outputs.AbsoluteMonthlyScheduleResponse']:
+        """
+        For schedules like: 'recur every month on the 15th' or 'recur every 3 months on the 20th'.
+        """
+        return pulumi.get(self, "absolute_monthly")
+
+    @property
+    @pulumi.getter
+    def daily(self) -> Optional['outputs.DailyScheduleResponse']:
+        """
+        For schedules like: 'recur every day' or 'recur every 3 days'.
+        """
+        return pulumi.get(self, "daily")
+
+    @property
+    @pulumi.getter(name="relativeMonthly")
+    def relative_monthly(self) -> Optional['outputs.RelativeMonthlyScheduleResponse']:
+        """
+        For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
+        """
+        return pulumi.get(self, "relative_monthly")
+
+    @property
+    @pulumi.getter
+    def weekly(self) -> Optional['outputs.WeeklyScheduleResponse']:
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        """
+        return pulumi.get(self, "weekly")
+
+
+@pulumi.output_type
+class ServiceMeshProfileResponse(dict):
+    """
+    Service mesh profile for a managed cluster.
+    """
+    def __init__(__self__, *,
+                 mode: str,
+                 istio: Optional['outputs.IstioServiceMeshResponse'] = None):
+        """
+        Service mesh profile for a managed cluster.
+        :param str mode: Mode of the service mesh.
+        :param 'IstioServiceMeshResponse' istio: Istio service mesh configuration.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if istio is not None:
+            pulumi.set(__self__, "istio", istio)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        Mode of the service mesh.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def istio(self) -> Optional['outputs.IstioServiceMeshResponse']:
+        """
+        Istio service mesh configuration.
+        """
+        return pulumi.get(self, "istio")
 
 
 @pulumi.output_type
@@ -6126,16 +7557,44 @@ class UpdateRunStatusResponse(dict):
     """
     The status of a UpdateRun.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeImageSelection":
+            suggest = "node_image_selection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateRunStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateRunStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateRunStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 node_image_selection: 'outputs.NodeImageSelectionStatusResponse',
                  stages: Sequence['outputs.UpdateStageStatusResponse'],
                  status: 'outputs.UpdateStatusResponse'):
         """
         The status of a UpdateRun.
+        :param 'NodeImageSelectionStatusResponse' node_image_selection: The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.
         :param Sequence['UpdateStageStatusResponse'] stages: The stages composing an update run. Stages are run sequentially withing an UpdateRun.
         :param 'UpdateStatusResponse' status: The status of the UpdateRun.
         """
+        pulumi.set(__self__, "node_image_selection", node_image_selection)
         pulumi.set(__self__, "stages", stages)
         pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="nodeImageSelection")
+    def node_image_selection(self) -> 'outputs.NodeImageSelectionStatusResponse':
+        """
+        The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.
+        """
+        return pulumi.get(self, "node_image_selection")
 
     @property
     @pulumi.getter
@@ -6398,6 +7857,58 @@ class UpdateStatusResponse(dict):
 
 
 @pulumi.output_type
+class UpgradeOverrideSettingsResponse(dict):
+    """
+    Settings for overrides when upgrading a cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forceUpgrade":
+            suggest = "force_upgrade"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpgradeOverrideSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpgradeOverrideSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpgradeOverrideSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 force_upgrade: Optional[bool] = None,
+                 until: Optional[str] = None):
+        """
+        Settings for overrides when upgrading a cluster.
+        :param bool force_upgrade: Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        :param str until: Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+        if force_upgrade is not None:
+            pulumi.set(__self__, "force_upgrade", force_upgrade)
+        if until is not None:
+            pulumi.set(__self__, "until", until)
+
+    @property
+    @pulumi.getter(name="forceUpgrade")
+    def force_upgrade(self) -> Optional[bool]:
+        """
+        Whether to force upgrade the cluster. Note that this option instructs upgrade operation to bypass upgrade protections such as checking for deprecated API usage. Enable this option only with caution.
+        """
+        return pulumi.get(self, "force_upgrade")
+
+    @property
+    @pulumi.getter
+    def until(self) -> Optional[str]:
+        """
+        Until when the overrides are effective. Note that this only matches the start time of an upgrade, and the effectiveness won't change once an upgrade starts even if the `until` expires as upgrade proceeds. This field is not set by default. It must be set for the overrides to take effect.
+        """
+        return pulumi.get(self, "until")
+
+
+@pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
     Details about a user assigned identity.
@@ -6409,6 +7920,8 @@ class UserAssignedIdentityResponse(dict):
             suggest = "client_id"
         elif key == "objectId":
             suggest = "object_id"
+        elif key == "principalId":
+            suggest = "principal_id"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -6426,17 +7939,21 @@ class UserAssignedIdentityResponse(dict):
     def __init__(__self__, *,
                  client_id: Optional[str] = None,
                  object_id: Optional[str] = None,
+                 principal_id: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
         Details about a user assigned identity.
         :param str client_id: The client ID of the user assigned identity.
         :param str object_id: The object ID of the user assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
         :param str resource_id: The resource ID of the user assigned identity.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
 
@@ -6455,6 +7972,14 @@ class UserAssignedIdentityResponse(dict):
         The object ID of the user assigned identity.
         """
         return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -6513,6 +8038,58 @@ class WaitStatusResponse(dict):
         The wait duration configured in seconds.
         """
         return pulumi.get(self, "wait_duration_in_seconds")
+
+
+@pulumi.output_type
+class WeeklyScheduleResponse(dict):
+    """
+    For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "intervalWeeks":
+            suggest = "interval_weeks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WeeklyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: str,
+                 interval_weeks: int):
+        """
+        For schedules like: 'recur every Monday' or 'recur every 3 weeks on Wednesday'.
+        :param str day_of_week: Specifies on which day of the week the maintenance occurs.
+        :param int interval_weeks: Specifies the number of weeks between each set of occurrences.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "interval_weeks", interval_weeks)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
+        """
+        Specifies on which day of the week the maintenance occurs.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="intervalWeeks")
+    def interval_weeks(self) -> int:
+        """
+        Specifies the number of weeks between each set of occurrences.
+        """
+        return pulumi.get(self, "interval_weeks")
 
 
 @pulumi.output_type

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetDefenderForStorageResult> InvokeAsync(GetDefenderForStorageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefenderForStorageResult>("azure-native:security:getDefenderForStorage", args ?? new GetDefenderForStorageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetDefenderForStorageResult> Invoke(GetDefenderForStorageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefenderForStorageResult>("azure-native:security:getDefenderForStorage", args ?? new GetDefenderForStorageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Defender for Storage settings for the specified storage account.
-        /// Azure REST API version: 2022-12-01-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetDefenderForStorageResult> Invoke(GetDefenderForStorageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefenderForStorageResult>("azure-native:security:getDefenderForStorage", args ?? new GetDefenderForStorageInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetDefenderForStorageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -103,6 +101,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetDefenderForStorageResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

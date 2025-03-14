@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public static AuthenticationMode SharedKey { get; } = new AuthenticationMode("SharedKey");
         /// <summary>
-        /// The authentication mode using Azure Active Directory.
+        /// The authentication mode using Microsoft Entra ID.
         /// </summary>
         public static AuthenticationMode AAD { get; } = new AuthenticationMode("AAD");
         /// <summary>
@@ -122,15 +122,6 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Values are:
-    /// 
-    ///  none - The caching mode for the disk is not enabled.
-    ///  readOnly - The caching mode for the disk is read only.
-    ///  readWrite - The caching mode for the disk is read and write.
-    /// 
-    ///  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-    /// </summary>
     [EnumType]
     public readonly struct CachingType : IEquatable<CachingType>
     {
@@ -170,7 +161,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
-    /// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+    /// The default value is currentUser. This property is applicable only for pools configured with Windows compute nodes. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
     /// </summary>
     [EnumType]
     public readonly struct CertificateStoreLocation : IEquatable<CertificateStoreLocation>
@@ -324,6 +315,56 @@ namespace Pulumi.AzureNative.Batch
     }
 
     [EnumType]
+    public readonly struct ContainerHostDataPath : IEquatable<ContainerHostDataPath>
+    {
+        private readonly string _value;
+
+        private ContainerHostDataPath(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The path for multi-instances task to shared their files.
+        /// </summary>
+        public static ContainerHostDataPath Shared { get; } = new ContainerHostDataPath("Shared");
+        /// <summary>
+        /// The path for start task.
+        /// </summary>
+        public static ContainerHostDataPath Startup { get; } = new ContainerHostDataPath("Startup");
+        /// <summary>
+        /// The path contains all virtual file systems are mounted on this node.
+        /// </summary>
+        public static ContainerHostDataPath VfsMounts { get; } = new ContainerHostDataPath("VfsMounts");
+        /// <summary>
+        /// The task path.
+        /// </summary>
+        public static ContainerHostDataPath Task { get; } = new ContainerHostDataPath("Task");
+        /// <summary>
+        /// The job-prep task path.
+        /// </summary>
+        public static ContainerHostDataPath JobPrep { get; } = new ContainerHostDataPath("JobPrep");
+        /// <summary>
+        /// The applications path.
+        /// </summary>
+        public static ContainerHostDataPath Applications { get; } = new ContainerHostDataPath("Applications");
+
+        public static bool operator ==(ContainerHostDataPath left, ContainerHostDataPath right) => left.Equals(right);
+        public static bool operator !=(ContainerHostDataPath left, ContainerHostDataPath right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerHostDataPath value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerHostDataPath other && Equals(other);
+        public bool Equals(ContainerHostDataPath other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ContainerType : IEquatable<ContainerType>
     {
         private readonly string _value;
@@ -392,7 +433,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
-    /// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+    /// This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://learn.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://learn.microsoft.com/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
     /// </summary>
     [EnumType]
     public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
@@ -752,7 +793,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
-    /// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+    /// Specifies login mode for the user. The default value is Interactive.
     /// </summary>
     [EnumType]
     public readonly struct LoginMode : IEquatable<LoginMode>
@@ -901,7 +942,7 @@ namespace Pulumi.AzureNative.Batch
     }
 
     /// <summary>
-    /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+    /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
     /// </summary>
     [EnumType]
     public readonly struct PoolAllocationMode : IEquatable<PoolAllocationMode>
@@ -995,6 +1036,10 @@ namespace Pulumi.AzureNative.Batch
         /// Disables public connectivity and enables private connectivity to Azure Batch Service through private endpoint resource.
         /// </summary>
         public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
+        /// <summary>
+        /// Secures connectivity to Azure Batch through NSP configuration.
+        /// </summary>
+        public static PublicNetworkAccessType SecuredByPerimeter { get; } = new PublicNetworkAccessType("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
@@ -1052,12 +1097,68 @@ namespace Pulumi.AzureNative.Batch
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// If omitted, the default is "Standard_LRS". Values are:
-    /// 
-    ///  Standard_LRS - The data disk should use standard locally redundant storage.
-    ///  Premium_LRS - The data disk should use premium locally redundant storage.
-    /// </summary>
+    [EnumType]
+    public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
+    {
+        private readonly string _value;
+
+        private SecurityEncryptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityEncryptionTypes NonPersistedTPM { get; } = new SecurityEncryptionTypes("NonPersistedTPM");
+        public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
+
+        public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityEncryptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityEncryptionTypes other && Equals(other);
+        public bool Equals(SecurityEncryptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct SecurityTypes : IEquatable<SecurityTypes>
+    {
+        private readonly string _value;
+
+        private SecurityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Trusted launch protects against advanced and persistent attack techniques.
+        /// </summary>
+        public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("trustedLaunch");
+        /// <summary>
+        /// Azure confidential computing offers confidential VMs are for tenants with high security and confidentiality requirements. These VMs provide a strong, hardware-enforced boundary to help meet your security needs. You can use confidential VMs for migrations without making changes to your code, with the platform protecting your VM's state from being read or modified.
+        /// </summary>
+        public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("confidentialVM");
+
+        public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityTypes left, SecurityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityTypes other && Equals(other);
+        public bool Equals(SecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct StorageAccountType : IEquatable<StorageAccountType>
     {
@@ -1069,13 +1170,17 @@ namespace Pulumi.AzureNative.Batch
         }
 
         /// <summary>
-        /// The data disk should use standard locally redundant storage.
+        /// The data disk / OS disk should use standard locally redundant storage.
         /// </summary>
         public static StorageAccountType Standard_LRS { get; } = new StorageAccountType("Standard_LRS");
         /// <summary>
-        /// The data disk should use premium locally redundant storage.
+        /// The data disk / OS disk should use premium locally redundant storage.
         /// </summary>
         public static StorageAccountType Premium_LRS { get; } = new StorageAccountType("Premium_LRS");
+        /// <summary>
+        /// The data disk / OS disk should use standard SSD locally redundant storage.
+        /// </summary>
+        public static StorageAccountType StandardSSD_LRS { get; } = new StorageAccountType("StandardSSD_LRS");
 
         public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
         public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);
@@ -1085,6 +1190,44 @@ namespace Pulumi.AzureNative.Batch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
         public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UpgradeMode : IEquatable<UpgradeMode>
+    {
+        private readonly string _value;
+
+        private UpgradeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All virtual machines in the scale set are automatically updated at the same time.
+        /// </summary>
+        public static UpgradeMode Automatic { get; } = new UpgradeMode("automatic");
+        /// <summary>
+        /// You control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.
+        /// </summary>
+        public static UpgradeMode Manual { get; } = new UpgradeMode("manual");
+        /// <summary>
+        /// The existing instances in a scale set are brought down in batches to be upgraded. Once the upgraded batch is complete, the instances will begin taking traffic again and the next batch will begin. This continues until all instances brought up-to-date.
+        /// </summary>
+        public static UpgradeMode Rolling { get; } = new UpgradeMode("rolling");
+
+        public static bool operator ==(UpgradeMode left, UpgradeMode right) => left.Equals(right);
+        public static bool operator !=(UpgradeMode left, UpgradeMode right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradeMode other && Equals(other);
+        public bool Equals(UpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

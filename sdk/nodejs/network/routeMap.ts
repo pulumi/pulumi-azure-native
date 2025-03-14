@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The RouteMap child resource of a Virtual hub.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class RouteMap extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class RouteMap extends pulumi.CustomResource {
      * List of connections which have this RoutMap associated for outbound traffic.
      */
     public readonly associatedOutboundConnections!: pulumi.Output<string[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -93,6 +95,7 @@ export class RouteMap extends pulumi.CustomResource {
             resourceInputs["routeMapName"] = args ? args.routeMapName : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class RouteMap extends pulumi.CustomResource {
         } else {
             resourceInputs["associatedInboundConnections"] = undefined /*out*/;
             resourceInputs["associatedOutboundConnections"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

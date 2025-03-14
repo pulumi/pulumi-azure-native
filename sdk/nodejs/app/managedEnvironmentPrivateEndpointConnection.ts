@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * Azure REST API version: 2024-02-02-preview.
- *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-02-02-preview.
  */
 export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomRe
         return obj['__pulumiType'] === ManagedEnvironmentPrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The group ids for the private endpoint resource.
      */
@@ -93,6 +95,7 @@ export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class ManagedEnvironmentPrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;

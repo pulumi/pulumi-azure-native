@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker/authorization resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
  */
 export class BrokerAuthorization extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class BrokerAuthorization extends pulumi.CustomResource {
      * The list of authorization policies supported by the Authorization Resource.
      */
     public readonly authorizationPolicies!: pulumi.Output<outputs.iotoperationsmq.AuthorizationConfigResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Extended Location
      */
@@ -113,12 +117,14 @@ export class BrokerAuthorization extends pulumi.CustomResource {
             resourceInputs["mqName"] = args ? args.mqName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationPolicies"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["listenerRef"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

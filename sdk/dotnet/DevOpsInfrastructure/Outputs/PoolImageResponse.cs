@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// </summary>
         public readonly string? Buffer;
         /// <summary>
+        /// The ephemeral type of the image.
+        /// </summary>
+        public readonly string? EphemeralType;
+        /// <summary>
         /// The resource id of the image.
         /// </summary>
-        public readonly string ResourceId;
+        public readonly string? ResourceId;
+        /// <summary>
+        /// The image to use from a well-known set of images made available to customers.
+        /// </summary>
+        public readonly string? WellKnownImageName;
 
         [OutputConstructor]
         private PoolImageResponse(
@@ -35,11 +43,17 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
 
             string? buffer,
 
-            string resourceId)
+            string? ephemeralType,
+
+            string? resourceId,
+
+            string? wellKnownImageName)
         {
             Aliases = aliases;
             Buffer = buffer;
+            EphemeralType = ephemeralType;
             ResourceId = resourceId;
+            WellKnownImageName = wellKnownImageName;
         }
     }
 }

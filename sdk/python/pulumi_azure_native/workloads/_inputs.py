@@ -20,6 +20,8 @@ __all__ = [
     'AlertQueryParameterArgsDict',
     'AlertRulePropertiesArgs',
     'AlertRulePropertiesArgsDict',
+    'AppServicePlanConfigurationArgs',
+    'AppServicePlanConfigurationArgsDict',
     'ApplicationServerConfigurationArgs',
     'ApplicationServerConfigurationArgsDict',
     'ApplicationServerFullResourceNamesArgs',
@@ -30,8 +32,6 @@ __all__ = [
     'CentralServerFullResourceNamesArgsDict',
     'CreateAndMountFileShareConfigurationArgs',
     'CreateAndMountFileShareConfigurationArgsDict',
-    'DB2ProviderInstancePropertiesArgs',
-    'DB2ProviderInstancePropertiesArgsDict',
     'DBBackupPolicyPropertiesArgs',
     'DBBackupPolicyPropertiesArgsDict',
     'DailyRetentionFormatArgs',
@@ -46,6 +46,8 @@ __all__ = [
     'DatabaseServerFullResourceNamesArgsDict',
     'DayArgs',
     'DayArgsDict',
+    'Db2ProviderInstancePropertiesArgs',
+    'Db2ProviderInstancePropertiesArgsDict',
     'DeployerVmPackagesArgs',
     'DeployerVmPackagesArgsDict',
     'DeploymentConfigurationArgs',
@@ -94,6 +96,10 @@ __all__ = [
     'LongTermSchedulePolicyArgsDict',
     'ManagedRGConfigurationArgs',
     'ManagedRGConfigurationArgsDict',
+    'ManagedResourceGroupConfigurationArgs',
+    'ManagedResourceGroupConfigurationArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MonthlyRetentionScheduleArgs',
     'MonthlyRetentionScheduleArgsDict',
     'MountFileShareConfigurationArgs',
@@ -108,16 +114,20 @@ __all__ = [
     'NewRecoveryServicesVaultArgsDict',
     'OSProfileArgs',
     'OSProfileArgsDict',
+    'OracleProviderInstancePropertiesArgs',
+    'OracleProviderInstancePropertiesArgsDict',
     'OsSapConfigurationArgs',
     'OsSapConfigurationArgsDict',
     'PrometheusHaClusterProviderInstancePropertiesArgs',
     'PrometheusHaClusterProviderInstancePropertiesArgsDict',
-    'PrometheusOSProviderInstancePropertiesArgs',
-    'PrometheusOSProviderInstancePropertiesArgsDict',
+    'PrometheusOsProviderInstancePropertiesArgs',
+    'PrometheusOsProviderInstancePropertiesArgsDict',
     'RetentionDurationArgs',
     'RetentionDurationArgsDict',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgs',
     'SAPInstallWithoutOSConfigSoftwareConfigurationArgsDict',
+    'SAPVirtualInstanceIdentityArgs',
+    'SAPVirtualInstanceIdentityArgsDict',
     'SSLConfigurationArgs',
     'SSLConfigurationArgsDict',
     'SapLandscapeMonitorMetricThresholdsArgs',
@@ -527,6 +537,62 @@ class AlertRulePropertiesArgs:
 
 
 if not MYPY:
+    class AppServicePlanConfigurationArgsDict(TypedDict):
+        """
+        Configuration details of app service plan
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
+        """
+        tier: NotRequired[pulumi.Input[Union[str, 'AppServicePlanTier']]]
+        """
+        The App Service plan tier.
+        """
+elif False:
+    AppServicePlanConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AppServicePlanConfigurationArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'AppServicePlanTier']]] = None):
+        """
+        Configuration details of app service plan
+        :param pulumi.Input[int] capacity: The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
+        :param pulumi.Input[Union[str, 'AppServicePlanTier']] tier: The App Service plan tier.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of workers in app service plan. If this is not set or set to 0, auto scale will be configured for the app service plan, otherwise, instance count is set to this number.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'AppServicePlanTier']]]:
+        """
+        The App Service plan tier.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'AppServicePlanTier']]]):
+        pulumi.set(self, "tier", value)
+
+
+if not MYPY:
     class ApplicationServerConfigurationArgsDict(TypedDict):
         """
         Gets or sets the application server configuration.
@@ -807,7 +873,7 @@ class CentralServerFullResourceNamesArgs:
 if not MYPY:
     class CreateAndMountFileShareConfigurationArgsDict(TypedDict):
         """
-        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created.
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
         """
         configuration_type: pulumi.Input[str]
         """
@@ -832,7 +898,7 @@ class CreateAndMountFileShareConfigurationArgs:
                  resource_group: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None):
         """
-        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created.
+        Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn't need to be pre-created.
         :param pulumi.Input[str] configuration_type: The type of file share config.
                Expected value is 'CreateAndMount'.
         :param pulumi.Input[str] resource_group: The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
@@ -880,224 +946,6 @@ class CreateAndMountFileShareConfigurationArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
-
-
-if not MYPY:
-    class DB2ProviderInstancePropertiesArgsDict(TypedDict):
-        """
-        Gets or sets the DB2 provider properties.
-        """
-        provider_type: pulumi.Input[str]
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'Db2'.
-        """
-        db_name: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the db2 database name.
-        """
-        db_password: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the db2 database password.
-        """
-        db_password_uri: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        db_port: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the db2 database sql port.
-        """
-        db_username: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the db2 database user name.
-        """
-        hostname: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the target virtual machine name.
-        """
-        sap_sid: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the SAP System Identifier
-        """
-        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
-        """
-        Gets or sets the blob URI to SSL certificate for the DB2 Database.
-        """
-        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-elif False:
-    DB2ProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class DB2ProviderInstancePropertiesArgs:
-    def __init__(__self__, *,
-                 provider_type: pulumi.Input[str],
-                 db_name: Optional[pulumi.Input[str]] = None,
-                 db_password: Optional[pulumi.Input[str]] = None,
-                 db_password_uri: Optional[pulumi.Input[str]] = None,
-                 db_port: Optional[pulumi.Input[str]] = None,
-                 db_username: Optional[pulumi.Input[str]] = None,
-                 hostname: Optional[pulumi.Input[str]] = None,
-                 sap_sid: Optional[pulumi.Input[str]] = None,
-                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
-                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
-        """
-        Gets or sets the DB2 provider properties.
-        :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
-               Expected value is 'Db2'.
-        :param pulumi.Input[str] db_name: Gets or sets the db2 database name.
-        :param pulumi.Input[str] db_password: Gets or sets the db2 database password.
-        :param pulumi.Input[str] db_password_uri: Gets or sets the key vault URI to secret with the database password.
-        :param pulumi.Input[str] db_port: Gets or sets the db2 database sql port.
-        :param pulumi.Input[str] db_username: Gets or sets the db2 database user name.
-        :param pulumi.Input[str] hostname: Gets or sets the target virtual machine name.
-        :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
-        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB2 Database.
-        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
-        """
-        pulumi.set(__self__, "provider_type", 'Db2')
-        if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
-        if db_password is not None:
-            pulumi.set(__self__, "db_password", db_password)
-        if db_password_uri is not None:
-            pulumi.set(__self__, "db_password_uri", db_password_uri)
-        if db_port is not None:
-            pulumi.set(__self__, "db_port", db_port)
-        if db_username is not None:
-            pulumi.set(__self__, "db_username", db_username)
-        if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
-        if sap_sid is not None:
-            pulumi.set(__self__, "sap_sid", sap_sid)
-        if ssl_certificate_uri is not None:
-            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
-        if ssl_preference is not None:
-            pulumi.set(__self__, "ssl_preference", ssl_preference)
-
-    @property
-    @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Input[str]:
-        """
-        The provider type. For example, the value can be SapHana.
-        Expected value is 'Db2'.
-        """
-        return pulumi.get(self, "provider_type")
-
-    @provider_type.setter
-    def provider_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provider_type", value)
-
-    @property
-    @pulumi.getter(name="dbName")
-    def db_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the db2 database name.
-        """
-        return pulumi.get(self, "db_name")
-
-    @db_name.setter
-    def db_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_name", value)
-
-    @property
-    @pulumi.getter(name="dbPassword")
-    def db_password(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the db2 database password.
-        """
-        return pulumi.get(self, "db_password")
-
-    @db_password.setter
-    def db_password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_password", value)
-
-    @property
-    @pulumi.getter(name="dbPasswordUri")
-    def db_password_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the key vault URI to secret with the database password.
-        """
-        return pulumi.get(self, "db_password_uri")
-
-    @db_password_uri.setter
-    def db_password_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_password_uri", value)
-
-    @property
-    @pulumi.getter(name="dbPort")
-    def db_port(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the db2 database sql port.
-        """
-        return pulumi.get(self, "db_port")
-
-    @db_port.setter
-    def db_port(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_port", value)
-
-    @property
-    @pulumi.getter(name="dbUsername")
-    def db_username(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the db2 database user name.
-        """
-        return pulumi.get(self, "db_username")
-
-    @db_username.setter
-    def db_username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_username", value)
-
-    @property
-    @pulumi.getter
-    def hostname(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the target virtual machine name.
-        """
-        return pulumi.get(self, "hostname")
-
-    @hostname.setter
-    def hostname(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "hostname", value)
-
-    @property
-    @pulumi.getter(name="sapSid")
-    def sap_sid(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the SAP System Identifier
-        """
-        return pulumi.get(self, "sap_sid")
-
-    @sap_sid.setter
-    def sap_sid(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sap_sid", value)
-
-    @property
-    @pulumi.getter(name="sslCertificateUri")
-    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets the blob URI to SSL certificate for the DB2 Database.
-        """
-        return pulumi.get(self, "ssl_certificate_uri")
-
-    @ssl_certificate_uri.setter
-    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ssl_certificate_uri", value)
-
-    @property
-    @pulumi.getter(name="sslPreference")
-    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
-        """
-        Gets or sets certificate preference if secure communication is enabled.
-        """
-        return pulumi.get(self, "ssl_preference")
-
-    @ssl_preference.setter
-    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
-        pulumi.set(self, "ssl_preference", value)
 
 
 if not MYPY:
@@ -1648,6 +1496,224 @@ class DayArgs:
     @is_last.setter
     def is_last(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_last", value)
+
+
+if not MYPY:
+    class Db2ProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the DB2 provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Db2'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the db2 database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    Db2ProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Db2ProviderInstancePropertiesArgs:
+    def __init__(__self__, *,
+                 provider_type: pulumi.Input[str],
+                 db_name: Optional[pulumi.Input[str]] = None,
+                 db_password: Optional[pulumi.Input[str]] = None,
+                 db_password_uri: Optional[pulumi.Input[str]] = None,
+                 db_port: Optional[pulumi.Input[str]] = None,
+                 db_username: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 sap_sid: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
+        """
+        Gets or sets the DB2 provider properties.
+        :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'Db2'.
+        :param pulumi.Input[str] db_name: Gets or sets the db2 database name.
+        :param pulumi.Input[str] db_password: Gets or sets the db2 database password.
+        :param pulumi.Input[str] db_password_uri: Gets or sets the key vault URI to secret with the database password.
+        :param pulumi.Input[str] db_port: Gets or sets the db2 database sql port.
+        :param pulumi.Input[str] db_username: Gets or sets the db2 database user name.
+        :param pulumi.Input[str] hostname: Gets or sets the target virtual machine name.
+        :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'Db2')
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+        if db_password is not None:
+            pulumi.set(__self__, "db_password", db_password)
+        if db_password_uri is not None:
+            pulumi.set(__self__, "db_password_uri", db_password_uri)
+        if db_port is not None:
+            pulumi.set(__self__, "db_port", db_port)
+        if db_username is not None:
+            pulumi.set(__self__, "db_username", db_username)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> pulumi.Input[str]:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Db2'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_type", value)
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the db2 database name.
+        """
+        return pulumi.get(self, "db_name")
+
+    @db_name.setter
+    def db_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_name", value)
+
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the db2 database password.
+        """
+        return pulumi.get(self, "db_password")
+
+    @db_password.setter
+    def db_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_password", value)
+
+    @property
+    @pulumi.getter(name="dbPasswordUri")
+    def db_password_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        return pulumi.get(self, "db_password_uri")
+
+    @db_password_uri.setter
+    def db_password_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_password_uri", value)
+
+    @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the db2 database sql port.
+        """
+        return pulumi.get(self, "db_port")
+
+    @db_port.setter
+    def db_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_port", value)
+
+    @property
+    @pulumi.getter(name="dbUsername")
+    def db_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the db2 database user name.
+        """
+        return pulumi.get(self, "db_username")
+
+    @db_username.setter
+    def db_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_username", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target virtual machine name.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @sap_sid.setter
+    def sap_sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sap_sid", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the DB2 Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 if not MYPY:
@@ -2957,6 +3023,10 @@ if not MYPY:
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
         """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
+        """
         offer: NotRequired[pulumi.Input[str]]
         """
         Specifies the offer of the platform image or marketplace image used to create the virtual machine.
@@ -2979,17 +3049,21 @@ elif False:
 @pulumi.input_type
 class ImageReferenceArgs:
     def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations. NOTE: Image reference publisher and offer can only be set when you create the scale set.
+        :param pulumi.Input[str] id: Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
         :param pulumi.Input[str] offer: Specifies the offer of the platform image or marketplace image used to create the virtual machine.
         :param pulumi.Input[str] publisher: The image publisher.
         :param pulumi.Input[str] sku: The image SKU.
         :param pulumi.Input[str] version: Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
         """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if offer is not None:
             pulumi.set(__self__, "offer", offer)
         if publisher is not None:
@@ -2998,6 +3072,18 @@ class ImageReferenceArgs:
             pulumi.set(__self__, "sku", sku)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARM resource ID of the Azure Compute Gallery image version used for creating ACSS VMs. You will need to provide this input when you choose to deploy virtual machines in ACSS with OS image from the Azure Compute gallery.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -3107,7 +3193,7 @@ class InstantRPAdditionalDetailsArgs:
 if not MYPY:
     class LinuxConfigurationArgsDict(TypedDict):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         """
         os_type: pulumi.Input[str]
         """
@@ -3137,7 +3223,7 @@ class LinuxConfigurationArgs:
                  ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None,
                  ssh_key_pair: Optional[pulumi.Input['SshKeyPairArgs']] = None):
         """
-        Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://learn.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         :param pulumi.Input[str] os_type: The OS Type
                Expected value is 'Linux'.
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled.
@@ -3549,6 +3635,97 @@ class ManagedRGConfigurationArgs:
 
 
 if not MYPY:
+    class ManagedResourceGroupConfigurationArgsDict(TypedDict):
+        """
+        Managed resource group configuration
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Managed resource group name
+        """
+elif False:
+    ManagedResourceGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedResourceGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Managed resource group configuration
+        :param pulumi.Input[str] name: Managed resource group name
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Managed resource group name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
     class MonthlyRetentionScheduleArgsDict(TypedDict):
         """
         Monthly retention schedule.
@@ -3941,7 +4118,7 @@ class MsSqlServerProviderInstancePropertiesArgs:
 if not MYPY:
     class NetworkConfigurationArgsDict(TypedDict):
         """
-        Defines the network configuration type for SAP system infrastructure that is being deployed 
+        Defines the network configuration type for SAP system infrastructure that is being deployed
         """
         is_secondary_ip_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -3955,7 +4132,7 @@ class NetworkConfigurationArgs:
     def __init__(__self__, *,
                  is_secondary_ip_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        Defines the network configuration type for SAP system infrastructure that is being deployed 
+        Defines the network configuration type for SAP system infrastructure that is being deployed
         :param pulumi.Input[bool] is_secondary_ip_enabled: Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed
         """
         if is_secondary_ip_enabled is None:
@@ -4095,7 +4272,7 @@ if not MYPY:
         """
         admin_password: NotRequired[pulumi.Input[str]]
         """
-        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         admin_username: NotRequired[pulumi.Input[str]]
         """
@@ -4116,7 +4293,7 @@ class OSProfileArgs:
                  os_configuration: Optional[pulumi.Input[Union['LinuxConfigurationArgs', 'WindowsConfigurationArgs']]] = None):
         """
         Specifies the operating system settings for the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        :param pulumi.Input[str] admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         :param pulumi.Input[str] admin_username: Specifies the name of the administrator account. <br><br> This property cannot be updated after the VM is created. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters.
         :param pulumi.Input[Union['LinuxConfigurationArgs', 'WindowsConfigurationArgs']] os_configuration: Specifies Windows operating system settings on the virtual machine.
         """
@@ -4131,7 +4308,7 @@ class OSProfileArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
+        Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)
         """
         return pulumi.get(self, "admin_password")
 
@@ -4162,6 +4339,224 @@ class OSProfileArgs:
     @os_configuration.setter
     def os_configuration(self, value: Optional[pulumi.Input[Union['LinuxConfigurationArgs', 'WindowsConfigurationArgs']]]):
         pulumi.set(self, "os_configuration", value)
+
+
+if not MYPY:
+    class OracleProviderInstancePropertiesArgsDict(TypedDict):
+        """
+        Gets or sets the Oracle provider properties.
+        """
+        provider_type: pulumi.Input[str]
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Oracle'.
+        """
+        db_name: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the oracle database name.
+        """
+        db_password: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the oracle database password.
+        """
+        db_password_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        db_port: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the oracle database sql port.
+        """
+        db_username: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the oracle database user name.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the target virtual machine name.
+        """
+        sap_sid: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the SAP System Identifier
+        """
+        ssl_certificate_uri: NotRequired[pulumi.Input[str]]
+        """
+        Gets or sets the blob URI to SSL certificate for the Oracle Database.
+        """
+        ssl_preference: NotRequired[pulumi.Input[Union[str, 'SslPreference']]]
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+elif False:
+    OracleProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OracleProviderInstancePropertiesArgs:
+    def __init__(__self__, *,
+                 provider_type: pulumi.Input[str],
+                 db_name: Optional[pulumi.Input[str]] = None,
+                 db_password: Optional[pulumi.Input[str]] = None,
+                 db_password_uri: Optional[pulumi.Input[str]] = None,
+                 db_port: Optional[pulumi.Input[str]] = None,
+                 db_username: Optional[pulumi.Input[str]] = None,
+                 hostname: Optional[pulumi.Input[str]] = None,
+                 sap_sid: Optional[pulumi.Input[str]] = None,
+                 ssl_certificate_uri: Optional[pulumi.Input[str]] = None,
+                 ssl_preference: Optional[pulumi.Input[Union[str, 'SslPreference']]] = None):
+        """
+        Gets or sets the Oracle provider properties.
+        :param pulumi.Input[str] provider_type: The provider type. For example, the value can be SapHana.
+               Expected value is 'Oracle'.
+        :param pulumi.Input[str] db_name: Gets or sets the oracle database name.
+        :param pulumi.Input[str] db_password: Gets or sets the oracle database password.
+        :param pulumi.Input[str] db_password_uri: Gets or sets the key vault URI to secret with the database password.
+        :param pulumi.Input[str] db_port: Gets or sets the oracle database sql port.
+        :param pulumi.Input[str] db_username: Gets or sets the oracle database user name.
+        :param pulumi.Input[str] hostname: Gets or sets the target virtual machine name.
+        :param pulumi.Input[str] sap_sid: Gets or sets the SAP System Identifier
+        :param pulumi.Input[str] ssl_certificate_uri: Gets or sets the blob URI to SSL certificate for the Oracle Database.
+        :param pulumi.Input[Union[str, 'SslPreference']] ssl_preference: Gets or sets certificate preference if secure communication is enabled.
+        """
+        pulumi.set(__self__, "provider_type", 'Oracle')
+        if db_name is not None:
+            pulumi.set(__self__, "db_name", db_name)
+        if db_password is not None:
+            pulumi.set(__self__, "db_password", db_password)
+        if db_password_uri is not None:
+            pulumi.set(__self__, "db_password_uri", db_password_uri)
+        if db_port is not None:
+            pulumi.set(__self__, "db_port", db_port)
+        if db_username is not None:
+            pulumi.set(__self__, "db_username", db_username)
+        if hostname is not None:
+            pulumi.set(__self__, "hostname", hostname)
+        if sap_sid is not None:
+            pulumi.set(__self__, "sap_sid", sap_sid)
+        if ssl_certificate_uri is not None:
+            pulumi.set(__self__, "ssl_certificate_uri", ssl_certificate_uri)
+        if ssl_preference is not None:
+            pulumi.set(__self__, "ssl_preference", ssl_preference)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> pulumi.Input[str]:
+        """
+        The provider type. For example, the value can be SapHana.
+        Expected value is 'Oracle'.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_type", value)
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the oracle database name.
+        """
+        return pulumi.get(self, "db_name")
+
+    @db_name.setter
+    def db_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_name", value)
+
+    @property
+    @pulumi.getter(name="dbPassword")
+    def db_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the oracle database password.
+        """
+        return pulumi.get(self, "db_password")
+
+    @db_password.setter
+    def db_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_password", value)
+
+    @property
+    @pulumi.getter(name="dbPasswordUri")
+    def db_password_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the key vault URI to secret with the database password.
+        """
+        return pulumi.get(self, "db_password_uri")
+
+    @db_password_uri.setter
+    def db_password_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_password_uri", value)
+
+    @property
+    @pulumi.getter(name="dbPort")
+    def db_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the oracle database sql port.
+        """
+        return pulumi.get(self, "db_port")
+
+    @db_port.setter
+    def db_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_port", value)
+
+    @property
+    @pulumi.getter(name="dbUsername")
+    def db_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the oracle database user name.
+        """
+        return pulumi.get(self, "db_username")
+
+    @db_username.setter
+    def db_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_username", value)
+
+    @property
+    @pulumi.getter
+    def hostname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the target virtual machine name.
+        """
+        return pulumi.get(self, "hostname")
+
+    @hostname.setter
+    def hostname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname", value)
+
+    @property
+    @pulumi.getter(name="sapSid")
+    def sap_sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SAP System Identifier
+        """
+        return pulumi.get(self, "sap_sid")
+
+    @sap_sid.setter
+    def sap_sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sap_sid", value)
+
+    @property
+    @pulumi.getter(name="sslCertificateUri")
+    def ssl_certificate_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the blob URI to SSL certificate for the Oracle Database.
+        """
+        return pulumi.get(self, "ssl_certificate_uri")
+
+    @ssl_certificate_uri.setter
+    def ssl_certificate_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_certificate_uri", value)
+
+    @property
+    @pulumi.getter(name="sslPreference")
+    def ssl_preference(self) -> Optional[pulumi.Input[Union[str, 'SslPreference']]]:
+        """
+        Gets or sets certificate preference if secure communication is enabled.
+        """
+        return pulumi.get(self, "ssl_preference")
+
+    @ssl_preference.setter
+    def ssl_preference(self, value: Optional[pulumi.Input[Union[str, 'SslPreference']]]):
+        pulumi.set(self, "ssl_preference", value)
 
 
 if not MYPY:
@@ -4379,7 +4774,7 @@ class PrometheusHaClusterProviderInstancePropertiesArgs:
 
 
 if not MYPY:
-    class PrometheusOSProviderInstancePropertiesArgsDict(TypedDict):
+    class PrometheusOsProviderInstancePropertiesArgsDict(TypedDict):
         """
         Gets or sets the PrometheusOS provider properties.
         """
@@ -4405,10 +4800,10 @@ if not MYPY:
         Gets or sets certificate preference if secure communication is enabled.
         """
 elif False:
-    PrometheusOSProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    PrometheusOsProviderInstancePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class PrometheusOSProviderInstancePropertiesArgs:
+class PrometheusOsProviderInstancePropertiesArgs:
     def __init__(__self__, *,
                  provider_type: pulumi.Input[str],
                  prometheus_url: Optional[pulumi.Input[str]] = None,
@@ -4668,6 +5063,61 @@ class SAPInstallWithoutOSConfigSoftwareConfigurationArgs:
     @high_availability_software_configuration.setter
     def high_availability_software_configuration(self, value: Optional[pulumi.Input['HighAvailabilitySoftwareConfigurationArgs']]):
         pulumi.set(self, "high_availability_software_configuration", value)
+
+
+if not MYPY:
+    class SAPVirtualInstanceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (user assigned identities)
+        """
+        type: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]
+        """
+        The type of managed identity assigned to this resource.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The identities assigned to this resource by the user.
+        """
+elif False:
+    SAPVirtualInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SAPVirtualInstanceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (user assigned identities)
+        :param pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']] type: The type of managed identity assigned to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The identities assigned to this resource by the user.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]:
+        """
+        The type of managed identity assigned to this resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'SAPVirtualInstanceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identities assigned to this resource by the user.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
@@ -5837,7 +6287,7 @@ class SimpleSchedulePolicyArgs:
 if not MYPY:
     class SingleServerConfigurationArgsDict(TypedDict):
         """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         """
         app_resource_group: pulumi.Input[str]
         """
@@ -5887,7 +6337,7 @@ class SingleServerConfigurationArgs:
                  db_disk_configuration: Optional[pulumi.Input['DiskConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None):
         """
-        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the single server configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input[str] deployment_type: The type of SAP deployment, single server or Three tier.
                Expected value is 'SingleServer'.
@@ -6296,7 +6746,7 @@ class SshConfigurationArgs:
 if not MYPY:
     class SshKeyPairArgsDict(TypedDict):
         """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         private_key: NotRequired[pulumi.Input[str]]
         """
@@ -6315,7 +6765,7 @@ class SshKeyPairArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None):
         """
-        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        The SSH Key-pair used to authenticate with the VM. The key needs to be at least 2048-bit and in ssh-rsa format. For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         :param pulumi.Input[str] private_key: SSH private key.
         :param pulumi.Input[str] public_key: SSH public key
         """
@@ -6356,7 +6806,7 @@ if not MYPY:
         """
         key_data: NotRequired[pulumi.Input[str]]
         """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
 elif False:
     SshPublicKeyArgsDict: TypeAlias = Mapping[str, Any]
@@ -6367,7 +6817,7 @@ class SshPublicKeyArgs:
                  key_data: Optional[pulumi.Input[str]] = None):
         """
         Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
-        :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         if key_data is not None:
             pulumi.set(__self__, "key_data", key_data)
@@ -6376,7 +6826,7 @@ class SshPublicKeyArgs:
     @pulumi.getter(name="keyData")
     def key_data(self) -> Optional[pulumi.Input[str]]:
         """
-        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://learn.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
         """
         return pulumi.get(self, "key_data")
 
@@ -6546,7 +6996,7 @@ class SubProtectionPolicyArgs:
 if not MYPY:
     class ThreeTierConfigurationArgsDict(TypedDict):
         """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         """
         app_resource_group: pulumi.Input[str]
         """
@@ -6601,7 +7051,7 @@ class ThreeTierConfigurationArgs:
                  network_configuration: Optional[pulumi.Input['NetworkConfigurationArgs']] = None,
                  storage_configuration: Optional[pulumi.Input['StorageConfigurationArgs']] = None):
         """
-        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&clcid=0x409)
+        Gets or sets the three tier SAP configuration. For prerequisites for creating the infrastructure, please see [here](https://go.microsoft.com/fwlink/?linkid=2212611&amp;clcid=0x409)
         :param pulumi.Input[str] app_resource_group: The application resource group where SAP system resources will be deployed.
         :param pulumi.Input['ApplicationServerConfigurationArgs'] application_server: The application server configuration.
         :param pulumi.Input['CentralServerConfigurationArgs'] central_server: The central server configuration.
@@ -7055,7 +7505,7 @@ class UserAssignedManagedIdentityDetailsArgs:
 if not MYPY:
     class UserAssignedServiceIdentityArgsDict(TypedDict):
         """
-        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        Managed service identity (user assigned identities)
         """
         type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]
         """
@@ -7074,7 +7524,7 @@ class UserAssignedServiceIdentityArgs:
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
+        Managed service identity (user assigned identities)
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of manage identity
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: User assigned identities dictionary
         """

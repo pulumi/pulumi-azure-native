@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutomationRuleResult:
-    def __init__(__self__, actions=None, created_by=None, created_time_utc=None, display_name=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, order=None, system_data=None, triggering_logic=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, created_by=None, created_time_utc=None, display_name=None, etag=None, id=None, last_modified_by=None, last_modified_time_utc=None, name=None, order=None, system_data=None, triggering_logic=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
         pulumi.set(__self__, "created_by", created_by)
@@ -72,6 +75,14 @@ class GetAutomationRuleResult:
         The actions to execute when the automation rule is triggered.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -177,6 +188,7 @@ class AwaitableGetAutomationRuleResult(GetAutomationRuleResult):
             yield self
         return GetAutomationRuleResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             created_by=self.created_by,
             created_time_utc=self.created_time_utc,
             display_name=self.display_name,
@@ -197,9 +209,7 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationRuleResult:
     """
     Gets the automation rule.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str automation_rule_id: Automation rule ID
@@ -215,6 +225,7 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
 
     return AwaitableGetAutomationRuleResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -233,9 +244,7 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutomationRuleResult]:
     """
     Gets the automation rule.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str automation_rule_id: Automation rule ID
@@ -250,6 +259,7 @@ def get_automation_rule_output(automation_rule_id: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getAutomationRule', __args__, opts=opts, typ=GetAutomationRuleResult)
     return __ret__.apply(lambda __response__: GetAutomationRuleResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_time_utc=pulumi.get(__response__, 'created_time_utc'),
         display_name=pulumi.get(__response__, 'display_name'),

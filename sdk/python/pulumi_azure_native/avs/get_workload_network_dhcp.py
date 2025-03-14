@@ -27,25 +27,67 @@ class GetWorkloadNetworkDhcpResult:
     """
     NSX DHCP
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_api_version=None, dhcp_type=None, display_name=None, id=None, name=None, provisioning_state=None, revision=None, segments=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if dhcp_type and not isinstance(dhcp_type, str):
+            raise TypeError("Expected argument 'dhcp_type' to be a str")
+        pulumi.set(__self__, "dhcp_type", dhcp_type)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if revision and not isinstance(revision, float):
+            raise TypeError("Expected argument 'revision' to be a float")
+        pulumi.set(__self__, "revision", revision)
+        if segments and not isinstance(segments, list):
+            raise TypeError("Expected argument 'segments' to be a list")
+        pulumi.set(__self__, "segments", segments)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="dhcpType")
+    def dhcp_type(self) -> str:
+        """
+        Type of DHCP: SERVER or RELAY.
+        """
+        return pulumi.get(self, "dhcp_type")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        Display name of the DHCP entity.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -53,23 +95,47 @@ class GetWorkloadNetworkDhcpResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter
-    def properties(self) -> Any:
+    def revision(self) -> Optional[float]:
         """
-        DHCP properties.
+        NSX revision number.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def segments(self) -> Sequence[str]:
+        """
+        NSX Segments consuming DHCP.
+        """
+        return pulumi.get(self, "segments")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -80,9 +146,15 @@ class AwaitableGetWorkloadNetworkDhcpResult(GetWorkloadNetworkDhcpResult):
         if False:
             yield self
         return GetWorkloadNetworkDhcpResult(
+            azure_api_version=self.azure_api_version,
+            dhcp_type=self.dhcp_type,
+            display_name=self.display_name,
             id=self.id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            revision=self.revision,
+            segments=self.segments,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -91,13 +163,11 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkloadNetworkDhcpResult:
     """
-    NSX DHCP
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+    Get a WorkloadNetworkDhcp
+    Azure REST API version: 2023-09-01.
 
 
-    :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
+    :param str dhcp_id: The ID of the DHCP configuration
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -109,22 +179,26 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getWorkloadNetworkDhcp', __args__, opts=opts, typ=GetWorkloadNetworkDhcpResult).value
 
     return AwaitableGetWorkloadNetworkDhcpResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        dhcp_type=pulumi.get(__ret__, 'dhcp_type'),
+        display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        properties=pulumi.get(__ret__, 'properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        revision=pulumi.get(__ret__, 'revision'),
+        segments=pulumi.get(__ret__, 'segments'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None,
                                      private_cloud_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkDhcpResult]:
     """
-    NSX DHCP
-    Azure REST API version: 2022-05-01.
-
-    Other available API versions: 2021-01-01-preview, 2023-03-01, 2023-09-01.
+    Get a WorkloadNetworkDhcp
+    Azure REST API version: 2023-09-01.
 
 
-    :param str dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
+    :param str dhcp_id: The ID of the DHCP configuration
     :param str private_cloud_name: Name of the private cloud
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -135,7 +209,13 @@ def get_workload_network_dhcp_output(dhcp_id: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:avs:getWorkloadNetworkDhcp', __args__, opts=opts, typ=GetWorkloadNetworkDhcpResult)
     return __ret__.apply(lambda __response__: GetWorkloadNetworkDhcpResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        dhcp_type=pulumi.get(__response__, 'dhcp_type'),
+        display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        properties=pulumi.get(__response__, 'properties'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        revision=pulumi.get(__response__, 'revision'),
+        segments=pulumi.get(__response__, 'segments'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

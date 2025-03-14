@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// The download status of the gallery image
         /// </summary>
-        public readonly Outputs.GalleryImageStatusResponseDownloadStatus? DownloadStatus;
+        public readonly Outputs.GalleryImageStatusDownloadStatusResponse? DownloadStatus;
         /// <summary>
         /// GalleryImage provisioning error code
         /// </summary>
@@ -32,11 +32,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// The progress of the operation in percentage
         /// </summary>
         public readonly double? ProgressPercentage;
-        public readonly Outputs.GalleryImageStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// provisioning status of the gallery image
+        /// </summary>
+        public readonly Outputs.GalleryImageStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private GalleryImageStatusResponse(
-            Outputs.GalleryImageStatusResponseDownloadStatus? downloadStatus,
+            Outputs.GalleryImageStatusDownloadStatusResponse? downloadStatus,
 
             string? errorCode,
 
@@ -44,7 +47,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             double? progressPercentage,
 
-            Outputs.GalleryImageStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.GalleryImageStatusProvisioningStatusResponse? provisioningStatus)
         {
             DownloadStatus = downloadStatus;
             ErrorCode = errorCode;

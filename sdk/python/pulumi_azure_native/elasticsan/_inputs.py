@@ -16,6 +16,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'EncryptionIdentityArgs',
+    'EncryptionIdentityArgsDict',
+    'EncryptionPropertiesArgs',
+    'EncryptionPropertiesArgsDict',
+    'IdentityArgs',
+    'IdentityArgsDict',
+    'KeyVaultPropertiesArgs',
+    'KeyVaultPropertiesArgsDict',
+    'ManagedByInfoArgs',
+    'ManagedByInfoArgsDict',
     'NetworkRuleSetArgs',
     'NetworkRuleSetArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
@@ -31,6 +41,265 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class EncryptionIdentityArgsDict(TypedDict):
+        """
+        Encryption identity for the volume group.
+        """
+        encryption_user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+        """
+elif False:
+    EncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionIdentityArgs:
+    def __init__(__self__, *,
+                 encryption_user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Encryption identity for the volume group.
+        :param pulumi.Input[str] encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+        """
+        if encryption_user_assigned_identity is not None:
+            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="encryptionUserAssignedIdentity")
+    def encryption_user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+        """
+        return pulumi.get(self, "encryption_user_assigned_identity")
+
+    @encryption_user_assigned_identity.setter
+    def encryption_user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_user_assigned_identity", value)
+
+
+if not MYPY:
+    class EncryptionPropertiesArgsDict(TypedDict):
+        """
+        The encryption settings on the volume group.
+        """
+        encryption_identity: NotRequired[pulumi.Input['EncryptionIdentityArgsDict']]
+        """
+        The identity to be used with service-side encryption at rest.
+        """
+        key_vault_properties: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+        """
+        Properties provided by key vault.
+        """
+elif False:
+    EncryptionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionPropertiesArgs:
+    def __init__(__self__, *,
+                 encryption_identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
+        """
+        The encryption settings on the volume group.
+        :param pulumi.Input['EncryptionIdentityArgs'] encryption_identity: The identity to be used with service-side encryption at rest.
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
+        """
+        if encryption_identity is not None:
+            pulumi.set(__self__, "encryption_identity", encryption_identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="encryptionIdentity")
+    def encryption_identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+        """
+        The identity to be used with service-side encryption at rest.
+        """
+        return pulumi.get(self, "encryption_identity")
+
+    @encryption_identity.setter
+    def encryption_identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+        pulumi.set(self, "encryption_identity", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Properties provided by key vault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+
+if not MYPY:
+    class IdentityArgsDict(TypedDict):
+        """
+        Identity for the resource.
+        """
+        type: pulumi.Input[Union[str, 'IdentityType']]
+        """
+        The identity type.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+        """
+elif False:
+    IdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'IdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class KeyVaultPropertiesArgsDict(TypedDict):
+        """
+        Properties of key vault.
+        """
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of KeyVault key.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[str]]
+        """
+        The Uri of KeyVault.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of KeyVault key.
+        """
+elif False:
+    KeyVaultPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of key vault.
+        :param pulumi.Input[str] key_name: The name of KeyVault key.
+        :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
+        :param pulumi.Input[str] key_version: The version of KeyVault key.
+        """
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+if not MYPY:
+    class ManagedByInfoArgsDict(TypedDict):
+        """
+        Parent resource information.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+        """
+elif False:
+    ManagedByInfoArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedByInfoArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Parent resource information.
+        :param pulumi.Input[str] resource_id: Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
 
 if not MYPY:
     class NetworkRuleSetArgsDict(TypedDict):
@@ -239,13 +508,13 @@ if not MYPY:
         """
         Data source used when creating the volume.
         """
-        create_source: NotRequired[pulumi.Input['VolumeCreateOption']]
+        create_source: NotRequired[pulumi.Input[Union[str, 'VolumeCreateOption']]]
         """
         This enumerates the possible sources of a volume creation.
         """
-        source_uri: NotRequired[pulumi.Input[str]]
+        source_id: NotRequired[pulumi.Input[str]]
         """
-        If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
 elif False:
     SourceCreationDataArgsDict: TypeAlias = Mapping[str, Any]
@@ -253,41 +522,41 @@ elif False:
 @pulumi.input_type
 class SourceCreationDataArgs:
     def __init__(__self__, *,
-                 create_source: Optional[pulumi.Input['VolumeCreateOption']] = None,
-                 source_uri: Optional[pulumi.Input[str]] = None):
+                 create_source: Optional[pulumi.Input[Union[str, 'VolumeCreateOption']]] = None,
+                 source_id: Optional[pulumi.Input[str]] = None):
         """
         Data source used when creating the volume.
-        :param pulumi.Input['VolumeCreateOption'] create_source: This enumerates the possible sources of a volume creation.
-        :param pulumi.Input[str] source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        :param pulumi.Input[Union[str, 'VolumeCreateOption']] create_source: This enumerates the possible sources of a volume creation.
+        :param pulumi.Input[str] source_id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         if create_source is not None:
             pulumi.set(__self__, "create_source", create_source)
-        if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
 
     @property
     @pulumi.getter(name="createSource")
-    def create_source(self) -> Optional[pulumi.Input['VolumeCreateOption']]:
+    def create_source(self) -> Optional[pulumi.Input[Union[str, 'VolumeCreateOption']]]:
         """
         This enumerates the possible sources of a volume creation.
         """
         return pulumi.get(self, "create_source")
 
     @create_source.setter
-    def create_source(self, value: Optional[pulumi.Input['VolumeCreateOption']]):
+    def create_source(self, value: Optional[pulumi.Input[Union[str, 'VolumeCreateOption']]]):
         pulumi.set(self, "create_source", value)
 
     @property
-    @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[pulumi.Input[str]]:
         """
-        If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
-        return pulumi.get(self, "source_uri")
+        return pulumi.get(self, "source_id")
 
-    @source_uri.setter
-    def source_uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_uri", value)
+    @source_id.setter
+    def source_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_id", value)
 
 
 if not MYPY:
@@ -299,7 +568,7 @@ if not MYPY:
         """
         Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         """
-        action: NotRequired[pulumi.Input['Action']]
+        action: NotRequired[pulumi.Input[Union[str, 'Action']]]
         """
         The action of virtual network rule.
         """
@@ -310,11 +579,11 @@ elif False:
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  virtual_network_resource_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input['Action']] = None):
+                 action: Optional[pulumi.Input[Union[str, 'Action']]] = None):
         """
         Virtual Network rule.
         :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        :param pulumi.Input['Action'] action: The action of virtual network rule.
+        :param pulumi.Input[Union[str, 'Action']] action: The action of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
@@ -336,14 +605,14 @@ class VirtualNetworkRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['Action']]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'Action']]]:
         """
         The action of virtual network rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['Action']]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
         pulumi.set(self, "action", value)
 
 

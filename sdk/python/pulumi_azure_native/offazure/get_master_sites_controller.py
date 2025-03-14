@@ -27,10 +27,13 @@ class GetMasterSitesControllerResult:
     """
     A MasterSite
     """
-    def __init__(__self__, allow_multiple_sites=None, customer_storage_account_arm_id=None, id=None, location=None, name=None, nested_sites=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sites=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, allow_multiple_sites=None, azure_api_version=None, customer_storage_account_arm_id=None, id=None, location=None, name=None, nested_sites=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sites=None, system_data=None, tags=None, type=None):
         if allow_multiple_sites and not isinstance(allow_multiple_sites, bool):
             raise TypeError("Expected argument 'allow_multiple_sites' to be a bool")
         pulumi.set(__self__, "allow_multiple_sites", allow_multiple_sites)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customer_storage_account_arm_id and not isinstance(customer_storage_account_arm_id, str):
             raise TypeError("Expected argument 'customer_storage_account_arm_id' to be a str")
         pulumi.set(__self__, "customer_storage_account_arm_id", customer_storage_account_arm_id)
@@ -76,6 +79,14 @@ class GetMasterSitesControllerResult:
         allowed.
         """
         return pulumi.get(self, "allow_multiple_sites")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerStorageAccountArmId")
@@ -183,6 +194,7 @@ class AwaitableGetMasterSitesControllerResult(GetMasterSitesControllerResult):
             yield self
         return GetMasterSitesControllerResult(
             allow_multiple_sites=self.allow_multiple_sites,
+            azure_api_version=self.azure_api_version,
             customer_storage_account_arm_id=self.customer_storage_account_arm_id,
             id=self.id,
             location=self.location,
@@ -202,9 +214,7 @@ def get_master_sites_controller(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMasterSitesControllerResult:
     """
     Get a MasterSite
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -218,6 +228,7 @@ def get_master_sites_controller(resource_group_name: Optional[str] = None,
 
     return AwaitableGetMasterSitesControllerResult(
         allow_multiple_sites=pulumi.get(__ret__, 'allow_multiple_sites'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customer_storage_account_arm_id=pulumi.get(__ret__, 'customer_storage_account_arm_id'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -235,9 +246,7 @@ def get_master_sites_controller_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMasterSitesControllerResult]:
     """
     Get a MasterSite
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -250,6 +259,7 @@ def get_master_sites_controller_output(resource_group_name: Optional[pulumi.Inpu
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getMasterSitesController', __args__, opts=opts, typ=GetMasterSitesControllerResult)
     return __ret__.apply(lambda __response__: GetMasterSitesControllerResult(
         allow_multiple_sites=pulumi.get(__response__, 'allow_multiple_sites'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customer_storage_account_arm_id=pulumi.get(__response__, 'customer_storage_account_arm_id'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

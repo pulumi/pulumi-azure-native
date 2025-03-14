@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Workspace active directory administrator
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-    /// 
-    /// Other available API versions: 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:WorkspaceAadAdmin")]
     public partial class WorkspaceAadAdmin : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("administratorType")]
         public Output<string?> AdministratorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Login of the workspace active directory administrator

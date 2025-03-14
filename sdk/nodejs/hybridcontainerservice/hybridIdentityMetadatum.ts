@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the hybridIdentityMetadata.
- * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview.
- *
- * Other available API versions: 2022-05-01-preview, 2023-11-15-preview, 2024-01-01.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         return obj['__pulumiType'] === HybridIdentityMetadatum.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The identity of the provisioned cluster.
      */
@@ -92,11 +94,13 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -106,7 +110,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice/v20220501preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20220901preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20231115preview:HybridIdentityMetadatum" }, { type: "azure-native:hybridcontainerservice/v20240101:HybridIdentityMetadatum" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridIdentityMetadatum.__pulumiType, name, resourceInputs, opts);
     }

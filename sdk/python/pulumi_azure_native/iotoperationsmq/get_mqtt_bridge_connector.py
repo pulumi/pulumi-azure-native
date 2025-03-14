@@ -27,7 +27,10 @@ class GetMqttBridgeConnectorResult:
     """
     MQ mqttBridgeConnector resource
     """
-    def __init__(__self__, bridge_instances=None, client_id_prefix=None, extended_location=None, id=None, image=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, protocol=None, provisioning_state=None, remote_broker_connection=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, bridge_instances=None, client_id_prefix=None, extended_location=None, id=None, image=None, local_broker_connection=None, location=None, log_level=None, name=None, node_tolerations=None, protocol=None, provisioning_state=None, remote_broker_connection=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bridge_instances and not isinstance(bridge_instances, int):
             raise TypeError("Expected argument 'bridge_instances' to be a int")
         pulumi.set(__self__, "bridge_instances", bridge_instances)
@@ -76,6 +79,14 @@ class GetMqttBridgeConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bridgeInstances")
@@ -212,6 +223,7 @@ class AwaitableGetMqttBridgeConnectorResult(GetMqttBridgeConnectorResult):
         if False:
             yield self
         return GetMqttBridgeConnectorResult(
+            azure_api_version=self.azure_api_version,
             bridge_instances=self.bridge_instances,
             client_id_prefix=self.client_id_prefix,
             extended_location=self.extended_location,
@@ -251,6 +263,7 @@ def get_mqtt_bridge_connector(mq_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotoperationsmq:getMqttBridgeConnector', __args__, opts=opts, typ=GetMqttBridgeConnectorResult).value
 
     return AwaitableGetMqttBridgeConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bridge_instances=pulumi.get(__ret__, 'bridge_instances'),
         client_id_prefix=pulumi.get(__ret__, 'client_id_prefix'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -287,6 +300,7 @@ def get_mqtt_bridge_connector_output(mq_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:iotoperationsmq:getMqttBridgeConnector', __args__, opts=opts, typ=GetMqttBridgeConnectorResult)
     return __ret__.apply(lambda __response__: GetMqttBridgeConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bridge_instances=pulumi.get(__response__, 'bridge_instances'),
         client_id_prefix=pulumi.get(__response__, 'client_id_prefix'),
         extended_location=pulumi.get(__response__, 'extended_location'),

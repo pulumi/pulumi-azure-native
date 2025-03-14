@@ -16,6 +16,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     [OutputType]
     public sealed class SoftDeleteSettingsResponse
     {
+        public readonly string? EnhancedSecurityState;
         /// <summary>
         /// Soft delete retention period in days
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private SoftDeleteSettingsResponse(
+            string? enhancedSecurityState,
+
             int? softDeleteRetentionPeriodInDays,
 
             string? softDeleteState)
         {
+            EnhancedSecurityState = enhancedSecurityState;
             SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SoftDeleteState = softDeleteState;
         }

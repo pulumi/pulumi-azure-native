@@ -204,18 +204,26 @@ if not MYPY:
         """
         Specifies the maximum number of virtual machines in the standby virtual machine pool.
         """
+        min_ready_capacity: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
+        """
 elif False:
     StandbyVirtualMachinePoolElasticityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandbyVirtualMachinePoolElasticityProfileArgs:
     def __init__(__self__, *,
-                 max_ready_capacity: pulumi.Input[float]):
+                 max_ready_capacity: pulumi.Input[float],
+                 min_ready_capacity: Optional[pulumi.Input[float]] = None):
         """
         Details of the elasticity profile.
         :param pulumi.Input[float] max_ready_capacity: Specifies the maximum number of virtual machines in the standby virtual machine pool.
+        :param pulumi.Input[float] min_ready_capacity: Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
         """
         pulumi.set(__self__, "max_ready_capacity", max_ready_capacity)
+        if min_ready_capacity is not None:
+            pulumi.set(__self__, "min_ready_capacity", min_ready_capacity)
 
     @property
     @pulumi.getter(name="maxReadyCapacity")
@@ -228,6 +236,18 @@ class StandbyVirtualMachinePoolElasticityProfileArgs:
     @max_ready_capacity.setter
     def max_ready_capacity(self, value: pulumi.Input[float]):
         pulumi.set(self, "max_ready_capacity", value)
+
+    @property
+    @pulumi.getter(name="minReadyCapacity")
+    def min_ready_capacity(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the desired minimum number of virtual machines in the standby virtual machine pool. MinReadyCapacity cannot exceed MaxReadyCapacity.
+        """
+        return pulumi.get(self, "min_ready_capacity")
+
+    @min_ready_capacity.setter
+    def min_ready_capacity(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min_ready_capacity", value)
 
 
 if not MYPY:

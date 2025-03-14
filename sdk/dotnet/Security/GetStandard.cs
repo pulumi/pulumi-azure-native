@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetStandardResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// category of the standard provided
         /// </summary>
         public readonly string? Category;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetStandardResult(
+            string azureApiVersion,
+
             string? category,
 
             ImmutableArray<Outputs.StandardComponentPropertiesResponse> components,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Category = category;
             Components = components;
             Description = description;

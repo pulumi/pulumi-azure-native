@@ -14,22 +14,29 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class ServerlessEndpointResponse
     {
         /// <summary>
-        /// Specifies the authentication mode for the Serverless endpoint.
+        /// [Required] Specifies the authentication mode for the Serverless endpoint.
         /// </summary>
-        public readonly string? AuthMode;
+        public readonly string AuthMode;
         /// <summary>
-        /// Optional capacity reservation information for the endpoint. When specified, the Serverless Endpoint
-        /// will be allocated capacity from the specified capacity reservation group.
+        /// Specifies the content safety options. If omitted, the default content safety settings will be configured
         /// </summary>
-        public readonly Outputs.ServerlessEndpointCapacityReservationResponse? CapacityReservation;
+        public readonly Outputs.ContentSafetyResponse? ContentSafety;
+        /// <summary>
+        /// The current state of the ServerlessEndpoint.
+        /// </summary>
+        public readonly string EndpointState;
         /// <summary>
         /// The inference uri to target when making requests against the serverless endpoint
         /// </summary>
         public readonly Outputs.ServerlessInferenceEndpointResponse InferenceEndpoint;
         /// <summary>
-        /// [Required] The publisher-defined Serverless Offer to provision the endpoint with.
+        /// The MarketplaceSubscription Azure ID associated to this ServerlessEndpoint.
         /// </summary>
-        public readonly Outputs.ServerlessOfferResponse Offer;
+        public readonly string MarketplaceSubscriptionId;
+        /// <summary>
+        /// The model settings (model id) for the model being serviced on the ServerlessEndpoint.
+        /// </summary>
+        public readonly Outputs.ModelSettingsResponse? ModelSettings;
         /// <summary>
         /// Provisioning state for the endpoint.
         /// </summary>
@@ -37,20 +44,26 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ServerlessEndpointResponse(
-            string? authMode,
+            string authMode,
 
-            Outputs.ServerlessEndpointCapacityReservationResponse? capacityReservation,
+            Outputs.ContentSafetyResponse? contentSafety,
+
+            string endpointState,
 
             Outputs.ServerlessInferenceEndpointResponse inferenceEndpoint,
 
-            Outputs.ServerlessOfferResponse offer,
+            string marketplaceSubscriptionId,
+
+            Outputs.ModelSettingsResponse? modelSettings,
 
             string provisioningState)
         {
             AuthMode = authMode;
-            CapacityReservation = capacityReservation;
+            ContentSafety = contentSafety;
+            EndpointState = endpointState;
             InferenceEndpoint = inferenceEndpoint;
-            Offer = offer;
+            MarketplaceSubscriptionId = marketplaceSubscriptionId;
+            ModelSettings = modelSettings;
             ProvisioningState = provisioningState;
         }
     }

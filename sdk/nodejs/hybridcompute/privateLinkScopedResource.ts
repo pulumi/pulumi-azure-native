@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private link scoped resource
- * Azure REST API version: 2020-08-15-preview. Prior API version in Azure Native 1.x: 2020-08-15-preview.
+ * Azure REST API version: 2020-08-15-preview. Prior API version in Azure Native 2.x: 2020-08-15-preview.
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateLinkScopedResource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource id of the scoped Azure monitor resource.
      */
@@ -73,9 +77,11 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["linkedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

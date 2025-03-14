@@ -27,13 +27,16 @@ class GetAccountResult:
     """
     An Azure Video Indexer account.
     """
-    def __init__(__self__, account_id=None, account_name=None, id=None, identity=None, location=None, media_services=None, name=None, provisioning_state=None, system_data=None, tags=None, tenant_id=None, total_seconds_indexed=None, type=None):
+    def __init__(__self__, account_id=None, account_name=None, azure_api_version=None, id=None, identity=None, location=None, name=None, provisioning_state=None, storage_services=None, system_data=None, tags=None, tenant_id=None, total_seconds_indexed=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,15 +46,15 @@ class GetAccountResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
-        if media_services and not isinstance(media_services, dict):
-            raise TypeError("Expected argument 'media_services' to be a dict")
-        pulumi.set(__self__, "media_services", media_services)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storage_services and not isinstance(storage_services, dict):
+            raise TypeError("Expected argument 'storage_services' to be a dict")
+        pulumi.set(__self__, "storage_services", storage_services)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -85,6 +88,14 @@ class GetAccountResult:
         return pulumi.get(self, "account_name")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -109,14 +120,6 @@ class GetAccountResult:
         return pulumi.get(self, "location")
 
     @property
-    @pulumi.getter(name="mediaServices")
-    def media_services(self) -> Optional['outputs.MediaServicesForPutRequestResponse']:
-        """
-        The media services details
-        """
-        return pulumi.get(self, "media_services")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -131,6 +134,14 @@ class GetAccountResult:
         Gets the status of the account at the time the operation was called.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageServices")
+    def storage_services(self) -> Optional['outputs.StorageServicesForPutRequestResponse']:
+        """
+        The storage services details
+        """
+        return pulumi.get(self, "storage_services")
 
     @property
     @pulumi.getter(name="systemData")
@@ -181,12 +192,13 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             account_id=self.account_id,
             account_name=self.account_name,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
-            media_services=self.media_services,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            storage_services=self.storage_services,
             system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
@@ -199,9 +211,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Gets the properties of an Azure Video Indexer account.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.
@@ -216,12 +226,13 @@ def get_account(account_name: Optional[str] = None,
     return AwaitableGetAccountResult(
         account_id=pulumi.get(__ret__, 'account_id'),
         account_name=pulumi.get(__ret__, 'account_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
-        media_services=pulumi.get(__ret__, 'media_services'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_services=pulumi.get(__ret__, 'storage_services'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
@@ -232,9 +243,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets the properties of an Azure Video Indexer account.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2024-01-01, 2024-04-01-preview, 2024-06-01-preview, 2024-09-23-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the Azure Video Indexer account.
@@ -248,12 +257,13 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetAccountResult(
         account_id=pulumi.get(__response__, 'account_id'),
         account_name=pulumi.get(__response__, 'account_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
-        media_services=pulumi.get(__response__, 'media_services'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        storage_services=pulumi.get(__response__, 'storage_services'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),

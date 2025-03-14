@@ -53,6 +53,24 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("scale")]
         public Input<Inputs.ScaleArgs>? Scale { get; set; }
 
+        [Input("serviceBinds")]
+        private InputList<Inputs.ServiceBindArgs>? _serviceBinds;
+
+        /// <summary>
+        /// List of container app services bound to the app
+        /// </summary>
+        public InputList<Inputs.ServiceBindArgs> ServiceBinds
+        {
+            get => _serviceBinds ?? (_serviceBinds = new InputList<Inputs.ServiceBindArgs>());
+            set => _serviceBinds = value;
+        }
+
+        /// <summary>
+        /// Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+        /// </summary>
+        [Input("terminationGracePeriodSeconds")]
+        public Input<double>? TerminationGracePeriodSeconds { get; set; }
+
         [Input("volumes")]
         private InputList<Inputs.VolumeArgs>? _volumes;
 

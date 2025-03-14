@@ -35,6 +35,10 @@ export interface GetHybridUseBenefitArgs {
  */
 export interface GetHybridUseBenefitResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Created date
      */
     readonly createdDate: string;

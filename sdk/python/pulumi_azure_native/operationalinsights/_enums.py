@@ -13,6 +13,7 @@ __all__ = [
     'IdentityType',
     'LinkedServiceEntityStatus',
     'MachineGroupType',
+    'ManagedServiceIdentityType',
     'PublicNetworkAccessType',
     'TablePlanEnum',
     'WorkspaceSkuNameEnum',
@@ -29,7 +30,7 @@ class BillingType(str, Enum):
 
 class ClusterSkuNameEnum(str, Enum):
     """
-    The name of the SKU.
+    The SKU (tier) of a cluster.
     """
     CAPACITY_RESERVATION = "CapacityReservation"
 
@@ -139,6 +140,16 @@ class MachineGroupType(str, Enum):
     USER_STATIC = "user-static"
 
 
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 class PublicNetworkAccessType(str, Enum):
     """
     The network access type for accessing Log Analytics query.
@@ -159,7 +170,7 @@ class TablePlanEnum(str, Enum):
     """
     BASIC = "Basic"
     """
-    Logs  that are adjusted to support high volume low value verbose logs.
+    Logs that are adjusted to support high volume low value verbose logs.
     """
     ANALYTICS = "Analytics"
     """

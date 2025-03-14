@@ -27,7 +27,10 @@ class GetSpringbootserverResult:
     """
     The springbootservers envelope resource definition.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,12 +43,17 @@ class GetSpringbootserverResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -81,14 +89,6 @@ class GetSpringbootserverResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -102,11 +102,11 @@ class AwaitableGetSpringbootserverResult(GetSpringbootserverResult):
         if False:
             yield self
         return GetSpringbootserverResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
             system_data=self.system_data,
-            tags=self.tags,
             type=self.type)
 
 
@@ -116,7 +116,7 @@ def get_springbootserver(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpringbootserverResult:
     """
     List springbootservers resource.
-    Azure REST API version: 2023-01-01-preview.
+    Azure REST API version: 2024-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -131,11 +131,11 @@ def get_springbootserver(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:offazurespringboot:getSpringbootserver', __args__, opts=opts, typ=GetSpringbootserverResult).value
 
     return AwaitableGetSpringbootserverResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_springbootserver_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 site_name: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ def get_springbootserver_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringbootserverResult]:
     """
     List springbootservers resource.
-    Azure REST API version: 2023-01-01-preview.
+    Azure REST API version: 2024-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -157,9 +157,9 @@ def get_springbootserver_output(resource_group_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazurespringboot:getSpringbootserver', __args__, opts=opts, typ=GetSpringbootserverResult)
     return __ret__.apply(lambda __response__: GetSpringbootserverResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
         system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

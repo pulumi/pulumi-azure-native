@@ -26,7 +26,10 @@ class GetAppServiceCertificateOrderCertificateResult:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
     """
-    def __init__(__self__, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,6 +59,14 @@ class GetAppServiceCertificateOrderCertificateResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -83,7 +94,7 @@ class GetAppServiceCertificateOrderCertificateResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -134,6 +145,7 @@ class AwaitableGetAppServiceCertificateOrderCertificateResult(GetAppServiceCerti
         if False:
             yield self
         return GetAppServiceCertificateOrderCertificateResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             key_vault_id=self.key_vault_id,
             key_vault_secret_name=self.key_vault_secret_name,
@@ -151,9 +163,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceCertificateOrderCertificateResult:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -168,6 +178,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:certificateregistration:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult).value
 
     return AwaitableGetAppServiceCertificateOrderCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
         key_vault_secret_name=pulumi.get(__ret__, 'key_vault_secret_name'),
@@ -183,9 +194,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Description for Get the certificate associated with a certificate order.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str certificate_order_name: Name of the certificate order.
@@ -199,6 +208,7 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:certificateregistration:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult)
     return __ret__.apply(lambda __response__: GetAppServiceCertificateOrderCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         key_vault_id=pulumi.get(__response__, 'key_vault_id'),
         key_vault_secret_name=pulumi.get(__response__, 'key_vault_secret_name'),

@@ -30,6 +30,10 @@ export interface GetVariableArgs {
  */
 export interface GetVariableResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Variable column definitions.
      */
     readonly columns: outputs.authorization.PolicyVariableColumnResponse[];

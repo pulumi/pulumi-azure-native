@@ -186,9 +186,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Define the virtualNetwork.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the virtualNetwork.
-        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
-
-        Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        Azure REST API version: 2023-12-01. Prior API version in Azure Native 2.x: 2022-07-15-preview.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +254,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id
             __props__.__dict__["virtual_network_name"] = virtual_network_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["custom_resource_name"] = None
             __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
@@ -290,6 +287,7 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__ = VirtualNetworkArgs.__new__(VirtualNetworkArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_resource_name"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["inventory_item_id"] = None
@@ -306,6 +304,14 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["uuid"] = None
         __props__.__dict__["v_center_id"] = None
         return VirtualNetwork(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customResourceName")
@@ -375,7 +381,7 @@ class VirtualNetwork(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 

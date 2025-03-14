@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         [Input("keySource")]
-        public InputUnion<string, Pulumi.AzureNative.ServiceBus.KeySource>? KeySource { get; set; }
+        public Input<Pulumi.AzureNative.ServiceBus.KeySource>? KeySource { get; set; }
 
         [Input("keyVaultProperties")]
         private InputList<Inputs.KeyVaultPropertiesArgs>? _keyVaultProperties;
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ServiceBus.Inputs
 
         public EncryptionArgs()
         {
-            KeySource = "Microsoft.KeyVault";
+            KeySource = Pulumi.AzureNative.ServiceBus.KeySource.Microsoft_KeyVault;
         }
         public static new EncryptionArgs Empty => new EncryptionArgs();
     }

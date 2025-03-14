@@ -16,12 +16,24 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AutomaticResourcePredictionsProfileArgs',
+    'AutomaticResourcePredictionsProfileArgsDict',
     'AzureDevOpsOrganizationProfileArgs',
     'AzureDevOpsOrganizationProfileArgsDict',
+    'AzureDevOpsPermissionProfileArgs',
+    'AzureDevOpsPermissionProfileArgsDict',
+    'DataDiskArgs',
+    'DataDiskArgsDict',
     'DevOpsAzureSkuArgs',
     'DevOpsAzureSkuArgsDict',
+    'GitHubOrganizationProfileArgs',
+    'GitHubOrganizationProfileArgsDict',
+    'GitHubOrganizationArgs',
+    'GitHubOrganizationArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'ManualResourcePredictionsProfileArgs',
+    'ManualResourcePredictionsProfileArgsDict',
     'NetworkProfileArgs',
     'NetworkProfileArgsDict',
     'OrganizationArgs',
@@ -36,11 +48,71 @@ __all__ = [
     'StatefulArgsDict',
     'StatelessAgentProfileArgs',
     'StatelessAgentProfileArgsDict',
+    'StorageProfileArgs',
+    'StorageProfileArgsDict',
     'VmssFabricProfileArgs',
     'VmssFabricProfileArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AutomaticResourcePredictionsProfileArgsDict(TypedDict):
+        """
+        The stand-by agent scheme is determined based on historical demand.
+        """
+        kind: pulumi.Input[str]
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Automatic'.
+        """
+        prediction_preference: NotRequired[pulumi.Input[Union[str, 'PredictionPreference']]]
+        """
+        Determines the balance between cost and performance.
+        """
+elif False:
+    AutomaticResourcePredictionsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomaticResourcePredictionsProfileArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 prediction_preference: Optional[pulumi.Input[Union[str, 'PredictionPreference']]] = None):
+        """
+        The stand-by agent scheme is determined based on historical demand.
+        :param pulumi.Input[str] kind: Determines how the stand-by scheme should be provided.
+               Expected value is 'Automatic'.
+        :param pulumi.Input[Union[str, 'PredictionPreference']] prediction_preference: Determines the balance between cost and performance.
+        """
+        pulumi.set(__self__, "kind", 'Automatic')
+        if prediction_preference is not None:
+            pulumi.set(__self__, "prediction_preference", prediction_preference)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Automatic'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="predictionPreference")
+    def prediction_preference(self) -> Optional[pulumi.Input[Union[str, 'PredictionPreference']]]:
+        """
+        Determines the balance between cost and performance.
+        """
+        return pulumi.get(self, "prediction_preference")
+
+    @prediction_preference.setter
+    def prediction_preference(self, value: Optional[pulumi.Input[Union[str, 'PredictionPreference']]]):
+        pulumi.set(self, "prediction_preference", value)
+
 
 if not MYPY:
     class AzureDevOpsOrganizationProfileArgsDict(TypedDict):
@@ -56,6 +128,10 @@ if not MYPY:
         """
         The list of Azure DevOps organizations the pool should be present in.
         """
+        permission_profile: NotRequired[pulumi.Input['AzureDevOpsPermissionProfileArgsDict']]
+        """
+        The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        """
 elif False:
     AzureDevOpsOrganizationProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -63,15 +139,19 @@ elif False:
 class AzureDevOpsOrganizationProfileArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 organizations: pulumi.Input[Sequence[pulumi.Input['OrganizationArgs']]]):
+                 organizations: pulumi.Input[Sequence[pulumi.Input['OrganizationArgs']]],
+                 permission_profile: Optional[pulumi.Input['AzureDevOpsPermissionProfileArgs']] = None):
         """
         Azure DevOps organization profile
         :param pulumi.Input[str] kind: Discriminator property for OrganizationProfile.
                Expected value is 'AzureDevOps'.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationArgs']]] organizations: The list of Azure DevOps organizations the pool should be present in.
+        :param pulumi.Input['AzureDevOpsPermissionProfileArgs'] permission_profile: The type of permission which determines which accounts are admins on the Azure DevOps pool.
         """
         pulumi.set(__self__, "kind", 'AzureDevOps')
         pulumi.set(__self__, "organizations", organizations)
+        if permission_profile is not None:
+            pulumi.set(__self__, "permission_profile", permission_profile)
 
     @property
     @pulumi.getter
@@ -98,6 +178,189 @@ class AzureDevOpsOrganizationProfileArgs:
     def organizations(self, value: pulumi.Input[Sequence[pulumi.Input['OrganizationArgs']]]):
         pulumi.set(self, "organizations", value)
 
+    @property
+    @pulumi.getter(name="permissionProfile")
+    def permission_profile(self) -> Optional[pulumi.Input['AzureDevOpsPermissionProfileArgs']]:
+        """
+        The type of permission which determines which accounts are admins on the Azure DevOps pool.
+        """
+        return pulumi.get(self, "permission_profile")
+
+    @permission_profile.setter
+    def permission_profile(self, value: Optional[pulumi.Input['AzureDevOpsPermissionProfileArgs']]):
+        pulumi.set(self, "permission_profile", value)
+
+
+if not MYPY:
+    class AzureDevOpsPermissionProfileArgsDict(TypedDict):
+        """
+        Defines the type of Azure DevOps pool permission.
+        """
+        kind: pulumi.Input[Union[str, 'AzureDevOpsPermissionType']]
+        """
+        Determines who has admin permissions to the Azure DevOps pool.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Group email addresses
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User email addresses
+        """
+elif False:
+    AzureDevOpsPermissionProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureDevOpsPermissionProfileArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'AzureDevOpsPermissionType']],
+                 groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Defines the type of Azure DevOps pool permission.
+        :param pulumi.Input[Union[str, 'AzureDevOpsPermissionType']] kind: Determines who has admin permissions to the Azure DevOps pool.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: Group email addresses
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] users: User email addresses
+        """
+        pulumi.set(__self__, "kind", kind)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'AzureDevOpsPermissionType']]:
+        """
+        Determines who has admin permissions to the Azure DevOps pool.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'AzureDevOpsPermissionType']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Group email addresses
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        User email addresses
+        """
+        return pulumi.get(self, "users")
+
+    @users.setter
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "users", value)
+
+
+if not MYPY:
+    class DataDiskArgsDict(TypedDict):
+        """
+        The data disk of the VMSS.
+        """
+        caching: NotRequired[pulumi.Input[Union[str, 'CachingType']]]
+        """
+        The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        """
+        disk_size_gi_b: NotRequired[pulumi.Input[int]]
+        """
+        The initial disk size in gigabytes.
+        """
+        drive_letter: NotRequired[pulumi.Input[str]]
+        """
+        The drive letter for the empty data disk. If not specified, it will be the first available letter.
+        """
+        storage_account_type: NotRequired[pulumi.Input[Union[str, 'StorageAccountType']]]
+        """
+        The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+        """
+elif False:
+    DataDiskArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataDiskArgs:
+    def __init__(__self__, *,
+                 caching: Optional[pulumi.Input[Union[str, 'CachingType']]] = None,
+                 disk_size_gi_b: Optional[pulumi.Input[int]] = None,
+                 drive_letter: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None):
+        """
+        The data disk of the VMSS.
+        :param pulumi.Input[Union[str, 'CachingType']] caching: The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        :param pulumi.Input[int] disk_size_gi_b: The initial disk size in gigabytes.
+        :param pulumi.Input[str] drive_letter: The drive letter for the empty data disk. If not specified, it will be the first available letter.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+        """
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if disk_size_gi_b is not None:
+            pulumi.set(__self__, "disk_size_gi_b", disk_size_gi_b)
+        if drive_letter is not None:
+            pulumi.set(__self__, "drive_letter", drive_letter)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[pulumi.Input[Union[str, 'CachingType']]]:
+        """
+        The type of caching to be enabled for the data disks. The default value for caching is readwrite. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: Optional[pulumi.Input[Union[str, 'CachingType']]]):
+        pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="diskSizeGiB")
+    def disk_size_gi_b(self) -> Optional[pulumi.Input[int]]:
+        """
+        The initial disk size in gigabytes.
+        """
+        return pulumi.get(self, "disk_size_gi_b")
+
+    @disk_size_gi_b.setter
+    def disk_size_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_size_gi_b", value)
+
+    @property
+    @pulumi.getter(name="driveLetter")
+    def drive_letter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The drive letter for the empty data disk. If not specified, it will be the first available letter.
+        """
+        return pulumi.get(self, "drive_letter")
+
+    @drive_letter.setter
+    def drive_letter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "drive_letter", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
+        """
+        The storage Account type to be used for the data disk. If omitted, the default is "standard_lrs".
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
+        pulumi.set(self, "storage_account_type", value)
+
 
 if not MYPY:
     class DevOpsAzureSkuArgsDict(TypedDict):
@@ -108,28 +371,18 @@ if not MYPY:
         """
         The Azure SKU name of the machines in the pool.
         """
-        tier: NotRequired[pulumi.Input[str]]
-        """
-        The Azure SKU tier of the machines in the pool.
-        """
 elif False:
     DevOpsAzureSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevOpsAzureSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str]):
         """
         The Azure SKU of the machines in the pool.
         :param pulumi.Input[str] name: The Azure SKU name of the machines in the pool.
-        :param pulumi.Input[str] tier: The Azure SKU tier of the machines in the pool.
         """
         pulumi.set(__self__, "name", name)
-        if tier is None:
-            tier = 'Standard'
-        if tier is not None:
-            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
@@ -143,17 +396,117 @@ class DevOpsAzureSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class GitHubOrganizationProfileArgsDict(TypedDict):
+        """
+        GitHub organization profile
+        """
+        kind: pulumi.Input[str]
+        """
+        Discriminator property for OrganizationProfile.
+        Expected value is 'GitHub'.
+        """
+        organizations: pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgsDict']]]
+        """
+        The list of GitHub organizations/repositories the pool should be present in.
+        """
+elif False:
+    GitHubOrganizationProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitHubOrganizationProfileArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 organizations: pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgs']]]):
+        """
+        GitHub organization profile
+        :param pulumi.Input[str] kind: Discriminator property for OrganizationProfile.
+               Expected value is 'GitHub'.
+        :param pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgs']]] organizations: The list of GitHub organizations/repositories the pool should be present in.
+        """
+        pulumi.set(__self__, "kind", 'GitHub')
+        pulumi.set(__self__, "organizations", organizations)
+
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> pulumi.Input[str]:
         """
-        The Azure SKU tier of the machines in the pool.
+        Discriminator property for OrganizationProfile.
+        Expected value is 'GitHub'.
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "kind")
 
-    @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tier", value)
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def organizations(self) -> pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgs']]]:
+        """
+        The list of GitHub organizations/repositories the pool should be present in.
+        """
+        return pulumi.get(self, "organizations")
+
+    @organizations.setter
+    def organizations(self, value: pulumi.Input[Sequence[pulumi.Input['GitHubOrganizationArgs']]]):
+        pulumi.set(self, "organizations", value)
+
+
+if not MYPY:
+    class GitHubOrganizationArgsDict(TypedDict):
+        """
+        Defines a GitHub organization
+        """
+        url: pulumi.Input[str]
+        """
+        The GitHub organization URL in which the pool should be created.
+        """
+        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Optional list of repositories in which the pool should be created.
+        """
+elif False:
+    GitHubOrganizationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitHubOrganizationArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Defines a GitHub organization
+        :param pulumi.Input[str] url: The GitHub organization URL in which the pool should be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repositories: Optional list of repositories in which the pool should be created.
+        """
+        pulumi.set(__self__, "url", url)
+        if repositories is not None:
+            pulumi.set(__self__, "repositories", repositories)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The GitHub organization URL in which the pool should be created.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Optional list of repositories in which the pool should be created.
+        """
+        return pulumi.get(self, "repositories")
+
+    @repositories.setter
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repositories", value)
 
 
 if not MYPY:
@@ -212,6 +565,44 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
+    class ManualResourcePredictionsProfileArgsDict(TypedDict):
+        """
+        Customer provides the stand-by agent scheme.
+        """
+        kind: pulumi.Input[str]
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Manual'.
+        """
+elif False:
+    ManualResourcePredictionsProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManualResourcePredictionsProfileArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str]):
+        """
+        Customer provides the stand-by agent scheme.
+        :param pulumi.Input[str] kind: Determines how the stand-by scheme should be provided.
+               Expected value is 'Manual'.
+        """
+        pulumi.set(__self__, "kind", 'Manual')
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        Determines how the stand-by scheme should be provided.
+        Expected value is 'Manual'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+
+if not MYPY:
     class NetworkProfileArgsDict(TypedDict):
         """
         The network profile of the machines in the pool.
@@ -255,6 +646,10 @@ if not MYPY:
         """
         The Azure DevOps organization URL in which the pool should be created.
         """
+        open_access: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if the pool should have open access to all projects in this organization.
+        """
         parallelism: NotRequired[pulumi.Input[int]]
         """
         How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
@@ -270,15 +665,19 @@ elif False:
 class OrganizationArgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
+                 open_access: Optional[pulumi.Input[bool]] = None,
                  parallelism: Optional[pulumi.Input[int]] = None,
                  projects: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Defines an Azure DevOps organization.
         :param pulumi.Input[str] url: The Azure DevOps organization URL in which the pool should be created.
+        :param pulumi.Input[bool] open_access: Determines if the pool should have open access to all projects in this organization.
         :param pulumi.Input[int] parallelism: How many machines can be created at maximum in this organization out of the maximumConcurrency of the pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] projects: Optional list of projects in which the pool should be created.
         """
         pulumi.set(__self__, "url", url)
+        if open_access is not None:
+            pulumi.set(__self__, "open_access", open_access)
         if parallelism is not None:
             pulumi.set(__self__, "parallelism", parallelism)
         if projects is not None:
@@ -295,6 +694,18 @@ class OrganizationArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="openAccess")
+    def open_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines if the pool should have open access to all projects in this organization.
+        """
+        return pulumi.get(self, "open_access")
+
+    @open_access.setter
+    def open_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "open_access", value)
 
     @property
     @pulumi.getter
@@ -326,7 +737,11 @@ if not MYPY:
         """
         The OS profile of the machines in the pool.
         """
-        secrets_management_settings: pulumi.Input['SecretsManagementSettingsArgsDict']
+        logon_type: NotRequired[pulumi.Input[Union[str, 'LogonType']]]
+        """
+        Determines how the service should be run. By default, this will be set to Service.
+        """
+        secrets_management_settings: NotRequired[pulumi.Input['SecretsManagementSettingsArgsDict']]
         """
         The secret management settings of the machines in the pool.
         """
@@ -336,23 +751,40 @@ elif False:
 @pulumi.input_type
 class OsProfileArgs:
     def __init__(__self__, *,
-                 secrets_management_settings: pulumi.Input['SecretsManagementSettingsArgs']):
+                 logon_type: Optional[pulumi.Input[Union[str, 'LogonType']]] = None,
+                 secrets_management_settings: Optional[pulumi.Input['SecretsManagementSettingsArgs']] = None):
         """
         The OS profile of the machines in the pool.
+        :param pulumi.Input[Union[str, 'LogonType']] logon_type: Determines how the service should be run. By default, this will be set to Service.
         :param pulumi.Input['SecretsManagementSettingsArgs'] secrets_management_settings: The secret management settings of the machines in the pool.
         """
-        pulumi.set(__self__, "secrets_management_settings", secrets_management_settings)
+        if logon_type is not None:
+            pulumi.set(__self__, "logon_type", logon_type)
+        if secrets_management_settings is not None:
+            pulumi.set(__self__, "secrets_management_settings", secrets_management_settings)
+
+    @property
+    @pulumi.getter(name="logonType")
+    def logon_type(self) -> Optional[pulumi.Input[Union[str, 'LogonType']]]:
+        """
+        Determines how the service should be run. By default, this will be set to Service.
+        """
+        return pulumi.get(self, "logon_type")
+
+    @logon_type.setter
+    def logon_type(self, value: Optional[pulumi.Input[Union[str, 'LogonType']]]):
+        pulumi.set(self, "logon_type", value)
 
     @property
     @pulumi.getter(name="secretsManagementSettings")
-    def secrets_management_settings(self) -> pulumi.Input['SecretsManagementSettingsArgs']:
+    def secrets_management_settings(self) -> Optional[pulumi.Input['SecretsManagementSettingsArgs']]:
         """
         The secret management settings of the machines in the pool.
         """
         return pulumi.get(self, "secrets_management_settings")
 
     @secrets_management_settings.setter
-    def secrets_management_settings(self, value: pulumi.Input['SecretsManagementSettingsArgs']):
+    def secrets_management_settings(self, value: Optional[pulumi.Input['SecretsManagementSettingsArgs']]):
         pulumi.set(self, "secrets_management_settings", value)
 
 
@@ -360,10 +792,6 @@ if not MYPY:
     class PoolImageArgsDict(TypedDict):
         """
         The VM image of the machines in the pool.
-        """
-        resource_id: pulumi.Input[str]
-        """
-        The resource id of the image.
         """
         aliases: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -373,40 +801,49 @@ if not MYPY:
         """
         The percentage of the buffer to be allocated to this image.
         """
+        ephemeral_type: NotRequired[pulumi.Input[Union[str, 'EphemeralType']]]
+        """
+        The ephemeral type of the image.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of the image.
+        """
+        well_known_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The image to use from a well-known set of images made available to customers.
+        """
 elif False:
     PoolImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PoolImageArgs:
     def __init__(__self__, *,
-                 resource_id: pulumi.Input[str],
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 buffer: Optional[pulumi.Input[str]] = None):
+                 buffer: Optional[pulumi.Input[str]] = None,
+                 ephemeral_type: Optional[pulumi.Input[Union[str, 'EphemeralType']]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 well_known_image_name: Optional[pulumi.Input[str]] = None):
         """
         The VM image of the machines in the pool.
-        :param pulumi.Input[str] resource_id: The resource id of the image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: List of aliases to reference the image by.
         :param pulumi.Input[str] buffer: The percentage of the buffer to be allocated to this image.
+        :param pulumi.Input[Union[str, 'EphemeralType']] ephemeral_type: The ephemeral type of the image.
+        :param pulumi.Input[str] resource_id: The resource id of the image.
+        :param pulumi.Input[str] well_known_image_name: The image to use from a well-known set of images made available to customers.
         """
-        pulumi.set(__self__, "resource_id", resource_id)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
         if buffer is None:
             buffer = '*'
         if buffer is not None:
             pulumi.set(__self__, "buffer", buffer)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Input[str]:
-        """
-        The resource id of the image.
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "resource_id", value)
+        if ephemeral_type is not None:
+            pulumi.set(__self__, "ephemeral_type", ephemeral_type)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if well_known_image_name is not None:
+            pulumi.set(__self__, "well_known_image_name", well_known_image_name)
 
     @property
     @pulumi.getter
@@ -432,6 +869,42 @@ class PoolImageArgs:
     def buffer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "buffer", value)
 
+    @property
+    @pulumi.getter(name="ephemeralType")
+    def ephemeral_type(self) -> Optional[pulumi.Input[Union[str, 'EphemeralType']]]:
+        """
+        The ephemeral type of the image.
+        """
+        return pulumi.get(self, "ephemeral_type")
+
+    @ephemeral_type.setter
+    def ephemeral_type(self, value: Optional[pulumi.Input[Union[str, 'EphemeralType']]]):
+        pulumi.set(self, "ephemeral_type", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the image.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="wellKnownImageName")
+    def well_known_image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The image to use from a well-known set of images made available to customers.
+        """
+        return pulumi.get(self, "well_known_image_name")
+
+    @well_known_image_name.setter
+    def well_known_image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "well_known_image_name", value)
+
 
 if not MYPY:
     class SecretsManagementSettingsArgsDict(TypedDict):
@@ -450,6 +923,10 @@ if not MYPY:
         """
         Where to store certificates on the machine.
         """
+        certificate_store_name: NotRequired[pulumi.Input[Union[str, 'CertificateStoreNameOption']]]
+        """
+        Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+        """
 elif False:
     SecretsManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -458,17 +935,21 @@ class SecretsManagementSettingsArgs:
     def __init__(__self__, *,
                  key_exportable: pulumi.Input[bool],
                  observed_certificates: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 certificate_store_location: Optional[pulumi.Input[str]] = None):
+                 certificate_store_location: Optional[pulumi.Input[str]] = None,
+                 certificate_store_name: Optional[pulumi.Input[Union[str, 'CertificateStoreNameOption']]] = None):
         """
         The secret management settings of the machines in the pool.
         :param pulumi.Input[bool] key_exportable: Defines if the key of the certificates should be exportable.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] observed_certificates: The list of certificates to install on all machines in the pool.
         :param pulumi.Input[str] certificate_store_location: Where to store certificates on the machine.
+        :param pulumi.Input[Union[str, 'CertificateStoreNameOption']] certificate_store_name: Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
         """
         pulumi.set(__self__, "key_exportable", key_exportable)
         pulumi.set(__self__, "observed_certificates", observed_certificates)
         if certificate_store_location is not None:
             pulumi.set(__self__, "certificate_store_location", certificate_store_location)
+        if certificate_store_name is not None:
+            pulumi.set(__self__, "certificate_store_name", certificate_store_name)
 
     @property
     @pulumi.getter(name="keyExportable")
@@ -506,6 +987,18 @@ class SecretsManagementSettingsArgs:
     def certificate_store_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_store_location", value)
 
+    @property
+    @pulumi.getter(name="certificateStoreName")
+    def certificate_store_name(self) -> Optional[pulumi.Input[Union[str, 'CertificateStoreNameOption']]]:
+        """
+        Name of the certificate store to use on the machine, currently 'My' and 'Root' are supported.
+        """
+        return pulumi.get(self, "certificate_store_name")
+
+    @certificate_store_name.setter
+    def certificate_store_name(self, value: Optional[pulumi.Input[Union[str, 'CertificateStoreNameOption']]]):
+        pulumi.set(self, "certificate_store_name", value)
+
 
 if not MYPY:
     class StatefulArgsDict(TypedDict):
@@ -517,13 +1010,21 @@ if not MYPY:
         Discriminator property for AgentProfile.
         Expected value is 'Stateful'.
         """
-        max_agent_lifetime: pulumi.Input[str]
+        grace_period_time_span: NotRequired[pulumi.Input[str]]
+        """
+        How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
+        """
+        max_agent_lifetime: NotRequired[pulumi.Input[str]]
         """
         How long should stateful machines be kept around. The maximum is one week.
         """
         resource_predictions: NotRequired[Any]
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
+        """
+        resource_predictions_profile: NotRequired[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgsDict', 'ManualResourcePredictionsProfileArgsDict']]]
+        """
+        Defines how the pool buffer/stand-by agents is provided.
         """
 elif False:
     StatefulArgsDict: TypeAlias = Mapping[str, Any]
@@ -532,19 +1033,28 @@ elif False:
 class StatefulArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 max_agent_lifetime: pulumi.Input[str],
-                 resource_predictions: Optional[Any] = None):
+                 grace_period_time_span: Optional[pulumi.Input[str]] = None,
+                 max_agent_lifetime: Optional[pulumi.Input[str]] = None,
+                 resource_predictions: Optional[Any] = None,
+                 resource_predictions_profile: Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]] = None):
         """
         Stateful profile meaning that the machines will be returned to the pool after running a job.
         :param pulumi.Input[str] kind: Discriminator property for AgentProfile.
                Expected value is 'Stateful'.
+        :param pulumi.Input[str] grace_period_time_span: How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
         :param pulumi.Input[str] max_agent_lifetime: How long should stateful machines be kept around. The maximum is one week.
-        :param Any resource_predictions: Defines pool buffer.
+        :param Any resource_predictions: Defines pool buffer/stand-by agents.
+        :param pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']] resource_predictions_profile: Defines how the pool buffer/stand-by agents is provided.
         """
         pulumi.set(__self__, "kind", 'Stateful')
-        pulumi.set(__self__, "max_agent_lifetime", max_agent_lifetime)
+        if grace_period_time_span is not None:
+            pulumi.set(__self__, "grace_period_time_span", grace_period_time_span)
+        if max_agent_lifetime is not None:
+            pulumi.set(__self__, "max_agent_lifetime", max_agent_lifetime)
         if resource_predictions is not None:
             pulumi.set(__self__, "resource_predictions", resource_predictions)
+        if resource_predictions_profile is not None:
+            pulumi.set(__self__, "resource_predictions_profile", resource_predictions_profile)
 
     @property
     @pulumi.getter
@@ -560,28 +1070,52 @@ class StatefulArgs:
         pulumi.set(self, "kind", value)
 
     @property
+    @pulumi.getter(name="gracePeriodTimeSpan")
+    def grace_period_time_span(self) -> Optional[pulumi.Input[str]]:
+        """
+        How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
+        """
+        return pulumi.get(self, "grace_period_time_span")
+
+    @grace_period_time_span.setter
+    def grace_period_time_span(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "grace_period_time_span", value)
+
+    @property
     @pulumi.getter(name="maxAgentLifetime")
-    def max_agent_lifetime(self) -> pulumi.Input[str]:
+    def max_agent_lifetime(self) -> Optional[pulumi.Input[str]]:
         """
         How long should stateful machines be kept around. The maximum is one week.
         """
         return pulumi.get(self, "max_agent_lifetime")
 
     @max_agent_lifetime.setter
-    def max_agent_lifetime(self, value: pulumi.Input[str]):
+    def max_agent_lifetime(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "max_agent_lifetime", value)
 
     @property
     @pulumi.getter(name="resourcePredictions")
     def resource_predictions(self) -> Optional[Any]:
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
         """
         return pulumi.get(self, "resource_predictions")
 
     @resource_predictions.setter
     def resource_predictions(self, value: Optional[Any]):
         pulumi.set(self, "resource_predictions", value)
+
+    @property
+    @pulumi.getter(name="resourcePredictionsProfile")
+    def resource_predictions_profile(self) -> Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]]:
+        """
+        Defines how the pool buffer/stand-by agents is provided.
+        """
+        return pulumi.get(self, "resource_predictions_profile")
+
+    @resource_predictions_profile.setter
+    def resource_predictions_profile(self, value: Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]]):
+        pulumi.set(self, "resource_predictions_profile", value)
 
 
 if not MYPY:
@@ -596,7 +1130,11 @@ if not MYPY:
         """
         resource_predictions: NotRequired[Any]
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
+        """
+        resource_predictions_profile: NotRequired[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgsDict', 'ManualResourcePredictionsProfileArgsDict']]]
+        """
+        Defines how the pool buffer/stand-by agents is provided.
         """
 elif False:
     StatelessAgentProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -605,16 +1143,20 @@ elif False:
 class StatelessAgentProfileArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 resource_predictions: Optional[Any] = None):
+                 resource_predictions: Optional[Any] = None,
+                 resource_predictions_profile: Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]] = None):
         """
         Stateless profile meaning that the machines will be cleaned up after running a job.
         :param pulumi.Input[str] kind: Discriminator property for AgentProfile.
                Expected value is 'Stateless'.
-        :param Any resource_predictions: Defines pool buffer.
+        :param Any resource_predictions: Defines pool buffer/stand-by agents.
+        :param pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']] resource_predictions_profile: Defines how the pool buffer/stand-by agents is provided.
         """
         pulumi.set(__self__, "kind", 'Stateless')
         if resource_predictions is not None:
             pulumi.set(__self__, "resource_predictions", resource_predictions)
+        if resource_predictions_profile is not None:
+            pulumi.set(__self__, "resource_predictions_profile", resource_predictions_profile)
 
     @property
     @pulumi.getter
@@ -633,13 +1175,81 @@ class StatelessAgentProfileArgs:
     @pulumi.getter(name="resourcePredictions")
     def resource_predictions(self) -> Optional[Any]:
         """
-        Defines pool buffer.
+        Defines pool buffer/stand-by agents.
         """
         return pulumi.get(self, "resource_predictions")
 
     @resource_predictions.setter
     def resource_predictions(self, value: Optional[Any]):
         pulumi.set(self, "resource_predictions", value)
+
+    @property
+    @pulumi.getter(name="resourcePredictionsProfile")
+    def resource_predictions_profile(self) -> Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]]:
+        """
+        Defines how the pool buffer/stand-by agents is provided.
+        """
+        return pulumi.get(self, "resource_predictions_profile")
+
+    @resource_predictions_profile.setter
+    def resource_predictions_profile(self, value: Optional[pulumi.Input[Union['AutomaticResourcePredictionsProfileArgs', 'ManualResourcePredictionsProfileArgs']]]):
+        pulumi.set(self, "resource_predictions_profile", value)
+
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        The storage profile of the VMSS.
+        """
+        data_disks: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataDiskArgsDict']]]]
+        """
+        A list of empty data disks to attach.
+        """
+        os_disk_storage_account_type: NotRequired[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]]
+        """
+        The Azure SKU name of the machines in the pool.
+        """
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageProfileArgs:
+    def __init__(__self__, *,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]] = None,
+                 os_disk_storage_account_type: Optional[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]] = None):
+        """
+        The storage profile of the VMSS.
+        :param pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]] data_disks: A list of empty data disks to attach.
+        :param pulumi.Input[Union[str, 'OsDiskStorageAccountType']] os_disk_storage_account_type: The Azure SKU name of the machines in the pool.
+        """
+        if data_disks is not None:
+            pulumi.set(__self__, "data_disks", data_disks)
+        if os_disk_storage_account_type is not None:
+            pulumi.set(__self__, "os_disk_storage_account_type", os_disk_storage_account_type)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]:
+        """
+        A list of empty data disks to attach.
+        """
+        return pulumi.get(self, "data_disks")
+
+    @data_disks.setter
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataDiskArgs']]]]):
+        pulumi.set(self, "data_disks", value)
+
+    @property
+    @pulumi.getter(name="osDiskStorageAccountType")
+    def os_disk_storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]]:
+        """
+        The Azure SKU name of the machines in the pool.
+        """
+        return pulumi.get(self, "os_disk_storage_account_type")
+
+    @os_disk_storage_account_type.setter
+    def os_disk_storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'OsDiskStorageAccountType']]]):
+        pulumi.set(self, "os_disk_storage_account_type", value)
 
 
 if not MYPY:
@@ -668,6 +1278,10 @@ if not MYPY:
         """
         The OS profile of the machines in the pool.
         """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        The storage profile of the machines in the pool.
+        """
 elif False:
     VmssFabricProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -678,7 +1292,8 @@ class VmssFabricProfileArgs:
                  kind: pulumi.Input[str],
                  sku: pulumi.Input['DevOpsAzureSkuArgs'],
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
-                 os_profile: Optional[pulumi.Input['OsProfileArgs']] = None):
+                 os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
+                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
         """
         The agents will run on Virtual Machine Scale Sets.
         :param pulumi.Input[Sequence[pulumi.Input['PoolImageArgs']]] images: The VM images of the machines in the pool.
@@ -687,6 +1302,7 @@ class VmssFabricProfileArgs:
         :param pulumi.Input['DevOpsAzureSkuArgs'] sku: The Azure SKU of the machines in the pool.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The network profile of the machines in the pool.
         :param pulumi.Input['OsProfileArgs'] os_profile: The OS profile of the machines in the pool.
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile of the machines in the pool.
         """
         pulumi.set(__self__, "images", images)
         pulumi.set(__self__, "kind", 'Vmss')
@@ -695,6 +1311,8 @@ class VmssFabricProfileArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if os_profile is not None:
             pulumi.set(__self__, "os_profile", os_profile)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
 
     @property
     @pulumi.getter
@@ -756,5 +1374,17 @@ class VmssFabricProfileArgs:
     @os_profile.setter
     def os_profile(self, value: Optional[pulumi.Input['OsProfileArgs']]):
         pulumi.set(self, "os_profile", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+        """
+        The storage profile of the machines in the pool.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
 
 

@@ -243,9 +243,7 @@ class ServerDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of an Analysis Services resource.
-        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01.
-
-        Other available API versions: 2017-08-01-beta.
+        Azure REST API version: 2017-08-01. Prior API version in Azure Native 2.x: 2017-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -270,9 +268,7 @@ class ServerDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of an Analysis Services resource.
-        Azure REST API version: 2017-08-01. Prior API version in Azure Native 1.x: 2017-08-01.
-
-        Other available API versions: 2017-08-01-beta.
+        Azure REST API version: 2017-08-01. Prior API version in Azure Native 2.x: 2017-08-01.
 
         :param str resource_name: The name of the resource.
         :param ServerDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -332,6 +328,7 @@ class ServerDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["server_full_name"] = None
@@ -362,6 +359,7 @@ class ServerDetails(pulumi.CustomResource):
         __props__ = ServerDetailsArgs.__new__(ServerDetailsArgs)
 
         __props__.__dict__["as_administrators"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backup_blob_container_uri"] = None
         __props__.__dict__["gateway_details"] = None
         __props__.__dict__["ip_v4_firewall_settings"] = None
@@ -385,6 +383,14 @@ class ServerDetails(pulumi.CustomResource):
         A collection of AS server administrators
         """
         return pulumi.get(self, "as_administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="backupBlobContainerUri")

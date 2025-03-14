@@ -27,10 +27,13 @@ class GetDiscoveredAssetResult:
     """
     Discovered Asset definition.
     """
-    def __init__(__self__, asset_endpoint_profile_ref=None, datasets=None, default_datasets_configuration=None, default_events_configuration=None, default_topic=None, discovery_id=None, documentation_uri=None, events=None, extended_location=None, hardware_revision=None, id=None, location=None, manufacturer=None, manufacturer_uri=None, model=None, name=None, product_code=None, provisioning_state=None, serial_number=None, software_revision=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, asset_endpoint_profile_ref=None, azure_api_version=None, datasets=None, default_datasets_configuration=None, default_events_configuration=None, default_topic=None, discovery_id=None, documentation_uri=None, events=None, extended_location=None, hardware_revision=None, id=None, location=None, manufacturer=None, manufacturer_uri=None, model=None, name=None, product_code=None, provisioning_state=None, serial_number=None, software_revision=None, system_data=None, tags=None, type=None, version=None):
         if asset_endpoint_profile_ref and not isinstance(asset_endpoint_profile_ref, str):
             raise TypeError("Expected argument 'asset_endpoint_profile_ref' to be a str")
         pulumi.set(__self__, "asset_endpoint_profile_ref", asset_endpoint_profile_ref)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if datasets and not isinstance(datasets, list):
             raise TypeError("Expected argument 'datasets' to be a list")
         pulumi.set(__self__, "datasets", datasets)
@@ -108,6 +111,14 @@ class GetDiscoveredAssetResult:
         A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
         """
         return pulumi.get(self, "asset_endpoint_profile_ref")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -301,6 +312,7 @@ class AwaitableGetDiscoveredAssetResult(GetDiscoveredAssetResult):
             yield self
         return GetDiscoveredAssetResult(
             asset_endpoint_profile_ref=self.asset_endpoint_profile_ref,
+            azure_api_version=self.azure_api_version,
             datasets=self.datasets,
             default_datasets_configuration=self.default_datasets_configuration,
             default_events_configuration=self.default_events_configuration,
@@ -345,6 +357,7 @@ def get_discovered_asset(discovered_asset_name: Optional[str] = None,
 
     return AwaitableGetDiscoveredAssetResult(
         asset_endpoint_profile_ref=pulumi.get(__ret__, 'asset_endpoint_profile_ref'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         datasets=pulumi.get(__ret__, 'datasets'),
         default_datasets_configuration=pulumi.get(__ret__, 'default_datasets_configuration'),
         default_events_configuration=pulumi.get(__ret__, 'default_events_configuration'),
@@ -386,6 +399,7 @@ def get_discovered_asset_output(discovered_asset_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getDiscoveredAsset', __args__, opts=opts, typ=GetDiscoveredAssetResult)
     return __ret__.apply(lambda __response__: GetDiscoveredAssetResult(
         asset_endpoint_profile_ref=pulumi.get(__response__, 'asset_endpoint_profile_ref'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         datasets=pulumi.get(__response__, 'datasets'),
         default_datasets_configuration=pulumi.get(__response__, 'default_datasets_configuration'),
         default_events_configuration=pulumi.get(__response__, 'default_events_configuration'),

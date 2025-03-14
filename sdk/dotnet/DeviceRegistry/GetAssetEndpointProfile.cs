@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DeviceRegistry
     {
         /// <summary>
         /// Get a AssetEndpointProfile
-        /// Azure REST API version: 2023-11-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetAssetEndpointProfileResult> InvokeAsync(GetAssetEndpointProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AssetEndpointProfile
-        /// Azure REST API version: 2023-11-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AssetEndpointProfile
-        /// Azure REST API version: 2023-11-01-preview.
-        /// 
-        /// Other available API versions: 2024-09-01-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetAssetEndpointProfileResult> Invoke(GetAssetEndpointProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetEndpointProfileResult>("azure-native:deviceregistry:getAssetEndpointProfile", args ?? new GetAssetEndpointProfileInvokeArgs(), options.WithDefaults());
@@ -89,11 +83,27 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string? AdditionalConfiguration;
         /// <summary>
+        /// Defines the client authentication mechanism to the server.
+        /// </summary>
+        public readonly Outputs.AuthenticationResponse? Authentication;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
+        /// </summary>
+        public readonly string? DiscoveredAssetEndpointProfileRef;
+        /// <summary>
+        /// Defines the configuration for the connector type that is being used with the endpoint profile.
+        /// </summary>
+        public readonly string EndpointProfileType;
+        /// <summary>
         /// The extended location.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -109,6 +119,10 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
+        /// </summary>
+        public readonly Outputs.AssetEndpointProfileStatusResponse Status;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -121,17 +135,9 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// </summary>
         public readonly string TargetAddress;
         /// <summary>
-        /// Defines the authentication mechanism for the southbound connector connecting to the shop floor/OT device.
-        /// </summary>
-        public readonly Outputs.TransportAuthenticationResponse? TransportAuthentication;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// Defines the client authentication mechanism to the server.
-        /// </summary>
-        public readonly Outputs.UserAuthenticationResponse? UserAuthentication;
         /// <summary>
         /// Globally unique, immutable, non-reusable id.
         /// </summary>
@@ -140,6 +146,14 @@ namespace Pulumi.AzureNative.DeviceRegistry
         [OutputConstructor]
         private GetAssetEndpointProfileResult(
             string? additionalConfiguration,
+
+            Outputs.AuthenticationResponse? authentication,
+
+            string azureApiVersion,
+
+            string? discoveredAssetEndpointProfileRef,
+
+            string endpointProfileType,
 
             Outputs.ExtendedLocationResponse extendedLocation,
 
@@ -151,32 +165,33 @@ namespace Pulumi.AzureNative.DeviceRegistry
 
             string provisioningState,
 
+            Outputs.AssetEndpointProfileStatusResponse status,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string targetAddress,
 
-            Outputs.TransportAuthenticationResponse? transportAuthentication,
-
             string type,
-
-            Outputs.UserAuthenticationResponse? userAuthentication,
 
             string uuid)
         {
             AdditionalConfiguration = additionalConfiguration;
+            Authentication = authentication;
+            AzureApiVersion = azureApiVersion;
+            DiscoveredAssetEndpointProfileRef = discoveredAssetEndpointProfileRef;
+            EndpointProfileType = endpointProfileType;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Status = status;
             SystemData = systemData;
             Tags = tags;
             TargetAddress = targetAddress;
-            TransportAuthentication = transportAuthentication;
             Type = type;
-            UserAuthentication = userAuthentication;
             Uuid = uuid;
         }
     }

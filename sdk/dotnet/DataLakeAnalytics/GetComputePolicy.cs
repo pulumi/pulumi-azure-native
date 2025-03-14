@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     public sealed class GetComputePolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource identifier.
         /// </summary>
         public readonly string Id;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
         [OutputConstructor]
         private GetComputePolicyResult(
+            string azureApiVersion,
+
             string id,
 
             int maxDegreeOfParallelismPerJob,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             MaxDegreeOfParallelismPerJob = maxDegreeOfParallelismPerJob;
             MinPriorityPerJob = minPriorityPerJob;

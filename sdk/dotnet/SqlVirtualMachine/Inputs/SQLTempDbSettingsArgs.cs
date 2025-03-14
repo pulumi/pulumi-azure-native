@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
 {
 
+    /// <summary>
+    /// Set tempDb storage settings for SQL Server.
+    /// </summary>
     public sealed class SQLTempDbSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -71,6 +74,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         /// </summary>
         [Input("persistFolderPath")]
         public Input<string>? PersistFolderPath { get; set; }
+
+        /// <summary>
+        /// Use storage pool to build a drive if true or not provided
+        /// </summary>
+        [Input("useStoragePool")]
+        public Input<bool>? UseStoragePool { get; set; }
 
         public SQLTempDbSettingsArgs()
         {

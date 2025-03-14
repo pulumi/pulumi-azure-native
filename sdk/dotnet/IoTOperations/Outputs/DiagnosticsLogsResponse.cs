@@ -20,19 +20,11 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
         /// The log level. Examples - 'debug', 'info', 'warn', 'error', 'trace'.
         /// </summary>
         public readonly string? Level;
-        /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        public readonly Outputs.OpenTelemetryLogExportConfigResponse? OpentelemetryExportConfig;
 
         [OutputConstructor]
-        private DiagnosticsLogsResponse(
-            string? level,
-
-            Outputs.OpenTelemetryLogExportConfigResponse? opentelemetryExportConfig)
+        private DiagnosticsLogsResponse(string? level)
         {
             Level = level;
-            OpentelemetryExportConfig = opentelemetryExportConfig;
         }
     }
 }

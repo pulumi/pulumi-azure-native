@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Id of the user who created the assignment
         /// </summary>
         public readonly string CreatedBy;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNative.Authorization
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
 
+            string azureApiVersion,
+
             string createdBy,
 
             string createdOn,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNative.Authorization
             string updatedOn)
         {
             AssignableScopes = assignableScopes;
+            AzureApiVersion = azureApiVersion;
             CreatedBy = createdBy;
             CreatedOn = createdOn;
             Description = description;

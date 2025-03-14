@@ -89,6 +89,8 @@ __all__ = [
     'GatewayCorsPropertiesResponse',
     'GatewayCustomDomainPropertiesResponse',
     'GatewayInstanceResponse',
+    'GatewayLocalResponseCachePerInstancePropertiesResponse',
+    'GatewayLocalResponseCachePerRoutePropertiesResponse',
     'GatewayOperatorPropertiesResponse',
     'GatewayOperatorResourceRequestsResponse',
     'GatewayPropertiesResponse',
@@ -144,6 +146,7 @@ __all__ = [
     'UploadedUserSourceInfoResponse',
     'UserAssignedManagedIdentityResponse',
     'WarUploadedUserSourceInfoResponse',
+    'WeeklyMaintenanceScheduleConfigurationResponse',
 ]
 
 @pulumi.output_type
@@ -223,6 +226,8 @@ class AcceleratorGitRepositoryResponse(dict):
             suggest = "git_tag"
         elif key == "intervalInSeconds":
             suggest = "interval_in_seconds"
+        elif key == "subPath":
+            suggest = "sub_path"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AcceleratorGitRepositoryResponse. Access the value via the '{suggest}' property getter instead.")
@@ -241,7 +246,8 @@ class AcceleratorGitRepositoryResponse(dict):
                  branch: Optional[str] = None,
                  commit: Optional[str] = None,
                  git_tag: Optional[str] = None,
-                 interval_in_seconds: Optional[int] = None):
+                 interval_in_seconds: Optional[int] = None,
+                 sub_path: Optional[str] = None):
         """
         :param Union['AcceleratorBasicAuthSettingResponse', 'AcceleratorPublicSettingResponse', 'AcceleratorSshSettingResponse'] auth_setting: Properties of the auth setting payload.
         :param str url: Git repository URL for the accelerator.
@@ -249,6 +255,7 @@ class AcceleratorGitRepositoryResponse(dict):
         :param str commit: Git repository commit to be used.
         :param str git_tag: Git repository tag to be used.
         :param int interval_in_seconds: Interval for checking for updates to Git or image repository.
+        :param str sub_path: Folder path inside the git repository to consider as the root of the accelerator or fragment.
         """
         pulumi.set(__self__, "auth_setting", auth_setting)
         pulumi.set(__self__, "url", url)
@@ -260,6 +267,8 @@ class AcceleratorGitRepositoryResponse(dict):
             pulumi.set(__self__, "git_tag", git_tag)
         if interval_in_seconds is not None:
             pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if sub_path is not None:
+            pulumi.set(__self__, "sub_path", sub_path)
 
     @property
     @pulumi.getter(name="authSetting")
@@ -308,6 +317,14 @@ class AcceleratorGitRepositoryResponse(dict):
         Interval for checking for updates to Git or image repository.
         """
         return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="subPath")
+    def sub_path(self) -> Optional[str]:
+        """
+        Folder path inside the git repository to consider as the root of the accelerator or fragment.
+        """
+        return pulumi.get(self, "sub_path")
 
 
 @pulumi.output_type
@@ -474,6 +491,8 @@ class ApiPortalPropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "resourceRequests":
             suggest = "resource_requests"
+        elif key == "apiTryOutEnabledState":
+            suggest = "api_try_out_enabled_state"
         elif key == "gatewayIds":
             suggest = "gateway_ids"
         elif key == "httpsOnly":
@@ -499,6 +518,7 @@ class ApiPortalPropertiesResponse(dict):
                  provisioning_state: str,
                  resource_requests: 'outputs.ApiPortalResourceRequestsResponse',
                  url: str,
+                 api_try_out_enabled_state: Optional[str] = None,
                  gateway_ids: Optional[Sequence[str]] = None,
                  https_only: Optional[bool] = None,
                  public: Optional[bool] = None,
@@ -510,6 +530,7 @@ class ApiPortalPropertiesResponse(dict):
         :param str provisioning_state: State of the API portal.
         :param 'ApiPortalResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
         :param str url: URL of the API portal, exposed when 'public' is true.
+        :param str api_try_out_enabled_state: Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
         :param Sequence[str] gateway_ids: The array of resource Ids of gateway to integrate with API portal.
         :param bool https_only: Indicate if only https is allowed.
         :param bool public: Indicates whether the API portal exposes endpoint.
@@ -520,6 +541,10 @@ class ApiPortalPropertiesResponse(dict):
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "resource_requests", resource_requests)
         pulumi.set(__self__, "url", url)
+        if api_try_out_enabled_state is None:
+            api_try_out_enabled_state = 'Enabled'
+        if api_try_out_enabled_state is not None:
+            pulumi.set(__self__, "api_try_out_enabled_state", api_try_out_enabled_state)
         if gateway_ids is not None:
             pulumi.set(__self__, "gateway_ids", gateway_ids)
         if https_only is None:
@@ -566,6 +591,14 @@ class ApiPortalPropertiesResponse(dict):
         URL of the API portal, exposed when 'public' is true.
         """
         return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="apiTryOutEnabledState")
+    def api_try_out_enabled_state(self) -> Optional[str]:
+        """
+        Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.
+        """
+        return pulumi.get(self, "api_try_out_enabled_state")
 
     @property
     @pulumi.getter(name="gatewayIds")
@@ -768,6 +801,8 @@ class AppResourcePropertiesResponse(dict):
             suggest = "persistent_disk"
         elif key == "temporaryDisk":
             suggest = "temporary_disk"
+        elif key == "testEndpointAuthState":
+            suggest = "test_endpoint_auth_state"
         elif key == "vnetAddons":
             suggest = "vnet_addons"
         elif key == "workloadProfileName":
@@ -798,6 +833,7 @@ class AppResourcePropertiesResponse(dict):
                  public: Optional[bool] = None,
                  secrets: Optional[Sequence['outputs.SecretResponse']] = None,
                  temporary_disk: Optional['outputs.TemporaryDiskResponse'] = None,
+                 test_endpoint_auth_state: Optional[str] = None,
                  vnet_addons: Optional['outputs.AppVNetAddonsResponse'] = None,
                  workload_profile_name: Optional[str] = None):
         """
@@ -815,6 +851,7 @@ class AppResourcePropertiesResponse(dict):
         :param bool public: Indicates whether the App exposes public endpoint
         :param Sequence['SecretResponse'] secrets: Collection of auth secrets
         :param 'TemporaryDiskResponse' temporary_disk: Temporary disk settings
+        :param str test_endpoint_auth_state: State of test endpoint auth.
         :param 'AppVNetAddonsResponse' vnet_addons: Additional App settings in vnet injection instance
         :param str workload_profile_name: The workload profile used for this app. Supported for Consumption + Dedicated plan.
         """
@@ -845,6 +882,10 @@ class AppResourcePropertiesResponse(dict):
             pulumi.set(__self__, "secrets", secrets)
         if temporary_disk is not None:
             pulumi.set(__self__, "temporary_disk", temporary_disk)
+        if test_endpoint_auth_state is None:
+            test_endpoint_auth_state = 'Enabled'
+        if test_endpoint_auth_state is not None:
+            pulumi.set(__self__, "test_endpoint_auth_state", test_endpoint_auth_state)
         if vnet_addons is not None:
             pulumi.set(__self__, "vnet_addons", vnet_addons)
         if workload_profile_name is not None:
@@ -953,6 +994,14 @@ class AppResourcePropertiesResponse(dict):
         Temporary disk settings
         """
         return pulumi.get(self, "temporary_disk")
+
+    @property
+    @pulumi.getter(name="testEndpointAuthState")
+    def test_endpoint_auth_state(self) -> Optional[str]:
+        """
+        State of test endpoint auth.
+        """
+        return pulumi.get(self, "test_endpoint_auth_state")
 
     @property
     @pulumi.getter(name="vnetAddons")
@@ -2195,13 +2244,24 @@ class BuildpackPropertiesResponse(dict):
     Buildpack properties payload
     """
     def __init__(__self__, *,
+                 version: str,
                  id: Optional[str] = None):
         """
         Buildpack properties payload
+        :param str version: Version of the buildpack
         :param str id: Id of the buildpack
         """
+        pulumi.set(__self__, "version", version)
         if id is not None:
             pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the buildpack
+        """
+        return pulumi.get(self, "version")
 
     @property
     @pulumi.getter
@@ -2302,6 +2362,8 @@ class ClusterResourcePropertiesResponse(dict):
             suggest = "service_id"
         elif key == "infraResourceGroup":
             suggest = "infra_resource_group"
+        elif key == "maintenanceScheduleConfiguration":
+            suggest = "maintenance_schedule_configuration"
         elif key == "managedEnvironmentId":
             suggest = "managed_environment_id"
         elif key == "marketplaceResource":
@@ -2331,6 +2393,7 @@ class ClusterResourcePropertiesResponse(dict):
                  service_id: str,
                  version: int,
                  infra_resource_group: Optional[str] = None,
+                 maintenance_schedule_configuration: Optional['outputs.WeeklyMaintenanceScheduleConfigurationResponse'] = None,
                  managed_environment_id: Optional[str] = None,
                  marketplace_resource: Optional['outputs.MarketplaceResourceResponse'] = None,
                  network_profile: Optional['outputs.NetworkProfileResponse'] = None,
@@ -2344,6 +2407,7 @@ class ClusterResourcePropertiesResponse(dict):
         :param str service_id: ServiceInstanceEntity Id which uniquely identifies a created resource
         :param int version: Version of the Service
         :param str infra_resource_group: The name of the resource group that contains the infrastructure resources
+        :param 'WeeklyMaintenanceScheduleConfigurationResponse' maintenance_schedule_configuration: Additional Service settings for planned maintenance
         :param str managed_environment_id: The resource Id of the Managed Environment that the Spring Apps instance builds on
         :param 'MarketplaceResourceResponse' marketplace_resource: Purchasing 3rd party product of the Service resource.
         :param 'NetworkProfileResponse' network_profile: Network profile of the Service
@@ -2356,6 +2420,8 @@ class ClusterResourcePropertiesResponse(dict):
         pulumi.set(__self__, "version", version)
         if infra_resource_group is not None:
             pulumi.set(__self__, "infra_resource_group", infra_resource_group)
+        if maintenance_schedule_configuration is not None:
+            pulumi.set(__self__, "maintenance_schedule_configuration", maintenance_schedule_configuration)
         if managed_environment_id is not None:
             pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if marketplace_resource is not None:
@@ -2416,6 +2482,14 @@ class ClusterResourcePropertiesResponse(dict):
         The name of the resource group that contains the infrastructure resources
         """
         return pulumi.get(self, "infra_resource_group")
+
+    @property
+    @pulumi.getter(name="maintenanceScheduleConfiguration")
+    def maintenance_schedule_configuration(self) -> Optional['outputs.WeeklyMaintenanceScheduleConfigurationResponse']:
+        """
+        Additional Service settings for planned maintenance
+        """
+        return pulumi.get(self, "maintenance_schedule_configuration")
 
     @property
     @pulumi.getter(name="managedEnvironmentId")
@@ -3137,6 +3211,8 @@ class ConfigurationServiceSettingsResponse(dict):
         suggest = None
         if key == "gitProperty":
             suggest = "git_property"
+        elif key == "refreshIntervalInSeconds":
+            suggest = "refresh_interval_in_seconds"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationServiceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3150,13 +3226,17 @@ class ConfigurationServiceSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 git_property: Optional['outputs.ConfigurationServiceGitPropertyResponse'] = None):
+                 git_property: Optional['outputs.ConfigurationServiceGitPropertyResponse'] = None,
+                 refresh_interval_in_seconds: Optional[int] = None):
         """
         The settings of Application Configuration Service.
         :param 'ConfigurationServiceGitPropertyResponse' git_property: Property of git environment.
+        :param int refresh_interval_in_seconds: How often (in seconds) to check repository updates. Minimum value is 0.
         """
         if git_property is not None:
             pulumi.set(__self__, "git_property", git_property)
+        if refresh_interval_in_seconds is not None:
+            pulumi.set(__self__, "refresh_interval_in_seconds", refresh_interval_in_seconds)
 
     @property
     @pulumi.getter(name="gitProperty")
@@ -3165,6 +3245,14 @@ class ConfigurationServiceSettingsResponse(dict):
         Property of git environment.
         """
         return pulumi.get(self, "git_property")
+
+    @property
+    @pulumi.getter(name="refreshIntervalInSeconds")
+    def refresh_interval_in_seconds(self) -> Optional[int]:
+        """
+        How often (in seconds) to check repository updates. Minimum value is 0.
+        """
+        return pulumi.get(self, "refresh_interval_in_seconds")
 
 
 @pulumi.output_type
@@ -3805,6 +3893,8 @@ class CustomizedAcceleratorPropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "acceleratorTags":
             suggest = "accelerator_tags"
+        elif key == "acceleratorType":
+            suggest = "accelerator_type"
         elif key == "displayName":
             suggest = "display_name"
         elif key == "iconUrl":
@@ -3823,19 +3913,26 @@ class CustomizedAcceleratorPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  git_repository: 'outputs.AcceleratorGitRepositoryResponse',
+                 imports: Sequence[str],
                  provisioning_state: str,
                  accelerator_tags: Optional[Sequence[str]] = None,
+                 accelerator_type: Optional[str] = None,
                  description: Optional[str] = None,
                  display_name: Optional[str] = None,
                  icon_url: Optional[str] = None):
         """
         Customized accelerator properties payload
+        :param Sequence[str] imports: Imports references all imports that this accelerator/fragment depends upon.
         :param str provisioning_state: State of the customized accelerator.
+        :param str accelerator_type: Type of the customized accelerator.
         """
         pulumi.set(__self__, "git_repository", git_repository)
+        pulumi.set(__self__, "imports", imports)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if accelerator_tags is not None:
             pulumi.set(__self__, "accelerator_tags", accelerator_tags)
+        if accelerator_type is not None:
+            pulumi.set(__self__, "accelerator_type", accelerator_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -3849,6 +3946,14 @@ class CustomizedAcceleratorPropertiesResponse(dict):
         return pulumi.get(self, "git_repository")
 
     @property
+    @pulumi.getter
+    def imports(self) -> Sequence[str]:
+        """
+        Imports references all imports that this accelerator/fragment depends upon.
+        """
+        return pulumi.get(self, "imports")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -3860,6 +3965,14 @@ class CustomizedAcceleratorPropertiesResponse(dict):
     @pulumi.getter(name="acceleratorTags")
     def accelerator_tags(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "accelerator_tags")
+
+    @property
+    @pulumi.getter(name="acceleratorType")
+    def accelerator_type(self) -> Optional[str]:
+        """
+        Type of the customized accelerator.
+        """
+        return pulumi.get(self, "accelerator_type")
 
     @property
     @pulumi.getter
@@ -4011,7 +4124,7 @@ class DeploymentResourcePropertiesResponse(dict):
         :param str status: Status of the Deployment
         :param bool active: Indicates whether the Deployment is active
         :param 'DeploymentSettingsResponse' deployment_settings: Deployment settings of the Deployment
-        :param Union['BuildResultUserSourceInfoResponse', 'CustomContainerUserSourceInfoResponse', 'JarUploadedUserSourceInfoResponse', 'NetCoreZipUploadedUserSourceInfoResponse', 'SourceUploadedUserSourceInfoResponse', 'UploadedUserSourceInfoResponse'] source: Uploaded source information of the deployment.
+        :param Union['BuildResultUserSourceInfoResponse', 'CustomContainerUserSourceInfoResponse', 'JarUploadedUserSourceInfoResponse', 'NetCoreZipUploadedUserSourceInfoResponse', 'SourceUploadedUserSourceInfoResponse', 'UploadedUserSourceInfoResponse', 'WarUploadedUserSourceInfoResponse'] source: Uploaded source information of the deployment.
         """
         pulumi.set(__self__, "instances", instances)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -5196,6 +5309,140 @@ class GatewayInstanceResponse(dict):
 
 
 @pulumi.output_type
+class GatewayLocalResponseCachePerInstancePropertiesResponse(dict):
+    """
+    Spring Cloud Gateway local response cache per instance properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCacheType":
+            suggest = "response_cache_type"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayLocalResponseCachePerInstancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayLocalResponseCachePerInstancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayLocalResponseCachePerInstancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_cache_type: str,
+                 size: Optional[str] = None,
+                 time_to_live: Optional[str] = None):
+        """
+        Spring Cloud Gateway local response cache per instance properties.
+        :param str response_cache_type: The type of the response cache.
+               Expected value is 'LocalCachePerInstance'.
+        :param str size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
+        :param str time_to_live: Time before a cached entry is expired (300s, 5m, 1h...)
+        """
+        pulumi.set(__self__, "response_cache_type", 'LocalCachePerInstance')
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="responseCacheType")
+    def response_cache_type(self) -> str:
+        """
+        The type of the response cache.
+        Expected value is 'LocalCachePerInstance'.
+        """
+        return pulumi.get(self, "response_cache_type")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[str]:
+        """
+        Time before a cached entry is expired (300s, 5m, 1h...)
+        """
+        return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
+class GatewayLocalResponseCachePerRoutePropertiesResponse(dict):
+    """
+    Spring Cloud Gateway local response cache per route properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "responseCacheType":
+            suggest = "response_cache_type"
+        elif key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayLocalResponseCachePerRoutePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayLocalResponseCachePerRoutePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayLocalResponseCachePerRoutePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 response_cache_type: str,
+                 size: Optional[str] = None,
+                 time_to_live: Optional[str] = None):
+        """
+        Spring Cloud Gateway local response cache per route properties.
+        :param str response_cache_type: The type of the response cache.
+               Expected value is 'LocalCachePerRoute'.
+        :param str size: Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        :param str time_to_live: Time before a cached entry is expired (300s, 5m, 1h...)
+        """
+        pulumi.set(__self__, "response_cache_type", 'LocalCachePerRoute')
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="responseCacheType")
+    def response_cache_type(self) -> str:
+        """
+        The type of the response cache.
+        Expected value is 'LocalCachePerRoute'.
+        """
+        return pulumi.get(self, "response_cache_type")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[str]:
+        """
+        Time before a cached entry is expired (300s, 5m, 1h...)
+        """
+        return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
 class GatewayOperatorPropertiesResponse(dict):
     """
     Properties of the Spring Cloud Gateway Operator.
@@ -5334,6 +5581,8 @@ class GatewayPropertiesResponse(dict):
             suggest = "https_only"
         elif key == "resourceRequests":
             suggest = "resource_requests"
+        elif key == "responseCacheProperties":
+            suggest = "response_cache_properties"
         elif key == "ssoProperties":
             suggest = "sso_properties"
 
@@ -5356,12 +5605,14 @@ class GatewayPropertiesResponse(dict):
                  addon_configs: Optional[Mapping[str, Any]] = None,
                  api_metadata_properties: Optional['outputs.GatewayApiMetadataPropertiesResponse'] = None,
                  apm_types: Optional[Sequence[str]] = None,
+                 apms: Optional[Sequence['outputs.ApmReferenceResponse']] = None,
                  client_auth: Optional['outputs.GatewayPropertiesResponseClientAuth'] = None,
                  cors_properties: Optional['outputs.GatewayCorsPropertiesResponse'] = None,
                  environment_variables: Optional['outputs.GatewayPropertiesResponseEnvironmentVariables'] = None,
                  https_only: Optional[bool] = None,
                  public: Optional[bool] = None,
                  resource_requests: Optional['outputs.GatewayResourceRequestsResponse'] = None,
+                 response_cache_properties: Optional[Any] = None,
                  sso_properties: Optional['outputs.SsoPropertiesResponse'] = None):
         """
         Spring Cloud Gateway properties payload
@@ -5372,12 +5623,14 @@ class GatewayPropertiesResponse(dict):
         :param Mapping[str, Any] addon_configs: Collection of addons for Spring Cloud Gateway
         :param 'GatewayApiMetadataPropertiesResponse' api_metadata_properties: API metadata property for Spring Cloud Gateway
         :param Sequence[str] apm_types: Collection of APM type used in Spring Cloud Gateway
+        :param Sequence['ApmReferenceResponse'] apms: Collection of ApmReferences in service level
         :param 'GatewayPropertiesResponseClientAuth' client_auth: Client-Certification Authentication.
         :param 'GatewayCorsPropertiesResponse' cors_properties: Cross-Origin Resource Sharing property
         :param 'GatewayPropertiesResponseEnvironmentVariables' environment_variables: Environment variables of Spring Cloud Gateway
         :param bool https_only: Indicate if only https is allowed.
         :param bool public: Indicates whether the Spring Cloud Gateway exposes endpoint.
         :param 'GatewayResourceRequestsResponse' resource_requests: The requested resource quantity for required CPU and Memory.
+        :param Union['GatewayLocalResponseCachePerInstancePropertiesResponse', 'GatewayLocalResponseCachePerRoutePropertiesResponse'] response_cache_properties: The properties to configure different types of response cache for Spring Cloud Gateway.
         :param 'SsoPropertiesResponse' sso_properties: Single sign-on related configuration
         """
         pulumi.set(__self__, "instances", instances)
@@ -5390,6 +5643,8 @@ class GatewayPropertiesResponse(dict):
             pulumi.set(__self__, "api_metadata_properties", api_metadata_properties)
         if apm_types is not None:
             pulumi.set(__self__, "apm_types", apm_types)
+        if apms is not None:
+            pulumi.set(__self__, "apms", apms)
         if client_auth is not None:
             pulumi.set(__self__, "client_auth", client_auth)
         if cors_properties is not None:
@@ -5406,6 +5661,8 @@ class GatewayPropertiesResponse(dict):
             pulumi.set(__self__, "public", public)
         if resource_requests is not None:
             pulumi.set(__self__, "resource_requests", resource_requests)
+        if response_cache_properties is not None:
+            pulumi.set(__self__, "response_cache_properties", response_cache_properties)
         if sso_properties is not None:
             pulumi.set(__self__, "sso_properties", sso_properties)
 
@@ -5466,6 +5723,14 @@ class GatewayPropertiesResponse(dict):
         return pulumi.get(self, "apm_types")
 
     @property
+    @pulumi.getter
+    def apms(self) -> Optional[Sequence['outputs.ApmReferenceResponse']]:
+        """
+        Collection of ApmReferences in service level
+        """
+        return pulumi.get(self, "apms")
+
+    @property
     @pulumi.getter(name="clientAuth")
     def client_auth(self) -> Optional['outputs.GatewayPropertiesResponseClientAuth']:
         """
@@ -5512,6 +5777,14 @@ class GatewayPropertiesResponse(dict):
         The requested resource quantity for required CPU and Memory.
         """
         return pulumi.get(self, "resource_requests")
+
+    @property
+    @pulumi.getter(name="responseCacheProperties")
+    def response_cache_properties(self) -> Optional[Any]:
+        """
+        The properties to configure different types of response cache for Spring Cloud Gateway.
+        """
+        return pulumi.get(self, "response_cache_properties")
 
     @property
     @pulumi.getter(name="ssoProperties")
@@ -6582,6 +6855,8 @@ class KeyVaultCertificatePropertiesResponse(dict):
             suggest = "subject_name"
         elif key == "vaultUri":
             suggest = "vault_uri"
+        elif key == "autoSync":
+            suggest = "auto_sync"
         elif key == "certVersion":
             suggest = "cert_version"
         elif key == "excludePrivateKey":
@@ -6610,6 +6885,7 @@ class KeyVaultCertificatePropertiesResponse(dict):
                  thumbprint: str,
                  type: str,
                  vault_uri: str,
+                 auto_sync: Optional[str] = None,
                  cert_version: Optional[str] = None,
                  exclude_private_key: Optional[bool] = None):
         """
@@ -6626,6 +6902,7 @@ class KeyVaultCertificatePropertiesResponse(dict):
         :param str type: The type of the certificate source.
                Expected value is 'KeyVaultCertificate'.
         :param str vault_uri: The vault uri of user key vault.
+        :param str auto_sync: Indicates whether to automatically synchronize certificate from key vault or not.
         :param str cert_version: The certificate version of key vault.
         :param bool exclude_private_key: Optional. If set to true, it will not import private key from key vault.
         """
@@ -6640,6 +6917,10 @@ class KeyVaultCertificatePropertiesResponse(dict):
         pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "type", 'KeyVaultCertificate')
         pulumi.set(__self__, "vault_uri", vault_uri)
+        if auto_sync is None:
+            auto_sync = 'Disabled'
+        if auto_sync is not None:
+            pulumi.set(__self__, "auto_sync", auto_sync)
         if cert_version is not None:
             pulumi.set(__self__, "cert_version", cert_version)
         if exclude_private_key is None:
@@ -6735,6 +7016,14 @@ class KeyVaultCertificatePropertiesResponse(dict):
         The vault uri of user key vault.
         """
         return pulumi.get(self, "vault_uri")
+
+    @property
+    @pulumi.getter(name="autoSync")
+    def auto_sync(self) -> Optional[str]:
+        """
+        Indicates whether to automatically synchronize certificate from key vault or not.
+        """
+        return pulumi.get(self, "auto_sync")
 
     @property
     @pulumi.getter(name="certVersion")
@@ -8798,14 +9087,64 @@ class TriggeredBuildResultResponse(dict):
     """
     The build result triggered by a build
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "lastTransitionReason":
+            suggest = "last_transition_reason"
+        elif key == "lastTransitionStatus":
+            suggest = "last_transition_status"
+        elif key == "lastTransitionTime":
+            suggest = "last_transition_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TriggeredBuildResultResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TriggeredBuildResultResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TriggeredBuildResultResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 image: Optional[str] = None,
+                 last_transition_reason: Optional[str] = None,
+                 last_transition_status: Optional[str] = None,
+                 last_transition_time: Optional[str] = None):
         """
         The build result triggered by a build
+        :param str provisioning_state: The provisioning state of this build result
         :param str id: The unique build id of this build result
+        :param str image: The container image of this build result
+        :param str last_transition_reason: The last transition reason of this build result
+        :param str last_transition_status: The last transition status of this build result
+        :param str last_transition_time: The last transition time of this build result
         """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+        if last_transition_reason is not None:
+            pulumi.set(__self__, "last_transition_reason", last_transition_reason)
+        if last_transition_status is not None:
+            pulumi.set(__self__, "last_transition_status", last_transition_status)
+        if last_transition_time is not None:
+            pulumi.set(__self__, "last_transition_time", last_transition_time)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of this build result
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -8814,6 +9153,38 @@ class TriggeredBuildResultResponse(dict):
         The unique build id of this build result
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        """
+        The container image of this build result
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="lastTransitionReason")
+    def last_transition_reason(self) -> Optional[str]:
+        """
+        The last transition reason of this build result
+        """
+        return pulumi.get(self, "last_transition_reason")
+
+    @property
+    @pulumi.getter(name="lastTransitionStatus")
+    def last_transition_status(self) -> Optional[str]:
+        """
+        The last transition status of this build result
+        """
+        return pulumi.get(self, "last_transition_status")
+
+    @property
+    @pulumi.getter(name="lastTransitionTime")
+    def last_transition_time(self) -> Optional[str]:
+        """
+        The last transition time of this build result
+        """
+        return pulumi.get(self, "last_transition_time")
 
 
 @pulumi.output_type
@@ -9038,5 +9409,62 @@ class WarUploadedUserSourceInfoResponse(dict):
         Version of the source
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class WeeklyMaintenanceScheduleConfigurationResponse(dict):
+    """
+    Weekly planned maintenance
+    """
+    def __init__(__self__, *,
+                 day: str,
+                 duration: str,
+                 frequency: str,
+                 hour: int):
+        """
+        Weekly planned maintenance
+        :param str day: The day to run the maintenance job
+        :param str duration: The duration time to run the maintenance job, specified in ISO8601 format, e.g. PT8H
+        :param str frequency: The frequency to run the maintenance job
+               Expected value is 'Weekly'.
+        :param int hour: The hour to run the maintenance job
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "frequency", 'Weekly')
+        pulumi.set(__self__, "hour", hour)
+
+    @property
+    @pulumi.getter
+    def day(self) -> str:
+        """
+        The day to run the maintenance job
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> str:
+        """
+        The duration time to run the maintenance job, specified in ISO8601 format, e.g. PT8H
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> str:
+        """
+        The frequency to run the maintenance job
+        Expected value is 'Weekly'.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        The hour to run the maintenance job
+        """
+        return pulumi.get(self, "hour")
 
 

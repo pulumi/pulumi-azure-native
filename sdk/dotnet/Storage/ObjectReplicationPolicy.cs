@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
         /// </summary>
@@ -29,6 +33,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("enabledTime")]
         public Output<string> EnabledTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional. The object replication policy metrics feature options.
+        /// </summary>
+        [Output("metrics")]
+        public Output<Outputs.ObjectReplicationPolicyPropertiesResponseMetrics?> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -133,6 +143,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("destinationAccount", required: true)]
         public Input<string> DestinationAccount { get; set; } = null!;
+
+        /// <summary>
+        /// Optional. The object replication policy metrics feature options.
+        /// </summary>
+        [Input("metrics")]
+        public Input<Inputs.ObjectReplicationPolicyPropertiesMetricsArgs>? Metrics { get; set; }
 
         /// <summary>
         /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.

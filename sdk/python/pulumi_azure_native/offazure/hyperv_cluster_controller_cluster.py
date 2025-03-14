@@ -151,9 +151,7 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
                  __props__=None):
         """
         A cluster resource belonging to a site resource.
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -173,9 +171,7 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cluster resource belonging to a site resource.
-        Azure REST API version: 2023-06-06.
-
-        Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
 
         :param str resource_name: The name of the resource.
         :param HypervClusterControllerClusterArgs args: The arguments to use to populate this resource's properties.
@@ -219,6 +215,7 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["functional_level"] = None
@@ -251,6 +248,7 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
 
         __props__ = HypervClusterControllerClusterArgs.__new__(HypervClusterControllerClusterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["fqdn"] = None
@@ -264,6 +262,14 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_timestamp"] = None
         return HypervClusterControllerCluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTimestamp")

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Inputs
 {
 
     /// <summary>
-    /// Network related properties of a server
+    /// High availability properties of a server
     /// </summary>
     public sealed class HighAvailabilityArgs : global::Pulumi.ResourceArgs
     {

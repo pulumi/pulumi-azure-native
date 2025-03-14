@@ -27,6 +27,8 @@ class AppArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input['NetworkRuleSetsArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,10 +39,12 @@ class AppArgs:
         :param pulumi.Input['AppSkuInfoArgs'] sku: A valid instance SKU.
         :param pulumi.Input[str] display_name: The display name of the application.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identities for the IoT Central application.
-        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['NetworkRuleSetsArgs'] network_rule_sets: Network Rule Set Properties of this IoT Central application.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
         :param pulumi.Input[str] resource_name: The ARM resource name of the IoT Central application.
         :param pulumi.Input[str] subdomain: The subdomain of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -51,6 +55,10 @@ class AppArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_rule_sets is not None:
+            pulumi.set(__self__, "network_rule_sets", network_rule_sets)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if subdomain is not None:
@@ -112,13 +120,37 @@ class AppArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> Optional[pulumi.Input['NetworkRuleSetsArgs']]:
+        """
+        Network Rule Set Properties of this IoT Central application.
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @network_rule_sets.setter
+    def network_rule_sets(self, value: Optional[pulumi.Input['NetworkRuleSetsArgs']]):
+        pulumi.set(self, "network_rule_sets", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether requests from the public network are allowed.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="resourceName")
@@ -148,7 +180,7 @@ class AppArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -177,6 +209,8 @@ class App(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']]] = None,
@@ -186,20 +220,20 @@ class App(pulumi.CustomResource):
                  __props__=None):
         """
         The IoT Central application.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
-
-        Other available API versions: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.
         :param pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']] identity: The managed identities for the IoT Central application.
-        :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']] network_rule_sets: Network Rule Set Properties of this IoT Central application.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from the public network are allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input[str] resource_name_: The ARM resource name of the IoT Central application.
         :param pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']] sku: A valid instance SKU.
         :param pulumi.Input[str] subdomain: The subdomain of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
         """
         ...
@@ -210,9 +244,7 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IoT Central application.
-        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01.
-
-        Other available API versions: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 2.x: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
@@ -232,6 +264,8 @@ class App(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[Union['SystemAssignedServiceIdentityArgs', 'SystemAssignedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_rule_sets: Optional[pulumi.Input[Union['NetworkRuleSetsArgs', 'NetworkRuleSetsArgsDict']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[Union['AppSkuInfoArgs', 'AppSkuInfoArgsDict']]] = None,
@@ -250,6 +284,8 @@ class App(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            __props__.__dict__["network_rule_sets"] = network_rule_sets
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -261,8 +297,12 @@ class App(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
             __props__.__dict__["application_id"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotcentral/v20180901:App"), pulumi.Alias(type_="azure-native:iotcentral/v20210601:App"), pulumi.Alias(type_="azure-native:iotcentral/v20211101preview:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -289,13 +329,19 @@ class App(pulumi.CustomResource):
         __props__ = AppArgs.__new__(AppArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_rule_sets"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["subdomain"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
         __props__.__dict__["type"] = None
@@ -308,6 +354,14 @@ class App(pulumi.CustomResource):
         The ID of the application.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -329,7 +383,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -337,9 +391,41 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The ARM resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkRuleSets")
+    def network_rule_sets(self) -> pulumi.Output[Optional['outputs.NetworkRuleSetsResponse']]:
+        """
+        Network Rule Set Properties of this IoT Central application.
+        """
+        return pulumi.get(self, "network_rule_sets")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        Private endpoint connections created on this IoT Central application.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        The provisioning state of the application.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether requests from the public network are allowed.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter
@@ -366,10 +452,18 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "subdomain")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -385,7 +479,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

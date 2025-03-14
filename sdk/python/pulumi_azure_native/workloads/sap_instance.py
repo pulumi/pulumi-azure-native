@@ -116,7 +116,7 @@ class SapInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the SAP Instance resource.
-        Azure REST API version: 2023-10-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +134,7 @@ class SapInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the SAP Instance resource.
-        Azure REST API version: 2023-10-01-preview.
+        Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SapInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -175,6 +175,7 @@ class SapInstance(pulumi.CustomResource):
             __props__.__dict__["sap_instance_name"] = sap_instance_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["environment"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["landscape_sid"] = None
@@ -208,6 +209,7 @@ class SapInstance(pulumi.CustomResource):
         __props__ = SapInstanceArgs.__new__(SapInstanceArgs)
 
         __props__.__dict__["application"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["environment"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["landscape_sid"] = None
@@ -227,6 +229,14 @@ class SapInstance(pulumi.CustomResource):
         Enter a business function/department identifier to group multiple SIDs.
         """
         return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database principal assignment.
- * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+ * Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      * The service principal object id in AAD (Azure active directory)
      */
     public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -119,6 +121,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -126,6 +129,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aadObjectId"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
@@ -168,7 +172,7 @@ export interface DatabasePrincipalAssignmentArgs {
      */
     principalType: pulumi.Input<string | enums.kusto.PrincipalType>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

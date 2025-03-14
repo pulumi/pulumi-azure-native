@@ -167,9 +167,7 @@ class StorageInsightConfig(pulumi.CustomResource):
                  __props__=None):
         """
         The top level storage insight resource container.
-        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,9 +188,7 @@ class StorageInsightConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level storage insight resource container.
-        Azure REST API version: 2020-08-01. Prior API version in Azure Native 1.x: 2020-08-01.
-
-        Other available API versions: 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2020-08-01.
 
         :param str resource_name: The name of the resource.
         :param StorageInsightConfigArgs args: The arguments to use to populate this resource's properties.
@@ -240,6 +236,7 @@ class StorageInsightConfig(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
@@ -267,6 +264,7 @@ class StorageInsightConfig(pulumi.CustomResource):
 
         __props__ = StorageInsightConfigArgs.__new__(StorageInsightConfigArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["containers"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["name"] = None
@@ -276,6 +274,14 @@ class StorageInsightConfig(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return StorageInsightConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

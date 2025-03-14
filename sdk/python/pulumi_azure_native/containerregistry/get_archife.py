@@ -27,7 +27,10 @@ class GetArchifeResult:
     """
     An object that represents a archive for a container registry.
     """
-    def __init__(__self__, id=None, name=None, package_source=None, provisioning_state=None, published_version=None, repository_endpoint=None, repository_endpoint_prefix=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, package_source=None, provisioning_state=None, published_version=None, repository_endpoint=None, repository_endpoint_prefix=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,14 @@ class GetArchifeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetArchifeResult(GetArchifeResult):
         if False:
             yield self
         return GetArchifeResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             package_source=self.package_source,
@@ -147,9 +159,7 @@ def get_archife(archive_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArchifeResult:
     """
     Gets the properties of the archive.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str archive_name: The name of the archive resource.
@@ -166,6 +176,7 @@ def get_archife(archive_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getArchife', __args__, opts=opts, typ=GetArchifeResult).value
 
     return AwaitableGetArchifeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         package_source=pulumi.get(__ret__, 'package_source'),
@@ -182,9 +193,7 @@ def get_archife_output(archive_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchifeResult]:
     """
     Gets the properties of the archive.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+    Azure REST API version: 2024-11-01-preview.
 
 
     :param str archive_name: The name of the archive resource.
@@ -200,6 +209,7 @@ def get_archife_output(archive_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getArchife', __args__, opts=opts, typ=GetArchifeResult)
     return __ret__.apply(lambda __response__: GetArchifeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         package_source=pulumi.get(__response__, 'package_source'),

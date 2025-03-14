@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy exemption.
-    /// Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview.
+    /// Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 2.x: 2022-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyExemption")]
     public partial class PolicyExemption : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("assignmentScopeValidation")]
         public Output<string?> AssignmentScopeValidation { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The description of the policy exemption.

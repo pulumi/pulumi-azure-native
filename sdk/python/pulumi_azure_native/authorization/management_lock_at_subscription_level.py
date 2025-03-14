@@ -102,7 +102,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  __props__=None):
         """
         The lock information.
-        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
-        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.
@@ -155,6 +155,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
             __props__.__dict__["lock_name"] = lock_name
             __props__.__dict__["notes"] = notes
             __props__.__dict__["owners"] = owners
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -182,6 +183,7 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
 
         __props__ = ManagementLockAtSubscriptionLevelArgs.__new__(ManagementLockAtSubscriptionLevelArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["level"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notes"] = None
@@ -189,6 +191,14 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ManagementLockAtSubscriptionLevel(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

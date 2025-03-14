@@ -37,6 +37,10 @@ export interface GetIntegrationAccountSessionArgs {
  */
 export interface GetIntegrationAccountSessionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The changed time.
      */
     readonly changedTime: string;

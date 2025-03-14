@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy configuration at the GraphQL API Resolver level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetGraphQLApiResolverPolicyResult> InvokeAsync(GetGraphQLApiResolverPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphQLApiResolverPolicyResult>("azure-native:apimanagement:getGraphQLApiResolverPolicy", args ?? new GetGraphQLApiResolverPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the GraphQL API Resolver level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGraphQLApiResolverPolicyResult> Invoke(GetGraphQLApiResolverPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResolverPolicyResult>("azure-native:apimanagement:getGraphQLApiResolverPolicy", args ?? new GetGraphQLApiResolverPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy configuration at the GraphQL API Resolver level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetGraphQLApiResolverPolicyResult> Invoke(GetGraphQLApiResolverPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphQLApiResolverPolicyResult>("azure-native:apimanagement:getGraphQLApiResolverPolicy", args ?? new GetGraphQLApiResolverPolicyInvokeArgs(), options.WithDefaults());
@@ -133,6 +127,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetGraphQLApiResolverPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Format of the policyContent.
         /// </summary>
         public readonly string? Format;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetGraphQLApiResolverPolicyResult(
+            string azureApiVersion,
+
             string? format,
 
             string id,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string value)
         {
+            AzureApiVersion = azureApiVersion;
             Format = format;
             Id = id;
             Name = name;

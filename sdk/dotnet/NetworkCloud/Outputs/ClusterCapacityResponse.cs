@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class ClusterCapacityResponse
     {
         /// <summary>
-        /// The remaining appliance-based storage in GB available for workload use.
+        /// The remaining appliance-based storage in GB available for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? AvailableApplianceStorageGB;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly double? AvailableCoreCount;
         /// <summary>
-        /// The remaining machine or host-based storage in GB available for workload use.
+        /// The remaining machine or host-based storage in GB available for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? AvailableHostStorageGB;
         /// <summary>
-        /// The remaining memory in GB that are available in this cluster for workload use.
+        /// The remaining memory in GB that are available in this cluster for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? AvailableMemoryGB;
         /// <summary>
-        /// The total appliance-based storage in GB supported by this cluster for workload use.
+        /// The total appliance-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? TotalApplianceStorageGB;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
         /// </summary>
         public readonly double? TotalCoreCount;
         /// <summary>
-        /// The total machine or host-based storage in GB supported by this cluster for workload use.
+        /// The total machine or host-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? TotalHostStorageGB;
         /// <summary>
-        /// The total memory supported by this cluster for workload use.
+        /// The total memory supported by this cluster for workload use. Measured in gibibytes.
         /// </summary>
         public readonly double? TotalMemoryGB;
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Connector definition for kind 'Customizable'.
- * Azure REST API version: 2023-07-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-07-01-preview.
  */
 export class CustomizableConnectorDefinition extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class CustomizableConnectorDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomizableConnectorDefinition.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The UiConfig for 'Customizable' connector definition kind.
      */
@@ -107,11 +111,13 @@ export class CustomizableConnectorDefinition extends pulumi.CustomResource {
             resourceInputs["lastModifiedUtc"] = args ? args.lastModifiedUtc : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionsConfig"] = undefined /*out*/;
             resourceInputs["connectorUiConfig"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.SignalRService
     {
         /// <summary>
         /// Get the replica and its properties.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetSignalRReplicaResult> InvokeAsync(GetSignalRReplicaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRReplicaResult>("azure-native:signalrservice:getSignalRReplica", args ?? new GetSignalRReplicaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the replica and its properties.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetSignalRReplicaResult> Invoke(GetSignalRReplicaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRReplicaResult>("azure-native:signalrservice:getSignalRReplica", args ?? new GetSignalRReplicaInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the replica and its properties.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetSignalRReplicaResult> Invoke(GetSignalRReplicaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRReplicaResult>("azure-native:signalrservice:getSignalRReplica", args ?? new GetSignalRReplicaInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class GetSignalRReplicaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -112,6 +110,17 @@ namespace Pulumi.AzureNative.SignalRService
         /// Provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Enable or disable the regional endpoint. Default to "Enabled".
+        /// When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        /// </summary>
+        public readonly string? RegionEndpointEnabled;
+        /// <summary>
+        /// Stop or start the resource.  Default to "false".
+        /// When it's true, the data plane of the resource is shutdown.
+        /// When it's false, the data plane of the resource is started.
+        /// </summary>
+        public readonly string? ResourceStopped;
         /// <summary>
         /// The billing information of the resource.
         /// </summary>
@@ -131,6 +140,8 @@ namespace Pulumi.AzureNative.SignalRService
 
         [OutputConstructor]
         private GetSignalRReplicaResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -138,6 +149,10 @@ namespace Pulumi.AzureNative.SignalRService
             string name,
 
             string provisioningState,
+
+            string? regionEndpointEnabled,
+
+            string? resourceStopped,
 
             Outputs.ResourceSkuResponse? sku,
 
@@ -147,10 +162,13 @@ namespace Pulumi.AzureNative.SignalRService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            RegionEndpointEnabled = regionEndpointEnabled;
+            ResourceStopped = resourceStopped;
             Sku = sku;
             SystemData = systemData;
             Tags = tags;

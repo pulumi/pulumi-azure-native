@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// Get an iSCSI Target.
         /// Azure REST API version: 2021-08-01.
-        /// 
-        /// Other available API versions: 2020-03-15-preview.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.StoragePool
         /// </summary>
         public readonly string AclMode;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// List of private IPv4 addresses to connect to the iSCSI Target.
         /// </summary>
         public readonly ImmutableArray<string> Endpoints;
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.StoragePool
         private GetIscsiTargetResult(
             string aclMode,
 
+            string azureApiVersion,
+
             ImmutableArray<string> endpoints,
 
             string id,
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.StoragePool
             string type)
         {
             AclMode = aclMode;
+            AzureApiVersion = azureApiVersion;
             Endpoints = endpoints;
             Id = id;
             Luns = luns;

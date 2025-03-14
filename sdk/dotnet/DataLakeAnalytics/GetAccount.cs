@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The list of compute policies associated with this account.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComputePolicyResponse> ComputePolicies;
@@ -223,6 +227,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         private GetAccountResult(
             string accountId,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.ComputePolicyResponse> computePolicies,
 
             string creationTime,
@@ -292,6 +298,7 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
             ImmutableArray<Outputs.VirtualNetworkRuleResponse> virtualNetworkRules)
         {
             AccountId = accountId;
+            AzureApiVersion = azureApiVersion;
             ComputePolicies = computePolicies;
             CreationTime = creationTime;
             CurrentTier = currentTier;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// Returns Linker resource for a given name.
-        /// Azure REST API version: 2022-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Linker resource for a given name.
-        /// Azure REST API version: 2022-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Linker resource for a given name.
-        /// Azure REST API version: 2022-11-01-preview.
-        /// 
-        /// Other available API versions: 2021-11-01-preview, 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly object? AuthInfo;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The application client type
         /// </summary>
         public readonly string? ClientType;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         private GetLinkerResult(
             object? authInfo,
 
+            string azureApiVersion,
+
             string? clientType,
 
             Outputs.ConfigurationInfoResponse? configurationInfo,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.ServiceLinker
             Outputs.VNetSolutionResponse? vNetSolution)
         {
             AuthInfo = authInfo;
+            AzureApiVersion = azureApiVersion;
             ClientType = clientType;
             ConfigurationInfo = configurationInfo;
             Id = id;

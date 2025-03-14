@@ -67,6 +67,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetWorkspaceSettingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetWorkspaceSettingResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNative.Security
 
             string workspaceId)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Scope = scope;

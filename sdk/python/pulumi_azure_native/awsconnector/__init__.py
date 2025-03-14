@@ -232,11 +232,3 @@ from .waf_web_acl_summary import *
 from .wafv2_logging_configuration import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.awsconnector.v20241201 as __v20241201
-    v20241201 = __v20241201
-else:
-    v20241201 = _utilities.lazy_import('pulumi_azure_native.awsconnector.v20241201')
-

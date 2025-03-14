@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Security Partner Provider.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityPartnerProviderResult> InvokeAsync(GetSecurityPartnerProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityPartnerProviderResult>("azure-native:network:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Security Partner Provider.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Security Partner Provider.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityPartnerProviderResult> Invoke(GetSecurityPartnerProviderInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityPartnerProviderResult>("azure-native:network:getSecurityPartnerProvider", args ?? new GetSecurityPartnerProviderInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityPartnerProviderResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The connection status with the Security Partner Provider.
         /// </summary>
         public readonly string ConnectionStatus;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetSecurityPartnerProviderResult(
+            string azureApiVersion,
+
             string connectionStatus,
 
             string etag,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? virtualHub)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectionStatus = connectionStatus;
             Etag = etag;
             Id = id;

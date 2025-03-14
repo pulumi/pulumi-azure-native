@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Preferences related to the double encryption
+    /// Preferences related to the double encryption.
     /// </summary>
     [OutputType]
     public sealed class EncryptionPreferencesResponse

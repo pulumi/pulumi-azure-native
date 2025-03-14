@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly bool? AllowVNetOverride;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the change data capture.
         /// </summary>
         public readonly string? Description;
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.DataFactory
         private GetChangeDataCaptureResult(
             bool? allowVNetOverride,
 
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.DataFactory
             string type)
         {
             AllowVNetOverride = allowVNetOverride;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Folder = folder;

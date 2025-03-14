@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ExtendedLocation
 {
     /// <summary>
     /// Resource Sync Rules definition.
-    /// Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 1.x: 2021-08-31-preview.
+    /// Azure REST API version: 2021-08-31-preview. Prior API version in Azure Native 2.x: 2021-08-31-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation:ResourceSyncRule")]
     public partial class ResourceSyncRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

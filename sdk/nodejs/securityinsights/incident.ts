@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01.
- *
- * Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class Incident extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Incident extends pulumi.CustomResource {
      * Additional data on the incident
      */
     public /*out*/ readonly additionalData!: pulumi.Output<outputs.securityinsights.IncidentAdditionalDataResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The reason the incident was closed
      */
@@ -174,6 +176,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["incidentNumber"] = undefined /*out*/;
@@ -187,6 +190,7 @@ export class Incident extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["classification"] = undefined /*out*/;
             resourceInputs["classificationComment"] = undefined /*out*/;
             resourceInputs["classificationReason"] = undefined /*out*/;

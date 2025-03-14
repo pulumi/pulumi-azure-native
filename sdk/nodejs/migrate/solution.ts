@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Solution REST Resource.
- * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
  */
 export class Solution extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Solution extends pulumi.CustomResource {
         return obj['__pulumiType'] === Solution.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the ETAG for optimistic concurrency control.
      */
@@ -76,17 +80,19 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["solutionName"] = args ? args.solutionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:Solution" }, { type: "azure-native:migrate/v20230101:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:Solution" }, { type: "azure-native:migrate/v20230101:Solution" }, { type: "azure-native:migrate/v20230101:SolutionsControllerSolution" }, { type: "azure-native:migrate:SolutionsControllerSolution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }

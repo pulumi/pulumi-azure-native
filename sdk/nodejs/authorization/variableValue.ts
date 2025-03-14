@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The variable value.
- * Azure REST API version: 2022-08-01-preview.
+ * Azure REST API version: 2022-08-01-preview. Prior API version in Azure Native 2.x: 2022-08-01-preview.
  */
 export class VariableValue extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class VariableValue extends pulumi.CustomResource {
         return obj['__pulumiType'] === VariableValue.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the variable.
      */
@@ -75,10 +79,12 @@ export class VariableValue extends pulumi.CustomResource {
             resourceInputs["values"] = args ? args.values : undefined;
             resourceInputs["variableName"] = args ? args.variableName : undefined;
             resourceInputs["variableValueName"] = args ? args.variableValueName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

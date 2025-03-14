@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Action rule object containing target scope, conditions and suppression logic
- * Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 1.x: 2019-05-05-preview.
+ * Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 2.x: 2019-05-05-preview.
  */
 export class ActionRuleByName extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ActionRuleByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === ActionRuleByName.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location
      */
@@ -78,9 +82,11 @@ export class ActionRuleByName extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -88,7 +94,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:ActionRuleByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808:AlertProcessingRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement:AlertProcessingRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionRuleByName.__pulumiType, name, resourceInputs, opts);
     }

@@ -23,44 +23,64 @@ __all__ = ['PackageArgs', 'Package']
 class PackageArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[str],
-                 blob_path: pulumi.Input[str],
-                 flighting_ring: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 target_os_list: pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]],
                  test_base_account_name: pulumi.Input[str],
-                 tests: pulumi.Input[Sequence[pulumi.Input['TestArgs']]],
                  version: pulumi.Input[str],
+                 blob_path: Optional[pulumi.Input[str]] = None,
+                 draft_package_id: Optional[pulumi.Input[str]] = None,
+                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]] = None,
+                 flighting_ring: Optional[pulumi.Input[str]] = None,
+                 inplace_upgrade_os_pair: Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']] = None,
+                 intune_enrollment_metadata: Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 target_os_list: Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]] = None,
+                 tests: Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]] = None):
         """
         The set of arguments for constructing a Package resource.
         :param pulumi.Input[str] application_name: Application name
-        :param pulumi.Input[str] blob_path: The file path of the package.
-        :param pulumi.Input[str] flighting_ring: The flighting ring for feature update.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]] target_os_list: Specifies the target OSs of specific OS Update types.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
-        :param pulumi.Input[Sequence[pulumi.Input['TestArgs']]] tests: The detailed test information.
         :param pulumi.Input[str] version: Application version
+        :param pulumi.Input[str] blob_path: The file path of the package.
+        :param pulumi.Input[str] draft_package_id: The id of draft package. Used to create or update this package from a draft package.
+        :param pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]] first_party_apps: The list of first party applications to test along with user application.
+        :param pulumi.Input[str] flighting_ring: The flighting ring for feature update.
+        :param pulumi.Input['InplaceUpgradeOSInfoArgs'] inplace_upgrade_os_pair: Specifies the baseline os and target os for inplace upgrade.
+        :param pulumi.Input['IntuneEnrollmentMetadataArgs'] intune_enrollment_metadata: The metadata of Intune enrollment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]] target_os_list: Specifies the target OSs of specific OS Update types.
+        :param pulumi.Input[Sequence[pulumi.Input['TestArgs']]] tests: The detailed test information.
         """
         pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "blob_path", blob_path)
-        pulumi.set(__self__, "flighting_ring", flighting_ring)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_os_list", target_os_list)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-        pulumi.set(__self__, "tests", tests)
         pulumi.set(__self__, "version", version)
+        if blob_path is not None:
+            pulumi.set(__self__, "blob_path", blob_path)
+        if draft_package_id is not None:
+            pulumi.set(__self__, "draft_package_id", draft_package_id)
+        if first_party_apps is not None:
+            pulumi.set(__self__, "first_party_apps", first_party_apps)
+        if flighting_ring is not None:
+            pulumi.set(__self__, "flighting_ring", flighting_ring)
+        if inplace_upgrade_os_pair is not None:
+            pulumi.set(__self__, "inplace_upgrade_os_pair", inplace_upgrade_os_pair)
+        if intune_enrollment_metadata is not None:
+            pulumi.set(__self__, "intune_enrollment_metadata", intune_enrollment_metadata)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if package_name is not None:
             pulumi.set(__self__, "package_name", package_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_os_list is not None:
+            pulumi.set(__self__, "target_os_list", target_os_list)
+        if tests is not None:
+            pulumi.set(__self__, "tests", tests)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -75,52 +95,16 @@ class PackageArgs:
         pulumi.set(self, "application_name", value)
 
     @property
-    @pulumi.getter(name="blobPath")
-    def blob_path(self) -> pulumi.Input[str]:
-        """
-        The file path of the package.
-        """
-        return pulumi.get(self, "blob_path")
-
-    @blob_path.setter
-    def blob_path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "blob_path", value)
-
-    @property
-    @pulumi.getter(name="flightingRing")
-    def flighting_ring(self) -> pulumi.Input[str]:
-        """
-        The flighting ring for feature update.
-        """
-        return pulumi.get(self, "flighting_ring")
-
-    @flighting_ring.setter
-    def flighting_ring(self, value: pulumi.Input[str]):
-        pulumi.set(self, "flighting_ring", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="targetOSList")
-    def target_os_list(self) -> pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]:
-        """
-        Specifies the target OSs of specific OS Update types.
-        """
-        return pulumi.get(self, "target_os_list")
-
-    @target_os_list.setter
-    def target_os_list(self, value: pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]):
-        pulumi.set(self, "target_os_list", value)
 
     @property
     @pulumi.getter(name="testBaseAccountName")
@@ -136,18 +120,6 @@ class PackageArgs:
 
     @property
     @pulumi.getter
-    def tests(self) -> pulumi.Input[Sequence[pulumi.Input['TestArgs']]]:
-        """
-        The detailed test information.
-        """
-        return pulumi.get(self, "tests")
-
-    @tests.setter
-    def tests(self, value: pulumi.Input[Sequence[pulumi.Input['TestArgs']]]):
-        pulumi.set(self, "tests", value)
-
-    @property
-    @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
         Application version
@@ -157,6 +129,78 @@ class PackageArgs:
     @version.setter
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="blobPath")
+    def blob_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The file path of the package.
+        """
+        return pulumi.get(self, "blob_path")
+
+    @blob_path.setter
+    def blob_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "blob_path", value)
+
+    @property
+    @pulumi.getter(name="draftPackageId")
+    def draft_package_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of draft package. Used to create or update this package from a draft package.
+        """
+        return pulumi.get(self, "draft_package_id")
+
+    @draft_package_id.setter
+    def draft_package_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "draft_package_id", value)
+
+    @property
+    @pulumi.getter(name="firstPartyApps")
+    def first_party_apps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]:
+        """
+        The list of first party applications to test along with user application.
+        """
+        return pulumi.get(self, "first_party_apps")
+
+    @first_party_apps.setter
+    def first_party_apps(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]]):
+        pulumi.set(self, "first_party_apps", value)
+
+    @property
+    @pulumi.getter(name="flightingRing")
+    def flighting_ring(self) -> Optional[pulumi.Input[str]]:
+        """
+        The flighting ring for feature update.
+        """
+        return pulumi.get(self, "flighting_ring")
+
+    @flighting_ring.setter
+    def flighting_ring(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "flighting_ring", value)
+
+    @property
+    @pulumi.getter(name="inplaceUpgradeOSPair")
+    def inplace_upgrade_os_pair(self) -> Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']]:
+        """
+        Specifies the baseline os and target os for inplace upgrade.
+        """
+        return pulumi.get(self, "inplace_upgrade_os_pair")
+
+    @inplace_upgrade_os_pair.setter
+    def inplace_upgrade_os_pair(self, value: Optional[pulumi.Input['InplaceUpgradeOSInfoArgs']]):
+        pulumi.set(self, "inplace_upgrade_os_pair", value)
+
+    @property
+    @pulumi.getter(name="intuneEnrollmentMetadata")
+    def intune_enrollment_metadata(self) -> Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']]:
+        """
+        The metadata of Intune enrollment.
+        """
+        return pulumi.get(self, "intune_enrollment_metadata")
+
+    @intune_enrollment_metadata.setter
+    def intune_enrollment_metadata(self, value: Optional[pulumi.Input['IntuneEnrollmentMetadataArgs']]):
+        pulumi.set(self, "intune_enrollment_metadata", value)
 
     @property
     @pulumi.getter
@@ -186,13 +230,37 @@ class PackageArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="targetOSList")
+    def target_os_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]]:
+        """
+        Specifies the target OSs of specific OS Update types.
+        """
+        return pulumi.get(self, "target_os_list")
+
+    @target_os_list.setter
+    def target_os_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]]]):
+        pulumi.set(self, "target_os_list", value)
+
+    @property
+    @pulumi.getter
+    def tests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]]:
+        """
+        The detailed test information.
+        """
+        return pulumi.get(self, "tests")
+
+    @tests.setter
+    def tests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TestArgs']]]]):
+        pulumi.set(self, "tests", value)
 
 
 class Package(pulumi.CustomResource):
@@ -202,7 +270,11 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  blob_path: Optional[pulumi.Input[str]] = None,
+                 draft_package_id: Optional[pulumi.Input[str]] = None,
+                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
                  flighting_ring: Optional[pulumi.Input[str]] = None,
+                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -214,19 +286,21 @@ class Package(pulumi.CustomResource):
                  __props__=None):
         """
         The Test Base Package resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: Application name
         :param pulumi.Input[str] blob_path: The file path of the package.
+        :param pulumi.Input[str] draft_package_id: The id of draft package. Used to create or update this package from a draft package.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]] first_party_apps: The list of first party applications to test along with user application.
         :param pulumi.Input[str] flighting_ring: The flighting ring for feature update.
+        :param pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']] inplace_upgrade_os_pair: Specifies the baseline os and target os for inplace upgrade.
+        :param pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']] intune_enrollment_metadata: The metadata of Intune enrollment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] package_name: The resource name of the Test Base Package.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TargetOSInfoArgs', 'TargetOSInfoArgsDict']]]] target_os_list: Specifies the target OSs of specific OS Update types.
         :param pulumi.Input[str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TestArgs', 'TestArgsDict']]]] tests: The detailed test information.
@@ -240,9 +314,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Package resource.
-        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview.
-
-        Other available API versions: 2023-11-01-preview.
+        Azure REST API version: 2023-11-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.
@@ -261,7 +333,11 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  blob_path: Optional[pulumi.Input[str]] = None,
+                 draft_package_id: Optional[pulumi.Input[str]] = None,
+                 first_party_apps: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirstPartyAppDefinitionArgs', 'FirstPartyAppDefinitionArgsDict']]]]] = None,
                  flighting_ring: Optional[pulumi.Input[str]] = None,
+                 inplace_upgrade_os_pair: Optional[pulumi.Input[Union['InplaceUpgradeOSInfoArgs', 'InplaceUpgradeOSInfoArgsDict']]] = None,
+                 intune_enrollment_metadata: Optional[pulumi.Input[Union['IntuneEnrollmentMetadataArgs', 'IntuneEnrollmentMetadataArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -282,31 +358,28 @@ class Package(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
-            if blob_path is None and not opts.urn:
-                raise TypeError("Missing required property 'blob_path'")
             __props__.__dict__["blob_path"] = blob_path
-            if flighting_ring is None and not opts.urn:
-                raise TypeError("Missing required property 'flighting_ring'")
+            __props__.__dict__["draft_package_id"] = draft_package_id
+            __props__.__dict__["first_party_apps"] = first_party_apps
             __props__.__dict__["flighting_ring"] = flighting_ring
+            __props__.__dict__["inplace_upgrade_os_pair"] = inplace_upgrade_os_pair
+            __props__.__dict__["intune_enrollment_metadata"] = intune_enrollment_metadata
             __props__.__dict__["location"] = location
             __props__.__dict__["package_name"] = package_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if target_os_list is None and not opts.urn:
-                raise TypeError("Missing required property 'target_os_list'")
             __props__.__dict__["target_os_list"] = target_os_list
             if test_base_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'test_base_account_name'")
             __props__.__dict__["test_base_account_name"] = test_base_account_name
-            if tests is None and not opts.urn:
-                raise TypeError("Missing required property 'tests'")
             __props__.__dict__["tests"] = tests
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
-            __props__.__dict__["etag"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["gallery_apps"] = None
             __props__.__dict__["is_enabled"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["name"] = None
@@ -341,9 +414,14 @@ class Package(pulumi.CustomResource):
         __props__ = PackageArgs.__new__(PackageArgs)
 
         __props__.__dict__["application_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["blob_path"] = None
-        __props__.__dict__["etag"] = None
+        __props__.__dict__["draft_package_id"] = None
+        __props__.__dict__["first_party_apps"] = None
         __props__.__dict__["flighting_ring"] = None
+        __props__.__dict__["gallery_apps"] = None
+        __props__.__dict__["inplace_upgrade_os_pair"] = None
+        __props__.__dict__["intune_enrollment_metadata"] = None
         __props__.__dict__["is_enabled"] = None
         __props__.__dict__["last_modified_time"] = None
         __props__.__dict__["location"] = None
@@ -369,28 +447,68 @@ class Package(pulumi.CustomResource):
         return pulumi.get(self, "application_name")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="blobPath")
-    def blob_path(self) -> pulumi.Output[str]:
+    def blob_path(self) -> pulumi.Output[Optional[str]]:
         """
         The file path of the package.
         """
         return pulumi.get(self, "blob_path")
 
     @property
-    @pulumi.getter
-    def etag(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="draftPackageId")
+    def draft_package_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource Etag.
+        The id of draft package. Used to create or update this package from a draft package.
         """
-        return pulumi.get(self, "etag")
+        return pulumi.get(self, "draft_package_id")
+
+    @property
+    @pulumi.getter(name="firstPartyApps")
+    def first_party_apps(self) -> pulumi.Output[Optional[Sequence['outputs.FirstPartyAppDefinitionResponse']]]:
+        """
+        The list of first party applications to test along with user application.
+        """
+        return pulumi.get(self, "first_party_apps")
 
     @property
     @pulumi.getter(name="flightingRing")
-    def flighting_ring(self) -> pulumi.Output[str]:
+    def flighting_ring(self) -> pulumi.Output[Optional[str]]:
         """
         The flighting ring for feature update.
         """
         return pulumi.get(self, "flighting_ring")
+
+    @property
+    @pulumi.getter(name="galleryApps")
+    def gallery_apps(self) -> pulumi.Output[Sequence['outputs.GalleryAppDefinitionResponse']]:
+        """
+        The list of gallery apps to test along with user application.
+        """
+        return pulumi.get(self, "gallery_apps")
+
+    @property
+    @pulumi.getter(name="inplaceUpgradeOSPair")
+    def inplace_upgrade_os_pair(self) -> pulumi.Output[Optional['outputs.InplaceUpgradeOSInfoResponse']]:
+        """
+        Specifies the baseline os and target os for inplace upgrade.
+        """
+        return pulumi.get(self, "inplace_upgrade_os_pair")
+
+    @property
+    @pulumi.getter(name="intuneEnrollmentMetadata")
+    def intune_enrollment_metadata(self) -> pulumi.Output[Optional['outputs.IntuneEnrollmentMetadataResponse']]:
+        """
+        The metadata of Intune enrollment.
+        """
+        return pulumi.get(self, "intune_enrollment_metadata")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -420,7 +538,7 @@ class Package(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -444,7 +562,7 @@ class Package(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -452,13 +570,13 @@ class Package(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        The tags of the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetOSList")
-    def target_os_list(self) -> pulumi.Output[Sequence['outputs.TargetOSInfoResponse']]:
+    def target_os_list(self) -> pulumi.Output[Optional[Sequence['outputs.TargetOSInfoResponse']]]:
         """
         Specifies the target OSs of specific OS Update types.
         """
@@ -468,13 +586,13 @@ class Package(pulumi.CustomResource):
     @pulumi.getter(name="testTypes")
     def test_types(self) -> pulumi.Output[Sequence[str]]:
         """
-        OOB, functional or both. Mapped to the data in 'tests' property.
+        OOB, functional or flow driven. Mapped to the data in 'tests' property.
         """
         return pulumi.get(self, "test_types")
 
     @property
     @pulumi.getter
-    def tests(self) -> pulumi.Output[Sequence['outputs.TestResponse']]:
+    def tests(self) -> pulumi.Output[Optional[Sequence['outputs.TestResponse']]]:
         """
         The detailed test information.
         """
@@ -484,7 +602,7 @@ class Package(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

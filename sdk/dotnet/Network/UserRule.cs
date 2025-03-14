@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network security user rule.
-    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
-    /// 
-    /// Other available API versions: 2021-05-01-preview.
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 2.x: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRule")]
     public partial class UserRule : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// A description for this rule.
         /// </summary>
@@ -130,11 +134,17 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210501preview:UserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220201preview:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240301:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240301:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20240501:SecurityUserRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240501:UserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:DefaultUserRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network:SecurityUserRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

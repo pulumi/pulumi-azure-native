@@ -26,7 +26,10 @@ class GetWorkspaceSettingResult:
     """
     Configures where to store the OMS agent data for workspaces under a scope
     """
-    def __init__(__self__, id=None, name=None, scope=None, type=None, workspace_id=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, scope=None, type=None, workspace_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +45,14 @@ class GetWorkspaceSettingResult:
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetWorkspaceSettingResult(GetWorkspaceSettingResult):
         if False:
             yield self
         return GetWorkspaceSettingResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             scope=self.scope,
@@ -112,6 +124,7 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getWorkspaceSetting', __args__, opts=opts, typ=GetWorkspaceSettingResult).value
 
     return AwaitableGetWorkspaceSettingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         scope=pulumi.get(__ret__, 'scope'),
@@ -131,6 +144,7 @@ def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getWorkspaceSetting', __args__, opts=opts, typ=GetWorkspaceSettingResult)
     return __ret__.apply(lambda __response__: GetWorkspaceSettingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         scope=pulumi.get(__response__, 'scope'),

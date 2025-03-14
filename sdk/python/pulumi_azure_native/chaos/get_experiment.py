@@ -27,7 +27,10 @@ class GetExperimentResult:
     """
     Model that represents a Experiment resource.
     """
-    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetExperimentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetExperimentResult(GetExperimentResult):
         if False:
             yield self
         return GetExperimentResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -139,9 +151,7 @@ def get_experiment(experiment_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentResult:
     """
     Get a Experiment resource.
-    Azure REST API version: 2023-04-15-preview.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str experiment_name: String that represents a Experiment resource name.
@@ -154,6 +164,7 @@ def get_experiment(experiment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:chaos:getExperiment', __args__, opts=opts, typ=GetExperimentResult).value
 
     return AwaitableGetExperimentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -167,9 +178,7 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Get a Experiment resource.
-    Azure REST API version: 2023-04-15-preview.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str experiment_name: String that represents a Experiment resource name.
@@ -181,6 +190,7 @@ def get_experiment_output(experiment_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:chaos:getExperiment', __args__, opts=opts, typ=GetExperimentResult)
     return __ret__.apply(lambda __response__: GetExperimentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

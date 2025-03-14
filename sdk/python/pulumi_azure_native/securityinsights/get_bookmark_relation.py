@@ -27,7 +27,10 @@ class GetBookmarkRelationResult:
     """
     Represents a relation between two resources
     """
-    def __init__(__self__, etag=None, id=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -55,6 +58,14 @@ class GetBookmarkRelationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetBookmarkRelationResult(GetBookmarkRelationResult):
         if False:
             yield self
         return GetBookmarkRelationResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -153,9 +165,7 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBookmarkRelationResult:
     """
     Gets a bookmark relation.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2019-01-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str bookmark_id: Bookmark ID
@@ -172,6 +182,7 @@ def get_bookmark_relation(bookmark_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getBookmarkRelation', __args__, opts=opts, typ=GetBookmarkRelationResult).value
 
     return AwaitableGetBookmarkRelationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -188,9 +199,7 @@ def get_bookmark_relation_output(bookmark_id: Optional[pulumi.Input[str]] = None
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBookmarkRelationResult]:
     """
     Gets a bookmark relation.
-    Azure REST API version: 2023-06-01-preview.
-
-    Other available API versions: 2019-01-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-04-01-preview, 2024-10-01-preview, 2025-01-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str bookmark_id: Bookmark ID
@@ -206,6 +215,7 @@ def get_bookmark_relation_output(bookmark_id: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getBookmarkRelation', __args__, opts=opts, typ=GetBookmarkRelationResult)
     return __ret__.apply(lambda __response__: GetBookmarkRelationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

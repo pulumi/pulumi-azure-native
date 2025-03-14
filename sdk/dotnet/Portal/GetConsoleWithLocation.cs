@@ -79,13 +79,21 @@ namespace Pulumi.AzureNative.Portal
     public sealed class GetConsoleWithLocationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Cloud shell console properties.
         /// </summary>
         public readonly Outputs.ConsolePropertiesResponse Properties;
 
         [OutputConstructor]
-        private GetConsoleWithLocationResult(Outputs.ConsolePropertiesResponse properties)
+        private GetConsoleWithLocationResult(
+            string azureApiVersion,
+
+            Outputs.ConsolePropertiesResponse properties)
         {
+            AzureApiVersion = azureApiVersion;
             Properties = properties;
         }
     }

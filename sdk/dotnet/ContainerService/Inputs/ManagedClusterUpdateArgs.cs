@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ManagedClusterUpdateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The node image upgrade to be applied to the target nodes in update run.
+        /// </summary>
+        [Input("nodeImageSelection")]
+        public Input<Inputs.NodeImageSelectionArgs>? NodeImageSelection { get; set; }
+
+        /// <summary>
         /// The upgrade to apply to the ManagedClusters.
         /// </summary>
         [Input("upgrade", required: true)]

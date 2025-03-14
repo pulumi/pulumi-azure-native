@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec Version object.
- * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
- *
- * Other available API versions: 2019-06-01-preview.
+ * Azure REST API version: 2022-02-01. Prior API version in Azure Native 2.x: 2022-02-01.
  */
 export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === TemplateSpecVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Template Spec version description.
      */
@@ -108,10 +110,12 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             resourceInputs["templateSpecName"] = args ? args.templateSpecName : undefined;
             resourceInputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
             resourceInputs["uiFormDefinition"] = args ? args.uiFormDefinition : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["linkedTemplates"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -54,8 +54,8 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         /// <summary>
         /// Street Address line 1.
         /// </summary>
-        [Input("streetAddress1", required: true)]
-        public Input<string> StreetAddress1 { get; set; } = null!;
+        [Input("streetAddress1")]
+        public Input<string>? StreetAddress1 { get; set; }
 
         /// <summary>
         /// Street Address line 2.

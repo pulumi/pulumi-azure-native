@@ -27,7 +27,10 @@ class GetConfigurationProfileHCIAssignmentResult:
     """
     Configuration profile assignment is an association between a VM and automanage profile configuration.
     """
-    def __init__(__self__, id=None, managed_by=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, managed_by=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetConfigurationProfileHCIAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetConfigurationProfileHCIAssignmentResult(GetConfigurationProfil
         if False:
             yield self
         return GetConfigurationProfileHCIAssignmentResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             managed_by=self.managed_by,
             name=self.name,
@@ -131,6 +143,7 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automanage:getConfigurationProfileHCIAssignment', __args__, opts=opts, typ=GetConfigurationProfileHCIAssignmentResult).value
 
     return AwaitableGetConfigurationProfileHCIAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
@@ -157,6 +170,7 @@ def get_configuration_profile_hciassignment_output(cluster_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automanage:getConfigurationProfileHCIAssignment', __args__, opts=opts, typ=GetConfigurationProfileHCIAssignmentResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfileHCIAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         managed_by=pulumi.get(__response__, 'managed_by'),
         name=pulumi.get(__response__, 'name'),

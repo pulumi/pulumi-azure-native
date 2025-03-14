@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Guest Usages Resource
- * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01-preview.
- *
- * Other available API versions: 2023-01-18-preview, 2023-05-17-preview.
+ * Azure REST API version: 2023-05-17-preview. Prior API version in Azure Native 2.x: 2021-04-01.
  */
 export class GuestUsage extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class GuestUsage extends pulumi.CustomResource {
         return obj['__pulumiType'] === GuestUsage.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Location of the Guest Usages resource.
      */
@@ -84,10 +86,12 @@ export class GuestUsage extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

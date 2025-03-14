@@ -19,13 +19,6 @@ utilities.lazyLoad(exports, ["getCommunityTraining","getCommunityTrainingOutput"
 // Export enums:
 export * from "../types/enums/community";
 
-// Export sub-modules:
-import * as v20231101 from "./v20231101";
-
-export {
-    v20231101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

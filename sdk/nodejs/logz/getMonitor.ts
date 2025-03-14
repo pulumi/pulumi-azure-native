@@ -31,6 +31,10 @@ export interface GetMonitorArgs {
 
 export interface GetMonitorResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ARM id of the monitor resource.
      */
     readonly id: string;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Maps.Inputs
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the SKU, in standard format (such as S0).
+        /// The name of the SKU, in standard format (such as G2).
         /// </summary>
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Maps.Name> Name { get; set; } = null!;

@@ -26,7 +26,10 @@ class GetBackupLongTermRetentionPolicyResult:
     """
     A long term retention policy.
     """
-    def __init__(__self__, id=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+    def __init__(__self__, azure_api_version=None, id=None, monthly_retention=None, name=None, type=None, week_of_year=None, weekly_retention=None, yearly_retention=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,6 +51,14 @@ class GetBackupLongTermRetentionPolicyResult:
         if yearly_retention and not isinstance(yearly_retention, str):
             raise TypeError("Expected argument 'yearly_retention' to be a str")
         pulumi.set(__self__, "yearly_retention", yearly_retention)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -112,6 +123,7 @@ class AwaitableGetBackupLongTermRetentionPolicyResult(GetBackupLongTermRetention
         if False:
             yield self
         return GetBackupLongTermRetentionPolicyResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             monthly_retention=self.monthly_retention,
             name=self.name,
@@ -145,6 +157,7 @@ def get_backup_long_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getBackupLongTermRetentionPolicy', __args__, opts=opts, typ=GetBackupLongTermRetentionPolicyResult).value
 
     return AwaitableGetBackupLongTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         monthly_retention=pulumi.get(__ret__, 'monthly_retention'),
         name=pulumi.get(__ret__, 'name'),
@@ -175,6 +188,7 @@ def get_backup_long_term_retention_policy_output(database_name: Optional[pulumi.
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getBackupLongTermRetentionPolicy', __args__, opts=opts, typ=GetBackupLongTermRetentionPolicyResult)
     return __ret__.apply(lambda __response__: GetBackupLongTermRetentionPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         monthly_retention=pulumi.get(__response__, 'monthly_retention'),
         name=pulumi.get(__response__, 'name'),

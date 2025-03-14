@@ -25,20 +25,20 @@ export type BrokerListener = import("./brokerListener").BrokerListener;
 export const BrokerListener: typeof import("./brokerListener").BrokerListener = null as any;
 utilities.lazyLoad(exports, ["BrokerListener"], () => require("./brokerListener"));
 
-export { DataFlowArgs } from "./dataFlow";
-export type DataFlow = import("./dataFlow").DataFlow;
-export const DataFlow: typeof import("./dataFlow").DataFlow = null as any;
-utilities.lazyLoad(exports, ["DataFlow"], () => require("./dataFlow"));
+export { DataflowArgs } from "./dataflow";
+export type Dataflow = import("./dataflow").Dataflow;
+export const Dataflow: typeof import("./dataflow").Dataflow = null as any;
+utilities.lazyLoad(exports, ["Dataflow"], () => require("./dataflow"));
 
-export { DataFlowEndpointArgs } from "./dataFlowEndpoint";
-export type DataFlowEndpoint = import("./dataFlowEndpoint").DataFlowEndpoint;
-export const DataFlowEndpoint: typeof import("./dataFlowEndpoint").DataFlowEndpoint = null as any;
-utilities.lazyLoad(exports, ["DataFlowEndpoint"], () => require("./dataFlowEndpoint"));
+export { DataflowEndpointArgs } from "./dataflowEndpoint";
+export type DataflowEndpoint = import("./dataflowEndpoint").DataflowEndpoint;
+export const DataflowEndpoint: typeof import("./dataflowEndpoint").DataflowEndpoint = null as any;
+utilities.lazyLoad(exports, ["DataflowEndpoint"], () => require("./dataflowEndpoint"));
 
-export { DataFlowProfileArgs } from "./dataFlowProfile";
-export type DataFlowProfile = import("./dataFlowProfile").DataFlowProfile;
-export const DataFlowProfile: typeof import("./dataFlowProfile").DataFlowProfile = null as any;
-utilities.lazyLoad(exports, ["DataFlowProfile"], () => require("./dataFlowProfile"));
+export { DataflowProfileArgs } from "./dataflowProfile";
+export type DataflowProfile = import("./dataflowProfile").DataflowProfile;
+export const DataflowProfile: typeof import("./dataflowProfile").DataflowProfile = null as any;
+utilities.lazyLoad(exports, ["DataflowProfile"], () => require("./dataflowProfile"));
 
 export { GetBrokerArgs, GetBrokerResult, GetBrokerOutputArgs } from "./getBroker";
 export const getBroker: typeof import("./getBroker").getBroker = null as any;
@@ -60,20 +60,20 @@ export const getBrokerListener: typeof import("./getBrokerListener").getBrokerLi
 export const getBrokerListenerOutput: typeof import("./getBrokerListener").getBrokerListenerOutput = null as any;
 utilities.lazyLoad(exports, ["getBrokerListener","getBrokerListenerOutput"], () => require("./getBrokerListener"));
 
-export { GetDataFlowArgs, GetDataFlowResult, GetDataFlowOutputArgs } from "./getDataFlow";
-export const getDataFlow: typeof import("./getDataFlow").getDataFlow = null as any;
-export const getDataFlowOutput: typeof import("./getDataFlow").getDataFlowOutput = null as any;
-utilities.lazyLoad(exports, ["getDataFlow","getDataFlowOutput"], () => require("./getDataFlow"));
+export { GetDataflowArgs, GetDataflowResult, GetDataflowOutputArgs } from "./getDataflow";
+export const getDataflow: typeof import("./getDataflow").getDataflow = null as any;
+export const getDataflowOutput: typeof import("./getDataflow").getDataflowOutput = null as any;
+utilities.lazyLoad(exports, ["getDataflow","getDataflowOutput"], () => require("./getDataflow"));
 
-export { GetDataFlowEndpointArgs, GetDataFlowEndpointResult, GetDataFlowEndpointOutputArgs } from "./getDataFlowEndpoint";
-export const getDataFlowEndpoint: typeof import("./getDataFlowEndpoint").getDataFlowEndpoint = null as any;
-export const getDataFlowEndpointOutput: typeof import("./getDataFlowEndpoint").getDataFlowEndpointOutput = null as any;
-utilities.lazyLoad(exports, ["getDataFlowEndpoint","getDataFlowEndpointOutput"], () => require("./getDataFlowEndpoint"));
+export { GetDataflowEndpointArgs, GetDataflowEndpointResult, GetDataflowEndpointOutputArgs } from "./getDataflowEndpoint";
+export const getDataflowEndpoint: typeof import("./getDataflowEndpoint").getDataflowEndpoint = null as any;
+export const getDataflowEndpointOutput: typeof import("./getDataflowEndpoint").getDataflowEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDataflowEndpoint","getDataflowEndpointOutput"], () => require("./getDataflowEndpoint"));
 
-export { GetDataFlowProfileArgs, GetDataFlowProfileResult, GetDataFlowProfileOutputArgs } from "./getDataFlowProfile";
-export const getDataFlowProfile: typeof import("./getDataFlowProfile").getDataFlowProfile = null as any;
-export const getDataFlowProfileOutput: typeof import("./getDataFlowProfile").getDataFlowProfileOutput = null as any;
-utilities.lazyLoad(exports, ["getDataFlowProfile","getDataFlowProfileOutput"], () => require("./getDataFlowProfile"));
+export { GetDataflowProfileArgs, GetDataflowProfileResult, GetDataflowProfileOutputArgs } from "./getDataflowProfile";
+export const getDataflowProfile: typeof import("./getDataflowProfile").getDataflowProfile = null as any;
+export const getDataflowProfileOutput: typeof import("./getDataflowProfile").getDataflowProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getDataflowProfile","getDataflowProfileOutput"], () => require("./getDataflowProfile"));
 
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
@@ -89,19 +89,6 @@ utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 // Export enums:
 export * from "../types/enums/iotoperations";
 
-// Export sub-modules:
-import * as v20240701preview from "./v20240701preview";
-import * as v20240815preview from "./v20240815preview";
-import * as v20240915preview from "./v20240915preview";
-import * as v20241101 from "./v20241101";
-
-export {
-    v20240701preview,
-    v20240815preview,
-    v20240915preview,
-    v20241101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -114,12 +101,12 @@ const _module = {
                 return new BrokerAuthorization(name, <any>undefined, { urn })
             case "azure-native:iotoperations:BrokerListener":
                 return new BrokerListener(name, <any>undefined, { urn })
-            case "azure-native:iotoperations:DataFlow":
-                return new DataFlow(name, <any>undefined, { urn })
-            case "azure-native:iotoperations:DataFlowEndpoint":
-                return new DataFlowEndpoint(name, <any>undefined, { urn })
-            case "azure-native:iotoperations:DataFlowProfile":
-                return new DataFlowProfile(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:Dataflow":
+                return new Dataflow(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:DataflowEndpoint":
+                return new DataflowEndpoint(name, <any>undefined, { urn })
+            case "azure-native:iotoperations:DataflowProfile":
+                return new DataflowProfile(name, <any>undefined, { urn })
             case "azure-native:iotoperations:Instance":
                 return new Instance(name, <any>undefined, { urn })
             default:

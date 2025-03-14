@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Subscription.Outputs
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Reseller Id
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Subscription.Outputs
 
             string? managementGroupId,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? resellerId,
 

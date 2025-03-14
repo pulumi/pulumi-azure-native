@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Big Data pool.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Task<GetBigDataPoolResult> InvokeAsync(GetBigDataPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Big Data pool.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Get a Big Data pool.
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2021-05-01, 2021-06-01-preview.
         /// </summary>
         public static Output<GetBigDataPoolResult> Invoke(GetBigDataPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBigDataPoolResult>("azure-native:synapse:getBigDataPool", args ?? new GetBigDataPoolInvokeArgs(), options.WithDefaults());
@@ -104,6 +98,10 @@ namespace Pulumi.AzureNative.Synapse
         /// Auto-scaling properties
         /// </summary>
         public readonly Outputs.AutoScalePropertiesResponse? AutoScale;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The cache size
         /// </summary>
@@ -199,6 +197,8 @@ namespace Pulumi.AzureNative.Synapse
 
             Outputs.AutoScalePropertiesResponse? autoScale,
 
+            string azureApiVersion,
+
             int? cacheSize,
 
             string creationDate,
@@ -245,6 +245,7 @@ namespace Pulumi.AzureNative.Synapse
         {
             AutoPause = autoPause;
             AutoScale = autoScale;
+            AzureApiVersion = azureApiVersion;
             CacheSize = cacheSize;
             CreationDate = creationDate;
             CustomLibraries = customLibraries;

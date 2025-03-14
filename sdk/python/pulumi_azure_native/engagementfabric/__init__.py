@@ -13,11 +13,3 @@ from .list_account_channel_types import *
 from .list_account_keys import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.engagementfabric.v20180901preview as __v20180901preview
-    v20180901preview = __v20180901preview
-else:
-    v20180901preview = _utilities.lazy_import('pulumi_azure_native.engagementfabric.v20180901preview')
-

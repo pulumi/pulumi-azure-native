@@ -85,9 +85,7 @@ class LinkerDryrun(pulumi.CustomResource):
                  __props__=None):
         """
         a dryrun job resource
-        Azure REST API version: 2022-11-01-preview.
-
-        Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -103,9 +101,7 @@ class LinkerDryrun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         a dryrun job resource
-        Azure REST API version: 2022-11-01-preview.
-
-        Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-11-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LinkerDryrunArgs args: The arguments to use to populate this resource's properties.
@@ -139,6 +135,7 @@ class LinkerDryrun(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["operation_previews"] = None
             __props__.__dict__["prerequisite_results"] = None
@@ -169,6 +166,7 @@ class LinkerDryrun(pulumi.CustomResource):
 
         __props__ = LinkerDryrunArgs.__new__(LinkerDryrunArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operation_previews"] = None
         __props__.__dict__["parameters"] = None
@@ -177,6 +175,14 @@ class LinkerDryrun(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return LinkerDryrun(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

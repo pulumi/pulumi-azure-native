@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * PostRulestack rule list
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class PostRule extends pulumi.CustomResource {
     /**
@@ -52,6 +50,10 @@ export class PostRule extends pulumi.CustomResource {
      * rule comment
      */
     public readonly auditComment!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * rule category
      */
@@ -166,6 +168,7 @@ export class PostRule extends pulumi.CustomResource {
             resourceInputs["ruleState"] = args ? args.ruleState : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -175,6 +178,7 @@ export class PostRule extends pulumi.CustomResource {
             resourceInputs["actionType"] = undefined /*out*/;
             resourceInputs["applications"] = undefined /*out*/;
             resourceInputs["auditComment"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["decryptionRuleType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a configuration of server.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a configuration of server.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a configuration of server.
-        /// Azure REST API version: 2022-12-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data type of the configuration.
         /// </summary>
         public readonly string DataType;
@@ -117,7 +115,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string DocumentationLink;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -161,6 +159,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         private GetConfigurationResult(
             string allowedValues,
 
+            string azureApiVersion,
+
             string dataType,
 
             string defaultValue,
@@ -190,6 +190,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             string? value)
         {
             AllowedValues = allowedValues;
+            AzureApiVersion = azureApiVersion;
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;

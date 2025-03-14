@@ -21,17 +21,13 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? DockerBridgeCidr;
         /// <summary>
-        /// Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
+        /// Resource ID of a subnet for infrastructure components. Must not overlap with any other provided IP ranges.
         /// </summary>
         public readonly string? InfrastructureSubnetId;
         /// <summary>
-        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
+        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide infrastructureSubnetId if enabling this property
         /// </summary>
         public readonly bool? Internal;
-        /// <summary>
-        /// Configuration used to control the Environment Egress outbound traffic
-        /// </summary>
-        public readonly Outputs.ManagedEnvironmentOutboundSettingsResponse? OutboundSettings;
         /// <summary>
         /// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         /// </summary>
@@ -40,10 +36,6 @@ namespace Pulumi.AzureNative.App.Outputs
         ///  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
         /// </summary>
         public readonly string? PlatformReservedDnsIP;
-        /// <summary>
-        /// This field is deprecated and not used. If you wish to provide your own subnet that Container App containers are injected into, then you should leverage the infrastructureSubnetId.
-        /// </summary>
-        public readonly string? RuntimeSubnetId;
 
         [OutputConstructor]
         private VnetConfigurationResponse(
@@ -53,21 +45,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             bool? @internal,
 
-            Outputs.ManagedEnvironmentOutboundSettingsResponse? outboundSettings,
-
             string? platformReservedCidr,
 
-            string? platformReservedDnsIP,
-
-            string? runtimeSubnetId)
+            string? platformReservedDnsIP)
         {
             DockerBridgeCidr = dockerBridgeCidr;
             InfrastructureSubnetId = infrastructureSubnetId;
             Internal = @internal;
-            OutboundSettings = outboundSettings;
             PlatformReservedCidr = platformReservedCidr;
             PlatformReservedDnsIP = platformReservedDnsIP;
-            RuntimeSubnetId = runtimeSubnetId;
         }
     }
 }

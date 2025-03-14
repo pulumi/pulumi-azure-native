@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +43,10 @@ export interface GetClusterResult {
      * The list of cluster runtime version upgrades available for this cluster.
      */
     readonly availableUpgradeVersions: outputs.networkcloud.ClusterAvailableUpgradeVersionResponse[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The capacity supported by this cluster.
      */
@@ -82,6 +84,10 @@ export interface GetClusterResult {
      */
     readonly clusterVersion: string;
     /**
+     * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
+     */
+    readonly commandOutputSettings?: outputs.networkcloud.CommandOutputSettingsResponse;
+    /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
     readonly computeDeploymentThreshold?: outputs.networkcloud.ValidationThresholdResponse;
@@ -110,6 +116,10 @@ export interface GetClusterResult {
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
+    /**
+     * The identity for the resource.
+     */
+    readonly identity?: outputs.networkcloud.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -169,9 +179,7 @@ export interface GetClusterResult {
 }
 /**
  * Get properties of the provided cluster.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

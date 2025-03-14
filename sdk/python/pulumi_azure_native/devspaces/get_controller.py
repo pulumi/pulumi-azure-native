@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetControllerResult:
-    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_resource_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_resource_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_plane_fqdn and not isinstance(data_plane_fqdn, str):
             raise TypeError("Expected argument 'data_plane_fqdn' to be a str")
         pulumi.set(__self__, "data_plane_fqdn", data_plane_fqdn)
@@ -58,6 +61,14 @@ class GetControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataPlaneFqdn")
@@ -154,6 +165,7 @@ class AwaitableGetControllerResult(GetControllerResult):
         if False:
             yield self
         return GetControllerResult(
+            azure_api_version=self.azure_api_version,
             data_plane_fqdn=self.data_plane_fqdn,
             host_suffix=self.host_suffix,
             id=self.id,
@@ -185,6 +197,7 @@ def get_controller(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devspaces:getController', __args__, opts=opts, typ=GetControllerResult).value
 
     return AwaitableGetControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_plane_fqdn=pulumi.get(__ret__, 'data_plane_fqdn'),
         host_suffix=pulumi.get(__ret__, 'host_suffix'),
         id=pulumi.get(__ret__, 'id'),
@@ -213,6 +226,7 @@ def get_controller_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devspaces:getController', __args__, opts=opts, typ=GetControllerResult)
     return __ret__.apply(lambda __response__: GetControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_plane_fqdn=pulumi.get(__response__, 'data_plane_fqdn'),
         host_suffix=pulumi.get(__response__, 'host_suffix'),
         id=pulumi.get(__response__, 'id'),

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
+    /// <summary>
+    /// Properties of the subnet.
+    /// </summary>
     public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -37,14 +40,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.IpAllocationMethodEnum>? IpAllocationMethod { get; set; }
 
         [Input("ipConfigurationReferences")]
-        private InputList<Inputs.SubnetPropertiesFormatIpConfigurationReferencesArgs>? _ipConfigurationReferences;
+        private InputList<Inputs.SubnetIpConfigurationReferenceArgs>? _ipConfigurationReferences;
 
         /// <summary>
         /// IPConfigurationReferences - list of IPConfigurationReferences
         /// </summary>
-        public InputList<Inputs.SubnetPropertiesFormatIpConfigurationReferencesArgs> IpConfigurationReferences
+        public InputList<Inputs.SubnetIpConfigurationReferenceArgs> IpConfigurationReferences
         {
-            get => _ipConfigurationReferences ?? (_ipConfigurationReferences = new InputList<Inputs.SubnetPropertiesFormatIpConfigurationReferencesArgs>());
+            get => _ipConfigurationReferences ?? (_ipConfigurationReferences = new InputList<Inputs.SubnetIpConfigurationReferenceArgs>());
             set => _ipConfigurationReferences = value;
         }
 
@@ -65,6 +68,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the logical network.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArmReferenceArgs>? NetworkSecurityGroup { get; set; }
 
         /// <summary>
         /// Route table resource.

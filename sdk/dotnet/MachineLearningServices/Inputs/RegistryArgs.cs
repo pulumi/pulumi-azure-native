@@ -39,18 +39,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("mlFlowRegistryUri")]
         public Input<string>? MlFlowRegistryUri { get; set; }
 
-        [Input("privateEndpointConnections")]
-        private InputList<Inputs.RegistryPrivateEndpointConnectionArgs>? _privateEndpointConnections;
-
-        /// <summary>
-        /// Private endpoint connections info used for pending connections in private link portal
-        /// </summary>
-        public InputList<Inputs.RegistryPrivateEndpointConnectionArgs> PrivateEndpointConnections
-        {
-            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.RegistryPrivateEndpointConnectionArgs>());
-            set => _privateEndpointConnections = value;
-        }
-
         /// <summary>
         /// Is the Registry accessible from the internet?
         /// Possible values: "Enabled" or "Disabled"
@@ -68,6 +56,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         {
             get => _regionDetails ?? (_regionDetails = new InputList<Inputs.RegistryRegionArmDetailsArgs>());
             set => _regionDetails = value;
+        }
+
+        [Input("registryPrivateEndpointConnections")]
+        private InputList<Inputs.RegistryPrivateEndpointConnectionArgs>? _registryPrivateEndpointConnections;
+
+        /// <summary>
+        /// Private endpoint connections info used for pending connections in private link portal
+        /// </summary>
+        public InputList<Inputs.RegistryPrivateEndpointConnectionArgs> RegistryPrivateEndpointConnections
+        {
+            get => _registryPrivateEndpointConnections ?? (_registryPrivateEndpointConnections = new InputList<Inputs.RegistryPrivateEndpointConnectionArgs>());
+            set => _registryPrivateEndpointConnections = value;
         }
 
         public RegistryArgs()

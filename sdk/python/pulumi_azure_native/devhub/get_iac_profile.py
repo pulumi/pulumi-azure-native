@@ -27,10 +27,13 @@ class GetIacProfileResult:
     """
     Resource representation of a IacProfile.
     """
-    def __init__(__self__, auth_status=None, branch_name=None, etag=None, id=None, location=None, name=None, pr_status=None, pull_number=None, repository_main_branch=None, repository_name=None, repository_owner=None, stages=None, storage_account_name=None, storage_account_resource_group=None, storage_account_subscription=None, storage_container_name=None, system_data=None, tags=None, templates=None, type=None):
+    def __init__(__self__, auth_status=None, azure_api_version=None, branch_name=None, etag=None, id=None, location=None, name=None, pr_status=None, pull_number=None, repository_main_branch=None, repository_name=None, repository_owner=None, stages=None, storage_account_name=None, storage_account_resource_group=None, storage_account_subscription=None, storage_container_name=None, system_data=None, tags=None, templates=None, type=None):
         if auth_status and not isinstance(auth_status, str):
             raise TypeError("Expected argument 'auth_status' to be a str")
         pulumi.set(__self__, "auth_status", auth_status)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if branch_name and not isinstance(branch_name, str):
             raise TypeError("Expected argument 'branch_name' to be a str")
         pulumi.set(__self__, "branch_name", branch_name)
@@ -96,6 +99,14 @@ class GetIacProfileResult:
         Determines the authorization status of requests.
         """
         return pulumi.get(self, "auth_status")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="branchName")
@@ -251,6 +262,7 @@ class AwaitableGetIacProfileResult(GetIacProfileResult):
             yield self
         return GetIacProfileResult(
             auth_status=self.auth_status,
+            azure_api_version=self.azure_api_version,
             branch_name=self.branch_name,
             etag=self.etag,
             id=self.id,
@@ -279,8 +291,6 @@ def get_iac_profile(iac_profile_name: Optional[str] = None,
     Resource representation of a IacProfile.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
-
 
     :param str iac_profile_name: The name of the IacProfile.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -293,6 +303,7 @@ def get_iac_profile(iac_profile_name: Optional[str] = None,
 
     return AwaitableGetIacProfileResult(
         auth_status=pulumi.get(__ret__, 'auth_status'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         branch_name=pulumi.get(__ret__, 'branch_name'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -319,8 +330,6 @@ def get_iac_profile_output(iac_profile_name: Optional[pulumi.Input[str]] = None,
     Resource representation of a IacProfile.
     Azure REST API version: 2024-05-01-preview.
 
-    Other available API versions: 2024-08-01-preview.
-
 
     :param str iac_profile_name: The name of the IacProfile.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -332,6 +341,7 @@ def get_iac_profile_output(iac_profile_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:devhub:getIacProfile', __args__, opts=opts, typ=GetIacProfileResult)
     return __ret__.apply(lambda __response__: GetIacProfileResult(
         auth_status=pulumi.get(__response__, 'auth_status'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         branch_name=pulumi.get(__response__, 'branch_name'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

@@ -137,7 +137,7 @@ class DatadogHostResponse(dict):
                  meta: Optional['outputs.DatadogHostMetadataResponse'] = None,
                  name: Optional[str] = None):
         """
-        :param Sequence[str] aliases: The aliases for the host.
+        :param Sequence[str] aliases: The aliases for the host installed via the Datadog agent.
         :param Sequence[str] apps: The Datadog integrations reporting metrics for the host.
         :param str name: The name of the host.
         """
@@ -154,7 +154,7 @@ class DatadogHostResponse(dict):
     @pulumi.getter
     def aliases(self) -> Optional[Sequence[str]]:
         """
-        The aliases for the host.
+        The aliases for the host installed via the Datadog agent.
         """
         return pulumi.get(self, "aliases")
 
@@ -245,20 +245,32 @@ class DatadogLogsAgentResponse(dict):
 @pulumi.output_type
 class DatadogOrganizationPropertiesResponse(dict):
     """
-    Datadog organization properties
+    Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
     """
     def __init__(__self__, *,
+                 cspm: Optional[bool] = None,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
+        :param bool cspm: The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
         :param str id: Id of the Datadog organization.
         :param str name: Name of the Datadog organization.
         """
+        if cspm is not None:
+            pulumi.set(__self__, "cspm", cspm)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def cspm(self) -> Optional[bool]:
+        """
+        The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
+        """
+        return pulumi.get(self, "cspm")
 
     @property
     @pulumi.getter
@@ -352,7 +364,7 @@ class IdentityPropertiesResponse(dict):
         """
         :param str principal_id: The identity ID.
         :param str tenant_id: The tenant ID of resource.
-        :param str type: Identity type
+        :param str type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -379,7 +391,7 @@ class IdentityPropertiesResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Identity type
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
@@ -390,13 +402,17 @@ class LinkedResourceResponse(dict):
     The definition of a linked resource.
     """
     def __init__(__self__, *,
-                 id: Optional[str] = None):
+                 id: Optional[str] = None,
+                 location: Optional[str] = None):
         """
         The definition of a linked resource.
         :param str id: The ARM id of the linked resource.
+        :param str location: The location of the linked resource.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
 
     @property
     @pulumi.getter
@@ -405,6 +421,14 @@ class LinkedResourceResponse(dict):
         The ARM id of the linked resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the linked resource.
+        """
+        return pulumi.get(self, "location")
 
 
 @pulumi.output_type
@@ -646,9 +670,9 @@ class MonitorPropertiesResponse(dict):
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Datadog organization properties
+        :param 'DatadogOrganizationPropertiesResponse' datadog_organization_properties: Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
-        :param 'UserInfoResponse' user_info: User info
+        :param 'UserInfoResponse' user_info: Includes name, email and optionally, phone number. User Information can't be null.
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
@@ -691,7 +715,7 @@ class MonitorPropertiesResponse(dict):
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         """
         return pulumi.get(self, "datadog_organization_properties")
 
@@ -707,7 +731,7 @@ class MonitorPropertiesResponse(dict):
     @pulumi.getter(name="userInfo")
     def user_info(self) -> Optional['outputs.UserInfoResponse']:
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         """
         return pulumi.get(self, "user_info")
 
@@ -871,6 +895,8 @@ class MonitoringTagRulesPropertiesResponse(dict):
         suggest = None
         if key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "customMetrics":
+            suggest = "custom_metrics"
         elif key == "logRules":
             suggest = "log_rules"
         elif key == "metricRules":
@@ -890,17 +916,21 @@ class MonitoringTagRulesPropertiesResponse(dict):
     def __init__(__self__, *,
                  provisioning_state: str,
                  automuting: Optional[bool] = None,
+                 custom_metrics: Optional[bool] = None,
                  log_rules: Optional['outputs.LogRulesResponse'] = None,
                  metric_rules: Optional['outputs.MetricRulesResponse'] = None):
         """
         Definition of the properties for a TagRules resource.
         :param bool automuting: Configuration to enable/disable auto-muting flag
+        :param bool custom_metrics: Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
         :param 'LogRulesResponse' log_rules: Set of rules for sending logs for the Monitor resource.
         :param 'MetricRulesResponse' metric_rules: Set of rules for sending metrics for the Monitor resource.
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if automuting is not None:
             pulumi.set(__self__, "automuting", automuting)
+        if custom_metrics is not None:
+            pulumi.set(__self__, "custom_metrics", custom_metrics)
         if log_rules is not None:
             pulumi.set(__self__, "log_rules", log_rules)
         if metric_rules is not None:
@@ -918,6 +948,14 @@ class MonitoringTagRulesPropertiesResponse(dict):
         Configuration to enable/disable auto-muting flag
         """
         return pulumi.get(self, "automuting")
+
+    @property
+    @pulumi.getter(name="customMetrics")
+    def custom_metrics(self) -> Optional[bool]:
+        """
+        Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
+        """
+        return pulumi.get(self, "custom_metrics")
 
     @property
     @pulumi.getter(name="logRules")
@@ -988,7 +1026,7 @@ class ResourceSkuResponse(dict):
     def __init__(__self__, *,
                  name: str):
         """
-        :param str name: Name of the SKU.
+        :param str name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         pulumi.set(__self__, "name", name)
 
@@ -996,7 +1034,7 @@ class ResourceSkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the SKU.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         return pulumi.get(self, "name")
 
@@ -1154,7 +1192,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class UserInfoResponse(dict):
     """
-    User info
+    Includes name, email and optionally, phone number. User Information can't be null.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1180,7 +1218,7 @@ class UserInfoResponse(dict):
                  name: Optional[str] = None,
                  phone_number: Optional[str] = None):
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         :param str email_address: Email of the user used by Datadog for contacting them if needed
         :param str name: Name of the user
         :param str phone_number: Phone number of the user used by Datadog for contacting them if needed

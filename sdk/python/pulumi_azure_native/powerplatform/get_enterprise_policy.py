@@ -27,7 +27,10 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, health_status=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, system_id=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, health_status=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, system_id=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -67,6 +70,14 @@ class GetEnterprisePolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -179,6 +190,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
         if False:
             yield self
         return GetEnterprisePolicyResult(
+            azure_api_version=self.azure_api_version,
             encryption=self.encryption,
             health_status=self.health_status,
             id=self.id,
@@ -212,6 +224,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerplatform:getEnterprisePolicy', __args__, opts=opts, typ=GetEnterprisePolicyResult).value
 
     return AwaitableGetEnterprisePolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption=pulumi.get(__ret__, 'encryption'),
         health_status=pulumi.get(__ret__, 'health_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -242,6 +255,7 @@ def get_enterprise_policy_output(enterprise_policy_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerplatform:getEnterprisePolicy', __args__, opts=opts, typ=GetEnterprisePolicyResult)
     return __ret__.apply(lambda __response__: GetEnterprisePolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption=pulumi.get(__response__, 'encryption'),
         health_status=pulumi.get(__response__, 'health_status'),
         id=pulumi.get(__response__, 'id'),

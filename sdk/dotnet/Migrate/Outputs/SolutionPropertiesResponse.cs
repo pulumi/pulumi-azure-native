@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// <summary>
         /// Gets or sets the summary of the solution.
         /// </summary>
-        public readonly object? Summary;
+        public readonly Union<Outputs.DatabasesSolutionSummaryResponse, Outputs.ServersSolutionSummaryResponse>? Summary;
         /// <summary>
         /// Gets or sets the tool being used in the solution.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? status,
 
-            object? summary,
+            Union<Outputs.DatabasesSolutionSummaryResponse, Outputs.ServersSolutionSummaryResponse>? summary,
 
             string? tool)
         {

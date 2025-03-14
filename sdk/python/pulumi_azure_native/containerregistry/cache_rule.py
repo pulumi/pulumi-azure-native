@@ -135,9 +135,7 @@ class CacheRule(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a cache rule for a container registry.
-        Azure REST API version: 2023-01-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,9 +155,7 @@ class CacheRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a cache rule for a container registry.
-        Azure REST API version: 2023-01-01-preview.
-
-        Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        Azure REST API version: 2024-11-01-preview. Prior API version in Azure Native 2.x: 2023-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CacheRuleArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +197,7 @@ class CacheRule(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["source_repository"] = source_repository
             __props__.__dict__["target_repository"] = target_repository
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -230,6 +227,7 @@ class CacheRule(pulumi.CustomResource):
 
         __props__ = CacheRuleArgs.__new__(CacheRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["credential_set_resource_id"] = None
         __props__.__dict__["name"] = None
@@ -239,6 +237,14 @@ class CacheRule(pulumi.CustomResource):
         __props__.__dict__["target_repository"] = None
         __props__.__dict__["type"] = None
         return CacheRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")

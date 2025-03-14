@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetBackupLongTermRetentionPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetBackupLongTermRetentionPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string? monthlyRetention,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Sql
 
             string? yearlyRetention)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             MonthlyRetention = monthlyRetention;
             Name = name;

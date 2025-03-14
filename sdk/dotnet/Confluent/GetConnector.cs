@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Confluent
     public sealed class GetConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Connector Info Base
         /// </summary>
         public readonly Outputs.ConnectorInfoBaseResponse? ConnectorBasicInfo;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.Confluent
 
         [OutputConstructor]
         private GetConnectorResult(
+            string azureApiVersion,
+
             Outputs.ConnectorInfoBaseResponse? connectorBasicInfo,
 
             object? connectorServiceTypeInfo,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.Confluent
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConnectorBasicInfo = connectorBasicInfo;
             ConnectorServiceTypeInfo = connectorServiceTypeInfo;
             Id = id;

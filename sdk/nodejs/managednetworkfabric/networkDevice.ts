@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The NetworkDevice resource definition.
- * Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * The Network Device resource definition.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
  */
 export class NetworkDevice extends pulumi.CustomResource {
     /**
@@ -41,11 +39,23 @@ export class NetworkDevice extends pulumi.CustomResource {
     }
 
     /**
+     * Administrative state of the resource.
+     */
+    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    /**
      * Switch configuration description.
      */
     public readonly annotation!: pulumi.Output<string | undefined>;
     /**
-     * The host Name of the device.
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * Configuration state of the resource.
+     */
+    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    /**
+     * The host name of the device.
      */
     public readonly hostName!: pulumi.Output<string | undefined>;
     /**
@@ -53,27 +63,35 @@ export class NetworkDevice extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Management IPv4 Address.
+     */
+    public /*out*/ readonly managementIpv4Address!: pulumi.Output<string>;
+    /**
+     * Management IPv6 Address.
+     */
+    public /*out*/ readonly managementIpv6Address!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * networkDeviceRole is the device role: Example: CE | ToR.
+     * NetworkDeviceRole is the device role: Example: CE | ToR.
      */
-    public readonly networkDeviceRole!: pulumi.Output<string>;
+    public /*out*/ readonly networkDeviceRole!: pulumi.Output<string>;
     /**
      * Network Device SKU name.
      */
-    public readonly networkDeviceSku!: pulumi.Output<string>;
+    public readonly networkDeviceSku!: pulumi.Output<string | undefined>;
     /**
      * Reference to network rack resource id.
      */
     public /*out*/ readonly networkRackId!: pulumi.Output<string>;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+     * Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
      */
     public readonly serialNumber!: pulumi.Output<string>;
     /**
@@ -104,12 +122,6 @@ export class NetworkDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkDeviceRole === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkDeviceRole'");
-            }
-            if ((!args || args.networkDeviceSku === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'networkDeviceSku'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,21 +132,31 @@ export class NetworkDevice extends pulumi.CustomResource {
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkDeviceName"] = args ? args.networkDeviceName : undefined;
-            resourceInputs["networkDeviceRole"] = args ? args.networkDeviceRole : undefined;
             resourceInputs["networkDeviceSku"] = args ? args.networkDeviceSku : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administrativeState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
+            resourceInputs["managementIpv4Address"] = undefined /*out*/;
+            resourceInputs["managementIpv6Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkDeviceRole"] = undefined /*out*/;
             resourceInputs["networkRackId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["annotation"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["configurationState"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementIpv4Address"] = undefined /*out*/;
+            resourceInputs["managementIpv6Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkDeviceRole"] = undefined /*out*/;
             resourceInputs["networkDeviceSku"] = undefined /*out*/;
@@ -162,7 +184,7 @@ export interface NetworkDeviceArgs {
      */
     annotation?: pulumi.Input<string>;
     /**
-     * The host Name of the device.
+     * The host name of the device.
      */
     hostName?: pulumi.Input<string>;
     /**
@@ -170,23 +192,19 @@ export interface NetworkDeviceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the Network Device
+     * Name of the Network Device.
      */
     networkDeviceName?: pulumi.Input<string>;
     /**
-     * networkDeviceRole is the device role: Example: CE | ToR.
-     */
-    networkDeviceRole: pulumi.Input<string | enums.managednetworkfabric.NetworkDeviceRoleTypes>;
-    /**
      * Network Device SKU name.
      */
-    networkDeviceSku: pulumi.Input<string>;
+    networkDeviceSku?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * serialNumber of the format Make;Model;HardwareRevisionId;SerialNumber. Example: Arista;DCS-7280DR3-24;12.05;JPE21116969
+     * Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
      */
     serialNumber: pulumi.Input<string>;
     /**

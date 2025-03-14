@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The privateStore offer data structure.
- * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-12-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
  */
 export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateStoreCollectionOffer.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Private store offer creation date
      */
@@ -120,6 +124,7 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             resourceInputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
             resourceInputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -129,6 +134,7 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueOfferId"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["iconFileUris"] = undefined /*out*/;

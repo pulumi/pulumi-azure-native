@@ -40,6 +40,10 @@ export interface GetSuppressionArgs {
  */
 export interface GetSuppressionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the expiration time stamp.
      */
     readonly expirationTimeStamp: string;

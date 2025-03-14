@@ -26,7 +26,10 @@ class GetAPICollectionByAzureApiManagementServiceResult:
     """
     An API collection as represented by Microsoft Defender for APIs.
     """
-    def __init__(__self__, base_url=None, discovered_via=None, display_name=None, id=None, name=None, number_of_api_endpoints=None, number_of_api_endpoints_with_sensitive_data_exposed=None, number_of_external_api_endpoints=None, number_of_inactive_api_endpoints=None, number_of_unauthenticated_api_endpoints=None, provisioning_state=None, sensitivity_label=None, type=None):
+    def __init__(__self__, azure_api_version=None, base_url=None, discovered_via=None, display_name=None, id=None, name=None, number_of_api_endpoints=None, number_of_api_endpoints_with_sensitive_data_exposed=None, number_of_external_api_endpoints=None, number_of_inactive_api_endpoints=None, number_of_unauthenticated_api_endpoints=None, provisioning_state=None, sensitivity_label=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if base_url and not isinstance(base_url, str):
             raise TypeError("Expected argument 'base_url' to be a str")
         pulumi.set(__self__, "base_url", base_url)
@@ -66,6 +69,14 @@ class GetAPICollectionByAzureApiManagementServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="baseUrl")
@@ -178,6 +189,7 @@ class AwaitableGetAPICollectionByAzureApiManagementServiceResult(GetAPICollectio
         if False:
             yield self
         return GetAPICollectionByAzureApiManagementServiceResult(
+            azure_api_version=self.azure_api_version,
             base_url=self.base_url,
             discovered_via=self.discovered_via,
             display_name=self.display_name,
@@ -214,6 +226,7 @@ def get_api_collection_by_azure_api_management_service(api_id: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:security:getAPICollectionByAzureApiManagementService', __args__, opts=opts, typ=GetAPICollectionByAzureApiManagementServiceResult).value
 
     return AwaitableGetAPICollectionByAzureApiManagementServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         base_url=pulumi.get(__ret__, 'base_url'),
         discovered_via=pulumi.get(__ret__, 'discovered_via'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -247,6 +260,7 @@ def get_api_collection_by_azure_api_management_service_output(api_id: Optional[p
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAPICollectionByAzureApiManagementService', __args__, opts=opts, typ=GetAPICollectionByAzureApiManagementServiceResult)
     return __ret__.apply(lambda __response__: GetAPICollectionByAzureApiManagementServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         base_url=pulumi.get(__response__, 'base_url'),
         discovered_via=pulumi.get(__response__, 'discovered_via'),
         display_name=pulumi.get(__response__, 'display_name'),

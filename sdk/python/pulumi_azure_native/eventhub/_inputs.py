@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'CaptureDescriptionArgs',
     'CaptureDescriptionArgsDict',
+    'CaptureIdentityArgs',
+    'CaptureIdentityArgsDict',
     'ClusterSkuArgs',
     'ClusterSkuArgsDict',
     'ConnectionStateArgs',
@@ -189,6 +191,62 @@ class CaptureDescriptionArgs:
 
 
 if not MYPY:
+    class CaptureIdentityArgsDict(TypedDict):
+        """
+        A value that indicates whether capture description is enabled.
+        """
+        type: NotRequired[pulumi.Input['CaptureIdentityType']]
+        """
+        Type of Azure Active Directory Managed Identity.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input[str]]
+        """
+        ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+elif False:
+    CaptureIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CaptureIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['CaptureIdentityType']] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        A value that indicates whether capture description is enabled.
+        :param pulumi.Input['CaptureIdentityType'] type: Type of Azure Active Directory Managed Identity.
+        :param pulumi.Input[str] user_assigned_identity: ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['CaptureIdentityType']]:
+        """
+        Type of Azure Active Directory Managed Identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['CaptureIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of Managed User Identity. This property is required is the type is UserAssignedIdentity. If type is SystemAssigned, then the System Assigned Identity Associated with the namespace will be used.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+if not MYPY:
     class ClusterSkuArgsDict(TypedDict):
         """
         SKU parameters particular to a cluster instance.
@@ -324,6 +382,10 @@ if not MYPY:
         """
         Subscription Id of Azure Data Lake Store
         """
+        identity: NotRequired[pulumi.Input['CaptureIdentityArgsDict']]
+        """
+        A value that indicates whether capture description is enabled.
+        """
         name: NotRequired[pulumi.Input[str]]
         """
         Name for capture destination
@@ -343,6 +405,7 @@ class DestinationArgs:
                  data_lake_account_name: Optional[pulumi.Input[str]] = None,
                  data_lake_folder_path: Optional[pulumi.Input[str]] = None,
                  data_lake_subscription_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['CaptureIdentityArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None):
         """
@@ -352,6 +415,7 @@ class DestinationArgs:
         :param pulumi.Input[str] data_lake_account_name: The Azure Data Lake Store name for the captured events
         :param pulumi.Input[str] data_lake_folder_path: The destination folder path for the captured events
         :param pulumi.Input[str] data_lake_subscription_id: Subscription Id of Azure Data Lake Store
+        :param pulumi.Input['CaptureIdentityArgs'] identity: A value that indicates whether capture description is enabled.
         :param pulumi.Input[str] name: Name for capture destination
         :param pulumi.Input[str] storage_account_resource_id: Resource id of the storage account to be used to create the blobs
         """
@@ -365,6 +429,8 @@ class DestinationArgs:
             pulumi.set(__self__, "data_lake_folder_path", data_lake_folder_path)
         if data_lake_subscription_id is not None:
             pulumi.set(__self__, "data_lake_subscription_id", data_lake_subscription_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_account_resource_id is not None:
@@ -429,6 +495,18 @@ class DestinationArgs:
     @data_lake_subscription_id.setter
     def data_lake_subscription_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_lake_subscription_id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['CaptureIdentityArgs']]:
+        """
+        A value that indicates whether capture description is enabled.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['CaptureIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter

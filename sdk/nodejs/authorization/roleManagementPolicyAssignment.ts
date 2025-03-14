@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role management policy
- * Azure REST API version: 2020-10-01. Prior API version in Azure Native 1.x: 2020-10-01.
- *
- * Other available API versions: 2020-10-01-preview, 2024-02-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2020-10-01.
  */
 export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**
@@ -41,9 +39,13 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The readonly computed rule applied to the policy.
      */
-    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse)[]>;
+    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
     /**
      * The role management policy name.
      */
@@ -87,11 +89,13 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             resourceInputs["roleManagementPolicyAssignmentName"] = args ? args.roleManagementPolicyAssignmentName : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentProperties"] = undefined /*out*/;

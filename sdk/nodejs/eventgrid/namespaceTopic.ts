@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace topic details.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class NamespaceTopic extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class NamespaceTopic extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Event retention for the namespace topic expressed in days. The property default value is 1 day.
      * Min event retention duration value is 1 day and max event retention duration value is 1 day.
      */
@@ -62,7 +64,7 @@ export class NamespaceTopic extends pulumi.CustomResource {
      */
     public readonly publisherType!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to namespace topic resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -93,11 +95,13 @@ export class NamespaceTopic extends pulumi.CustomResource {
             resourceInputs["publisherType"] = args ? args.publisherType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventRetentionInDays"] = undefined /*out*/;
             resourceInputs["inputSchema"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NSP resource association resource
- * Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview. Prior API version in Azure Native 2.x: 2021-02-01-preview.
  */
 export class NspAssociation extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class NspAssociation extends pulumi.CustomResource {
      * Access mode on the association.
      */
     public readonly accessMode!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies if there are provisioning issues
      */
@@ -104,11 +106,13 @@ export class NspAssociation extends pulumi.CustomResource {
             resourceInputs["profile"] = args ? args.profile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessMode"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasProvisioningIssues"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

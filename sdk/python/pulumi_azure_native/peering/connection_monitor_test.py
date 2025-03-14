@@ -149,7 +149,7 @@ class ConnectionMonitorTest(pulumi.CustomResource):
                  __props__=None):
         """
         The Connection Monitor Test class.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-06-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,7 +169,7 @@ class ConnectionMonitorTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connection Monitor Test class.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-06-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorTestArgs args: The arguments to use to populate this resource's properties.
@@ -213,6 +213,7 @@ class ConnectionMonitorTest(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["source_agent"] = source_agent
             __props__.__dict__["test_frequency_in_sec"] = test_frequency_in_sec
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["is_test_successful"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["path"] = None
@@ -242,6 +243,7 @@ class ConnectionMonitorTest(pulumi.CustomResource):
 
         __props__ = ConnectionMonitorTestArgs.__new__(ConnectionMonitorTestArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["destination"] = None
         __props__.__dict__["destination_port"] = None
         __props__.__dict__["is_test_successful"] = None
@@ -252,6 +254,14 @@ class ConnectionMonitorTest(pulumi.CustomResource):
         __props__.__dict__["test_frequency_in_sec"] = None
         __props__.__dict__["type"] = None
         return ConnectionMonitorTest(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

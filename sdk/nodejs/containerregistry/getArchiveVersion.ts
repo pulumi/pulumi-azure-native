@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the archive version.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getArchiveVersion(args: GetArchiveVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetArchiveVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,6 +54,10 @@ export interface GetArchiveVersionResult {
      */
     readonly archiveVersionErrorMessage?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource ID.
      */
     readonly id: string;
@@ -78,9 +80,7 @@ export interface GetArchiveVersionResult {
 }
 /**
  * Gets the properties of the archive version.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-11-01-preview.
  */
 export function getArchiveVersionOutput(args: GetArchiveVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArchiveVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

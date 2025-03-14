@@ -128,14 +128,12 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTopicKeysResult:
     """
     Gets the primary and secondary connection strings for the topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()
@@ -161,14 +159,12 @@ def list_topic_keys_output(authorization_rule_name: Optional[pulumi.Input[str]] 
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTopicKeysResult]:
     """
     Gets the primary and secondary connection strings for the topic.
-    Azure REST API version: 2022-01-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
     :param str namespace_name: The namespace name
-    :param str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str topic_name: The topic name.
     """
     __args__ = dict()

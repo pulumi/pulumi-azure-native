@@ -27,7 +27,10 @@ class GetAnalyticsConnectorResult:
     """
     Analytics Connector definition.
     """
-    def __init__(__self__, data_destination_configuration=None, data_mapping_configuration=None, data_source_configuration=None, etag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_destination_configuration=None, data_mapping_configuration=None, data_source_configuration=None, etag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_destination_configuration and not isinstance(data_destination_configuration, dict):
             raise TypeError("Expected argument 'data_destination_configuration' to be a dict")
         pulumi.set(__self__, "data_destination_configuration", data_destination_configuration)
@@ -64,6 +67,14 @@ class GetAnalyticsConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataDestinationConfiguration")
@@ -168,6 +179,7 @@ class AwaitableGetAnalyticsConnectorResult(GetAnalyticsConnectorResult):
         if False:
             yield self
         return GetAnalyticsConnectorResult(
+            azure_api_version=self.azure_api_version,
             data_destination_configuration=self.data_destination_configuration,
             data_mapping_configuration=self.data_mapping_configuration,
             data_source_configuration=self.data_source_configuration,
@@ -203,6 +215,7 @@ def get_analytics_connector(analytics_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getAnalyticsConnector', __args__, opts=opts, typ=GetAnalyticsConnectorResult).value
 
     return AwaitableGetAnalyticsConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_destination_configuration=pulumi.get(__ret__, 'data_destination_configuration'),
         data_mapping_configuration=pulumi.get(__ret__, 'data_mapping_configuration'),
         data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
@@ -235,6 +248,7 @@ def get_analytics_connector_output(analytics_connector_name: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:healthcareapis:getAnalyticsConnector', __args__, opts=opts, typ=GetAnalyticsConnectorResult)
     return __ret__.apply(lambda __response__: GetAnalyticsConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_destination_configuration=pulumi.get(__response__, 'data_destination_configuration'),
         data_mapping_configuration=pulumi.get(__response__, 'data_mapping_configuration'),
         data_source_configuration=pulumi.get(__response__, 'data_source_configuration'),

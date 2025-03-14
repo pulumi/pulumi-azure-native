@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Dto object representing index column
+    /// DTO object representing index column
     /// </summary>
     [OutputType]
     public sealed class IndexColumnResponse

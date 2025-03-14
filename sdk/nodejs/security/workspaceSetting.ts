@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configures where to store the OMS agent data for workspaces under a scope
- * Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 1.x: 2017-08-01-preview.
+ * Azure REST API version: 2017-08-01-preview. Prior API version in Azure Native 2.x: 2017-08-01-preview.
  */
 export class WorkspaceSetting extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class WorkspaceSetting extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceSetting.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource name
      */
@@ -72,9 +76,11 @@ export class WorkspaceSetting extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["workspaceSettingName"] = args ? args.workspaceSettingName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

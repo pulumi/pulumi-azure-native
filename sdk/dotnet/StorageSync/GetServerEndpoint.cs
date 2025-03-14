@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a ServerEndpoint.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetServerEndpointResult> InvokeAsync(GetServerEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ServerEndpoint.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a ServerEndpoint.
-        /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2022-09-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetServerEndpointResult> Invoke(GetServerEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerEndpointResult>("azure-native:storagesync:getServerEndpoint", args ?? new GetServerEndpointInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class GetServerEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Cloud Tiering.
         /// </summary>
         public readonly string? CloudTiering;
@@ -121,7 +119,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -173,6 +171,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly Outputs.ServerEndpointRecallStatusResponse RecallStatus;
         /// <summary>
+        /// Server Endpoint provisioning status
+        /// </summary>
+        public readonly Outputs.ServerEndpointProvisioningStatusResponse? ServerEndpointProvisioningStatus;
+        /// <summary>
         /// Server Local path.
         /// </summary>
         public readonly string? ServerLocalPath;
@@ -207,6 +209,8 @@ namespace Pulumi.AzureNative.StorageSync
 
         [OutputConstructor]
         private GetServerEndpointResult(
+            string azureApiVersion,
+
             string? cloudTiering,
 
             Outputs.ServerEndpointCloudTieringStatusResponse cloudTieringStatus,
@@ -239,6 +243,8 @@ namespace Pulumi.AzureNative.StorageSync
 
             Outputs.ServerEndpointRecallStatusResponse recallStatus,
 
+            Outputs.ServerEndpointProvisioningStatusResponse? serverEndpointProvisioningStatus,
+
             string? serverLocalPath,
 
             string serverName,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.StorageSync
 
             int? volumeFreeSpacePercent)
         {
+            AzureApiVersion = azureApiVersion;
             CloudTiering = cloudTiering;
             CloudTieringStatus = cloudTieringStatus;
             FriendlyName = friendlyName;
@@ -271,6 +278,7 @@ namespace Pulumi.AzureNative.StorageSync
             OfflineDataTransferStorageAccountTenantId = offlineDataTransferStorageAccountTenantId;
             ProvisioningState = provisioningState;
             RecallStatus = recallStatus;
+            ServerEndpointProvisioningStatus = serverEndpointProvisioningStatus;
             ServerLocalPath = serverLocalPath;
             ServerName = serverName;
             ServerResourceId = serverResourceId;

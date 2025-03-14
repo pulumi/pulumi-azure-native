@@ -27,7 +27,10 @@ class GetGatewayResult:
     """
     This type describes a gateway resource.
     """
-    def __init__(__self__, description=None, destination_network=None, http=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, source_network=None, status=None, status_details=None, tags=None, tcp=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, destination_network=None, http=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, source_network=None, status=None, status_details=None, tags=None, tcp=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -70,6 +73,14 @@ class GetGatewayResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
         if False:
             yield self
         return GetGatewayResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             destination_network=self.destination_network,
             http=self.http,
@@ -224,6 +236,7 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         destination_network=pulumi.get(__ret__, 'destination_network'),
         http=pulumi.get(__ret__, 'http'),
@@ -255,6 +268,7 @@ def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicefabricmesh:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         destination_network=pulumi.get(__response__, 'destination_network'),
         http=pulumi.get(__response__, 'http'),

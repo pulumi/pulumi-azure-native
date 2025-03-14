@@ -47,6 +47,10 @@ export interface GetAssignmentResult {
      */
     readonly assignedStandard?: outputs.security.AssignedStandardItemResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * description of the standardAssignment
      */
     readonly description?: string;

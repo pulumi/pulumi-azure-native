@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Get a Experiment resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetExperimentResult> InvokeAsync(GetExperimentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Experiment resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Experiment resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetExperimentResult> Invoke(GetExperimentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentResult>("azure-native:chaos:getExperiment", args ?? new GetExperimentInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Chaos
     public sealed class GetExperimentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Chaos
 
         [OutputConstructor]
         private GetExperimentResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ResourceIdentityResponse? identity,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Chaos
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

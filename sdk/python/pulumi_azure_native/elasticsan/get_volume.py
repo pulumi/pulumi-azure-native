@@ -27,16 +27,25 @@ class GetVolumeResult:
     """
     Response for Volume request.
     """
-    def __init__(__self__, creation_data=None, id=None, name=None, size_gi_b=None, storage_target=None, system_data=None, tags=None, type=None, volume_id=None):
+    def __init__(__self__, azure_api_version=None, creation_data=None, id=None, managed_by=None, name=None, provisioning_state=None, size_gi_b=None, storage_target=None, system_data=None, type=None, volume_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_by and not isinstance(managed_by, dict):
+            raise TypeError("Expected argument 'managed_by' to be a dict")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         if size_gi_b and not isinstance(size_gi_b, float):
             raise TypeError("Expected argument 'size_gi_b' to be a float")
         pulumi.set(__self__, "size_gi_b", size_gi_b)
@@ -46,15 +55,20 @@ class GetVolumeResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
         if volume_id and not isinstance(volume_id, str):
             raise TypeError("Expected argument 'volume_id' to be a str")
         pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationData")
@@ -68,21 +82,37 @@ class GetVolumeResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource identifier.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional['outputs.ManagedByInfoResponse']:
+        """
+        Parent resource information.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the operation on the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
     @pulumi.getter(name="sizeGiB")
-    def size_gi_b(self) -> Optional[float]:
+    def size_gi_b(self) -> float:
         """
         Volume size.
         """
@@ -100,23 +130,15 @@ class GetVolumeResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Resource metadata required by ARM RPC
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Azure resource tags.
-        """
-        return pulumi.get(self, "tags")
-
-    @property
-    @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -135,13 +157,15 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            azure_api_version=self.azure_api_version,
             creation_data=self.creation_data,
             id=self.id,
+            managed_by=self.managed_by,
             name=self.name,
+            provisioning_state=self.provisioning_state,
             size_gi_b=self.size_gi_b,
             storage_target=self.storage_target,
             system_data=self.system_data,
-            tags=self.tags,
             type=self.type,
             volume_id=self.volume_id)
 
@@ -153,9 +177,7 @@ def get_volume(elastic_san_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Get an Volume.
-    Azure REST API version: 2021-11-20-preview.
-
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-05-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -172,13 +194,15 @@ def get_volume(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_data=pulumi.get(__ret__, 'creation_data'),
         id=pulumi.get(__ret__, 'id'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         size_gi_b=pulumi.get(__ret__, 'size_gi_b'),
         storage_target=pulumi.get(__ret__, 'storage_target'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         volume_id=pulumi.get(__ret__, 'volume_id'))
 def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
@@ -188,9 +212,7 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get an Volume.
-    Azure REST API version: 2021-11-20-preview.
-
-    Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2024-05-01.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -206,12 +228,14 @@ def get_volume_output(elastic_san_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:elasticsan:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_data=pulumi.get(__response__, 'creation_data'),
         id=pulumi.get(__response__, 'id'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
         name=pulumi.get(__response__, 'name'),
+        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         size_gi_b=pulumi.get(__response__, 'size_gi_b'),
         storage_target=pulumi.get(__response__, 'storage_target'),
         system_data=pulumi.get(__response__, 'system_data'),
-        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),
         volume_id=pulumi.get(__response__, 'volume_id')))

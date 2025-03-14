@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application.
- * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2021-07-01. Prior API version in Azure Native 2.x: 2021-07-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -52,6 +50,10 @@ export class Application extends pulumi.CustomResource {
      * The  read-only authorizations property that is retrieved from the application package.
      */
     public /*out*/ readonly authorizations!: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[]>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed application billing details.
      */
@@ -173,6 +175,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingDetails"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["customerSupport"] = undefined /*out*/;
@@ -189,6 +192,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationDefinitionId"] = undefined /*out*/;
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingDetails"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["customerSupport"] = undefined /*out*/;

@@ -24,15 +24,6 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 // Export enums:
 export * from "../types/enums/quantum";
 
-// Export sub-modules:
-import * as v20220110preview from "./v20220110preview";
-import * as v20231113preview from "./v20231113preview";
-
-export {
-    v20220110preview,
-    v20231113preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

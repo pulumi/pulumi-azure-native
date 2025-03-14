@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the full endpoint URL for an event subscription of a system topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEventSubscriptionFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,7 +19,7 @@ export function getSystemTopicEventSubscriptionFullUrl(args: GetSystemTopicEvent
 
 export interface GetSystemTopicEventSubscriptionFullUrlArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: string;
     /**
@@ -35,7 +33,7 @@ export interface GetSystemTopicEventSubscriptionFullUrlArgs {
 }
 
 /**
- * Full endpoint url of an event subscription
+ * Full endpoint URL of an event subscription
  */
 export interface GetSystemTopicEventSubscriptionFullUrlResult {
     /**
@@ -45,9 +43,7 @@ export interface GetSystemTopicEventSubscriptionFullUrlResult {
 }
 /**
  * Get the full endpoint URL for an event subscription of a system topic.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getSystemTopicEventSubscriptionFullUrlOutput(args: GetSystemTopicEventSubscriptionFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemTopicEventSubscriptionFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,7 +56,7 @@ export function getSystemTopicEventSubscriptionFullUrlOutput(args: GetSystemTopi
 
 export interface GetSystemTopicEventSubscriptionFullUrlOutputArgs {
     /**
-     * Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+     * Name of the event subscription.
      */
     eventSubscriptionName: pulumi.Input<string>;
     /**

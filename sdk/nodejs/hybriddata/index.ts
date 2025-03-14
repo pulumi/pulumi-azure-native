@@ -39,13 +39,6 @@ utilities.lazyLoad(exports, ["JobDefinition"], () => require("./jobDefinition"))
 // Export enums:
 export * from "../types/enums/hybriddata";
 
-// Export sub-modules:
-import * as v20190601 from "./v20190601";
-
-export {
-    v20190601,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

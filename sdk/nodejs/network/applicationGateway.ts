@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application gateway resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-06-01, 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * Autoscale Configuration.
      */
     public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayAutoscaleConfigurationResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
@@ -265,6 +267,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             resourceInputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultPredefinedSslPolicy"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -276,6 +279,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
         } else {
             resourceInputs["authenticationCertificates"] = undefined /*out*/;
             resourceInputs["autoscaleConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendAddressPools"] = undefined /*out*/;
             resourceInputs["backendHttpSettingsCollection"] = undefined /*out*/;
             resourceInputs["backendSettingsCollection"] = undefined /*out*/;

@@ -21,18 +21,25 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? CommunityGalleryImageId;
         /// <summary>
-        /// The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, user image or storage account resource.
+        /// The id of the gallery artifact version source.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The resource Id of the source virtual machine.  Only required when capturing a virtual machine to source this Gallery Image Version.
+        /// </summary>
+        public readonly string? VirtualMachineId;
 
         [OutputConstructor]
         private GalleryArtifactVersionFullSourceResponse(
             string? communityGalleryImageId,
 
-            string? id)
+            string? id,
+
+            string? virtualMachineId)
         {
             CommunityGalleryImageId = communityGalleryImageId;
             Id = id;
+            VirtualMachineId = virtualMachineId;
         }
     }
 }

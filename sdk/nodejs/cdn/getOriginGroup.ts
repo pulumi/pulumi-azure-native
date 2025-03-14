@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin group within an endpoint.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetOriginGroupArgs {
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
 export interface GetOriginGroupResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
@@ -89,9 +91,7 @@ export interface GetOriginGroupResult {
 }
 /**
  * Gets an existing origin group within an endpoint.
- * Azure REST API version: 2023-05-01.
- *
- * Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01.
  */
 export function getOriginGroupOutput(args: GetOriginGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
+        /// IP rules for filtering public traffic
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPRuleResponse> IpRules;
+        /// <summary>
         /// ACLs for requests from private endpoints
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointACLResponse> PrivateEndpoints;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.SignalRService.Outputs
         private SignalRNetworkACLsResponse(
             string? defaultAction,
 
+            ImmutableArray<Outputs.IPRuleResponse> ipRules,
+
             ImmutableArray<Outputs.PrivateEndpointACLResponse> privateEndpoints,
 
             Outputs.NetworkACLResponse? publicNetwork)
         {
             DefaultAction = defaultAction;
+            IpRules = ipRules;
             PrivateEndpoints = privateEndpoints;
             PublicNetwork = publicNetwork;
         }

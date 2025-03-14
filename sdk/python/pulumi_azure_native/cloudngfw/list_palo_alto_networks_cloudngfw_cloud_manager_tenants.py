@@ -52,9 +52,7 @@ class AwaitableListPaloAltoNetworksCloudngfwCloudManagerTenantsResult(ListPaloAl
 def list_palo_alto_networks_cloudngfw_cloud_manager_tenants(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPaloAltoNetworksCloudngfwCloudManagerTenantsResult:
     """
     Cloud Manager Tenant
-    Azure REST API version: 2024-02-07-preview.
-
-    Other available API versions: 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -65,9 +63,7 @@ def list_palo_alto_networks_cloudngfw_cloud_manager_tenants(opts: Optional[pulum
 def list_palo_alto_networks_cloudngfw_cloud_manager_tenants_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPaloAltoNetworksCloudngfwCloudManagerTenantsResult]:
     """
     Cloud Manager Tenant
-    Azure REST API version: 2024-02-07-preview.
-
-    Other available API versions: 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountMapResult> InvokeAsync(GetIntegrationAccountMapArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account map.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountMapResult> Invoke(GetIntegrationAccountMapInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountMapResult>("azure-native:logic:getIntegrationAccountMap", args ?? new GetIntegrationAccountMapInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountMapResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The changed time.
         /// </summary>
         public readonly string ChangedTime;
@@ -151,6 +149,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountMapResult(
+            string azureApiVersion,
+
             string changedTime,
 
             string? content,
@@ -177,6 +177,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ChangedTime = changedTime;
             Content = content;
             ContentLink = contentLink;

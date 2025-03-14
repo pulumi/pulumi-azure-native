@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * Azure REST API version: 2023-05-01.
+ * Azure REST API version: 2024-03-01.
  */
 export class AmlFilesystem extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class AmlFilesystem extends pulumi.CustomResource {
         return obj['__pulumiType'] === AmlFilesystem.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Client information for the AML file system.
      */
@@ -78,6 +82,10 @@ export class AmlFilesystem extends pulumi.CustomResource {
      * ARM provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Specifies root squash settings of the AML file system.
+     */
+    public readonly rootSquashSettings!: pulumi.Output<outputs.storagecache.AmlFilesystemRootSquashSettingsResponse | undefined>;
     /**
      * SKU for the resource.
      */
@@ -138,10 +146,12 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rootSquashSettings"] = args ? args.rootSquashSettings : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageCapacityTiB"] = args ? args.storageCapacityTiB : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientInfo"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -150,6 +160,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["throughputProvisionedMBps"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientInfo"] = undefined /*out*/;
             resourceInputs["encryptionSettings"] = undefined /*out*/;
             resourceInputs["filesystemSubnet"] = undefined /*out*/;
@@ -160,6 +171,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["maintenanceWindow"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["rootSquashSettings"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["storageCapacityTiB"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -169,7 +181,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230301preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20230301preview:amlFilesystem" }, { type: "azure-native:storagecache/v20230501:AmlFilesystem" }, { type: "azure-native:storagecache/v20230501:amlFilesystem" }, { type: "azure-native:storagecache/v20231101preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20231101preview:amlFilesystem" }, { type: "azure-native:storagecache/v20240301:AmlFilesystem" }, { type: "azure-native:storagecache/v20240301:amlFilesystem" }, { type: "azure-native:storagecache/v20240701:AmlFilesystem" }, { type: "azure-native:storagecache/v20240701:amlFilesystem" }, { type: "azure-native:storagecache:amlFilesystem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230301preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20230501:AmlFilesystem" }, { type: "azure-native:storagecache/v20231101preview:AmlFilesystem" }, { type: "azure-native:storagecache/v20240301:AmlFilesystem" }, { type: "azure-native:storagecache/v20240701:AmlFilesystem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AmlFilesystem.__pulumiType, name, resourceInputs, opts);
     }
@@ -211,6 +223,10 @@ export interface AmlFilesystemArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies root squash settings of the AML file system.
+     */
+    rootSquashSettings?: pulumi.Input<inputs.storagecache.AmlFilesystemRootSquashSettingsArgs>;
     /**
      * SKU for the resource.
      */

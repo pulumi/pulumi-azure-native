@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ModernizeProject model.
- * Azure REST API version: 2022-05-01-preview.
+ * Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 2.x: 2022-05-01-preview.
  */
 export class ModernizeProject extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ModernizeProject extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModernizeProject.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     public readonly identity!: pulumi.Output<outputs.migrate.ResourceIdentityResponse | undefined>;
     /**
      * Gets or sets the location of the modernizeProject.
@@ -82,10 +86,12 @@ export class ModernizeProject extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

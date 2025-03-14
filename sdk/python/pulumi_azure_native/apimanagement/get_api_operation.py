@@ -27,7 +27,10 @@ class GetApiOperationResult:
     """
     API Operation details.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -61,6 +64,14 @@ class GetApiOperationResult:
         if url_template and not isinstance(url_template, str):
             raise TypeError("Expected argument 'url_template' to be a str")
         pulumi.set(__self__, "url_template", url_template)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -157,6 +168,7 @@ class AwaitableGetApiOperationResult(GetApiOperationResult):
         if False:
             yield self
         return GetApiOperationResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -177,9 +189,7 @@ def get_api_operation(api_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
     Gets the details of the API Operation specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -196,6 +206,7 @@ def get_api_operation(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiOperation', __args__, opts=opts, typ=GetApiOperationResult).value
 
     return AwaitableGetApiOperationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -214,9 +225,7 @@ def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiOperationResult]:
     """
     Gets the details of the API Operation specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -232,6 +241,7 @@ def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiOperation', __args__, opts=opts, typ=GetApiOperationResult)
     return __ret__.apply(lambda __response__: GetApiOperationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

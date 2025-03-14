@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Task<GetGalleryImageVersionResult> InvokeAsync(GetGalleryImageVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery image version.
-        /// Azure REST API version: 2022-03-03.
-        /// 
-        /// Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        /// Azure REST API version: 2024-03-03.
         /// </summary>
         public static Output<GetGalleryImageVersionResult> Invoke(GetGalleryImageVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryImageVersionResult>("azure-native:compute:getGalleryImageVersion", args ?? new GetGalleryImageVersionInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryImageVersionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -145,9 +143,17 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.ReplicationStatusResponse ReplicationStatus;
         /// <summary>
+        /// Indicates if this is a soft-delete resource restoration request.
+        /// </summary>
+        public readonly bool? Restore;
+        /// <summary>
         /// This is the safety profile of the Gallery Image Version.
         /// </summary>
         public readonly Outputs.GalleryImageVersionSafetyProfileResponse? SafetyProfile;
+        /// <summary>
+        /// The security profile of a gallery image version
+        /// </summary>
+        public readonly Outputs.ImageVersionSecurityProfileResponse? SecurityProfile;
         /// <summary>
         /// This is the storage profile of a Gallery Image Version.
         /// </summary>
@@ -160,9 +166,15 @@ namespace Pulumi.AzureNative.Compute
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// This is the validations profile of a Gallery Image Version.
+        /// </summary>
+        public readonly Outputs.ValidationsProfileResponse ValidationsProfile;
 
         [OutputConstructor]
         private GetGalleryImageVersionResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -175,24 +187,34 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.ReplicationStatusResponse replicationStatus,
 
+            bool? restore,
+
             Outputs.GalleryImageVersionSafetyProfileResponse? safetyProfile,
+
+            Outputs.ImageVersionSecurityProfileResponse? securityProfile,
 
             Outputs.GalleryImageVersionStorageProfileResponse storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ValidationsProfileResponse validationsProfile)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             PublishingProfile = publishingProfile;
             ReplicationStatus = replicationStatus;
+            Restore = restore;
             SafetyProfile = safetyProfile;
+            SecurityProfile = securityProfile;
             StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
+            ValidationsProfile = validationsProfile;
         }
     }
 }

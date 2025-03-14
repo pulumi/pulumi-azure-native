@@ -27,7 +27,10 @@ class GetHybridUseBenefitResult:
     """
     Response on GET of a hybrid use benefit
     """
-    def __init__(__self__, created_date=None, etag=None, id=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
+    def __init__(__self__, azure_api_version=None, created_date=None, etag=None, id=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -52,6 +55,14 @@ class GetHybridUseBenefitResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -124,6 +135,7 @@ class AwaitableGetHybridUseBenefitResult(GetHybridUseBenefitResult):
         if False:
             yield self
         return GetHybridUseBenefitResult(
+            azure_api_version=self.azure_api_version,
             created_date=self.created_date,
             etag=self.etag,
             id=self.id,
@@ -152,6 +164,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:softwareplan:getHybridUseBenefit', __args__, opts=opts, typ=GetHybridUseBenefitResult).value
 
     return AwaitableGetHybridUseBenefitResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_date=pulumi.get(__ret__, 'created_date'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -177,6 +190,7 @@ def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:softwareplan:getHybridUseBenefit', __args__, opts=opts, typ=GetHybridUseBenefitResult)
     return __ret__.apply(lambda __response__: GetHybridUseBenefitResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_date=pulumi.get(__response__, 'created_date'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

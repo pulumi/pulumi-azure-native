@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
     public sealed class GetInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Detailed description of the Instance.
         /// </summary>
         public readonly string? Description;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
         [OutputConstructor]
         private GetInstanceResult(
+            string azureApiVersion,
+
             string? description,
 
             Outputs.ExtendedLocationResponse extendedLocation,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             ExtendedLocation = extendedLocation;
             Id = id;

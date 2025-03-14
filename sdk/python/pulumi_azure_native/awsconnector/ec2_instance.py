@@ -68,7 +68,7 @@ class Ec2Instance(pulumi.CustomResource):
                  __props__=None):
         """
         A Microsoft.AwsConnector resource
-        Azure REST API version: 2024-12-01.
+        Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +83,7 @@ class Ec2Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Microsoft.AwsConnector resource
-        Azure REST API version: 2024-12-01.
+        Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
 
         :param str resource_name: The name of the resource.
         :param Ec2InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -115,6 +115,7 @@ class Ec2Instance(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -142,11 +143,20 @@ class Ec2Instance(pulumi.CustomResource):
 
         __props__ = Ec2InstanceArgs.__new__(Ec2InstanceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Ec2Instance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

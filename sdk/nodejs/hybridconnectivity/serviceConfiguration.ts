@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The service configuration details associated with the target resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2023-03-15.
  */
 export class ServiceConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ServiceConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The timestamp of resource creation (UTC).
      */
@@ -125,11 +127,13 @@ export class ServiceConfiguration extends pulumi.CustomResource {
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["serviceConfigurationName"] = args ? args.serviceConfigurationName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdByType"] = undefined /*out*/;

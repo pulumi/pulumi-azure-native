@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Describes product display information
+    /// Describes product display information.
     /// </summary>
     [OutputType]
     public sealed class DisplayInfoResponse
     {
         /// <summary>
-        /// Configuration display name
+        /// Configuration display name.
         /// </summary>
         public readonly string ConfigurationDisplayName;
         /// <summary>
-        /// Product family display name
+        /// Product family display name.
         /// </summary>
         public readonly string ProductFamilyDisplayName;
 

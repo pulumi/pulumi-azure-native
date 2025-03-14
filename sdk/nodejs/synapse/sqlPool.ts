@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Analytics pool
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-05-01, 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class SqlPool extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SqlPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlPool.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Collation mode
      */
@@ -129,11 +131,13 @@ export class SqlPool extends pulumi.CustomResource {
             resourceInputs["storageAccountType"] = (args ? args.storageAccountType : undefined) ?? "GRS";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

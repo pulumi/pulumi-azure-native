@@ -15,11 +15,35 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     /// </summary>
     public sealed class InterfacePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bfdIpv4Endpoints")]
+        private InputList<string>? _bfdIpv4Endpoints;
+
+        /// <summary>
+        /// The IPv4 addresses of the endpoints to send BFD probes to.
+        /// </summary>
+        public InputList<string> BfdIpv4Endpoints
+        {
+            get => _bfdIpv4Endpoints ?? (_bfdIpv4Endpoints = new InputList<string>());
+            set => _bfdIpv4Endpoints = value;
+        }
+
         /// <summary>
         /// The IPv4 address.
         /// </summary>
         [Input("ipv4Address")]
         public Input<string>? Ipv4Address { get; set; }
+
+        [Input("ipv4AddressList")]
+        private InputList<string>? _ipv4AddressList;
+
+        /// <summary>
+        /// The list of IPv4 addresses, for a multi-node system.
+        /// </summary>
+        public InputList<string> Ipv4AddressList
+        {
+            get => _ipv4AddressList ?? (_ipv4AddressList = new InputList<string>());
+            set => _ipv4AddressList = value;
+        }
 
         /// <summary>
         /// The default IPv4 gateway (router).
@@ -38,6 +62,12 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// VLAN identifier of the network interface. Example: 501.
+        /// </summary>
+        [Input("vlanId")]
+        public Input<int>? VlanId { get; set; }
 
         public InterfacePropertiesArgs()
         {

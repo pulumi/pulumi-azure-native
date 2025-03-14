@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
         /// Gets or sets the current version status of VMware Tools installed in the guest operating system.
         /// </summary>
         public readonly string ToolsVersionStatus;
+        /// <summary>
+        /// Windows Configuration.
+        /// </summary>
+        public readonly Outputs.WindowsConfigurationResponse? WindowsConfiguration;
 
         [OutputConstructor]
         private OsProfileForVMInstanceResponse(
@@ -65,7 +69,9 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
 
             string toolsVersion,
 
-            string toolsVersionStatus)
+            string toolsVersionStatus,
+
+            Outputs.WindowsConfigurationResponse? windowsConfiguration)
         {
             AdminUsername = adminUsername;
             ComputerName = computerName;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Outputs
             ToolsRunningStatus = toolsRunningStatus;
             ToolsVersion = toolsVersion;
             ToolsVersionStatus = toolsVersionStatus;
+            WindowsConfiguration = windowsConfiguration;
         }
     }
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A custom image.
- * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 2.x: 2018-09-15.
  */
 export class CustomImage extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class CustomImage extends pulumi.CustomResource {
      * The author of the custom image.
      */
     public readonly author!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation date of the custom image.
      */
@@ -134,12 +138,14 @@ export class CustomImage extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vhd"] = args ? args.vhd : undefined;
             resourceInputs["vm"] = args ? args.vm : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
             resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["customImagePlan"] = undefined /*out*/;
             resourceInputs["dataDiskStorageInfo"] = undefined /*out*/;

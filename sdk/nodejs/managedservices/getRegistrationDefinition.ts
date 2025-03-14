@@ -35,6 +35,10 @@ export interface GetRegistrationDefinitionArgs {
  */
 export interface GetRegistrationDefinitionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The fully qualified path of the registration definition.
      */
     readonly id: string;

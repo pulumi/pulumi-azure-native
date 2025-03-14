@@ -203,7 +203,7 @@ class Webhook(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent an AppComplianceAutomation webhook resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -226,7 +226,7 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation webhook resource.
-        Azure REST API version: 2024-06-27.
+        Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -274,6 +274,7 @@ class Webhook(pulumi.CustomResource):
             __props__.__dict__["update_webhook_key"] = update_webhook_key
             __props__.__dict__["webhook_key"] = webhook_key
             __props__.__dict__["webhook_name"] = webhook_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["delivery_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -306,6 +307,7 @@ class Webhook(pulumi.CustomResource):
 
         __props__ = WebhookArgs.__new__(WebhookArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["content_type"] = None
         __props__.__dict__["delivery_status"] = None
         __props__.__dict__["enable_ssl_verification"] = None
@@ -323,6 +325,14 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["webhook_key"] = None
         __props__.__dict__["webhook_key_enabled"] = None
         return Webhook(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="contentType")

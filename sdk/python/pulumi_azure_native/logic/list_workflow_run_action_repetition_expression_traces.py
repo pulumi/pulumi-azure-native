@@ -57,8 +57,6 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
     Lists a workflow run expression trace.
     Azure REST API version: 2019-05-01.
 
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
-
 
     :param str action_name: The workflow action name.
     :param str repetition_name: The workflow repetition.
@@ -86,8 +84,6 @@ def list_workflow_run_action_repetition_expression_traces_output(action_name: Op
     """
     Lists a workflow run expression trace.
     Azure REST API version: 2019-05-01.
-
-    Other available API versions: 2016-06-01, 2018-07-01-preview.
 
 
     :param str action_name: The workflow action name.

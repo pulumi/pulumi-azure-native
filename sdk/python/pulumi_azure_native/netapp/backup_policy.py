@@ -184,9 +184,7 @@ class BackupPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Backup policy information
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -208,9 +206,7 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup policy information
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2021-04-01, 2021-04-01-preview, 2022-11-01-preview, 2023-05-01, 2023-05-01-preview, 2023-07-01, 2023-07-01-preview, 2023-11-01, 2023-11-01-preview, 2024-01-01, 2024-03-01, 2024-03-01-preview, 2024-05-01, 2024-05-01-preview, 2024-07-01, 2024-07-01-preview, 2024-09-01, 2024-09-01-preview.
+        Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -258,6 +254,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["weekly_backups_to_keep"] = weekly_backups_to_keep
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["backup_policy_id"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
@@ -290,6 +287,7 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__ = BackupPolicyArgs.__new__(BackupPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backup_policy_id"] = None
         __props__.__dict__["daily_backups_to_keep"] = None
         __props__.__dict__["enabled"] = None
@@ -307,10 +305,18 @@ class BackupPolicy(pulumi.CustomResource):
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="backupPolicyId")
     def backup_policy_id(self) -> pulumi.Output[str]:
         """
-        Backup Policy Resource ID
+        Backup Policy GUID ID
         """
         return pulumi.get(self, "backup_policy_id")
 

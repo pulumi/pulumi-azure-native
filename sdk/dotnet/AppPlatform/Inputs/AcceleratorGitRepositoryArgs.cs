@@ -43,6 +43,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<int>? IntervalInSeconds { get; set; }
 
         /// <summary>
+        /// Folder path inside the git repository to consider as the root of the accelerator or fragment.
+        /// </summary>
+        [Input("subPath")]
+        public Input<string>? SubPath { get; set; }
+
+        /// <summary>
         /// Git repository URL for the accelerator.
         /// </summary>
         [Input("url", required: true)]

@@ -27,10 +27,13 @@ class GetRoleDefinitionResult:
     """
     Role definition.
     """
-    def __init__(__self__, assignable_scopes=None, created_by=None, created_on=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None, updated_by=None, updated_on=None):
+    def __init__(__self__, assignable_scopes=None, azure_api_version=None, created_by=None, created_on=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None, updated_by=None, updated_on=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if created_by and not isinstance(created_by, str):
             raise TypeError("Expected argument 'created_by' to be a str")
         pulumi.set(__self__, "created_by", created_by)
@@ -72,6 +75,14 @@ class GetRoleDefinitionResult:
         Role definition assignable scopes.
         """
         return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdBy")
@@ -169,6 +180,7 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             yield self
         return GetRoleDefinitionResult(
             assignable_scopes=self.assignable_scopes,
+            azure_api_version=self.azure_api_version,
             created_by=self.created_by,
             created_on=self.created_on,
             description=self.description,
@@ -201,6 +213,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
 
     return AwaitableGetRoleDefinitionResult(
         assignable_scopes=pulumi.get(__ret__, 'assignable_scopes'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
         created_on=pulumi.get(__ret__, 'created_on'),
         description=pulumi.get(__ret__, 'description'),
@@ -230,6 +243,7 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult)
     return __ret__.apply(lambda __response__: GetRoleDefinitionResult(
         assignable_scopes=pulumi.get(__response__, 'assignable_scopes'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         created_by=pulumi.get(__response__, 'created_by'),
         created_on=pulumi.get(__response__, 'created_on'),
         description=pulumi.get(__response__, 'description'),

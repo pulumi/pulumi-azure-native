@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'DistributeVersionerLatestResponse',
     'DistributeVersionerSourceResponse',
+    'ImageTemplateAutoRunResponse',
     'ImageTemplateFileCustomizerResponse',
     'ImageTemplateFileValidatorResponse',
     'ImageTemplateIdentityResponse',
@@ -28,6 +29,7 @@ __all__ = [
     'ImageTemplatePlatformImageSourceResponse',
     'ImageTemplatePowerShellCustomizerResponse',
     'ImageTemplatePowerShellValidatorResponse',
+    'ImageTemplatePropertiesResponseErrorHandling',
     'ImageTemplatePropertiesResponseOptimize',
     'ImageTemplatePropertiesResponseValidate',
     'ImageTemplatePropertiesResponseVmBoot',
@@ -108,6 +110,29 @@ class DistributeVersionerSourceResponse(dict):
         Expected value is 'Source'.
         """
         return pulumi.get(self, "scheme")
+
+
+@pulumi.output_type
+class ImageTemplateAutoRunResponse(dict):
+    """
+    Indicates if the image template needs to be built on create/update
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Indicates if the image template needs to be built on create/update
+        :param str state: Enabling this field will trigger an automatic build on image template creation or update.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Enabling this field will trigger an automatic build on image template creation or update.
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -974,6 +999,64 @@ class ImageTemplatePowerShellValidatorResponse(dict):
         Valid exit codes for the PowerShell script. [Default: 0]
         """
         return pulumi.get(self, "valid_exit_codes")
+
+
+@pulumi.output_type
+class ImageTemplatePropertiesResponseErrorHandling(dict):
+    """
+    Error handling options upon a build failure
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onCustomizerError":
+            suggest = "on_customizer_error"
+        elif key == "onValidationError":
+            suggest = "on_validation_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageTemplatePropertiesResponseErrorHandling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageTemplatePropertiesResponseErrorHandling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageTemplatePropertiesResponseErrorHandling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_customizer_error: Optional[str] = None,
+                 on_validation_error: Optional[str] = None):
+        """
+        Error handling options upon a build failure
+        :param str on_customizer_error: If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved.
+        :param str on_validation_error: If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+        """
+        if on_customizer_error is None:
+            on_customizer_error = 'cleanup'
+        if on_customizer_error is not None:
+            pulumi.set(__self__, "on_customizer_error", on_customizer_error)
+        if on_validation_error is None:
+            on_validation_error = 'cleanup'
+        if on_validation_error is not None:
+            pulumi.set(__self__, "on_validation_error", on_validation_error)
+
+    @property
+    @pulumi.getter(name="onCustomizerError")
+    def on_customizer_error(self) -> Optional[str]:
+        """
+        If there is a customizer error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a customizer error and this field is set to 'abort', the build VM will be preserved.
+        """
+        return pulumi.get(self, "on_customizer_error")
+
+    @property
+    @pulumi.getter(name="onValidationError")
+    def on_validation_error(self) -> Optional[str]:
+        """
+        If there is a validation error and this field is set to 'cleanup', the build VM and associated network resources will be cleaned up. This is the default behavior. If there is a validation error and this field is set to 'abort', the build VM will be preserved.
+        """
+        return pulumi.get(self, "on_validation_error")
 
 
 @pulumi.output_type
@@ -2259,7 +2342,9 @@ class VirtualNetworkConfigResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "proxyVmSize":
+        if key == "containerInstanceSubnetId":
+            suggest = "container_instance_subnet_id"
+        elif key == "proxyVmSize":
             suggest = "proxy_vm_size"
         elif key == "subnetId":
             suggest = "subnet_id"
@@ -2276,13 +2361,17 @@ class VirtualNetworkConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 container_instance_subnet_id: Optional[str] = None,
                  proxy_vm_size: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
         Virtual Network configuration.
-        :param str proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
-        :param str subnet_id: Resource id of a pre-existing subnet.
+        :param str container_instance_subnet_id: Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
+        :param str proxy_vm_size: Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
+        :param str subnet_id: Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed
         """
+        if container_instance_subnet_id is not None:
+            pulumi.set(__self__, "container_instance_subnet_id", container_instance_subnet_id)
         if proxy_vm_size is None:
             proxy_vm_size = ''
         if proxy_vm_size is not None:
@@ -2291,10 +2380,18 @@ class VirtualNetworkConfigResponse(dict):
             pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
+    @pulumi.getter(name="containerInstanceSubnetId")
+    def container_instance_subnet_id(self) -> Optional[str]:
+        """
+        Resource id of a pre-existing subnet on which Azure Container Instance will be deployed for Isolated Builds. This field may be specified only if `subnetId` is also specified and must be on the same Virtual Network as the subnet specified in `subnetId`.
+        """
+        return pulumi.get(self, "container_instance_subnet_id")
+
+    @property
     @pulumi.getter(name="proxyVmSize")
     def proxy_vm_size(self) -> Optional[str]:
         """
-        Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. Omit or specify empty string to use the default (Standard_A1_v2).
+        Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
         """
         return pulumi.get(self, "proxy_vm_size")
 
@@ -2302,7 +2399,7 @@ class VirtualNetworkConfigResponse(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         """
-        Resource id of a pre-existing subnet.
+        Resource id of a pre-existing subnet on which the build VM and validation VM will be deployed
         """
         return pulumi.get(self, "subnet_id")
 

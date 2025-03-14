@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer subscription which can use a sku.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class VendorSkuPreview extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class VendorSkuPreview extends pulumi.CustomResource {
         return obj['__pulumiType'] === VendorSkuPreview.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The preview subscription ID.
      */
@@ -75,11 +79,13 @@ export class VendorSkuPreview extends pulumi.CustomResource {
             resourceInputs["previewSubscription"] = args ? args.previewSubscription : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

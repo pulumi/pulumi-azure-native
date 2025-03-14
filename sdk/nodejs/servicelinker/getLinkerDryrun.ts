@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * get a dryrun job
- * Azure REST API version: 2022-11-01-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getLinkerDryrun(args: GetLinkerDryrunArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkerDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetLinkerDryrunArgs {
  * a dryrun job resource
  */
 export interface GetLinkerDryrunResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -71,9 +73,7 @@ export interface GetLinkerDryrunResult {
 }
 /**
  * get a dryrun job
- * Azure REST API version: 2022-11-01-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2024-04-01, 2024-07-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getLinkerDryrunOutput(args: GetLinkerDryrunOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkerDryrunResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

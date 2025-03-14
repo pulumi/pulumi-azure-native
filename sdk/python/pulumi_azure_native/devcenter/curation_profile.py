@@ -117,9 +117,7 @@ class CurationProfile(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an curation profile resource.
-        Azure REST API version: 2024-08-01-preview.
-
-        Other available API versions: 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class CurationProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an curation profile resource.
-        Azure REST API version: 2024-08-01-preview.
-
-        Other available API versions: 2024-10-01-preview.
+        Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CurationProfileArgs args: The arguments to use to populate this resource's properties.
@@ -179,6 +175,7 @@ class CurationProfile(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_policies"] = resource_policies
             __props__.__dict__["scopes"] = scopes
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -207,6 +204,7 @@ class CurationProfile(pulumi.CustomResource):
 
         __props__ = CurationProfileArgs.__new__(CurationProfileArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_policies"] = None
@@ -214,6 +212,14 @@ class CurationProfile(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return CurationProfile(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

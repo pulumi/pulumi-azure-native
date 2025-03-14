@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     {
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Task<GetSyncSetResult> InvokeAsync(GetSyncSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation returns properties of a SyncSet.
-        /// Azure REST API version: 2022-09-04.
-        /// 
-        /// Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+        /// Azure REST API version: 2023-11-22.
         /// </summary>
         public static Output<GetSyncSetResult> Invoke(GetSyncSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncSetResult>("azure-native:redhatopenshift:getSyncSet", args ?? new GetSyncSetInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     public sealed class GetSyncSetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
         [OutputConstructor]
         private GetSyncSetResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Resources = resources;

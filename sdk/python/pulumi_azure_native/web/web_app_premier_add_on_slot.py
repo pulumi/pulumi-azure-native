@@ -36,7 +36,7 @@ class WebAppPremierAddOnSlotArgs:
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[str] marketplace_publisher: Premier add on Marketplace publisher.
@@ -108,7 +108,7 @@ class WebAppPremierAddOnSlotArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -233,13 +233,11 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Premier add-on.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] marketplace_offer: Premier add on Marketplace offer.
         :param pulumi.Input[str] marketplace_publisher: Premier add on Marketplace publisher.
@@ -260,9 +258,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Premier add-on.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppPremierAddOnSlotArgs args: The arguments to use to populate this resource's properties.
@@ -318,6 +314,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vendor"] = vendor
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppPremierAddOnSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppPremierAddOnSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -343,6 +340,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
 
         __props__ = WebAppPremierAddOnSlotArgs.__new__(WebAppPremierAddOnSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["marketplace_offer"] = None
@@ -356,10 +354,18 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         return WebAppPremierAddOnSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 

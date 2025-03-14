@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
-    /// The type of private cloud addon
+    /// Addon type
     /// </summary>
     [EnumType]
     public readonly struct AddonType : IEquatable<AddonType>
@@ -41,68 +41,6 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
-    /// vm-host placement policy affinity strength (should/must)
-    /// </summary>
-    [EnumType]
-    public readonly struct AffinityStrength : IEquatable<AffinityStrength>
-    {
-        private readonly string _value;
-
-        private AffinityStrength(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AffinityStrength Should { get; } = new AffinityStrength("Should");
-        public static AffinityStrength Must { get; } = new AffinityStrength("Must");
-
-        public static bool operator ==(AffinityStrength left, AffinityStrength right) => left.Equals(right);
-        public static bool operator !=(AffinityStrength left, AffinityStrength right) => !left.Equals(right);
-
-        public static explicit operator string(AffinityStrength value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AffinityStrength other && Equals(other);
-        public bool Equals(AffinityStrength other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// placement policy affinity type
-    /// </summary>
-    [EnumType]
-    public readonly struct AffinityType : IEquatable<AffinityType>
-    {
-        private readonly string _value;
-
-        private AffinityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AffinityType Affinity { get; } = new AffinityType("Affinity");
-        public static AffinityType AntiAffinity { get; } = new AffinityType("AntiAffinity");
-
-        public static bool operator ==(AffinityType left, AffinityType right) => left.Equals(right);
-        public static bool operator !=(AffinityType left, AffinityType right) => !left.Equals(right);
-
-        public static explicit operator string(AffinityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AffinityType other && Equals(other);
-        public bool Equals(AffinityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The availability strategy for the private cloud
     /// </summary>
     [EnumType]
@@ -115,7 +53,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// in single zone
+        /// </summary>
         public static AvailabilityStrategy SingleZone { get; } = new AvailabilityStrategy("SingleZone");
+        /// <summary>
+        /// in two zones
+        /// </summary>
         public static AvailabilityStrategy DualZone { get; } = new AvailabilityStrategy("DualZone");
 
         public static bool operator ==(AvailabilityStrategy left, AvailabilityStrategy right) => left.Equals(right);
@@ -126,37 +70,6 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AvailabilityStrategy other && Equals(other);
         public bool Equals(AvailabilityStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// placement policy azure hybrid benefit opt-in type
-    /// </summary>
-    [EnumType]
-    public readonly struct AzureHybridBenefitType : IEquatable<AzureHybridBenefitType>
-    {
-        private readonly string _value;
-
-        private AzureHybridBenefitType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AzureHybridBenefitType SqlHost { get; } = new AzureHybridBenefitType("SqlHost");
-        public static AzureHybridBenefitType None { get; } = new AzureHybridBenefitType("None");
-
-        public static bool operator ==(AzureHybridBenefitType left, AzureHybridBenefitType right) => left.Equals(right);
-        public static bool operator !=(AzureHybridBenefitType left, AzureHybridBenefitType right) => !left.Equals(right);
-
-        public static explicit operator string(AzureHybridBenefitType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AzureHybridBenefitType other && Equals(other);
-        public bool Equals(AzureHybridBenefitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -208,10 +121,25 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is debug
+        /// </summary>
         public static DnsServiceLogLevelEnum DEBUG { get; } = new DnsServiceLogLevelEnum("DEBUG");
+        /// <summary>
+        /// is info
+        /// </summary>
         public static DnsServiceLogLevelEnum INFO { get; } = new DnsServiceLogLevelEnum("INFO");
+        /// <summary>
+        /// is warning
+        /// </summary>
         public static DnsServiceLogLevelEnum WARNING { get; } = new DnsServiceLogLevelEnum("WARNING");
+        /// <summary>
+        /// is error
+        /// </summary>
         public static DnsServiceLogLevelEnum ERROR { get; } = new DnsServiceLogLevelEnum("ERROR");
+        /// <summary>
+        /// is fatal
+        /// </summary>
         public static DnsServiceLogLevelEnum FATAL { get; } = new DnsServiceLogLevelEnum("FATAL");
 
         public static bool operator ==(DnsServiceLogLevelEnum left, DnsServiceLogLevelEnum right) => left.Equals(right);
@@ -222,6 +150,43 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DnsServiceLogLevelEnum other && Equals(other);
         public bool Equals(DnsServiceLogLevelEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of DNS zone to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct DnsZoneType : IEquatable<DnsZoneType>
+    {
+        private readonly string _value;
+
+        private DnsZoneType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Primary DNS zone.
+        /// </summary>
+        public static DnsZoneType Public { get; } = new DnsZoneType("Public");
+        /// <summary>
+        /// Private DNS zone.
+        /// </summary>
+        public static DnsZoneType Private { get; } = new DnsZoneType("Private");
+
+        public static bool operator ==(DnsZoneType left, DnsZoneType right) => left.Equals(right);
+        public static bool operator !=(DnsZoneType left, DnsZoneType right) => !left.Equals(right);
+
+        public static explicit operator string(DnsZoneType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DnsZoneType other && Equals(other);
+        public bool Equals(DnsZoneType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -242,7 +207,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is enabled
+        /// </summary>
         public static EncryptionState Enabled { get; } = new EncryptionState("Enabled");
+        /// <summary>
+        /// is disabled
+        /// </summary>
         public static EncryptionState Disabled { get; } = new EncryptionState("Disabled");
 
         public static bool operator ==(EncryptionState left, EncryptionState right) => left.Equals(right);
@@ -273,7 +244,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is enabled
+        /// </summary>
         public static InternetEnum Enabled { get; } = new InternetEnum("Enabled");
+        /// <summary>
+        /// is disabled
+        /// </summary>
         public static InternetEnum Disabled { get; } = new InternetEnum("Disabled");
 
         public static bool operator ==(InternetEnum left, InternetEnum right) => left.Equals(right);
@@ -292,7 +269,8 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
-    /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+    /// Mode that describes whether the LUN has to be mounted as a datastore or
+    /// attached as a LUN
     /// </summary>
     [EnumType]
     public readonly struct MountOptionEnum : IEquatable<MountOptionEnum>
@@ -304,7 +282,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is mount
+        /// </summary>
         public static MountOptionEnum MOUNT { get; } = new MountOptionEnum("MOUNT");
+        /// <summary>
+        /// is attach
+        /// </summary>
         public static MountOptionEnum ATTACH { get; } = new MountOptionEnum("ATTACH");
 
         public static bool operator ==(MountOptionEnum left, MountOptionEnum right) => left.Equals(right);
@@ -335,7 +319,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is enabled
+        /// </summary>
         public static PlacementPolicyState Enabled { get; } = new PlacementPolicyState("Enabled");
+        /// <summary>
+        /// is disabled
+        /// </summary>
         public static PlacementPolicyState Disabled { get; } = new PlacementPolicyState("Disabled");
 
         public static bool operator ==(PlacementPolicyState left, PlacementPolicyState right) => left.Equals(right);
@@ -354,7 +344,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
-    /// placement policy type
+    /// Placement Policy type
     /// </summary>
     [EnumType]
     public readonly struct PlacementPolicyType : IEquatable<PlacementPolicyType>
@@ -397,8 +387,17 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is ingress
+        /// </summary>
         public static PortMirroringDirectionEnum INGRESS { get; } = new PortMirroringDirectionEnum("INGRESS");
+        /// <summary>
+        /// is egress
+        /// </summary>
         public static PortMirroringDirectionEnum EGRESS { get; } = new PortMirroringDirectionEnum("EGRESS");
+        /// <summary>
+        /// is bidirectional
+        /// </summary>
         public static PortMirroringDirectionEnum BIDIRECTIONAL { get; } = new PortMirroringDirectionEnum("BIDIRECTIONAL");
 
         public static bool operator ==(PortMirroringDirectionEnum left, PortMirroringDirectionEnum right) => left.Equals(right);
@@ -417,38 +416,7 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
-    /// The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
-    /// </summary>
-    [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
-    {
-        private readonly string _value;
-
-        private ResourceIdentityType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
-
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
-
-        public static explicit operator string(ResourceIdentityType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of execution parameter
+    /// script execution parameter type
     /// </summary>
     [EnumType]
     public readonly struct ScriptExecutionParameterType : IEquatable<ScriptExecutionParameterType>
@@ -480,6 +448,39 @@ namespace Pulumi.AzureNative.AVS
     }
 
     /// <summary>
+    /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuTier : IEquatable<SkuTier>
+    {
+        private readonly string _value;
+
+        private SkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuTier Free { get; } = new SkuTier("Free");
+        public static SkuTier Basic { get; } = new SkuTier("Basic");
+        public static SkuTier Standard { get; } = new SkuTier("Standard");
+        public static SkuTier Premium { get; } = new SkuTier("Premium");
+
+        public static bool operator ==(SkuTier left, SkuTier right) => left.Equals(right);
+        public static bool operator !=(SkuTier left, SkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(SkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
+        public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Protect LDAP communication using SSL certificate (LDAPS)
     /// </summary>
     [EnumType]
@@ -492,7 +493,13 @@ namespace Pulumi.AzureNative.AVS
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// is enabled
+        /// </summary>
         public static SslEnum Enabled { get; } = new SslEnum("Enabled");
+        /// <summary>
+        /// is disabled
+        /// </summary>
         public static SslEnum Disabled { get; } = new SslEnum("Disabled");
 
         public static bool operator ==(SslEnum left, SslEnum right) => left.Equals(right);
@@ -503,6 +510,37 @@ namespace Pulumi.AzureNative.AVS
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SslEnum other && Equals(other);
         public bool Equals(SslEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (either system assigned, or none).
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemAssignedServiceIdentityType : IEquatable<SystemAssignedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private SystemAssignedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemAssignedServiceIdentityType None { get; } = new SystemAssignedServiceIdentityType("None");
+        public static SystemAssignedServiceIdentityType SystemAssigned { get; } = new SystemAssignedServiceIdentityType("SystemAssigned");
+
+        public static bool operator ==(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(SystemAssignedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemAssignedServiceIdentityType other && Equals(other);
+        public bool Equals(SystemAssignedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

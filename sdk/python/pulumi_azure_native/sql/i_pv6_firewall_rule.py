@@ -132,9 +132,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  __props__=None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +151,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An IPv6 server firewall rule.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-08-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param IPv6FirewallRuleArgs args: The arguments to use to populate this resource's properties.
@@ -197,6 +193,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["start_i_pv6_address"] = start_i_pv6_address
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220501preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20230201preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20230501preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20230801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20240501preview:IPv6FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -222,11 +219,20 @@ class IPv6FirewallRule(pulumi.CustomResource):
 
         __props__ = IPv6FirewallRuleArgs.__new__(IPv6FirewallRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["end_i_pv6_address"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["start_i_pv6_address"] = None
         __props__.__dict__["type"] = None
         return IPv6FirewallRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endIPv6Address")

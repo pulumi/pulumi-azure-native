@@ -40,6 +40,10 @@ export interface GetShareSubscriptionArgs {
  */
 export interface GetShareSubscriptionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Time at which the share subscription was created.
      */
     readonly createdAt: string;

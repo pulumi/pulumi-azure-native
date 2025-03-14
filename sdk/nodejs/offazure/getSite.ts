@@ -35,6 +35,10 @@ export interface GetSiteArgs {
  */
 export interface GetSiteResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * eTag for concurrency control.
      */
     readonly eTag?: string;

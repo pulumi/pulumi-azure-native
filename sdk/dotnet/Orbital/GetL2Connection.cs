@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified L2 connection in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Task<GetL2ConnectionResult> InvokeAsync(GetL2ConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetL2ConnectionResult>("azure-native:orbital:getL2Connection", args ?? new GetL2ConnectionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified L2 connection in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetL2ConnectionResult> Invoke(GetL2ConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2ConnectionResult>("azure-native:orbital:getL2Connection", args ?? new GetL2ConnectionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Gets the specified L2 connection in a specified resource group.
         /// Azure REST API version: 2024-03-01-preview.
-        /// 
-        /// Other available API versions: 2024-03-01.
         /// </summary>
         public static Output<GetL2ConnectionResult> Invoke(GetL2ConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetL2ConnectionResult>("azure-native:orbital:getL2Connection", args ?? new GetL2ConnectionInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetL2ConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Globally-unique identifier for this connection that is to be used as a circuit ID.
         /// </summary>
         public readonly string CircuitId;
@@ -96,6 +94,10 @@ namespace Pulumi.AzureNative.Orbital
         /// A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
         /// </summary>
         public readonly Outputs.L2ConnectionsPropertiesResponseGroundStation GroundStation;
+        /// <summary>
+        /// The name of the partner router to establish a connection to within the ground station.
+        /// </summary>
+        public readonly Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter GroundStationPartnerRouter;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -127,11 +129,15 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetL2ConnectionResult(
+            string azureApiVersion,
+
             string circuitId,
 
             Outputs.L2ConnectionsPropertiesResponseEdgeSite edgeSite,
 
             Outputs.L2ConnectionsPropertiesResponseGroundStation groundStation,
+
+            Outputs.L2ConnectionsPropertiesResponseGroundStationPartnerRouter groundStationPartnerRouter,
 
             string id,
 
@@ -147,9 +153,11 @@ namespace Pulumi.AzureNative.Orbital
 
             int vlanId)
         {
+            AzureApiVersion = azureApiVersion;
             CircuitId = circuitId;
             EdgeSite = edgeSite;
             GroundStation = groundStation;
+            GroundStationPartnerRouter = groundStationPartnerRouter;
             Id = id;
             Location = location;
             Name = name;

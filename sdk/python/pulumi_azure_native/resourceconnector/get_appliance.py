@@ -27,7 +27,10 @@ class GetApplianceResult:
     """
     Appliances definition.
     """
-    def __init__(__self__, distro=None, id=None, identity=None, infrastructure_config=None, location=None, name=None, provisioning_state=None, public_key=None, status=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, distro=None, id=None, identity=None, infrastructure_config=None, location=None, name=None, provisioning_state=None, public_key=None, status=None, system_data=None, tags=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if distro and not isinstance(distro, str):
             raise TypeError("Expected argument 'distro' to be a str")
         pulumi.set(__self__, "distro", distro)
@@ -67,6 +70,14 @@ class GetApplianceResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -179,6 +190,7 @@ class AwaitableGetApplianceResult(GetApplianceResult):
         if False:
             yield self
         return GetApplianceResult(
+            azure_api_version=self.azure_api_version,
             distro=self.distro,
             id=self.id,
             identity=self.identity,
@@ -201,8 +213,6 @@ def get_appliance(resource_group_name: Optional[str] = None,
     Gets the details of an Appliance with a specified resource group and name.
     Azure REST API version: 2022-10-27.
 
-    Other available API versions: 2021-10-31-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
@@ -214,6 +224,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resourceconnector:getAppliance', __args__, opts=opts, typ=GetApplianceResult).value
 
     return AwaitableGetApplianceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         distro=pulumi.get(__ret__, 'distro'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -234,8 +245,6 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
     Gets the details of an Appliance with a specified resource group and name.
     Azure REST API version: 2022-10-27.
 
-    Other available API versions: 2021-10-31-preview.
-
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: Appliances name.
@@ -246,6 +255,7 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resourceconnector:getAppliance', __args__, opts=opts, typ=GetApplianceResult)
     return __ret__.apply(lambda __response__: GetApplianceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         distro=pulumi.get(__response__, 'distro'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

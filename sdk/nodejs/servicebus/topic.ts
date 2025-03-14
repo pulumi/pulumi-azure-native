@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of topic resource.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class Topic extends pulumi.CustomResource {
      * ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Message count details
      */
@@ -157,6 +159,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
             resourceInputs["topicName"] = args ? args.topicName : undefined;
             resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -169,6 +172,7 @@ export class Topic extends pulumi.CustomResource {
         } else {
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["defaultMessageTimeToLive"] = undefined /*out*/;
@@ -241,7 +245,7 @@ export interface TopicArgs {
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

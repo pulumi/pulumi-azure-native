@@ -32,6 +32,10 @@ export interface GetAdvancedThreatProtectionArgs {
  */
 export interface GetAdvancedThreatProtectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource Id
      */
     readonly id: string;

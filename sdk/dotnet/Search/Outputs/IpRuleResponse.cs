@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// The IP restriction rule of the Azure Cognitive Search service.
+    /// The IP restriction rule of the search service.
     /// </summary>
     [OutputType]
     public sealed class IpRuleResponse
     {
         /// <summary>
-        /// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
+        /// Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
         /// </summary>
         public readonly string? Value;
 

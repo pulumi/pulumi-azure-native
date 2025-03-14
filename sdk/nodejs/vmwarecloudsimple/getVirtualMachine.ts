@@ -39,6 +39,10 @@ export interface GetVirtualMachineResult {
      */
     readonly amountOfRam: number;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The list of Virtual Disks' Controllers
      */
     readonly controllers: outputs.vmwarecloudsimple.VirtualDiskControllerResponse[];

@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// public network access is enabled or not
         /// </summary>
-        public readonly string PublicNetworkAccess;
+        public readonly string? PublicNetworkAccess;
 
         [OutputConstructor]
         private NetworkResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
             string? privateDnsZoneArmResourceId,
 
-            string publicNetworkAccess)
+            string? publicNetworkAccess)
         {
             DelegatedSubnetResourceId = delegatedSubnetResourceId;
             PrivateDnsZoneArmResourceId = privateDnsZoneArmResourceId;

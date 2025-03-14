@@ -37,6 +37,10 @@ export interface GetTrustedIdProviderArgs {
  */
 export interface GetTrustedIdProviderResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource identifier.
      */
     readonly id: string;

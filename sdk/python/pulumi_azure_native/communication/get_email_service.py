@@ -27,7 +27,10 @@ class GetEmailServiceResult:
     """
     A class representing an EmailService resource.
     """
-    def __init__(__self__, data_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
@@ -52,6 +55,14 @@ class GetEmailServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -124,6 +135,7 @@ class AwaitableGetEmailServiceResult(GetEmailServiceResult):
         if False:
             yield self
         return GetEmailServiceResult(
+            azure_api_version=self.azure_api_version,
             data_location=self.data_location,
             id=self.id,
             location=self.location,
@@ -139,9 +151,7 @@ def get_email_service(email_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailServiceResult:
     """
     Get the EmailService and its properties.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str email_service_name: The name of the EmailService resource.
@@ -154,6 +164,7 @@ def get_email_service(email_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getEmailService', __args__, opts=opts, typ=GetEmailServiceResult).value
 
     return AwaitableGetEmailServiceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_location=pulumi.get(__ret__, 'data_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -167,9 +178,7 @@ def get_email_service_output(email_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailServiceResult]:
     """
     Get the EmailService and its properties.
-    Azure REST API version: 2023-03-31.
-
-    Other available API versions: 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str email_service_name: The name of the EmailService resource.
@@ -181,6 +190,7 @@ def get_email_service_output(email_service_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:communication:getEmailService', __args__, opts=opts, typ=GetEmailServiceResult)
     return __ret__.apply(lambda __response__: GetEmailServiceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_location=pulumi.get(__response__, 'data_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

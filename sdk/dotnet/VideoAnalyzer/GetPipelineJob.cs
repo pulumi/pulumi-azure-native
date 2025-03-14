@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     public sealed class GetPipelineJobResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An optional description for the pipeline.
         /// </summary>
         public readonly string? Description;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
         [OutputConstructor]
         private GetPipelineJobResult(
+            string azureApiVersion,
+
             string? description,
 
             Outputs.PipelineJobErrorResponse error,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Error = error;
             Expiration = expiration;

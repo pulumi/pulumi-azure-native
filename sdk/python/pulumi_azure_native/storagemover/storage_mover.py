@@ -117,9 +117,7 @@ class StorageMover(pulumi.CustomResource):
                  __props__=None):
         """
         The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -137,9 +135,7 @@ class StorageMover(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
-        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview.
-
-        Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+        Azure REST API version: 2024-07-01. Prior API version in Azure Native 2.x: 2023-03-01.
 
         :param str resource_name: The name of the resource.
         :param StorageMoverArgs args: The arguments to use to populate this resource's properties.
@@ -177,6 +173,7 @@ class StorageMover(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["storage_mover_name"] = storage_mover_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -205,6 +202,7 @@ class StorageMover(pulumi.CustomResource):
 
         __props__ = StorageMoverArgs.__new__(StorageMoverArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -213,6 +211,14 @@ class StorageMover(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return StorageMover(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -250,7 +256,7 @@ class StorageMover(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Resource system metadata.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

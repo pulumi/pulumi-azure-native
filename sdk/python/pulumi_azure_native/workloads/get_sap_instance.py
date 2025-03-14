@@ -27,10 +27,13 @@ class GetSapInstanceResult:
     """
     Define the SAP Instance resource.
     """
-    def __init__(__self__, application=None, environment=None, errors=None, id=None, landscape_sid=None, location=None, name=None, provisioning_state=None, system_data=None, system_sid=None, tags=None, type=None):
+    def __init__(__self__, application=None, azure_api_version=None, environment=None, errors=None, id=None, landscape_sid=None, location=None, name=None, provisioning_state=None, system_data=None, system_sid=None, tags=None, type=None):
         if application and not isinstance(application, str):
             raise TypeError("Expected argument 'application' to be a str")
         pulumi.set(__self__, "application", application)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if environment and not isinstance(environment, str):
             raise TypeError("Expected argument 'environment' to be a str")
         pulumi.set(__self__, "environment", environment)
@@ -72,6 +75,14 @@ class GetSapInstanceResult:
         Enter a business function/department identifier to group multiple SIDs.
         """
         return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -169,6 +180,7 @@ class AwaitableGetSapInstanceResult(GetSapInstanceResult):
             yield self
         return GetSapInstanceResult(
             application=self.application,
+            azure_api_version=self.azure_api_version,
             environment=self.environment,
             errors=self.errors,
             id=self.id,
@@ -204,6 +216,7 @@ def get_sap_instance(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSapInstanceResult(
         application=pulumi.get(__ret__, 'application'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         environment=pulumi.get(__ret__, 'environment'),
         errors=pulumi.get(__ret__, 'errors'),
         id=pulumi.get(__ret__, 'id'),
@@ -236,6 +249,7 @@ def get_sap_instance_output(resource_group_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapInstance', __args__, opts=opts, typ=GetSapInstanceResult)
     return __ret__.apply(lambda __response__: GetSapInstanceResult(
         application=pulumi.get(__response__, 'application'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         environment=pulumi.get(__response__, 'environment'),
         errors=pulumi.get(__response__, 'errors'),
         id=pulumi.get(__response__, 'id'),

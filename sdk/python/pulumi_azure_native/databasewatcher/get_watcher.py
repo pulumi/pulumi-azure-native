@@ -27,10 +27,16 @@ class GetWatcherResult:
     """
     The DatabaseWatcherProviderHub resource.
     """
-    def __init__(__self__, datastore=None, id=None, identity=None, location=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, datastore=None, default_alert_rule_identity_resource_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if datastore and not isinstance(datastore, dict):
             raise TypeError("Expected argument 'datastore' to be a dict")
         pulumi.set(__self__, "datastore", datastore)
+        if default_alert_rule_identity_resource_id and not isinstance(default_alert_rule_identity_resource_id, str):
+            raise TypeError("Expected argument 'default_alert_rule_identity_resource_id' to be a str")
+        pulumi.set(__self__, "default_alert_rule_identity_resource_id", default_alert_rule_identity_resource_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -60,6 +66,14 @@ class GetWatcherResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def datastore(self) -> Optional['outputs.DatastoreResponse']:
         """
@@ -68,10 +82,18 @@ class GetWatcherResult:
         return pulumi.get(self, "datastore")
 
     @property
+    @pulumi.getter(name="defaultAlertRuleIdentityResourceId")
+    def default_alert_rule_identity_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of a user-assigned managed identity that will be assigned to a new alert rule.
+        """
+        return pulumi.get(self, "default_alert_rule_identity_resource_id")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -146,7 +168,9 @@ class AwaitableGetWatcherResult(GetWatcherResult):
         if False:
             yield self
         return GetWatcherResult(
+            azure_api_version=self.azure_api_version,
             datastore=self.datastore,
+            default_alert_rule_identity_resource_id=self.default_alert_rule_identity_resource_id,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -163,9 +187,7 @@ def get_watcher(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWatcherResult:
     """
     Get a Watcher
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -178,7 +200,9 @@ def get_watcher(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databasewatcher:getWatcher', __args__, opts=opts, typ=GetWatcherResult).value
 
     return AwaitableGetWatcherResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         datastore=pulumi.get(__ret__, 'datastore'),
+        default_alert_rule_identity_resource_id=pulumi.get(__ret__, 'default_alert_rule_identity_resource_id'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -193,9 +217,7 @@ def get_watcher_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatcherResult]:
     """
     Get a Watcher
-    Azure REST API version: 2023-09-01-preview.
-
-    Other available API versions: 2024-07-19-preview, 2024-10-01-preview, 2025-01-02.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -207,7 +229,9 @@ def get_watcher_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databasewatcher:getWatcher', __args__, opts=opts, typ=GetWatcherResult)
     return __ret__.apply(lambda __response__: GetWatcherResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         datastore=pulumi.get(__response__, 'datastore'),
+        default_alert_rule_identity_resource_id=pulumi.get(__response__, 'default_alert_rule_identity_resource_id'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

@@ -40,6 +40,10 @@ export interface GetCredentialArgs {
  */
 export interface GetCredentialResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Credential type.
      */
     readonly credentialType: string;

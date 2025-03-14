@@ -16,52 +16,28 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class InferencePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Code configuration for the inference pool.
-        /// </summary>
-        [Input("codeConfiguration")]
-        public Input<Inputs.CodeConfigurationArgs>? CodeConfiguration { get; set; }
-
-        /// <summary>
         /// Description of the resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// EnvironmentConfiguration for the inference pool.
-        /// </summary>
-        [Input("environmentConfiguration")]
-        public Input<Inputs.PoolEnvironmentConfigurationArgs>? EnvironmentConfiguration { get; set; }
-
-        /// <summary>
-        /// ModelConfiguration for the inference pool.
-        /// </summary>
-        [Input("modelConfiguration")]
-        public Input<Inputs.PoolModelConfigurationArgs>? ModelConfiguration { get; set; }
-
-        /// <summary>
-        /// [Required] Compute instance type.
-        /// </summary>
-        [Input("nodeSkuType", required: true)]
-        public Input<string> NodeSkuType { get; set; } = null!;
-
         [Input("properties")]
-        private InputMap<string>? _properties;
+        private InputList<Inputs.StringStringKeyValuePairArgs>? _properties;
 
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public InputMap<string> Properties
+        public InputList<Inputs.StringStringKeyValuePairArgs> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputList<Inputs.StringStringKeyValuePairArgs>());
             set => _properties = value;
         }
 
         /// <summary>
-        /// Request configuration for the inference pool.
+        /// Gets or sets ScaleUnitConfiguration for the inference pool. Used if PoolType=ScaleUnit.
         /// </summary>
-        [Input("requestConfiguration")]
-        public Input<Inputs.RequestConfigurationArgs>? RequestConfiguration { get; set; }
+        [Input("scaleUnitConfiguration")]
+        public Input<Inputs.ScaleUnitConfigurationArgs>? ScaleUnitConfiguration { get; set; }
 
         public InferencePoolArgs()
         {

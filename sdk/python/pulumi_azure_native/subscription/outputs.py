@@ -33,6 +33,8 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
             suggest = "accept_ownership_state"
         elif key == "acceptOwnershipUrl":
             suggest = "accept_ownership_url"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
         elif key == "subscriptionId":
             suggest = "subscription_id"
         elif key == "billingScope":
@@ -43,8 +45,6 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
             suggest = "display_name"
         elif key == "managementGroupId":
             suggest = "management_group_id"
-        elif key == "provisioningState":
-            suggest = "provisioning_state"
         elif key == "resellerId":
             suggest = "reseller_id"
         elif key == "subscriptionOwnerId":
@@ -64,12 +64,12 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
     def __init__(__self__, *,
                  accept_ownership_state: str,
                  accept_ownership_url: str,
+                 provisioning_state: str,
                  subscription_id: str,
                  billing_scope: Optional[str] = None,
                  created_time: Optional[str] = None,
                  display_name: Optional[str] = None,
                  management_group_id: Optional[str] = None,
-                 provisioning_state: Optional[str] = None,
                  reseller_id: Optional[str] = None,
                  subscription_owner_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
@@ -78,6 +78,7 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         Put subscription creation result properties.
         :param str accept_ownership_state: The accept ownership state of the resource.
         :param str accept_ownership_url: Url to accept ownership of the subscription.
+        :param str provisioning_state: The provisioning state of the resource.
         :param str subscription_id: Newly created subscription Id.
         :param str billing_scope: Billing scope of the subscription.
                For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
@@ -86,7 +87,6 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         :param str created_time: Created Time
         :param str display_name: The display name of the subscription.
         :param str management_group_id: The Management Group Id.
-        :param str provisioning_state: The provisioning state of the resource.
         :param str reseller_id: Reseller Id
         :param str subscription_owner_id: Owner Id of the subscription
         :param Mapping[str, str] tags: Tags for the subscription
@@ -94,6 +94,7 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         """
         pulumi.set(__self__, "accept_ownership_state", accept_ownership_state)
         pulumi.set(__self__, "accept_ownership_url", accept_ownership_url)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "subscription_id", subscription_id)
         if billing_scope is not None:
             pulumi.set(__self__, "billing_scope", billing_scope)
@@ -103,8 +104,6 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
             pulumi.set(__self__, "display_name", display_name)
         if management_group_id is not None:
             pulumi.set(__self__, "management_group_id", management_group_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if reseller_id is not None:
             pulumi.set(__self__, "reseller_id", reseller_id)
         if subscription_owner_id is not None:
@@ -129,6 +128,14 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         Url to accept ownership of the subscription.
         """
         return pulumi.get(self, "accept_ownership_url")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="subscriptionId")
@@ -172,14 +179,6 @@ class SubscriptionAliasResponsePropertiesResponse(dict):
         The Management Group Id.
         """
         return pulumi.get(self, "management_group_id")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
-        """
-        The provisioning state of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter(name="resellerId")

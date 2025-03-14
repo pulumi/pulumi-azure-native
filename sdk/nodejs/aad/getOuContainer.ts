@@ -44,6 +44,10 @@ export interface GetOuContainerResult {
      */
     readonly accounts?: outputs.aad.ContainerAccountResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The OuContainer name
      */
     readonly containerId: string;

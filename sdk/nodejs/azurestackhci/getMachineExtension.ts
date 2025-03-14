@@ -44,6 +44,10 @@ export interface GetMachineExtensionResult {
      */
     readonly autoUpgradeMinorVersion?: boolean;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
     readonly forceUpdateTag?: string;

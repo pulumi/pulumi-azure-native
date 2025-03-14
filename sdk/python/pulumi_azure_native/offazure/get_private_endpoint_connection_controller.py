@@ -27,7 +27,10 @@ class GetPrivateEndpointConnectionControllerResult:
     """
     REST model used to encapsulate Private Link properties for tracked resources.
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -52,6 +55,14 @@ class GetPrivateEndpointConnectionControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -124,6 +135,7 @@ class AwaitableGetPrivateEndpointConnectionControllerResult(GetPrivateEndpointCo
         if False:
             yield self
         return GetPrivateEndpointConnectionControllerResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -140,9 +152,7 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[str]
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionControllerResult:
     """
     Gets the private link resource.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str pe_connection_name:  Private link resource name.
@@ -157,6 +167,7 @@ def get_private_endpoint_connection_controller(pe_connection_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:offazure:getPrivateEndpointConnectionController', __args__, opts=opts, typ=GetPrivateEndpointConnectionControllerResult).value
 
     return AwaitableGetPrivateEndpointConnectionControllerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -171,9 +182,7 @@ def get_private_endpoint_connection_controller_output(pe_connection_name: Option
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionControllerResult]:
     """
     Gets the private link resource.
-    Azure REST API version: 2023-06-06.
-
-    Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str pe_connection_name:  Private link resource name.
@@ -187,6 +196,7 @@ def get_private_endpoint_connection_controller_output(pe_connection_name: Option
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:offazure:getPrivateEndpointConnectionController', __args__, opts=opts, typ=GetPrivateEndpointConnectionControllerResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionControllerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -39,6 +39,10 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly allowlistRules?: outputs.security.AllowlistCustomAlertRuleResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The deny-list custom alert rules.
      */
     readonly denylistRules?: outputs.security.DenylistCustomAlertRuleResponse[];

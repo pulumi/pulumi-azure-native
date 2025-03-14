@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified virtual network peering.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVirtualNetworkPeeringResult> InvokeAsync(GetVirtualNetworkPeeringArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network peering.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network peering.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVirtualNetworkPeeringResult> Invoke(GetVirtualNetworkPeeringInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkPeeringResult>("azure-native:network:getVirtualNetworkPeering", args ?? new GetVirtualNetworkPeeringInvokeArgs(), options.WithDefaults());
@@ -109,9 +103,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? AllowVirtualNetworkAccess;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// If we need to verify the provisioning state of the remote gateway.
         /// </summary>
         public readonly bool? DoNotVerifyRemoteGateways;
+        /// <summary>
+        /// Whether only Ipv6 address space is peered for subnet peering.
+        /// </summary>
+        public readonly bool? EnableOnlyIPv6Peering;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -121,9 +123,25 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The local address space of the local virtual network that is peered.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponse? LocalAddressSpace;
+        /// <summary>
+        /// List of local subnet names that are subnet peered with remote virtual network.
+        /// </summary>
+        public readonly ImmutableArray<string> LocalSubnetNames;
+        /// <summary>
+        /// The current local address space of the local virtual network that is peered.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponse? LocalVirtualNetworkAddressSpace;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Whether complete virtual network address space is peered.
+        /// </summary>
+        public readonly bool? PeerCompleteVnets;
         /// <summary>
         /// The status of the virtual network peering.
         /// </summary>
@@ -144,6 +162,10 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the remote virtual network's Bgp Communities.
         /// </summary>
         public readonly Outputs.VirtualNetworkBgpCommunitiesResponse? RemoteBgpCommunities;
+        /// <summary>
+        /// List of remote subnet names from remote virtual network that are subnet peered.
+        /// </summary>
+        public readonly ImmutableArray<string> RemoteSubnetNames;
         /// <summary>
         /// The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         /// </summary>
@@ -177,13 +199,25 @@ namespace Pulumi.AzureNative.Network
 
             bool? allowVirtualNetworkAccess,
 
+            string azureApiVersion,
+
             bool? doNotVerifyRemoteGateways,
+
+            bool? enableOnlyIPv6Peering,
 
             string etag,
 
             string? id,
 
+            Outputs.AddressSpaceResponse? localAddressSpace,
+
+            ImmutableArray<string> localSubnetNames,
+
+            Outputs.AddressSpaceResponse? localVirtualNetworkAddressSpace,
+
             string? name,
+
+            bool? peerCompleteVnets,
 
             string? peeringState,
 
@@ -194,6 +228,8 @@ namespace Pulumi.AzureNative.Network
             Outputs.AddressSpaceResponse? remoteAddressSpace,
 
             Outputs.VirtualNetworkBgpCommunitiesResponse? remoteBgpCommunities,
+
+            ImmutableArray<string> remoteSubnetNames,
 
             Outputs.SubResourceResponse? remoteVirtualNetwork,
 
@@ -210,15 +246,22 @@ namespace Pulumi.AzureNative.Network
             AllowForwardedTraffic = allowForwardedTraffic;
             AllowGatewayTransit = allowGatewayTransit;
             AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
+            AzureApiVersion = azureApiVersion;
             DoNotVerifyRemoteGateways = doNotVerifyRemoteGateways;
+            EnableOnlyIPv6Peering = enableOnlyIPv6Peering;
             Etag = etag;
             Id = id;
+            LocalAddressSpace = localAddressSpace;
+            LocalSubnetNames = localSubnetNames;
+            LocalVirtualNetworkAddressSpace = localVirtualNetworkAddressSpace;
             Name = name;
+            PeerCompleteVnets = peerCompleteVnets;
             PeeringState = peeringState;
             PeeringSyncLevel = peeringSyncLevel;
             ProvisioningState = provisioningState;
             RemoteAddressSpace = remoteAddressSpace;
             RemoteBgpCommunities = remoteBgpCommunities;
+            RemoteSubnetNames = remoteSubnetNames;
             RemoteVirtualNetwork = remoteVirtualNetwork;
             RemoteVirtualNetworkAddressSpace = remoteVirtualNetworkAddressSpace;
             RemoteVirtualNetworkEncryption = remoteVirtualNetworkEncryption;

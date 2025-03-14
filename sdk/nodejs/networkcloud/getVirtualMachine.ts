@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided virtual machine.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetVirtualMachineResult {
      * The cluster availability zone containing this virtual machine.
      */
     readonly availabilityZone: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource ID of the bare metal machine that hosts the virtual machine.
      */
@@ -86,7 +88,7 @@ export interface GetVirtualMachineResult {
      */
     readonly location: string;
     /**
-     * The memory size of the virtual machine in GB.
+     * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
     readonly memorySizeGB: number;
     /**
@@ -160,9 +162,7 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Get properties of the provided virtual machine.
- * Azure REST API version: 2023-10-01-preview.
- *
- * Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-07-01.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

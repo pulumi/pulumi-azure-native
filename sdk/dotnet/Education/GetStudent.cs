@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Education
     public sealed class GetStudentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Student Budget
         /// </summary>
         public readonly Outputs.AmountResponse Budget;
@@ -165,6 +169,8 @@ namespace Pulumi.AzureNative.Education
 
         [OutputConstructor]
         private GetStudentResult(
+            string azureApiVersion,
+
             Outputs.AmountResponse budget,
 
             string effectiveDate,
@@ -195,6 +201,7 @@ namespace Pulumi.AzureNative.Education
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Budget = budget;
             EffectiveDate = effectiveDate;
             Email = email;

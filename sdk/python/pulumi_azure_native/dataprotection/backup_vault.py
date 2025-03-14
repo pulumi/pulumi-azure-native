@@ -152,9 +152,7 @@ class BackupVault(pulumi.CustomResource):
                  __props__=None):
         """
         Backup Vault Resource
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +172,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup Vault Resource
-        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-06-01-preview, 2023-08-01-preview, 2023-11-01, 2023-12-01, 2024-02-01-preview, 2024-03-01, 2024-04-01, 2025-01-01.
+        Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-01-01.
 
         :param str resource_name: The name of the resource.
         :param BackupVaultInitArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +216,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -247,6 +244,7 @@ class BackupVault(pulumi.CustomResource):
 
         __props__ = BackupVaultInitArgs.__new__(BackupVaultInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -256,6 +254,14 @@ class BackupVault(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BackupVault(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

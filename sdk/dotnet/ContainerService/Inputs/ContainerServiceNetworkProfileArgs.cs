@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ContainerServiceNetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
+        /// </summary>
+        [Input("advancedNetworking")]
+        public Input<Inputs.AdvancedNetworkingArgs>? AdvancedNetworking { get; set; }
+
+        /// <summary>
         /// An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         /// </summary>
         [Input("dnsServiceIP")]
@@ -126,7 +132,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public ContainerServiceNetworkProfileArgs()
         {
             DnsServiceIP = "10.0.0.10";
-            NetworkPlugin = "kubenet";
             OutboundType = "loadBalancer";
             PodCidr = "10.244.0.0/16";
             ServiceCidr = "10.0.0.0/16";

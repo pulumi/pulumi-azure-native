@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.IntegrationSpaces
     public sealed class GetSpaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The description of the resource.
         /// </summary>
         public readonly string? Description;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
         [OutputConstructor]
         private GetSpaceResult(
+            string azureApiVersion,
+
             string? description,
 
             string id,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.IntegrationSpaces
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Id = id;
             Location = location;

@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class SecurityContactPropertiesNotificationsByRoleArgs : global::Pulumi.ResourceArgs
     {
         [Input("roles")]
-        private InputList<Union<string, Pulumi.AzureNative.Security.Roles>>? _roles;
+        private InputList<Union<string, Pulumi.AzureNative.Security.SecurityContactRole>>? _roles;
 
         /// <summary>
         /// Defines which RBAC roles will get email notifications from Microsoft Defender for Cloud. List of allowed RBAC roles: 
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.Security.Roles>> Roles
+        public InputList<Union<string, Pulumi.AzureNative.Security.SecurityContactRole>> Roles
         {
-            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNative.Security.Roles>>());
+            get => _roles ?? (_roles = new InputList<Union<string, Pulumi.AzureNative.Security.SecurityContactRole>>());
             set => _roles = value;
         }
 

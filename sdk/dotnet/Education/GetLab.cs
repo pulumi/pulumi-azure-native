@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Education
     public sealed class GetLabResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Default monetary cap for each student in this lab
         /// </summary>
         public readonly Outputs.AmountResponse BudgetPerStudent;
@@ -151,6 +155,10 @@ namespace Pulumi.AzureNative.Education
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Total budget
+        /// </summary>
+        public readonly Outputs.AmountResponse TotalBudget;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -161,6 +169,8 @@ namespace Pulumi.AzureNative.Education
 
         [OutputConstructor]
         private GetLabResult(
+            string azureApiVersion,
+
             Outputs.AmountResponse budgetPerStudent,
 
             string? currency,
@@ -185,10 +195,13 @@ namespace Pulumi.AzureNative.Education
 
             Outputs.SystemDataResponse systemData,
 
+            Outputs.AmountResponse totalBudget,
+
             string type,
 
             double? value)
         {
+            AzureApiVersion = azureApiVersion;
             BudgetPerStudent = budgetPerStudent;
             Currency = currency;
             Description = description;
@@ -201,6 +214,7 @@ namespace Pulumi.AzureNative.Education
             Name = name;
             Status = status;
             SystemData = systemData;
+            TotalBudget = totalBudget;
             Type = type;
             Value = value;
         }

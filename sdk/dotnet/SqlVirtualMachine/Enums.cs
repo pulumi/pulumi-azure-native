@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
+    /// Additional Patch to be enable or enabled on the SQL Virtual Machine.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdditionalVmPatch : IEquatable<AdditionalVmPatch>
+    {
+        private readonly string _value;
+
+        private AdditionalVmPatch(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdditionalVmPatch NotSet { get; } = new AdditionalVmPatch("NotSet");
+        public static AdditionalVmPatch MicrosoftUpdate { get; } = new AdditionalVmPatch("MicrosoftUpdate");
+
+        public static bool operator ==(AdditionalVmPatch left, AdditionalVmPatch right) => left.Equals(right);
+        public static bool operator !=(AdditionalVmPatch left, AdditionalVmPatch right) => !left.Equals(right);
+
+        public static explicit operator string(AdditionalVmPatch value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdditionalVmPatch other && Equals(other);
+        public bool Equals(AdditionalVmPatch other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Day of the week to run assessment.
     /// </summary>
     [EnumType]
@@ -347,6 +378,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
         public static IdentityType None { get; } = new IdentityType("None");
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
@@ -356,6 +389,37 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SQL IaaS Agent least privilege mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct LeastPrivilegeMode : IEquatable<LeastPrivilegeMode>
+    {
+        private readonly string _value;
+
+        private LeastPrivilegeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LeastPrivilegeMode Enabled { get; } = new LeastPrivilegeMode("Enabled");
+        public static LeastPrivilegeMode NotSet { get; } = new LeastPrivilegeMode("NotSet");
+
+        public static bool operator ==(LeastPrivilegeMode left, LeastPrivilegeMode right) => left.Equals(right);
+        public static bool operator !=(LeastPrivilegeMode left, LeastPrivilegeMode right) => !left.Equals(right);
+
+        public static explicit operator string(LeastPrivilegeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LeastPrivilegeMode other && Equals(other);
+        public bool Equals(LeastPrivilegeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -461,7 +525,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     }
 
     /// <summary>
-    /// SQL Server Management type.
+    /// SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
     /// </summary>
     [EnumType]
     public readonly struct SqlManagementMode : IEquatable<SqlManagementMode>
@@ -612,6 +676,38 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageWorkloadType other && Equals(other);
         public bool Equals(StorageWorkloadType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Identity type of the virtual machine. Specify None to opt-out of Managed Identities.
+    /// </summary>
+    [EnumType]
+    public readonly struct VmIdentityType : IEquatable<VmIdentityType>
+    {
+        private readonly string _value;
+
+        private VmIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VmIdentityType None { get; } = new VmIdentityType("None");
+        public static VmIdentityType SystemAssigned { get; } = new VmIdentityType("SystemAssigned");
+        public static VmIdentityType UserAssigned { get; } = new VmIdentityType("UserAssigned");
+
+        public static bool operator ==(VmIdentityType left, VmIdentityType right) => left.Equals(right);
+        public static bool operator !=(VmIdentityType left, VmIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(VmIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VmIdentityType other && Equals(other);
+        public bool Equals(VmIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -23,6 +23,7 @@ __all__ = [
     'MaintenanceWindowPropertiesResponse',
     'MsixPackageApplicationsResponse',
     'MsixPackageDependenciesResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'RegistrationInfoResponse',
@@ -200,7 +201,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
         :param str package_full_name: Package Full Name from appxmanifest.xml. 
         :param str package_name: Package Name from appxmanifest.xml. 
         :param str package_relative_path: Relative Path to the package inside the image. 
-        :param str version: Package Version found in the appxmanifest.xml. 
+        :param str version: Package version found in the appxmanifest.xml. 
         """
         if certificate_expiry is not None:
             pulumi.set(__self__, "certificate_expiry", certificate_expiry)
@@ -359,7 +360,7 @@ class AppAttachPackageInfoPropertiesResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Package Version found in the appxmanifest.xml. 
+        Package version found in the appxmanifest.xml. 
         """
         return pulumi.get(self, "version")
 
@@ -404,7 +405,7 @@ class AppAttachPackagePropertiesResponse(dict):
         :param str fail_health_check_on_staging_failure: Parameter indicating how the health check should behave if this package fails staging
         :param Sequence[str] host_pool_references: List of Hostpool resource Ids.
         :param 'AppAttachPackageInfoPropertiesResponse' image: Detailed properties for App Attach Package
-        :param str key_vault_url: URL of keyvault location to store certificate
+        :param str key_vault_url: URL path to certificate name located in keyVault
         """
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if fail_health_check_on_staging_failure is not None:
@@ -452,7 +453,7 @@ class AppAttachPackagePropertiesResponse(dict):
     @pulumi.getter(name="keyVaultURL")
     def key_vault_url(self) -> Optional[str]:
         """
-        URL of keyvault location to store certificate
+        URL path to certificate name located in keyVault
         """
         return pulumi.get(self, "key_vault_url")
 
@@ -698,15 +699,140 @@ class MsixPackageDependenciesResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    The private endpoint connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+        The private endpoint connection resource.
+        :param Sequence[str] group_ids: The group ids for the private endpoint resource.
+        :param str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateEndpointResponse' private_endpoint: The private endpoint resource.
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The private endpoint resource.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
-    The Private Endpoint resource.
+    The private endpoint resource.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        The Private Endpoint resource.
-        :param str id: The ARM identifier for Private Endpoint
+        The private endpoint resource.
+        :param str id: The ARM identifier for private endpoint.
         """
         pulumi.set(__self__, "id", id)
 
@@ -714,7 +840,7 @@ class PrivateEndpointResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        The ARM identifier for Private Endpoint
+        The ARM identifier for private endpoint.
         """
         return pulumi.get(self, "id")
 
@@ -910,8 +1036,8 @@ class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
                  tenant_id: str,
                  type: Optional[str] = None):
         """
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
+        :param str principal_id: The principal ID of resource identity. The value must be an UUID.
+        :param str tenant_id: The tenant ID of resource. The value must be an UUID.
         :param str type: The identity type.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -923,7 +1049,7 @@ class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of resource identity.
+        The principal ID of resource identity. The value must be an UUID.
         """
         return pulumi.get(self, "principal_id")
 
@@ -931,7 +1057,7 @@ class ResourceModelWithAllowedPropertySetResponseIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of resource.
+        The tenant ID of resource. The value must be an UUID.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1034,7 +1160,7 @@ class ResourceModelWithAllowedPropertySetResponseSku(dict):
                  size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
-        :param str name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
@@ -1054,7 +1180,7 @@ class ResourceModelWithAllowedPropertySetResponseSku(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the SKU. Ex - P3. It is typically a letter+number code
+        The name of the SKU. E.g. P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 

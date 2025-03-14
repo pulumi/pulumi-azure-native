@@ -26,7 +26,10 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
+    def __init__(__self__, azure_api_version=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if condition and not isinstance(condition, str):
             raise TypeError("Expected argument 'condition' to be a str")
         pulumi.set(__self__, "condition", condition)
@@ -72,6 +75,14 @@ class GetRoleAssignmentResult:
         if updated_on and not isinstance(updated_on, str):
             raise TypeError("Expected argument 'updated_on' to be a str")
         pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -200,6 +211,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
         if False:
             yield self
         return GetRoleAssignmentResult(
+            azure_api_version=self.azure_api_version,
             condition=self.condition,
             condition_version=self.condition_version,
             created_by=self.created_by,
@@ -225,8 +237,6 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     Get a role assignment by scope and name.
     Azure REST API version: 2022-04-01.
 
-    Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
-
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -240,6 +250,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult).value
 
     return AwaitableGetRoleAssignmentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         condition=pulumi.get(__ret__, 'condition'),
         condition_version=pulumi.get(__ret__, 'condition_version'),
         created_by=pulumi.get(__ret__, 'created_by'),
@@ -263,8 +274,6 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     Get a role assignment by scope and name.
     Azure REST API version: 2022-04-01.
 
-    Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
-
 
     :param str role_assignment_name: The name of the role assignment. It can be any valid GUID.
     :param str scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
@@ -277,6 +286,7 @@ def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         condition=pulumi.get(__response__, 'condition'),
         condition_version=pulumi.get(__response__, 'condition_version'),
         created_by=pulumi.get(__response__, 'created_by'),

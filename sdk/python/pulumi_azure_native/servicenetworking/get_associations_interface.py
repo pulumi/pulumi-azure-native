@@ -27,10 +27,13 @@ class GetAssociationsInterfaceResult:
     """
     Association Subresource of Traffic Controller
     """
-    def __init__(__self__, association_type=None, id=None, location=None, name=None, provisioning_state=None, subnet=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, association_type=None, azure_api_version=None, id=None, location=None, name=None, provisioning_state=None, subnet=None, system_data=None, tags=None, type=None):
         if association_type and not isinstance(association_type, str):
             raise TypeError("Expected argument 'association_type' to be a str")
         pulumi.set(__self__, "association_type", association_type)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -63,6 +66,14 @@ class GetAssociationsInterfaceResult:
         Association Type
         """
         return pulumi.get(self, "association_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -136,6 +147,7 @@ class AwaitableGetAssociationsInterfaceResult(GetAssociationsInterfaceResult):
             yield self
         return GetAssociationsInterfaceResult(
             association_type=self.association_type,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -152,9 +164,7 @@ def get_associations_interface(association_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationsInterfaceResult:
     """
     Get a Association
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str association_name: Name of Association
@@ -170,6 +180,7 @@ def get_associations_interface(association_name: Optional[str] = None,
 
     return AwaitableGetAssociationsInterfaceResult(
         association_type=pulumi.get(__ret__, 'association_type'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -184,9 +195,7 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
     """
     Get a Association
-    Azure REST API version: 2023-05-01-preview.
-
-    Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str association_name: Name of Association
@@ -201,6 +210,7 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
     __ret__ = pulumi.runtime.invoke_output('azure-native:servicenetworking:getAssociationsInterface', __args__, opts=opts, typ=GetAssociationsInterfaceResult)
     return __ret__.apply(lambda __response__: GetAssociationsInterfaceResult(
         association_type=pulumi.get(__response__, 'association_type'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

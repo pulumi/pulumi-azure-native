@@ -27,10 +27,13 @@ class GetAccessPolicyResult:
     """
     Access policies help define the authentication rules, and control access to specific video resources.
     """
-    def __init__(__self__, authentication=None, id=None, name=None, role=None, system_data=None, type=None):
+    def __init__(__self__, authentication=None, azure_api_version=None, id=None, name=None, role=None, system_data=None, type=None):
         if authentication and not isinstance(authentication, dict):
             raise TypeError("Expected argument 'authentication' to be a dict")
         pulumi.set(__self__, "authentication", authentication)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetAccessPolicyResult:
         Authentication method to be used when validating client API access.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             yield self
         return GetAccessPolicyResult(
             authentication=self.authentication,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             role=self.role,
@@ -132,6 +144,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
 
     return AwaitableGetAccessPolicyResult(
         authentication=pulumi.get(__ret__, 'authentication'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         role=pulumi.get(__ret__, 'role'),
@@ -158,6 +171,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:videoanalyzer:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAccessPolicyResult(
         authentication=pulumi.get(__response__, 'authentication'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         role=pulumi.get(__response__, 'role'),

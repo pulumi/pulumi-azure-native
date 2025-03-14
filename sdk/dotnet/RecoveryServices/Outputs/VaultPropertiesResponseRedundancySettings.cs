@@ -19,17 +19,17 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Flag to show if Cross Region Restore is enabled on the Vault or not
         /// </summary>
-        public readonly string CrossRegionRestore;
+        public readonly string? CrossRegionRestore;
         /// <summary>
         /// The storage redundancy setting of a vault
         /// </summary>
-        public readonly string StandardTierStorageRedundancy;
+        public readonly string? StandardTierStorageRedundancy;
 
         [OutputConstructor]
         private VaultPropertiesResponseRedundancySettings(
-            string crossRegionRestore,
+            string? crossRegionRestore,
 
-            string standardTierStorageRedundancy)
+            string? standardTierStorageRedundancy)
         {
             CrossRegionRestore = crossRegionRestore;
             StandardTierStorageRedundancy = standardTierStorageRedundancy;

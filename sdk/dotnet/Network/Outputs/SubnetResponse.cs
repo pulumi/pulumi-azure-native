@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> ApplicationGatewayIPConfigurations;
         /// <summary>
+        /// Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
+        /// </summary>
+        public readonly bool? DefaultOutboundAccess;
+        /// <summary>
         /// An array of references to the delegations on the subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.DelegationResponse> Delegations;
@@ -56,6 +60,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// An array of references to the network interface IP configurations using subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
+        /// <summary>
+        /// A list of IPAM Pools for allocating IP address prefixes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> IpamPoolPrefixAllocations;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -109,6 +117,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> ServiceEndpoints;
         /// <summary>
+        /// Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
+        /// </summary>
+        public readonly string? SharingScope;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string? Type;
@@ -120,6 +132,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<string> addressPrefixes,
 
             ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse> applicationGatewayIPConfigurations,
+
+            bool? defaultOutboundAccess,
 
             ImmutableArray<Outputs.DelegationResponse> delegations,
 
@@ -134,6 +148,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
 
             ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
+
+            ImmutableArray<Outputs.IpamPoolPrefixAllocationResponse> ipamPoolPrefixAllocations,
 
             string? name,
 
@@ -161,11 +177,14 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponse> serviceEndpoints,
 
+            string? sharingScope,
+
             string? type)
         {
             AddressPrefix = addressPrefix;
             AddressPrefixes = addressPrefixes;
             ApplicationGatewayIPConfigurations = applicationGatewayIPConfigurations;
+            DefaultOutboundAccess = defaultOutboundAccess;
             Delegations = delegations;
             Etag = etag;
             Id = id;
@@ -173,6 +192,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;
+            IpamPoolPrefixAllocations = ipamPoolPrefixAllocations;
             Name = name;
             NatGateway = natGateway;
             NetworkSecurityGroup = networkSecurityGroup;
@@ -186,6 +206,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             ServiceAssociationLinks = serviceAssociationLinks;
             ServiceEndpointPolicies = serviceEndpointPolicies;
             ServiceEndpoints = serviceEndpoints;
+            SharingScope = sharingScope;
             Type = type;
         }
     }

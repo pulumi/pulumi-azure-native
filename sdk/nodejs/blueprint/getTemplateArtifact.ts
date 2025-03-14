@@ -40,6 +40,10 @@ export interface GetTemplateArtifactArgs {
  */
 export interface GetTemplateArtifactResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Artifacts which need to be deployed before the specified artifact.
      */
     readonly dependsOn?: string[];

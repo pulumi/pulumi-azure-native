@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
         /// <summary>
+        /// List Provisioning Details for Devices in Additional Config.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProvisioningDetailsResponse> ProvisioningDetails;
+        /// <summary>
         /// Quantity of the product.
         /// </summary>
         public readonly int Quantity;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         private AdditionalConfigurationResponse(
             Outputs.HierarchyInformationResponse hierarchyInformation,
 
+            ImmutableArray<Outputs.ProvisioningDetailsResponse> provisioningDetails,
+
             int quantity)
         {
             HierarchyInformation = hierarchyInformation;
+            ProvisioningDetails = provisioningDetails;
             Quantity = quantity;
         }
     }

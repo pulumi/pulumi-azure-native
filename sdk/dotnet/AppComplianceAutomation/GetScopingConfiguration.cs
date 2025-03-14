@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// </summary>
         public readonly ImmutableArray<Outputs.ScopingAnswerResponse> Answers;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -107,6 +111,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         private GetScopingConfigurationResult(
             ImmutableArray<Outputs.ScopingAnswerResponse> answers,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
             string type)
         {
             Answers = answers;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

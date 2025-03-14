@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements ExternalNetworks GET method.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getExternalNetwork(args: GetExternalNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,11 +22,11 @@ export function getExternalNetwork(args: GetExternalNetworkArgs, opts?: pulumi.I
 
 export interface GetExternalNetworkArgs {
     /**
-     * Name of the ExternalNetwork
+     * Name of the External Network.
      */
     externalNetworkName: string;
     /**
-     * Name of the L3IsolationDomain
+     * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName: string;
     /**
@@ -38,11 +36,11 @@ export interface GetExternalNetworkArgs {
 }
 
 /**
- * Defines the ExternalNetwork item.
+ * Defines the External Network resource.
  */
 export interface GetExternalNetworkResult {
     /**
-     * AdministrativeState of the externalNetwork. Example: Enabled | Disabled.
+     * Administrative state of the resource.
      */
     readonly administrativeState: string;
     /**
@@ -50,19 +48,31 @@ export interface GetExternalNetworkResult {
      */
     readonly annotation?: string;
     /**
-     * List of resources the externalNetwork is disabled on. Can be either entire NetworkFabric or NetworkRack.
+     * The Azure API version of the resource.
      */
-    readonly disabledOnResources: string[];
+    readonly azureApiVersion: string;
     /**
-     * ARM resource ID of exportRoutePolicy.
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
+     * Export Route Policy either IPv4 or IPv6.
+     */
+    readonly exportRoutePolicy?: outputs.managednetworkfabric.ExportRoutePolicyResponse;
+    /**
+     * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
     readonly exportRoutePolicyId?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * ARM resource ID of importRoutePolicy.
+     * Import Route Policy either IPv4 or IPv6.
+     */
+    readonly importRoutePolicy?: outputs.managednetworkfabric.ImportRoutePolicyResponse;
+    /**
+     * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
     readonly importRoutePolicyId?: string;
     /**
@@ -70,9 +80,9 @@ export interface GetExternalNetworkResult {
      */
     readonly name: string;
     /**
-     * Gets the networkToNetworkInterconnectId of the resource.
+     * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
      */
-    readonly networkToNetworkInterconnectId: string;
+    readonly networkToNetworkInterconnectId?: string;
     /**
      * option A properties object
      */
@@ -80,13 +90,13 @@ export interface GetExternalNetworkResult {
     /**
      * option B properties object
      */
-    readonly optionBProperties?: outputs.managednetworkfabric.OptionBPropertiesResponse;
+    readonly optionBProperties?: outputs.managednetworkfabric.L3OptionBPropertiesResponse;
     /**
      * Peering option list.
      */
     readonly peeringOption: string;
     /**
-     * Gets the provisioning state of the resource.
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -100,9 +110,7 @@ export interface GetExternalNetworkResult {
 }
 /**
  * Implements ExternalNetworks GET method.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -115,11 +123,11 @@ export function getExternalNetworkOutput(args: GetExternalNetworkOutputArgs, opt
 
 export interface GetExternalNetworkOutputArgs {
     /**
-     * Name of the ExternalNetwork
+     * Name of the External Network.
      */
     externalNetworkName: pulumi.Input<string>;
     /**
-     * Name of the L3IsolationDomain
+     * Name of the L3 Isolation Domain.
      */
     l3IsolationDomainName: pulumi.Input<string>;
     /**

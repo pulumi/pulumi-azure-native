@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetLinkedServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ResourceId of the link of the linked service.
         /// </summary>
         public readonly string Id;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetLinkedServiceResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

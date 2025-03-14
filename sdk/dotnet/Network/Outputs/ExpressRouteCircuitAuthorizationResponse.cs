@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? AuthorizationUseStatus;
         /// <summary>
+        /// The reference to the ExpressRoute connection resource using the authorization.
+        /// </summary>
+        public readonly string ConnectionResourceUri;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? authorizationUseStatus,
 
+            string connectionResourceUri,
+
             string etag,
 
             string? id,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         {
             AuthorizationKey = authorizationKey;
             AuthorizationUseStatus = authorizationUseStatus;
+            ConnectionResourceUri = connectionResourceUri;
             Etag = etag;
             Id = id;
             Name = name;

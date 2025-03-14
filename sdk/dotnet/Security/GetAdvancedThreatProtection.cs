@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetAdvancedThreatProtectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -97,6 +101,8 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetAdvancedThreatProtectionResult(
+            string azureApiVersion,
+
             string id,
 
             bool? isEnabled,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.Security
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IsEnabled = isEnabled;
             Name = name;

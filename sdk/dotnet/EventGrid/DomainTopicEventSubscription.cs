@@ -10,14 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
-    /// Event Subscription
-    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview.
-    /// 
-    /// Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+    /// Event Subscription.
+    /// Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:DomainTopicEventSubscription")]
     public partial class DomainTopicEventSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
         /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
@@ -89,7 +93,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<Outputs.RetryPolicyResponse?> RetryPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Event Subscription resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -202,7 +206,7 @@ namespace Pulumi.AzureNative.EventGrid
         public InputUnion<string, Pulumi.AzureNative.EventGrid.EventDeliverySchema>? EventDeliverySchema { get; set; }
 
         /// <summary>
-        /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.
+        /// Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
         /// </summary>
         [Input("eventSubscriptionName")]
         public Input<string>? EventSubscriptionName { get; set; }

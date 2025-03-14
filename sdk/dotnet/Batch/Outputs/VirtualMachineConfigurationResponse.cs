@@ -50,6 +50,14 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.OSDiskResponse? OsDisk;
         /// <summary>
+        /// Specifies the security profile settings for the virtual machine or virtual machine scale set.
+        /// </summary>
+        public readonly Outputs.SecurityProfileResponse? SecurityProfile;
+        /// <summary>
+        /// The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}
+        /// </summary>
+        public readonly Outputs.ServiceArtifactReferenceResponse? ServiceArtifactReference;
+        /// <summary>
         /// This property must not be specified if the imageReference specifies a Linux OS image.
         /// </summary>
         public readonly Outputs.WindowsConfigurationResponse? WindowsConfiguration;
@@ -74,6 +82,10 @@ namespace Pulumi.AzureNative.Batch.Outputs
 
             Outputs.OSDiskResponse? osDisk,
 
+            Outputs.SecurityProfileResponse? securityProfile,
+
+            Outputs.ServiceArtifactReferenceResponse? serviceArtifactReference,
+
             Outputs.WindowsConfigurationResponse? windowsConfiguration)
         {
             ContainerConfiguration = containerConfiguration;
@@ -85,6 +97,8 @@ namespace Pulumi.AzureNative.Batch.Outputs
             NodeAgentSkuId = nodeAgentSkuId;
             NodePlacementConfiguration = nodePlacementConfiguration;
             OsDisk = osDisk;
+            SecurityProfile = securityProfile;
+            ServiceArtifactReference = serviceArtifactReference;
             WindowsConfiguration = windowsConfiguration;
         }
     }

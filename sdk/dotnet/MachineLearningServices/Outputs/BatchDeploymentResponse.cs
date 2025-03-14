@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Compute;
         /// <summary>
+        /// Properties relevant to different deployment types.
+        /// </summary>
+        public readonly Outputs.BatchPipelineComponentDeploymentConfigurationResponse? DeploymentConfiguration;
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         public readonly string? Description;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             string? compute,
 
+            Outputs.BatchPipelineComponentDeploymentConfigurationResponse? deploymentConfiguration,
+
             string? description,
 
             string? environmentId,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         {
             CodeConfiguration = codeConfiguration;
             Compute = compute;
+            DeploymentConfiguration = deploymentConfiguration;
             Description = description;
             EnvironmentId = environmentId;
             EnvironmentVariables = environmentVariables;

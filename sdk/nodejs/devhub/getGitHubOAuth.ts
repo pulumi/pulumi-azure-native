@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * URL used to authorize the Developer Hub GitHub App
- * Azure REST API version: 2022-10-11-preview.
- *
- * Other available API versions: 2022-04-01-preview, 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+ * Azure REST API version: 2023-08-01.
  */
 export function getGitHubOAuth(args: GetGitHubOAuthArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubOAuthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,9 +42,7 @@ export interface GetGitHubOAuthResult {
 }
 /**
  * URL used to authorize the Developer Hub GitHub App
- * Azure REST API version: 2022-10-11-preview.
- *
- * Other available API versions: 2022-04-01-preview, 2023-08-01, 2024-05-01-preview, 2024-08-01-preview.
+ * Azure REST API version: 2023-08-01.
  */
 export function getGitHubOAuthOutput(args: GetGitHubOAuthOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGitHubOAuthResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

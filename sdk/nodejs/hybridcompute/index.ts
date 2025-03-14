@@ -99,35 +99,6 @@ utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./priv
 // Export enums:
 export * from "../types/enums/hybridcompute";
 
-// Export sub-modules:
-import * as v20200802 from "./v20200802";
-import * as v20200815preview from "./v20200815preview";
-import * as v20220510preview from "./v20220510preview";
-import * as v20221227 from "./v20221227";
-import * as v20230620preview from "./v20230620preview";
-import * as v20231003preview from "./v20231003preview";
-import * as v20240331preview from "./v20240331preview";
-import * as v20240520preview from "./v20240520preview";
-import * as v20240710 from "./v20240710";
-import * as v20240731preview from "./v20240731preview";
-import * as v20240910preview from "./v20240910preview";
-import * as v20241110preview from "./v20241110preview";
-
-export {
-    v20200802,
-    v20200815preview,
-    v20220510preview,
-    v20221227,
-    v20230620preview,
-    v20231003preview,
-    v20240331preview,
-    v20240520preview,
-    v20240710,
-    v20240731preview,
-    v20240910preview,
-    v20241110preview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

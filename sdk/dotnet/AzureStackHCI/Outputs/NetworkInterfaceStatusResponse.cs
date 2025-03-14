@@ -24,7 +24,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        public readonly Outputs.NetworkInterfaceStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Network interface provisioning status
+        /// </summary>
+        public readonly Outputs.NetworkInterfaceStatusProvisioningStatusResponse? ProvisioningStatus;
 
         [OutputConstructor]
         private NetworkInterfaceStatusResponse(
@@ -32,7 +35,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? errorMessage,
 
-            Outputs.NetworkInterfaceStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.NetworkInterfaceStatusProvisioningStatusResponse? provisioningStatus)
         {
             ErrorCode = errorCode;
             ErrorMessage = errorMessage;

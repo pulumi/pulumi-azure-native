@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The streaming endpoint.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2018-06-01-preview.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      * This feature is deprecated, do not set a value for this property.
      */
     public readonly availabilitySetName!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The CDN enabled flag.
      */
@@ -166,6 +168,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["streamingEndpointName"] = args ? args.streamingEndpointName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["freeTrialEndTime"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
@@ -178,6 +181,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
         } else {
             resourceInputs["accessControl"] = undefined /*out*/;
             resourceInputs["availabilitySetName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cdnEnabled"] = undefined /*out*/;
             resourceInputs["cdnProfile"] = undefined /*out*/;
             resourceInputs["cdnProvider"] = undefined /*out*/;

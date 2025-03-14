@@ -186,9 +186,7 @@ class Table(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace data table definition.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace data table definition.
-        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-09-01.
+        Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
@@ -261,6 +257,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["archive_retention_in_days"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_plan_modified_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -294,6 +291,7 @@ class Table(pulumi.CustomResource):
         __props__ = TableArgs.__new__(TableArgs)
 
         __props__.__dict__["archive_retention_in_days"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["last_plan_modified_date"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["plan"] = None
@@ -317,6 +315,14 @@ class Table(pulumi.CustomResource):
         The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
         """
         return pulumi.get(self, "archive_retention_in_days")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="lastPlanModifiedDate")

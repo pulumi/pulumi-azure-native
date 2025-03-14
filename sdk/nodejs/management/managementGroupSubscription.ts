@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The details of subscription under management group.
- * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01.
- *
- * Other available API versions: 2023-04-01.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 2.x: 2021-04-01.
  */
 export class ManagementGroupSubscription extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
         return obj['__pulumiType'] === ManagementGroupSubscription.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The friendly name of the subscription.
      */
@@ -81,6 +83,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
             }
             resourceInputs["groupId"] = args ? args.groupId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parent"] = undefined /*out*/;
@@ -88,6 +91,7 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
             resourceInputs["tenant"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parent"] = undefined /*out*/;

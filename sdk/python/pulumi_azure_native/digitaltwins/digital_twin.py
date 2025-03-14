@@ -155,7 +155,7 @@ class DigitalTwin(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the DigitalTwins service.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,7 +176,7 @@ class DigitalTwin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the DigitalTwins service.
-        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +218,7 @@ class DigitalTwin(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["host_name"] = None
             __props__.__dict__["last_updated_time"] = None
@@ -249,6 +250,7 @@ class DigitalTwin(pulumi.CustomResource):
 
         __props__ = DigitalTwinArgs.__new__(DigitalTwinArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
@@ -262,6 +264,14 @@ class DigitalTwin(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DigitalTwin(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createdTime")

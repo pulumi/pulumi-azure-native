@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Routes name mapping to the any Routes or secret related information.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Route extends pulumi.CustomResource {
         return obj['__pulumiType'] === Route.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
@@ -144,12 +146,14 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["routeName"] = args ? args.routeName : undefined;
             resourceInputs["ruleSets"] = args ? args.ruleSets : undefined;
             resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cacheConfiguration"] = undefined /*out*/;
             resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
