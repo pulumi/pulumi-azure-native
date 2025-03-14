@@ -119,11 +119,9 @@ func TestUpdateRoleManagementPolicy(t *testing.T) {
 		return nil, false, nil
 	}
 
-	converter := convert.SdkShapeConverter{
-		Types: map[string]resources.AzureAPIType{
-			"azure-native:authorization:RoleManagementPolicyExpirationRule": expirationRule,
-		},
-	}
+	converter := convert.NewSdkShapeConverterFull(map[string]resources.AzureAPIType{
+		"azure-native:authorization:RoleManagementPolicyExpirationRule": expirationRule,
+	})
 
 	// "isExpirationRequired" changes from false to true. The original "false" value is preserved.
 	t.Run("restores deleted rules", func(t *testing.T) {

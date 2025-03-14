@@ -2,7 +2,6 @@ package provider
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"reflect"
 	"testing"
@@ -233,19 +232,15 @@ func setUpResourceWithRefAndProviderWithTypeLookup(version string) (*resources.A
 			},
 		},
 	}
+	metadata := map[string]resources.AzureAPIResource{
+		"azure-native:keyvault:Vault": res,
+	}
 
 	// Setup resource metadata
 	provider := azureNativeProvider{
 		version: version,
-		resourceMap: &resources.PartialAzureAPIMetadata{
-			Resources: func() resources.PartialMap[resources.AzureAPIResource] {
-				m := resources.NewPartialMap[resources.AzureAPIResource]()
-				b, _ := json.Marshal(map[string]any{
-					"azure-native:keyvault:Vault": res,
-				})
-				_ = m.UnmarshalJSON(b)
-				return m
-			}(),
+		resourceMap: &resources.APIMetadata{
+			Resources: resources.GoMap[resources.AzureAPIResource](metadata),
 		},
 
 		// Mock the type lookup to only return the type referenced in the resource above

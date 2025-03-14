@@ -564,7 +564,7 @@ func testResponseToSdkInputs(testCase responseToSdkInputsTestCase) map[string]in
 	if testCase.pathValues == nil {
 		testCase.pathValues = map[string]string{}
 	}
-	c := SdkShapeConverter{Types: types}
+	c := NewSdkShapeConverterFull(types)
 	if testCase.bodyParameters == nil {
 		testCase.bodyParameters = map[string]resources.AzureAPIProperty{}
 	}

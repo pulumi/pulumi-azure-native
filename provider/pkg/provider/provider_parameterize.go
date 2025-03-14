@@ -1,0 +1,298 @@
+// Copyright 2025, Pulumi Corporation.
+
+package provider
+
+import (
+	"bytes"
+	"context"
+	"encoding/base64"
+	"encoding/json"
+	"fmt"
+	"os"
+	"path/filepath"
+	"regexp"
+	"strings"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
+	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
+)
+
+// parameterizeArgs is the data that is embedded in the SDK when the provider is parameterized. It will be sent to the
+// provider on subsequent invocations of Parameterize to be deserialized.
+type parameterizeArgs struct {
+	Module  string `json:"module"`
+	Version string `json:"version"`
+}
+
+func serializeParameterizeArgs(args *parameterizeArgs) ([]byte, error) {
+	serialized, err := json.Marshal(args)
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to serialize parameterize args: %v", err)
+	}
+	return []byte(base64.StdEncoding.EncodeToString(serialized)), nil
+}
+
+func deserializeParameterizeArgs(in []byte) (*parameterizeArgs, error) {
+	decoded, err := base64.StdEncoding.DecodeString(string(in))
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to deserialize parameterize args: %v", err)
+	}
+	var args parameterizeArgs
+	if err := json.Unmarshal(decoded, &args); err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, "failed to deserialize parameterize args: %v", err)
+	}
+	return &args, nil
+}
+
+// parseApiVersion parses an Azure API version from the given string. Since the input comes from users (via `package
+// add`), it tries to be lenient and accept several formats. The returned result, if successful, is an "SDL version" of
+// the form v20200101.
+func parseApiVersion(version string) (string, error) {
+	v := strings.TrimSpace(version)
+	v = strings.TrimLeft(v, "vV")
+
+	isApiVersion, err := regexp.MatchString(`^20\d{2}-[01]\d-[0-3]\d(-preview|-privatepreview)?$`, v)
+	if err != nil {
+		return "", status.Errorf(codes.InvalidArgument, "unexpected error parsing version %s: %v", version, err)
+	}
+	if isApiVersion {
+		apiVersion := openapi.ApiVersion(v)
+		return string(apiVersion.ToSdkVersion()), nil
+	}
+
+	isDigits, err := regexp.MatchString(`^20\d{6}(preview|privatepreview)?$`, v)
+	if err != nil {
+		return "", status.Errorf(codes.InvalidArgument, "unexpected error parsing version %s: %v", version, err)
+	}
+	if isDigits {
+		return "v" + v, nil
+	}
+
+	return "", status.Errorf(codes.InvalidArgument, "invalid API version: %s", version)
+}
+
+// "When generating an SDK (e.g. using a pulumi package add command), we need to boot up a provider and parameterize it
+// using only information from the command-line invocation. In this case, the parameter is a string array representing
+// the command-line arguments (args)."
+// https://pulumi-developer-docs.readthedocs.io/latest/docs/architecture/providers/parameterized.html#parameterized-providers
+func getParameterizeArgs(req *rpc.ParameterizeRequest) (*parameterizeArgs, error) {
+	switch {
+	// initial parameterization
+	case req.GetArgs() != nil:
+		args := req.GetArgs().Args
+
+		// "aad" "v20221201"
+		if len(args) != 2 {
+			return nil, status.Errorf(codes.InvalidArgument, "expected 2 arguments (module and API version), got %d", len(args))
+		}
+		targetApiVersion, err := parseApiVersion(args[1])
+		if err != nil {
+			return nil, err
+		}
+		return &parameterizeArgs{
+			Module:  args[0],
+			Version: targetApiVersion,
+		}, nil
+
+	// provider has already been parameterized and the arguments were serialized into the SDK
+	case req.GetValue() != nil:
+		return deserializeParameterizeArgs(req.GetValue().Value)
+
+	default:
+		return nil, status.Errorf(codes.InvalidArgument, "cannot handle ParameterizeRequest with parameters of type %T", req.Parameters)
+	}
+}
+
+func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.ParameterizeRequest) (*rpc.ParameterizeResponse, error) {
+	logging.V(9).Info("Parameterizing Azure Native provider")
+
+	args, err := getParameterizeArgs(req)
+	if err != nil {
+		return nil, err
+	}
+
+	logging.V(9).Infof("Creating parameterized Azure Native for %s %s", args.Module, args.Version)
+
+	var schema pschema.PackageSpec
+	err = json.Unmarshal(p.schemaBytes, &schema)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to unmarshal schema: %v", err)
+	}
+
+	newSchema, newMetadata, err := createSchema(p, schema, args.Module, args.Version)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to create parameterized schema: %v", err)
+	}
+	newPackageName := newSchema.Name
+
+	serializedArgs, err := serializeParameterizeArgs(args)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to serialize args %v: %v", args, err)
+	}
+
+	newSchema.Parameterization = &pschema.ParameterizationSpec{
+		BaseProvider: pschema.BaseProviderSpec{
+			Name:    p.name,
+			Version: newSchema.Version,
+		},
+		Parameter: serializedArgs,
+	}
+
+	s, err := json.Marshal(newSchema)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
+	}
+
+	s = bytes.ReplaceAll(s, []byte(`"$ref":"#/types/azure-native`), []byte(`"$ref": "#/types/`+newPackageName))
+
+	p.schemaBytes = s
+	p.resourceMap = newMetadata
+
+	if _, found := os.LookupEnv("PULUMI_DEBUG_PARAMETERIZE"); found {
+		tmpPath := filepath.Join(os.TempDir(), newPackageName+".json")
+		err = os.WriteFile(tmpPath, s, 0644)
+		if err != nil {
+			logging.Infof("failed to write PULUMI_DEBUG_PARAMETERIZE schema to %s: %v", tmpPath, err)
+		} else {
+			logging.Infof("wrote PULUMI_DEBUG_PARAMETERIZE schema to %s", tmpPath)
+		}
+	}
+
+	resp := &rpc.ParameterizeResponse{
+		Name:    newPackageName,
+		Version: newSchema.Version,
+	}
+	return resp, nil
+}
+
+// createParameterizedSchemaForApiVersion creates a new schema for the given module and API version by picking the
+// required resources, types, and functions from the providers existing schema and metadata. This assumes that the given
+// provider has a full schema with all API versions.
+//
+// There are other ways of obtaining such a schema, for instance, generating it directly from the Azure spec. This way
+// was the most pragmatic approach since we already have the full schema in the provider.
+//
+// All names change because their "module" part needs to match the new schema, and the new package name can't be just
+// "azure-native" which already exists.
+//
+// To separate concerns, the `Parameterization` of the new schema is NOT populated yet, the caller is responsible for
+// doing that.
+func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
+	newPackageName := fmt.Sprintf("%s_%s_%s", schema.Name, targetModule, targetApiVersion) // "." is not allowed
+
+	newSchema := pschema.PackageSpec{
+		Name:        newPackageName,
+		Version:     schema.Version,
+		Description: fmt.Sprintf("A specialized Pulumi Azure Native package for %s %s", targetModule, targetApiVersion),
+		DisplayName: schema.DisplayName,
+		License:     schema.License,
+		Keywords:    schema.Keywords,
+		Homepage:    schema.Homepage,
+		Publisher:   schema.Publisher,
+		Repository:  schema.Repository,
+		Config:      schema.Config,
+		Provider:    schema.Provider,
+		Language:    schema.Language,
+		Types:       map[string]pschema.ComplexTypeSpec{},
+		Resources:   map[string]pschema.ResourceSpec{},
+		Functions:   map[string]pschema.FunctionSpec{},
+	}
+
+	makeToken := func(name string) string {
+		return fmt.Sprintf("%s:%s/%s:%s", newPackageName, targetModule, targetApiVersion, name)
+	}
+
+	typeNames, err := filterTokens(schema.Types, targetModule, targetApiVersion)
+	if err != nil {
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
+	}
+	resourceNames, err := filterTokens(schema.Resources, targetModule, targetApiVersion)
+	if err != nil {
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse resource token: %v", err)
+	}
+	functionNames, err := filterTokens(schema.Functions, targetModule, targetApiVersion)
+	if err != nil {
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse function token: %v", err)
+	}
+	logging.V(9).Infof("Creating parameterized Azure Native for %s %s: found %d types, %d resources, %d functions",
+		targetModule, targetApiVersion, len(typeNames), len(resourceNames), len(functionNames))
+
+	metadataTypes := map[string]resources.AzureAPIType{}
+	metadataResources := map[string]resources.AzureAPIResource{}
+	metadataInvokes := map[string]resources.AzureAPIInvoke{}
+
+	for typeTok, typeName := range typeNames {
+		newTok := makeToken(typeName)
+		newSchema.Types[newTok] = schema.Types[typeTok]
+
+		apiType, ok, err := p.lookupType(typeTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", typeName, err)
+		}
+		if !ok {
+			logging.Warningf("type %s not found in metadata", typeName)
+		} else {
+			metadataTypes[newTok] = *apiType
+		}
+	}
+
+	for resourceTok, resourceName := range resourceNames {
+		newTok := makeToken(resourceName)
+		newSchema.Resources[newTok] = schema.Resources[resourceTok]
+
+		resource, ok, err := p.resourceMap.Resources.Get(resourceTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", resourceName, err)
+		}
+		if !ok {
+			logging.Warningf("resource %s not found in metadata", resourceName)
+		} else {
+			metadataResources[newTok] = resource
+		}
+	}
+
+	for functionTok, functionName := range functionNames {
+		newTok := makeToken(functionName)
+		newSchema.Functions[newTok] = schema.Functions[functionTok]
+
+		invoke, ok, err := p.resourceMap.Invokes.Get(functionTok)
+		if err != nil {
+			return nil, nil, status.Errorf(codes.InvalidArgument, "failed to get type %s: %v", functionName, err)
+		}
+		if !ok {
+			logging.Warningf("function %s not found in metadata", functionName)
+		} else {
+			metadataInvokes[newTok] = invoke
+		}
+	}
+
+	metadata := &resources.APIMetadata{
+		Types:     resources.GoMap[resources.AzureAPIType](metadataTypes),
+		Resources: resources.GoMap[resources.AzureAPIResource](metadataResources),
+		Invokes:   resources.GoMap[resources.AzureAPIInvoke](metadataInvokes),
+	}
+
+	return &newSchema, metadata, nil
+}
+
+// filterTokens returns a map of tokens that match the target module and API version.
+func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion string) (map[string]string, error) {
+	typeNames := map[string]string{}
+	for token := range tokens {
+		moduleName, version, name, err := resources.ParseToken(token)
+		if err != nil {
+			return nil, err
+		}
+		if !strings.EqualFold(moduleName, targetModule) || version != targetApiVersion {
+			continue
+		}
+		typeNames[token] = name
+	}
+	return typeNames, nil
+}

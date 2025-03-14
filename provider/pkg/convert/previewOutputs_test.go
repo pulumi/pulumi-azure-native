@@ -18,7 +18,7 @@ func TestPreviewOutputs(t *testing.T) {
 	}
 	preview := func(testCase previewTestCase) resource.PropertyMap {
 		inputMap := resource.NewPropertyMapFromMap(testCase.inputs)
-		converter := SdkShapeConverter{Types: testCase.types}
+		converter := NewSdkShapeConverterFull(testCase.types)
 		return converter.PreviewOutputs(inputMap, testCase.metadata)
 	}
 

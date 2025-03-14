@@ -57,16 +57,20 @@ const (
 type azureNativeProvider struct {
 	rpc.UnimplementedResourceProviderServer
 
-	azureClient      azure.AzureClient
-	host             *provider.HostClient
-	name             string
-	version          string
-	subscriptionID   string
-	environment      azureEnv.Environment
-	cloud            azcloud.Configuration
-	resourceMap      *resources.PartialAzureAPIMetadata
-	config           map[string]string
-	schemaBytes      []byte
+	azureClient    azure.AzureClient
+	host           *provider.HostClient
+	name           string
+	version        string
+	subscriptionID string
+	environment    azureEnv.Environment
+	cloud          azcloud.Configuration
+	config         map[string]string
+
+	// also known as "metadata"
+	resourceMap *resources.APIMetadata
+
+	schemaBytes []byte
+
 	converter        *convert.SdkShapeConverter
 	customResources  map[string]*customresources.CustomResource
 	rgLocationMap    map[string]string
@@ -84,6 +88,11 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 	if err != nil {
 		return nil, err
 	}
+	return makeProviderInternal(host, name, version, schemaBytes, resourceMap)
+}
+
+func makeProviderInternal(host *provider.HostClient, name, version string, schemaBytes []byte,
+	resourceMap *resources.APIMetadata) (*azureNativeProvider, error) {
 
 	converter := convert.NewSdkShapeConverterPartial(resourceMap.Types)
 
@@ -116,13 +125,17 @@ func (k *azureNativeProvider) getVersion() semver.Version {
 
 // LoadMetadataPartial partially deserializes the provided json byte array into an AzureAPIMetadata
 // in memory
-func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.PartialAzureAPIMetadata, error) {
+func LoadMetadataPartial(azureAPIResourcesBytes []byte) (*resources.APIMetadata, error) {
 	var resourceMap resources.PartialAzureAPIMetadata
-
 	if _, err := json.Parse(azureAPIResourcesBytes, &resourceMap, json.ZeroCopy); err != nil {
 		return nil, errors.Wrap(err, "unmarshalling resource map")
 	}
-	return &resourceMap, nil
+	apiMetadata := resources.APIMetadata{
+		Types:     &resourceMap.Types,
+		Resources: &resourceMap.Resources,
+		Invokes:   &resourceMap.Invokes,
+	}
+	return &apiMetadata, nil
 }
 
 // LoadMetadata deserializes the provided json byte array into an AzureAPIMetadata in memory
@@ -826,7 +839,6 @@ func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaReq
 	if v := req.GetVersion(); v != 0 {
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
-
 	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
 }
 

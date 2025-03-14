@@ -123,7 +123,7 @@ func TestGetDefaultName(t *testing.T) {
 
 		assert.True(t, ok)
 		assert.True(t, randomlyNamed)
-		assert.Equal(t, "test1ec836c1", result.StringValue())
+		assert.Equal(t, "test614742c2", result.StringValue())
 	})
 
 	t.Run("returns proposed name for random strategy with propose mode", func(t *testing.T) {
@@ -177,7 +177,7 @@ func TestGetDefaultName(t *testing.T) {
 
 		assert.True(t, ok)
 		assert.True(t, randomlyNamed)
-		assert.Equal(t, "1ec836c1-4f8e-3f38-4557-7ed3bc41c8ad", result.StringValue())
+		assert.Equal(t, "614742c2-d31f-db71-69aa-0171258e619a", result.StringValue())
 	})
 }
 
@@ -188,8 +188,8 @@ func TestCheck_AutoNaming(t *testing.T) {
 
 	t.Run("applies auto-naming when enabled", func(t *testing.T) {
 		// Setup resource metadata
-		p.resourceMap = &resources.PartialAzureAPIMetadata{
-			Resources: func() resources.PartialMap[resources.AzureAPIResource] {
+		p.resourceMap = &resources.APIMetadata{
+			Resources: func() *resources.PartialMap[resources.AzureAPIResource] {
 				m := resources.NewPartialMap[resources.AzureAPIResource]()
 				m.UnmarshalJSON([]byte(`{
 						"azure-native:storage:StorageAccount": {
@@ -202,7 +202,7 @@ func TestCheck_AutoNaming(t *testing.T) {
 							}]
 						}
 					}`))
-				return m
+				return &m
 			}(),
 		}
 
@@ -228,8 +228,8 @@ func TestCheck_AutoNaming(t *testing.T) {
 
 	t.Run("returns error when auto-naming is disabled", func(t *testing.T) {
 		// Setup resource metadata
-		p.resourceMap = &resources.PartialAzureAPIMetadata{
-			Resources: func() resources.PartialMap[resources.AzureAPIResource] {
+		p.resourceMap = &resources.APIMetadata{
+			Resources: func() *resources.PartialMap[resources.AzureAPIResource] {
 				m := resources.NewPartialMap[resources.AzureAPIResource]()
 				m.UnmarshalJSON([]byte(`{
 						"azure-native:storage:StorageAccount": {
@@ -243,7 +243,7 @@ func TestCheck_AutoNaming(t *testing.T) {
 							}]
 						}
 					}`))
-				return m
+				return &m
 			}(),
 		}
 

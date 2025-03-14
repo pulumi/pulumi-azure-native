@@ -11,32 +11,24 @@ const body = "body"
 // SdkShapeConverter providers functions to convert between HTTP request/response shapes and
 // Pulumi SDK shapes (with flattening, renaming, etc.).
 type SdkShapeConverter struct {
-	Types        map[string]resources.AzureAPIType
-	PartialTypes resources.PartialMap[resources.AzureAPIType]
+	Types resources.MapLike[resources.AzureAPIType]
 }
 
-func NewSdkShapeConverterPartial(ptypes resources.PartialMap[resources.AzureAPIType]) SdkShapeConverter {
+func NewSdkShapeConverterPartial(ptypes resources.MapLike[resources.AzureAPIType]) SdkShapeConverter {
 	return SdkShapeConverter{
-		Types:        nil,
-		PartialTypes: ptypes,
+		Types: ptypes,
 	}
 }
 
 func NewSdkShapeConverterFull(types map[string]resources.AzureAPIType) SdkShapeConverter {
 	return SdkShapeConverter{
-		Types:        types,
-		PartialTypes: resources.NewPartialMap[resources.AzureAPIType](),
+		Types: resources.GoMap[resources.AzureAPIType](types),
 	}
 }
 
 func (k *SdkShapeConverter) GetType(name string) (resources.AzureAPIType, bool, error) {
-	if k.Types != nil {
-		typ, ok := k.Types[name]
-		if ok {
-			return typ, true, nil
-		}
+	if k.Types == nil {
 		return resources.AzureAPIType{}, false, nil
 	}
-
-	return k.PartialTypes.Get(name)
+	return k.Types.Get(name)
 }

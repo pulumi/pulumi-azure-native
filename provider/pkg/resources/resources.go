@@ -244,14 +244,23 @@ type AzureAPIInvoke struct {
 	Response         map[string]AzureAPIProperty `json:"response"`
 }
 
-// AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.
+// PartialAzureAPIMetadata is a collection of resources and functions in the Azure REST API surface, supplementing the
+// Pulumi schema. It saves memory by using PartialMap internally and unmarshaling only the parts of the spec that are
+// needed. Since PartialMap implements MapLike, PartialAzureAPIMetadata can trivially be converted to APIMetadata.
 type PartialAzureAPIMetadata struct {
 	Types     PartialMap[AzureAPIType]     `json:"types"`
 	Resources PartialMap[AzureAPIResource] `json:"resources"`
 	Invokes   PartialMap[AzureAPIInvoke]   `json:"invokes"`
 }
 
-// AzureAPIMetadata is a collection of all resources and functions in the Azure REST API surface.
+// APIMetadata is a collection of resources and functions in the Azure REST API surface, supplementing the Pulumi schema.
+type APIMetadata struct {
+	Types     MapLike[AzureAPIType]     `json:"types"`
+	Resources MapLike[AzureAPIResource] `json:"resources"`
+	Invokes   MapLike[AzureAPIInvoke]   `json:"invokes"`
+}
+
+// AzureAPIMetadata is a collection of resources and functions in the Azure REST API surface, supplementing the Pulumi schema.
 type AzureAPIMetadata struct {
 	Types     map[string]AzureAPIType     `json:"types"`
 	Resources map[string]AzureAPIResource `json:"resources"`

@@ -117,7 +117,7 @@ func resourcePutParameters() []resources.AzureAPIParameter {
 }
 
 func getMockConverter() SdkShapeConverter {
-	return SdkShapeConverter{Types: map[string]resources.AzureAPIType{
+	return NewSdkShapeConverterFull(map[string]resources.AzureAPIType{
 		"azure-native:testing:Structure": {
 			Properties: map[string]resources.AzureAPIProperty{
 				"v1": {},
@@ -200,5 +200,5 @@ func getMockConverter() SdkShapeConverter {
 				},
 			},
 		},
-	}}
+	})
 }

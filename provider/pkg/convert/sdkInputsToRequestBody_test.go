@@ -16,24 +16,22 @@ import (
 )
 
 func TestSdkInputsToRequestBodySubResource(t *testing.T) {
-	c := SdkShapeConverter{
-		Types: map[string]resources.AzureAPIType{
-			"azure-native:testing:Structure": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"v5": {
-						Ref: "#/types/azure-native:testing:SubResource",
-					},
-				},
-			},
-			"azure-native:testing:SubResource": {
-				Properties: map[string]resources.AzureAPIProperty{
-					"id": {
-						Type: "string",
-					},
+	c := NewSdkShapeConverterFull(map[string]resources.AzureAPIType{
+		"azure-native:testing:Structure": {
+			Properties: map[string]resources.AzureAPIProperty{
+				"v5": {
+					Ref: "#/types/azure-native:testing:SubResource",
 				},
 			},
 		},
-	}
+		"azure-native:testing:SubResource": {
+			Properties: map[string]resources.AzureAPIProperty{
+				"id": {
+					Type: "string",
+				},
+			},
+		},
+	})
 	var sdkData = map[string]interface{}{
 		"structure": map[string]interface{}{
 			"v5": map[string]interface{}{
@@ -98,9 +96,7 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 				}
 			}
 		}
-		c := SdkShapeConverter{
-			Types: types,
-		}
+		c := NewSdkShapeConverterFull(types)
 		return c.SdkInputsToRequestBody(args.props, args.inputs, args.id)
 	}
 
@@ -528,9 +524,7 @@ func TestSdkInputsToRequestBody(t *testing.T) {
 		inputs := map[string]interface{}{
 			"nested": args.inputs,
 		}
-		c := SdkShapeConverter{
-			Types: types,
-		}
+		c := NewSdkShapeConverterFull(types)
 		body, err := c.SdkInputsToRequestBody(props, inputs, args.id)
 		assert.Nil(t, err)
 		return body
