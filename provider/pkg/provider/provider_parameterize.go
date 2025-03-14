@@ -177,15 +177,15 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 
 	typeNames, err := filterTokens(schema.Types, targetModule, targetApiVersion)
 	if err != nil {
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse token: %v", err)
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse type token: %v", err)
 	}
 	resourceNames, err := filterTokens(schema.Resources, targetModule, targetApiVersion)
 	if err != nil {
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse token: %v", err)
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse resource token: %v", err)
 	}
 	functionNames, err := filterTokens(schema.Functions, targetModule, targetApiVersion)
 	if err != nil {
-		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse token: %v", err)
+		return nil, nil, status.Errorf(codes.InvalidArgument, "failed to parse function token: %v", err)
 	}
 	logging.V(9).Infof("Creating parameterized Azure Native for %s %s: found %d types, %d resources, %d functions",
 		targetModule, targetApiVersion, len(typeNames), len(resourceNames), len(functionNames))
@@ -254,7 +254,7 @@ func filterTokens[T any](tokens map[string]T, targetModule, targetApiVersion str
 	for token := range tokens {
 		moduleName, version, name, err := resources.ParseToken(token)
 		if err != nil {
-			return nil, status.Errorf(codes.InvalidArgument, "failed to parse token: %v", err)
+			return nil, err
 		}
 		if !strings.EqualFold(moduleName, targetModule) || version != targetApiVersion {
 			continue
