@@ -182,7 +182,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  __props__=None):
         """
         The extended info of the manager.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The extended info of the manager.
-        Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+        Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
 
         :param str resource_name: The name of the resource.
         :param ManagerExtendedInfoArgs args: The arguments to use to populate this resource's properties.
@@ -256,6 +256,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
@@ -284,6 +285,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         __props__ = ManagerExtendedInfoArgs.__new__(ManagerExtendedInfoArgs)
 
         __props__.__dict__["algorithm"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["encryption_key"] = None
         __props__.__dict__["encryption_key_thumbprint"] = None
         __props__.__dict__["etag"] = None
@@ -302,6 +304,14 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
         """
         return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="encryptionKey")

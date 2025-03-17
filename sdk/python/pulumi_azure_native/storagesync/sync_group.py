@@ -82,9 +82,7 @@ class SyncGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Sync Group object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,9 +98,7 @@ class SyncGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sync Group object.
-        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-
-        Other available API versions: 2022-09-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
 
         :param str resource_name: The name of the resource.
         :param SyncGroupArgs args: The arguments to use to populate this resource's properties.
@@ -138,6 +134,7 @@ class SyncGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__.__dict__["storage_sync_service_name"] = storage_sync_service_name
             __props__.__dict__["sync_group_name"] = sync_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["sync_group_status"] = None
             __props__.__dict__["system_data"] = None
@@ -167,12 +164,21 @@ class SyncGroup(pulumi.CustomResource):
 
         __props__ = SyncGroupArgs.__new__(SyncGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sync_group_status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_id"] = None
         return SyncGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -27,10 +27,13 @@ class GetCustomAssessmentAutomationResult:
     """
     Custom Assessment Automation
     """
-    def __init__(__self__, assessment_key=None, compressed_query=None, description=None, display_name=None, id=None, name=None, remediation_description=None, severity=None, supported_cloud=None, system_data=None, type=None):
+    def __init__(__self__, assessment_key=None, azure_api_version=None, compressed_query=None, description=None, display_name=None, id=None, name=None, remediation_description=None, severity=None, supported_cloud=None, system_data=None, type=None):
         if assessment_key and not isinstance(assessment_key, str):
             raise TypeError("Expected argument 'assessment_key' to be a str")
         pulumi.set(__self__, "assessment_key", assessment_key)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if compressed_query and not isinstance(compressed_query, str):
             raise TypeError("Expected argument 'compressed_query' to be a str")
         pulumi.set(__self__, "compressed_query", compressed_query)
@@ -69,6 +72,14 @@ class GetCustomAssessmentAutomationResult:
         The assessment metadata key used when an assessment is generated for this assessment automation.
         """
         return pulumi.get(self, "assessment_key")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="compressedQuery")
@@ -158,6 +169,7 @@ class AwaitableGetCustomAssessmentAutomationResult(GetCustomAssessmentAutomation
             yield self
         return GetCustomAssessmentAutomationResult(
             assessment_key=self.assessment_key,
+            azure_api_version=self.azure_api_version,
             compressed_query=self.compressed_query,
             description=self.description,
             display_name=self.display_name,
@@ -189,6 +201,7 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
 
     return AwaitableGetCustomAssessmentAutomationResult(
         assessment_key=pulumi.get(__ret__, 'assessment_key'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         compressed_query=pulumi.get(__ret__, 'compressed_query'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -217,6 +230,7 @@ def get_custom_assessment_automation_output(custom_assessment_automation_name: O
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getCustomAssessmentAutomation', __args__, opts=opts, typ=GetCustomAssessmentAutomationResult)
     return __ret__.apply(lambda __response__: GetCustomAssessmentAutomationResult(
         assessment_key=pulumi.get(__response__, 'assessment_key'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         compressed_query=pulumi.get(__response__, 'compressed_query'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),

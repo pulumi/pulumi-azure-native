@@ -27,7 +27,10 @@ class GetPublishedBlueprintResult:
     """
     Represents a published blueprint.
     """
-    def __init__(__self__, blueprint_name=None, change_notes=None, description=None, display_name=None, id=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None):
+    def __init__(__self__, azure_api_version=None, blueprint_name=None, change_notes=None, description=None, display_name=None, id=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if blueprint_name and not isinstance(blueprint_name, str):
             raise TypeError("Expected argument 'blueprint_name' to be a str")
         pulumi.set(__self__, "blueprint_name", blueprint_name)
@@ -61,6 +64,14 @@ class GetPublishedBlueprintResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="blueprintName")
@@ -157,6 +168,7 @@ class AwaitableGetPublishedBlueprintResult(GetPublishedBlueprintResult):
         if False:
             yield self
         return GetPublishedBlueprintResult(
+            azure_api_version=self.azure_api_version,
             blueprint_name=self.blueprint_name,
             change_notes=self.change_notes,
             description=self.description,
@@ -191,6 +203,7 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getPublishedBlueprint', __args__, opts=opts, typ=GetPublishedBlueprintResult).value
 
     return AwaitableGetPublishedBlueprintResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         blueprint_name=pulumi.get(__ret__, 'blueprint_name'),
         change_notes=pulumi.get(__ret__, 'change_notes'),
         description=pulumi.get(__ret__, 'description'),
@@ -222,6 +235,7 @@ def get_published_blueprint_output(blueprint_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:blueprint:getPublishedBlueprint', __args__, opts=opts, typ=GetPublishedBlueprintResult)
     return __ret__.apply(lambda __response__: GetPublishedBlueprintResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         blueprint_name=pulumi.get(__response__, 'blueprint_name'),
         change_notes=pulumi.get(__response__, 'change_notes'),
         description=pulumi.get(__response__, 'description'),

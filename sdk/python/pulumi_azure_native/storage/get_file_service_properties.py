@@ -27,7 +27,10 @@ class GetFileServicePropertiesResult:
     """
     The properties of File services in storage account.
     """
-    def __init__(__self__, cors=None, id=None, name=None, protocol_settings=None, share_delete_retention_policy=None, sku=None, type=None):
+    def __init__(__self__, azure_api_version=None, cors=None, id=None, name=None, protocol_settings=None, share_delete_retention_policy=None, sku=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
@@ -49,6 +52,14 @@ class GetFileServicePropertiesResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetFileServicePropertiesResult(GetFileServicePropertiesResult):
         if False:
             yield self
         return GetFileServicePropertiesResult(
+            azure_api_version=self.azure_api_version,
             cors=self.cors,
             id=self.id,
             name=self.name,
@@ -128,9 +140,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileServicePropertiesResult:
     """
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -145,6 +155,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getFileServiceProperties', __args__, opts=opts, typ=GetFileServicePropertiesResult).value
 
     return AwaitableGetFileServicePropertiesResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cors=pulumi.get(__ret__, 'cors'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -158,9 +169,7 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
     """
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -174,6 +183,7 @@ def get_file_service_properties_output(account_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storage:getFileServiceProperties', __args__, opts=opts, typ=GetFileServicePropertiesResult)
     return __ret__.apply(lambda __response__: GetFileServicePropertiesResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cors=pulumi.get(__response__, 'cors'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

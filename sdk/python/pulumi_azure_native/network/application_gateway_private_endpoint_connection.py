@@ -134,9 +134,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Private Endpoint connection on an application gateway.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,9 +153,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private Endpoint connection on an application gateway.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -199,6 +195,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["link_identifier"] = None
             __props__.__dict__["private_endpoint"] = None
@@ -228,6 +225,7 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = ApplicationGatewayPrivateEndpointConnectionArgs.__new__(ApplicationGatewayPrivateEndpointConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["link_identifier"] = None
         __props__.__dict__["name"] = None
@@ -236,6 +234,14 @@ class ApplicationGatewayPrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["type"] = None
         return ApplicationGatewayPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -116,9 +116,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  __props__=None):
         """
         A group of job targets.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class JobTargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A group of job targets.
-        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
-
-        Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param JobTargetGroupArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +178,7 @@ class JobTargetGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["target_group_name"] = target_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20211101:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20230201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20230501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20230801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20240501preview:JobTargetGroup")])
@@ -208,10 +205,19 @@ class JobTargetGroup(pulumi.CustomResource):
 
         __props__ = JobTargetGroupArgs.__new__(JobTargetGroupArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["members"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["type"] = None
         return JobTargetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

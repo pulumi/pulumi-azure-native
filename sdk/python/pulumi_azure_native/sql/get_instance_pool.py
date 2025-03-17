@@ -27,7 +27,10 @@ class GetInstancePoolResult:
     """
     An Azure SQL instance pool.
     """
-    def __init__(__self__, id=None, license_type=None, location=None, name=None, sku=None, subnet_id=None, tags=None, type=None, v_cores=None):
+    def __init__(__self__, azure_api_version=None, id=None, license_type=None, location=None, name=None, sku=None, subnet_id=None, tags=None, type=None, v_cores=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -55,6 +58,14 @@ class GetInstancePoolResult:
         if v_cores and not isinstance(v_cores, int):
             raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetInstancePoolResult(GetInstancePoolResult):
         if False:
             yield self
         return GetInstancePoolResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             license_type=self.license_type,
             location=self.location,
@@ -153,8 +165,6 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
     Gets an instance pool.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -166,6 +176,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult).value
 
     return AwaitableGetInstancePoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         license_type=pulumi.get(__ret__, 'license_type'),
         location=pulumi.get(__ret__, 'location'),
@@ -182,8 +193,6 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
     Gets an instance pool.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str instance_pool_name: The name of the instance pool to be retrieved.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -194,6 +203,7 @@ def get_instance_pool_output(instance_pool_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult)
     return __ret__.apply(lambda __response__: GetInstancePoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         license_type=pulumi.get(__response__, 'license_type'),
         location=pulumi.get(__response__, 'location'),

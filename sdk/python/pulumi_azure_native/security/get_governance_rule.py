@@ -27,7 +27,10 @@ class GetGovernanceRuleResult:
     """
     Governance rule over a given scope
     """
-    def __init__(__self__, description=None, display_name=None, excluded_scopes=None, governance_email_notification=None, id=None, include_member_scopes=None, is_disabled=None, is_grace_period=None, metadata=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, excluded_scopes=None, governance_email_notification=None, id=None, include_member_scopes=None, is_disabled=None, is_grace_period=None, metadata=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -79,6 +82,14 @@ class GetGovernanceRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -223,6 +234,7 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
         if False:
             yield self
         return GetGovernanceRuleResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             excluded_scopes=self.excluded_scopes,
@@ -260,6 +272,7 @@ def get_governance_rule(rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult).value
 
     return AwaitableGetGovernanceRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         excluded_scopes=pulumi.get(__ret__, 'excluded_scopes'),
@@ -294,6 +307,7 @@ def get_governance_rule_output(rule_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult)
     return __ret__.apply(lambda __response__: GetGovernanceRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         excluded_scopes=pulumi.get(__response__, 'excluded_scopes'),

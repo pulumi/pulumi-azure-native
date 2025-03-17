@@ -134,9 +134,7 @@ class FabricCapacity(pulumi.CustomResource):
                  __props__=None):
         """
         Fabric Capacity resource
-        Azure REST API version: 2023-11-01.
-
-        Other available API versions: 2025-01-15-preview.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,9 +153,7 @@ class FabricCapacity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Fabric Capacity resource
-        Azure REST API version: 2023-11-01.
-
-        Other available API versions: 2025-01-15-preview.
+        Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2023-11-01.
 
         :param str resource_name: The name of the resource.
         :param FabricCapacityArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +197,7 @@ class FabricCapacity(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
@@ -231,6 +228,7 @@ class FabricCapacity(pulumi.CustomResource):
         __props__ = FabricCapacityArgs.__new__(FabricCapacityArgs)
 
         __props__.__dict__["administration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -248,6 +246,14 @@ class FabricCapacity(pulumi.CustomResource):
         The capacity administration
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

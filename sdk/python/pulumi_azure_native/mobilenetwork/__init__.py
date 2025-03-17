@@ -17,8 +17,8 @@ from .get_packet_capture import *
 from .get_packet_core_control_plane import *
 from .get_packet_core_data_plane import *
 from .get_service import *
-from .get_sim import *
 from .get_sim_group import *
+from .get_sim_group_sim import *
 from .get_sim_policy import *
 from .get_site import *
 from .get_slice import *
@@ -29,36 +29,10 @@ from .packet_capture import *
 from .packet_core_control_plane import *
 from .packet_core_data_plane import *
 from .service import *
-from .sim import *
 from .sim_group import *
+from .sim_group_sim import *
 from .sim_policy import *
 from .site import *
 from .slice import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.mobilenetwork.v20220301preview as __v20220301preview
-    v20220301preview = __v20220301preview
-    import pulumi_azure_native.mobilenetwork.v20220401preview as __v20220401preview
-    v20220401preview = __v20220401preview
-    import pulumi_azure_native.mobilenetwork.v20221101 as __v20221101
-    v20221101 = __v20221101
-    import pulumi_azure_native.mobilenetwork.v20230601 as __v20230601
-    v20230601 = __v20230601
-    import pulumi_azure_native.mobilenetwork.v20230901 as __v20230901
-    v20230901 = __v20230901
-    import pulumi_azure_native.mobilenetwork.v20240201 as __v20240201
-    v20240201 = __v20240201
-    import pulumi_azure_native.mobilenetwork.v20240401 as __v20240401
-    v20240401 = __v20240401
-else:
-    v20220301preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220301preview')
-    v20220401preview = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20220401preview')
-    v20221101 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20221101')
-    v20230601 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230601')
-    v20230901 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20230901')
-    v20240201 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20240201')
-    v20240401 = _utilities.lazy_import('pulumi_azure_native.mobilenetwork.v20240401')
-

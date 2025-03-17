@@ -27,7 +27,10 @@ class GetResourceResult:
     """
     Resource information.
     """
-    def __init__(__self__, extended_location=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, extended_location=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -64,6 +67,14 @@ class GetResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -168,6 +179,7 @@ class AwaitableGetResourceResult(GetResourceResult):
         if False:
             yield self
         return GetResourceResult(
+            azure_api_version=self.azure_api_version,
             extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
@@ -191,9 +203,7 @@ def get_resource(api_version: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
     Gets a resource.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str api_version: The API version to use for the operation.
@@ -214,6 +224,7 @@ def get_resource(api_version: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -235,9 +246,7 @@ def get_resource_output(api_version: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     Gets a resource.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+    Azure REST API version: 2024-03-01.
 
 
     :param str api_version: The API version to use for the operation.
@@ -257,6 +266,7 @@ def get_resource_output(api_version: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:resources:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

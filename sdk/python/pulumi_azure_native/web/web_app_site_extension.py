@@ -81,9 +81,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Site Extension Information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,9 +97,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Site Extension Information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSiteExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -138,6 +134,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["site_extension_id"] = site_extension_id
             __props__.__dict__["authors"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["comment"] = None
             __props__.__dict__["description"] = None
             __props__.__dict__["download_count"] = None
@@ -184,6 +181,7 @@ class WebAppSiteExtension(pulumi.CustomResource):
         __props__ = WebAppSiteExtensionArgs.__new__(WebAppSiteExtensionArgs)
 
         __props__.__dict__["authors"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["comment"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["download_count"] = None
@@ -215,6 +213,14 @@ class WebAppSiteExtension(pulumi.CustomResource):
         List of authors.
         """
         return pulumi.get(self, "authors")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

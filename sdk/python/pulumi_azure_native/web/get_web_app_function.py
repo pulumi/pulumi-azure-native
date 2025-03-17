@@ -26,7 +26,10 @@ class GetWebAppFunctionResult:
     """
     Function information.
     """
-    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, test_data_href=None, type=None):
+    def __init__(__self__, azure_api_version=None, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, test_data_href=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
@@ -78,6 +81,14 @@ class GetWebAppFunctionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -222,6 +233,7 @@ class AwaitableGetWebAppFunctionResult(GetWebAppFunctionResult):
         if False:
             yield self
         return GetWebAppFunctionResult(
+            azure_api_version=self.azure_api_version,
             config=self.config,
             config_href=self.config_href,
             files=self.files,
@@ -247,9 +259,7 @@ def get_web_app_function(function_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppFunctionResult:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str function_name: Function name.
@@ -264,6 +274,7 @@ def get_web_app_function(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppFunction', __args__, opts=opts, typ=GetWebAppFunctionResult).value
 
     return AwaitableGetWebAppFunctionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         config=pulumi.get(__ret__, 'config'),
         config_href=pulumi.get(__ret__, 'config_href'),
         files=pulumi.get(__ret__, 'files'),
@@ -287,9 +298,7 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFunctionResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str function_name: Function name.
@@ -303,6 +312,7 @@ def get_web_app_function_output(function_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppFunction', __args__, opts=opts, typ=GetWebAppFunctionResult)
     return __ret__.apply(lambda __response__: GetWebAppFunctionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         config=pulumi.get(__response__, 'config'),
         config_href=pulumi.get(__response__, 'config_href'),
         files=pulumi.get(__response__, 'files'),

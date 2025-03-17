@@ -27,7 +27,10 @@ class GetCertificateResult:
     """
     Certificate details.
     """
-    def __init__(__self__, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
+    def __init__(__self__, azure_api_version=None, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
@@ -49,6 +52,14 @@ class GetCertificateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationDate")
@@ -113,6 +124,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            azure_api_version=self.azure_api_version,
             expiration_date=self.expiration_date,
             id=self.id,
             key_vault=self.key_vault,
@@ -128,9 +140,7 @@ def get_certificate(certificate_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Gets the details of the certificate specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -145,6 +155,7 @@ def get_certificate(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiration_date=pulumi.get(__ret__, 'expiration_date'),
         id=pulumi.get(__ret__, 'id'),
         key_vault=pulumi.get(__ret__, 'key_vault'),
@@ -158,9 +169,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Gets the details of the certificate specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -174,6 +183,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiration_date=pulumi.get(__response__, 'expiration_date'),
         id=pulumi.get(__response__, 'id'),
         key_vault=pulumi.get(__response__, 'key_vault'),

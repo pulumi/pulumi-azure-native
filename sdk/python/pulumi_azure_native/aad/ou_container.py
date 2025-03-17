@@ -133,7 +133,7 @@ class OuContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Resource for OuContainer.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class OuContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for OuContainer.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param OuContainerArgs args: The arguments to use to populate this resource's properties.
@@ -195,6 +195,7 @@ class OuContainer(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["spn"] = spn
             __props__.__dict__["accounts"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["container_id"] = None
             __props__.__dict__["deployment_id"] = None
             __props__.__dict__["distinguished_name"] = None
@@ -233,6 +234,7 @@ class OuContainer(pulumi.CustomResource):
         __props__ = OuContainerArgs.__new__(OuContainerArgs)
 
         __props__.__dict__["accounts"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["container_id"] = None
         __props__.__dict__["deployment_id"] = None
         __props__.__dict__["distinguished_name"] = None
@@ -255,6 +257,14 @@ class OuContainer(pulumi.CustomResource):
         The list of container accounts
         """
         return pulumi.get(self, "accounts")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="containerId")

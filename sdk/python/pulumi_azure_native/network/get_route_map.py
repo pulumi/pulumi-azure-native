@@ -27,13 +27,16 @@ class GetRouteMapResult:
     """
     The RouteMap child resource of a Virtual hub.
     """
-    def __init__(__self__, associated_inbound_connections=None, associated_outbound_connections=None, etag=None, id=None, name=None, provisioning_state=None, rules=None, type=None):
+    def __init__(__self__, associated_inbound_connections=None, associated_outbound_connections=None, azure_api_version=None, etag=None, id=None, name=None, provisioning_state=None, rules=None, type=None):
         if associated_inbound_connections and not isinstance(associated_inbound_connections, list):
             raise TypeError("Expected argument 'associated_inbound_connections' to be a list")
         pulumi.set(__self__, "associated_inbound_connections", associated_inbound_connections)
         if associated_outbound_connections and not isinstance(associated_outbound_connections, list):
             raise TypeError("Expected argument 'associated_outbound_connections' to be a list")
         pulumi.set(__self__, "associated_outbound_connections", associated_outbound_connections)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -68,6 +71,14 @@ class GetRouteMapResult:
         List of connections which have this RoutMap associated for outbound traffic.
         """
         return pulumi.get(self, "associated_outbound_connections")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -126,6 +137,7 @@ class AwaitableGetRouteMapResult(GetRouteMapResult):
         return GetRouteMapResult(
             associated_inbound_connections=self.associated_inbound_connections,
             associated_outbound_connections=self.associated_outbound_connections,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -140,9 +152,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteMapResult:
     """
     Retrieves the details of a RouteMap.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.
@@ -159,6 +169,7 @@ def get_route_map(resource_group_name: Optional[str] = None,
     return AwaitableGetRouteMapResult(
         associated_inbound_connections=pulumi.get(__ret__, 'associated_inbound_connections'),
         associated_outbound_connections=pulumi.get(__ret__, 'associated_outbound_connections'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -171,9 +182,7 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteMapResult]:
     """
     Retrieves the details of a RouteMap.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the RouteMap's resource group.
@@ -189,6 +198,7 @@ def get_route_map_output(resource_group_name: Optional[pulumi.Input[str]] = None
     return __ret__.apply(lambda __response__: GetRouteMapResult(
         associated_inbound_connections=pulumi.get(__response__, 'associated_inbound_connections'),
         associated_outbound_connections=pulumi.get(__response__, 'associated_outbound_connections'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

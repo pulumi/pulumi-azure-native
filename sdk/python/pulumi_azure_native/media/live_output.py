@@ -216,7 +216,7 @@ class LiveOutput(pulumi.CustomResource):
                  __props__=None):
         """
         The Live Output.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +240,7 @@ class LiveOutput(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Live Output.
-        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
 
         :param str resource_name: The name of the resource.
         :param LiveOutputArgs args: The arguments to use to populate this resource's properties.
@@ -298,6 +298,7 @@ class LiveOutput(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rewind_window_length"] = rewind_window_length
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
@@ -331,6 +332,7 @@ class LiveOutput(pulumi.CustomResource):
 
         __props__.__dict__["archive_window_length"] = None
         __props__.__dict__["asset_name"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["created"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hls"] = None
@@ -360,6 +362,14 @@ class LiveOutput(pulumi.CustomResource):
         The asset that the live output will write to.
         """
         return pulumi.get(self, "asset_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -27,7 +27,10 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, description=None, id=None, identifier=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, id=None, identifier=None, identity=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +40,9 @@ class GetGalleryResult:
         if identifier and not isinstance(identifier, dict):
             raise TypeError("Expected argument 'identifier' to be a dict")
         pulumi.set(__self__, "identifier", identifier)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -63,6 +69,14 @@ class GetGalleryResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -85,6 +99,14 @@ class GetGalleryResult:
         Describes the gallery unique name.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.GalleryIdentityResponse']:
+        """
+        The identity of the gallery, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -157,9 +179,11 @@ class AwaitableGetGalleryResult(GetGalleryResult):
         if False:
             yield self
         return GetGalleryResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             id=self.id,
             identifier=self.identifier,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -177,9 +201,7 @@ def get_gallery(expand: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str expand: The expand query option to apply on the operation.
@@ -196,9 +218,11 @@ def get_gallery(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGallery', __args__, opts=opts, typ=GetGalleryResult).value
 
     return AwaitableGetGalleryResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         identifier=pulumi.get(__ret__, 'identifier'),
+        identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -214,9 +238,7 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
-    Azure REST API version: 2022-03-03.
-
-    Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+    Azure REST API version: 2024-03-03.
 
 
     :param str expand: The expand query option to apply on the operation.
@@ -232,9 +254,11 @@ def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:compute:getGallery', __args__, opts=opts, typ=GetGalleryResult)
     return __ret__.apply(lambda __response__: GetGalleryResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         identifier=pulumi.get(__response__, 'identifier'),
+        identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

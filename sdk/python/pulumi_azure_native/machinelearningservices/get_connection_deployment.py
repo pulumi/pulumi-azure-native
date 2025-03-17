@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionDeploymentResult:
-    def __init__(__self__, id=None, name=None, properties=None, sku=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -34,15 +37,20 @@ class GetConnectionDeploymentResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -62,13 +70,8 @@ class GetConnectionDeploymentResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.EndpointDeploymentResourcePropertiesResponse':
+    def properties(self) -> Any:
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional['outputs.CognitiveServicesSkuResponse']:
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
@@ -93,10 +96,10 @@ class AwaitableGetConnectionDeploymentResult(GetConnectionDeploymentResult):
         if False:
             yield self
         return GetConnectionDeploymentResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
-            sku=self.sku,
             system_data=self.system_data,
             type=self.type)
 
@@ -107,9 +110,7 @@ def get_connection_deployment(connection_name: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionDeploymentResult:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -126,10 +127,10 @@ def get_connection_deployment(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getConnectionDeployment', __args__, opts=opts, typ=GetConnectionDeploymentResult).value
 
     return AwaitableGetConnectionDeploymentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
-        sku=pulumi.get(__ret__, 'sku'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_connection_deployment_output(connection_name: Optional[pulumi.Input[str]] = None,
@@ -138,9 +139,7 @@ def get_connection_deployment_output(connection_name: Optional[pulumi.Input[str]
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionDeploymentResult]:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
@@ -156,9 +155,9 @@ def get_connection_deployment_output(connection_name: Optional[pulumi.Input[str]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getConnectionDeployment', __args__, opts=opts, typ=GetConnectionDeploymentResult)
     return __ret__.apply(lambda __response__: GetConnectionDeploymentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
-        sku=pulumi.get(__response__, 'sku'),
         system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

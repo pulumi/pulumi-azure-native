@@ -7,7 +7,9 @@ from enum import Enum
 __all__ = [
     'Action',
     'EncryptionType',
+    'IdentityType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'SkuName',
     'SkuTier',
     'StorageTargetType',
@@ -30,6 +32,19 @@ class EncryptionType(str, Enum):
     """
     Volume is encrypted at rest with Platform managed key. It is the default encryption type.
     """
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_MANAGED_KEY = "EncryptionAtRestWithCustomerManagedKey"
+    """
+    Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+    """
+
+
+class IdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):
@@ -40,6 +55,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     FAILED = "Failed"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):
@@ -79,3 +102,7 @@ class VolumeCreateOption(str, Enum):
     This enumerates the possible sources of a volume creation.
     """
     NONE = "None"
+    VOLUME_SNAPSHOT = "VolumeSnapshot"
+    DISK_SNAPSHOT = "DiskSnapshot"
+    DISK = "Disk"
+    DISK_RESTORE_POINT = "DiskRestorePoint"

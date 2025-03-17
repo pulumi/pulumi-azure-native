@@ -12,11 +12,3 @@ from .job import *
 from .job_collection import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.scheduler.v20160301 as __v20160301
-    v20160301 = __v20160301
-else:
-    v20160301 = _utilities.lazy_import('pulumi_azure_native.scheduler.v20160301')
-

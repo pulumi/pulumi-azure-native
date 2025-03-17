@@ -27,13 +27,22 @@ class GetProjectEnvironmentTypeResult:
     """
     Represents an environment type.
     """
-    def __init__(__self__, creator_role_assignment=None, deployment_target_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, user_role_assignments=None):
+    def __init__(__self__, azure_api_version=None, creator_role_assignment=None, deployment_target_id=None, display_name=None, environment_count=None, id=None, identity=None, location=None, name=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None, user_role_assignments=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creator_role_assignment and not isinstance(creator_role_assignment, dict):
             raise TypeError("Expected argument 'creator_role_assignment' to be a dict")
         pulumi.set(__self__, "creator_role_assignment", creator_role_assignment)
         if deployment_target_id and not isinstance(deployment_target_id, str):
             raise TypeError("Expected argument 'deployment_target_id' to be a str")
         pulumi.set(__self__, "deployment_target_id", deployment_target_id)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        pulumi.set(__self__, "display_name", display_name)
+        if environment_count and not isinstance(environment_count, int):
+            raise TypeError("Expected argument 'environment_count' to be a int")
+        pulumi.set(__self__, "environment_count", environment_count)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -66,6 +75,14 @@ class GetProjectEnvironmentTypeResult:
         pulumi.set(__self__, "user_role_assignments", user_role_assignments)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="creatorRoleAssignment")
     def creator_role_assignment(self) -> Optional['outputs.ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment']:
         """
@@ -82,10 +99,26 @@ class GetProjectEnvironmentTypeResult:
         return pulumi.get(self, "deployment_target_id")
 
     @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the project environment type.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="environmentCount")
+    def environment_count(self) -> int:
+        """
+        The number of environments of this type.
+        """
+        return pulumi.get(self, "environment_count")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -168,8 +201,11 @@ class AwaitableGetProjectEnvironmentTypeResult(GetProjectEnvironmentTypeResult):
         if False:
             yield self
         return GetProjectEnvironmentTypeResult(
+            azure_api_version=self.azure_api_version,
             creator_role_assignment=self.creator_role_assignment,
             deployment_target_id=self.deployment_target_id,
+            display_name=self.display_name,
+            environment_count=self.environment_count,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -188,9 +224,7 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectEnvironmentTypeResult:
     """
     Gets a project environment type.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str environment_type_name: The name of the environment type.
@@ -205,8 +239,11 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getProjectEnvironmentType', __args__, opts=opts, typ=GetProjectEnvironmentTypeResult).value
 
     return AwaitableGetProjectEnvironmentTypeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creator_role_assignment=pulumi.get(__ret__, 'creator_role_assignment'),
         deployment_target_id=pulumi.get(__ret__, 'deployment_target_id'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        environment_count=pulumi.get(__ret__, 'environment_count'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         location=pulumi.get(__ret__, 'location'),
@@ -223,9 +260,7 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectEnvironmentTypeResult]:
     """
     Gets a project environment type.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-02-01.
 
 
     :param str environment_type_name: The name of the environment type.
@@ -239,8 +274,11 @@ def get_project_environment_type_output(environment_type_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getProjectEnvironmentType', __args__, opts=opts, typ=GetProjectEnvironmentTypeResult)
     return __ret__.apply(lambda __response__: GetProjectEnvironmentTypeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creator_role_assignment=pulumi.get(__response__, 'creator_role_assignment'),
         deployment_target_id=pulumi.get(__response__, 'deployment_target_id'),
+        display_name=pulumi.get(__response__, 'display_name'),
+        environment_count=pulumi.get(__response__, 'environment_count'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         location=pulumi.get(__response__, 'location'),

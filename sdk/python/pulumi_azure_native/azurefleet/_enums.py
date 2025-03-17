@@ -5,8 +5,12 @@
 from enum import Enum
 
 __all__ = [
+    'AcceleratorManufacturer',
+    'AcceleratorType',
+    'ArchitectureType',
     'CachingTypes',
     'ComponentName',
+    'CpuManufacturer',
     'DeleteOptions',
     'DiffDiskOptions',
     'DiffDiskPlacement',
@@ -19,6 +23,7 @@ __all__ = [
     'LinuxPatchAssessmentMode',
     'LinuxVMGuestPatchAutomaticByPlatformRebootSetting',
     'LinuxVMGuestPatchMode',
+    'LocalStorageDiskType',
     'ManagedServiceIdentityType',
     'Mode',
     'NetworkApiVersion',
@@ -35,10 +40,58 @@ __all__ = [
     'SettingNames',
     'SpotAllocationStrategy',
     'StorageAccountTypes',
+    'VMAttributeSupport',
+    'VMCategory',
     'WindowsPatchAssessmentMode',
     'WindowsVMGuestPatchAutomaticByPlatformRebootSetting',
     'WindowsVMGuestPatchMode',
 ]
+
+
+class AcceleratorManufacturer(str, Enum):
+    """
+    Accelerator manufacturers supported by Azure VMs.
+    """
+    AMD = "AMD"
+    """
+    AMD GpuType
+    """
+    NVIDIA = "Nvidia"
+    """
+    Nvidia GpuType
+    """
+    XILINX = "Xilinx"
+    """
+    Xilinx GpuType
+    """
+
+
+class AcceleratorType(str, Enum):
+    """
+    Accelerator types supported by Azure VMs.
+    """
+    GPU = "GPU"
+    """
+    GPU Accelerator
+    """
+    FPGA = "FPGA"
+    """
+    FPGA Accelerator
+    """
+
+
+class ArchitectureType(str, Enum):
+    """
+    Architecture types supported by Azure VMs.
+    """
+    ARM64 = "ARM64"
+    """
+    ARM64 Architecture
+    """
+    X64 = "X64"
+    """
+    X64 Architecture
+    """
 
 
 class CachingTypes(str, Enum):
@@ -67,6 +120,28 @@ class ComponentName(str, Enum):
     Microsoft-Windows-Shell-Setup.
     """
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
+
+
+class CpuManufacturer(str, Enum):
+    """
+    Cpu Manufacturers  supported by Azure VMs.
+    """
+    INTEL = "Intel"
+    """
+    Intel CPU.
+    """
+    AMD = "AMD"
+    """
+    AMD CPU.
+    """
+    MICROSOFT = "Microsoft"
+    """
+    Microsoft CPU.
+    """
+    AMPERE = "Ampere"
+    """
+    Ampere CPU.
+    """
 
 
 class DeleteOptions(str, Enum):
@@ -297,6 +372,20 @@ class LinuxVMGuestPatchMode(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
     """
     The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true.
+    """
+
+
+class LocalStorageDiskType(str, Enum):
+    """
+    Different kind of Local storage disk types supported by Azure VMs.
+    """
+    HDD = "HDD"
+    """
+    HDD DiskType.
+    """
+    SSD = "SSD"
+    """
+    SDD DiskType.
     """
 
 
@@ -571,6 +660,64 @@ class StorageAccountTypes(str, Enum):
     PREMIUM_V2_LRS = "PremiumV2_LRS"
     """
     PremiumV2_LRS option.
+    """
+
+
+class VMAttributeSupport(str, Enum):
+    """
+    Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
+    """
+    EXCLUDED = "Excluded"
+    """
+    All VMSizes having the feature support will be excluded.
+    """
+    INCLUDED = "Included"
+    """
+     VMSizes that have the feature support and that do not have the feature support will be used. Included is a union of Excluded and Required.
+    """
+    REQUIRED = "Required"
+    """
+    Only the VMSizes having the feature support will be used.
+    """
+
+
+class VMCategory(str, Enum):
+    """
+    VMCategories defined for Azure VMs.
+    See: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist#general-purpose
+    """
+    GENERAL_PURPOSE = "GeneralPurpose"
+    """
+    General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.
+    """
+    COMPUTE_OPTIMIZED = "ComputeOptimized"
+    """
+    Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers.
+    """
+    MEMORY_OPTIMIZED = "MemoryOptimized"
+    """
+    Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for relational database servers, medium to large caches, and in-memory analytics.
+    """
+    STORAGE_OPTIMIZED = "StorageOptimized"
+    """
+    Storage optimized virtual machine (VM) sizes offer high disk throughput and IO, and are ideal for Big Data, SQL, NoSQL databases, data warehousing, and large transactional databases. 
+    Examples include Cassandra, MongoDB, Cloudera, and Redis.
+    """
+    GPU_ACCELERATED = "GpuAccelerated"
+    """
+    GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. 
+    These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
+    """
+    FPGA_ACCELERATED = "FpgaAccelerated"
+    """
+    FPGA optimized VM sizes are specialized virtual machines available with single or multiple FPGA. 
+    These sizes are designed for compute-intensive workloads. This article provides information about the number and type of FPGA, vCPUs, data disks, and NICs. 
+    Storage throughput and network bandwidth are also included for each size in this grouping.
+    """
+    HIGH_PERFORMANCE_COMPUTE = "HighPerformanceCompute"
+    """
+    Azure High Performance Compute VMs are optimized for various HPC workloads such as computational fluid dynamics, finite element analysis, frontend and backend EDA, 
+    rendering, molecular dynamics, computational geo science, weather simulation, and financial risk analysis.
     """
 
 

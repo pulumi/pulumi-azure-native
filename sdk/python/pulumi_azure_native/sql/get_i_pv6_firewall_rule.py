@@ -26,7 +26,10 @@ class GetIPv6FirewallRuleResult:
     """
     An IPv6 server firewall rule.
     """
-    def __init__(__self__, end_i_pv6_address=None, id=None, name=None, start_i_pv6_address=None, type=None):
+    def __init__(__self__, azure_api_version=None, end_i_pv6_address=None, id=None, name=None, start_i_pv6_address=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if end_i_pv6_address and not isinstance(end_i_pv6_address, str):
             raise TypeError("Expected argument 'end_i_pv6_address' to be a str")
         pulumi.set(__self__, "end_i_pv6_address", end_i_pv6_address)
@@ -42,6 +45,14 @@ class GetIPv6FirewallRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endIPv6Address")
@@ -90,6 +101,7 @@ class AwaitableGetIPv6FirewallRuleResult(GetIPv6FirewallRuleResult):
         if False:
             yield self
         return GetIPv6FirewallRuleResult(
+            azure_api_version=self.azure_api_version,
             end_i_pv6_address=self.end_i_pv6_address,
             id=self.id,
             name=self.name,
@@ -105,8 +117,6 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
     Gets an IPv6 firewall rule.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str firewall_rule_name: The name of the firewall rule.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -120,6 +130,7 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getIPv6FirewallRule', __args__, opts=opts, typ=GetIPv6FirewallRuleResult).value
 
     return AwaitableGetIPv6FirewallRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         end_i_pv6_address=pulumi.get(__ret__, 'end_i_pv6_address'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -133,8 +144,6 @@ def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str
     Gets an IPv6 firewall rule.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str firewall_rule_name: The name of the firewall rule.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -147,6 +156,7 @@ def get_i_pv6_firewall_rule_output(firewall_rule_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getIPv6FirewallRule', __args__, opts=opts, typ=GetIPv6FirewallRuleResult)
     return __ret__.apply(lambda __response__: GetIPv6FirewallRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         end_i_pv6_address=pulumi.get(__response__, 'end_i_pv6_address'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

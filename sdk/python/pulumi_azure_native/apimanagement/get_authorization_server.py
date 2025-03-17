@@ -27,13 +27,16 @@ class GetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
     """
-    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, id=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
+    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, azure_api_version=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, id=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None, use_in_api_documentation=None, use_in_test_console=None):
         if authorization_endpoint and not isinstance(authorization_endpoint, str):
             raise TypeError("Expected argument 'authorization_endpoint' to be a str")
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         if authorization_methods and not isinstance(authorization_methods, list):
             raise TypeError("Expected argument 'authorization_methods' to be a list")
         pulumi.set(__self__, "authorization_methods", authorization_methods)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if bearer_token_sending_methods and not isinstance(bearer_token_sending_methods, list):
             raise TypeError("Expected argument 'bearer_token_sending_methods' to be a list")
         pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
@@ -107,6 +110,14 @@ class GetAuthorizationServerResult:
         HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         """
         return pulumi.get(self, "authorization_methods")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
@@ -269,6 +280,7 @@ class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
         return GetAuthorizationServerResult(
             authorization_endpoint=self.authorization_endpoint,
             authorization_methods=self.authorization_methods,
+            azure_api_version=self.azure_api_version,
             bearer_token_sending_methods=self.bearer_token_sending_methods,
             client_authentication_method=self.client_authentication_method,
             client_id=self.client_id,
@@ -296,9 +308,7 @@ def get_authorization_server(authsid: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationServerResult:
     """
     Gets the details of the authorization server specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -315,6 +325,7 @@ def get_authorization_server(authsid: Optional[str] = None,
     return AwaitableGetAuthorizationServerResult(
         authorization_endpoint=pulumi.get(__ret__, 'authorization_endpoint'),
         authorization_methods=pulumi.get(__ret__, 'authorization_methods'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         bearer_token_sending_methods=pulumi.get(__ret__, 'bearer_token_sending_methods'),
         client_authentication_method=pulumi.get(__ret__, 'client_authentication_method'),
         client_id=pulumi.get(__ret__, 'client_id'),
@@ -340,9 +351,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     Gets the details of the authorization server specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str authsid: Identifier of the authorization server.
@@ -358,6 +367,7 @@ def get_authorization_server_output(authsid: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetAuthorizationServerResult(
         authorization_endpoint=pulumi.get(__response__, 'authorization_endpoint'),
         authorization_methods=pulumi.get(__response__, 'authorization_methods'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         bearer_token_sending_methods=pulumi.get(__response__, 'bearer_token_sending_methods'),
         client_authentication_method=pulumi.get(__response__, 'client_authentication_method'),
         client_id=pulumi.get(__response__, 'client_id'),

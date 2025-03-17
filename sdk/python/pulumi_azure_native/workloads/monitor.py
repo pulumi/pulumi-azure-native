@@ -24,10 +24,11 @@ class MonitorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  app_location: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
+                 app_service_plan_configuration: Optional[pulumi.Input['AppServicePlanConfigurationArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_subnet: Optional[pulumi.Input[str]] = None,
                  routing_preference: Optional[pulumi.Input[Union[str, 'RoutingPreference']]] = None,
@@ -37,10 +38,11 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: [currently not in use] Managed service identity(user assigned identities)
+        :param pulumi.Input['AppServicePlanConfigurationArgs'] app_service_plan_configuration: App service plan configuration
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
-        :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
+        :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] monitor_subnet: The subnet which the SAP monitor will be deployed in
         :param pulumi.Input[Union[str, 'RoutingPreference']] routing_preference: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
@@ -50,6 +52,8 @@ class MonitorArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_location is not None:
             pulumi.set(__self__, "app_location", app_location)
+        if app_service_plan_configuration is not None:
+            pulumi.set(__self__, "app_service_plan_configuration", app_service_plan_configuration)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -94,15 +98,27 @@ class MonitorArgs:
         pulumi.set(self, "app_location", value)
 
     @property
-    @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
+    @pulumi.getter(name="appServicePlanConfiguration")
+    def app_service_plan_configuration(self) -> Optional[pulumi.Input['AppServicePlanConfigurationArgs']]:
         """
-        [currently not in use] Managed service identity(user assigned identities)
+        App service plan configuration
+        """
+        return pulumi.get(self, "app_service_plan_configuration")
+
+    @app_service_plan_configuration.setter
+    def app_service_plan_configuration(self, value: Optional[pulumi.Input['AppServicePlanConfigurationArgs']]):
+        pulumi.set(self, "app_service_plan_configuration", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -131,14 +147,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedRGConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]:
         """
         Managed resource group configuration
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedRGConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @property
@@ -208,10 +224,11 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
+                 app_service_plan_configuration: Optional[pulumi.Input[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_subnet: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -221,17 +238,16 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+        Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']] identity: [currently not in use] Managed service identity(user assigned identities)
+        :param pulumi.Input[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']] app_service_plan_configuration: App service plan configuration
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
-        :param pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration
+        :param pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[str] monitor_subnet: The subnet which the SAP monitor will be deployed in
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -247,9 +263,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
-
-        Other available API versions: 2023-12-01-preview, 2024-02-01-preview.
+        Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2023-12-01-preview.
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -267,10 +281,11 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_location: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
+                 app_service_plan_configuration: Optional[pulumi.Input[Union['AppServicePlanConfigurationArgs', 'AppServicePlanConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_arm_id: Optional[pulumi.Input[str]] = None,
-                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedResourceGroupConfigurationArgs', 'ManagedResourceGroupConfigurationArgsDict']]] = None,
                  monitor_name: Optional[pulumi.Input[str]] = None,
                  monitor_subnet: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -287,6 +302,7 @@ class Monitor(pulumi.CustomResource):
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
             __props__.__dict__["app_location"] = app_location
+            __props__.__dict__["app_service_plan_configuration"] = app_service_plan_configuration
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["log_analytics_workspace_arm_id"] = log_analytics_workspace_arm_id
@@ -299,6 +315,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["routing_preference"] = routing_preference
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundancy_preference"] = zone_redundancy_preference
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["errors"] = None
             __props__.__dict__["msi_arm_id"] = None
             __props__.__dict__["name"] = None
@@ -306,7 +323,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["storage_account_arm_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:monitor"), pulumi.Alias(type_="azure-native:workloads:monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231001preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20231201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20240201preview:Monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
             'azure-native:workloads:Monitor',
@@ -331,6 +348,8 @@ class Monitor(pulumi.CustomResource):
         __props__ = MonitorArgs.__new__(MonitorArgs)
 
         __props__.__dict__["app_location"] = None
+        __props__.__dict__["app_service_plan_configuration"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["errors"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -357,8 +376,24 @@ class Monitor(pulumi.CustomResource):
         return pulumi.get(self, "app_location")
 
     @property
+    @pulumi.getter(name="appServicePlanConfiguration")
+    def app_service_plan_configuration(self) -> pulumi.Output[Optional['outputs.AppServicePlanConfigurationResponse']]:
+        """
+        App service plan configuration
+        """
+        return pulumi.get(self, "app_service_plan_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def errors(self) -> pulumi.Output['outputs.MonitorPropertiesResponseErrors']:
+    def errors(self) -> pulumi.Output['outputs.ErrorDetailResponse']:
         """
         Defines the SAP monitor errors.
         """
@@ -366,9 +401,9 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedServiceIdentityResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        [currently not in use] Managed service identity(user assigned identities)
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -390,7 +425,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.ManagedRGConfigurationResponse']]:
+    def managed_resource_group_configuration(self) -> pulumi.Output[Optional['outputs.ManagedResourceGroupConfigurationResponse']]:
         """
         Managed resource group configuration
         """

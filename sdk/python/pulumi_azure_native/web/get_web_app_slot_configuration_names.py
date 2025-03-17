@@ -26,10 +26,13 @@ class GetWebAppSlotConfigurationNamesResult:
     """
     Slot Config names azure resource.
     """
-    def __init__(__self__, app_setting_names=None, azure_storage_config_names=None, connection_string_names=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, app_setting_names=None, azure_api_version=None, azure_storage_config_names=None, connection_string_names=None, id=None, kind=None, name=None, type=None):
         if app_setting_names and not isinstance(app_setting_names, list):
             raise TypeError("Expected argument 'app_setting_names' to be a list")
         pulumi.set(__self__, "app_setting_names", app_setting_names)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_storage_config_names and not isinstance(azure_storage_config_names, list):
             raise TypeError("Expected argument 'azure_storage_config_names' to be a list")
         pulumi.set(__self__, "azure_storage_config_names", azure_storage_config_names)
@@ -56,6 +59,14 @@ class GetWebAppSlotConfigurationNamesResult:
         List of application settings names.
         """
         return pulumi.get(self, "app_setting_names")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureStorageConfigNames")
@@ -113,6 +124,7 @@ class AwaitableGetWebAppSlotConfigurationNamesResult(GetWebAppSlotConfigurationN
             yield self
         return GetWebAppSlotConfigurationNamesResult(
             app_setting_names=self.app_setting_names,
+            azure_api_version=self.azure_api_version,
             azure_storage_config_names=self.azure_storage_config_names,
             connection_string_names=self.connection_string_names,
             id=self.id,
@@ -126,9 +138,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotConfigurationNamesResult:
     """
     Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -142,6 +152,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
 
     return AwaitableGetWebAppSlotConfigurationNamesResult(
         app_setting_names=pulumi.get(__ret__, 'app_setting_names'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_storage_config_names=pulumi.get(__ret__, 'azure_storage_config_names'),
         connection_string_names=pulumi.get(__ret__, 'connection_string_names'),
         id=pulumi.get(__ret__, 'id'),
@@ -153,9 +164,7 @@ def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSlotConfigurationNamesResult]:
     """
     Description for Gets the names of app settings and connection strings that stick to the slot (not swapped).
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -168,6 +177,7 @@ def get_web_app_slot_configuration_names_output(name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSlotConfigurationNames', __args__, opts=opts, typ=GetWebAppSlotConfigurationNamesResult)
     return __ret__.apply(lambda __response__: GetWebAppSlotConfigurationNamesResult(
         app_setting_names=pulumi.get(__response__, 'app_setting_names'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_storage_config_names=pulumi.get(__response__, 'azure_storage_config_names'),
         connection_string_names=pulumi.get(__response__, 'connection_string_names'),
         id=pulumi.get(__response__, 'id'),

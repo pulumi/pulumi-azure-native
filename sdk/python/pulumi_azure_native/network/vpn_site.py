@@ -271,9 +271,7 @@ class VpnSite(pulumi.CustomResource):
                  __props__=None):
         """
         VpnSite Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -300,9 +298,7 @@ class VpnSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnSite Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param VpnSiteArgs args: The arguments to use to populate this resource's properties.
@@ -358,6 +354,7 @@ class VpnSite(pulumi.CustomResource):
             __props__.__dict__["virtual_wan"] = virtual_wan
             __props__.__dict__["vpn_site_links"] = vpn_site_links
             __props__.__dict__["vpn_site_name"] = vpn_site_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -387,6 +384,7 @@ class VpnSite(pulumi.CustomResource):
         __props__ = VpnSiteArgs.__new__(VpnSiteArgs)
 
         __props__.__dict__["address_space"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bgp_properties"] = None
         __props__.__dict__["device_properties"] = None
         __props__.__dict__["etag"] = None
@@ -410,6 +408,14 @@ class VpnSite(pulumi.CustomResource):
         The AddressSpace that contains an array of IP address ranges.
         """
         return pulumi.get(self, "address_space")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bgpProperties")

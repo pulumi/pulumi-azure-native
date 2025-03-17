@@ -27,10 +27,13 @@ class GetAwsCloudTrailDataConnectorResult:
     """
     Represents Amazon Web Services CloudTrail data connector.
     """
-    def __init__(__self__, aws_role_arn=None, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, aws_role_arn=None, azure_api_version=None, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
         if aws_role_arn and not isinstance(aws_role_arn, str):
             raise TypeError("Expected argument 'aws_role_arn' to be a str")
         pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_types and not isinstance(data_types, dict):
             raise TypeError("Expected argument 'data_types' to be a dict")
         pulumi.set(__self__, "data_types", data_types)
@@ -60,6 +63,14 @@ class GetAwsCloudTrailDataConnectorResult:
         The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
         """
         return pulumi.get(self, "aws_role_arn")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataTypes")
@@ -126,6 +137,7 @@ class AwaitableGetAwsCloudTrailDataConnectorResult(GetAwsCloudTrailDataConnector
             yield self
         return GetAwsCloudTrailDataConnectorResult(
             aws_role_arn=self.aws_role_arn,
+            azure_api_version=self.azure_api_version,
             data_types=self.data_types,
             etag=self.etag,
             id=self.id,
@@ -141,7 +153,7 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAwsCloudTrailDataConnectorResult:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID
@@ -157,6 +169,7 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[str] = None,
 
     return AwaitableGetAwsCloudTrailDataConnectorResult(
         aws_role_arn=pulumi.get(__ret__, 'aws_role_arn'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_types=pulumi.get(__ret__, 'data_types'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -170,7 +183,7 @@ def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsCloudTrailDataConnectorResult]:
     """
     Gets a data connector.
-    Azure REST API version: 2023-02-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str data_connector_id: Connector ID
@@ -185,6 +198,7 @@ def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getAwsCloudTrailDataConnector', __args__, opts=opts, typ=GetAwsCloudTrailDataConnectorResult)
     return __ret__.apply(lambda __response__: GetAwsCloudTrailDataConnectorResult(
         aws_role_arn=pulumi.get(__response__, 'aws_role_arn'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_types=pulumi.get(__response__, 'data_types'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

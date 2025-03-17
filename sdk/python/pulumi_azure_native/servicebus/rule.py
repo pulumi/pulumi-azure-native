@@ -28,18 +28,18 @@ class RuleArgs:
                  topic_name: pulumi.Input[str],
                  action: Optional[pulumi.Input['ActionArgs']] = None,
                  correlation_filter: Optional[pulumi.Input['CorrelationFilterArgs']] = None,
-                 filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
+                 filter_type: Optional[pulumi.Input['FilterType']] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input['SqlFilterArgs']] = None):
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input['ActionArgs'] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         :param pulumi.Input['CorrelationFilterArgs'] correlation_filter: Properties of correlationFilter
-        :param pulumi.Input[Union[str, 'FilterType']] filter_type: Filter type that is evaluated against a BrokeredMessage.
+        :param pulumi.Input['FilterType'] filter_type: Filter type that is evaluated against a BrokeredMessage.
         :param pulumi.Input[str] rule_name: The rule name.
         :param pulumi.Input['SqlFilterArgs'] sql_filter: Properties of sqlFilter
         """
@@ -74,7 +74,7 @@ class RuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -132,14 +132,14 @@ class RuleArgs:
 
     @property
     @pulumi.getter(name="filterType")
-    def filter_type(self) -> Optional[pulumi.Input[Union[str, 'FilterType']]]:
+    def filter_type(self) -> Optional[pulumi.Input['FilterType']]:
         """
         Filter type that is evaluated against a BrokeredMessage.
         """
         return pulumi.get(self, "filter_type")
 
     @filter_type.setter
-    def filter_type(self, value: Optional[pulumi.Input[Union[str, 'FilterType']]]):
+    def filter_type(self, value: Optional[pulumi.Input['FilterType']]):
         pulumi.set(self, "filter_type", value)
 
     @property
@@ -174,7 +174,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
                  correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
+                 filter_type: Optional[pulumi.Input['FilterType']] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -184,17 +184,15 @@ class Rule(pulumi.CustomResource):
                  __props__=None):
         """
         Description of Rule Resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ActionArgs', 'ActionArgsDict']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         :param pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']] correlation_filter: Properties of correlationFilter
-        :param pulumi.Input[Union[str, 'FilterType']] filter_type: Filter type that is evaluated against a BrokeredMessage.
+        :param pulumi.Input['FilterType'] filter_type: Filter type that is evaluated against a BrokeredMessage.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The rule name.
         :param pulumi.Input[Union['SqlFilterArgs', 'SqlFilterArgsDict']] sql_filter: Properties of sqlFilter
         :param pulumi.Input[str] subscription_name: The subscription name.
@@ -208,9 +206,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of Rule Resource.
-        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -229,7 +225,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[Union['ActionArgs', 'ActionArgsDict']]] = None,
                  correlation_filter: Optional[pulumi.Input[Union['CorrelationFilterArgs', 'CorrelationFilterArgsDict']]] = None,
-                 filter_type: Optional[pulumi.Input[Union[str, 'FilterType']]] = None,
+                 filter_type: Optional[pulumi.Input['FilterType']] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -262,6 +258,7 @@ class Rule(pulumi.CustomResource):
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
@@ -291,6 +288,7 @@ class Rule(pulumi.CustomResource):
         __props__ = RuleArgs.__new__(RuleArgs)
 
         __props__.__dict__["action"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["correlation_filter"] = None
         __props__.__dict__["filter_type"] = None
         __props__.__dict__["location"] = None
@@ -307,6 +305,14 @@ class Rule(pulumi.CustomResource):
         Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         """
         return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="correlationFilter")

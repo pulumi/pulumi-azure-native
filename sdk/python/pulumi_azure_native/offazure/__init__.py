@@ -43,20 +43,3 @@ from .web_app_discovery_site_data_sources_controller import *
 from .web_app_sites_controller import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.offazure.v20200707 as __v20200707
-    v20200707 = __v20200707
-    import pulumi_azure_native.offazure.v20230606 as __v20230606
-    v20230606 = __v20230606
-    import pulumi_azure_native.offazure.v20231001preview as __v20231001preview
-    v20231001preview = __v20231001preview
-    import pulumi_azure_native.offazure.v20240501preview as __v20240501preview
-    v20240501preview = __v20240501preview
-else:
-    v20200707 = _utilities.lazy_import('pulumi_azure_native.offazure.v20200707')
-    v20230606 = _utilities.lazy_import('pulumi_azure_native.offazure.v20230606')
-    v20231001preview = _utilities.lazy_import('pulumi_azure_native.offazure.v20231001preview')
-    v20240501preview = _utilities.lazy_import('pulumi_azure_native.offazure.v20240501preview')
-

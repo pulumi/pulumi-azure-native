@@ -27,7 +27,10 @@ class GetConfigurationAssignmentsForSubscriptionResult:
     """
     Configuration Assignment
     """
-    def __init__(__self__, filter=None, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, filter=None, id=None, location=None, maintenance_configuration_id=None, name=None, resource_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
@@ -52,6 +55,14 @@ class GetConfigurationAssignmentsForSubscriptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -124,6 +135,7 @@ class AwaitableGetConfigurationAssignmentsForSubscriptionResult(GetConfiguration
         if False:
             yield self
         return GetConfigurationAssignmentsForSubscriptionResult(
+            azure_api_version=self.azure_api_version,
             filter=self.filter,
             id=self.id,
             location=self.location,
@@ -138,9 +150,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationAssignmentsForSubscriptionResult:
     """
     Get configuration assignment for resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -151,6 +161,7 @@ def get_configuration_assignments_for_subscription(configuration_assignment_name
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance:getConfigurationAssignmentsForSubscription', __args__, opts=opts, typ=GetConfigurationAssignmentsForSubscriptionResult).value
 
     return AwaitableGetConfigurationAssignmentsForSubscriptionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -163,9 +174,7 @@ def get_configuration_assignments_for_subscription_output(configuration_assignme
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAssignmentsForSubscriptionResult]:
     """
     Get configuration assignment for resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-09-01-preview, 2023-10-01-preview.
+    Azure REST API version: 2023-10-01-preview.
 
 
     :param str configuration_assignment_name: Configuration assignment name
@@ -175,6 +184,7 @@ def get_configuration_assignments_for_subscription_output(configuration_assignme
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:maintenance:getConfigurationAssignmentsForSubscription', __args__, opts=opts, typ=GetConfigurationAssignmentsForSubscriptionResult)
     return __ret__.apply(lambda __response__: GetConfigurationAssignmentsForSubscriptionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

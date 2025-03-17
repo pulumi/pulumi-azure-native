@@ -27,10 +27,13 @@ class GetDiscoveredAssetEndpointProfileResult:
     """
     Discovered Asset Endpoint Profile definition.
     """
-    def __init__(__self__, additional_configuration=None, discovery_id=None, endpoint_profile_type=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, supported_authentication_methods=None, system_data=None, tags=None, target_address=None, type=None, version=None):
+    def __init__(__self__, additional_configuration=None, azure_api_version=None, discovery_id=None, endpoint_profile_type=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, supported_authentication_methods=None, system_data=None, tags=None, target_address=None, type=None, version=None):
         if additional_configuration and not isinstance(additional_configuration, str):
             raise TypeError("Expected argument 'additional_configuration' to be a str")
         pulumi.set(__self__, "additional_configuration", additional_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if discovery_id and not isinstance(discovery_id, str):
             raise TypeError("Expected argument 'discovery_id' to be a str")
         pulumi.set(__self__, "discovery_id", discovery_id)
@@ -78,6 +81,14 @@ class GetDiscoveredAssetEndpointProfileResult:
         Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
         """
         return pulumi.get(self, "additional_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="discoveryId")
@@ -191,6 +202,7 @@ class AwaitableGetDiscoveredAssetEndpointProfileResult(GetDiscoveredAssetEndpoin
             yield self
         return GetDiscoveredAssetEndpointProfileResult(
             additional_configuration=self.additional_configuration,
+            azure_api_version=self.azure_api_version,
             discovery_id=self.discovery_id,
             endpoint_profile_type=self.endpoint_profile_type,
             extended_location=self.extended_location,
@@ -225,6 +237,7 @@ def get_discovered_asset_endpoint_profile(discovered_asset_endpoint_profile_name
 
     return AwaitableGetDiscoveredAssetEndpointProfileResult(
         additional_configuration=pulumi.get(__ret__, 'additional_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         discovery_id=pulumi.get(__ret__, 'discovery_id'),
         endpoint_profile_type=pulumi.get(__ret__, 'endpoint_profile_type'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -256,6 +269,7 @@ def get_discovered_asset_endpoint_profile_output(discovered_asset_endpoint_profi
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getDiscoveredAssetEndpointProfile', __args__, opts=opts, typ=GetDiscoveredAssetEndpointProfileResult)
     return __ret__.apply(lambda __response__: GetDiscoveredAssetEndpointProfileResult(
         additional_configuration=pulumi.get(__response__, 'additional_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         discovery_id=pulumi.get(__response__, 'discovery_id'),
         endpoint_profile_type=pulumi.get(__response__, 'endpoint_profile_type'),
         extended_location=pulumi.get(__response__, 'extended_location'),

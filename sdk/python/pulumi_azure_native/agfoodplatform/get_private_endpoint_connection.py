@@ -27,7 +27,10 @@ class GetPrivateEndpointConnectionResult:
     """
     The private endpoint connection resource.
     """
-    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if group_ids and not isinstance(group_ids, list):
             raise TypeError("Expected argument 'group_ids' to be a list")
         pulumi.set(__self__, "group_ids", group_ids)
@@ -52,6 +55,14 @@ class GetPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupIds")
@@ -124,6 +135,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            azure_api_version=self.azure_api_version,
             group_ids=self.group_ids,
             id=self.id,
             name=self.name,
@@ -142,8 +154,6 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
     Get Private endpoint connection object.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str private_endpoint_connection_name: Private endpoint connection name.
@@ -157,6 +167,7 @@ def get_private_endpoint_connection(data_manager_for_agriculture_resource_name: 
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         group_ids=pulumi.get(__ret__, 'group_ids'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -173,8 +184,6 @@ def get_private_endpoint_connection_output(data_manager_for_agriculture_resource
     Get Private endpoint connection object.
     Azure REST API version: 2023-06-01-preview.
 
-    Other available API versions: 2021-09-01-preview.
-
 
     :param str data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
     :param str private_endpoint_connection_name: Private endpoint connection name.
@@ -187,6 +196,7 @@ def get_private_endpoint_connection_output(data_manager_for_agriculture_resource
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:agfoodplatform:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult)
     return __ret__.apply(lambda __response__: GetPrivateEndpointConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         group_ids=pulumi.get(__response__, 'group_ids'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

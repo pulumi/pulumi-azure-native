@@ -27,7 +27,10 @@ class GetFluxConfigurationResult:
     """
     The Flux Configuration object returned in Get & Put response.
     """
-    def __init__(__self__, azure_blob=None, bucket=None, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, name=None, namespace=None, provisioning_state=None, reconciliation_wait_duration=None, repository_public_key=None, scope=None, source_kind=None, source_synced_commit_id=None, source_updated_at=None, status_updated_at=None, statuses=None, suspend=None, system_data=None, type=None, wait_for_reconciliation=None):
+    def __init__(__self__, azure_api_version=None, azure_blob=None, bucket=None, compliance_state=None, configuration_protected_settings=None, error_message=None, git_repository=None, id=None, kustomizations=None, name=None, namespace=None, provisioning_state=None, reconciliation_wait_duration=None, repository_public_key=None, scope=None, source_kind=None, source_synced_commit_id=None, source_updated_at=None, status_updated_at=None, statuses=None, suspend=None, system_data=None, type=None, wait_for_reconciliation=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_blob and not isinstance(azure_blob, dict):
             raise TypeError("Expected argument 'azure_blob' to be a dict")
         pulumi.set(__self__, "azure_blob", azure_blob)
@@ -97,6 +100,14 @@ class GetFluxConfigurationResult:
         if wait_for_reconciliation and not isinstance(wait_for_reconciliation, bool):
             raise TypeError("Expected argument 'wait_for_reconciliation' to be a bool")
         pulumi.set(__self__, "wait_for_reconciliation", wait_for_reconciliation)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureBlob")
@@ -289,6 +300,7 @@ class AwaitableGetFluxConfigurationResult(GetFluxConfigurationResult):
         if False:
             yield self
         return GetFluxConfigurationResult(
+            azure_api_version=self.azure_api_version,
             azure_blob=self.azure_blob,
             bucket=self.bucket,
             compliance_state=self.compliance_state,
@@ -324,8 +336,6 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
     Gets details of the Flux Configuration.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
-
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -343,6 +353,7 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult).value
 
     return AwaitableGetFluxConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_blob=pulumi.get(__ret__, 'azure_blob'),
         bucket=pulumi.get(__ret__, 'bucket'),
         compliance_state=pulumi.get(__ret__, 'compliance_state'),
@@ -376,8 +387,6 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
     Gets details of the Flux Configuration.
     Azure REST API version: 2023-05-01.
 
-    Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
-
 
     :param str cluster_name: The name of the kubernetes cluster.
     :param str cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
@@ -394,6 +403,7 @@ def get_flux_configuration_output(cluster_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:kubernetesconfiguration:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult)
     return __ret__.apply(lambda __response__: GetFluxConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_blob=pulumi.get(__response__, 'azure_blob'),
         bucket=pulumi.get(__response__, 'bucket'),
         compliance_state=pulumi.get(__response__, 'compliance_state'),

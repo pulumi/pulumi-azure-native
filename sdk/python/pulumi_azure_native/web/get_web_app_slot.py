@@ -27,10 +27,16 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, extended_location=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None):
+    def __init__(__self__, auto_generated_domain_name_label_scope=None, availability_state=None, azure_api_version=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, dapr_config=None, default_host_name=None, dns_configuration=None, enabled=None, enabled_host_names=None, end_to_end_encryption_enabled=None, extended_location=None, function_app_config=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, ip_mode=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_config=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, sku=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_backup_restore_enabled=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None, workload_profile_name=None):
+        if auto_generated_domain_name_label_scope and not isinstance(auto_generated_domain_name_label_scope, str):
+            raise TypeError("Expected argument 'auto_generated_domain_name_label_scope' to be a str")
+        pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if client_affinity_enabled and not isinstance(client_affinity_enabled, bool):
             raise TypeError("Expected argument 'client_affinity_enabled' to be a bool")
         pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
@@ -52,18 +58,30 @@ class GetWebAppSlotResult:
         if daily_memory_time_quota and not isinstance(daily_memory_time_quota, int):
             raise TypeError("Expected argument 'daily_memory_time_quota' to be a int")
         pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+        if dapr_config and not isinstance(dapr_config, dict):
+            raise TypeError("Expected argument 'dapr_config' to be a dict")
+        pulumi.set(__self__, "dapr_config", dapr_config)
         if default_host_name and not isinstance(default_host_name, str):
             raise TypeError("Expected argument 'default_host_name' to be a str")
         pulumi.set(__self__, "default_host_name", default_host_name)
+        if dns_configuration and not isinstance(dns_configuration, dict):
+            raise TypeError("Expected argument 'dns_configuration' to be a dict")
+        pulumi.set(__self__, "dns_configuration", dns_configuration)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
         if enabled_host_names and not isinstance(enabled_host_names, list):
             raise TypeError("Expected argument 'enabled_host_names' to be a list")
         pulumi.set(__self__, "enabled_host_names", enabled_host_names)
+        if end_to_end_encryption_enabled and not isinstance(end_to_end_encryption_enabled, bool):
+            raise TypeError("Expected argument 'end_to_end_encryption_enabled' to be a bool")
+        pulumi.set(__self__, "end_to_end_encryption_enabled", end_to_end_encryption_enabled)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
+        if function_app_config and not isinstance(function_app_config, dict):
+            raise TypeError("Expected argument 'function_app_config' to be a dict")
+        pulumi.set(__self__, "function_app_config", function_app_config)
         if host_name_ssl_states and not isinstance(host_name_ssl_states, list):
             raise TypeError("Expected argument 'host_name_ssl_states' to be a list")
         pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
@@ -91,6 +109,9 @@ class GetWebAppSlotResult:
         if in_progress_operation_id and not isinstance(in_progress_operation_id, str):
             raise TypeError("Expected argument 'in_progress_operation_id' to be a str")
         pulumi.set(__self__, "in_progress_operation_id", in_progress_operation_id)
+        if ip_mode and not isinstance(ip_mode, str):
+            raise TypeError("Expected argument 'ip_mode' to be a str")
+        pulumi.set(__self__, "ip_mode", ip_mode)
         if is_default_container and not isinstance(is_default_container, bool):
             raise TypeError("Expected argument 'is_default_container' to be a bool")
         pulumi.set(__self__, "is_default_container", is_default_container)
@@ -136,6 +157,9 @@ class GetWebAppSlotResult:
         if reserved and not isinstance(reserved, bool):
             raise TypeError("Expected argument 'reserved' to be a bool")
         pulumi.set(__self__, "reserved", reserved)
+        if resource_config and not isinstance(resource_config, dict):
+            raise TypeError("Expected argument 'resource_config' to be a dict")
+        pulumi.set(__self__, "resource_config", resource_config)
         if resource_group and not isinstance(resource_group, str):
             raise TypeError("Expected argument 'resource_group' to be a str")
         pulumi.set(__self__, "resource_group", resource_group)
@@ -148,6 +172,9 @@ class GetWebAppSlotResult:
         if site_config and not isinstance(site_config, dict):
             raise TypeError("Expected argument 'site_config' to be a dict")
         pulumi.set(__self__, "site_config", site_config)
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        pulumi.set(__self__, "sku", sku)
         if slot_swap_status and not isinstance(slot_swap_status, dict):
             raise TypeError("Expected argument 'slot_swap_status' to be a dict")
         pulumi.set(__self__, "slot_swap_status", slot_swap_status)
@@ -178,6 +205,9 @@ class GetWebAppSlotResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_backup_restore_enabled and not isinstance(vnet_backup_restore_enabled, bool):
+            raise TypeError("Expected argument 'vnet_backup_restore_enabled' to be a bool")
+        pulumi.set(__self__, "vnet_backup_restore_enabled", vnet_backup_restore_enabled)
         if vnet_content_share_enabled and not isinstance(vnet_content_share_enabled, bool):
             raise TypeError("Expected argument 'vnet_content_share_enabled' to be a bool")
         pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
@@ -187,6 +217,17 @@ class GetWebAppSlotResult:
         if vnet_route_all_enabled and not isinstance(vnet_route_all_enabled, bool):
             raise TypeError("Expected argument 'vnet_route_all_enabled' to be a bool")
         pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
+        if workload_profile_name and not isinstance(workload_profile_name, str):
+            raise TypeError("Expected argument 'workload_profile_name' to be a str")
+        pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+
+    @property
+    @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
+    def auto_generated_domain_name_label_scope(self) -> Optional[str]:
+        """
+        Specifies the scope of uniqueness for the default hostname during resource creation
+        """
+        return pulumi.get(self, "auto_generated_domain_name_label_scope")
 
     @property
     @pulumi.getter(name="availabilityState")
@@ -195,6 +236,14 @@ class GetWebAppSlotResult:
         Management information availability state for the app.
         """
         return pulumi.get(self, "availability_state")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientAffinityEnabled")
@@ -256,12 +305,28 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "daily_memory_time_quota")
 
     @property
+    @pulumi.getter(name="daprConfig")
+    def dapr_config(self) -> Optional['outputs.DaprConfigResponse']:
+        """
+        Dapr configuration of the app.
+        """
+        return pulumi.get(self, "dapr_config")
+
+    @property
     @pulumi.getter(name="defaultHostName")
     def default_host_name(self) -> str:
         """
         Default hostname of the app. Read-only.
         """
         return pulumi.get(self, "default_host_name")
+
+    @property
+    @pulumi.getter(name="dnsConfiguration")
+    def dns_configuration(self) -> Optional['outputs.SiteDnsConfigResponse']:
+        """
+        Property to configure various DNS related settings for a site.
+        """
+        return pulumi.get(self, "dns_configuration")
 
     @property
     @pulumi.getter
@@ -281,12 +346,28 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "enabled_host_names")
 
     @property
+    @pulumi.getter(name="endToEndEncryptionEnabled")
+    def end_to_end_encryption_enabled(self) -> Optional[bool]:
+        """
+        Whether to use end to end encryption between the FrontEnd and the Worker
+        """
+        return pulumi.get(self, "end_to_end_encryption_enabled")
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
         """
         Extended Location.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="functionAppConfig")
+    def function_app_config(self) -> Optional['outputs.FunctionAppConfigResponse']:
+        """
+        Configuration specific of the Azure Function app.
+        """
+        return pulumi.get(self, "function_app_config")
 
     @property
     @pulumi.getter(name="hostNameSslStates")
@@ -363,6 +444,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "in_progress_operation_id")
 
     @property
+    @pulumi.getter(name="ipMode")
+    def ip_mode(self) -> Optional[str]:
+        """
+        Specifies the IP mode of the app.
+        """
+        return pulumi.get(self, "ip_mode")
+
+    @property
     @pulumi.getter(name="isDefaultContainer")
     def is_default_container(self) -> bool:
         """
@@ -390,7 +479,7 @@ class GetWebAppSlotResult:
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        Kind of resource.
+        Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
@@ -484,6 +573,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "reserved")
 
     @property
+    @pulumi.getter(name="resourceConfig")
+    def resource_config(self) -> Optional['outputs.ResourceConfigResponse']:
+        """
+        Function app resource requirements.
+        """
+        return pulumi.get(self, "resource_config")
+
+    @property
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> str:
         """
@@ -514,6 +611,14 @@ class GetWebAppSlotResult:
         Configuration of the app.
         """
         return pulumi.get(self, "site_config")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> str:
+        """
+        Current SKU of application based on associated App Service Plan. Some valid SKU values are Free, Shared, Basic, Dynamic, FlexConsumption, Standard, Premium, PremiumV2, PremiumV3, Isolated, IsolatedV2
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="slotSwapStatus")
@@ -597,6 +702,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "virtual_network_subnet_id")
 
     @property
+    @pulumi.getter(name="vnetBackupRestoreEnabled")
+    def vnet_backup_restore_enabled(self) -> Optional[bool]:
+        """
+        To enable Backup and Restore operations over virtual network
+        """
+        return pulumi.get(self, "vnet_backup_restore_enabled")
+
+    @property
     @pulumi.getter(name="vnetContentShareEnabled")
     def vnet_content_share_enabled(self) -> Optional[bool]:
         """
@@ -620,6 +733,14 @@ class GetWebAppSlotResult:
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
+    @property
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[str]:
+        """
+        Workload profile name for function app to execute on.
+        """
+        return pulumi.get(self, "workload_profile_name")
+
 
 class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
     # pylint: disable=using-constant-test
@@ -627,7 +748,9 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
         if False:
             yield self
         return GetWebAppSlotResult(
+            auto_generated_domain_name_label_scope=self.auto_generated_domain_name_label_scope,
             availability_state=self.availability_state,
+            azure_api_version=self.azure_api_version,
             client_affinity_enabled=self.client_affinity_enabled,
             client_cert_enabled=self.client_cert_enabled,
             client_cert_exclusion_paths=self.client_cert_exclusion_paths,
@@ -635,10 +758,14 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             container_size=self.container_size,
             custom_domain_verification_id=self.custom_domain_verification_id,
             daily_memory_time_quota=self.daily_memory_time_quota,
+            dapr_config=self.dapr_config,
             default_host_name=self.default_host_name,
+            dns_configuration=self.dns_configuration,
             enabled=self.enabled,
             enabled_host_names=self.enabled_host_names,
+            end_to_end_encryption_enabled=self.end_to_end_encryption_enabled,
             extended_location=self.extended_location,
+            function_app_config=self.function_app_config,
             host_name_ssl_states=self.host_name_ssl_states,
             host_names=self.host_names,
             host_names_disabled=self.host_names_disabled,
@@ -648,6 +775,7 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             id=self.id,
             identity=self.identity,
             in_progress_operation_id=self.in_progress_operation_id,
+            ip_mode=self.ip_mode,
             is_default_container=self.is_default_container,
             is_xenon=self.is_xenon,
             key_vault_reference_identity=self.key_vault_reference_identity,
@@ -663,10 +791,12 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             redundancy_mode=self.redundancy_mode,
             repository_site_name=self.repository_site_name,
             reserved=self.reserved,
+            resource_config=self.resource_config,
             resource_group=self.resource_group,
             scm_site_also_stopped=self.scm_site_also_stopped,
             server_farm_id=self.server_farm_id,
             site_config=self.site_config,
+            sku=self.sku,
             slot_swap_status=self.slot_swap_status,
             state=self.state,
             storage_account_required=self.storage_account_required,
@@ -677,9 +807,11 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             type=self.type,
             usage_state=self.usage_state,
             virtual_network_subnet_id=self.virtual_network_subnet_id,
+            vnet_backup_restore_enabled=self.vnet_backup_restore_enabled,
             vnet_content_share_enabled=self.vnet_content_share_enabled,
             vnet_image_pull_enabled=self.vnet_image_pull_enabled,
-            vnet_route_all_enabled=self.vnet_route_all_enabled)
+            vnet_route_all_enabled=self.vnet_route_all_enabled,
+            workload_profile_name=self.workload_profile_name)
 
 
 def get_web_app_slot(name: Optional[str] = None,
@@ -688,9 +820,7 @@ def get_web_app_slot(name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
     Description for Gets the details of a web, mobile, or API app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -705,7 +835,9 @@ def get_web_app_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppSlot', __args__, opts=opts, typ=GetWebAppSlotResult).value
 
     return AwaitableGetWebAppSlotResult(
+        auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
         availability_state=pulumi.get(__ret__, 'availability_state'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_affinity_enabled=pulumi.get(__ret__, 'client_affinity_enabled'),
         client_cert_enabled=pulumi.get(__ret__, 'client_cert_enabled'),
         client_cert_exclusion_paths=pulumi.get(__ret__, 'client_cert_exclusion_paths'),
@@ -713,10 +845,14 @@ def get_web_app_slot(name: Optional[str] = None,
         container_size=pulumi.get(__ret__, 'container_size'),
         custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
         daily_memory_time_quota=pulumi.get(__ret__, 'daily_memory_time_quota'),
+        dapr_config=pulumi.get(__ret__, 'dapr_config'),
         default_host_name=pulumi.get(__ret__, 'default_host_name'),
+        dns_configuration=pulumi.get(__ret__, 'dns_configuration'),
         enabled=pulumi.get(__ret__, 'enabled'),
         enabled_host_names=pulumi.get(__ret__, 'enabled_host_names'),
+        end_to_end_encryption_enabled=pulumi.get(__ret__, 'end_to_end_encryption_enabled'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
+        function_app_config=pulumi.get(__ret__, 'function_app_config'),
         host_name_ssl_states=pulumi.get(__ret__, 'host_name_ssl_states'),
         host_names=pulumi.get(__ret__, 'host_names'),
         host_names_disabled=pulumi.get(__ret__, 'host_names_disabled'),
@@ -726,6 +862,7 @@ def get_web_app_slot(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         in_progress_operation_id=pulumi.get(__ret__, 'in_progress_operation_id'),
+        ip_mode=pulumi.get(__ret__, 'ip_mode'),
         is_default_container=pulumi.get(__ret__, 'is_default_container'),
         is_xenon=pulumi.get(__ret__, 'is_xenon'),
         key_vault_reference_identity=pulumi.get(__ret__, 'key_vault_reference_identity'),
@@ -741,10 +878,12 @@ def get_web_app_slot(name: Optional[str] = None,
         redundancy_mode=pulumi.get(__ret__, 'redundancy_mode'),
         repository_site_name=pulumi.get(__ret__, 'repository_site_name'),
         reserved=pulumi.get(__ret__, 'reserved'),
+        resource_config=pulumi.get(__ret__, 'resource_config'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__ret__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__ret__, 'server_farm_id'),
         site_config=pulumi.get(__ret__, 'site_config'),
+        sku=pulumi.get(__ret__, 'sku'),
         slot_swap_status=pulumi.get(__ret__, 'slot_swap_status'),
         state=pulumi.get(__ret__, 'state'),
         storage_account_required=pulumi.get(__ret__, 'storage_account_required'),
@@ -755,18 +894,18 @@ def get_web_app_slot(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         usage_state=pulumi.get(__ret__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
+        vnet_backup_restore_enabled=pulumi.get(__ret__, 'vnet_backup_restore_enabled'),
         vnet_content_share_enabled=pulumi.get(__ret__, 'vnet_content_share_enabled'),
         vnet_image_pull_enabled=pulumi.get(__ret__, 'vnet_image_pull_enabled'),
-        vnet_route_all_enabled=pulumi.get(__ret__, 'vnet_route_all_enabled'))
+        vnet_route_all_enabled=pulumi.get(__ret__, 'vnet_route_all_enabled'),
+        workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             slot: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSlotResult]:
     """
     Description for Gets the details of a web, mobile, or API app.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2016-08-01, 2018-11-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -780,7 +919,9 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppSlot', __args__, opts=opts, typ=GetWebAppSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppSlotResult(
+        auto_generated_domain_name_label_scope=pulumi.get(__response__, 'auto_generated_domain_name_label_scope'),
         availability_state=pulumi.get(__response__, 'availability_state'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_affinity_enabled=pulumi.get(__response__, 'client_affinity_enabled'),
         client_cert_enabled=pulumi.get(__response__, 'client_cert_enabled'),
         client_cert_exclusion_paths=pulumi.get(__response__, 'client_cert_exclusion_paths'),
@@ -788,10 +929,14 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
         container_size=pulumi.get(__response__, 'container_size'),
         custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
         daily_memory_time_quota=pulumi.get(__response__, 'daily_memory_time_quota'),
+        dapr_config=pulumi.get(__response__, 'dapr_config'),
         default_host_name=pulumi.get(__response__, 'default_host_name'),
+        dns_configuration=pulumi.get(__response__, 'dns_configuration'),
         enabled=pulumi.get(__response__, 'enabled'),
         enabled_host_names=pulumi.get(__response__, 'enabled_host_names'),
+        end_to_end_encryption_enabled=pulumi.get(__response__, 'end_to_end_encryption_enabled'),
         extended_location=pulumi.get(__response__, 'extended_location'),
+        function_app_config=pulumi.get(__response__, 'function_app_config'),
         host_name_ssl_states=pulumi.get(__response__, 'host_name_ssl_states'),
         host_names=pulumi.get(__response__, 'host_names'),
         host_names_disabled=pulumi.get(__response__, 'host_names_disabled'),
@@ -801,6 +946,7 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         in_progress_operation_id=pulumi.get(__response__, 'in_progress_operation_id'),
+        ip_mode=pulumi.get(__response__, 'ip_mode'),
         is_default_container=pulumi.get(__response__, 'is_default_container'),
         is_xenon=pulumi.get(__response__, 'is_xenon'),
         key_vault_reference_identity=pulumi.get(__response__, 'key_vault_reference_identity'),
@@ -816,10 +962,12 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
         redundancy_mode=pulumi.get(__response__, 'redundancy_mode'),
         repository_site_name=pulumi.get(__response__, 'repository_site_name'),
         reserved=pulumi.get(__response__, 'reserved'),
+        resource_config=pulumi.get(__response__, 'resource_config'),
         resource_group=pulumi.get(__response__, 'resource_group'),
         scm_site_also_stopped=pulumi.get(__response__, 'scm_site_also_stopped'),
         server_farm_id=pulumi.get(__response__, 'server_farm_id'),
         site_config=pulumi.get(__response__, 'site_config'),
+        sku=pulumi.get(__response__, 'sku'),
         slot_swap_status=pulumi.get(__response__, 'slot_swap_status'),
         state=pulumi.get(__response__, 'state'),
         storage_account_required=pulumi.get(__response__, 'storage_account_required'),
@@ -830,6 +978,8 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
         type=pulumi.get(__response__, 'type'),
         usage_state=pulumi.get(__response__, 'usage_state'),
         virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
+        vnet_backup_restore_enabled=pulumi.get(__response__, 'vnet_backup_restore_enabled'),
         vnet_content_share_enabled=pulumi.get(__response__, 'vnet_content_share_enabled'),
         vnet_image_pull_enabled=pulumi.get(__response__, 'vnet_image_pull_enabled'),
-        vnet_route_all_enabled=pulumi.get(__response__, 'vnet_route_all_enabled')))
+        vnet_route_all_enabled=pulumi.get(__response__, 'vnet_route_all_enabled'),
+        workload_profile_name=pulumi.get(__response__, 'workload_profile_name')))

@@ -167,9 +167,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,9 +188,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -242,6 +238,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["safety_profile"] = safety_profile
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["replication_status"] = None
@@ -270,6 +267,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
 
         __props__ = GalleryApplicationVersionArgs.__new__(GalleryApplicationVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -279,6 +277,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryApplicationVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

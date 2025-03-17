@@ -31,6 +31,7 @@ class AmlFilesystemArgs:
                  hsm: Optional[pulumi.Input['AmlFilesystemHsmArgs']] = None,
                  identity: Optional[pulumi.Input['AmlFilesystemIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 root_squash_settings: Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']] = None,
                  sku: Optional[pulumi.Input['SkuNameArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -45,6 +46,7 @@ class AmlFilesystemArgs:
         :param pulumi.Input['AmlFilesystemHsmArgs'] hsm: Hydration and archive settings and status
         :param pulumi.Input['AmlFilesystemIdentityArgs'] identity: The managed identity used by the AML file system, if configured.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['AmlFilesystemRootSquashSettingsArgs'] root_squash_settings: Specifies root squash settings of the AML file system.
         :param pulumi.Input['SkuNameArgs'] sku: SKU for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
@@ -63,6 +65,8 @@ class AmlFilesystemArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if root_squash_settings is not None:
+            pulumi.set(__self__, "root_squash_settings", root_squash_settings)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -179,6 +183,18 @@ class AmlFilesystemArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="rootSquashSettings")
+    def root_squash_settings(self) -> Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']]:
+        """
+        Specifies root squash settings of the AML file system.
+        """
+        return pulumi.get(self, "root_squash_settings")
+
+    @root_squash_settings.setter
+    def root_squash_settings(self, value: Optional[pulumi.Input['AmlFilesystemRootSquashSettingsArgs']]):
+        pulumi.set(self, "root_squash_settings", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuNameArgs']]:
         """
@@ -228,6 +244,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_squash_settings: Optional[pulumi.Input[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
                  storage_capacity_ti_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -235,7 +252,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  __props__=None):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        Azure REST API version: 2023-05-01.
+        Azure REST API version: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,6 +264,7 @@ class AmlFilesystem(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']] maintenance_window: Start time of a 30-minute weekly maintenance window.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']] root_squash_settings: Specifies root squash settings of the AML file system.
         :param pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']] sku: SKU for the resource.
         :param pulumi.Input[float] storage_capacity_ti_b: The size of the AML file system, in TiB. This might be rounded up.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -260,7 +278,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-        Azure REST API version: 2023-05-01.
+        Azure REST API version: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param AmlFilesystemArgs args: The arguments to use to populate this resource's properties.
@@ -285,6 +303,7 @@ class AmlFilesystem(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['AmlFilesystemMaintenanceWindowArgs', 'AmlFilesystemMaintenanceWindowArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 root_squash_settings: Optional[pulumi.Input[Union['AmlFilesystemRootSquashSettingsArgs', 'AmlFilesystemRootSquashSettingsArgsDict']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuNameArgs', 'SkuNameArgsDict']]] = None,
                  storage_capacity_ti_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -312,12 +331,14 @@ class AmlFilesystem(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["root_squash_settings"] = root_squash_settings
             __props__.__dict__["sku"] = sku
             if storage_capacity_ti_b is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_capacity_ti_b'")
             __props__.__dict__["storage_capacity_ti_b"] = storage_capacity_ti_b
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["client_info"] = None
             __props__.__dict__["health"] = None
             __props__.__dict__["name"] = None
@@ -325,7 +346,7 @@ class AmlFilesystem(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["throughput_provisioned_m_bps"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20230301preview:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230301preview:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230501:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230501:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20231101preview:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20231101preview:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240301:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240301:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240701:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240701:amlFilesystem"), pulumi.Alias(type_="azure-native:storagecache:amlFilesystem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20230301preview:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20230501:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20231101preview:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240301:AmlFilesystem"), pulumi.Alias(type_="azure-native:storagecache/v20240701:AmlFilesystem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AmlFilesystem, __self__).__init__(
             'azure-native:storagecache:AmlFilesystem',
@@ -349,6 +370,7 @@ class AmlFilesystem(pulumi.CustomResource):
 
         __props__ = AmlFilesystemArgs.__new__(AmlFilesystemArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_info"] = None
         __props__.__dict__["encryption_settings"] = None
         __props__.__dict__["filesystem_subnet"] = None
@@ -359,6 +381,7 @@ class AmlFilesystem(pulumi.CustomResource):
         __props__.__dict__["maintenance_window"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["root_squash_settings"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["storage_capacity_ti_b"] = None
         __props__.__dict__["system_data"] = None
@@ -367,6 +390,14 @@ class AmlFilesystem(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return AmlFilesystem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="clientInfo")
@@ -447,6 +478,14 @@ class AmlFilesystem(pulumi.CustomResource):
         ARM provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="rootSquashSettings")
+    def root_squash_settings(self) -> pulumi.Output[Optional['outputs.AmlFilesystemRootSquashSettingsResponse']]:
+        """
+        Specifies root squash settings of the AML file system.
+        """
+        return pulumi.get(self, "root_squash_settings")
 
     @property
     @pulumi.getter

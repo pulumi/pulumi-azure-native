@@ -27,7 +27,10 @@ class GetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, extended_properties=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+    def __init__(__self__, azure_api_version=None, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, extended_properties=None, host_name=None, id=None, name=None, pre_validated_custom_domain_resource_id=None, profile_name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if azure_dns_zone and not isinstance(azure_dns_zone, dict):
             raise TypeError("Expected argument 'azure_dns_zone' to be a dict")
         pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
@@ -70,6 +73,14 @@ class GetAFDCustomDomainResult:
         if validation_properties and not isinstance(validation_properties, dict):
             raise TypeError("Expected argument 'validation_properties' to be a dict")
         pulumi.set(__self__, "validation_properties", validation_properties)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureDnsZone")
@@ -187,6 +198,7 @@ class AwaitableGetAFDCustomDomainResult(GetAFDCustomDomainResult):
         if False:
             yield self
         return GetAFDCustomDomainResult(
+            azure_api_version=self.azure_api_version,
             azure_dns_zone=self.azure_dns_zone,
             deployment_status=self.deployment_status,
             domain_validation_state=self.domain_validation_state,
@@ -209,9 +221,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDCustomDomainResult:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -226,6 +236,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getAFDCustomDomain', __args__, opts=opts, typ=GetAFDCustomDomainResult).value
 
     return AwaitableGetAFDCustomDomainResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_dns_zone=pulumi.get(__ret__, 'azure_dns_zone'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         domain_validation_state=pulumi.get(__ret__, 'domain_validation_state'),
@@ -246,9 +257,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str custom_domain_name: Name of the domain under the profile which is unique globally.
@@ -262,6 +271,7 @@ def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getAFDCustomDomain', __args__, opts=opts, typ=GetAFDCustomDomainResult)
     return __ret__.apply(lambda __response__: GetAFDCustomDomainResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_dns_zone=pulumi.get(__response__, 'azure_dns_zone'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         domain_validation_state=pulumi.get(__response__, 'domain_validation_state'),

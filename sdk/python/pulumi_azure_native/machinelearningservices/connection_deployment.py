@@ -23,17 +23,18 @@ __all__ = ['ConnectionDeploymentArgs', 'ConnectionDeployment']
 class ConnectionDeploymentArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
-                 properties: pulumi.Input['EndpointDeploymentResourcePropertiesArgs'],
+                 properties: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['CognitiveServicesSkuArgs']] = None):
+                 proxy_api_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectionDeployment resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[str] deployment_name: Name of the deployment resource
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
         """
         pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "properties", properties)
@@ -41,8 +42,8 @@ class ConnectionDeploymentArgs:
         pulumi.set(__self__, "workspace_name", workspace_name)
         if deployment_name is not None:
             pulumi.set(__self__, "deployment_name", deployment_name)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+        if proxy_api_version is not None:
+            pulumi.set(__self__, "proxy_api_version", proxy_api_version)
 
     @property
     @pulumi.getter(name="connectionName")
@@ -58,11 +59,11 @@ class ConnectionDeploymentArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['EndpointDeploymentResourcePropertiesArgs']:
+    def properties(self) -> pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['EndpointDeploymentResourcePropertiesArgs']):
+    def properties(self, value: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -102,13 +103,16 @@ class ConnectionDeploymentArgs:
         pulumi.set(self, "deployment_name", value)
 
     @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['CognitiveServicesSkuArgs']]:
-        return pulumi.get(self, "sku")
+    @pulumi.getter(name="proxyApiVersion")
+    def proxy_api_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Api version used by proxy call
+        """
+        return pulumi.get(self, "proxy_api_version")
 
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['CognitiveServicesSkuArgs']]):
-        pulumi.set(self, "sku", value)
+    @proxy_api_version.setter
+    def proxy_api_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "proxy_api_version", value)
 
 
 class ConnectionDeployment(pulumi.CustomResource):
@@ -118,20 +122,19 @@ class ConnectionDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['EndpointDeploymentResourcePropertiesArgs', 'EndpointDeploymentResourcePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['CognitiveServicesSkuArgs', 'CognitiveServicesSkuArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
         :param pulumi.Input[str] deployment_name: Name of the deployment resource
+        :param pulumi.Input[str] proxy_api_version: Api version used by proxy call
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Azure Machine Learning Workspace Name
         """
@@ -142,9 +145,7 @@ class ConnectionDeployment(pulumi.CustomResource):
                  args: ConnectionDeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ConnectionDeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -163,9 +164,9 @@ class ConnectionDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['EndpointDeploymentResourcePropertiesArgs', 'EndpointDeploymentResourcePropertiesArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ContentSafetyEndpointDeploymentResourcePropertiesArgsDict'], Union['ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgsDict'], Union['OpenAIEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgsDict'], Union['SpeechEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgsDict']]]] = None,
+                 proxy_api_version: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[Union['CognitiveServicesSkuArgs', 'CognitiveServicesSkuArgsDict']]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -183,17 +184,18 @@ class ConnectionDeployment(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["proxy_api_version"] = proxy_api_version
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["sku"] = sku
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ConnectionDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ConnectionDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ConnectionDeployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20240401preview:ConnectionDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20240701preview:ConnectionDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20241001preview:ConnectionDeployment"), pulumi.Alias(type_="azure-native:machinelearningservices/v20250101preview:ConnectionDeployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectionDeployment, __self__).__init__(
             'azure-native:machinelearningservices:ConnectionDeployment',
@@ -217,12 +219,20 @@ class ConnectionDeployment(pulumi.CustomResource):
 
         __props__ = ConnectionDeploymentArgs.__new__(ConnectionDeploymentArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConnectionDeployment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -234,13 +244,8 @@ class ConnectionDeployment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.EndpointDeploymentResourcePropertiesResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.CognitiveServicesSkuResponse']]:
-        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

@@ -27,10 +27,13 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, administration=None, friendly_name=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, system_data=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, administration=None, azure_api_version=None, friendly_name=None, id=None, location=None, mode=None, name=None, provisioning_state=None, sku=None, state=None, system_data=None, tags=None, tenant_id=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
@@ -75,6 +78,14 @@ class GetCapacityDetailsResult:
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="friendlyName")
@@ -180,6 +191,7 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             yield self
         return GetCapacityDetailsResult(
             administration=self.administration,
+            azure_api_version=self.azure_api_version,
             friendly_name=self.friendly_name,
             id=self.id,
             location=self.location,
@@ -213,6 +225,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
 
     return AwaitableGetCapacityDetailsResult(
         administration=pulumi.get(__ret__, 'administration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         friendly_name=pulumi.get(__ret__, 'friendly_name'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -243,6 +256,7 @@ def get_capacity_details_output(dedicated_capacity_name: Optional[pulumi.Input[s
     __ret__ = pulumi.runtime.invoke_output('azure-native:powerbidedicated:getCapacityDetails', __args__, opts=opts, typ=GetCapacityDetailsResult)
     return __ret__.apply(lambda __response__: GetCapacityDetailsResult(
         administration=pulumi.get(__response__, 'administration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         friendly_name=pulumi.get(__response__, 'friendly_name'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

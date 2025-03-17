@@ -25,14 +25,16 @@ class ServiceArgs:
                  resource_group_name: pulumi.Input[str],
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the service.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] service_name: Service name
+        :param pulumi.Input[bool] restore: Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -40,6 +42,10 @@ class ServiceArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if restore is None:
+            restore = False
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
@@ -61,7 +67,7 @@ class ServiceArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -82,10 +88,22 @@ class ServiceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        """
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Service name
+        The name of Azure API Center service.
         """
         return pulumi.get(self, "service_name")
 
@@ -114,21 +132,21 @@ class Service(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
-
-        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        Azure REST API version: 2024-03-15-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the service.
+        :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] service_name: Service name
+        :param pulumi.Input[bool] restore: Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        :param pulumi.Input[str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -139,9 +157,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service entity.
-        Azure REST API version: 2023-07-01-preview.
-
-        Other available API versions: 2024-03-01, 2024-03-15-preview, 2024-06-01-preview.
+        Azure REST API version: 2024-03-15-preview. Prior API version in Azure Native 2.x: 2023-07-01-preview.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -161,6 +177,7 @@ class Service(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -177,8 +194,12 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if restore is None:
+                restore = False
+            __props__.__dict__["restore"] = restore
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -207,20 +228,30 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["restore"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The identity of the service.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -244,9 +275,17 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The status of the last operation.
+        Provisioning state of the service.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def restore(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        """
+        return pulumi.get(self, "restore")
 
     @property
     @pulumi.getter(name="systemData")

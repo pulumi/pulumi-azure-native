@@ -27,10 +27,13 @@ class GetADLSGen1FileDataSetResult:
     """
     An ADLS Gen 1 file data set.
     """
-    def __init__(__self__, account_name=None, data_set_id=None, file_name=None, folder_path=None, id=None, kind=None, name=None, resource_group=None, subscription_id=None, system_data=None, type=None):
+    def __init__(__self__, account_name=None, azure_api_version=None, data_set_id=None, file_name=None, folder_path=None, id=None, kind=None, name=None, resource_group=None, subscription_id=None, system_data=None, type=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_set_id and not isinstance(data_set_id, str):
             raise TypeError("Expected argument 'data_set_id' to be a str")
         pulumi.set(__self__, "data_set_id", data_set_id)
@@ -69,6 +72,14 @@ class GetADLSGen1FileDataSetResult:
         The ADLS account name.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -159,6 +170,7 @@ class AwaitableGetADLSGen1FileDataSetResult(GetADLSGen1FileDataSetResult):
             yield self
         return GetADLSGen1FileDataSetResult(
             account_name=self.account_name,
+            azure_api_version=self.azure_api_version,
             data_set_id=self.data_set_id,
             file_name=self.file_name,
             folder_path=self.folder_path,
@@ -196,6 +208,7 @@ def get_adls_gen1_file_data_set(account_name: Optional[str] = None,
 
     return AwaitableGetADLSGen1FileDataSetResult(
         account_name=pulumi.get(__ret__, 'account_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_set_id=pulumi.get(__ret__, 'data_set_id'),
         file_name=pulumi.get(__ret__, 'file_name'),
         folder_path=pulumi.get(__ret__, 'folder_path'),
@@ -230,6 +243,7 @@ def get_adls_gen1_file_data_set_output(account_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getADLSGen1FileDataSet', __args__, opts=opts, typ=GetADLSGen1FileDataSetResult)
     return __ret__.apply(lambda __response__: GetADLSGen1FileDataSetResult(
         account_name=pulumi.get(__response__, 'account_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_set_id=pulumi.get(__response__, 'data_set_id'),
         file_name=pulumi.get(__response__, 'file_name'),
         folder_path=pulumi.get(__response__, 'folder_path'),

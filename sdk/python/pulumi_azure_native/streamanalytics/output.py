@@ -169,9 +169,7 @@ class Output(pulumi.CustomResource):
                  __props__=None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
-
-        Other available API versions: 2021-10-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -192,9 +190,7 @@ class Output(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
-
-        Other available API versions: 2021-10-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param OutputInitArgs args: The arguments to use to populate this resource's properties.
@@ -240,6 +236,7 @@ class Output(pulumi.CustomResource):
             __props__.__dict__["serialization"] = serialization
             __props__.__dict__["size_window"] = size_window
             __props__.__dict__["time_window"] = time_window
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["diagnostics"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["type"] = None
@@ -267,6 +264,7 @@ class Output(pulumi.CustomResource):
 
         __props__ = OutputInitArgs.__new__(OutputInitArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["datasource"] = None
         __props__.__dict__["diagnostics"] = None
         __props__.__dict__["etag"] = None
@@ -276,6 +274,14 @@ class Output(pulumi.CustomResource):
         __props__.__dict__["time_window"] = None
         __props__.__dict__["type"] = None
         return Output(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

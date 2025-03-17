@@ -27,7 +27,10 @@ class GetUebaResult:
     """
     Settings with single toggle.
     """
-    def __init__(__self__, data_sources=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_sources=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_sources and not isinstance(data_sources, list):
             raise TypeError("Expected argument 'data_sources' to be a list")
         pulumi.set(__self__, "data_sources", data_sources)
@@ -49,6 +52,14 @@ class GetUebaResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataSources")
@@ -114,6 +125,7 @@ class AwaitableGetUebaResult(GetUebaResult):
         if False:
             yield self
         return GetUebaResult(
+            azure_api_version=self.azure_api_version,
             data_sources=self.data_sources,
             etag=self.etag,
             id=self.id,
@@ -129,7 +141,7 @@ def get_ueba(resource_group_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUebaResult:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -144,6 +156,7 @@ def get_ueba(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getUeba', __args__, opts=opts, typ=GetUebaResult).value
 
     return AwaitableGetUebaResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_sources=pulumi.get(__ret__, 'data_sources'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -157,7 +170,7 @@ def get_ueba_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUebaResult]:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,6 +184,7 @@ def get_ueba_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getUeba', __args__, opts=opts, typ=GetUebaResult)
     return __ret__.apply(lambda __response__: GetUebaResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_sources=pulumi.get(__response__, 'data_sources'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

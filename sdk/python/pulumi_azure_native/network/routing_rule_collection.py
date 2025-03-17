@@ -150,9 +150,7 @@ class RoutingRuleCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the routing rule collection.
-        Azure REST API version: 2024-03-01.
-
-        Other available API versions: 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,9 +170,7 @@ class RoutingRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the routing rule collection.
-        Azure REST API version: 2024-03-01.
-
-        Other available API versions: 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
 
         :param str resource_name: The name of the resource.
         :param RoutingRuleCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -222,6 +218,7 @@ class RoutingRuleCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_collection_name"] = rule_collection_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -253,6 +250,7 @@ class RoutingRuleCollection(pulumi.CustomResource):
         __props__ = RoutingRuleCollectionArgs.__new__(RoutingRuleCollectionArgs)
 
         __props__.__dict__["applies_to"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disable_bgp_route_propagation"] = None
         __props__.__dict__["etag"] = None
@@ -270,6 +268,14 @@ class RoutingRuleCollection(pulumi.CustomResource):
         Groups for configuration
         """
         return pulumi.get(self, "applies_to")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

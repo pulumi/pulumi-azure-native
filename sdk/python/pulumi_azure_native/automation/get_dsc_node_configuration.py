@@ -27,7 +27,10 @@ class GetDscNodeConfigurationResult:
     """
     Definition of the dsc node configuration.
     """
-    def __init__(__self__, configuration=None, creation_time=None, id=None, increment_node_configuration_build=None, last_modified_time=None, name=None, node_count=None, source=None, type=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, creation_time=None, id=None, increment_node_configuration_build=None, last_modified_time=None, name=None, node_count=None, source=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -55,6 +58,14 @@ class GetDscNodeConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
         if False:
             yield self
         return GetDscNodeConfigurationResult(
+            azure_api_version=self.azure_api_version,
             configuration=self.configuration,
             creation_time=self.creation_time,
             id=self.id,
@@ -152,9 +164,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscNodeConfigurationResult:
     """
     Retrieve the Dsc node configurations by node configuration.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -169,6 +179,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getDscNodeConfiguration', __args__, opts=opts, typ=GetDscNodeConfigurationResult).value
 
     return AwaitableGetDscNodeConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration=pulumi.get(__ret__, 'configuration'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
     """
     Retrieve the Dsc node configurations by node configuration.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -200,6 +209,7 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getDscNodeConfiguration', __args__, opts=opts, typ=GetDscNodeConfigurationResult)
     return __ret__.apply(lambda __response__: GetDscNodeConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration=pulumi.get(__response__, 'configuration'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         id=pulumi.get(__response__, 'id'),

@@ -27,7 +27,10 @@ class GetStandardResult:
     """
     Security Standard on a resource
     """
-    def __init__(__self__, category=None, components=None, description=None, display_name=None, etag=None, id=None, kind=None, location=None, name=None, standard_type=None, supported_clouds=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, category=None, components=None, description=None, display_name=None, etag=None, id=None, kind=None, location=None, name=None, standard_type=None, supported_clouds=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -70,6 +73,14 @@ class GetStandardResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetStandardResult(GetStandardResult):
         if False:
             yield self
         return GetStandardResult(
+            azure_api_version=self.azure_api_version,
             category=self.category,
             components=self.components,
             description=self.description,
@@ -224,6 +236,7 @@ def get_standard(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getStandard', __args__, opts=opts, typ=GetStandardResult).value
 
     return AwaitableGetStandardResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         category=pulumi.get(__ret__, 'category'),
         components=pulumi.get(__ret__, 'components'),
         description=pulumi.get(__ret__, 'description'),
@@ -255,6 +268,7 @@ def get_standard_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getStandard', __args__, opts=opts, typ=GetStandardResult)
     return __ret__.apply(lambda __response__: GetStandardResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         category=pulumi.get(__response__, 'category'),
         components=pulumi.get(__response__, 'components'),
         description=pulumi.get(__response__, 'description'),

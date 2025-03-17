@@ -235,9 +235,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account schema.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,9 +260,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account schema.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSchemaArgs args: The arguments to use to populate this resource's properties.
@@ -320,12 +316,13 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__.__dict__["schema_type"] = schema_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_namespace"] = target_namespace
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["content_link"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20160601:Schema"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountSchema"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountSchema, __self__).__init__(
             'azure-native:logic:IntegrationAccountSchema',
@@ -349,6 +346,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
 
         __props__ = IntegrationAccountSchemaArgs.__new__(IntegrationAccountSchemaArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed_time"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["content_link"] = None
@@ -364,6 +362,14 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         __props__.__dict__["target_namespace"] = None
         __props__.__dict__["type"] = None
         return IntegrationAccountSchema(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")

@@ -100,7 +100,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+        Azure REST API version: 2021-03-08. Prior API version in Azure Native 2.x: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -117,7 +117,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08.
+        Azure REST API version: 2021-03-08. Prior API version in Azure Native 2.x: 2021-03-08.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionsForEDMArgs args: The arguments to use to populate this resource's properties.
@@ -157,6 +157,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -186,6 +187,7 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionsForEDMArgs.__new__(PrivateEndpointConnectionsForEDMArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
@@ -193,6 +195,14 @@ class PrivateEndpointConnectionsForEDM(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnectionsForEDM(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

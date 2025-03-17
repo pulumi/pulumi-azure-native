@@ -26,7 +26,10 @@ class GetWorkspaceTagOperationLinkResult:
     """
     Tag-operation link details.
     """
-    def __init__(__self__, id=None, name=None, operation_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, operation_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,6 +42,14 @@ class GetWorkspaceTagOperationLinkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -79,6 +90,7 @@ class AwaitableGetWorkspaceTagOperationLinkResult(GetWorkspaceTagOperationLinkRe
         if False:
             yield self
         return GetWorkspaceTagOperationLinkResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             operation_id=self.operation_id,
@@ -94,8 +106,6 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[str] = None,
     """
     Gets the operation link for the tag.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
@@ -114,6 +124,7 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceTagOperationLink', __args__, opts=opts, typ=GetWorkspaceTagOperationLinkResult).value
 
     return AwaitableGetWorkspaceTagOperationLinkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         operation_id=pulumi.get(__ret__, 'operation_id'),
@@ -127,8 +138,6 @@ def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.I
     """
     Gets the operation link for the tag.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str operation_link_id: Tag-operation link identifier. Must be unique in the current API Management service instance.
@@ -146,6 +155,7 @@ def get_workspace_tag_operation_link_output(operation_link_id: Optional[pulumi.I
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceTagOperationLink', __args__, opts=opts, typ=GetWorkspaceTagOperationLinkResult)
     return __ret__.apply(lambda __response__: GetWorkspaceTagOperationLinkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         operation_id=pulumi.get(__response__, 'operation_id'),

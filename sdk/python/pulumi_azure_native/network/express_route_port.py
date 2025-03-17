@@ -221,9 +221,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoutePort resource definition.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -247,9 +245,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoutePort resource definition.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.
@@ -300,6 +296,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocation_date"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["circuits"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["ether_type"] = None
@@ -334,6 +331,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         __props__ = ExpressRoutePortArgs.__new__(ExpressRoutePortArgs)
 
         __props__.__dict__["allocation_date"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["bandwidth_in_gbps"] = None
         __props__.__dict__["billing_type"] = None
         __props__.__dict__["circuits"] = None
@@ -360,6 +358,14 @@ class ExpressRoutePort(pulumi.CustomResource):
         Date of the physical port allocation to be used in Letter of Authorization.
         """
         return pulumi.get(self, "allocation_date")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="bandwidthInGbps")

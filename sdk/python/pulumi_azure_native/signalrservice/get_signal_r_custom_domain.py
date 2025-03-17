@@ -27,7 +27,10 @@ class GetSignalRCustomDomainResult:
     """
     A custom domain
     """
-    def __init__(__self__, custom_certificate=None, domain_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_certificate=None, domain_name=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_certificate and not isinstance(custom_certificate, dict):
             raise TypeError("Expected argument 'custom_certificate' to be a dict")
         pulumi.set(__self__, "custom_certificate", custom_certificate)
@@ -51,6 +54,14 @@ class GetSignalRCustomDomainResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="customCertificate")
     def custom_certificate(self) -> 'outputs.ResourceReferenceResponse':
         """
@@ -70,7 +81,7 @@ class GetSignalRCustomDomainResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -78,7 +89,7 @@ class GetSignalRCustomDomainResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -94,7 +105,7 @@ class GetSignalRCustomDomainResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -102,7 +113,7 @@ class GetSignalRCustomDomainResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -113,6 +124,7 @@ class AwaitableGetSignalRCustomDomainResult(GetSignalRCustomDomainResult):
         if False:
             yield self
         return GetSignalRCustomDomainResult(
+            azure_api_version=self.azure_api_version,
             custom_certificate=self.custom_certificate,
             domain_name=self.domain_name,
             id=self.id,
@@ -128,13 +140,11 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRCustomDomainResult:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str name: Custom domain name.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -145,6 +155,7 @@ def get_signal_r_custom_domain(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice:getSignalRCustomDomain', __args__, opts=opts, typ=GetSignalRCustomDomainResult).value
 
     return AwaitableGetSignalRCustomDomainResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_certificate=pulumi.get(__ret__, 'custom_certificate'),
         domain_name=pulumi.get(__ret__, 'domain_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -158,13 +169,11 @@ def get_signal_r_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRCustomDomainResult]:
     """
     Get a custom domain.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str name: Custom domain name.
-    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the resource.
     """
     __args__ = dict()
@@ -174,6 +183,7 @@ def get_signal_r_custom_domain_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:signalrservice:getSignalRCustomDomain', __args__, opts=opts, typ=GetSignalRCustomDomainResult)
     return __ret__.apply(lambda __response__: GetSignalRCustomDomainResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_certificate=pulumi.get(__response__, 'custom_certificate'),
         domain_name=pulumi.get(__response__, 'domain_name'),
         id=pulumi.get(__response__, 'id'),

@@ -70,14 +70,12 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointManagedProxyDetailsResult:
     """
     Fetches the managed proxy details
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
     :param str hostname: The target host name.
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str service: The name of the service.
     :param Union[str, 'ServiceName'] service_name: The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """
@@ -101,14 +99,12 @@ def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.In
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
     Fetches the managed proxy details
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
     :param str hostname: The target host name.
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
     :param str service: The name of the service.
     :param Union[str, 'ServiceName'] service_name: The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
     """

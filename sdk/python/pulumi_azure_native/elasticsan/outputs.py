@@ -17,16 +17,194 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'EncryptionIdentityResponse',
+    'EncryptionPropertiesResponse',
+    'IdentityResponse',
     'IscsiTargetInfoResponse',
+    'KeyVaultPropertiesResponse',
+    'ManagedByInfoResponse',
     'NetworkRuleSetResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'SkuResponse',
     'SnapshotCreationDataResponse',
     'SourceCreationDataResponse',
     'SystemDataResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkRuleResponse',
 ]
+
+@pulumi.output_type
+class EncryptionIdentityResponse(dict):
+    """
+    Encryption identity for the volume group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionUserAssignedIdentity":
+            suggest = "encryption_user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_user_assigned_identity: Optional[str] = None):
+        """
+        Encryption identity for the volume group.
+        :param str encryption_user_assigned_identity: Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+        """
+        if encryption_user_assigned_identity is not None:
+            pulumi.set(__self__, "encryption_user_assigned_identity", encryption_user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="encryptionUserAssignedIdentity")
+    def encryption_user_assigned_identity(self) -> Optional[str]:
+        """
+        Resource identifier of the UserAssigned identity to be associated with server-side encryption on the volume group.
+        """
+        return pulumi.get(self, "encryption_user_assigned_identity")
+
+
+@pulumi.output_type
+class EncryptionPropertiesResponse(dict):
+    """
+    The encryption settings on the volume group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionIdentity":
+            suggest = "encryption_identity"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_identity: Optional['outputs.EncryptionIdentityResponse'] = None,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None):
+        """
+        The encryption settings on the volume group.
+        :param 'EncryptionIdentityResponse' encryption_identity: The identity to be used with service-side encryption at rest.
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Properties provided by key vault.
+        """
+        if encryption_identity is not None:
+            pulumi.set(__self__, "encryption_identity", encryption_identity)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="encryptionIdentity")
+    def encryption_identity(self) -> Optional['outputs.EncryptionIdentityResponse']:
+        """
+        The identity to be used with service-side encryption at rest.
+        """
+        return pulumi.get(self, "encryption_identity")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Properties provided by key vault.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal ID of resource identity.
+        :param str tenant_id: The tenant ID of resource.
+        :param str type: The identity type.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of resource identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        Gets or sets a list of key value pairs that describe the set of User Assigned identities that will be used with this volume group. The key is the ARM resource identifier of the identity.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
 
 @pulumi.output_type
 class IscsiTargetInfoResponse(dict):
@@ -119,6 +297,153 @@ class IscsiTargetInfoResponse(dict):
 
 
 @pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    Properties of key vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentVersionedKeyExpirationTimestamp":
+            suggest = "current_versioned_key_expiration_timestamp"
+        elif key == "currentVersionedKeyIdentifier":
+            suggest = "current_versioned_key_identifier"
+        elif key == "lastKeyRotationTimestamp":
+            suggest = "last_key_rotation_timestamp"
+        elif key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_versioned_key_expiration_timestamp: str,
+                 current_versioned_key_identifier: str,
+                 last_key_rotation_timestamp: str,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
+                 key_version: Optional[str] = None):
+        """
+        Properties of key vault.
+        :param str current_versioned_key_expiration_timestamp: This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+        :param str current_versioned_key_identifier: The object identifier of the current versioned Key Vault Key in use.
+        :param str last_key_rotation_timestamp: Timestamp of last rotation of the Key Vault Key.
+        :param str key_name: The name of KeyVault key.
+        :param str key_vault_uri: The Uri of KeyVault.
+        :param str key_version: The version of KeyVault key.
+        """
+        pulumi.set(__self__, "current_versioned_key_expiration_timestamp", current_versioned_key_expiration_timestamp)
+        pulumi.set(__self__, "current_versioned_key_identifier", current_versioned_key_identifier)
+        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="currentVersionedKeyExpirationTimestamp")
+    def current_versioned_key_expiration_timestamp(self) -> str:
+        """
+        This is a read only property that represents the expiration time of the current version of the customer managed key used for encryption.
+        """
+        return pulumi.get(self, "current_versioned_key_expiration_timestamp")
+
+    @property
+    @pulumi.getter(name="currentVersionedKeyIdentifier")
+    def current_versioned_key_identifier(self) -> str:
+        """
+        The object identifier of the current versioned Key Vault Key in use.
+        """
+        return pulumi.get(self, "current_versioned_key_identifier")
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> str:
+        """
+        Timestamp of last rotation of the Key Vault Key.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[str]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
+class ManagedByInfoResponse(dict):
+    """
+    Parent resource information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedByInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedByInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedByInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[str] = None):
+        """
+        Parent resource information.
+        :param str resource_id: Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        Resource ID of the resource managing the volume, this is a restricted field and can only be set for internal use.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
     A set of rules governing the network accessibility.
@@ -156,6 +481,132 @@ class NetworkRuleSetResponse(dict):
         The list of virtual network rules.
         """
         return pulumi.get(self, "virtual_network_rules")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+     Response for PrivateEndpoint Connection object
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 group_ids: Optional[Sequence[str]] = None,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
+        """
+         Response for PrivateEndpoint Connection object
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Private Link Service Connection State.
+        :param str provisioning_state: Provisioning State of Private Endpoint connection resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param Sequence[str] group_ids:  List of resources private endpoint is mapped
+        :param 'PrivateEndpointResponse' private_endpoint: Private Endpoint resource
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        Private Link Service Connection State.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning State of Private Endpoint connection resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+         List of resources private endpoint is mapped
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        Private Endpoint resource
+        """
+        return pulumi.get(self, "private_endpoint")
 
 
 @pulumi.output_type
@@ -327,8 +778,8 @@ class SourceCreationDataResponse(dict):
         suggest = None
         if key == "createSource":
             suggest = "create_source"
-        elif key == "sourceUri":
-            suggest = "source_uri"
+        elif key == "sourceId":
+            suggest = "source_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SourceCreationDataResponse. Access the value via the '{suggest}' property getter instead.")
@@ -343,16 +794,16 @@ class SourceCreationDataResponse(dict):
 
     def __init__(__self__, *,
                  create_source: Optional[str] = None,
-                 source_uri: Optional[str] = None):
+                 source_id: Optional[str] = None):
         """
         Data source used when creating the volume.
         :param str create_source: This enumerates the possible sources of a volume creation.
-        :param str source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        :param str source_id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         if create_source is not None:
             pulumi.set(__self__, "create_source", create_source)
-        if source_uri is not None:
-            pulumi.set(__self__, "source_uri", source_uri)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
 
     @property
     @pulumi.getter(name="createSource")
@@ -363,12 +814,12 @@ class SourceCreationDataResponse(dict):
         return pulumi.get(self, "create_source")
 
     @property
-    @pulumi.getter(name="sourceUri")
-    def source_uri(self) -> Optional[str]:
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[str]:
         """
-        If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
-        return pulumi.get(self, "source_uri")
+        return pulumi.get(self, "source_id")
 
 
 @pulumi.output_type
@@ -482,6 +933,58 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    UserAssignedIdentity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        UserAssignedIdentity for the resource.
+        :param str client_id: The client ID of the identity.
+        :param str principal_id: The principal ID of the identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class VirtualNetworkRuleResponse(dict):
     """
     Virtual Network rule.
@@ -504,29 +1007,18 @@ class VirtualNetworkRuleResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 state: str,
                  virtual_network_resource_id: str,
                  action: Optional[str] = None):
         """
         Virtual Network rule.
-        :param str state: Gets the state of virtual network rule.
         :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         :param str action: The action of virtual network rule.
         """
-        pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
         if action is None:
             action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter
-    def state(self) -> str:
-        """
-        Gets the state of virtual network rule.
-        """
-        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="virtualNetworkResourceId")

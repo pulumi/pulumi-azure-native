@@ -5,21 +5,25 @@
 from enum import Enum
 
 __all__ = [
-    'AuthenticationMethod',
     'BrokerAuthenticationMethod',
     'BrokerMemoryProfile',
     'BrokerProtocolType',
     'BrokerResourceDefinitionMethods',
     'CertManagerIssuerKind',
-    'DataFlowEndpointAuthenticationSaslType',
-    'DataFlowEndpointFabricPathType',
-    'DataFlowEndpointKafkaAcks',
-    'DataFlowEndpointKafkaCompression',
-    'DataFlowEndpointKafkaPartitionStrategy',
-    'DataFlowMappingType',
+    'CloudEventAttributeType',
+    'DataLakeStorageAuthMethod',
+    'DataflowEndpointAuthenticationSaslType',
+    'DataflowEndpointFabricPathType',
+    'DataflowEndpointKafkaAcks',
+    'DataflowEndpointKafkaCompression',
+    'DataflowEndpointKafkaPartitionStrategy',
+    'DataflowMappingType',
     'EndpointType',
     'ExtendedLocationType',
     'FilterType',
+    'KafkaAuthMethod',
+    'ManagedServiceIdentityType',
+    'MqttAuthMethod',
     'MqttRetainType',
     'OperationType',
     'OperationalMode',
@@ -36,32 +40,6 @@ __all__ = [
 ]
 
 
-class AuthenticationMethod(str, Enum):
-    """
-    Mode of Authentication.
-    """
-    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
-    """
-    SystemAssignedManagedIdentity Option
-    """
-    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
-    """
-    UserAssignedManagedIdentity Option
-    """
-    ACCESS_TOKEN = "AccessToken"
-    """
-    AccessToken Option
-    """
-    SASL = "Sasl"
-    """
-    Sasl Option
-    """
-    X509_CREDENTIALS = "X509Credentials"
-    """
-    X509Credentials Option
-    """
-
-
 class BrokerAuthenticationMethod(str, Enum):
     """
     Custom authentication configuration.
@@ -74,7 +52,7 @@ class BrokerAuthenticationMethod(str, Enum):
     """
     ServiceAccountToken authentication configuration.
     """
-    X509_CREDENTIALS = "X509Credentials"
+    X509 = "X509"
     """
     X.509 authentication configuration.
     """
@@ -148,7 +126,39 @@ class CertManagerIssuerKind(str, Enum):
     """
 
 
-class DataFlowEndpointAuthenticationSaslType(str, Enum):
+class CloudEventAttributeType(str, Enum):
+    """
+    Cloud event mapping config.
+    """
+    PROPAGATE = "Propagate"
+    """
+    Propagate type
+    """
+    CREATE_OR_REMAP = "CreateOrRemap"
+    """
+    CreateOrRemap type
+    """
+
+
+class DataLakeStorageAuthMethod(str, Enum):
+    """
+    Mode of Authentication.
+    """
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    """
+    SystemAssignedManagedIdentity type
+    """
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+    """
+    UserAssignedManagedIdentity type
+    """
+    ACCESS_TOKEN = "AccessToken"
+    """
+    AccessToken Option
+    """
+
+
+class DataflowEndpointAuthenticationSaslType(str, Enum):
     """
     Type of SASL authentication. Can be PLAIN, SCRAM-SHA-256, or SCRAM-SHA-512.
     """
@@ -166,7 +176,7 @@ class DataFlowEndpointAuthenticationSaslType(str, Enum):
     """
 
 
-class DataFlowEndpointFabricPathType(str, Enum):
+class DataflowEndpointFabricPathType(str, Enum):
     """
     Type of location of the data in the workspace. Can be either tables or files.
     """
@@ -180,7 +190,7 @@ class DataFlowEndpointFabricPathType(str, Enum):
     """
 
 
-class DataFlowEndpointKafkaAcks(str, Enum):
+class DataflowEndpointKafkaAcks(str, Enum):
     """
     Kafka acks. Can be all, one, or zero. No effect if the endpoint is used as a source.
     """
@@ -198,7 +208,7 @@ class DataFlowEndpointKafkaAcks(str, Enum):
     """
 
 
-class DataFlowEndpointKafkaCompression(str, Enum):
+class DataflowEndpointKafkaCompression(str, Enum):
     """
     Compression. Can be none, gzip, lz4, or snappy. No effect if the endpoint is used as a source.
     """
@@ -220,7 +230,7 @@ class DataFlowEndpointKafkaCompression(str, Enum):
     """
 
 
-class DataFlowEndpointKafkaPartitionStrategy(str, Enum):
+class DataflowEndpointKafkaPartitionStrategy(str, Enum):
     """
     Partition handling strategy. Can be default or static. No effect if the endpoint is used as a source.
     """
@@ -242,7 +252,7 @@ class DataFlowEndpointKafkaPartitionStrategy(str, Enum):
     """
 
 
-class DataFlowMappingType(str, Enum):
+class DataflowMappingType(str, Enum):
     """
     Type of transformation.
     """
@@ -318,6 +328,68 @@ class FilterType(str, Enum):
     """
 
 
+class KafkaAuthMethod(str, Enum):
+    """
+    Mode of Authentication.
+    """
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    """
+    SystemAssignedManagedIdentity type
+    """
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+    """
+    UserAssignedManagedIdentity type
+    """
+    SASL = "Sasl"
+    """
+    Sasl Option
+    """
+    X509_CERTIFICATE = "X509Certificate"
+    """
+    x509Certificate Option
+    """
+    ANONYMOUS = "Anonymous"
+    """
+    Anonymous Option
+    """
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class MqttAuthMethod(str, Enum):
+    """
+    Mode of Authentication.
+    """
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    """
+    SystemAssignedManagedIdentity type
+    """
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+    """
+    UserAssignedManagedIdentity type
+    """
+    SERVICE_ACCOUNT_TOKEN = "ServiceAccountToken"
+    """
+    ServiceAccountToken Option
+    """
+    X509_CERTIFICATE = "X509Certificate"
+    """
+    x509Certificate Option
+    """
+    ANONYMOUS = "Anonymous"
+    """
+    Anonymous Option
+    """
+
+
 class MqttRetainType(str, Enum):
     """
     Whether or not to keep the retain setting.
@@ -338,15 +410,15 @@ class OperationType(str, Enum):
     """
     SOURCE = "Source"
     """
-    DataFlow Source Operation
+    Dataflow Source Operation
     """
     DESTINATION = "Destination"
     """
-    DataFlow Destination Operation
+    Dataflow Destination Operation
     """
     BUILT_IN_TRANSFORMATION = "BuiltInTransformation"
     """
-    DataFlow BuiltIn Transformation Operation
+    Dataflow BuiltIn Transformation Operation
     """
 
 

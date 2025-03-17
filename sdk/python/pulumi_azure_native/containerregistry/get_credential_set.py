@@ -27,10 +27,13 @@ class GetCredentialSetResult:
     """
     An object that represents a credential set resource for a container registry.
     """
-    def __init__(__self__, auth_credentials=None, creation_date=None, id=None, identity=None, login_server=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, auth_credentials=None, azure_api_version=None, creation_date=None, id=None, identity=None, login_server=None, name=None, provisioning_state=None, system_data=None, type=None):
         if auth_credentials and not isinstance(auth_credentials, list):
             raise TypeError("Expected argument 'auth_credentials' to be a list")
         pulumi.set(__self__, "auth_credentials", auth_credentials)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -64,6 +67,14 @@ class GetCredentialSetResult:
         Usually consists of a primary and an optional secondary credential.
         """
         return pulumi.get(self, "auth_credentials")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -137,6 +148,7 @@ class AwaitableGetCredentialSetResult(GetCredentialSetResult):
             yield self
         return GetCredentialSetResult(
             auth_credentials=self.auth_credentials,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             id=self.id,
             identity=self.identity,
@@ -155,8 +167,6 @@ def get_credential_set(credential_set_name: Optional[str] = None,
     Gets the properties of the specified credential set resource.
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
-
 
     :param str credential_set_name: The name of the credential set.
     :param str registry_name: The name of the container registry.
@@ -171,6 +181,7 @@ def get_credential_set(credential_set_name: Optional[str] = None,
 
     return AwaitableGetCredentialSetResult(
         auth_credentials=pulumi.get(__ret__, 'auth_credentials'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -187,8 +198,6 @@ def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] =
     Gets the properties of the specified credential set resource.
     Azure REST API version: 2023-01-01-preview.
 
-    Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
-
 
     :param str credential_set_name: The name of the credential set.
     :param str registry_name: The name of the container registry.
@@ -202,6 +211,7 @@ def get_credential_set_output(credential_set_name: Optional[pulumi.Input[str]] =
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerregistry:getCredentialSet', __args__, opts=opts, typ=GetCredentialSetResult)
     return __ret__.apply(lambda __response__: GetCredentialSetResult(
         auth_credentials=pulumi.get(__response__, 'auth_credentials'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

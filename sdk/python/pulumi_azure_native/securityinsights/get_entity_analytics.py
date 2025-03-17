@@ -27,7 +27,10 @@ class GetEntityAnalyticsResult:
     """
     Settings with single toggle.
     """
-    def __init__(__self__, entity_providers=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, entity_providers=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if entity_providers and not isinstance(entity_providers, list):
             raise TypeError("Expected argument 'entity_providers' to be a list")
         pulumi.set(__self__, "entity_providers", entity_providers)
@@ -49,6 +52,14 @@ class GetEntityAnalyticsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="entityProviders")
@@ -114,6 +125,7 @@ class AwaitableGetEntityAnalyticsResult(GetEntityAnalyticsResult):
         if False:
             yield self
         return GetEntityAnalyticsResult(
+            azure_api_version=self.azure_api_version,
             entity_providers=self.entity_providers,
             etag=self.etag,
             id=self.id,
@@ -129,7 +141,7 @@ def get_entity_analytics(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityAnalyticsResult:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -144,6 +156,7 @@ def get_entity_analytics(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getEntityAnalytics', __args__, opts=opts, typ=GetEntityAnalyticsResult).value
 
     return AwaitableGetEntityAnalyticsResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         entity_providers=pulumi.get(__ret__, 'entity_providers'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -157,7 +170,7 @@ def get_entity_analytics_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityAnalyticsResult]:
     """
     Gets a setting.
-    Azure REST API version: 2023-06-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -171,6 +184,7 @@ def get_entity_analytics_output(resource_group_name: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:securityinsights:getEntityAnalytics', __args__, opts=opts, typ=GetEntityAnalyticsResult)
     return __ret__.apply(lambda __response__: GetEntityAnalyticsResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         entity_providers=pulumi.get(__response__, 'entity_providers'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

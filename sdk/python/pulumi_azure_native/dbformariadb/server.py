@@ -135,9 +135,7 @@ class Server(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a server.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
-        Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
-
-        Other available API versions: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +197,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["administrator_login"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["earliest_restore_date"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["master_server_id"] = None
@@ -240,6 +237,7 @@ class Server(pulumi.CustomResource):
         __props__ = ServerArgs.__new__(ServerArgs)
 
         __props__.__dict__["administrator_login"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["earliest_restore_date"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["location"] = None
@@ -266,6 +264,14 @@ class Server(pulumi.CustomResource):
         The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         """
         return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="earliestRestoreDate")

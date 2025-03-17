@@ -38,7 +38,7 @@ class GalleryApplicationArgs:
         The set of arguments for constructing a GalleryApplication resource.
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
@@ -99,7 +99,7 @@ class GalleryApplicationArgs:
     @pulumi.getter(name="supportedOSType")
     def supported_os_type(self) -> pulumi.Input['OperatingSystemTypes']:
         """
-        This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "supported_os_type")
 
@@ -236,9 +236,7 @@ class GalleryApplication(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,7 +250,7 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -263,9 +261,7 @@ class GalleryApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
-        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
-
-        Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+        Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -321,6 +317,7 @@ class GalleryApplication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'supported_os_type'")
             __props__.__dict__["supported_os_type"] = supported_os_type
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20190701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20191201:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20200930:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20210701:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20211001:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220103:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220303:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20220803:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20230703:GalleryApplication"), pulumi.Alias(type_="azure-native:compute/v20240303:GalleryApplication")])
@@ -347,6 +344,7 @@ class GalleryApplication(pulumi.CustomResource):
 
         __props__ = GalleryApplicationArgs.__new__(GalleryApplicationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_actions"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["end_of_life_date"] = None
@@ -359,6 +357,14 @@ class GalleryApplication(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customActions")
@@ -428,7 +434,7 @@ class GalleryApplication(pulumi.CustomResource):
     @pulumi.getter(name="supportedOSType")
     def supported_os_type(self) -> pulumi.Output[str]:
         """
-        This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
         """
         return pulumi.get(self, "supported_os_type")
 

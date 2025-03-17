@@ -27,10 +27,21 @@ class GetUserSettingsResult:
     """
     Response to get user settings
     """
-    def __init__(__self__, properties=None):
+    def __init__(__self__, azure_api_version=None, properties=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -47,6 +58,7 @@ class AwaitableGetUserSettingsResult(GetUserSettingsResult):
         if False:
             yield self
         return GetUserSettingsResult(
+            azure_api_version=self.azure_api_version,
             properties=self.properties)
 
 
@@ -65,6 +77,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult).value
 
     return AwaitableGetUserSettingsResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         properties=pulumi.get(__ret__, 'properties'))
 def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsResult]:
@@ -80,4 +93,5 @@ def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:portal:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult)
     return __ret__.apply(lambda __response__: GetUserSettingsResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         properties=pulumi.get(__response__, 'properties')))

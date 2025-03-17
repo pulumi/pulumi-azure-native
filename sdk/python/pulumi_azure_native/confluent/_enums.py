@@ -13,6 +13,7 @@ __all__ = [
     'DataFormatType',
     'Package',
     'PartnerConnectorType',
+    'SaaSOfferStatus',
 ]
 
 
@@ -89,3 +90,19 @@ class PartnerConnectorType(str, Enum):
     KAFKA_AZURE_COSMOS_DB_SOURCE = "KafkaAzureCosmosDBSource"
     KAFKA_AZURE_COSMOS_DB_SINK = "KafkaAzureCosmosDBSink"
     KAFKA_AZURE_SYNAPSE_ANALYTICS_SINK = "KafkaAzureSynapseAnalyticsSink"
+
+
+class SaaSOfferStatus(str, Enum):
+    """
+    SaaS Offer Status
+    """
+    STARTED = "Started"
+    PENDING_FULFILLMENT_START = "PendingFulfillmentStart"
+    IN_PROGRESS = "InProgress"
+    SUBSCRIBED = "Subscribed"
+    SUSPENDED = "Suspended"
+    REINSTATED = "Reinstated"
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    UNSUBSCRIBED = "Unsubscribed"
+    UPDATING = "Updating"

@@ -68,13 +68,11 @@ def get_test_result_download_url(package_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultDownloadURLResult:
     """
     Gets the download URL of the test result.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
@@ -96,13 +94,11 @@ def get_test_result_download_url_output(package_name: Optional[pulumi.Input[str]
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultDownloadURLResult]:
     """
     Gets the download URL of the test result.
-    Azure REST API version: 2022-04-01-preview.
-
-    Other available API versions: 2023-11-01-preview.
+    Azure REST API version: 2023-11-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
-    :param str resource_group_name: The name of the resource group that contains the resource.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str test_base_account_name: The resource name of the Test Base Account.
     :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """

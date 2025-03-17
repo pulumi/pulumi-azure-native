@@ -22,6 +22,7 @@ __all__ = [
     'AdministratorConfigurationResponse',
     'AgentOptionsResponse',
     'AgentPoolUpgradeSettingsResponse',
+    'AnalyticsOutputSettingsResponse',
     'AttachedNetworkConfigurationResponse',
     'AvailableUpgradeResponse',
     'BareMetalMachineConfigurationDataResponse',
@@ -32,6 +33,7 @@ __all__ = [
     'ClusterCapacityResponse',
     'ClusterSecretArchiveResponse',
     'ClusterUpdateStrategyResponse',
+    'CommandOutputSettingsResponse',
     'ControlPlaneNodeConfigurationResponse',
     'EgressEndpointResponse',
     'EndpointDependencyResponse',
@@ -40,6 +42,7 @@ __all__ = [
     'HardwareInventoryNetworkInterfaceResponse',
     'HardwareInventoryResponse',
     'HardwareValidationStatusResponse',
+    'IdentitySelectorResponse',
     'ImageRepositoryCredentialsResponse',
     'InitialAgentPoolConfigurationResponse',
     'IpAddressPoolResponse',
@@ -48,9 +51,11 @@ __all__ = [
     'KubernetesClusterNodeResponse',
     'KubernetesLabelResponse',
     'L2NetworkAttachmentConfigurationResponse',
+    'L2ServiceLoadBalancerConfigurationResponse',
     'L3NetworkAttachmentConfigurationResponse',
     'LldpNeighborResponse',
     'ManagedResourceGroupConfigurationResponse',
+    'ManagedServiceIdentityResponse',
     'NetworkAttachmentResponse',
     'NetworkConfigurationResponse',
     'NicResponse',
@@ -58,6 +63,9 @@ __all__ = [
     'RackDefinitionResponse',
     'RuntimeProtectionConfigurationResponse',
     'RuntimeProtectionStatusResponse',
+    'SecretArchiveReferenceResponse',
+    'SecretArchiveSettingsResponse',
+    'SecretRotationStatusResponse',
     'ServiceLoadBalancerBgpPeerResponse',
     'ServicePrincipalInformationResponse',
     'SshPublicKeyResponse',
@@ -66,8 +74,10 @@ __all__ = [
     'StringKeyValuePairResponse',
     'SystemDataResponse',
     'TrunkedNetworkAttachmentConfigurationResponse',
+    'UserAssignedIdentityResponse',
     'ValidationThresholdResponse',
     'VirtualMachinePlacementHintResponse',
+    'VulnerabilityScanningSettingsResponse',
 ]
 
 @pulumi.output_type
@@ -240,8 +250,12 @@ class AgentPoolUpgradeSettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "maxSurge":
+        if key == "drainTimeout":
+            suggest = "drain_timeout"
+        elif key == "maxSurge":
             suggest = "max_surge"
+        elif key == "maxUnavailable":
+            suggest = "max_unavailable"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -255,22 +269,94 @@ class AgentPoolUpgradeSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 max_surge: Optional[str] = None):
+                 drain_timeout: Optional[float] = None,
+                 max_surge: Optional[str] = None,
+                 max_unavailable: Optional[str] = None):
         """
-        :param str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        :param float drain_timeout: The maximum time in seconds that is allowed for a node drain to complete before proceeding with the upgrade of the agent pool. If not specified during creation, a value of 1800 seconds is used.
+        :param str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 1 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
+        :param str max_unavailable: The maximum number or percentage of nodes that can be unavailable during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 0 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
         """
-        if max_surge is None:
-            max_surge = '1'
+        if drain_timeout is not None:
+            pulumi.set(__self__, "drain_timeout", drain_timeout)
         if max_surge is not None:
             pulumi.set(__self__, "max_surge", max_surge)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+
+    @property
+    @pulumi.getter(name="drainTimeout")
+    def drain_timeout(self) -> Optional[float]:
+        """
+        The maximum time in seconds that is allowed for a node drain to complete before proceeding with the upgrade of the agent pool. If not specified during creation, a value of 1800 seconds is used.
+        """
+        return pulumi.get(self, "drain_timeout")
 
     @property
     @pulumi.getter(name="maxSurge")
     def max_surge(self) -> Optional[str]:
         """
-        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 1 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
         """
         return pulumi.get(self, "max_surge")
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[str]:
+        """
+        The maximum number or percentage of nodes that can be unavailable during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified during creation, a value of 0 is used. One of MaxSurge and MaxUnavailable must be greater than 0.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+
+@pulumi.output_type
+class AnalyticsOutputSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "analyticsWorkspaceId":
+            suggest = "analytics_workspace_id"
+        elif key == "associatedIdentity":
+            suggest = "associated_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyticsOutputSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyticsOutputSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyticsOutputSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 analytics_workspace_id: Optional[str] = None,
+                 associated_identity: Optional['outputs.IdentitySelectorResponse'] = None):
+        """
+        :param str analytics_workspace_id: The resource ID of the analytics workspace that is to be used by the specified identity.
+        :param 'IdentitySelectorResponse' associated_identity: The selection of the managed identity to use with this analytics workspace. The identity type must be either system assigned or user assigned.
+        """
+        if analytics_workspace_id is not None:
+            pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+
+    @property
+    @pulumi.getter(name="analyticsWorkspaceId")
+    def analytics_workspace_id(self) -> Optional[str]:
+        """
+        The resource ID of the analytics workspace that is to be used by the specified identity.
+        """
+        return pulumi.get(self, "analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional['outputs.IdentitySelectorResponse']:
+        """
+        The selection of the managed identity to use with this analytics workspace. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
 
 
 @pulumi.output_type
@@ -427,7 +513,7 @@ class BareMetalMachineConfigurationDataResponse(dict):
                  machine_name: Optional[str] = None):
         """
         :param str bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
-        :param 'AdministrativeCredentialsResponse' bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
+        :param 'AdministrativeCredentialsResponse' bmc_credentials: The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         :param str bmc_mac_address: The MAC address of the BMC for this machine.
         :param str boot_mac_address: The MAC address associated with the PXE NIC card.
         :param float rack_slot: The slot the physical machine is in the rack based on the BOM configuration.
@@ -459,7 +545,7 @@ class BareMetalMachineConfigurationDataResponse(dict):
     @pulumi.getter(name="bmcCredentials")
     def bmc_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
         """
-        The credentials of the baseboard management controller on this bare metal machine.
+        The credentials of the baseboard management controller on this bare metal machine. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         return pulumi.get(self, "bmc_credentials")
 
@@ -622,7 +708,7 @@ class BgpServiceLoadBalancerConfigurationResponse(dict):
         :param Sequence['BgpAdvertisementResponse'] bgp_advertisements: The association of IP address pools to the communities and peers, allowing for announcement of IPs.
         :param Sequence['ServiceLoadBalancerBgpPeerResponse'] bgp_peers: The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
         :param str fabric_peering_enabled: The indicator to specify if the load balancer peers with the network fabric.
-        :param Sequence['IpAddressPoolResponse'] ip_address_pools: The list of pools of IP addresses that can be allocated to Load Balancer services.
+        :param Sequence['IpAddressPoolResponse'] ip_address_pools: The list of pools of IP addresses that can be allocated to load balancer services.
         """
         if bgp_advertisements is not None:
             pulumi.set(__self__, "bgp_advertisements", bgp_advertisements)
@@ -663,7 +749,7 @@ class BgpServiceLoadBalancerConfigurationResponse(dict):
     @pulumi.getter(name="ipAddressPools")
     def ip_address_pools(self) -> Optional[Sequence['outputs.IpAddressPoolResponse']]:
         """
-        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        The list of pools of IP addresses that can be allocated to load balancer services.
         """
         return pulumi.get(self, "ip_address_pools")
 
@@ -859,14 +945,14 @@ class ClusterCapacityResponse(dict):
                  total_host_storage_gb: Optional[float] = None,
                  total_memory_gb: Optional[float] = None):
         """
-        :param float available_appliance_storage_gb: The remaining appliance-based storage in GB available for workload use.
+        :param float available_appliance_storage_gb: The remaining appliance-based storage in GB available for workload use. Measured in gibibytes.
         :param float available_core_count: The remaining number of cores that are available in this cluster for workload use.
-        :param float available_host_storage_gb: The remaining machine or host-based storage in GB available for workload use.
-        :param float available_memory_gb: The remaining memory in GB that are available in this cluster for workload use.
-        :param float total_appliance_storage_gb: The total appliance-based storage in GB supported by this cluster for workload use.
+        :param float available_host_storage_gb: The remaining machine or host-based storage in GB available for workload use. Measured in gibibytes.
+        :param float available_memory_gb: The remaining memory in GB that are available in this cluster for workload use. Measured in gibibytes.
+        :param float total_appliance_storage_gb: The total appliance-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
         :param float total_core_count: The total number of cores that are supported by this cluster for workload use.
-        :param float total_host_storage_gb: The total machine or host-based storage in GB supported by this cluster for workload use.
-        :param float total_memory_gb: The total memory supported by this cluster for workload use.
+        :param float total_host_storage_gb: The total machine or host-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
+        :param float total_memory_gb: The total memory supported by this cluster for workload use. Measured in gibibytes.
         """
         if available_appliance_storage_gb is not None:
             pulumi.set(__self__, "available_appliance_storage_gb", available_appliance_storage_gb)
@@ -889,7 +975,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="availableApplianceStorageGB")
     def available_appliance_storage_gb(self) -> Optional[float]:
         """
-        The remaining appliance-based storage in GB available for workload use.
+        The remaining appliance-based storage in GB available for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "available_appliance_storage_gb")
 
@@ -905,7 +991,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="availableHostStorageGB")
     def available_host_storage_gb(self) -> Optional[float]:
         """
-        The remaining machine or host-based storage in GB available for workload use.
+        The remaining machine or host-based storage in GB available for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "available_host_storage_gb")
 
@@ -913,7 +999,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="availableMemoryGB")
     def available_memory_gb(self) -> Optional[float]:
         """
-        The remaining memory in GB that are available in this cluster for workload use.
+        The remaining memory in GB that are available in this cluster for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "available_memory_gb")
 
@@ -921,7 +1007,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="totalApplianceStorageGB")
     def total_appliance_storage_gb(self) -> Optional[float]:
         """
-        The total appliance-based storage in GB supported by this cluster for workload use.
+        The total appliance-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "total_appliance_storage_gb")
 
@@ -937,7 +1023,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="totalHostStorageGB")
     def total_host_storage_gb(self) -> Optional[float]:
         """
-        The total machine or host-based storage in GB supported by this cluster for workload use.
+        The total machine or host-based storage in GB supported by this cluster for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "total_host_storage_gb")
 
@@ -945,7 +1031,7 @@ class ClusterCapacityResponse(dict):
     @pulumi.getter(name="totalMemoryGB")
     def total_memory_gb(self) -> Optional[float]:
         """
-        The total memory supported by this cluster for workload use.
+        The total memory supported by this cluster for workload use. Measured in gibibytes.
         """
         return pulumi.get(self, "total_memory_gb")
 
@@ -1092,6 +1178,56 @@ class ClusterUpdateStrategyResponse(dict):
         The time to wait between the increments of update defined by the strategy.
         """
         return pulumi.get(self, "wait_time_minutes")
+
+
+@pulumi.output_type
+class CommandOutputSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedIdentity":
+            suggest = "associated_identity"
+        elif key == "containerUrl":
+            suggest = "container_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandOutputSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandOutputSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandOutputSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_identity: Optional['outputs.IdentitySelectorResponse'] = None,
+                 container_url: Optional[str] = None):
+        """
+        :param 'IdentitySelectorResponse' associated_identity: The selection of the managed identity to use with this storage account container. The identity type must be either system assigned or user assigned.
+        :param str container_url: The URL of the storage account container that is to be used by the specified identities.
+        """
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+        if container_url is not None:
+            pulumi.set(__self__, "container_url", container_url)
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional['outputs.IdentitySelectorResponse']:
+        """
+        The selection of the managed identity to use with this storage account container. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
+
+    @property
+    @pulumi.getter(name="containerUrl")
+    def container_url(self) -> Optional[str]:
+        """
+        The URL of the storage account container that is to be used by the specified identities.
+        """
+        return pulumi.get(self, "container_url")
 
 
 @pulumi.output_type
@@ -1519,6 +1655,56 @@ class HardwareValidationStatusResponse(dict):
 
 
 @pulumi.output_type
+class IdentitySelectorResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySelectorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentitySelectorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentitySelectorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_type: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        :param str identity_type: The type of managed identity that is being selected.
+        :param str user_assigned_identity_resource_id: The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[str]:
+        """
+        The type of managed identity that is being selected.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        The user assigned managed identity resource ID to use. Mutually exclusive with a system assigned identity type.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+
+@pulumi.output_type
 class ImageRepositoryCredentialsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1764,7 +1950,7 @@ class IpAddressPoolResponse(dict):
                  auto_assign: Optional[str] = None,
                  only_use_host_ips: Optional[str] = None):
         """
-        :param Sequence[str] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        :param Sequence[str] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         :param str name: The name used to identify this IP address pool for association with a BGP advertisement.
         :param str auto_assign: The indicator to determine if automatic allocation from the pool should occur.
         :param str only_use_host_ips: The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
@@ -1784,7 +1970,7 @@ class IpAddressPoolResponse(dict):
     @pulumi.getter
     def addresses(self) -> Sequence[str]:
         """
-        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses. For a BGP service load balancer configuration, only CIDR format is supported and excludes /32 (IPv4) and /128 (IPv6) prefixes.
         """
         return pulumi.get(self, "addresses")
 
@@ -2013,11 +2199,11 @@ class KubernetesClusterNodeResponse(dict):
         :param float cpu_cores: The number of CPU cores configured for this node, derived from the VM SKU specified.
         :param str detailed_status: The detailed state of this node.
         :param str detailed_status_message: The descriptive message about the current detailed status.
-        :param float disk_size_gb: The size of the disk configured for this node.
+        :param float disk_size_gb: The size of the disk configured for this node. Allocations are measured in gibibytes.
         :param str image: The machine image used to deploy this node.
         :param str kubernetes_version: The currently running version of Kubernetes and bundled features running on this node.
         :param Sequence['KubernetesLabelResponse'] labels: The list of labels on this node that have been assigned to the agent pool containing this node.
-        :param float memory_size_gb: The amount of memory configured for this node, derived from the vm SKU specified.
+        :param float memory_size_gb: The amount of memory configured for this node, derived from the vm SKU specified. Allocations are measured in gibibytes.
         :param str mode: The mode of the agent pool containing this node. Not applicable for control plane nodes.
         :param str name: The name of this node, as realized in the Kubernetes cluster.
         :param Sequence['NetworkAttachmentResponse'] network_attachments: The NetworkAttachments made to this node.
@@ -2097,7 +2283,7 @@ class KubernetesClusterNodeResponse(dict):
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> float:
         """
-        The size of the disk configured for this node.
+        The size of the disk configured for this node. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "disk_size_gb")
 
@@ -2129,7 +2315,7 @@ class KubernetesClusterNodeResponse(dict):
     @pulumi.getter(name="memorySizeGB")
     def memory_size_gb(self) -> float:
         """
-        The amount of memory configured for this node, derived from the vm SKU specified.
+        The amount of memory configured for this node, derived from the vm SKU specified. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "memory_size_gb")
 
@@ -2268,6 +2454,42 @@ class L2NetworkAttachmentConfigurationResponse(dict):
         The indicator of how this network will be utilized by the Kubernetes cluster.
         """
         return pulumi.get(self, "plugin_type")
+
+
+@pulumi.output_type
+class L2ServiceLoadBalancerConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressPools":
+            suggest = "ip_address_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in L2ServiceLoadBalancerConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        L2ServiceLoadBalancerConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        L2ServiceLoadBalancerConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address_pools: Optional[Sequence['outputs.IpAddressPoolResponse']] = None):
+        """
+        :param Sequence['IpAddressPoolResponse'] ip_address_pools: The list of pools of IP addresses that can be allocated to load balancer services.
+        """
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[Sequence['outputs.IpAddressPoolResponse']]:
+        """
+        The list of pools of IP addresses that can be allocated to load balancer services.
+        """
+        return pulumi.get(self, "ip_address_pools")
 
 
 @pulumi.output_type
@@ -2440,6 +2662,83 @@ class ManagedResourceGroupConfigurationResponse(dict):
         The name for the managed resource group. If not specified, the unique name is automatically generated.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -2616,6 +2915,8 @@ class NetworkConfigurationResponse(dict):
             suggest = "bgp_service_load_balancer_configuration"
         elif key == "dnsServiceIp":
             suggest = "dns_service_ip"
+        elif key == "l2ServiceLoadBalancerConfiguration":
+            suggest = "l2_service_load_balancer_configuration"
         elif key == "podCidrs":
             suggest = "pod_cidrs"
         elif key == "serviceCidrs":
@@ -2638,14 +2939,16 @@ class NetworkConfigurationResponse(dict):
                  attached_network_configuration: Optional['outputs.AttachedNetworkConfigurationResponse'] = None,
                  bgp_service_load_balancer_configuration: Optional['outputs.BgpServiceLoadBalancerConfigurationResponse'] = None,
                  dns_service_ip: Optional[str] = None,
+                 l2_service_load_balancer_configuration: Optional['outputs.L2ServiceLoadBalancerConfigurationResponse'] = None,
                  pod_cidrs: Optional[Sequence[str]] = None,
                  service_cidrs: Optional[Sequence[str]] = None):
         """
         :param str cloud_services_network_id: The resource ID of the associated Cloud Services network.
         :param str cni_network_id: The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
         :param 'AttachedNetworkConfigurationResponse' attached_network_configuration: The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
-        :param 'BgpServiceLoadBalancerConfigurationResponse' bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster.
+        :param 'BgpServiceLoadBalancerConfigurationResponse' bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         :param str dns_service_ip: The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        :param 'L2ServiceLoadBalancerConfigurationResponse' l2_service_load_balancer_configuration: The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         :param Sequence[str] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         :param Sequence[str] service_cidrs: The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         """
@@ -2657,6 +2960,8 @@ class NetworkConfigurationResponse(dict):
             pulumi.set(__self__, "bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
         if dns_service_ip is not None:
             pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if l2_service_load_balancer_configuration is not None:
+            pulumi.set(__self__, "l2_service_load_balancer_configuration", l2_service_load_balancer_configuration)
         if pod_cidrs is not None:
             pulumi.set(__self__, "pod_cidrs", pod_cidrs)
         if service_cidrs is not None:
@@ -2690,7 +2995,7 @@ class NetworkConfigurationResponse(dict):
     @pulumi.getter(name="bgpServiceLoadBalancerConfiguration")
     def bgp_service_load_balancer_configuration(self) -> Optional['outputs.BgpServiceLoadBalancerConfigurationResponse']:
         """
-        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        The configuration of the BGP service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
         """
         return pulumi.get(self, "bgp_service_load_balancer_configuration")
 
@@ -2701,6 +3006,14 @@ class NetworkConfigurationResponse(dict):
         The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
         """
         return pulumi.get(self, "dns_service_ip")
+
+    @property
+    @pulumi.getter(name="l2ServiceLoadBalancerConfiguration")
+    def l2_service_load_balancer_configuration(self) -> Optional['outputs.L2ServiceLoadBalancerConfigurationResponse']:
+        """
+        The configuration of the Layer 2 service load balancer for this Kubernetes cluster. A maximum of one service load balancer may be specified, either Layer 2 or BGP.
+        """
+        return pulumi.get(self, "l2_service_load_balancer_configuration")
 
     @property
     @pulumi.getter(name="podCidrs")
@@ -2806,7 +3119,7 @@ class OsDiskResponse(dict):
                  create_option: Optional[str] = None,
                  delete_option: Optional[str] = None):
         """
-        :param float disk_size_gb: The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        :param float disk_size_gb: The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         :param str create_option: The strategy for creating the OS disk.
         :param str delete_option: The strategy for deleting the OS disk.
         """
@@ -2824,7 +3137,7 @@ class OsDiskResponse(dict):
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> float:
         """
-        The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        The size of the disk. Required if the createOption is Ephemeral. Allocations are measured in gibibytes.
         """
         return pulumi.get(self, "disk_size_gb")
 
@@ -3088,6 +3401,204 @@ class RuntimeProtectionStatusResponse(dict):
 
 
 @pulumi.output_type
+class SecretArchiveReferenceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "secretName":
+            suggest = "secret_name"
+        elif key == "secretVersion":
+            suggest = "secret_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretArchiveReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretArchiveReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretArchiveReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_id: str,
+                 secret_name: str,
+                 secret_version: str):
+        """
+        :param str key_vault_id: The resource ID of the key vault containing the secret.
+        :param str secret_name: The name of the secret in the key vault.
+        :param str secret_version: The version of the secret in the key vault.
+        """
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "secret_name", secret_name)
+        pulumi.set(__self__, "secret_version", secret_version)
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The resource ID of the key vault containing the secret.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> str:
+        """
+        The name of the secret in the key vault.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @property
+    @pulumi.getter(name="secretVersion")
+    def secret_version(self) -> str:
+        """
+        The version of the secret in the key vault.
+        """
+        return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class SecretArchiveSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associatedIdentity":
+            suggest = "associated_identity"
+        elif key == "vaultUri":
+            suggest = "vault_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretArchiveSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretArchiveSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretArchiveSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 associated_identity: Optional['outputs.IdentitySelectorResponse'] = None,
+                 vault_uri: Optional[str] = None):
+        """
+        :param 'IdentitySelectorResponse' associated_identity: The selection of the managed identity to use with this vault URI. The identity type must be either system assigned or user assigned.
+        :param str vault_uri: The URI for the key vault used as the secret archive.
+        """
+        if associated_identity is not None:
+            pulumi.set(__self__, "associated_identity", associated_identity)
+        if vault_uri is not None:
+            pulumi.set(__self__, "vault_uri", vault_uri)
+
+    @property
+    @pulumi.getter(name="associatedIdentity")
+    def associated_identity(self) -> Optional['outputs.IdentitySelectorResponse']:
+        """
+        The selection of the managed identity to use with this vault URI. The identity type must be either system assigned or user assigned.
+        """
+        return pulumi.get(self, "associated_identity")
+
+    @property
+    @pulumi.getter(name="vaultUri")
+    def vault_uri(self) -> Optional[str]:
+        """
+        The URI for the key vault used as the secret archive.
+        """
+        return pulumi.get(self, "vault_uri")
+
+
+@pulumi.output_type
+class SecretRotationStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expirePeriodDays":
+            suggest = "expire_period_days"
+        elif key == "lastRotationTime":
+            suggest = "last_rotation_time"
+        elif key == "rotationPeriodDays":
+            suggest = "rotation_period_days"
+        elif key == "secretArchiveReference":
+            suggest = "secret_archive_reference"
+        elif key == "secretType":
+            suggest = "secret_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretRotationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretRotationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretRotationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expire_period_days: float,
+                 last_rotation_time: str,
+                 rotation_period_days: float,
+                 secret_archive_reference: 'outputs.SecretArchiveReferenceResponse',
+                 secret_type: str):
+        """
+        :param float expire_period_days: The maximum number of days the secret may be used before it must be changed.
+        :param str last_rotation_time: The date and time when the secret was last changed.
+        :param float rotation_period_days: The number of days a secret exists before rotations will be attempted.
+        :param 'SecretArchiveReferenceResponse' secret_archive_reference: The reference to the secret in a key vault.
+        :param str secret_type: The type name used to identify the purpose of the secret.
+        """
+        pulumi.set(__self__, "expire_period_days", expire_period_days)
+        pulumi.set(__self__, "last_rotation_time", last_rotation_time)
+        pulumi.set(__self__, "rotation_period_days", rotation_period_days)
+        pulumi.set(__self__, "secret_archive_reference", secret_archive_reference)
+        pulumi.set(__self__, "secret_type", secret_type)
+
+    @property
+    @pulumi.getter(name="expirePeriodDays")
+    def expire_period_days(self) -> float:
+        """
+        The maximum number of days the secret may be used before it must be changed.
+        """
+        return pulumi.get(self, "expire_period_days")
+
+    @property
+    @pulumi.getter(name="lastRotationTime")
+    def last_rotation_time(self) -> str:
+        """
+        The date and time when the secret was last changed.
+        """
+        return pulumi.get(self, "last_rotation_time")
+
+    @property
+    @pulumi.getter(name="rotationPeriodDays")
+    def rotation_period_days(self) -> float:
+        """
+        The number of days a secret exists before rotations will be attempted.
+        """
+        return pulumi.get(self, "rotation_period_days")
+
+    @property
+    @pulumi.getter(name="secretArchiveReference")
+    def secret_archive_reference(self) -> 'outputs.SecretArchiveReferenceResponse':
+        """
+        The reference to the secret in a key vault.
+        """
+        return pulumi.get(self, "secret_archive_reference")
+
+    @property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> str:
+        """
+        The type name used to identify the purpose of the secret.
+        """
+        return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
 class ServiceLoadBalancerBgpPeerResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3136,8 +3647,8 @@ class ServiceLoadBalancerBgpPeerResponse(dict):
         :param float peer_asn: The autonomous system number expected from the remote end of the BGP session.
         :param str bfd_enabled: The indicator of BFD enablement for this BgpPeer.
         :param str bgp_multi_hop: The indicator to enable multi-hop peering support.
-        :param str hold_time: The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
-        :param str keep_alive_time: The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        :param str hold_time: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        :param str keep_alive_time: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         :param float my_asn: The autonomous system number used for the local end of the BGP session.
         :param float peer_port: The port used to connect this BGP session.
         """
@@ -3207,7 +3718,7 @@ class ServiceLoadBalancerBgpPeerResponse(dict):
     @pulumi.getter(name="holdTime")
     def hold_time(self) -> Optional[str]:
         """
-        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
         """
         return pulumi.get(self, "hold_time")
 
@@ -3215,7 +3726,7 @@ class ServiceLoadBalancerBgpPeerResponse(dict):
     @pulumi.getter(name="keepAliveTime")
     def keep_alive_time(self) -> Optional[str]:
         """
-        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
         """
         return pulumi.get(self, "keep_alive_time")
 
@@ -3374,7 +3885,7 @@ class StorageApplianceConfigurationDataResponse(dict):
                  serial_number: str,
                  storage_appliance_name: Optional[str] = None):
         """
-        :param 'AdministrativeCredentialsResponse' admin_credentials: The credentials of the administrative interface on this storage appliance.
+        :param 'AdministrativeCredentialsResponse' admin_credentials: The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         :param float rack_slot: The slot that storage appliance is in the rack based on the BOM configuration.
         :param str serial_number: The serial number of the appliance.
         :param str storage_appliance_name: The user-provided name for the storage appliance that will be created from this specification.
@@ -3389,7 +3900,7 @@ class StorageApplianceConfigurationDataResponse(dict):
     @pulumi.getter(name="adminCredentials")
     def admin_credentials(self) -> 'outputs.AdministrativeCredentialsResponse':
         """
-        The credentials of the administrative interface on this storage appliance.
+        The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         """
         return pulumi.get(self, "admin_credentials")
 
@@ -3658,6 +4169,58 @@ class TrunkedNetworkAttachmentConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
 class ValidationThresholdResponse(dict):
     def __init__(__self__, *,
                  grouping: str,
@@ -3767,5 +4330,43 @@ class VirtualMachinePlacementHintResponse(dict):
         The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
         """
         return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class VulnerabilityScanningSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerScan":
+            suggest = "container_scan"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VulnerabilityScanningSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VulnerabilityScanningSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VulnerabilityScanningSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_scan: Optional[str] = None):
+        """
+        :param str container_scan: The mode selection for container vulnerability scanning.
+        """
+        if container_scan is None:
+            container_scan = 'Enabled'
+        if container_scan is not None:
+            pulumi.set(__self__, "container_scan", container_scan)
+
+    @property
+    @pulumi.getter(name="containerScan")
+    def container_scan(self) -> Optional[str]:
+        """
+        The mode selection for container vulnerability scanning.
+        """
+        return pulumi.get(self, "container_scan")
 
 

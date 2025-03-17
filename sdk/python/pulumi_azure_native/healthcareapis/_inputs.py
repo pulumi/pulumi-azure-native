@@ -24,8 +24,10 @@ __all__ = [
     'AnalyticsConnectorFhirToParquetMappingArgsDict',
     'CorsConfigurationArgs',
     'CorsConfigurationArgsDict',
-    'FhirServiceAccessPolicyEntryArgs',
-    'FhirServiceAccessPolicyEntryArgsDict',
+    'EncryptionCustomerManagedKeyEncryptionArgs',
+    'EncryptionCustomerManagedKeyEncryptionArgsDict',
+    'EncryptionArgs',
+    'EncryptionArgsDict',
     'FhirServiceAcrConfigurationArgs',
     'FhirServiceAcrConfigurationArgsDict',
     'FhirServiceAuthenticationConfigurationArgs',
@@ -70,6 +72,12 @@ __all__ = [
     'ServicesPropertiesArgsDict',
     'ServicesResourceIdentityArgs',
     'ServicesResourceIdentityArgsDict',
+    'SmartIdentityProviderApplicationArgs',
+    'SmartIdentityProviderApplicationArgsDict',
+    'SmartIdentityProviderConfigurationArgs',
+    'SmartIdentityProviderConfigurationArgsDict',
+    'StorageConfigurationArgs',
+    'StorageConfigurationArgsDict',
 ]
 
 MYPY = False
@@ -422,38 +430,75 @@ class CorsConfigurationArgs:
 
 
 if not MYPY:
-    class FhirServiceAccessPolicyEntryArgsDict(TypedDict):
+    class EncryptionCustomerManagedKeyEncryptionArgsDict(TypedDict):
         """
-        An access policy entry.
+        The encryption settings for the customer-managed key
         """
-        object_id: pulumi.Input[str]
+        key_encryption_key_url: NotRequired[pulumi.Input[str]]
         """
-        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        The URL of the key to use for encryption
         """
 elif False:
-    FhirServiceAccessPolicyEntryArgsDict: TypeAlias = Mapping[str, Any]
+    EncryptionCustomerManagedKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class FhirServiceAccessPolicyEntryArgs:
+class EncryptionCustomerManagedKeyEncryptionArgs:
     def __init__(__self__, *,
-                 object_id: pulumi.Input[str]):
+                 key_encryption_key_url: Optional[pulumi.Input[str]] = None):
         """
-        An access policy entry.
-        :param pulumi.Input[str] object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        The encryption settings for the customer-managed key
+        :param pulumi.Input[str] key_encryption_key_url: The URL of the key to use for encryption
         """
-        pulumi.set(__self__, "object_id", object_id)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
 
     @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[pulumi.Input[str]]:
         """
-        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        The URL of the key to use for encryption
         """
-        return pulumi.get(self, "object_id")
+        return pulumi.get(self, "key_encryption_key_url")
 
-    @object_id.setter
-    def object_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_id", value)
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
+
+
+if not MYPY:
+    class EncryptionArgsDict(TypedDict):
+        """
+        Settings to encrypt a service
+        """
+        customer_managed_key_encryption: NotRequired[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgsDict']]
+        """
+        The encryption settings for the customer-managed key
+        """
+elif False:
+    EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']] = None):
+        """
+        Settings to encrypt a service
+        :param pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: The encryption settings for the customer-managed key
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]:
+        """
+        The encryption settings for the customer-managed key
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+    @customer_managed_key_encryption.setter
+    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['EncryptionCustomerManagedKeyEncryptionArgs']]):
+        pulumi.set(self, "customer_managed_key_encryption", value)
 
 
 if not MYPY:
@@ -525,6 +570,10 @@ if not MYPY:
         """
         The authority url for the service
         """
+        smart_identity_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgsDict']]]]
+        """
+        The array of identity provider configurations for SMART on FHIR authentication.
+        """
         smart_proxy_enabled: NotRequired[pulumi.Input[bool]]
         """
         If the SMART on FHIR proxy is enabled
@@ -537,17 +586,21 @@ class FhirServiceAuthenticationConfigurationArgs:
     def __init__(__self__, *,
                  audience: Optional[pulumi.Input[str]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
+                 smart_identity_providers: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]] = None,
                  smart_proxy_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Authentication configuration information
         :param pulumi.Input[str] audience: The audience url for the service
         :param pulumi.Input[str] authority: The authority url for the service
+        :param pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]] smart_identity_providers: The array of identity provider configurations for SMART on FHIR authentication.
         :param pulumi.Input[bool] smart_proxy_enabled: If the SMART on FHIR proxy is enabled
         """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if authority is not None:
             pulumi.set(__self__, "authority", authority)
+        if smart_identity_providers is not None:
+            pulumi.set(__self__, "smart_identity_providers", smart_identity_providers)
         if smart_proxy_enabled is not None:
             pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
@@ -574,6 +627,18 @@ class FhirServiceAuthenticationConfigurationArgs:
     @authority.setter
     def authority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authority", value)
+
+    @property
+    @pulumi.getter(name="smartIdentityProviders")
+    def smart_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]:
+        """
+        The array of identity provider configurations for SMART on FHIR authentication.
+        """
+        return pulumi.get(self, "smart_identity_providers")
+
+    @smart_identity_providers.setter
+    def smart_identity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderConfigurationArgs']]]]):
+        pulumi.set(self, "smart_identity_providers", value)
 
     @property
     @pulumi.getter(name="smartProxyEnabled")
@@ -1963,5 +2028,193 @@ class ServicesResourceIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class SmartIdentityProviderApplicationArgsDict(TypedDict):
+        """
+        An Application configured in the Identity Provider used to access FHIR resources.
+        """
+        allowed_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SmartDataActions']]]]]
+        """
+        The actions that are permitted to be performed on FHIR resources for the application.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        The audience that will be used to validate bearer tokens against the given authority.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+        """
+elif False:
+    SmartIdentityProviderApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmartIdentityProviderApplicationArgs:
+    def __init__(__self__, *,
+                 allowed_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SmartDataActions']]]]] = None,
+                 audience: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None):
+        """
+        An Application configured in the Identity Provider used to access FHIR resources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SmartDataActions']]]] allowed_data_actions: The actions that are permitted to be performed on FHIR resources for the application.
+        :param pulumi.Input[str] audience: The audience that will be used to validate bearer tokens against the given authority.
+        :param pulumi.Input[str] client_id: The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+        """
+        if allowed_data_actions is not None:
+            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="allowedDataActions")
+    def allowed_data_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SmartDataActions']]]]]:
+        """
+        The actions that are permitted to be performed on FHIR resources for the application.
+        """
+        return pulumi.get(self, "allowed_data_actions")
+
+    @allowed_data_actions.setter
+    def allowed_data_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SmartDataActions']]]]]):
+        pulumi.set(self, "allowed_data_actions", value)
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[pulumi.Input[str]]:
+        """
+        The audience that will be used to validate bearer tokens against the given authority.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audience", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+
+if not MYPY:
+    class SmartIdentityProviderConfigurationArgsDict(TypedDict):
+        """
+        An object to configure an identity provider for use with SMART on FHIR authentication.
+        """
+        applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgsDict']]]]
+        """
+        The array of identity provider applications for SMART on FHIR authentication.
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        The identity provider token authority also known as the token issuing authority.
+        """
+elif False:
+    SmartIdentityProviderConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SmartIdentityProviderConfigurationArgs:
+    def __init__(__self__, *,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]] = None,
+                 authority: Optional[pulumi.Input[str]] = None):
+        """
+        An object to configure an identity provider for use with SMART on FHIR authentication.
+        :param pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]] applications: The array of identity provider applications for SMART on FHIR authentication.
+        :param pulumi.Input[str] authority: The identity provider token authority also known as the token issuing authority.
+        """
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter
+    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]:
+        """
+        The array of identity provider applications for SMART on FHIR authentication.
+        """
+        return pulumi.get(self, "applications")
+
+    @applications.setter
+    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SmartIdentityProviderApplicationArgs']]]]):
+        pulumi.set(self, "applications", value)
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identity provider token authority also known as the token issuing authority.
+        """
+        return pulumi.get(self, "authority")
+
+    @authority.setter
+    def authority(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authority", value)
+
+
+if not MYPY:
+    class StorageConfigurationArgsDict(TypedDict):
+        """
+        The configuration of connected storage
+        """
+        file_system_name: NotRequired[pulumi.Input[str]]
+        """
+        The filesystem name of connected storage account.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id of connected storage account.
+        """
+elif False:
+    StorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageConfigurationArgs:
+    def __init__(__self__, *,
+                 file_system_name: Optional[pulumi.Input[str]] = None,
+                 storage_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        The configuration of connected storage
+        :param pulumi.Input[str] file_system_name: The filesystem name of connected storage account.
+        :param pulumi.Input[str] storage_resource_id: The resource id of connected storage account.
+        """
+        if file_system_name is not None:
+            pulumi.set(__self__, "file_system_name", file_system_name)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+
+    @property
+    @pulumi.getter(name="fileSystemName")
+    def file_system_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filesystem name of connected storage account.
+        """
+        return pulumi.get(self, "file_system_name")
+
+    @file_system_name.setter
+    def file_system_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_name", value)
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of connected storage account.
+        """
+        return pulumi.get(self, "storage_resource_id")
+
+    @storage_resource_id.setter
+    def storage_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_resource_id", value)
 
 

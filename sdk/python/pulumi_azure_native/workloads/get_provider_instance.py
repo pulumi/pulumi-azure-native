@@ -27,16 +27,19 @@ class GetProviderInstanceResult:
     """
     A provider instance associated with SAP monitor.
     """
-    def __init__(__self__, errors=None, id=None, identity=None, name=None, provider_settings=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, errors=None, health=None, id=None, name=None, provider_settings=None, provisioning_state=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
+        if health and not isinstance(health, dict):
+            raise TypeError("Expected argument 'health' to be a dict")
+        pulumi.set(__self__, "health", health)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,8 +57,16 @@ class GetProviderInstanceResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
-    def errors(self) -> 'outputs.ProviderInstancePropertiesResponseErrors':
+    def errors(self) -> 'outputs.ErrorDetailResponse':
         """
         Defines the provider instance errors.
         """
@@ -63,19 +74,19 @@ class GetProviderInstanceResult:
 
     @property
     @pulumi.getter
-    def id(self) -> str:
+    def health(self) -> 'outputs.HealthResponse':
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource health details
         """
-        return pulumi.get(self, "id")
+        return pulumi.get(self, "health")
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
+    def id(self) -> str:
         """
-        [currently not in use] Managed service identity(user assigned identities)
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -124,9 +135,10 @@ class AwaitableGetProviderInstanceResult(GetProviderInstanceResult):
         if False:
             yield self
         return GetProviderInstanceResult(
+            azure_api_version=self.azure_api_version,
             errors=self.errors,
+            health=self.health,
             id=self.id,
-            identity=self.identity,
             name=self.name,
             provider_settings=self.provider_settings,
             provisioning_state=self.provisioning_state,
@@ -140,9 +152,7 @@ def get_provider_instance(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderInstanceResult:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -157,9 +167,10 @@ def get_provider_instance(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult).value
 
     return AwaitableGetProviderInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         errors=pulumi.get(__ret__, 'errors'),
+        health=pulumi.get(__ret__, 'health'),
         id=pulumi.get(__ret__, 'id'),
-        identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
         provider_settings=pulumi.get(__ret__, 'provider_settings'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -171,9 +182,7 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview, 2023-12-01-preview, 2024-02-01-preview.
+    Azure REST API version: 2024-02-01-preview.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -187,9 +196,10 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult)
     return __ret__.apply(lambda __response__: GetProviderInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         errors=pulumi.get(__response__, 'errors'),
+        health=pulumi.get(__response__, 'health'),
         id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
         name=pulumi.get(__response__, 'name'),
         provider_settings=pulumi.get(__response__, 'provider_settings'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

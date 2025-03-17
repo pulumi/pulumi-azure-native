@@ -27,10 +27,13 @@ class GetRuleResult:
     """
     Friendly Rules name mapping to the any Rules or secret related information.
     """
-    def __init__(__self__, actions=None, conditions=None, deployment_status=None, id=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, rule_set_name=None, system_data=None, type=None):
+    def __init__(__self__, actions=None, azure_api_version=None, conditions=None, deployment_status=None, id=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, rule_set_name=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if conditions and not isinstance(conditions, list):
             raise TypeError("Expected argument 'conditions' to be a list")
         pulumi.set(__self__, "conditions", conditions)
@@ -69,6 +72,14 @@ class GetRuleResult:
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -155,6 +166,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             yield self
         return GetRuleResult(
             actions=self.actions,
+            azure_api_version=self.azure_api_version,
             conditions=self.conditions,
             deployment_status=self.deployment_status,
             id=self.id,
@@ -174,9 +186,7 @@ def get_rule(profile_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
     Gets an existing delivery rule within a rule set.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -194,6 +204,7 @@ def get_rule(profile_name: Optional[str] = None,
 
     return AwaitableGetRuleResult(
         actions=pulumi.get(__ret__, 'actions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         conditions=pulumi.get(__ret__, 'conditions'),
         deployment_status=pulumi.get(__ret__, 'deployment_status'),
         id=pulumi.get(__ret__, 'id'),
@@ -211,9 +222,7 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Gets an existing delivery rule within a rule set.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    Azure REST API version: 2024-09-01.
 
 
     :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -230,6 +239,7 @@ def get_rule_output(profile_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:cdn:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         actions=pulumi.get(__response__, 'actions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         conditions=pulumi.get(__response__, 'conditions'),
         deployment_status=pulumi.get(__response__, 'deployment_status'),
         id=pulumi.get(__response__, 'id'),

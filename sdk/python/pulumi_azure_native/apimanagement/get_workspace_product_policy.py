@@ -26,7 +26,10 @@ class GetWorkspaceProductPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, format=None, id=None, name=None, type=None, value=None):
+    def __init__(__self__, azure_api_version=None, format=None, id=None, name=None, type=None, value=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
@@ -42,6 +45,14 @@ class GetWorkspaceProductPolicyResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetWorkspaceProductPolicyResult(GetWorkspaceProductPolicyResult):
         if False:
             yield self
         return GetWorkspaceProductPolicyResult(
+            azure_api_version=self.azure_api_version,
             format=self.format,
             id=self.id,
             name=self.name,
@@ -107,8 +119,6 @@ def get_workspace_product_policy(format: Optional[str] = None,
     """
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str format: Policy Export Format.
@@ -129,6 +139,7 @@ def get_workspace_product_policy(format: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceProductPolicy', __args__, opts=opts, typ=GetWorkspaceProductPolicyResult).value
 
     return AwaitableGetWorkspaceProductPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -144,8 +155,6 @@ def get_workspace_product_policy_output(format: Optional[pulumi.Input[Optional[s
     """
     Get the policy configuration at the Product level.
     Azure REST API version: 2022-09-01-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
 
 
     :param str format: Policy Export Format.
@@ -165,6 +174,7 @@ def get_workspace_product_policy_output(format: Optional[pulumi.Input[Optional[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getWorkspaceProductPolicy', __args__, opts=opts, typ=GetWorkspaceProductPolicyResult)
     return __ret__.apply(lambda __response__: GetWorkspaceProductPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -200,9 +200,7 @@ class Product(pulumi.CustomResource):
                  __props__=None):
         """
         Product details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,9 +223,7 @@ class Product(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Product details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-10-10, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param ProductArgs args: The arguments to use to populate this resource's properties.
@@ -279,6 +275,7 @@ class Product(pulumi.CustomResource):
             __props__.__dict__["subscription_required"] = subscription_required
             __props__.__dict__["subscriptions_limit"] = subscriptions_limit
             __props__.__dict__["terms"] = terms
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Product")])
@@ -306,6 +303,7 @@ class Product(pulumi.CustomResource):
         __props__ = ProductArgs.__new__(ProductArgs)
 
         __props__.__dict__["approval_required"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
@@ -323,6 +321,14 @@ class Product(pulumi.CustomResource):
         whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         """
         return pulumi.get(self, "approval_required")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

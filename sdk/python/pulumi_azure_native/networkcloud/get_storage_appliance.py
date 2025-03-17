@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetStorageApplianceResult:
-    def __init__(__self__, administrator_credentials=None, capacity=None, capacity_used=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, management_ipv4_address=None, name=None, provisioning_state=None, rack_id=None, rack_slot=None, remote_vendor_management_feature=None, remote_vendor_management_status=None, serial_number=None, storage_appliance_sku_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, administrator_credentials=None, azure_api_version=None, capacity=None, capacity_used=None, cluster_id=None, detailed_status=None, detailed_status_message=None, etag=None, extended_location=None, id=None, location=None, management_ipv4_address=None, manufacturer=None, model=None, name=None, provisioning_state=None, rack_id=None, rack_slot=None, remote_vendor_management_feature=None, remote_vendor_management_status=None, secret_rotation_status=None, serial_number=None, storage_appliance_sku_id=None, system_data=None, tags=None, type=None, version=None):
         if administrator_credentials and not isinstance(administrator_credentials, dict):
             raise TypeError("Expected argument 'administrator_credentials' to be a dict")
         pulumi.set(__self__, "administrator_credentials", administrator_credentials)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacity and not isinstance(capacity, float):
             raise TypeError("Expected argument 'capacity' to be a float")
         pulumi.set(__self__, "capacity", capacity)
@@ -43,6 +46,9 @@ class GetStorageApplianceResult:
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -55,6 +61,12 @@ class GetStorageApplianceResult:
         if management_ipv4_address and not isinstance(management_ipv4_address, str):
             raise TypeError("Expected argument 'management_ipv4_address' to be a str")
         pulumi.set(__self__, "management_ipv4_address", management_ipv4_address)
+        if manufacturer and not isinstance(manufacturer, str):
+            raise TypeError("Expected argument 'manufacturer' to be a str")
+        pulumi.set(__self__, "manufacturer", manufacturer)
+        if model and not isinstance(model, str):
+            raise TypeError("Expected argument 'model' to be a str")
+        pulumi.set(__self__, "model", model)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +85,9 @@ class GetStorageApplianceResult:
         if remote_vendor_management_status and not isinstance(remote_vendor_management_status, str):
             raise TypeError("Expected argument 'remote_vendor_management_status' to be a str")
         pulumi.set(__self__, "remote_vendor_management_status", remote_vendor_management_status)
+        if secret_rotation_status and not isinstance(secret_rotation_status, list):
+            raise TypeError("Expected argument 'secret_rotation_status' to be a list")
+        pulumi.set(__self__, "secret_rotation_status", secret_rotation_status)
         if serial_number and not isinstance(serial_number, str):
             raise TypeError("Expected argument 'serial_number' to be a str")
         pulumi.set(__self__, "serial_number", serial_number)
@@ -88,6 +103,9 @@ class GetStorageApplianceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="administratorCredentials")
@@ -98,10 +116,18 @@ class GetStorageApplianceResult:
         return pulumi.get(self, "administrator_credentials")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def capacity(self) -> float:
         """
-        The total capacity of the storage appliance.
+        The total capacity of the storage appliance. Measured in GiB.
         """
         return pulumi.get(self, "capacity")
 
@@ -117,7 +143,7 @@ class GetStorageApplianceResult:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
-        The resource ID of the cluster this storage appliance is associated with.
+        The resource ID of the cluster this storage appliance is associated with. Measured in GiB.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -136,6 +162,14 @@ class GetStorageApplianceResult:
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -168,6 +202,22 @@ class GetStorageApplianceResult:
         The endpoint for the management interface of the storage appliance.
         """
         return pulumi.get(self, "management_ipv4_address")
+
+    @property
+    @pulumi.getter
+    def manufacturer(self) -> str:
+        """
+        The manufacturer of the storage appliance.
+        """
+        return pulumi.get(self, "manufacturer")
+
+    @property
+    @pulumi.getter
+    def model(self) -> str:
+        """
+        The model of the storage appliance.
+        """
+        return pulumi.get(self, "model")
 
     @property
     @pulumi.getter
@@ -218,6 +268,14 @@ class GetStorageApplianceResult:
         return pulumi.get(self, "remote_vendor_management_status")
 
     @property
+    @pulumi.getter(name="secretRotationStatus")
+    def secret_rotation_status(self) -> Sequence['outputs.SecretRotationStatusResponse']:
+        """
+        The list of statuses that represent secret rotation activity.
+        """
+        return pulumi.get(self, "secret_rotation_status")
+
+    @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> str:
         """
@@ -257,6 +315,14 @@ class GetStorageApplianceResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the storage appliance.
+        """
+        return pulumi.get(self, "version")
+
 
 class AwaitableGetStorageApplianceResult(GetStorageApplianceResult):
     # pylint: disable=using-constant-test
@@ -265,26 +331,32 @@ class AwaitableGetStorageApplianceResult(GetStorageApplianceResult):
             yield self
         return GetStorageApplianceResult(
             administrator_credentials=self.administrator_credentials,
+            azure_api_version=self.azure_api_version,
             capacity=self.capacity,
             capacity_used=self.capacity_used,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
             management_ipv4_address=self.management_ipv4_address,
+            manufacturer=self.manufacturer,
+            model=self.model,
             name=self.name,
             provisioning_state=self.provisioning_state,
             rack_id=self.rack_id,
             rack_slot=self.rack_slot,
             remote_vendor_management_feature=self.remote_vendor_management_feature,
             remote_vendor_management_status=self.remote_vendor_management_status,
+            secret_rotation_status=self.secret_rotation_status,
             serial_number=self.serial_number,
             storage_appliance_sku_id=self.storage_appliance_sku_id,
             system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
 def get_storage_appliance(resource_group_name: Optional[str] = None,
@@ -292,9 +364,7 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageApplianceResult:
     """
     Get properties of the provided storage appliance.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -308,34 +378,38 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
 
     return AwaitableGetStorageApplianceResult(
         administrator_credentials=pulumi.get(__ret__, 'administrator_credentials'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacity=pulumi.get(__ret__, 'capacity'),
         capacity_used=pulumi.get(__ret__, 'capacity_used'),
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         management_ipv4_address=pulumi.get(__ret__, 'management_ipv4_address'),
+        manufacturer=pulumi.get(__ret__, 'manufacturer'),
+        model=pulumi.get(__ret__, 'model'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rack_id=pulumi.get(__ret__, 'rack_id'),
         rack_slot=pulumi.get(__ret__, 'rack_slot'),
         remote_vendor_management_feature=pulumi.get(__ret__, 'remote_vendor_management_feature'),
         remote_vendor_management_status=pulumi.get(__ret__, 'remote_vendor_management_status'),
+        secret_rotation_status=pulumi.get(__ret__, 'secret_rotation_status'),
         serial_number=pulumi.get(__ret__, 'serial_number'),
         storage_appliance_sku_id=pulumi.get(__ret__, 'storage_appliance_sku_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                  storage_appliance_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
     Get properties of the provided storage appliance.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -348,23 +422,29 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getStorageAppliance', __args__, opts=opts, typ=GetStorageApplianceResult)
     return __ret__.apply(lambda __response__: GetStorageApplianceResult(
         administrator_credentials=pulumi.get(__response__, 'administrator_credentials'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacity=pulumi.get(__response__, 'capacity'),
         capacity_used=pulumi.get(__response__, 'capacity_used'),
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         management_ipv4_address=pulumi.get(__response__, 'management_ipv4_address'),
+        manufacturer=pulumi.get(__response__, 'manufacturer'),
+        model=pulumi.get(__response__, 'model'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         rack_id=pulumi.get(__response__, 'rack_id'),
         rack_slot=pulumi.get(__response__, 'rack_slot'),
         remote_vendor_management_feature=pulumi.get(__response__, 'remote_vendor_management_feature'),
         remote_vendor_management_status=pulumi.get(__response__, 'remote_vendor_management_status'),
+        secret_rotation_status=pulumi.get(__response__, 'secret_rotation_status'),
         serial_number=pulumi.get(__response__, 'serial_number'),
         storage_appliance_sku_id=pulumi.get(__response__, 'storage_appliance_sku_id'),
         system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version')))

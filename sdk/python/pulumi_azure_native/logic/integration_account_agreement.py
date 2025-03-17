@@ -231,9 +231,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account agreement.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -258,9 +256,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account agreement.
-        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01.
-
-        Other available API versions: 2015-08-01-preview.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 2.x: 2019-05-01.
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.
@@ -326,11 +322,12 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["changed_time"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountAgreement")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20160601:Agreement"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountAgreement"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountAgreement")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountAgreement, __self__).__init__(
             'azure-native:logic:IntegrationAccountAgreement',
@@ -355,6 +352,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         __props__ = IntegrationAccountAgreementArgs.__new__(IntegrationAccountAgreementArgs)
 
         __props__.__dict__["agreement_type"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["changed_time"] = None
         __props__.__dict__["content"] = None
         __props__.__dict__["created_time"] = None
@@ -376,6 +374,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         The agreement type.
         """
         return pulumi.get(self, "agreement_type")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="changedTime")

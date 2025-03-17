@@ -27,7 +27,10 @@ class GetPolicySetDefinitionVersionResult:
     """
     The policy set definition version.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, system_data=None, type=None, version=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, system_data=None, type=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,6 +67,14 @@ class GetPolicySetDefinitionVersionResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetPolicySetDefinitionVersionResult(GetPolicySetDefinitionVersion
         if False:
             yield self
         return GetPolicySetDefinitionVersionResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -188,9 +200,7 @@ def get_policy_set_definition_version(expand: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionVersionResult:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
@@ -205,6 +215,7 @@ def get_policy_set_definition_version(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicySetDefinitionVersion', __args__, opts=opts, typ=GetPolicySetDefinitionVersionResult).value
 
     return AwaitableGetPolicySetDefinitionVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -223,9 +234,7 @@ def get_policy_set_definition_version_output(expand: Optional[pulumi.Input[Optio
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionVersionResult]:
     """
     This operation retrieves the policy set definition version in the given subscription with the given name and version.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
     :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
@@ -239,6 +248,7 @@ def get_policy_set_definition_version_output(expand: Optional[pulumi.Input[Optio
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicySetDefinitionVersion', __args__, opts=opts, typ=GetPolicySetDefinitionVersionResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

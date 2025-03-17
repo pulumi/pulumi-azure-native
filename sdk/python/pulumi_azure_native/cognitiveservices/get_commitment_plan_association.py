@@ -27,10 +27,13 @@ class GetCommitmentPlanAssociationResult:
     """
     The commitment plan association.
     """
-    def __init__(__self__, account_id=None, etag=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, account_id=None, azure_api_version=None, etag=None, id=None, name=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -43,6 +46,9 @@ class GetCommitmentPlanAssociationResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -54,6 +60,14 @@ class GetCommitmentPlanAssociationResult:
         The Azure resource id of the account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -89,6 +103,14 @@ class GetCommitmentPlanAssociationResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -103,10 +125,12 @@ class AwaitableGetCommitmentPlanAssociationResult(GetCommitmentPlanAssociationRe
             yield self
         return GetCommitmentPlanAssociationResult(
             account_id=self.account_id,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -116,9 +140,7 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanAssociationResult:
     """
     Gets the association of the Cognitive Services commitment plan.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -134,10 +156,12 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
 
     return AwaitableGetCommitmentPlanAssociationResult(
         account_id=pulumi.get(__ret__, 'account_id'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_commitment_plan_association_output(commitment_plan_association_name: Optional[pulumi.Input[str]] = None,
                                            commitment_plan_name: Optional[pulumi.Input[str]] = None,
@@ -145,9 +169,7 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommitmentPlanAssociationResult]:
     """
     Gets the association of the Cognitive Services commitment plan.
-    Azure REST API version: 2023-05-01.
-
-    Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
@@ -162,8 +184,10 @@ def get_commitment_plan_association_output(commitment_plan_association_name: Opt
     __ret__ = pulumi.runtime.invoke_output('azure-native:cognitiveservices:getCommitmentPlanAssociation', __args__, opts=opts, typ=GetCommitmentPlanAssociationResult)
     return __ret__.apply(lambda __response__: GetCommitmentPlanAssociationResult(
         account_id=pulumi.get(__response__, 'account_id'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         system_data=pulumi.get(__response__, 'system_data'),
+        tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

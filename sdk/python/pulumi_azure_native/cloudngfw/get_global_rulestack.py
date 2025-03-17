@@ -27,10 +27,13 @@ class GetGlobalRulestackResult:
     """
     PaloAltoNetworks GlobalRulestack
     """
-    def __init__(__self__, associated_subscriptions=None, default_mode=None, description=None, id=None, identity=None, location=None, min_app_id_version=None, name=None, pan_etag=None, pan_location=None, provisioning_state=None, scope=None, security_services=None, system_data=None, type=None):
+    def __init__(__self__, associated_subscriptions=None, azure_api_version=None, default_mode=None, description=None, id=None, identity=None, location=None, min_app_id_version=None, name=None, pan_etag=None, pan_location=None, provisioning_state=None, scope=None, security_services=None, system_data=None, type=None):
         if associated_subscriptions and not isinstance(associated_subscriptions, list):
             raise TypeError("Expected argument 'associated_subscriptions' to be a list")
         pulumi.set(__self__, "associated_subscriptions", associated_subscriptions)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if default_mode and not isinstance(default_mode, str):
             raise TypeError("Expected argument 'default_mode' to be a str")
         pulumi.set(__self__, "default_mode", default_mode)
@@ -81,6 +84,14 @@ class GetGlobalRulestackResult:
         subscription scope of global rulestack
         """
         return pulumi.get(self, "associated_subscriptions")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultMode")
@@ -202,6 +213,7 @@ class AwaitableGetGlobalRulestackResult(GetGlobalRulestackResult):
             yield self
         return GetGlobalRulestackResult(
             associated_subscriptions=self.associated_subscriptions,
+            azure_api_version=self.azure_api_version,
             default_mode=self.default_mode,
             description=self.description,
             id=self.id,
@@ -222,9 +234,7 @@ def get_global_rulestack(global_rulestack_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalRulestackResult:
     """
     Get a GlobalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -236,6 +246,7 @@ def get_global_rulestack(global_rulestack_name: Optional[str] = None,
 
     return AwaitableGetGlobalRulestackResult(
         associated_subscriptions=pulumi.get(__ret__, 'associated_subscriptions'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         default_mode=pulumi.get(__ret__, 'default_mode'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -254,9 +265,7 @@ def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalRulestackResult]:
     """
     Get a GlobalRulestackResource
-    Azure REST API version: 2023-09-01.
-
-    Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+    Azure REST API version: 2025-02-06-preview.
 
 
     :param str global_rulestack_name: GlobalRulestack resource name
@@ -267,6 +276,7 @@ def get_global_rulestack_output(global_rulestack_name: Optional[pulumi.Input[str
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getGlobalRulestack', __args__, opts=opts, typ=GetGlobalRulestackResult)
     return __ret__.apply(lambda __response__: GetGlobalRulestackResult(
         associated_subscriptions=pulumi.get(__response__, 'associated_subscriptions'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         default_mode=pulumi.get(__response__, 'default_mode'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),

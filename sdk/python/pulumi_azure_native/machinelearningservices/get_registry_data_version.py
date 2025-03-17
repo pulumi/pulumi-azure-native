@@ -27,7 +27,10 @@ class GetRegistryDataVersionResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, data_version_base_properties=None, id=None, name=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_version_base_properties=None, id=None, name=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_version_base_properties and not isinstance(data_version_base_properties, dict):
             raise TypeError("Expected argument 'data_version_base_properties' to be a dict")
         pulumi.set(__self__, "data_version_base_properties", data_version_base_properties)
@@ -43,6 +46,14 @@ class GetRegistryDataVersionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataVersionBaseProperties")
@@ -91,6 +102,7 @@ class AwaitableGetRegistryDataVersionResult(GetRegistryDataVersionResult):
         if False:
             yield self
         return GetRegistryDataVersionResult(
+            azure_api_version=self.azure_api_version,
             data_version_base_properties=self.data_version_base_properties,
             id=self.id,
             name=self.name,
@@ -105,9 +117,7 @@ def get_registry_data_version(name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryDataVersionResult:
     """
     Azure Resource Manager resource envelope.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
 
     :param str name: Container name.
@@ -124,6 +134,7 @@ def get_registry_data_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getRegistryDataVersion', __args__, opts=opts, typ=GetRegistryDataVersionResult).value
 
     return AwaitableGetRegistryDataVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_version_base_properties=pulumi.get(__ret__, 'data_version_base_properties'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -136,9 +147,7 @@ def get_registry_data_version_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryDataVersionResult]:
     """
     Azure Resource Manager resource envelope.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
 
     :param str name: Container name.
@@ -154,6 +163,7 @@ def get_registry_data_version_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getRegistryDataVersion', __args__, opts=opts, typ=GetRegistryDataVersionResult)
     return __ret__.apply(lambda __response__: GetRegistryDataVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_version_base_properties=pulumi.get(__response__, 'data_version_base_properties'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

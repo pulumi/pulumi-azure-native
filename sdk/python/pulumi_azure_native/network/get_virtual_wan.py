@@ -27,13 +27,16 @@ class GetVirtualWanResult:
     """
     VirtualWAN Resource.
     """
-    def __init__(__self__, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, etag=None, id=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
+    def __init__(__self__, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, azure_api_version=None, disable_vpn_encryption=None, etag=None, id=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
         if allow_branch_to_branch_traffic and not isinstance(allow_branch_to_branch_traffic, bool):
             raise TypeError("Expected argument 'allow_branch_to_branch_traffic' to be a bool")
         pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if allow_vnet_to_vnet_traffic and not isinstance(allow_vnet_to_vnet_traffic, bool):
             raise TypeError("Expected argument 'allow_vnet_to_vnet_traffic' to be a bool")
         pulumi.set(__self__, "allow_vnet_to_vnet_traffic", allow_vnet_to_vnet_traffic)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if disable_vpn_encryption and not isinstance(disable_vpn_encryption, bool):
             raise TypeError("Expected argument 'disable_vpn_encryption' to be a bool")
         pulumi.set(__self__, "disable_vpn_encryption", disable_vpn_encryption)
@@ -83,6 +86,14 @@ class GetVirtualWanResult:
         True if Vnet to Vnet traffic is allowed.
         """
         return pulumi.get(self, "allow_vnet_to_vnet_traffic")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="disableVpnEncryption")
@@ -181,6 +192,7 @@ class AwaitableGetVirtualWanResult(GetVirtualWanResult):
         return GetVirtualWanResult(
             allow_branch_to_branch_traffic=self.allow_branch_to_branch_traffic,
             allow_vnet_to_vnet_traffic=self.allow_vnet_to_vnet_traffic,
+            azure_api_version=self.azure_api_version,
             disable_vpn_encryption=self.disable_vpn_encryption,
             etag=self.etag,
             id=self.id,
@@ -199,9 +211,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualWanResult:
     """
     Retrieves the details of a VirtualWAN.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.
@@ -216,6 +226,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualWanResult(
         allow_branch_to_branch_traffic=pulumi.get(__ret__, 'allow_branch_to_branch_traffic'),
         allow_vnet_to_vnet_traffic=pulumi.get(__ret__, 'allow_vnet_to_vnet_traffic'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         disable_vpn_encryption=pulumi.get(__ret__, 'disable_vpn_encryption'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -232,9 +243,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualWanResult]:
     """
     Retrieves the details of a VirtualWAN.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2019-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str resource_group_name: The resource group name of the VirtualWan.
@@ -248,6 +257,7 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetVirtualWanResult(
         allow_branch_to_branch_traffic=pulumi.get(__response__, 'allow_branch_to_branch_traffic'),
         allow_vnet_to_vnet_traffic=pulumi.get(__response__, 'allow_vnet_to_vnet_traffic'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         disable_vpn_encryption=pulumi.get(__response__, 'disable_vpn_encryption'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

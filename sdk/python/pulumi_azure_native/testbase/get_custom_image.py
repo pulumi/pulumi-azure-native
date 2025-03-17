@@ -27,7 +27,10 @@ class GetCustomImageResult:
     """
     The test base custom image resource.
     """
-    def __init__(__self__, creation_time=None, definition_name=None, id=None, name=None, os_disk_image_size_in_gb=None, product=None, provisioning_state=None, release=None, release_version_date=None, source=None, status=None, system_data=None, type=None, validation_results=None, version_name=None, vhd_file_name=None, vhd_id=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, definition_name=None, id=None, name=None, os_disk_image_size_in_gb=None, product=None, provisioning_state=None, release=None, release_version_date=None, source=None, status=None, system_data=None, type=None, validation_results=None, version_name=None, vhd_file_name=None, vhd_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -79,6 +82,14 @@ class GetCustomImageResult:
         if vhd_id and not isinstance(vhd_id, str):
             raise TypeError("Expected argument 'vhd_id' to be a str")
         pulumi.set(__self__, "vhd_id", vhd_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -223,6 +234,7 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
         if False:
             yield self
         return GetCustomImageResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             definition_name=self.definition_name,
             id=self.id,
@@ -263,6 +275,7 @@ def get_custom_image(custom_image_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult).value
 
     return AwaitableGetCustomImageResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         definition_name=pulumi.get(__ret__, 'definition_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -300,6 +313,7 @@ def get_custom_image_output(custom_image_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:testbase:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult)
     return __ret__.apply(lambda __response__: GetCustomImageResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         definition_name=pulumi.get(__response__, 'definition_name'),
         id=pulumi.get(__response__, 'id'),

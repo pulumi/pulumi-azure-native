@@ -152,9 +152,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Base class for backup policy. Workload-specific backup policies are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -174,9 +172,7 @@ class ProtectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for backup policy. Workload-specific backup policies are derived from this class.
-        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+        Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
 
         :param str resource_name: The name of the resource.
         :param ProtectionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +216,7 @@ class ProtectionPolicy(pulumi.CustomResource):
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160601:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20201201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230601:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230801:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20240101:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20240201:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20240401:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20240430preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20240730preview:ProtectionPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20241001:ProtectionPolicy")])
@@ -246,6 +243,7 @@ class ProtectionPolicy(pulumi.CustomResource):
 
         __props__ = ProtectionPolicyArgs.__new__(ProtectionPolicyArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["e_tag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -253,6 +251,14 @@ class ProtectionPolicy(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return ProtectionPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")

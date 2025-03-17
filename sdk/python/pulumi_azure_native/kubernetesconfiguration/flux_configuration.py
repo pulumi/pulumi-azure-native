@@ -309,9 +309,7 @@ class FluxConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         The Flux Configuration object returned in Get & Put response.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-11-01-preview.
-
-        Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,9 +338,7 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Flux Configuration object returned in Get & Put response.
-        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-11-01-preview.
-
-        Other available API versions: 2021-11-01-preview, 2022-01-01-preview, 2024-04-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
 
         :param str resource_name: The name of the resource.
         :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -414,6 +410,7 @@ class FluxConfiguration(pulumi.CustomResource):
                 suspend = False
             __props__.__dict__["suspend"] = suspend
             __props__.__dict__["wait_for_reconciliation"] = wait_for_reconciliation
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["compliance_state"] = None
             __props__.__dict__["error_message"] = None
             __props__.__dict__["name"] = None
@@ -425,7 +422,7 @@ class FluxConfiguration(pulumi.CustomResource):
             __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220301:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20221101:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20230501:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20240401preview:FluxConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220301:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20221101:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20230501:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20240401preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20241101:FluxConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FluxConfiguration, __self__).__init__(
             'azure-native:kubernetesconfiguration:FluxConfiguration',
@@ -449,6 +446,7 @@ class FluxConfiguration(pulumi.CustomResource):
 
         __props__ = FluxConfigurationArgs.__new__(FluxConfigurationArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["azure_blob"] = None
         __props__.__dict__["bucket"] = None
         __props__.__dict__["compliance_state"] = None
@@ -472,6 +470,14 @@ class FluxConfiguration(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["wait_for_reconciliation"] = None
         return FluxConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="azureBlob")

@@ -312,9 +312,7 @@ class Budget(pulumi.CustomResource):
                  __props__=None):
         """
         A budget resource.
-        Azure REST API version: 2023-04-01-preview.
-
-        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -400,9 +398,7 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A budget resource.
-        Azure REST API version: 2023-04-01-preview.
-
-        Other available API versions: 2019-04-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.
@@ -454,11 +450,12 @@ class Budget(pulumi.CustomResource):
             if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__.__dict__["time_period"] = time_period
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:Budget")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20230901:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20231101:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20240801:Budget"), pulumi.Alias(type_="azure-native:costmanagement/v20241001preview:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Budget, __self__).__init__(
             'azure-native:costmanagement:Budget',
@@ -483,6 +480,7 @@ class Budget(pulumi.CustomResource):
         __props__ = BudgetArgs.__new__(BudgetArgs)
 
         __props__.__dict__["amount"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["category"] = None
         __props__.__dict__["current_spend"] = None
         __props__.__dict__["e_tag"] = None
@@ -506,6 +504,14 @@ class Budget(pulumi.CustomResource):
          Required for CategoryType(s): Cost.
         """
         return pulumi.get(self, "amount")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -559,7 +565,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -619,7 +625,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type.
         """
         return pulumi.get(self, "type")
 

@@ -90,9 +90,7 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListQnAMakerEndpointKeyResult:
     """
     Lists the QnA Maker endpoint keys
-    Azure REST API version: 2022-09-15.
-
-    Other available API versions: 2022-06-15-preview, 2023-09-15-preview.
+    Azure REST API version: 2023-09-15-preview.
 
 
     :param str authkey: Subscription key which provides access to this API.
@@ -114,9 +112,7 @@ def list_qn_a_maker_endpoint_key_output(authkey: Optional[pulumi.Input[Optional[
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListQnAMakerEndpointKeyResult]:
     """
     Lists the QnA Maker endpoint keys
-    Azure REST API version: 2022-09-15.
-
-    Other available API versions: 2022-06-15-preview, 2023-09-15-preview.
+    Azure REST API version: 2023-09-15-preview.
 
 
     :param str authkey: Subscription key which provides access to this API.

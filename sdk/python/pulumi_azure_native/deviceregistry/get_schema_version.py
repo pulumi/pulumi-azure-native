@@ -27,7 +27,10 @@ class GetSchemaVersionResult:
     """
     Schema version's definition.
     """
-    def __init__(__self__, description=None, hash=None, id=None, name=None, provisioning_state=None, schema_content=None, system_data=None, type=None, uuid=None):
+    def __init__(__self__, azure_api_version=None, description=None, hash=None, id=None, name=None, provisioning_state=None, schema_content=None, system_data=None, type=None, uuid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -55,6 +58,14 @@ class GetSchemaVersionResult:
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -135,6 +146,7 @@ class AwaitableGetSchemaVersionResult(GetSchemaVersionResult):
         if False:
             yield self
         return GetSchemaVersionResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             hash=self.hash,
             id=self.id,
@@ -170,6 +182,7 @@ def get_schema_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceregistry:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult).value
 
     return AwaitableGetSchemaVersionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         hash=pulumi.get(__ret__, 'hash'),
         id=pulumi.get(__ret__, 'id'),
@@ -202,6 +215,7 @@ def get_schema_version_output(resource_group_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:deviceregistry:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult)
     return __ret__.apply(lambda __response__: GetSchemaVersionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         hash=pulumi.get(__response__, 'hash'),
         id=pulumi.get(__response__, 'id'),

@@ -26,7 +26,10 @@ class GetGatewayCertificateAuthorityResult:
     """
     Gateway certificate authority details.
     """
-    def __init__(__self__, id=None, is_trusted=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, is_trusted=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -39,6 +42,14 @@ class GetGatewayCertificateAuthorityResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -79,6 +90,7 @@ class AwaitableGetGatewayCertificateAuthorityResult(GetGatewayCertificateAuthori
         if False:
             yield self
         return GetGatewayCertificateAuthorityResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             is_trusted=self.is_trusted,
             name=self.name,
@@ -92,9 +104,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCertificateAuthorityResult:
     """
     Get assigned Gateway Certificate Authority details.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -111,6 +121,7 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getGatewayCertificateAuthority', __args__, opts=opts, typ=GetGatewayCertificateAuthorityResult).value
 
     return AwaitableGetGatewayCertificateAuthorityResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         is_trusted=pulumi.get(__ret__, 'is_trusted'),
         name=pulumi.get(__ret__, 'name'),
@@ -122,9 +133,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayCertificateAuthorityResult]:
     """
     Get assigned Gateway Certificate Authority details.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -140,6 +149,7 @@ def get_gateway_certificate_authority_output(certificate_id: Optional[pulumi.Inp
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getGatewayCertificateAuthority', __args__, opts=opts, typ=GetGatewayCertificateAuthorityResult)
     return __ret__.apply(lambda __response__: GetGatewayCertificateAuthorityResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         is_trusted=pulumi.get(__response__, 'is_trusted'),
         name=pulumi.get(__response__, 'name'),

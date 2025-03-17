@@ -27,13 +27,16 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrators=None, collation=None, current_backup_storage_redundancy=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, requested_backup_storage_redundancy=None, service_principal=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
+    def __init__(__self__, administrator_login=None, administrators=None, azure_api_version=None, collation=None, current_backup_storage_redundancy=None, dns_zone=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, key_id=None, license_type=None, location=None, maintenance_configuration_id=None, minimal_tls_version=None, name=None, primary_user_assigned_identity_id=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, requested_backup_storage_redundancy=None, service_principal=None, sku=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
         if administrators and not isinstance(administrators, dict):
             raise TypeError("Expected argument 'administrators' to be a dict")
         pulumi.set(__self__, "administrators", administrators)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -137,6 +140,14 @@ class GetManagedInstanceResult:
         The Azure Active Directory administrator of the server.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -381,6 +392,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
         return GetManagedInstanceResult(
             administrator_login=self.administrator_login,
             administrators=self.administrators,
+            azure_api_version=self.azure_api_version,
             collation=self.collation,
             current_backup_storage_redundancy=self.current_backup_storage_redundancy,
             dns_zone=self.dns_zone,
@@ -420,8 +432,6 @@ def get_managed_instance(expand: Optional[str] = None,
     Gets a managed instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str expand: The child resources to include in the response.
     :param str managed_instance_name: The name of the managed instance.
@@ -437,6 +447,7 @@ def get_managed_instance(expand: Optional[str] = None,
     return AwaitableGetManagedInstanceResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
         administrators=pulumi.get(__ret__, 'administrators'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         collation=pulumi.get(__ret__, 'collation'),
         current_backup_storage_redundancy=pulumi.get(__ret__, 'current_backup_storage_redundancy'),
         dns_zone=pulumi.get(__ret__, 'dns_zone'),
@@ -474,8 +485,6 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     Gets a managed instance.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str expand: The child resources to include in the response.
     :param str managed_instance_name: The name of the managed instance.
@@ -490,6 +499,7 @@ def get_managed_instance_output(expand: Optional[pulumi.Input[Optional[str]]] = 
     return __ret__.apply(lambda __response__: GetManagedInstanceResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),
         administrators=pulumi.get(__response__, 'administrators'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         collation=pulumi.get(__response__, 'collation'),
         current_backup_storage_redundancy=pulumi.get(__response__, 'current_backup_storage_redundancy'),
         dns_zone=pulumi.get(__response__, 'dns_zone'),

@@ -27,7 +27,10 @@ class GetCloudConnectorResult:
     """
     The Connector model definition
     """
-    def __init__(__self__, billing_model=None, collection_info=None, created_on=None, credentials_key=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, billing_model=None, collection_info=None, created_on=None, credentials_key=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if billing_model and not isinstance(billing_model, str):
             raise TypeError("Expected argument 'billing_model' to be a str")
         pulumi.set(__self__, "billing_model", billing_model)
@@ -82,6 +85,14 @@ class GetCloudConnectorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="billingModel")
@@ -234,6 +245,7 @@ class AwaitableGetCloudConnectorResult(GetCloudConnectorResult):
         if False:
             yield self
         return GetCloudConnectorResult(
+            azure_api_version=self.azure_api_version,
             billing_model=self.billing_model,
             collection_info=self.collection_info,
             created_on=self.created_on,
@@ -272,6 +284,7 @@ def get_cloud_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult).value
 
     return AwaitableGetCloudConnectorResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         billing_model=pulumi.get(__ret__, 'billing_model'),
         collection_info=pulumi.get(__ret__, 'collection_info'),
         created_on=pulumi.get(__ret__, 'created_on'),
@@ -307,6 +320,7 @@ def get_cloud_connector_output(connector_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult)
     return __ret__.apply(lambda __response__: GetCloudConnectorResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         billing_model=pulumi.get(__response__, 'billing_model'),
         collection_info=pulumi.get(__response__, 'collection_info'),
         created_on=pulumi.get(__response__, 'created_on'),

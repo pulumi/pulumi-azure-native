@@ -27,13 +27,16 @@ class GetHubVirtualNetworkConnectionResult:
     """
     HubVirtualNetworkConnection Resource.
     """
-    def __init__(__self__, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, etag=None, id=None, name=None, provisioning_state=None, remote_virtual_network=None, routing_configuration=None):
+    def __init__(__self__, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, azure_api_version=None, enable_internet_security=None, etag=None, id=None, name=None, provisioning_state=None, remote_virtual_network=None, routing_configuration=None):
         if allow_hub_to_remote_vnet_transit and not isinstance(allow_hub_to_remote_vnet_transit, bool):
             raise TypeError("Expected argument 'allow_hub_to_remote_vnet_transit' to be a bool")
         pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
         if allow_remote_vnet_to_use_hub_vnet_gateways and not isinstance(allow_remote_vnet_to_use_hub_vnet_gateways, bool):
             raise TypeError("Expected argument 'allow_remote_vnet_to_use_hub_vnet_gateways' to be a bool")
         pulumi.set(__self__, "allow_remote_vnet_to_use_hub_vnet_gateways", allow_remote_vnet_to_use_hub_vnet_gateways)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if enable_internet_security and not isinstance(enable_internet_security, bool):
             raise TypeError("Expected argument 'enable_internet_security' to be a bool")
         pulumi.set(__self__, "enable_internet_security", enable_internet_security)
@@ -71,6 +74,14 @@ class GetHubVirtualNetworkConnectionResult:
         Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
         """
         return pulumi.get(self, "allow_remote_vnet_to_use_hub_vnet_gateways")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="enableInternetSecurity")
@@ -137,6 +148,7 @@ class AwaitableGetHubVirtualNetworkConnectionResult(GetHubVirtualNetworkConnecti
         return GetHubVirtualNetworkConnectionResult(
             allow_hub_to_remote_vnet_transit=self.allow_hub_to_remote_vnet_transit,
             allow_remote_vnet_to_use_hub_vnet_gateways=self.allow_remote_vnet_to_use_hub_vnet_gateways,
+            azure_api_version=self.azure_api_version,
             enable_internet_security=self.enable_internet_security,
             etag=self.etag,
             id=self.id,
@@ -152,9 +164,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHubVirtualNetworkConnectionResult:
     """
     Retrieves the details of a HubVirtualNetworkConnection.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -171,6 +181,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
     return AwaitableGetHubVirtualNetworkConnectionResult(
         allow_hub_to_remote_vnet_transit=pulumi.get(__ret__, 'allow_hub_to_remote_vnet_transit'),
         allow_remote_vnet_to_use_hub_vnet_gateways=pulumi.get(__ret__, 'allow_remote_vnet_to_use_hub_vnet_gateways'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
@@ -184,9 +195,7 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubVirtualNetworkConnectionResult]:
     """
     Retrieves the details of a HubVirtualNetworkConnection.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str connection_name: The name of the vpn connection.
@@ -202,6 +211,7 @@ def get_hub_virtual_network_connection_output(connection_name: Optional[pulumi.I
     return __ret__.apply(lambda __response__: GetHubVirtualNetworkConnectionResult(
         allow_hub_to_remote_vnet_transit=pulumi.get(__response__, 'allow_hub_to_remote_vnet_transit'),
         allow_remote_vnet_to_use_hub_vnet_gateways=pulumi.get(__response__, 'allow_remote_vnet_to_use_hub_vnet_gateways'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         enable_internet_security=pulumi.get(__response__, 'enable_internet_security'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),

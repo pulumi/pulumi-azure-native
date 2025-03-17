@@ -150,7 +150,7 @@ class FileEventTrigger(pulumi.CustomResource):
                  __props__=None):
         """
         Trigger details.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class FileEventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Trigger details.
-        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param FileEventTriggerArgs args: The arguments to use to populate this resource's properties.
@@ -221,9 +221,10 @@ class FileEventTrigger(pulumi.CustomResource):
             if source_info is None and not opts.urn:
                 raise TypeError("Missing required property 'source_info'")
             __props__.__dict__["source_info"] = source_info
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:FileEventTrigger")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20190301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190701:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20190801:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200501preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:PeriodicTimerEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20230701:PeriodicTimerEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:FileEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge/v20231201:PeriodicTimerEventTrigger"), pulumi.Alias(type_="azure-native:databoxedge:PeriodicTimerEventTrigger")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FileEventTrigger, __self__).__init__(
             'azure-native:databoxedge:FileEventTrigger',
@@ -247,6 +248,7 @@ class FileEventTrigger(pulumi.CustomResource):
 
         __props__ = FileEventTriggerArgs.__new__(FileEventTriggerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["custom_context_tag"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -255,6 +257,14 @@ class FileEventTrigger(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FileEventTrigger(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customContextTag")

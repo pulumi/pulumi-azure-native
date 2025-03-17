@@ -408,9 +408,7 @@ class StreamingJob(pulumi.CustomResource):
                  __props__=None):
         """
         A streaming job object, containing all information associated with the named streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
-
-        Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -445,9 +443,7 @@ class StreamingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A streaming job object, containing all information associated with the named streaming job.
-        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01.
-
-        Other available API versions: 2017-04-01-preview, 2021-10-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
 
         :param str resource_name: The name of the resource.
         :param StreamingJobArgs args: The arguments to use to populate this resource's properties.
@@ -519,6 +515,7 @@ class StreamingJob(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transformation"] = transformation
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["job_id"] = None
@@ -551,6 +548,7 @@ class StreamingJob(pulumi.CustomResource):
 
         __props__ = StreamingJobArgs.__new__(StreamingJobArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cluster"] = None
         __props__.__dict__["compatibility_level"] = None
         __props__.__dict__["content_storage_policy"] = None
@@ -580,6 +578,14 @@ class StreamingJob(pulumi.CustomResource):
         __props__.__dict__["transformation"] = None
         __props__.__dict__["type"] = None
         return StreamingJob(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -27,10 +27,13 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, federated_client_id=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, azure_api_version=None, catalog_collation=None, collation=None, creation_date=None, current_backup_storage_redundancy=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, federated_client_id=None, high_availability_replica_count=None, id=None, identity=None, is_infra_encryption_enabled=None, is_ledger_on=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, requested_backup_storage_redundancy=None, requested_service_objective_name=None, resumed_date=None, secondary_type=None, sku=None, status=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -150,6 +153,14 @@ class GetDatabaseResult:
         Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
         """
         return pulumi.get(self, "auto_pause_delay")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="catalogCollation")
@@ -465,6 +476,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             yield self
         return GetDatabaseResult(
             auto_pause_delay=self.auto_pause_delay,
+            azure_api_version=self.azure_api_version,
             catalog_collation=self.catalog_collation,
             collation=self.collation,
             creation_date=self.creation_date,
@@ -512,8 +524,6 @@ def get_database(database_name: Optional[str] = None,
     Gets a database.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -528,6 +538,7 @@ def get_database(database_name: Optional[str] = None,
 
     return AwaitableGetDatabaseResult(
         auto_pause_delay=pulumi.get(__ret__, 'auto_pause_delay'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         catalog_collation=pulumi.get(__ret__, 'catalog_collation'),
         collation=pulumi.get(__ret__, 'collation'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
@@ -573,8 +584,6 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     Gets a database.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2014-04-01, 2019-06-01-preview, 2020-02-02-preview, 2020-08-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -588,6 +597,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         auto_pause_delay=pulumi.get(__response__, 'auto_pause_delay'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         catalog_collation=pulumi.get(__response__, 'catalog_collation'),
         collation=pulumi.get(__response__, 'collation'),
         creation_date=pulumi.get(__response__, 'creation_date'),

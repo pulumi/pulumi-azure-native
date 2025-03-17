@@ -27,7 +27,10 @@ class GetContainerAppResult:
     """
     Container App.
     """
-    def __init__(__self__, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_type=None):
+    def __init__(__self__, azure_api_version=None, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_by=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_name=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -61,6 +64,9 @@ class GetContainerAppResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if managed_environment_id and not isinstance(managed_environment_id, str):
             raise TypeError("Expected argument 'managed_environment_id' to be a str")
         pulumi.set(__self__, "managed_environment_id", managed_environment_id)
@@ -85,9 +91,17 @@ class GetContainerAppResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if workload_profile_type and not isinstance(workload_profile_type, str):
-            raise TypeError("Expected argument 'workload_profile_type' to be a str")
-        pulumi.set(__self__, "workload_profile_type", workload_profile_type)
+        if workload_profile_name and not isinstance(workload_profile_name, str):
+            raise TypeError("Expected argument 'workload_profile_name' to be a str")
+        pulumi.set(__self__, "workload_profile_name", workload_profile_name)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -178,6 +192,14 @@ class GetContainerAppResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> Optional[str]:
+        """
+        The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @property
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> Optional[str]:
         """
@@ -242,12 +264,12 @@ class GetContainerAppResult:
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="workloadProfileType")
-    def workload_profile_type(self) -> Optional[str]:
+    @pulumi.getter(name="workloadProfileName")
+    def workload_profile_name(self) -> Optional[str]:
         """
-        Workload profile type to pin for container app execution.
+        Workload profile name to pin for container app execution.
         """
-        return pulumi.get(self, "workload_profile_type")
+        return pulumi.get(self, "workload_profile_name")
 
 
 class AwaitableGetContainerAppResult(GetContainerAppResult):
@@ -256,6 +278,7 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
         if False:
             yield self
         return GetContainerAppResult(
+            azure_api_version=self.azure_api_version,
             configuration=self.configuration,
             custom_domain_verification_id=self.custom_domain_verification_id,
             environment_id=self.environment_id,
@@ -267,6 +290,7 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             latest_revision_fqdn=self.latest_revision_fqdn,
             latest_revision_name=self.latest_revision_name,
             location=self.location,
+            managed_by=self.managed_by,
             managed_environment_id=self.managed_environment_id,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
@@ -275,7 +299,7 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             tags=self.tags,
             template=self.template,
             type=self.type,
-            workload_profile_type=self.workload_profile_type)
+            workload_profile_name=self.workload_profile_name)
 
 
 def get_container_app(container_app_name: Optional[str] = None,
@@ -283,9 +307,7 @@ def get_container_app(container_app_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppResult:
     """
     Container App.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -298,6 +320,7 @@ def get_container_app(container_app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getContainerApp', __args__, opts=opts, typ=GetContainerAppResult).value
 
     return AwaitableGetContainerAppResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration=pulumi.get(__ret__, 'configuration'),
         custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
         environment_id=pulumi.get(__ret__, 'environment_id'),
@@ -309,6 +332,7 @@ def get_container_app(container_app_name: Optional[str] = None,
         latest_revision_fqdn=pulumi.get(__ret__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__ret__, 'latest_revision_name'),
         location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
         managed_environment_id=pulumi.get(__ret__, 'managed_environment_id'),
         name=pulumi.get(__ret__, 'name'),
         outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
@@ -317,15 +341,13 @@ def get_container_app(container_app_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'),
-        workload_profile_type=pulumi.get(__ret__, 'workload_profile_type'))
+        workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppResult]:
     """
     Container App.
-    Azure REST API version: 2022-10-01.
-
-    Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+    Azure REST API version: 2024-03-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -337,6 +359,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = N
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:app:getContainerApp', __args__, opts=opts, typ=GetContainerAppResult)
     return __ret__.apply(lambda __response__: GetContainerAppResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration=pulumi.get(__response__, 'configuration'),
         custom_domain_verification_id=pulumi.get(__response__, 'custom_domain_verification_id'),
         environment_id=pulumi.get(__response__, 'environment_id'),
@@ -348,6 +371,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = N
         latest_revision_fqdn=pulumi.get(__response__, 'latest_revision_fqdn'),
         latest_revision_name=pulumi.get(__response__, 'latest_revision_name'),
         location=pulumi.get(__response__, 'location'),
+        managed_by=pulumi.get(__response__, 'managed_by'),
         managed_environment_id=pulumi.get(__response__, 'managed_environment_id'),
         name=pulumi.get(__response__, 'name'),
         outbound_ip_addresses=pulumi.get(__response__, 'outbound_ip_addresses'),
@@ -356,4 +380,4 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = N
         tags=pulumi.get(__response__, 'tags'),
         template=pulumi.get(__response__, 'template'),
         type=pulumi.get(__response__, 'type'),
-        workload_profile_type=pulumi.get(__response__, 'workload_profile_type')))
+        workload_profile_name=pulumi.get(__response__, 'workload_profile_name')))

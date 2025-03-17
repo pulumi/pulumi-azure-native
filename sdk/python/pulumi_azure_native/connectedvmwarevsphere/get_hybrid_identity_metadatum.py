@@ -27,7 +27,10 @@ class GetHybridIdentityMetadatumResult:
     """
     Defines the HybridIdentityMetadata.
     """
-    def __init__(__self__, id=None, identity=None, name=None, provisioning_state=None, public_key=None, system_data=None, type=None, vm_id=None):
+    def __init__(__self__, azure_api_version=None, id=None, identity=None, name=None, provisioning_state=None, public_key=None, system_data=None, type=None, vm_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,10 +57,18 @@ class GetHybridIdentityMetadatumResult:
         pulumi.set(__self__, "vm_id", vm_id)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -81,7 +92,7 @@ class GetHybridIdentityMetadatumResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -97,7 +108,7 @@ class GetHybridIdentityMetadatumResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -124,6 +135,7 @@ class AwaitableGetHybridIdentityMetadatumResult(GetHybridIdentityMetadatumResult
         if False:
             yield self
         return GetHybridIdentityMetadatumResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             identity=self.identity,
             name=self.name,
@@ -140,9 +152,7 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridIdentityMetadatumResult:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -157,6 +167,7 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult).value
 
     return AwaitableGetHybridIdentityMetadatumResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
         name=pulumi.get(__ret__, 'name'),
@@ -171,9 +182,7 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridIdentityMetadatumResult]:
     """
     Implements HybridIdentityMetadata GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str metadata_name: Name of the HybridIdentityMetadata.
@@ -187,6 +196,7 @@ def get_hybrid_identity_metadatum_output(metadata_name: Optional[pulumi.Input[st
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult)
     return __ret__.apply(lambda __response__: GetHybridIdentityMetadatumResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
         name=pulumi.get(__response__, 'name'),

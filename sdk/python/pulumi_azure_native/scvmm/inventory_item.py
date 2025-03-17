@@ -116,9 +116,7 @@ class InventoryItem(pulumi.CustomResource):
                  __props__=None):
         """
         Defines the inventory item.
-        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,9 +134,7 @@ class InventoryItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the inventory item.
-        Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview.
-
-        Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 2.x: 2022-05-21-preview.
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class InventoryItem(pulumi.CustomResource):
             if vmm_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vmm_server_name'")
             __props__.__dict__["vmm_server_name"] = vmm_server_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["managed_resource_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -210,6 +207,7 @@ class InventoryItem(pulumi.CustomResource):
 
         __props__ = InventoryItemArgs.__new__(InventoryItemArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["inventory_item_name"] = None
         __props__.__dict__["inventory_type"] = None
         __props__.__dict__["kind"] = None
@@ -220,6 +218,14 @@ class InventoryItem(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["uuid"] = None
         return InventoryItem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="inventoryItemName")

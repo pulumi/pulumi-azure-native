@@ -5,14 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .assessment import *
+from .get_assessment import *
 from .get_suppression import *
 from .suppression import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.advisor.v20230101 as __v20230101
-    v20230101 = __v20230101
-else:
-    v20230101 = _utilities.lazy_import('pulumi_azure_native.advisor.v20230101')
-

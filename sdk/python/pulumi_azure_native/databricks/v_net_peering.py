@@ -218,7 +218,7 @@ class VNetPeering(pulumi.CustomResource):
                  __props__=None):
         """
         Peerings in a VirtualNetwork resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+        Azure REST API version: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,7 +242,7 @@ class VNetPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peerings in a VirtualNetwork resource
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01.
+        Azure REST API version: 2024-05-01.
 
         :param str resource_name: The name of the resource.
         :param VNetPeeringArgs args: The arguments to use to populate this resource's properties.
@@ -296,11 +296,12 @@ class VNetPeering(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["peering_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20180401:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20180401:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230201:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230201:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240501:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240501:vNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240901preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240901preview:vNetPeering"), pulumi.Alias(type_="azure-native:databricks:vNetPeering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20180401:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20210401preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20220401preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230201:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20230915preview:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240501:VNetPeering"), pulumi.Alias(type_="azure-native:databricks/v20240901preview:VNetPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VNetPeering, __self__).__init__(
             'azure-native:databricks:VNetPeering',
@@ -327,6 +328,7 @@ class VNetPeering(pulumi.CustomResource):
         __props__.__dict__["allow_forwarded_traffic"] = None
         __props__.__dict__["allow_gateway_transit"] = None
         __props__.__dict__["allow_virtual_network_access"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["databricks_address_space"] = None
         __props__.__dict__["databricks_virtual_network"] = None
         __props__.__dict__["name"] = None
@@ -361,6 +363,14 @@ class VNetPeering(pulumi.CustomResource):
         Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
         """
         return pulumi.get(self, "allow_virtual_network_access")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="databricksAddressSpace")

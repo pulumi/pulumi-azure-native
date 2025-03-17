@@ -27,10 +27,13 @@ class GetRoleAssignmentResult:
     """
     The Role Assignment resource format.
     """
-    def __init__(__self__, assignment_name=None, conflation_policies=None, connectors=None, description=None, display_name=None, id=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, provisioning_state=None, relationship_links=None, relationships=None, role=None, role_assignments=None, sas_policies=None, segments=None, tenant_id=None, type=None, views=None, widget_types=None):
+    def __init__(__self__, assignment_name=None, azure_api_version=None, conflation_policies=None, connectors=None, description=None, display_name=None, id=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, provisioning_state=None, relationship_links=None, relationships=None, role=None, role_assignments=None, sas_policies=None, segments=None, tenant_id=None, type=None, views=None, widget_types=None):
         if assignment_name and not isinstance(assignment_name, str):
             raise TypeError("Expected argument 'assignment_name' to be a str")
         pulumi.set(__self__, "assignment_name", assignment_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if conflation_policies and not isinstance(conflation_policies, dict):
             raise TypeError("Expected argument 'conflation_policies' to be a dict")
         pulumi.set(__self__, "conflation_policies", conflation_policies)
@@ -105,6 +108,14 @@ class GetRoleAssignmentResult:
         The name of the metadata object.
         """
         return pulumi.get(self, "assignment_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="conflationPolicies")
@@ -290,6 +301,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             yield self
         return GetRoleAssignmentResult(
             assignment_name=self.assignment_name,
+            azure_api_version=self.azure_api_version,
             conflation_policies=self.conflation_policies,
             connectors=self.connectors,
             description=self.description,
@@ -336,6 +348,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
 
     return AwaitableGetRoleAssignmentResult(
         assignment_name=pulumi.get(__ret__, 'assignment_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         conflation_policies=pulumi.get(__ret__, 'conflation_policies'),
         connectors=pulumi.get(__ret__, 'connectors'),
         description=pulumi.get(__ret__, 'description'),
@@ -379,6 +392,7 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult)
     return __ret__.apply(lambda __response__: GetRoleAssignmentResult(
         assignment_name=pulumi.get(__response__, 'assignment_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         conflation_policies=pulumi.get(__response__, 'conflation_policies'),
         connectors=pulumi.get(__response__, 'connectors'),
         description=pulumi.get(__response__, 'description'),

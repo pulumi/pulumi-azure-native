@@ -27,7 +27,10 @@ class GetDatastoreResult:
     """
     Define the datastore.
     """
-    def __init__(__self__, capacity_gb=None, custom_resource_name=None, extended_location=None, free_space_gb=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, azure_api_version=None, capacity_gb=None, custom_resource_name=None, extended_location=None, free_space_gb=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacity_gb and not isinstance(capacity_gb, float):
             raise TypeError("Expected argument 'capacity_gb' to be a float")
         pulumi.set(__self__, "capacity_gb", capacity_gb)
@@ -82,6 +85,14 @@ class GetDatastoreResult:
         if v_center_id and not isinstance(v_center_id, str):
             raise TypeError("Expected argument 'v_center_id' to be a str")
         pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="capacityGB")
@@ -234,6 +245,7 @@ class AwaitableGetDatastoreResult(GetDatastoreResult):
         if False:
             yield self
         return GetDatastoreResult(
+            azure_api_version=self.azure_api_version,
             capacity_gb=self.capacity_gb,
             custom_resource_name=self.custom_resource_name,
             extended_location=self.extended_location,
@@ -259,9 +271,7 @@ def get_datastore(datastore_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Implements datastore GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str datastore_name: Name of the datastore.
@@ -274,6 +284,7 @@ def get_datastore(datastore_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getDatastore', __args__, opts=opts, typ=GetDatastoreResult).value
 
     return AwaitableGetDatastoreResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacity_gb=pulumi.get(__ret__, 'capacity_gb'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
@@ -297,9 +308,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Implements datastore GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str datastore_name: Name of the datastore.
@@ -311,6 +320,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
     return __ret__.apply(lambda __response__: GetDatastoreResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacity_gb=pulumi.get(__response__, 'capacity_gb'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         extended_location=pulumi.get(__response__, 'extended_location'),

@@ -166,7 +166,7 @@ class SqlServer(pulumi.CustomResource):
                  __props__=None):
         """
         A SQL server.
-        Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 1.x: 2019-07-24-preview.
+        Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 2.x: 2019-07-24-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +187,7 @@ class SqlServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL server.
-        Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 1.x: 2019-07-24-preview.
+        Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 2.x: 2019-07-24-preview.
 
         :param str resource_name: The name of the resource.
         :param SqlServerArgs args: The arguments to use to populate this resource's properties.
@@ -233,6 +233,7 @@ class SqlServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sql_server_registration_name'")
             __props__.__dict__["sql_server_registration_name"] = sql_server_registration_name
             __props__.__dict__["version"] = version
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredata/v20170301preview:SqlServer"), pulumi.Alias(type_="azure-native:azuredata/v20190724preview:SqlServer")])
@@ -259,6 +260,7 @@ class SqlServer(pulumi.CustomResource):
 
         __props__ = SqlServerArgs.__new__(SqlServerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cores"] = None
         __props__.__dict__["edition"] = None
         __props__.__dict__["name"] = None
@@ -267,6 +269,14 @@ class SqlServer(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return SqlServer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

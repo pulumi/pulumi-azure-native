@@ -11,6 +11,7 @@ __all__ = [
     'CredentialType',
     'DraftPackageSourceType',
     'Engagements',
+    'FileUploadResourceType',
     'ImageArchitecture',
     'ImageOSState',
     'ImageSecurityType',
@@ -19,6 +20,7 @@ __all__ = [
     'IntuneExtractStatus',
     'PackageStudioTabs',
     'RequestTypes',
+    'SystemAssignedServiceIdentityType',
     'TestType',
     'Tier',
 ]
@@ -33,6 +35,7 @@ class Action(str, Enum):
     CLOSE = "Close"
     UNINSTALL = "Uninstall"
     CUSTOM = "Custom"
+    FLOW_DRIVEN_CUSTOM = "FlowDrivenCustom"
 
 
 class Architecture(str, Enum):
@@ -80,6 +83,20 @@ class Engagements(str, Enum):
     SUVP = "SUVP"
     MAPP = "MAPP"
     OTHER = "Other"
+
+
+class FileUploadResourceType(str, Enum):
+    """
+    Resource type for file uploading.
+    """
+    PACKAGE = "Package"
+    """
+    Upload file for package onboarding.
+    """
+    VHD = "VHD"
+    """
+    Upload VHD file for image onboarding.
+    """
 
 
 class ImageArchitecture(str, Enum):
@@ -176,12 +193,21 @@ class RequestTypes(str, Enum):
     PRE_RELEASE_ACCESS = "PreReleaseAccess"
 
 
+class SystemAssignedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
 class TestType(str, Enum):
     """
     The type of the test.
     """
     OUT_OF_BOX_TEST = "OutOfBoxTest"
     FUNCTIONAL_TEST = "FunctionalTest"
+    FLOW_DRIVEN_TEST = "FlowDrivenTest"
 
 
 class Tier(str, Enum):

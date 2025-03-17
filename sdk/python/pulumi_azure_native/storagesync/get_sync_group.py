@@ -27,7 +27,10 @@ class GetSyncGroupResult:
     """
     Sync Group object.
     """
-    def __init__(__self__, id=None, name=None, sync_group_status=None, system_data=None, type=None, unique_id=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, sync_group_status=None, system_data=None, type=None, unique_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -48,10 +51,18 @@ class GetSyncGroupResult:
         pulumi.set(__self__, "unique_id", unique_id)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -102,6 +113,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
         if False:
             yield self
         return GetSyncGroupResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             sync_group_status=self.sync_group_status,
@@ -116,9 +128,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSyncGroupResult:
     """
     Get a given SyncGroup.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -133,6 +143,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         sync_group_status=pulumi.get(__ret__, 'sync_group_status'),
@@ -145,9 +156,7 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Get a given SyncGroup.
-    Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2022-09-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -161,6 +170,7 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:storagesync:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult)
     return __ret__.apply(lambda __response__: GetSyncGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         sync_group_status=pulumi.get(__response__, 'sync_group_status'),

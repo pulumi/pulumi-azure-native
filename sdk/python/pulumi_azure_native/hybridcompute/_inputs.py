@@ -24,6 +24,12 @@ __all__ = [
     'IdentityArgsDict',
     'LicenseDetailsArgs',
     'LicenseDetailsArgsDict',
+    'LicenseProfileMachineInstanceViewEsuPropertiesArgs',
+    'LicenseProfileMachineInstanceViewEsuPropertiesArgsDict',
+    'LicenseProfileMachineInstanceViewArgs',
+    'LicenseProfileMachineInstanceViewArgsDict',
+    'LicenseArgs',
+    'LicenseArgsDict',
     'LocationDataArgs',
     'LocationDataArgsDict',
     'MachineExtensionInstanceViewStatusArgs',
@@ -46,6 +52,8 @@ __all__ = [
     'PrivateEndpointPropertyArgsDict',
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgsDict',
+    'ProductFeatureArgs',
+    'ProductFeatureArgsDict',
     'RunCommandInputParameterArgs',
     'RunCommandInputParameterArgsDict',
     'RunCommandManagedIdentityArgs',
@@ -54,6 +62,8 @@ __all__ = [
     'ServiceStatusesArgsDict',
     'ServiceStatusArgs',
     'ServiceStatusArgsDict',
+    'VolumeLicenseDetailsArgs',
+    'VolumeLicenseDetailsArgsDict',
 ]
 
 MYPY = False
@@ -231,6 +241,10 @@ if not MYPY:
         """
         Describes the license core type (pCore or vCore).
         """
+        volume_license_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgsDict']]]]
+        """
+        A list of volume license details.
+        """
 elif False:
     LicenseDetailsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -241,7 +255,8 @@ class LicenseDetailsArgs:
                  processors: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[Union[str, 'LicenseState']]] = None,
                  target: Optional[pulumi.Input[Union[str, 'LicenseTarget']]] = None,
-                 type: Optional[pulumi.Input[Union[str, 'LicenseCoreType']]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'LicenseCoreType']]] = None,
+                 volume_license_details: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]] = None):
         """
         Describes the properties of a License.
         :param pulumi.Input[Union[str, 'LicenseEdition']] edition: Describes the edition of the license. The values are either Standard or Datacenter.
@@ -249,6 +264,7 @@ class LicenseDetailsArgs:
         :param pulumi.Input[Union[str, 'LicenseState']] state: Describes the state of the license.
         :param pulumi.Input[Union[str, 'LicenseTarget']] target: Describes the license target server.
         :param pulumi.Input[Union[str, 'LicenseCoreType']] type: Describes the license core type (pCore or vCore).
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]] volume_license_details: A list of volume license details.
         """
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
@@ -260,6 +276,8 @@ class LicenseDetailsArgs:
             pulumi.set(__self__, "target", target)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volume_license_details is not None:
+            pulumi.set(__self__, "volume_license_details", volume_license_details)
 
     @property
     @pulumi.getter
@@ -320,6 +338,305 @@ class LicenseDetailsArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'LicenseCoreType']]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="volumeLicenseDetails")
+    def volume_license_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]:
+        """
+        A list of volume license details.
+        """
+        return pulumi.get(self, "volume_license_details")
+
+    @volume_license_details.setter
+    def volume_license_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeLicenseDetailsArgs']]]]):
+        pulumi.set(self, "volume_license_details", value)
+
+
+if not MYPY:
+    class LicenseProfileMachineInstanceViewEsuPropertiesArgsDict(TypedDict):
+        """
+        Properties for the Machine ESU profile.
+        """
+        assigned_license: NotRequired[pulumi.Input['LicenseArgsDict']]
+        """
+        The assigned license resource.
+        """
+        license_assignment_state: NotRequired[pulumi.Input[Union[str, 'LicenseAssignmentState']]]
+        """
+        Describes the license assignment state (Assigned or NotAssigned).
+        """
+elif False:
+    LicenseProfileMachineInstanceViewEsuPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LicenseProfileMachineInstanceViewEsuPropertiesArgs:
+    def __init__(__self__, *,
+                 assigned_license: Optional[pulumi.Input['LicenseArgs']] = None,
+                 license_assignment_state: Optional[pulumi.Input[Union[str, 'LicenseAssignmentState']]] = None):
+        """
+        Properties for the Machine ESU profile.
+        :param pulumi.Input['LicenseArgs'] assigned_license: The assigned license resource.
+        :param pulumi.Input[Union[str, 'LicenseAssignmentState']] license_assignment_state: Describes the license assignment state (Assigned or NotAssigned).
+        """
+        if assigned_license is not None:
+            pulumi.set(__self__, "assigned_license", assigned_license)
+        if license_assignment_state is not None:
+            pulumi.set(__self__, "license_assignment_state", license_assignment_state)
+
+    @property
+    @pulumi.getter(name="assignedLicense")
+    def assigned_license(self) -> Optional[pulumi.Input['LicenseArgs']]:
+        """
+        The assigned license resource.
+        """
+        return pulumi.get(self, "assigned_license")
+
+    @assigned_license.setter
+    def assigned_license(self, value: Optional[pulumi.Input['LicenseArgs']]):
+        pulumi.set(self, "assigned_license", value)
+
+    @property
+    @pulumi.getter(name="licenseAssignmentState")
+    def license_assignment_state(self) -> Optional[pulumi.Input[Union[str, 'LicenseAssignmentState']]]:
+        """
+        Describes the license assignment state (Assigned or NotAssigned).
+        """
+        return pulumi.get(self, "license_assignment_state")
+
+    @license_assignment_state.setter
+    def license_assignment_state(self, value: Optional[pulumi.Input[Union[str, 'LicenseAssignmentState']]]):
+        pulumi.set(self, "license_assignment_state", value)
+
+
+if not MYPY:
+    class LicenseProfileMachineInstanceViewArgsDict(TypedDict):
+        """
+        License Profile Instance View in Machine Properties.
+        """
+        esu_profile: NotRequired[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgsDict']]
+        """
+        Properties for the Machine ESU profile.
+        """
+        product_features: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgsDict']]]]
+        """
+        The list of product features.
+        """
+        product_type: NotRequired[pulumi.Input[Union[str, 'LicenseProfileProductType']]]
+        """
+        Indicates the product type of the license.
+        """
+        software_assurance_customer: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        subscription_status: NotRequired[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]
+        """
+        Indicates the subscription status of the product.
+        """
+elif False:
+    LicenseProfileMachineInstanceViewArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LicenseProfileMachineInstanceViewArgs:
+    def __init__(__self__, *,
+                 esu_profile: Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']] = None,
+                 product_features: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]] = None,
+                 product_type: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]] = None,
+                 software_assurance_customer: Optional[pulumi.Input[bool]] = None,
+                 subscription_status: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]] = None):
+        """
+        License Profile Instance View in Machine Properties.
+        :param pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs'] esu_profile: Properties for the Machine ESU profile.
+        :param pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]] product_features: The list of product features.
+        :param pulumi.Input[Union[str, 'LicenseProfileProductType']] product_type: Indicates the product type of the license.
+        :param pulumi.Input[bool] software_assurance_customer: Specifies if this machine is licensed as part of a Software Assurance agreement.
+        :param pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the subscription status of the product.
+        """
+        if esu_profile is not None:
+            pulumi.set(__self__, "esu_profile", esu_profile)
+        if product_features is not None:
+            pulumi.set(__self__, "product_features", product_features)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+        if software_assurance_customer is not None:
+            pulumi.set(__self__, "software_assurance_customer", software_assurance_customer)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
+
+    @property
+    @pulumi.getter(name="esuProfile")
+    def esu_profile(self) -> Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]:
+        """
+        Properties for the Machine ESU profile.
+        """
+        return pulumi.get(self, "esu_profile")
+
+    @esu_profile.setter
+    def esu_profile(self, value: Optional[pulumi.Input['LicenseProfileMachineInstanceViewEsuPropertiesArgs']]):
+        pulumi.set(self, "esu_profile", value)
+
+    @property
+    @pulumi.getter(name="productFeatures")
+    def product_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]:
+        """
+        The list of product features.
+        """
+        return pulumi.get(self, "product_features")
+
+    @product_features.setter
+    def product_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProductFeatureArgs']]]]):
+        pulumi.set(self, "product_features", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]]:
+        """
+        Indicates the product type of the license.
+        """
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseProfileProductType']]]):
+        pulumi.set(self, "product_type", value)
+
+    @property
+    @pulumi.getter(name="softwareAssuranceCustomer")
+    def software_assurance_customer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if this machine is licensed as part of a Software Assurance agreement.
+        """
+        return pulumi.get(self, "software_assurance_customer")
+
+    @software_assurance_customer.setter
+    def software_assurance_customer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "software_assurance_customer", value)
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]:
+        """
+        Indicates the subscription status of the product.
+        """
+        return pulumi.get(self, "subscription_status")
+
+    @subscription_status.setter
+    def subscription_status(self, value: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]):
+        pulumi.set(self, "subscription_status", value)
+
+
+if not MYPY:
+    class LicenseArgsDict(TypedDict):
+        """
+        Describes a license in a hybrid machine.
+        """
+        location: pulumi.Input[str]
+        """
+        The geo-location where the resource lives
+        """
+        license_details: NotRequired[pulumi.Input['LicenseDetailsArgsDict']]
+        """
+        Describes the properties of a License.
+        """
+        license_type: NotRequired[pulumi.Input[Union[str, 'LicenseType']]]
+        """
+        The type of the license resource.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Resource tags.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        Describes the tenant id.
+        """
+elif False:
+    LicenseArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LicenseArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 license_details: Optional[pulumi.Input['LicenseDetailsArgs']] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Describes a license in a hybrid machine.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['LicenseDetailsArgs'] license_details: Describes the properties of a License.
+        :param pulumi.Input[Union[str, 'LicenseType']] license_type: The type of the license resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] tenant_id: Describes the tenant id.
+        """
+        pulumi.set(__self__, "location", location)
+        if license_details is not None:
+            pulumi.set(__self__, "license_details", license_details)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="licenseDetails")
+    def license_details(self) -> Optional[pulumi.Input['LicenseDetailsArgs']]:
+        """
+        Describes the properties of a License.
+        """
+        return pulumi.get(self, "license_details")
+
+    @license_details.setter
+    def license_details(self, value: Optional[pulumi.Input['LicenseDetailsArgs']]):
+        pulumi.set(self, "license_details", value)
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'LicenseType']]]:
+        """
+        The type of the license resource.
+        """
+        return pulumi.get(self, "license_type")
+
+    @license_type.setter
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseType']]]):
+        pulumi.set(self, "license_type", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 if not MYPY:
@@ -930,6 +1247,10 @@ if not MYPY:
         """
         Specifies the assessment mode.
         """
+        enable_hotpatching: NotRequired[pulumi.Input[bool]]
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
         patch_mode: NotRequired[pulumi.Input[Union[str, 'PatchModeTypes']]]
         """
         Specifies the patch mode.
@@ -941,14 +1262,18 @@ elif False:
 class OSProfileLinuxConfigurationArgs:
     def __init__(__self__, *,
                  assessment_mode: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]] = None,
+                 enable_hotpatching: Optional[pulumi.Input[bool]] = None,
                  patch_mode: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]] = None):
         """
         Specifies the linux configuration for update management.
         :param pulumi.Input[Union[str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
         :param pulumi.Input[Union[str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
         """
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
 
@@ -963,6 +1288,18 @@ class OSProfileLinuxConfigurationArgs:
     @assessment_mode.setter
     def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]):
         pulumi.set(self, "assessment_mode", value)
+
+    @property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
+
+    @enable_hotpatching.setter
+    def enable_hotpatching(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_hotpatching", value)
 
     @property
     @pulumi.getter(name="patchMode")
@@ -986,6 +1323,10 @@ if not MYPY:
         """
         Specifies the assessment mode.
         """
+        enable_hotpatching: NotRequired[pulumi.Input[bool]]
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
         patch_mode: NotRequired[pulumi.Input[Union[str, 'PatchModeTypes']]]
         """
         Specifies the patch mode.
@@ -997,14 +1338,18 @@ elif False:
 class OSProfileWindowsConfigurationArgs:
     def __init__(__self__, *,
                  assessment_mode: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]] = None,
+                 enable_hotpatching: Optional[pulumi.Input[bool]] = None,
                  patch_mode: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]] = None):
         """
         Specifies the windows configuration for update management.
         :param pulumi.Input[Union[str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[bool] enable_hotpatching: Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
         :param pulumi.Input[Union[str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
         """
         if assessment_mode is not None:
             pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if enable_hotpatching is not None:
+            pulumi.set(__self__, "enable_hotpatching", enable_hotpatching)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
 
@@ -1019,6 +1364,18 @@ class OSProfileWindowsConfigurationArgs:
     @assessment_mode.setter
     def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]):
         pulumi.set(self, "assessment_mode", value)
+
+    @property
+    @pulumi.getter(name="enableHotpatching")
+    def enable_hotpatching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Captures the hotpatch capability enrollment intent of the customers, which enables customers to patch their Windows machines without requiring a reboot.
+        """
+        return pulumi.get(self, "enable_hotpatching")
+
+    @enable_hotpatching.setter
+    def enable_hotpatching(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_hotpatching", value)
 
     @property
     @pulumi.getter(name="patchMode")
@@ -1233,6 +1590,62 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class ProductFeatureArgsDict(TypedDict):
+        """
+        Product Feature
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Product feature name.
+        """
+        subscription_status: NotRequired[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]
+        """
+        Indicates the current status of the product features.
+        """
+elif False:
+    ProductFeatureArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProductFeatureArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 subscription_status: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]] = None):
+        """
+        Product Feature
+        :param pulumi.Input[str] name: Product feature name.
+        :param pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']] subscription_status: Indicates the current status of the product features.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subscription_status is not None:
+            pulumi.set(__self__, "subscription_status", subscription_status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Product feature name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="subscriptionStatus")
+    def subscription_status(self) -> Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]:
+        """
+        Indicates the current status of the product features.
+        """
+        return pulumi.get(self, "subscription_status")
+
+    @subscription_status.setter
+    def subscription_status(self, value: Optional[pulumi.Input[Union[str, 'LicenseProfileSubscriptionStatus']]]):
+        pulumi.set(self, "subscription_status", value)
 
 
 if not MYPY:
@@ -1455,5 +1868,57 @@ class ServiceStatusArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class VolumeLicenseDetailsArgsDict(TypedDict):
+        invoice_id: NotRequired[pulumi.Input[str]]
+        """
+        The invoice id for the volume license.
+        """
+        program_year: NotRequired[pulumi.Input[Union[str, 'ProgramYear']]]
+        """
+        Describes the program year the volume license is for.
+        """
+elif False:
+    VolumeLicenseDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VolumeLicenseDetailsArgs:
+    def __init__(__self__, *,
+                 invoice_id: Optional[pulumi.Input[str]] = None,
+                 program_year: Optional[pulumi.Input[Union[str, 'ProgramYear']]] = None):
+        """
+        :param pulumi.Input[str] invoice_id: The invoice id for the volume license.
+        :param pulumi.Input[Union[str, 'ProgramYear']] program_year: Describes the program year the volume license is for.
+        """
+        if invoice_id is not None:
+            pulumi.set(__self__, "invoice_id", invoice_id)
+        if program_year is not None:
+            pulumi.set(__self__, "program_year", program_year)
+
+    @property
+    @pulumi.getter(name="invoiceId")
+    def invoice_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The invoice id for the volume license.
+        """
+        return pulumi.get(self, "invoice_id")
+
+    @invoice_id.setter
+    def invoice_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invoice_id", value)
+
+    @property
+    @pulumi.getter(name="programYear")
+    def program_year(self) -> Optional[pulumi.Input[Union[str, 'ProgramYear']]]:
+        """
+        Describes the program year the volume license is for.
+        """
+        return pulumi.get(self, "program_year")
+
+    @program_year.setter
+    def program_year(self, value: Optional[pulumi.Input[Union[str, 'ProgramYear']]]):
+        pulumi.set(self, "program_year", value)
 
 

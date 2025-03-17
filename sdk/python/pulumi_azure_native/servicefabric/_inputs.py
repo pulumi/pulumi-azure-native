@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'AddRemoveIncrementalNamedPartitionScalingMechanismArgs',
     'AddRemoveIncrementalNamedPartitionScalingMechanismArgsDict',
+    'AdditionalNetworkInterfaceConfigurationArgs',
+    'AdditionalNetworkInterfaceConfigurationArgsDict',
     'ApplicationHealthPolicyArgs',
     'ApplicationHealthPolicyArgsDict',
     'ApplicationTypeVersionsCleanupPolicyArgs',
@@ -34,12 +36,24 @@ __all__ = [
     'AzureActiveDirectoryArgsDict',
     'ClientCertificateArgs',
     'ClientCertificateArgsDict',
+    'ClusterHealthPolicyArgs',
+    'ClusterHealthPolicyArgsDict',
+    'ClusterMonitoringPolicyArgs',
+    'ClusterMonitoringPolicyArgsDict',
+    'ClusterUpgradeDeltaHealthPolicyArgs',
+    'ClusterUpgradeDeltaHealthPolicyArgsDict',
+    'ClusterUpgradePolicyArgs',
+    'ClusterUpgradePolicyArgsDict',
     'EndpointRangeDescriptionArgs',
     'EndpointRangeDescriptionArgsDict',
     'FrontendConfigurationArgs',
     'FrontendConfigurationArgsDict',
-    'IPTagArgs',
-    'IPTagArgsDict',
+    'IpConfigurationPublicIPAddressConfigurationArgs',
+    'IpConfigurationPublicIPAddressConfigurationArgsDict',
+    'IpConfigurationArgs',
+    'IpConfigurationArgsDict',
+    'IpTagArgs',
+    'IpTagArgsDict',
     'LoadBalancingRuleArgs',
     'LoadBalancingRuleArgsDict',
     'ManagedIdentityArgs',
@@ -48,6 +62,8 @@ __all__ = [
     'NamedPartitionSchemeArgsDict',
     'NetworkSecurityRuleArgs',
     'NetworkSecurityRuleArgsDict',
+    'NodeTypeNatConfigArgs',
+    'NodeTypeNatConfigArgsDict',
     'NodeTypeSkuArgs',
     'NodeTypeSkuArgsDict',
     'PartitionInstanceCountScaleMechanismArgs',
@@ -201,6 +217,100 @@ class AddRemoveIncrementalNamedPartitionScalingMechanismArgs:
     @scale_increment.setter
     def scale_increment(self, value: pulumi.Input[int]):
         pulumi.set(self, "scale_increment", value)
+
+
+if not MYPY:
+    class AdditionalNetworkInterfaceConfigurationArgsDict(TypedDict):
+        """
+        Specifies the settings for a network interface to attach to the node type.
+        """
+        ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgsDict']]]
+        """
+        Specifies the IP configurations of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the network interface.
+        """
+        dscp_configuration: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Specifies the DSCP configuration to apply to the network interface.
+        """
+        enable_accelerated_networking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+elif False:
+    AdditionalNetworkInterfaceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AdditionalNetworkInterfaceConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]],
+                 name: pulumi.Input[str],
+                 dscp_configuration: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 enable_accelerated_networking: Optional[pulumi.Input[bool]] = None):
+        """
+        Specifies the settings for a network interface to attach to the node type.
+        :param pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]] ip_configurations: Specifies the IP configurations of the network interface.
+        :param pulumi.Input[str] name: Name of the network interface.
+        :param pulumi.Input['SubResourceArgs'] dscp_configuration: Specifies the DSCP configuration to apply to the network interface.
+        :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
+        """
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "name", name)
+        if dscp_configuration is not None:
+            pulumi.set(__self__, "dscp_configuration", dscp_configuration)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]]:
+        """
+        Specifies the IP configurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['IpConfigurationArgs']]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="dscpConfiguration")
+    def dscp_configuration(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Specifies the DSCP configuration to apply to the network interface.
+        """
+        return pulumi.get(self, "dscp_configuration")
+
+    @dscp_configuration.setter
+    def dscp_configuration(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "dscp_configuration", value)
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the network interface is accelerated networking-enabled.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @enable_accelerated_networking.setter
+    def enable_accelerated_networking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_accelerated_networking", value)
 
 
 if not MYPY:
@@ -967,6 +1077,433 @@ class ClientCertificateArgs:
 
 
 if not MYPY:
+    class ClusterHealthPolicyArgsDict(TypedDict):
+        """
+        Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+        """
+        max_percent_unhealthy_applications: pulumi.Input[int]
+        """
+        The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+        This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+        The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+        """
+        max_percent_unhealthy_nodes: pulumi.Input[int]
+        """
+        The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+        The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+
+        In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+        """
+elif False:
+    ClusterHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterHealthPolicyArgs:
+    def __init__(__self__, *,
+                 max_percent_unhealthy_applications: Optional[pulumi.Input[int]] = None,
+                 max_percent_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
+        """
+        Defines a health policy used to evaluate the health of the cluster or of a cluster node.
+
+        :param pulumi.Input[int] max_percent_unhealthy_applications: The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+               
+               The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+               If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+               This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+               The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+        :param pulumi.Input[int] max_percent_unhealthy_nodes: The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+               
+               The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+               If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+               The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+               The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+               
+               In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+        """
+        if max_percent_unhealthy_applications is None:
+            max_percent_unhealthy_applications = 0
+        pulumi.set(__self__, "max_percent_unhealthy_applications", max_percent_unhealthy_applications)
+        if max_percent_unhealthy_nodes is None:
+            max_percent_unhealthy_nodes = 0
+        pulumi.set(__self__, "max_percent_unhealthy_nodes", max_percent_unhealthy_nodes)
+
+    @property
+    @pulumi.getter(name="maxPercentUnhealthyApplications")
+    def max_percent_unhealthy_applications(self) -> pulumi.Input[int]:
+        """
+        The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy application, the health is evaluated as Warning.
+        This is calculated by dividing the number of unhealthy applications over the total number of application instances in the cluster, excluding applications of application types that are included in the ApplicationTypeHealthPolicyMap.
+        The computation rounds up to tolerate one failure on small numbers of applications. Default percentage is zero.
+        """
+        return pulumi.get(self, "max_percent_unhealthy_applications")
+
+    @max_percent_unhealthy_applications.setter
+    def max_percent_unhealthy_applications(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_percent_unhealthy_applications", value)
+
+    @property
+    @pulumi.getter(name="maxPercentUnhealthyNodes")
+    def max_percent_unhealthy_nodes(self) -> pulumi.Input[int]:
+        """
+        The maximum allowed percentage of unhealthy nodes before reporting an error. For example, to allow 10% of nodes to be unhealthy, this value would be 10.
+
+        The percentage represents the maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in error.
+        If the percentage is respected but there is at least one unhealthy node, the health is evaluated as Warning.
+        The percentage is calculated by dividing the number of unhealthy nodes over the total number of nodes in the cluster.
+        The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
+
+        In large clusters, some nodes will always be down or out for repairs, so this percentage should be configured to tolerate that.
+        """
+        return pulumi.get(self, "max_percent_unhealthy_nodes")
+
+    @max_percent_unhealthy_nodes.setter
+    def max_percent_unhealthy_nodes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_percent_unhealthy_nodes", value)
+
+
+if not MYPY:
+    class ClusterMonitoringPolicyArgsDict(TypedDict):
+        """
+        Describes the monitoring policies for the cluster upgrade.
+        """
+        health_check_retry_timeout: pulumi.Input[str]
+        """
+        The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        health_check_stable_duration: pulumi.Input[str]
+        """
+        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        health_check_wait_duration: pulumi.Input[str]
+        """
+        The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        upgrade_domain_timeout: pulumi.Input[str]
+        """
+        The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        upgrade_timeout: pulumi.Input[str]
+        """
+        The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+elif False:
+    ClusterMonitoringPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterMonitoringPolicyArgs:
+    def __init__(__self__, *,
+                 health_check_retry_timeout: pulumi.Input[str],
+                 health_check_stable_duration: pulumi.Input[str],
+                 health_check_wait_duration: pulumi.Input[str],
+                 upgrade_domain_timeout: pulumi.Input[str],
+                 upgrade_timeout: pulumi.Input[str]):
+        """
+        Describes the monitoring policies for the cluster upgrade.
+        :param pulumi.Input[str] health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        :param pulumi.Input[str] health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        :param pulumi.Input[str] health_check_wait_duration: The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        :param pulumi.Input[str] upgrade_domain_timeout: The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        :param pulumi.Input[str] upgrade_timeout: The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        pulumi.set(__self__, "health_check_retry_timeout", health_check_retry_timeout)
+        pulumi.set(__self__, "health_check_stable_duration", health_check_stable_duration)
+        pulumi.set(__self__, "health_check_wait_duration", health_check_wait_duration)
+        pulumi.set(__self__, "upgrade_domain_timeout", upgrade_domain_timeout)
+        pulumi.set(__self__, "upgrade_timeout", upgrade_timeout)
+
+    @property
+    @pulumi.getter(name="healthCheckRetryTimeout")
+    def health_check_retry_timeout(self) -> pulumi.Input[str]:
+        """
+        The amount of time to retry health evaluation when the application or cluster is unhealthy before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        return pulumi.get(self, "health_check_retry_timeout")
+
+    @health_check_retry_timeout.setter
+    def health_check_retry_timeout(self, value: pulumi.Input[str]):
+        pulumi.set(self, "health_check_retry_timeout", value)
+
+    @property
+    @pulumi.getter(name="healthCheckStableDuration")
+    def health_check_stable_duration(self) -> pulumi.Input[str]:
+        """
+        The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        return pulumi.get(self, "health_check_stable_duration")
+
+    @health_check_stable_duration.setter
+    def health_check_stable_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "health_check_stable_duration", value)
+
+    @property
+    @pulumi.getter(name="healthCheckWaitDuration")
+    def health_check_wait_duration(self) -> pulumi.Input[str]:
+        """
+        The length of time to wait after completing an upgrade domain before performing health checks. The duration can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        return pulumi.get(self, "health_check_wait_duration")
+
+    @health_check_wait_duration.setter
+    def health_check_wait_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "health_check_wait_duration", value)
+
+    @property
+    @pulumi.getter(name="upgradeDomainTimeout")
+    def upgrade_domain_timeout(self) -> pulumi.Input[str]:
+        """
+        The amount of time each upgrade domain has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        return pulumi.get(self, "upgrade_domain_timeout")
+
+    @upgrade_domain_timeout.setter
+    def upgrade_domain_timeout(self, value: pulumi.Input[str]):
+        pulumi.set(self, "upgrade_domain_timeout", value)
+
+    @property
+    @pulumi.getter(name="upgradeTimeout")
+    def upgrade_timeout(self) -> pulumi.Input[str]:
+        """
+        The amount of time the overall upgrade has to complete before the upgrade rolls back. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        """
+        return pulumi.get(self, "upgrade_timeout")
+
+    @upgrade_timeout.setter
+    def upgrade_timeout(self, value: pulumi.Input[str]):
+        pulumi.set(self, "upgrade_timeout", value)
+
+
+if not MYPY:
+    class ClusterUpgradeDeltaHealthPolicyArgsDict(TypedDict):
+        """
+        Describes the delta health policies for the cluster upgrade.
+        """
+        max_percent_delta_unhealthy_nodes: pulumi.Input[int]
+        """
+        The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        """
+        max_percent_delta_unhealthy_applications: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+        NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
+        """
+        max_percent_upgrade_domain_delta_unhealthy_nodes: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+        """
+elif False:
+    ClusterUpgradeDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterUpgradeDeltaHealthPolicyArgs:
+    def __init__(__self__, *,
+                 max_percent_delta_unhealthy_nodes: pulumi.Input[int],
+                 max_percent_delta_unhealthy_applications: Optional[pulumi.Input[int]] = None,
+                 max_percent_upgrade_domain_delta_unhealthy_nodes: Optional[pulumi.Input[int]] = None):
+        """
+        Describes the delta health policies for the cluster upgrade.
+        :param pulumi.Input[int] max_percent_delta_unhealthy_nodes: The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+               The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+               The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        :param pulumi.Input[int] max_percent_delta_unhealthy_applications: The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+               The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+               The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+               NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
+        :param pulumi.Input[int] max_percent_upgrade_domain_delta_unhealthy_nodes: The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+               The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+               The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+        """
+        pulumi.set(__self__, "max_percent_delta_unhealthy_nodes", max_percent_delta_unhealthy_nodes)
+        if max_percent_delta_unhealthy_applications is not None:
+            pulumi.set(__self__, "max_percent_delta_unhealthy_applications", max_percent_delta_unhealthy_applications)
+        if max_percent_upgrade_domain_delta_unhealthy_nodes is not None:
+            pulumi.set(__self__, "max_percent_upgrade_domain_delta_unhealthy_nodes", max_percent_upgrade_domain_delta_unhealthy_nodes)
+
+    @property
+    @pulumi.getter(name="maxPercentDeltaUnhealthyNodes")
+    def max_percent_delta_unhealthy_nodes(self) -> pulumi.Input[int]:
+        """
+        The maximum allowed percentage of nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the nodes at the beginning of upgrade and the state of the nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+        """
+        return pulumi.get(self, "max_percent_delta_unhealthy_nodes")
+
+    @max_percent_delta_unhealthy_nodes.setter
+    def max_percent_delta_unhealthy_nodes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_percent_delta_unhealthy_nodes", value)
+
+    @property
+    @pulumi.getter(name="maxPercentDeltaUnhealthyApplications")
+    def max_percent_delta_unhealthy_applications(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
+        NOTE: This value will overwrite the value specified in properties.UpgradeDescription.HealthPolicy.MaxPercentUnhealthyApplications
+        """
+        return pulumi.get(self, "max_percent_delta_unhealthy_applications")
+
+    @max_percent_delta_unhealthy_applications.setter
+    def max_percent_delta_unhealthy_applications(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_percent_delta_unhealthy_applications", value)
+
+    @property
+    @pulumi.getter(name="maxPercentUpgradeDomainDeltaUnhealthyNodes")
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum allowed percentage of upgrade domain nodes health degradation allowed during cluster upgrades.
+        The delta is measured between the state of the upgrade domain nodes at the beginning of upgrade and the state of the upgrade domain nodes at the time of the health evaluation.
+        The check is performed after every upgrade domain upgrade completion for all completed upgrade domains to make sure the state of the upgrade domains is within tolerated limits.
+        """
+        return pulumi.get(self, "max_percent_upgrade_domain_delta_unhealthy_nodes")
+
+    @max_percent_upgrade_domain_delta_unhealthy_nodes.setter
+    def max_percent_upgrade_domain_delta_unhealthy_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_percent_upgrade_domain_delta_unhealthy_nodes", value)
+
+
+if not MYPY:
+    class ClusterUpgradePolicyArgsDict(TypedDict):
+        """
+        Describes the policy used when upgrading the cluster.
+        """
+        delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgsDict']]
+        """
+        The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        """
+        force_restart: NotRequired[pulumi.Input[bool]]
+        """
+        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        """
+        health_policy: NotRequired[pulumi.Input['ClusterHealthPolicyArgsDict']]
+        """
+        The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        """
+        monitoring_policy: NotRequired[pulumi.Input['ClusterMonitoringPolicyArgsDict']]
+        """
+        The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
+        """
+        upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[str]]
+        """
+        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
+        When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
+        The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        This value must be between 00:00:00 and 49710.06:28:15 (unsigned 32 bit integer for seconds)
+        """
+elif False:
+    ClusterUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterUpgradePolicyArgs:
+    def __init__(__self__, *,
+                 delta_health_policy: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']] = None,
+                 force_restart: Optional[pulumi.Input[bool]] = None,
+                 health_policy: Optional[pulumi.Input['ClusterHealthPolicyArgs']] = None,
+                 monitoring_policy: Optional[pulumi.Input['ClusterMonitoringPolicyArgs']] = None,
+                 upgrade_replica_set_check_timeout: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the policy used when upgrading the cluster.
+        :param pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs'] delta_health_policy: The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        :param pulumi.Input[bool] force_restart: If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        :param pulumi.Input['ClusterHealthPolicyArgs'] health_policy: The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        :param pulumi.Input['ClusterMonitoringPolicyArgs'] monitoring_policy: The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
+        :param pulumi.Input[str] upgrade_replica_set_check_timeout: The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
+               When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
+               The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+               This value must be between 00:00:00 and 49710.06:28:15 (unsigned 32 bit integer for seconds)
+        """
+        if delta_health_policy is not None:
+            pulumi.set(__self__, "delta_health_policy", delta_health_policy)
+        if force_restart is not None:
+            pulumi.set(__self__, "force_restart", force_restart)
+        if health_policy is not None:
+            pulumi.set(__self__, "health_policy", health_policy)
+        if monitoring_policy is not None:
+            pulumi.set(__self__, "monitoring_policy", monitoring_policy)
+        if upgrade_replica_set_check_timeout is not None:
+            pulumi.set(__self__, "upgrade_replica_set_check_timeout", upgrade_replica_set_check_timeout)
+
+    @property
+    @pulumi.getter(name="deltaHealthPolicy")
+    def delta_health_policy(self) -> Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]:
+        """
+        The cluster delta health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        """
+        return pulumi.get(self, "delta_health_policy")
+
+    @delta_health_policy.setter
+    def delta_health_policy(self, value: Optional[pulumi.Input['ClusterUpgradeDeltaHealthPolicyArgs']]):
+        pulumi.set(self, "delta_health_policy", value)
+
+    @property
+    @pulumi.getter(name="forceRestart")
+    def force_restart(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, then processes are forcefully restarted during upgrade even when the code version has not changed (the upgrade only changes configuration or data).
+        """
+        return pulumi.get(self, "force_restart")
+
+    @force_restart.setter
+    def force_restart(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_restart", value)
+
+    @property
+    @pulumi.getter(name="healthPolicy")
+    def health_policy(self) -> Optional[pulumi.Input['ClusterHealthPolicyArgs']]:
+        """
+        The cluster health policy defines a health policy used to evaluate the health of the cluster during a cluster upgrade.
+        """
+        return pulumi.get(self, "health_policy")
+
+    @health_policy.setter
+    def health_policy(self, value: Optional[pulumi.Input['ClusterHealthPolicyArgs']]):
+        pulumi.set(self, "health_policy", value)
+
+    @property
+    @pulumi.getter(name="monitoringPolicy")
+    def monitoring_policy(self) -> Optional[pulumi.Input['ClusterMonitoringPolicyArgs']]:
+        """
+        The cluster monitoring policy describes the parameters for monitoring an upgrade in Monitored mode.
+        """
+        return pulumi.get(self, "monitoring_policy")
+
+    @monitoring_policy.setter
+    def monitoring_policy(self, value: Optional[pulumi.Input['ClusterMonitoringPolicyArgs']]):
+        pulumi.set(self, "monitoring_policy", value)
+
+    @property
+    @pulumi.getter(name="upgradeReplicaSetCheckTimeout")
+    def upgrade_replica_set_check_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum amount of time to block processing of an upgrade domain and prevent loss of availability when there are unexpected issues.
+        When this timeout expires, processing of the upgrade domain will proceed regardless of availability loss issues.
+        The timeout is reset at the start of each upgrade domain. The timeout can be in either hh:mm:ss or in d.hh:mm:ss.ms format.
+        This value must be between 00:00:00 and 49710.06:28:15 (unsigned 32 bit integer for seconds)
+        """
+        return pulumi.get(self, "upgrade_replica_set_check_timeout")
+
+    @upgrade_replica_set_check_timeout.setter
+    def upgrade_replica_set_check_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "upgrade_replica_set_check_timeout", value)
+
+
+if not MYPY:
     class EndpointRangeDescriptionArgsDict(TypedDict):
         """
         Port range details
@@ -1117,30 +1654,264 @@ class FrontendConfigurationArgs:
 
 
 if not MYPY:
-    class IPTagArgsDict(TypedDict):
+    class IpConfigurationPublicIPAddressConfigurationArgsDict(TypedDict):
         """
-        IPTag associated with the object.
+        The public IP address configuration of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the network interface.
+        """
+        ip_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['IpTagArgsDict']]]]
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+elif False:
+    IpConfigurationPublicIPAddressConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpConfigurationPublicIPAddressConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]] = None):
+        """
+        The public IP address configuration of the network interface.
+        :param pulumi.Input[str] name: Name of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]] ip_tags: Specifies the list of IP tags associated with the public IP address.
+        :param pulumi.Input[Union[str, 'PublicIPAddressVersion']] public_ip_address_version: Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        pulumi.set(__self__, "name", name)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if public_ip_address_version is None:
+            public_ip_address_version = 'IPv4'
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]:
+        """
+        Specifies the list of IP tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @ip_tags.setter
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpTagArgs']]]]):
+        pulumi.set(self, "ip_tags", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]:
+        """
+        Specifies whether the IP configuration's public IP is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'PublicIPAddressVersion']]]):
+        pulumi.set(self, "public_ip_address_version", value)
+
+
+if not MYPY:
+    class IpConfigurationArgsDict(TypedDict):
+        """
+        Specifies an IP configuration of the network interface.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the network interface.
+        """
+        application_gateway_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
+        """
+        load_balancer_backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        """
+        load_balancer_inbound_nat_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['SubResourceArgsDict']]]]
+        """
+        Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[Union[str, 'PrivateIPAddressVersion']]]
+        """
+        Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+        """
+        public_ip_address_configuration: NotRequired[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgsDict']]
+        """
+        The public IP address configuration of the network interface.
+        """
+        subnet: NotRequired[pulumi.Input['SubResourceArgsDict']]
+        """
+        Specifies the subnet of the network interface.
+        """
+elif False:
+    IpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IpConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 application_gateway_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
+                 private_ip_address_version: Optional[pulumi.Input[Union[str, 'PrivateIPAddressVersion']]] = None,
+                 public_ip_address_configuration: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']] = None,
+                 subnet: Optional[pulumi.Input['SubResourceArgs']] = None):
+        """
+        Specifies an IP configuration of the network interface.
+        :param pulumi.Input[str] name: Name of the network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] application_gateway_backend_address_pools: Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
+        :param pulumi.Input[Union[str, 'PrivateIPAddressVersion']] private_ip_address_version: Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+        :param pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs'] public_ip_address_configuration: The public IP address configuration of the network interface.
+        :param pulumi.Input['SubResourceArgs'] subnet: Specifies the subnet of the network interface.
+        """
+        pulumi.set(__self__, "name", name)
+        if application_gateway_backend_address_pools is not None:
+            pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
+        if load_balancer_backend_address_pools is not None:
+            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if load_balancer_inbound_nat_pools is not None:
+            pulumi.set(__self__, "load_balancer_inbound_nat_pools", load_balancer_inbound_nat_pools)
+        if private_ip_address_version is None:
+            private_ip_address_version = 'IPv4'
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if public_ip_address_configuration is not None:
+            pulumi.set(__self__, "public_ip_address_configuration", public_ip_address_configuration)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the network interface.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="applicationGatewayBackendAddressPools")
+    def application_gateway_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.
+        """
+        return pulumi.get(self, "application_gateway_backend_address_pools")
+
+    @application_gateway_backend_address_pools.setter
+    def application_gateway_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "application_gateway_backend_address_pools", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPools")
+    def load_balancer_backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.	
+        """
+        return pulumi.get(self, "load_balancer_backend_address_pools")
+
+    @load_balancer_backend_address_pools.setter
+    def load_balancer_backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "load_balancer_backend_address_pools", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerInboundNatPools")
+    def load_balancer_inbound_nat_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
+        """
+        Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.
+        """
+        return pulumi.get(self, "load_balancer_inbound_nat_pools")
+
+    @load_balancer_inbound_nat_pools.setter
+    def load_balancer_inbound_nat_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
+        pulumi.set(self, "load_balancer_inbound_nat_pools", value)
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'PrivateIPAddressVersion']]]:
+        """
+        Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @private_ip_address_version.setter
+    def private_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'PrivateIPAddressVersion']]]):
+        pulumi.set(self, "private_ip_address_version", value)
+
+    @property
+    @pulumi.getter(name="publicIPAddressConfiguration")
+    def public_ip_address_configuration(self) -> Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]:
+        """
+        The public IP address configuration of the network interface.
+        """
+        return pulumi.get(self, "public_ip_address_configuration")
+
+    @public_ip_address_configuration.setter
+    def public_ip_address_configuration(self, value: Optional[pulumi.Input['IpConfigurationPublicIPAddressConfigurationArgs']]):
+        pulumi.set(self, "public_ip_address_configuration", value)
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
+        """
+        Specifies the subnet of the network interface.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+if not MYPY:
+    class IpTagArgsDict(TypedDict):
+        """
+        The IP tag associated with the public IP address.
         """
         ip_tag_type: pulumi.Input[str]
         """
-        The IP tag type.
+        IP tag type. Example: FirstPartyUsage.
         """
         tag: pulumi.Input[str]
         """
-        The value of the IP tag.
+        IP tag associated with the public IP. Example: SQL, Storage etc.
         """
 elif False:
-    IPTagArgsDict: TypeAlias = Mapping[str, Any]
+    IpTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class IPTagArgs:
+class IpTagArgs:
     def __init__(__self__, *,
                  ip_tag_type: pulumi.Input[str],
                  tag: pulumi.Input[str]):
         """
-        IPTag associated with the object.
-        :param pulumi.Input[str] ip_tag_type: The IP tag type.
-        :param pulumi.Input[str] tag: The value of the IP tag.
+        The IP tag associated with the public IP address.
+        :param pulumi.Input[str] ip_tag_type: IP tag type. Example: FirstPartyUsage.
+        :param pulumi.Input[str] tag: IP tag associated with the public IP. Example: SQL, Storage etc.
         """
         pulumi.set(__self__, "ip_tag_type", ip_tag_type)
         pulumi.set(__self__, "tag", tag)
@@ -1149,7 +1920,7 @@ class IPTagArgs:
     @pulumi.getter(name="ipTagType")
     def ip_tag_type(self) -> pulumi.Input[str]:
         """
-        The IP tag type.
+        IP tag type. Example: FirstPartyUsage.
         """
         return pulumi.get(self, "ip_tag_type")
 
@@ -1161,7 +1932,7 @@ class IPTagArgs:
     @pulumi.getter
     def tag(self) -> pulumi.Input[str]:
         """
-        The value of the IP tag.
+        IP tag associated with the public IP. Example: SQL, Storage etc.
         """
         return pulumi.get(self, "tag")
 
@@ -1727,6 +2498,82 @@ class NetworkSecurityRuleArgs:
     @source_port_ranges.setter
     def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "source_port_ranges", value)
+
+
+if not MYPY:
+    class NodeTypeNatConfigArgsDict(TypedDict):
+        """
+        Provides information about NAT configuration on the default public Load Balancer for the node type.
+        """
+        backend_port: NotRequired[pulumi.Input[int]]
+        """
+        The internal port for the NAT configuration.
+        """
+        frontend_port_range_end: NotRequired[pulumi.Input[int]]
+        """
+        The port range end for the external endpoint.
+        """
+        frontend_port_range_start: NotRequired[pulumi.Input[int]]
+        """
+        The port range start for the external endpoint.
+        """
+elif False:
+    NodeTypeNatConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NodeTypeNatConfigArgs:
+    def __init__(__self__, *,
+                 backend_port: Optional[pulumi.Input[int]] = None,
+                 frontend_port_range_end: Optional[pulumi.Input[int]] = None,
+                 frontend_port_range_start: Optional[pulumi.Input[int]] = None):
+        """
+        Provides information about NAT configuration on the default public Load Balancer for the node type.
+        :param pulumi.Input[int] backend_port: The internal port for the NAT configuration.
+        :param pulumi.Input[int] frontend_port_range_end: The port range end for the external endpoint.
+        :param pulumi.Input[int] frontend_port_range_start: The port range start for the external endpoint.
+        """
+        if backend_port is not None:
+            pulumi.set(__self__, "backend_port", backend_port)
+        if frontend_port_range_end is not None:
+            pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
+        if frontend_port_range_start is not None:
+            pulumi.set(__self__, "frontend_port_range_start", frontend_port_range_start)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The internal port for the NAT configuration.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backend_port", value)
+
+    @property
+    @pulumi.getter(name="frontendPortRangeEnd")
+    def frontend_port_range_end(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port range end for the external endpoint.
+        """
+        return pulumi.get(self, "frontend_port_range_end")
+
+    @frontend_port_range_end.setter
+    def frontend_port_range_end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "frontend_port_range_end", value)
+
+    @property
+    @pulumi.getter(name="frontendPortRangeStart")
+    def frontend_port_range_start(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port range start for the external endpoint.
+        """
+        return pulumi.get(self, "frontend_port_range_start")
+
+    @frontend_port_range_start.setter
+    def frontend_port_range_start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "frontend_port_range_start", value)
 
 
 if not MYPY:
@@ -2367,7 +3214,7 @@ class ServicePlacementInvalidDomainPolicyArgs:
 if not MYPY:
     class ServicePlacementNonPartiallyPlaceServicePolicyArgsDict(TypedDict):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         """
         type: pulumi.Input[str]
         """
@@ -2382,7 +3229,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
-        The name of the domain that should used for placement as per this policy.
+        The type of placement policy for a service fabric service. Following are the possible values.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'NonPartiallyPlaceService'.
         """
@@ -2405,7 +3252,7 @@ class ServicePlacementNonPartiallyPlaceServicePolicyArgs:
 if not MYPY:
     class ServicePlacementPreferPrimaryDomainPolicyArgsDict(TypedDict):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2432,7 +3279,7 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
                  domain_name: pulumi.Input[str],
                  type: pulumi.Input[str]):
         """
-        Describes the policy to be used for placement of a Service Fabric service where the service's 
+        Describes the policy to be used for placement of a Service Fabric service where the service's
         Primary replicas should optimally be placed in a particular domain.
 
         This placement policy is usually used with fault domains in scenarios where the Service Fabric
@@ -2440,7 +3287,6 @@ class ServicePlacementPreferPrimaryDomainPolicyArgs:
         be located in a particular fault domain, which in geo-distributed scenarios usually aligns with regional
         or datacenter boundaries. Note that since this is an optimization it is possible that the Primary replica
         may not end up located in this domain due to failures, capacity limits, or other constraints.
-
         :param pulumi.Input[str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'PreferredPrimaryDomain'.
@@ -2514,7 +3360,6 @@ class ServicePlacementRequireDomainDistributionPolicyArgs:
         In the event that one of the datacenters goes offline, normally the replica that was placed in that
         datacenter will be packed into one of the remaining datacenters. If this is not desirable then this
         policy should be set.
-
         :param pulumi.Input[str] domain_name: The name of the domain that should used for placement as per this policy.
         :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
                Expected value is 'RequiredDomainDistribution'.
@@ -3894,6 +4739,10 @@ if not MYPY:
         """
         Json formatted public settings for the extension.
         """
+        setup_order: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmssExtensionSetupOrder']]]]]
+        """
+        Indicates the setup order for the extension.
+        """
 elif False:
     VMSSExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3909,7 +4758,8 @@ class VMSSExtensionArgs:
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 settings: Optional[Any] = None):
+                 settings: Optional[Any] = None,
+                 setup_order: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmssExtensionSetupOrder']]]]] = None):
         """
         Specifies set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] name: The name of the extension.
@@ -3922,6 +4772,7 @@ class VMSSExtensionArgs:
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
         :param Any settings: Json formatted public settings for the extension.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmssExtensionSetupOrder']]]] setup_order: Indicates the setup order for the extension.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -3939,6 +4790,8 @@ class VMSSExtensionArgs:
             pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
+        if setup_order is not None:
+            pulumi.set(__self__, "setup_order", setup_order)
 
     @property
     @pulumi.getter
@@ -4059,6 +4912,18 @@ class VMSSExtensionArgs:
     @settings.setter
     def settings(self, value: Optional[Any]):
         pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter(name="setupOrder")
+    def setup_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmssExtensionSetupOrder']]]]]:
+        """
+        Indicates the setup order for the extension.
+        """
+        return pulumi.get(self, "setup_order")
+
+    @setup_order.setter
+    def setup_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VmssExtensionSetupOrder']]]]]):
+        pulumi.set(self, "setup_order", value)
 
 
 if not MYPY:

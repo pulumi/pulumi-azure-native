@@ -27,7 +27,10 @@ class GetADLSGen2FileSystemDataSetMappingResult:
     """
     An ADLS Gen2 file system data set mapping.
     """
-    def __init__(__self__, data_set_id=None, data_set_mapping_status=None, file_system=None, id=None, kind=None, name=None, provisioning_state=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_set_id=None, data_set_mapping_status=None, file_system=None, id=None, kind=None, name=None, provisioning_state=None, resource_group=None, storage_account_name=None, subscription_id=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_set_id and not isinstance(data_set_id, str):
             raise TypeError("Expected argument 'data_set_id' to be a str")
         pulumi.set(__self__, "data_set_id", data_set_id)
@@ -64,6 +67,14 @@ class GetADLSGen2FileSystemDataSetMappingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -169,6 +180,7 @@ class AwaitableGetADLSGen2FileSystemDataSetMappingResult(GetADLSGen2FileSystemDa
         if False:
             yield self
         return GetADLSGen2FileSystemDataSetMappingResult(
+            azure_api_version=self.azure_api_version,
             data_set_id=self.data_set_id,
             data_set_mapping_status=self.data_set_mapping_status,
             file_system=self.file_system,
@@ -207,6 +219,7 @@ def get_adls_gen2_file_system_data_set_mapping(account_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getADLSGen2FileSystemDataSetMapping', __args__, opts=opts, typ=GetADLSGen2FileSystemDataSetMappingResult).value
 
     return AwaitableGetADLSGen2FileSystemDataSetMappingResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_set_id=pulumi.get(__ret__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
         file_system=pulumi.get(__ret__, 'file_system'),
@@ -242,6 +255,7 @@ def get_adls_gen2_file_system_data_set_mapping_output(account_name: Optional[pul
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datashare:getADLSGen2FileSystemDataSetMapping', __args__, opts=opts, typ=GetADLSGen2FileSystemDataSetMappingResult)
     return __ret__.apply(lambda __response__: GetADLSGen2FileSystemDataSetMappingResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_set_id=pulumi.get(__response__, 'data_set_id'),
         data_set_mapping_status=pulumi.get(__response__, 'data_set_mapping_status'),
         file_system=pulumi.get(__response__, 'file_system'),

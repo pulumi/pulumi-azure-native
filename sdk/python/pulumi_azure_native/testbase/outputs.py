@@ -41,6 +41,7 @@ __all__ = [
     'PreReleaseAccessRequestSpecResponse',
     'ReleasePropertiesResponse',
     'SubscriptionReceiverValueResponse',
+    'SystemAssignedServiceIdentityResponse',
     'SystemDataResponse',
     'TabStateResponse',
     'TargetOSInfoResponse',
@@ -173,12 +174,18 @@ class BillingHubFreeHourIncrementEntryResponse(dict):
     def __init__(__self__, *,
                  create_time_stamp: Optional[str] = None,
                  expiration_time_stamp: Optional[str] = None,
+                 free_hour_status: Optional[str] = None,
+                 free_hour_type: Optional[str] = None,
                  incremental_free_hours: Optional[float] = None,
                  remaining_free_hours: Optional[float] = None):
         if create_time_stamp is not None:
             pulumi.set(__self__, "create_time_stamp", create_time_stamp)
         if expiration_time_stamp is not None:
             pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
+        if free_hour_status is not None:
+            pulumi.set(__self__, "free_hour_status", free_hour_status)
+        if free_hour_type is not None:
+            pulumi.set(__self__, "free_hour_type", free_hour_type)
         if incremental_free_hours is not None:
             pulumi.set(__self__, "incremental_free_hours", incremental_free_hours)
         if remaining_free_hours is not None:
@@ -193,6 +200,16 @@ class BillingHubFreeHourIncrementEntryResponse(dict):
     @pulumi.getter(name="expirationTimeStamp")
     def expiration_time_stamp(self) -> Optional[str]:
         return pulumi.get(self, "expiration_time_stamp")
+
+    @property
+    @pulumi.getter(name="freeHourStatus")
+    def free_hour_status(self) -> Optional[str]:
+        return pulumi.get(self, "free_hour_status")
+
+    @property
+    @pulumi.getter(name="freeHourType")
+    def free_hour_type(self) -> Optional[str]:
+        return pulumi.get(self, "free_hour_type")
 
     @property
     @pulumi.getter(name="incrementalFreeHours")
@@ -1907,6 +1924,69 @@ class SubscriptionReceiverValueResponse(dict):
 
 
 @pulumi.output_type
+class SystemAssignedServiceIdentityResponse(dict):
+    """
+    Managed service identity (either system assigned, or none)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemAssignedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemAssignedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Managed service identity (either system assigned, or none)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -1950,7 +2030,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -1995,7 +2075,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -2080,14 +2160,14 @@ class TargetOSInfoResponse(dict):
         suggest = None
         if key == "osUpdateType":
             suggest = "os_update_type"
-        elif key == "targetOSs":
-            suggest = "target_oss"
         elif key == "baselineOSs":
             suggest = "baseline_oss"
         elif key == "insiderChannelIds":
             suggest = "insider_channel_ids"
         elif key == "targetOSImageIds":
             suggest = "target_os_image_ids"
+        elif key == "targetOSs":
+            suggest = "target_oss"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TargetOSInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2102,26 +2182,27 @@ class TargetOSInfoResponse(dict):
 
     def __init__(__self__, *,
                  os_update_type: str,
-                 target_oss: Sequence[str],
                  baseline_oss: Optional[Sequence[str]] = None,
                  insider_channel_ids: Optional[Sequence[str]] = None,
-                 target_os_image_ids: Optional[Sequence[str]] = None):
+                 target_os_image_ids: Optional[Sequence[str]] = None,
+                 target_oss: Optional[Sequence[str]] = None):
         """
         The information of the target OS to be tested.
         :param str os_update_type: Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
-        :param Sequence[str] target_oss: Specifies the target OSs to be tested.
         :param Sequence[str] baseline_oss: Specifies the baseline OSs to be tested.
         :param Sequence[str] insider_channel_ids: Insider Channel Ids. Only used for feature update.
         :param Sequence[str] target_os_image_ids: Specifies the ids of the target OSs from Custom Images to be tested.
+        :param Sequence[str] target_oss: Specifies the target OSs to be tested.
         """
         pulumi.set(__self__, "os_update_type", os_update_type)
-        pulumi.set(__self__, "target_oss", target_oss)
         if baseline_oss is not None:
             pulumi.set(__self__, "baseline_oss", baseline_oss)
         if insider_channel_ids is not None:
             pulumi.set(__self__, "insider_channel_ids", insider_channel_ids)
         if target_os_image_ids is not None:
             pulumi.set(__self__, "target_os_image_ids", target_os_image_ids)
+        if target_oss is not None:
+            pulumi.set(__self__, "target_oss", target_oss)
 
     @property
     @pulumi.getter(name="osUpdateType")
@@ -2130,14 +2211,6 @@ class TargetOSInfoResponse(dict):
         Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         """
         return pulumi.get(self, "os_update_type")
-
-    @property
-    @pulumi.getter(name="targetOSs")
-    def target_oss(self) -> Sequence[str]:
-        """
-        Specifies the target OSs to be tested.
-        """
-        return pulumi.get(self, "target_oss")
 
     @property
     @pulumi.getter(name="baselineOSs")
@@ -2162,6 +2235,14 @@ class TargetOSInfoResponse(dict):
         Specifies the ids of the target OSs from Custom Images to be tested.
         """
         return pulumi.get(self, "target_os_image_ids")
+
+    @property
+    @pulumi.getter(name="targetOSs")
+    def target_oss(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the target OSs to be tested.
+        """
+        return pulumi.get(self, "target_oss")
 
 
 @pulumi.output_type

@@ -100,9 +100,7 @@ class Workspace(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace resource.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
-
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,9 +117,7 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace resource.
-        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15.
-
-        Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        Azure REST API version: 2024-03-31. Prior API version in Azure Native 2.x: 2023-02-28.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -157,12 +153,13 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20231101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20231201:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20240301:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20240331:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20230906:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20231101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20231201:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20240301:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20240331:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20250301preview:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:healthcareapis:Workspace',
@@ -186,6 +183,7 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -194,6 +192,14 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Workspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

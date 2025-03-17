@@ -26,10 +26,13 @@ class GetWebAppScmAllowedSlotResult:
     """
     Publishing Credentials Policies parameters.
     """
-    def __init__(__self__, allow=None, id=None, kind=None, name=None, type=None):
+    def __init__(__self__, allow=None, azure_api_version=None, id=None, kind=None, name=None, type=None):
         if allow and not isinstance(allow, bool):
             raise TypeError("Expected argument 'allow' to be a bool")
         pulumi.set(__self__, "allow", allow)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -50,6 +53,14 @@ class GetWebAppScmAllowedSlotResult:
         <code>true</code> to allow access to a publishing method; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "allow")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -91,6 +102,7 @@ class AwaitableGetWebAppScmAllowedSlotResult(GetWebAppScmAllowedSlotResult):
             yield self
         return GetWebAppScmAllowedSlotResult(
             allow=self.allow,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             kind=self.kind,
             name=self.name,
@@ -103,9 +115,7 @@ def get_web_app_scm_allowed_slot(name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppScmAllowedSlotResult:
     """
     Description for Returns whether Scm basic auth is allowed on the site or not.
-    Azure REST API version: 2023-12-01.
-
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -120,6 +130,7 @@ def get_web_app_scm_allowed_slot(name: Optional[str] = None,
 
     return AwaitableGetWebAppScmAllowedSlotResult(
         allow=pulumi.get(__ret__, 'allow'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
@@ -130,9 +141,7 @@ def get_web_app_scm_allowed_slot_output(name: Optional[pulumi.Input[str]] = None
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppScmAllowedSlotResult]:
     """
     Description for Returns whether Scm basic auth is allowed on the site or not.
-    Azure REST API version: 2023-12-01.
-
-    Other available API versions: 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str name: Name of the app.
@@ -146,6 +155,7 @@ def get_web_app_scm_allowed_slot_output(name: Optional[pulumi.Input[str]] = None
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getWebAppScmAllowedSlot', __args__, opts=opts, typ=GetWebAppScmAllowedSlotResult)
     return __ret__.apply(lambda __response__: GetWebAppScmAllowedSlotResult(
         allow=pulumi.get(__response__, 'allow'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),
         name=pulumi.get(__response__, 'name'),

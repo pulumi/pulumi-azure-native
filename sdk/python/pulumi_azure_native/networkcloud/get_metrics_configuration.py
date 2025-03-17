@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricsConfigurationResult:
-    def __init__(__self__, collection_interval=None, detailed_status=None, detailed_status_message=None, disabled_metrics=None, enabled_metrics=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, collection_interval=None, detailed_status=None, detailed_status_message=None, disabled_metrics=None, enabled_metrics=None, etag=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if collection_interval and not isinstance(collection_interval, float):
             raise TypeError("Expected argument 'collection_interval' to be a float")
         pulumi.set(__self__, "collection_interval", collection_interval)
@@ -40,6 +43,9 @@ class GetMetricsConfigurationResult:
         if enabled_metrics and not isinstance(enabled_metrics, list):
             raise TypeError("Expected argument 'enabled_metrics' to be a list")
         pulumi.set(__self__, "enabled_metrics", enabled_metrics)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -64,6 +70,14 @@ class GetMetricsConfigurationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="collectionInterval")
@@ -104,6 +118,14 @@ class GetMetricsConfigurationResult:
         The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
         """
         return pulumi.get(self, "enabled_metrics")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -176,11 +198,13 @@ class AwaitableGetMetricsConfigurationResult(GetMetricsConfigurationResult):
         if False:
             yield self
         return GetMetricsConfigurationResult(
+            azure_api_version=self.azure_api_version,
             collection_interval=self.collection_interval,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
             disabled_metrics=self.disabled_metrics,
             enabled_metrics=self.enabled_metrics,
+            etag=self.etag,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -197,9 +221,7 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricsConfigurationResult:
     """
     Get metrics configuration of the provided cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -214,11 +236,13 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getMetricsConfiguration', __args__, opts=opts, typ=GetMetricsConfigurationResult).value
 
     return AwaitableGetMetricsConfigurationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         collection_interval=pulumi.get(__ret__, 'collection_interval'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
         disabled_metrics=pulumi.get(__ret__, 'disabled_metrics'),
         enabled_metrics=pulumi.get(__ret__, 'enabled_metrics'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -233,9 +257,7 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricsConfigurationResult]:
     """
     Get metrics configuration of the provided cluster.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str cluster_name: The name of the cluster.
@@ -249,11 +271,13 @@ def get_metrics_configuration_output(cluster_name: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getMetricsConfiguration', __args__, opts=opts, typ=GetMetricsConfigurationResult)
     return __ret__.apply(lambda __response__: GetMetricsConfigurationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         collection_interval=pulumi.get(__response__, 'collection_interval'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
         disabled_metrics=pulumi.get(__response__, 'disabled_metrics'),
         enabled_metrics=pulumi.get(__response__, 'enabled_metrics'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

@@ -27,7 +27,10 @@ class GetWCFRelayAuthorizationRuleResult:
     """
     Single item in a List or Get AuthorizationRule operation
     """
-    def __init__(__self__, id=None, location=None, name=None, rights=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, rights=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +49,14 @@ class GetWCFRelayAuthorizationRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetWCFRelayAuthorizationRuleResult(GetWCFRelayAuthorizationRuleRe
         if False:
             yield self
         return GetWCFRelayAuthorizationRuleResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -117,9 +129,7 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWCFRelayAuthorizationRuleResult:
     """
     Get authorizationRule for a WCF relay by name.
-    Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2017-04-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -136,6 +146,7 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:relay:getWCFRelayAuthorizationRule', __args__, opts=opts, typ=GetWCFRelayAuthorizationRuleResult).value
 
     return AwaitableGetWCFRelayAuthorizationRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -149,9 +160,7 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWCFRelayAuthorizationRuleResult]:
     """
     Get authorizationRule for a WCF relay by name.
-    Azure REST API version: 2021-11-01.
-
-    Other available API versions: 2017-04-01, 2024-01-01.
+    Azure REST API version: 2024-01-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -167,6 +176,7 @@ def get_wcf_relay_authorization_rule_output(authorization_rule_name: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:relay:getWCFRelayAuthorizationRule', __args__, opts=opts, typ=GetWCFRelayAuthorizationRuleResult)
     return __ret__.apply(lambda __response__: GetWCFRelayAuthorizationRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

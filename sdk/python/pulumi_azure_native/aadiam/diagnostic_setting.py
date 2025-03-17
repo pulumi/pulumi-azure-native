@@ -154,9 +154,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  __props__=None):
         """
         The diagnostic setting resource.
-        Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2017-04-01-preview.
+        Azure REST API version: 2017-04-01. Prior API version in Azure Native 2.x: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,9 +174,7 @@ class DiagnosticSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The diagnostic setting resource.
-        Azure REST API version: 2017-04-01. Prior API version in Azure Native 1.x: 2017-04-01.
-
-        Other available API versions: 2017-04-01-preview.
+        Azure REST API version: 2017-04-01. Prior API version in Azure Native 2.x: 2017-04-01.
 
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +214,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["service_bus_rule_id"] = service_bus_rule_id
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:aadiam/v20170401:DiagnosticSetting"), pulumi.Alias(type_="azure-native:aadiam/v20170401preview:DiagnosticSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -243,6 +240,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
         __props__ = DiagnosticSettingArgs.__new__(DiagnosticSettingArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["event_hub_authorization_rule_id"] = None
         __props__.__dict__["event_hub_name"] = None
         __props__.__dict__["logs"] = None
@@ -252,6 +250,14 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["workspace_id"] = None
         return DiagnosticSetting(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eventHubAuthorizationRuleId")

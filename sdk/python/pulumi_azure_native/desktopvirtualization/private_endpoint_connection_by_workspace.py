@@ -31,7 +31,7 @@ class PrivateEndpointConnectionByWorkspaceArgs:
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,7 +79,7 @@ class PrivateEndpointConnectionByWorkspaceArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection associated with the Azure resource
+        The name of the private endpoint connection associated with the Azure resource.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -100,13 +100,11 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-
-        Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-10-14-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace
@@ -119,9 +117,7 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        Azure REST API version: 2022-10-14-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview.
-
-        Other available API versions: 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        Azure REST API version: 2024-04-03. Prior API version in Azure Native 2.x: 2022-10-14-preview.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionByWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -161,12 +157,14 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20220401preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230707preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20230905:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231004preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20231101preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240116preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240306preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240403:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240408preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20240808preview:PrivateEndpointConnectionByWorkspace"), pulumi.Alias(type_="azure-native:desktopvirtualization/v20241101preview:PrivateEndpointConnectionByWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionByWorkspace, __self__).__init__(
             'azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace',
@@ -190,6 +188,8 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
 
         __props__ = PrivateEndpointConnectionByWorkspaceArgs.__new__(PrivateEndpointConnectionByWorkspaceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
@@ -197,6 +197,22 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnectionByWorkspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -210,7 +226,7 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        The resource of private end point.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -234,7 +250,7 @@ class PrivateEndpointConnectionByWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

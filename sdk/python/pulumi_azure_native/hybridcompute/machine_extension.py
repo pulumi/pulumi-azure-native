@@ -135,9 +135,7 @@ class MachineExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
-
-        Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2022-12-27.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -156,9 +154,7 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
-        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02.
-
-        Other available API versions: 2020-08-15-preview, 2022-05-10-preview, 2023-06-20-preview, 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        Azure REST API version: 2024-07-10. Prior API version in Azure Native 2.x: 2022-12-27.
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -200,10 +196,11 @@ class MachineExtension(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230620preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20231003preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240331preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240520preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240710:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240731preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20240910preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20241110preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20250113:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azure-native:hybridcompute:MachineExtension',
@@ -227,6 +224,7 @@ class MachineExtension(pulumi.CustomResource):
 
         __props__ = MachineExtensionArgs.__new__(MachineExtensionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -234,6 +232,14 @@ class MachineExtension(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MachineExtension(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

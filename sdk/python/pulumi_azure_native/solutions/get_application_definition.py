@@ -27,13 +27,16 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, azure_api_version=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, system_data=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if create_ui_definition and not isinstance(create_ui_definition, dict):
             raise TypeError("Expected argument 'create_ui_definition' to be a dict")
         pulumi.set(__self__, "create_ui_definition", create_ui_definition)
@@ -113,6 +116,14 @@ class GetApplicationDefinitionResult:
         The managed application provider authorizations.
         """
         return pulumi.get(self, "authorizations")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="createUiDefinition")
@@ -291,6 +302,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
         return GetApplicationDefinitionResult(
             artifacts=self.artifacts,
             authorizations=self.authorizations,
+            azure_api_version=self.azure_api_version,
             create_ui_definition=self.create_ui_definition,
             deployment_policy=self.deployment_policy,
             description=self.description,
@@ -321,8 +333,6 @@ def get_application_definition(application_definition_name: Optional[str] = None
     Gets the managed application definition.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -336,6 +346,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
     return AwaitableGetApplicationDefinitionResult(
         artifacts=pulumi.get(__ret__, 'artifacts'),
         authorizations=pulumi.get(__ret__, 'authorizations'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         create_ui_definition=pulumi.get(__ret__, 'create_ui_definition'),
         deployment_policy=pulumi.get(__ret__, 'deployment_policy'),
         description=pulumi.get(__ret__, 'description'),
@@ -364,8 +375,6 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     Gets the managed application definition.
     Azure REST API version: 2021-07-01.
 
-    Other available API versions: 2023-12-01-preview.
-
 
     :param str application_definition_name: The name of the managed application definition.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -378,6 +387,7 @@ def get_application_definition_output(application_definition_name: Optional[pulu
     return __ret__.apply(lambda __response__: GetApplicationDefinitionResult(
         artifacts=pulumi.get(__response__, 'artifacts'),
         authorizations=pulumi.get(__response__, 'authorizations'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         create_ui_definition=pulumi.get(__response__, 'create_ui_definition'),
         deployment_policy=pulumi.get(__response__, 'deployment_policy'),
         description=pulumi.get(__response__, 'description'),

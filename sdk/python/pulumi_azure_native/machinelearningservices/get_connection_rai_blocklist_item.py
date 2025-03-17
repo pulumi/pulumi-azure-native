@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionRaiBlocklistItemResult:
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +43,14 @@ class GetConnectionRaiBlocklistItemResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -59,9 +70,9 @@ class GetConnectionRaiBlocklistItemResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.RaiBlocklistPropertiesResponse':
+    def properties(self) -> 'outputs.RaiBlocklistItemPropertiesResponse':
         """
-        RAI Custom Blocklist properties.
+        RAI Custom Blocklist Item properties.
         """
         return pulumi.get(self, "properties")
 
@@ -88,6 +99,7 @@ class AwaitableGetConnectionRaiBlocklistItemResult(GetConnectionRaiBlocklistItem
         if False:
             yield self
         return GetConnectionRaiBlocklistItemResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             properties=self.properties,
@@ -96,23 +108,24 @@ class AwaitableGetConnectionRaiBlocklistItemResult(GetConnectionRaiBlocklistItem
 
 
 def get_connection_rai_blocklist_item(connection_name: Optional[str] = None,
+                                      rai_blocklist_item_name: Optional[str] = None,
                                       rai_blocklist_name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       workspace_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionRaiBlocklistItemResult:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
+    :param str rai_blocklist_item_name: Name of the RaiBlocklist Item
     :param str rai_blocklist_name: The name of the RaiBlocklist.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
+    __args__['raiBlocklistItemName'] = rai_blocklist_item_name
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -120,35 +133,38 @@ def get_connection_rai_blocklist_item(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getConnectionRaiBlocklistItem', __args__, opts=opts, typ=GetConnectionRaiBlocklistItemResult).value
 
     return AwaitableGetConnectionRaiBlocklistItemResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_connection_rai_blocklist_item_output(connection_name: Optional[pulumi.Input[str]] = None,
+                                             rai_blocklist_item_name: Optional[pulumi.Input[str]] = None,
                                              rai_blocklist_name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              workspace_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionRaiBlocklistItemResult]:
     """
-    Azure REST API version: 2024-04-01-preview.
-
-    Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+    Azure REST API version: 2025-01-01-preview.
 
 
     :param str connection_name: Friendly name of the workspace connection
+    :param str rai_blocklist_item_name: Name of the RaiBlocklist Item
     :param str rai_blocklist_name: The name of the RaiBlocklist.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Azure Machine Learning Workspace Name
     """
     __args__ = dict()
     __args__['connectionName'] = connection_name
+    __args__['raiBlocklistItemName'] = rai_blocklist_item_name
     __args__['raiBlocklistName'] = rai_blocklist_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:machinelearningservices:getConnectionRaiBlocklistItem', __args__, opts=opts, typ=GetConnectionRaiBlocklistItemResult)
     return __ret__.apply(lambda __response__: GetConnectionRaiBlocklistItemResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),

@@ -30,13 +30,13 @@ class L2IsolationDomainArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a L2IsolationDomain resource.
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
+        :param pulumi.Input[str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[int] vlan_id: vlanId. Example: 501.
+        :param pulumi.Input[int] vlan_id: Vlan Identifier of the Network Fabric. Example: 501.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] l2_isolation_domain_name: Name of the L2 Isolation Domain
+        :param pulumi.Input[str] l2_isolation_domain_name: Name of the L2 Isolation Domain.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[int] mtu: maximum transmission unit. Default value is 1500.
+        :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
@@ -48,6 +48,8 @@ class L2IsolationDomainArgs:
             pulumi.set(__self__, "l2_isolation_domain_name", l2_isolation_domain_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mtu is None:
+            mtu = 1500
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
         if tags is not None:
@@ -57,7 +59,7 @@ class L2IsolationDomainArgs:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Input[str]:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
@@ -81,7 +83,7 @@ class L2IsolationDomainArgs:
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> pulumi.Input[int]:
         """
-        vlanId. Example: 501.
+        Vlan Identifier of the Network Fabric. Example: 501.
         """
         return pulumi.get(self, "vlan_id")
 
@@ -105,7 +107,7 @@ class L2IsolationDomainArgs:
     @pulumi.getter(name="l2IsolationDomainName")
     def l2_isolation_domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the L2 Isolation Domain
+        Name of the L2 Isolation Domain.
         """
         return pulumi.get(self, "l2_isolation_domain_name")
 
@@ -129,7 +131,7 @@ class L2IsolationDomainArgs:
     @pulumi.getter
     def mtu(self) -> Optional[pulumi.Input[int]]:
         """
-        maximum transmission unit. Default value is 1500.
+        Maximum transmission unit. Default value is 1500.
         """
         return pulumi.get(self, "mtu")
 
@@ -165,21 +167,19 @@ class L2IsolationDomain(pulumi.CustomResource):
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        The L2IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The L2 Isolation Domain resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
-        :param pulumi.Input[str] l2_isolation_domain_name: Name of the L2 Isolation Domain
+        :param pulumi.Input[str] l2_isolation_domain_name: Name of the L2 Isolation Domain.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[int] mtu: maximum transmission unit. Default value is 1500.
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
+        :param pulumi.Input[int] mtu: Maximum transmission unit. Default value is 1500.
+        :param pulumi.Input[str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[int] vlan_id: vlanId. Example: 501.
+        :param pulumi.Input[int] vlan_id: Vlan Identifier of the Network Fabric. Example: 501.
         """
         ...
     @overload
@@ -188,10 +188,8 @@ class L2IsolationDomain(pulumi.CustomResource):
                  args: L2IsolationDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The L2IsolationDomain resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The L2 Isolation Domain resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param L2IsolationDomainArgs args: The arguments to use to populate this resource's properties.
@@ -228,6 +226,8 @@ class L2IsolationDomain(pulumi.CustomResource):
             __props__.__dict__["annotation"] = annotation
             __props__.__dict__["l2_isolation_domain_name"] = l2_isolation_domain_name
             __props__.__dict__["location"] = location
+            if mtu is None:
+                mtu = 1500
             __props__.__dict__["mtu"] = mtu
             if network_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_id'")
@@ -240,7 +240,8 @@ class L2IsolationDomain(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vlan_id'")
             __props__.__dict__["vlan_id"] = vlan_id
             __props__.__dict__["administrative_state"] = None
-            __props__.__dict__["disabled_on_resources"] = None
+            __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["configuration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -271,7 +272,8 @@ class L2IsolationDomain(pulumi.CustomResource):
 
         __props__.__dict__["administrative_state"] = None
         __props__.__dict__["annotation"] = None
-        __props__.__dict__["disabled_on_resources"] = None
+        __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["configuration_state"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mtu"] = None
         __props__.__dict__["name"] = None
@@ -287,7 +289,7 @@ class L2IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="administrativeState")
     def administrative_state(self) -> pulumi.Output[str]:
         """
-        state. Example: Enabled | Disabled. It indicates administrative state of the isolationDomain, whether it is enabled or disabled. If enabled, the configuration is applied on the devices. If disabled, the configuration is removed from the devices
+        Administrative state of the resource.
         """
         return pulumi.get(self, "administrative_state")
 
@@ -300,12 +302,20 @@ class L2IsolationDomain(pulumi.CustomResource):
         return pulumi.get(self, "annotation")
 
     @property
-    @pulumi.getter(name="disabledOnResources")
-    def disabled_on_resources(self) -> pulumi.Output[Sequence[str]]:
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
         """
-        List of resources the L2 Isolation Domain is disabled on. Can be either entire NetworkFabric or NetworkRack.
+        The Azure API version of the resource.
         """
-        return pulumi.get(self, "disabled_on_resources")
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="configurationState")
+    def configuration_state(self) -> pulumi.Output[str]:
+        """
+        Configuration state of the resource.
+        """
+        return pulumi.get(self, "configuration_state")
 
     @property
     @pulumi.getter
@@ -319,7 +329,7 @@ class L2IsolationDomain(pulumi.CustomResource):
     @pulumi.getter
     def mtu(self) -> pulumi.Output[Optional[int]]:
         """
-        maximum transmission unit. Default value is 1500.
+        Maximum transmission unit. Default value is 1500.
         """
         return pulumi.get(self, "mtu")
 
@@ -335,7 +345,7 @@ class L2IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Output[str]:
         """
-        Network Fabric ARM resource id.
+        ARM Resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
@@ -343,7 +353,7 @@ class L2IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -375,7 +385,7 @@ class L2IsolationDomain(pulumi.CustomResource):
     @pulumi.getter(name="vlanId")
     def vlan_id(self) -> pulumi.Output[int]:
         """
-        vlanId. Example: 501.
+        Vlan Identifier of the Network Fabric. Example: 501.
         """
         return pulumi.get(self, "vlan_id")
 

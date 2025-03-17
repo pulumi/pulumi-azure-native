@@ -27,7 +27,10 @@ class GetPeriodicTimerEventTriggerResult:
     """
     Trigger details.
     """
-    def __init__(__self__, custom_context_tag=None, id=None, kind=None, name=None, sink_info=None, source_info=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, custom_context_tag=None, id=None, kind=None, name=None, sink_info=None, source_info=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if custom_context_tag and not isinstance(custom_context_tag, str):
             raise TypeError("Expected argument 'custom_context_tag' to be a str")
         pulumi.set(__self__, "custom_context_tag", custom_context_tag)
@@ -52,6 +55,14 @@ class GetPeriodicTimerEventTriggerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customContextTag")
@@ -125,6 +136,7 @@ class AwaitableGetPeriodicTimerEventTriggerResult(GetPeriodicTimerEventTriggerRe
         if False:
             yield self
         return GetPeriodicTimerEventTriggerResult(
+            azure_api_version=self.azure_api_version,
             custom_context_tag=self.custom_context_tag,
             id=self.id,
             kind=self.kind,
@@ -141,7 +153,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeriodicTimerEventTriggerResult:
     """
     Get a specific trigger by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -156,6 +168,7 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getPeriodicTimerEventTrigger', __args__, opts=opts, typ=GetPeriodicTimerEventTriggerResult).value
 
     return AwaitableGetPeriodicTimerEventTriggerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         custom_context_tag=pulumi.get(__ret__, 'custom_context_tag'),
         id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -170,7 +183,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeriodicTimerEventTriggerResult]:
     """
     Get a specific trigger by name.
-    Azure REST API version: 2022-03-01.
+    Azure REST API version: 2023-07-01.
 
 
     :param str device_name: The device name.
@@ -184,6 +197,7 @@ def get_periodic_timer_event_trigger_output(device_name: Optional[pulumi.Input[s
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:databoxedge:getPeriodicTimerEventTrigger', __args__, opts=opts, typ=GetPeriodicTimerEventTriggerResult)
     return __ret__.apply(lambda __response__: GetPeriodicTimerEventTriggerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         custom_context_tag=pulumi.get(__response__, 'custom_context_tag'),
         id=pulumi.get(__response__, 'id'),
         kind=pulumi.get(__response__, 'kind'),

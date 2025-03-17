@@ -27,7 +27,10 @@ class GetProtectionPolicyResult:
     """
     Base class for backup policy. Workload-specific backup policies are derived from this class.
     """
-    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, e_tag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -49,6 +52,14 @@ class GetProtectionPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="eTag")
@@ -113,6 +124,7 @@ class AwaitableGetProtectionPolicyResult(GetProtectionPolicyResult):
         if False:
             yield self
         return GetProtectionPolicyResult(
+            azure_api_version=self.azure_api_version,
             e_tag=self.e_tag,
             id=self.id,
             location=self.location,
@@ -129,9 +141,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str policy_name: Backup policy information to be fetched.
@@ -146,6 +156,7 @@ def get_protection_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:recoveryservices:getProtectionPolicy', __args__, opts=opts, typ=GetProtectionPolicyResult).value
 
     return AwaitableGetProtectionPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -160,9 +171,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     """
     Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
     operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-06-01, 2023-08-01, 2024-01-01, 2024-02-01, 2024-04-01, 2024-04-30-preview, 2024-07-30-preview, 2024-10-01.
+    Azure REST API version: 2024-10-01.
 
 
     :param str policy_name: Backup policy information to be fetched.
@@ -176,6 +185,7 @@ def get_protection_policy_output(policy_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:recoveryservices:getProtectionPolicy', __args__, opts=opts, typ=GetProtectionPolicyResult)
     return __ret__.apply(lambda __response__: GetProtectionPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         e_tag=pulumi.get(__response__, 'e_tag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

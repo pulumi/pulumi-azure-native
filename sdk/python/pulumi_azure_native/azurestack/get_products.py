@@ -70,8 +70,6 @@ def get_products(product_name: Optional[str] = None,
     Returns a list of products.
     Azure REST API version: 2022-06-01.
 
-    Other available API versions: 2020-06-01-preview.
-
 
     :param str product_name: Name of the product.
     :param str registration_name: Name of the Azure Stack registration.
@@ -94,8 +92,6 @@ def get_products_output(product_name: Optional[pulumi.Input[str]] = None,
     """
     Returns a list of products.
     Azure REST API version: 2022-06-01.
-
-    Other available API versions: 2020-06-01-preview.
 
 
     :param str product_name: Name of the product.

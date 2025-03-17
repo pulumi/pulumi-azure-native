@@ -185,9 +185,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Network information ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -210,9 +208,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network information ARM resource.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppVnetConnectionSlotArgs args: The arguments to use to populate this resource's properties.
@@ -262,6 +258,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["vnet_name"] = vnet_name
             __props__.__dict__["vnet_resource_id"] = vnet_resource_id
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["cert_thumbprint"] = None
             __props__.__dict__["resync_required"] = None
             __props__.__dict__["routes"] = None
@@ -290,6 +287,7 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
 
         __props__ = WebAppVnetConnectionSlotArgs.__new__(WebAppVnetConnectionSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["cert_blob"] = None
         __props__.__dict__["cert_thumbprint"] = None
         __props__.__dict__["dns_servers"] = None
@@ -301,6 +299,14 @@ class WebAppVnetConnectionSlot(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["vnet_resource_id"] = None
         return WebAppVnetConnectionSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="certBlob")

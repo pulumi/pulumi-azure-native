@@ -118,9 +118,7 @@ class DeploymentAtScope(pulumi.CustomResource):
                  __props__=None):
         """
         Deployment information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,9 +136,7 @@ class DeploymentAtScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
-
-        Other available API versions: 2023-07-01, 2024-03-01, 2024-07-01, 2024-11-01.
+        Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtScopeArgs args: The arguments to use to populate this resource's properties.
@@ -180,6 +176,7 @@ class DeploymentAtScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20190701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20190801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20191001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200601:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20200801:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210101:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20210401:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20220901:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20230701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240301:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20240701:DeploymentAtScope"), pulumi.Alias(type_="azure-native:resources/v20241101:DeploymentAtScope")])
@@ -206,12 +203,21 @@ class DeploymentAtScope(pulumi.CustomResource):
 
         __props__ = DeploymentAtScopeArgs.__new__(DeploymentAtScopeArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DeploymentAtScope(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

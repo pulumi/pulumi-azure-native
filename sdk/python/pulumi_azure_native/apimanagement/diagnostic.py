@@ -253,9 +253,7 @@ class Diagnostic(pulumi.CustomResource):
                  __props__=None):
         """
         Diagnostic details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,9 +279,7 @@ class Diagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
-        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2018-01-01, 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
 
         :param str resource_name: The name of the resource.
         :param DiagnosticArgs args: The arguments to use to populate this resource's properties.
@@ -341,6 +337,7 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["verbosity"] = verbosity
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20230501preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20230901preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240501:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20240601preview:Diagnostic")])
@@ -368,6 +365,7 @@ class Diagnostic(pulumi.CustomResource):
         __props__ = DiagnosticArgs.__new__(DiagnosticArgs)
 
         __props__.__dict__["always_log"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backend"] = None
         __props__.__dict__["frontend"] = None
         __props__.__dict__["http_correlation_protocol"] = None
@@ -388,6 +386,14 @@ class Diagnostic(pulumi.CustomResource):
         Specifies for what type of messages sampling settings should not apply.
         """
         return pulumi.get(self, "always_log")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -60,6 +60,7 @@ class AccessTier(str, Enum):
     HOT = "Hot"
     COOL = "Cool"
     PREMIUM = "Premium"
+    COLD = "Cold"
 
 
 class AccountImmutabilityPolicyState(str, Enum):
@@ -103,6 +104,8 @@ class AllowedMethods(str, Enum):
     OPTIONS = "OPTIONS"
     PUT = "PUT"
     PATCH = "PATCH"
+    CONNECT = "CONNECT"
+    TRACE = "TRACE"
 
 
 class BlobAccessTier(str, Enum):
@@ -209,9 +212,10 @@ class EncryptionScopeState(str, Enum):
 
 class ExpirationAction(str, Enum):
     """
-    The SAS expiration action. Can only be Log.
+    The SAS Expiration Action defines the action to be performed when sasPolicy.sasExpirationPeriod is violated. The 'Log' action can be used for audit purposes and the 'Block' action can be used to block and deny the usage of SAS tokens that do not adhere to the sas policy expiration period.
     """
     LOG = "Log"
+    BLOCK = "Block"
 
 
 class ExtendedLocationTypes(str, Enum):
@@ -303,6 +307,7 @@ class MinimumTlsVersion(str, Enum):
     TLS1_0 = "TLS1_0"
     TLS1_1 = "TLS1_1"
     TLS1_2 = "TLS1_2"
+    TLS1_3 = "TLS1_3"
 
 
 class Name(str, Enum):
@@ -354,10 +359,11 @@ class PublicAccess(str, Enum):
 
 class PublicNetworkAccess(str, Enum):
     """
-    Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class RootSquashType(str, Enum):
@@ -443,6 +449,12 @@ class SkuName(str, Enum):
     PREMIUM_ZRS = "Premium_ZRS"
     STANDARD_GZRS = "Standard_GZRS"
     STANDARD_RAGZRS = "Standard_RAGZRS"
+    STANDARD_V2_LRS = "StandardV2_LRS"
+    STANDARD_V2_GRS = "StandardV2_GRS"
+    STANDARD_V2_ZRS = "StandardV2_ZRS"
+    STANDARD_V2_GZRS = "StandardV2_GZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+    PREMIUM_V2_ZRS = "PremiumV2_ZRS"
 
 
 class State(str, Enum):

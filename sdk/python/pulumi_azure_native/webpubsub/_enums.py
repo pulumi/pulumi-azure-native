@@ -10,6 +10,7 @@ __all__ = [
     'EventListenerFilterDiscriminator',
     'ManagedIdentityType',
     'PrivateLinkServiceConnectionStatus',
+    'ServiceKind',
     'UpstreamAuthType',
     'WebPubSubRequestType',
     'WebPubSubSkuTier',
@@ -49,6 +50,14 @@ class PrivateLinkServiceConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class ServiceKind(str, Enum):
+    """
+    The kind of the service
+    """
+    WEB_PUB_SUB = "WebPubSub"
+    SOCKET_IO = "SocketIO"
 
 
 class UpstreamAuthType(str, Enum):

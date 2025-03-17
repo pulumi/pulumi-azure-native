@@ -319,9 +319,7 @@ class WebAppFunction(pulumi.CustomResource):
                  __props__=None):
         """
         Function information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -351,9 +349,7 @@ class WebAppFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Function information.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppFunctionArgs args: The arguments to use to populate this resource's properties.
@@ -417,6 +413,7 @@ class WebAppFunction(pulumi.CustomResource):
             __props__.__dict__["secrets_file_href"] = secrets_file_href
             __props__.__dict__["test_data"] = test_data
             __props__.__dict__["test_data_href"] = test_data_href
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppFunction"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppFunction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -442,6 +439,7 @@ class WebAppFunction(pulumi.CustomResource):
 
         __props__ = WebAppFunctionArgs.__new__(WebAppFunctionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["config"] = None
         __props__.__dict__["config_href"] = None
         __props__.__dict__["files"] = None
@@ -459,6 +457,14 @@ class WebAppFunction(pulumi.CustomResource):
         __props__.__dict__["test_data_href"] = None
         __props__.__dict__["type"] = None
         return WebAppFunction(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

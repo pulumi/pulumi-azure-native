@@ -26,7 +26,10 @@ class GetDocumentationResult:
     """
     Markdown documentation details.
     """
-    def __init__(__self__, content=None, id=None, name=None, title=None, type=None):
+    def __init__(__self__, azure_api_version=None, content=None, id=None, name=None, title=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
         pulumi.set(__self__, "content", content)
@@ -42,6 +45,14 @@ class GetDocumentationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -90,6 +101,7 @@ class AwaitableGetDocumentationResult(GetDocumentationResult):
         if False:
             yield self
         return GetDocumentationResult(
+            azure_api_version=self.azure_api_version,
             content=self.content,
             id=self.id,
             name=self.name,
@@ -103,9 +115,7 @@ def get_documentation(documentation_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentationResult:
     """
     Gets the details of the Documentation specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
@@ -120,6 +130,7 @@ def get_documentation(documentation_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getDocumentation', __args__, opts=opts, typ=GetDocumentationResult).value
 
     return AwaitableGetDocumentationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         content=pulumi.get(__ret__, 'content'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -131,9 +142,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationResult]:
     """
     Gets the details of the Documentation specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str documentation_id: Documentation identifier. Must be unique in the current API Management service instance.
@@ -147,6 +156,7 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getDocumentation', __args__, opts=opts, typ=GetDocumentationResult)
     return __ret__.apply(lambda __response__: GetDocumentationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         content=pulumi.get(__response__, 'content'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

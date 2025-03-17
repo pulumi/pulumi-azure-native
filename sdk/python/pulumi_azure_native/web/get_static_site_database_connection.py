@@ -27,7 +27,10 @@ class GetStaticSiteDatabaseConnectionResult:
     """
     Static Site Database Connection resource.
     """
-    def __init__(__self__, configuration_files=None, connection_identity=None, connection_string=None, id=None, kind=None, name=None, region=None, resource_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, configuration_files=None, connection_identity=None, connection_string=None, id=None, kind=None, name=None, region=None, resource_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if configuration_files and not isinstance(configuration_files, list):
             raise TypeError("Expected argument 'configuration_files' to be a list")
         pulumi.set(__self__, "configuration_files", configuration_files)
@@ -55,6 +58,14 @@ class GetStaticSiteDatabaseConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configurationFiles")
@@ -135,6 +146,7 @@ class AwaitableGetStaticSiteDatabaseConnectionResult(GetStaticSiteDatabaseConnec
         if False:
             yield self
         return GetStaticSiteDatabaseConnectionResult(
+            azure_api_version=self.azure_api_version,
             configuration_files=self.configuration_files,
             connection_identity=self.connection_identity,
             connection_string=self.connection_string,
@@ -152,9 +164,7 @@ def get_static_site_database_connection(database_connection_name: Optional[str] 
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteDatabaseConnectionResult:
     """
     Static Site Database Connection resource.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str database_connection_name: Name of the database connection.
@@ -169,6 +179,7 @@ def get_static_site_database_connection(database_connection_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteDatabaseConnection', __args__, opts=opts, typ=GetStaticSiteDatabaseConnectionResult).value
 
     return AwaitableGetStaticSiteDatabaseConnectionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         configuration_files=pulumi.get(__ret__, 'configuration_files'),
         connection_identity=pulumi.get(__ret__, 'connection_identity'),
         connection_string=pulumi.get(__ret__, 'connection_string'),
@@ -184,9 +195,7 @@ def get_static_site_database_connection_output(database_connection_name: Optiona
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteDatabaseConnectionResult]:
     """
     Static Site Database Connection resource.
-    Azure REST API version: 2022-09-01.
-
-    Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+    Azure REST API version: 2024-04-01.
 
 
     :param str database_connection_name: Name of the database connection.
@@ -200,6 +209,7 @@ def get_static_site_database_connection_output(database_connection_name: Optiona
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:web:getStaticSiteDatabaseConnection', __args__, opts=opts, typ=GetStaticSiteDatabaseConnectionResult)
     return __ret__.apply(lambda __response__: GetStaticSiteDatabaseConnectionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         configuration_files=pulumi.get(__response__, 'configuration_files'),
         connection_identity=pulumi.get(__response__, 'connection_identity'),
         connection_string=pulumi.get(__response__, 'connection_string'),

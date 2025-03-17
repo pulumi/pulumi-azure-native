@@ -170,9 +170,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Push settings for the App.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -196,9 +194,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Push settings for the App.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppSitePushSettingsSlotArgs args: The arguments to use to populate this resource's properties.
@@ -248,6 +244,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
             __props__.__dict__["slot"] = slot
             __props__.__dict__["tag_whitelist_json"] = tag_whitelist_json
             __props__.__dict__["tags_requiring_auth"] = tags_requiring_auth
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20160801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppSitePushSettingsSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppSitePushSettingsSlot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -273,6 +270,7 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
 
         __props__ = WebAppSitePushSettingsSlotArgs.__new__(WebAppSitePushSettingsSlotArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["dynamic_tags_json"] = None
         __props__.__dict__["is_push_enabled"] = None
         __props__.__dict__["kind"] = None
@@ -281,6 +279,14 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
         __props__.__dict__["tags_requiring_auth"] = None
         __props__.__dict__["type"] = None
         return WebAppSitePushSettingsSlot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dynamicTagsJson")

@@ -27,10 +27,13 @@ class GetSmartDetectorAlertRuleResult:
     """
     The alert rule information
     """
-    def __init__(__self__, action_groups=None, description=None, detector=None, frequency=None, id=None, location=None, name=None, scope=None, severity=None, state=None, tags=None, throttling=None, type=None):
+    def __init__(__self__, action_groups=None, azure_api_version=None, description=None, detector=None, frequency=None, id=None, location=None, name=None, scope=None, severity=None, state=None, tags=None, throttling=None, type=None):
         if action_groups and not isinstance(action_groups, dict):
             raise TypeError("Expected argument 'action_groups' to be a dict")
         pulumi.set(__self__, "action_groups", action_groups)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -75,6 +78,14 @@ class GetSmartDetectorAlertRuleResult:
         The alert rule actions.
         """
         return pulumi.get(self, "action_groups")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
             yield self
         return GetSmartDetectorAlertRuleResult(
             action_groups=self.action_groups,
+            azure_api_version=self.azure_api_version,
             description=self.description,
             detector=self.detector,
             frequency=self.frequency,
@@ -216,6 +228,7 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
 
     return AwaitableGetSmartDetectorAlertRuleResult(
         action_groups=pulumi.get(__ret__, 'action_groups'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         detector=pulumi.get(__ret__, 'detector'),
         frequency=pulumi.get(__ret__, 'frequency'),
@@ -249,6 +262,7 @@ def get_smart_detector_alert_rule_output(alert_rule_name: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('azure-native:alertsmanagement:getSmartDetectorAlertRule', __args__, opts=opts, typ=GetSmartDetectorAlertRuleResult)
     return __ret__.apply(lambda __response__: GetSmartDetectorAlertRuleResult(
         action_groups=pulumi.get(__response__, 'action_groups'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         detector=pulumi.get(__response__, 'detector'),
         frequency=pulumi.get(__response__, 'frequency'),

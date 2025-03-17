@@ -27,7 +27,10 @@ class GetSuppressionResult:
     """
     The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     """
-    def __init__(__self__, expiration_time_stamp=None, id=None, name=None, suppression_id=None, system_data=None, ttl=None, type=None):
+    def __init__(__self__, azure_api_version=None, expiration_time_stamp=None, id=None, name=None, suppression_id=None, system_data=None, ttl=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if expiration_time_stamp and not isinstance(expiration_time_stamp, str):
             raise TypeError("Expected argument 'expiration_time_stamp' to be a str")
         pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
@@ -49,6 +52,14 @@ class GetSuppressionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="expirationTimeStamp")
@@ -113,6 +124,7 @@ class AwaitableGetSuppressionResult(GetSuppressionResult):
         if False:
             yield self
         return GetSuppressionResult(
+            azure_api_version=self.azure_api_version,
             expiration_time_stamp=self.expiration_time_stamp,
             id=self.id,
             name=self.name,
@@ -128,7 +140,7 @@ def get_suppression(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSuppressionResult:
     """
     Obtains the details of a suppression.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2023-09-01-preview.
 
 
     :param str name: The name of the suppression.
@@ -143,6 +155,7 @@ def get_suppression(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:advisor:getSuppression', __args__, opts=opts, typ=GetSuppressionResult).value
 
     return AwaitableGetSuppressionResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         expiration_time_stamp=pulumi.get(__ret__, 'expiration_time_stamp'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -156,7 +169,7 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionResult]:
     """
     Obtains the details of a suppression.
-    Azure REST API version: 2023-01-01.
+    Azure REST API version: 2023-09-01-preview.
 
 
     :param str name: The name of the suppression.
@@ -170,6 +183,7 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:advisor:getSuppression', __args__, opts=opts, typ=GetSuppressionResult)
     return __ret__.apply(lambda __response__: GetSuppressionResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         expiration_time_stamp=pulumi.get(__response__, 'expiration_time_stamp'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

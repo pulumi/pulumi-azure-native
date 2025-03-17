@@ -27,7 +27,10 @@ class GetGuestAgentResult:
     """
     Defines the GuestAgent.
     """
-    def __init__(__self__, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, provisioning_action=None, provisioning_state=None, status=None, statuses=None, system_data=None, type=None, uuid=None):
+    def __init__(__self__, azure_api_version=None, credentials=None, custom_resource_name=None, http_proxy_config=None, id=None, name=None, private_link_scope_resource_id=None, provisioning_action=None, provisioning_state=None, status=None, statuses=None, system_data=None, type=None, uuid=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
@@ -43,6 +46,9 @@ class GetGuestAgentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_link_scope_resource_id and not isinstance(private_link_scope_resource_id, str):
+            raise TypeError("Expected argument 'private_link_scope_resource_id' to be a str")
+        pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
         if provisioning_action and not isinstance(provisioning_action, str):
             raise TypeError("Expected argument 'provisioning_action' to be a str")
         pulumi.set(__self__, "provisioning_action", provisioning_action)
@@ -64,6 +70,14 @@ class GetGuestAgentResult:
         if uuid and not isinstance(uuid, str):
             raise TypeError("Expected argument 'uuid' to be a str")
         pulumi.set(__self__, "uuid", uuid)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -93,7 +107,7 @@ class GetGuestAgentResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -104,6 +118,14 @@ class GetGuestAgentResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkScopeResourceId")
+    def private_link_scope_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the private link scope this machine is assigned to, if any.
+        """
+        return pulumi.get(self, "private_link_scope_resource_id")
 
     @property
     @pulumi.getter(name="provisioningAction")
@@ -117,7 +139,7 @@ class GetGuestAgentResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -141,7 +163,7 @@ class GetGuestAgentResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -168,11 +190,13 @@ class AwaitableGetGuestAgentResult(GetGuestAgentResult):
         if False:
             yield self
         return GetGuestAgentResult(
+            azure_api_version=self.azure_api_version,
             credentials=self.credentials,
             custom_resource_name=self.custom_resource_name,
             http_proxy_config=self.http_proxy_config,
             id=self.id,
             name=self.name,
+            private_link_scope_resource_id=self.private_link_scope_resource_id,
             provisioning_action=self.provisioning_action,
             provisioning_state=self.provisioning_state,
             status=self.status,
@@ -188,9 +212,7 @@ def get_guest_agent(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGuestAgentResult:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str name: Name of the GuestAgent.
@@ -205,11 +227,13 @@ def get_guest_agent(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult).value
 
     return AwaitableGetGuestAgentResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         credentials=pulumi.get(__ret__, 'credentials'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        private_link_scope_resource_id=pulumi.get(__ret__, 'private_link_scope_resource_id'),
         provisioning_action=pulumi.get(__ret__, 'provisioning_action'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         status=pulumi.get(__ret__, 'status'),
@@ -223,9 +247,7 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuestAgentResult]:
     """
     Implements GuestAgent GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str name: Name of the GuestAgent.
@@ -239,11 +261,13 @@ def get_guest_agent_output(name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult)
     return __ret__.apply(lambda __response__: GetGuestAgentResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         credentials=pulumi.get(__response__, 'credentials'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
         http_proxy_config=pulumi.get(__response__, 'http_proxy_config'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        private_link_scope_resource_id=pulumi.get(__response__, 'private_link_scope_resource_id'),
         provisioning_action=pulumi.get(__response__, 'provisioning_action'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         status=pulumi.get(__response__, 'status'),

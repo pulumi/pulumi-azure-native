@@ -152,7 +152,7 @@ class LinkedService(pulumi.CustomResource):
                  __props__=None):
         """
         Linked service.
-        Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
+        Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 2.x: 2020-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -172,7 +172,7 @@ class LinkedService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linked service.
-        Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
+        Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 2.x: 2020-09-01-preview.
 
         :param str resource_name: The name of the resource.
         :param LinkedServiceArgs args: The arguments to use to populate this resource's properties.
@@ -216,6 +216,7 @@ class LinkedService(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LinkedService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -241,12 +242,21 @@ class LinkedService(pulumi.CustomResource):
 
         __props__ = LinkedServiceArgs.__new__(LinkedServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["type"] = None
         return LinkedService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

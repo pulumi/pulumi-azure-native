@@ -27,7 +27,10 @@ class GetWorkspaceResult:
     """
     Workspace details.
     """
-    def __init__(__self__, data_plane_endpoint=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, data_plane_endpoint=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if data_plane_endpoint and not isinstance(data_plane_endpoint, str):
             raise TypeError("Expected argument 'data_plane_endpoint' to be a str")
         pulumi.set(__self__, "data_plane_endpoint", data_plane_endpoint)
@@ -52,6 +55,14 @@ class GetWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="dataPlaneEndpoint")
@@ -124,6 +135,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            azure_api_version=self.azure_api_version,
             data_plane_endpoint=self.data_plane_endpoint,
             id=self.id,
             location=self.location,
@@ -152,6 +164,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:easm:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         data_plane_endpoint=pulumi.get(__ret__, 'data_plane_endpoint'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -177,6 +190,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:easm:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         data_plane_endpoint=pulumi.get(__response__, 'data_plane_endpoint'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

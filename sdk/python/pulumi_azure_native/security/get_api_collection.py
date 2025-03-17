@@ -26,10 +26,13 @@ class GetAPICollectionResult:
     """
     An API collection as represented by Defender for APIs.
     """
-    def __init__(__self__, additional_data=None, display_name=None, id=None, name=None, type=None):
+    def __init__(__self__, additional_data=None, azure_api_version=None, display_name=None, id=None, name=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -50,6 +53,14 @@ class GetAPICollectionResult:
         Additional data regarding the API collection.
         """
         return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="displayName")
@@ -91,6 +102,7 @@ class AwaitableGetAPICollectionResult(GetAPICollectionResult):
             yield self
         return GetAPICollectionResult(
             additional_data=self.additional_data,
+            azure_api_version=self.azure_api_version,
             display_name=self.display_name,
             id=self.id,
             name=self.name,
@@ -119,6 +131,7 @@ def get_api_collection(api_collection_id: Optional[str] = None,
 
     return AwaitableGetAPICollectionResult(
         additional_data=pulumi.get(__ret__, 'additional_data'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -144,6 +157,7 @@ def get_api_collection_output(api_collection_id: Optional[pulumi.Input[str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getAPICollection', __args__, opts=opts, typ=GetAPICollectionResult)
     return __ret__.apply(lambda __response__: GetAPICollectionResult(
         additional_data=pulumi.get(__response__, 'additional_data'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

@@ -27,7 +27,10 @@ class GetMarkupRuleResult:
     """
     Markup rule
     """
-    def __init__(__self__, customer_details=None, description=None, e_tag=None, end_date=None, id=None, name=None, percentage=None, start_date=None, type=None):
+    def __init__(__self__, azure_api_version=None, customer_details=None, description=None, e_tag=None, end_date=None, id=None, name=None, percentage=None, start_date=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if customer_details and not isinstance(customer_details, dict):
             raise TypeError("Expected argument 'customer_details' to be a dict")
         pulumi.set(__self__, "customer_details", customer_details)
@@ -55,6 +58,14 @@ class GetMarkupRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="customerDetails")
@@ -135,6 +146,7 @@ class AwaitableGetMarkupRuleResult(GetMarkupRuleResult):
         if False:
             yield self
         return GetMarkupRuleResult(
+            azure_api_version=self.azure_api_version,
             customer_details=self.customer_details,
             description=self.description,
             e_tag=self.e_tag,
@@ -167,6 +179,7 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getMarkupRule', __args__, opts=opts, typ=GetMarkupRuleResult).value
 
     return AwaitableGetMarkupRuleResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         customer_details=pulumi.get(__ret__, 'customer_details'),
         description=pulumi.get(__ret__, 'description'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
@@ -196,6 +209,7 @@ def get_markup_rule_output(billing_account_id: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:costmanagement:getMarkupRule', __args__, opts=opts, typ=GetMarkupRuleResult)
     return __ret__.apply(lambda __response__: GetMarkupRuleResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         customer_details=pulumi.get(__response__, 'customer_details'),
         description=pulumi.get(__response__, 'description'),
         e_tag=pulumi.get(__response__, 'e_tag'),

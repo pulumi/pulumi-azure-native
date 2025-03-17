@@ -31,17 +31,3 @@ from .sql_server_instance import *
 from .sql_server_license import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
-    v20230115preview = __v20230115preview
-    import pulumi_azure_native.azurearcdata.v20240101 as __v20240101
-    v20240101 = __v20240101
-    import pulumi_azure_native.azurearcdata.v20240501preview as __v20240501preview
-    v20240501preview = __v20240501preview
-else:
-    v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
-    v20240101 = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20240101')
-    v20240501preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20240501preview')
-

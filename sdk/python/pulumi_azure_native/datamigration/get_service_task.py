@@ -27,7 +27,10 @@ class GetServiceTaskResult:
     """
     A task resource
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -46,6 +49,14 @@ class GetServiceTaskResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -102,6 +113,7 @@ class AwaitableGetServiceTaskResult(GetServiceTaskResult):
         if False:
             yield self
         return GetServiceTaskResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -116,10 +128,8 @@ def get_service_task(expand: Optional[str] = None,
                      task_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceTaskResult:
     """
-    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str expand: Expand the response
@@ -136,6 +146,7 @@ def get_service_task(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:getServiceTask', __args__, opts=opts, typ=GetServiceTaskResult).value
 
     return AwaitableGetServiceTaskResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -148,10 +159,8 @@ def get_service_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             task_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceTaskResult]:
     """
-    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a service task.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+    The service tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a service task.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str expand: Expand the response
@@ -167,6 +176,7 @@ def get_service_task_output(expand: Optional[pulumi.Input[Optional[str]]] = None
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getServiceTask', __args__, opts=opts, typ=GetServiceTaskResult)
     return __ret__.apply(lambda __response__: GetServiceTaskResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

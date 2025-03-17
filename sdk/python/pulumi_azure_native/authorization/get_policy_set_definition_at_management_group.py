@@ -27,7 +27,10 @@ class GetPolicySetDefinitionAtManagementGroupResult:
     """
     The policy set definition.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, system_data=None, type=None, version=None, versions=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -61,6 +64,20 @@ class GetPolicySetDefinitionAtManagementGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
+        if versions and not isinstance(versions, list):
+            raise TypeError("Expected argument 'versions' to be a list")
+        pulumi.set(__self__, "versions", versions)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -130,7 +147,7 @@ class GetPolicySetDefinitionAtManagementGroupResult:
     @pulumi.getter(name="policyType")
     def policy_type(self) -> Optional[str]:
         """
-        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         return pulumi.get(self, "policy_type")
 
@@ -150,6 +167,22 @@ class GetPolicySetDefinitionAtManagementGroupResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The policy set definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def versions(self) -> Optional[Sequence[str]]:
+        """
+        A list of available versions for this policy set definition.
+        """
+        return pulumi.get(self, "versions")
+
 
 class AwaitableGetPolicySetDefinitionAtManagementGroupResult(GetPolicySetDefinitionAtManagementGroupResult):
     # pylint: disable=using-constant-test
@@ -157,6 +190,7 @@ class AwaitableGetPolicySetDefinitionAtManagementGroupResult(GetPolicySetDefinit
         if False:
             yield self
         return GetPolicySetDefinitionAtManagementGroupResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -167,29 +201,33 @@ class AwaitableGetPolicySetDefinitionAtManagementGroupResult(GetPolicySetDefinit
             policy_definitions=self.policy_definitions,
             policy_type=self.policy_type,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            version=self.version,
+            versions=self.versions)
 
 
-def get_policy_set_definition_at_management_group(management_group_id: Optional[str] = None,
+def get_policy_set_definition_at_management_group(expand: Optional[str] = None,
+                                                  management_group_id: Optional[str] = None,
                                                   policy_set_definition_name: Optional[str] = None,
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicySetDefinitionAtManagementGroupResult:
     """
     This operation retrieves the policy set definition in the given management group with the given name.
-    Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_id: The ID of the management group.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupId'] = management_group_id
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicySetDefinitionAtManagementGroup', __args__, opts=opts, typ=GetPolicySetDefinitionAtManagementGroupResult).value
 
     return AwaitableGetPolicySetDefinitionAtManagementGroupResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -200,26 +238,30 @@ def get_policy_set_definition_at_management_group(management_group_id: Optional[
         policy_definitions=pulumi.get(__ret__, 'policy_definitions'),
         policy_type=pulumi.get(__ret__, 'policy_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        type=pulumi.get(__ret__, 'type'))
-def get_policy_set_definition_at_management_group_output(management_group_id: Optional[pulumi.Input[str]] = None,
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'),
+        versions=pulumi.get(__ret__, 'versions'))
+def get_policy_set_definition_at_management_group_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                                                         management_group_id: Optional[pulumi.Input[str]] = None,
                                                          policy_set_definition_name: Optional[pulumi.Input[str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionAtManagementGroupResult]:
     """
     This operation retrieves the policy set definition in the given management group with the given name.
-    Azure REST API version: 2021-06-01.
-
-    Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+    Azure REST API version: 2025-01-01.
 
 
+    :param str expand: Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
     :param str management_group_id: The ID of the management group.
     :param str policy_set_definition_name: The name of the policy set definition to get.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['managementGroupId'] = management_group_id
     __args__['policySetDefinitionName'] = policy_set_definition_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:authorization:getPolicySetDefinitionAtManagementGroup', __args__, opts=opts, typ=GetPolicySetDefinitionAtManagementGroupResult)
     return __ret__.apply(lambda __response__: GetPolicySetDefinitionAtManagementGroupResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
@@ -230,4 +272,6 @@ def get_policy_set_definition_at_management_group_output(management_group_id: Op
         policy_definitions=pulumi.get(__response__, 'policy_definitions'),
         policy_type=pulumi.get(__response__, 'policy_type'),
         system_data=pulumi.get(__response__, 'system_data'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        version=pulumi.get(__response__, 'version'),
+        versions=pulumi.get(__response__, 'versions')))

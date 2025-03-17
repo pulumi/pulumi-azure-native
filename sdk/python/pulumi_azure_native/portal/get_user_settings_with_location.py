@@ -27,10 +27,21 @@ class GetUserSettingsWithLocationResult:
     """
     Response to get user settings
     """
-    def __init__(__self__, properties=None):
+    def __init__(__self__, azure_api_version=None, properties=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -47,6 +58,7 @@ class AwaitableGetUserSettingsWithLocationResult(GetUserSettingsWithLocationResu
         if False:
             yield self
         return GetUserSettingsWithLocationResult(
+            azure_api_version=self.azure_api_version,
             properties=self.properties)
 
 
@@ -68,6 +80,7 @@ def get_user_settings_with_location(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal:getUserSettingsWithLocation', __args__, opts=opts, typ=GetUserSettingsWithLocationResult).value
 
     return AwaitableGetUserSettingsWithLocationResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         properties=pulumi.get(__ret__, 'properties'))
 def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]] = None,
                                            user_settings_name: Optional[pulumi.Input[str]] = None,
@@ -86,4 +99,5 @@ def get_user_settings_with_location_output(location: Optional[pulumi.Input[str]]
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:portal:getUserSettingsWithLocation', __args__, opts=opts, typ=GetUserSettingsWithLocationResult)
     return __ret__.apply(lambda __response__: GetUserSettingsWithLocationResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         properties=pulumi.get(__response__, 'properties')))

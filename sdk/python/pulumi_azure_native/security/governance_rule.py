@@ -267,7 +267,7 @@ class GovernanceRule(pulumi.CustomResource):
                  __props__=None):
         """
         Governance rule over a given scope
-        Azure REST API version: 2022-01-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -294,7 +294,7 @@ class GovernanceRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Governance rule over a given scope
-        Azure REST API version: 2022-01-01-preview.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GovernanceRuleArgs args: The arguments to use to populate this resource's properties.
@@ -360,6 +360,7 @@ class GovernanceRule(pulumi.CustomResource):
             if source_resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_resource_type'")
             __props__.__dict__["source_resource_type"] = source_resource_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["tenant_id"] = None
@@ -388,6 +389,7 @@ class GovernanceRule(pulumi.CustomResource):
 
         __props__ = GovernanceRuleArgs.__new__(GovernanceRuleArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["excluded_scopes"] = None
@@ -405,6 +407,14 @@ class GovernanceRule(pulumi.CustomResource):
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return GovernanceRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

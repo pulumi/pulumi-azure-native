@@ -27,7 +27,10 @@ class GetVmmServerResult:
     """
     The VmmServers resource definition.
     """
-    def __init__(__self__, connection_status=None, credentials=None, error_message=None, extended_location=None, fqdn=None, id=None, location=None, name=None, port=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, version=None):
+    def __init__(__self__, azure_api_version=None, connection_status=None, credentials=None, error_message=None, extended_location=None, fqdn=None, id=None, location=None, name=None, port=None, provisioning_state=None, system_data=None, tags=None, type=None, uuid=None, version=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
@@ -73,6 +76,14 @@ class GetVmmServerResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionStatus")
@@ -201,6 +212,7 @@ class AwaitableGetVmmServerResult(GetVmmServerResult):
         if False:
             yield self
         return GetVmmServerResult(
+            azure_api_version=self.azure_api_version,
             connection_status=self.connection_status,
             credentials=self.credentials,
             error_message=self.error_message,
@@ -223,9 +235,7 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVmmServerResult:
     """
     Implements VMMServer GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -238,6 +248,7 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getVmmServer', __args__, opts=opts, typ=GetVmmServerResult).value
 
     return AwaitableGetVmmServerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_status=pulumi.get(__ret__, 'connection_status'),
         credentials=pulumi.get(__ret__, 'credentials'),
         error_message=pulumi.get(__ret__, 'error_message'),
@@ -258,9 +269,7 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmmServerResult]:
     """
     Implements VMMServer GET method.
-    Azure REST API version: 2022-05-21-preview.
-
-    Other available API versions: 2023-04-01-preview, 2023-10-07, 2024-06-01.
+    Azure REST API version: 2023-04-01-preview.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -272,6 +281,7 @@ def get_vmm_server_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:scvmm:getVmmServer', __args__, opts=opts, typ=GetVmmServerResult)
     return __ret__.apply(lambda __response__: GetVmmServerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_status=pulumi.get(__response__, 'connection_status'),
         credentials=pulumi.get(__response__, 'credentials'),
         error_message=pulumi.get(__response__, 'error_message'),

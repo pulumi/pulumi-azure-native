@@ -27,7 +27,10 @@ class GetCurationProfileResult:
     """
     Represents an curation profile resource.
     """
-    def __init__(__self__, id=None, name=None, provisioning_state=None, resource_policies=None, scopes=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, provisioning_state=None, resource_policies=None, scopes=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -49,6 +52,14 @@ class GetCurationProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -113,6 +124,7 @@ class AwaitableGetCurationProfileResult(GetCurationProfileResult):
         if False:
             yield self
         return GetCurationProfileResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -128,9 +140,7 @@ def get_curation_profile(curation_profile_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCurationProfileResult:
     """
     Gets a specific curation profile.
-    Azure REST API version: 2024-08-01-preview.
-
-    Other available API versions: 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str curation_profile_name: The name of the curation profile.
@@ -145,6 +155,7 @@ def get_curation_profile(curation_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getCurationProfile', __args__, opts=opts, typ=GetCurationProfileResult).value
 
     return AwaitableGetCurationProfileResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -158,9 +169,7 @@ def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[str
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurationProfileResult]:
     """
     Gets a specific curation profile.
-    Azure REST API version: 2024-08-01-preview.
-
-    Other available API versions: 2024-10-01-preview.
+    Azure REST API version: 2024-10-01-preview.
 
 
     :param str curation_profile_name: The name of the curation profile.
@@ -174,6 +183,7 @@ def get_curation_profile_output(curation_profile_name: Optional[pulumi.Input[str
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:devcenter:getCurationProfile', __args__, opts=opts, typ=GetCurationProfileResult)
     return __ret__.apply(lambda __response__: GetCurationProfileResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

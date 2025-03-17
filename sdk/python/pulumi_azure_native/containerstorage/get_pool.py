@@ -27,10 +27,13 @@ class GetPoolResult:
     """
     Pool resource
     """
-    def __init__(__self__, assignments=None, id=None, location=None, name=None, pool_type=None, provisioning_state=None, reclaim_policy=None, resources=None, status=None, system_data=None, tags=None, type=None, zones=None):
+    def __init__(__self__, assignments=None, azure_api_version=None, id=None, location=None, name=None, pool_type=None, provisioning_state=None, reclaim_policy=None, resources=None, status=None, system_data=None, tags=None, type=None, zones=None):
         if assignments and not isinstance(assignments, list):
             raise TypeError("Expected argument 'assignments' to be a list")
         pulumi.set(__self__, "assignments", assignments)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -75,6 +78,14 @@ class GetPoolResult:
         List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
         """
         return pulumi.get(self, "assignments")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -180,6 +191,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             assignments=self.assignments,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -213,6 +225,7 @@ def get_pool(pool_name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         assignments=pulumi.get(__ret__, 'assignments'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -243,6 +256,7 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerstorage:getPool', __args__, opts=opts, typ=GetPoolResult)
     return __ret__.apply(lambda __response__: GetPoolResult(
         assignments=pulumi.get(__response__, 'assignments'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

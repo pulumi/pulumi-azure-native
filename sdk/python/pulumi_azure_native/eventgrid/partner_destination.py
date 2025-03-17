@@ -205,9 +205,7 @@ class PartnerDestination(pulumi.CustomResource):
                  __props__=None):
         """
         Event Grid Partner Destination.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
-
-        Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -231,9 +229,7 @@ class PartnerDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Grid Partner Destination.
-        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
-
-        Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+        Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -281,6 +277,7 @@ class PartnerDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -310,6 +307,7 @@ class PartnerDestination(pulumi.CustomResource):
         __props__ = PartnerDestinationArgs.__new__(PartnerDestinationArgs)
 
         __props__.__dict__["activation_state"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["endpoint_base_url"] = None
         __props__.__dict__["endpoint_service_context"] = None
         __props__.__dict__["expiration_time_if_not_activated_utc"] = None
@@ -330,6 +328,14 @@ class PartnerDestination(pulumi.CustomResource):
         Activation state of the partner destination.
         """
         return pulumi.get(self, "activation_state")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="endpointBaseUrl")
@@ -400,7 +406,7 @@ class PartnerDestination(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to Partner Destination resource.
+        The system metadata relating to the Event Grid resource.
         """
         return pulumi.get(self, "system_data")
 

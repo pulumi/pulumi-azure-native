@@ -219,9 +219,7 @@ class GroundStation(pulumi.CustomResource):
                  __props__=None):
         """
         Ground Station contains one or more antennas.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,9 +243,7 @@ class GroundStation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Ground Station contains one or more antennas.
-        Azure REST API version: 2024-03-01-preview.
-
-        Other available API versions: 2024-03-01.
+        Azure REST API version: 2024-03-01-preview. Prior API version in Azure Native 2.x: 2024-03-01-preview.
 
         :param str resource_name: The name of the resource.
         :param GroundStationArgs args: The arguments to use to populate this resource's properties.
@@ -301,6 +297,7 @@ class GroundStation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["release_mode"] = None
             __props__.__dict__["system_data"] = None
@@ -330,6 +327,7 @@ class GroundStation(pulumi.CustomResource):
         __props__ = GroundStationArgs.__new__(GroundStationArgs)
 
         __props__.__dict__["altitude_meters"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["capabilities"] = None
         __props__.__dict__["city"] = None
         __props__.__dict__["global_communications_site"] = None
@@ -351,6 +349,14 @@ class GroundStation(pulumi.CustomResource):
         Altitude of the ground station.
         """
         return pulumi.get(self, "altitude_meters")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

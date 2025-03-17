@@ -27,10 +27,13 @@ class GetCopilotSettingResult:
     """
     The copilot settings tenant resource definition.
     """
-    def __init__(__self__, access_control_enabled=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, access_control_enabled=None, azure_api_version=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if access_control_enabled and not isinstance(access_control_enabled, bool):
             raise TypeError("Expected argument 'access_control_enabled' to be a bool")
         pulumi.set(__self__, "access_control_enabled", access_control_enabled)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -54,6 +57,14 @@ class GetCopilotSettingResult:
         Boolean indicating if role-based access control is enabled for copilot in this tenant.
         """
         return pulumi.get(self, "access_control_enabled")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -103,6 +114,7 @@ class AwaitableGetCopilotSettingResult(GetCopilotSettingResult):
             yield self
         return GetCopilotSettingResult(
             access_control_enabled=self.access_control_enabled,
+            azure_api_version=self.azure_api_version,
             id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -113,7 +125,7 @@ class AwaitableGetCopilotSettingResult(GetCopilotSettingResult):
 def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCopilotSettingResult:
     """
     Get a CopilotSettingsResource
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-04-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -121,6 +133,7 @@ def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 
     return AwaitableGetCopilotSettingResult(
         access_control_enabled=pulumi.get(__ret__, 'access_control_enabled'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
@@ -129,13 +142,14 @@ def get_copilot_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
 def get_copilot_setting_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCopilotSettingResult]:
     """
     Get a CopilotSettingsResource
-    Azure REST API version: 2024-04-01-preview.
+    Azure REST API version: 2024-04-01.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:portalservices:getCopilotSetting', __args__, opts=opts, typ=GetCopilotSettingResult)
     return __ret__.apply(lambda __response__: GetCopilotSettingResult(
         access_control_enabled=pulumi.get(__response__, 'access_control_enabled'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),

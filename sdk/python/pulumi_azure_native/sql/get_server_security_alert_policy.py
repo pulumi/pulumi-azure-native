@@ -27,7 +27,10 @@ class GetServerSecurityAlertPolicyResult:
     """
     A server security alert policy.
     """
-    def __init__(__self__, creation_time=None, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, name=None, retention_days=None, state=None, storage_account_access_key=None, storage_endpoint=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, creation_time=None, disabled_alerts=None, email_account_admins=None, email_addresses=None, id=None, name=None, retention_days=None, state=None, storage_account_access_key=None, storage_endpoint=None, system_data=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -64,6 +67,14 @@ class GetServerSecurityAlertPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -168,6 +179,7 @@ class AwaitableGetServerSecurityAlertPolicyResult(GetServerSecurityAlertPolicyRe
         if False:
             yield self
         return GetServerSecurityAlertPolicyResult(
+            azure_api_version=self.azure_api_version,
             creation_time=self.creation_time,
             disabled_alerts=self.disabled_alerts,
             email_account_admins=self.email_account_admins,
@@ -190,8 +202,6 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
     Get a server's security alert policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str security_alert_policy_name: The name of the security alert policy.
@@ -205,6 +215,7 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerSecurityAlertPolicy', __args__, opts=opts, typ=GetServerSecurityAlertPolicyResult).value
 
     return AwaitableGetServerSecurityAlertPolicyResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         disabled_alerts=pulumi.get(__ret__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__ret__, 'email_account_admins'),
@@ -225,8 +236,6 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
     Get a server's security alert policy.
     Azure REST API version: 2021-11-01.
 
-    Other available API versions: 2017-03-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
-
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str security_alert_policy_name: The name of the security alert policy.
@@ -239,6 +248,7 @@ def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:sql:getServerSecurityAlertPolicy', __args__, opts=opts, typ=GetServerSecurityAlertPolicyResult)
     return __ret__.apply(lambda __response__: GetServerSecurityAlertPolicyResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         disabled_alerts=pulumi.get(__response__, 'disabled_alerts'),
         email_account_admins=pulumi.get(__response__, 'email_account_admins'),

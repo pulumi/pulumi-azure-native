@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['NetworkRackArgs', 'NetworkRack']
 
@@ -21,24 +22,23 @@ __all__ = ['NetworkRackArgs', 'NetworkRack']
 class NetworkRackArgs:
     def __init__(__self__, *,
                  network_fabric_id: pulumi.Input[str],
-                 network_rack_sku: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  annotation: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_rack_name: Optional[pulumi.Input[str]] = None,
+                 network_rack_type: Optional[pulumi.Input[Union[str, 'NetworkRackType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkRack resource.
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
-        :param pulumi.Input[str] network_rack_sku: Network Rack SKU name.
+        :param pulumi.Input[str] network_fabric_id: ARM resource ID of the Network Fabric.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] network_rack_name: Name of the Network Rack
+        :param pulumi.Input[str] network_rack_name: Name of the Network Rack.
+        :param pulumi.Input[Union[str, 'NetworkRackType']] network_rack_type: Network Rack SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "network_rack_sku", network_rack_sku)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
@@ -46,6 +46,8 @@ class NetworkRackArgs:
             pulumi.set(__self__, "location", location)
         if network_rack_name is not None:
             pulumi.set(__self__, "network_rack_name", network_rack_name)
+        if network_rack_type is not None:
+            pulumi.set(__self__, "network_rack_type", network_rack_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -53,25 +55,13 @@ class NetworkRackArgs:
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Input[str]:
         """
-        Network Fabric ARM resource id.
+        ARM resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
     @network_fabric_id.setter
     def network_fabric_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_fabric_id", value)
-
-    @property
-    @pulumi.getter(name="networkRackSku")
-    def network_rack_sku(self) -> pulumi.Input[str]:
-        """
-        Network Rack SKU name.
-        """
-        return pulumi.get(self, "network_rack_sku")
-
-    @network_rack_sku.setter
-    def network_rack_sku(self, value: pulumi.Input[str]):
-        pulumi.set(self, "network_rack_sku", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -113,13 +103,25 @@ class NetworkRackArgs:
     @pulumi.getter(name="networkRackName")
     def network_rack_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Network Rack
+        Name of the Network Rack.
         """
         return pulumi.get(self, "network_rack_name")
 
     @network_rack_name.setter
     def network_rack_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_rack_name", value)
+
+    @property
+    @pulumi.getter(name="networkRackType")
+    def network_rack_type(self) -> Optional[pulumi.Input[Union[str, 'NetworkRackType']]]:
+        """
+        Network Rack SKU name.
+        """
+        return pulumi.get(self, "network_rack_type")
+
+    @network_rack_type.setter
+    def network_rack_type(self, value: Optional[pulumi.Input[Union[str, 'NetworkRackType']]]):
+        pulumi.set(self, "network_rack_type", value)
 
     @property
     @pulumi.getter
@@ -143,23 +145,21 @@ class NetworkRack(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  network_rack_name: Optional[pulumi.Input[str]] = None,
-                 network_rack_sku: Optional[pulumi.Input[str]] = None,
+                 network_rack_type: Optional[pulumi.Input[Union[str, 'NetworkRackType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        The NetworkRack resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The Network Rack resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] network_fabric_id: Network Fabric ARM resource id.
-        :param pulumi.Input[str] network_rack_name: Name of the Network Rack
-        :param pulumi.Input[str] network_rack_sku: Network Rack SKU name.
+        :param pulumi.Input[str] network_fabric_id: ARM resource ID of the Network Fabric.
+        :param pulumi.Input[str] network_rack_name: Name of the Network Rack.
+        :param pulumi.Input[Union[str, 'NetworkRackType']] network_rack_type: Network Rack SKU name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -170,10 +170,8 @@ class NetworkRack(pulumi.CustomResource):
                  args: NetworkRackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The NetworkRack resource definition.
-        Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-
-        Other available API versions: 2023-06-15.
+        The Network Rack resource definition.
+        Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
 
         :param str resource_name: The name of the resource.
         :param NetworkRackArgs args: The arguments to use to populate this resource's properties.
@@ -194,7 +192,7 @@ class NetworkRack(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  network_fabric_id: Optional[pulumi.Input[str]] = None,
                  network_rack_name: Optional[pulumi.Input[str]] = None,
-                 network_rack_sku: Optional[pulumi.Input[str]] = None,
+                 network_rack_type: Optional[pulumi.Input[Union[str, 'NetworkRackType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -212,13 +210,12 @@ class NetworkRack(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_fabric_id'")
             __props__.__dict__["network_fabric_id"] = network_fabric_id
             __props__.__dict__["network_rack_name"] = network_rack_name
-            if network_rack_sku is None and not opts.urn:
-                raise TypeError("Missing required property 'network_rack_sku'")
-            __props__.__dict__["network_rack_sku"] = network_rack_sku
+            __props__.__dict__["network_rack_type"] = network_rack_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["network_devices"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -249,11 +246,12 @@ class NetworkRack(pulumi.CustomResource):
         __props__ = NetworkRackArgs.__new__(NetworkRackArgs)
 
         __props__.__dict__["annotation"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_devices"] = None
         __props__.__dict__["network_fabric_id"] = None
-        __props__.__dict__["network_rack_sku"] = None
+        __props__.__dict__["network_rack_type"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -267,6 +265,14 @@ class NetworkRack(pulumi.CustomResource):
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -288,7 +294,7 @@ class NetworkRack(pulumi.CustomResource):
     @pulumi.getter(name="networkDevices")
     def network_devices(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of network device ARM resource ids.
+        List of network device ARM resource IDs.
         """
         return pulumi.get(self, "network_devices")
 
@@ -296,23 +302,23 @@ class NetworkRack(pulumi.CustomResource):
     @pulumi.getter(name="networkFabricId")
     def network_fabric_id(self) -> pulumi.Output[str]:
         """
-        Network Fabric ARM resource id.
+        ARM resource ID of the Network Fabric.
         """
         return pulumi.get(self, "network_fabric_id")
 
     @property
-    @pulumi.getter(name="networkRackSku")
-    def network_rack_sku(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="networkRackType")
+    def network_rack_type(self) -> pulumi.Output[Optional[str]]:
         """
         Network Rack SKU name.
         """
-        return pulumi.get(self, "network_rack_sku")
+        return pulumi.get(self, "network_rack_type")
 
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Gets the provisioning state of the resource.
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

@@ -27,7 +27,10 @@ class GetHybridRunbookWorkerResult:
     """
     Definition of hybrid runbook worker.
     """
-    def __init__(__self__, id=None, ip=None, last_seen_date_time=None, name=None, registered_date_time=None, system_data=None, type=None, vm_resource_id=None, worker_name=None, worker_type=None):
+    def __init__(__self__, azure_api_version=None, id=None, ip=None, last_seen_date_time=None, name=None, registered_date_time=None, system_data=None, type=None, vm_resource_id=None, worker_name=None, worker_type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -58,6 +61,14 @@ class GetHybridRunbookWorkerResult:
         if worker_type and not isinstance(worker_type, str):
             raise TypeError("Expected argument 'worker_type' to be a str")
         pulumi.set(__self__, "worker_type", worker_type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetHybridRunbookWorkerResult(GetHybridRunbookWorkerResult):
         if False:
             yield self
         return GetHybridRunbookWorkerResult(
+            azure_api_version=self.azure_api_version,
             id=self.id,
             ip=self.ip,
             last_seen_date_time=self.last_seen_date_time,
@@ -165,9 +177,7 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridRunbookWorkerResult:
     """
     Retrieve a hybrid runbook worker.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -184,6 +194,7 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getHybridRunbookWorker', __args__, opts=opts, typ=GetHybridRunbookWorkerResult).value
 
     return AwaitableGetHybridRunbookWorkerResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         id=pulumi.get(__ret__, 'id'),
         ip=pulumi.get(__ret__, 'ip'),
         last_seen_date_time=pulumi.get(__ret__, 'last_seen_date_time'),
@@ -201,9 +212,7 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
     """
     Retrieve a hybrid runbook worker.
-    Azure REST API version: 2022-08-08.
-
-    Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+    Azure REST API version: 2023-11-01.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -219,6 +228,7 @@ def get_hybrid_runbook_worker_output(automation_account_name: Optional[pulumi.In
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:automation:getHybridRunbookWorker', __args__, opts=opts, typ=GetHybridRunbookWorkerResult)
     return __ret__.apply(lambda __response__: GetHybridRunbookWorkerResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         id=pulumi.get(__response__, 'id'),
         ip=pulumi.get(__response__, 'ip'),
         last_seen_date_time=pulumi.get(__response__, 'last_seen_date_time'),

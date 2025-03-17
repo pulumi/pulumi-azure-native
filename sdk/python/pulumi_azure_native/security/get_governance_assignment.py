@@ -27,10 +27,13 @@ class GetGovernanceAssignmentResult:
     """
     Governance assignment over a given scope
     """
-    def __init__(__self__, additional_data=None, governance_email_notification=None, id=None, is_grace_period=None, name=None, owner=None, remediation_due_date=None, remediation_eta=None, type=None):
+    def __init__(__self__, additional_data=None, azure_api_version=None, governance_email_notification=None, id=None, is_grace_period=None, name=None, owner=None, remediation_due_date=None, remediation_eta=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if governance_email_notification and not isinstance(governance_email_notification, dict):
             raise TypeError("Expected argument 'governance_email_notification' to be a dict")
         pulumi.set(__self__, "governance_email_notification", governance_email_notification)
@@ -63,6 +66,14 @@ class GetGovernanceAssignmentResult:
         The additional data for the governance assignment - e.g. links to ticket (optional), see example
         """
         return pulumi.get(self, "additional_data")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="governanceEmailNotification")
@@ -136,6 +147,7 @@ class AwaitableGetGovernanceAssignmentResult(GetGovernanceAssignmentResult):
             yield self
         return GetGovernanceAssignmentResult(
             additional_data=self.additional_data,
+            azure_api_version=self.azure_api_version,
             governance_email_notification=self.governance_email_notification,
             id=self.id,
             is_grace_period=self.is_grace_period,
@@ -168,6 +180,7 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
 
     return AwaitableGetGovernanceAssignmentResult(
         additional_data=pulumi.get(__ret__, 'additional_data'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         governance_email_notification=pulumi.get(__ret__, 'governance_email_notification'),
         id=pulumi.get(__ret__, 'id'),
         is_grace_period=pulumi.get(__ret__, 'is_grace_period'),
@@ -197,6 +210,7 @@ def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[str]
     __ret__ = pulumi.runtime.invoke_output('azure-native:security:getGovernanceAssignment', __args__, opts=opts, typ=GetGovernanceAssignmentResult)
     return __ret__.apply(lambda __response__: GetGovernanceAssignmentResult(
         additional_data=pulumi.get(__response__, 'additional_data'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         governance_email_notification=pulumi.get(__response__, 'governance_email_notification'),
         id=pulumi.get(__response__, 'id'),
         is_grace_period=pulumi.get(__response__, 'is_grace_period'),

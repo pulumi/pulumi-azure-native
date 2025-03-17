@@ -117,15 +117,13 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointCredentialsResult:
     """
     Gets the endpoint access credentials to the resource.
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
@@ -149,15 +147,13 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     Gets the endpoint access credentials to the resource.
-    Azure REST API version: 2023-03-15.
-
-    Other available API versions: 2022-05-01-preview, 2024-12-01.
+    Azure REST API version: 2024-12-01.
 
 
     :param str endpoint_name: The endpoint name.
     :param int expiresin: The is how long the endpoint access token is valid (in seconds).
-    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
-    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token 
+    :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+    :param Union[str, 'ServiceName'] service_name: The name of the service. If not provided, the request will by pass the generation of service configuration token
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name

@@ -32,7 +32,7 @@ class ManagedPrivateEndpointArgs:
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] group_id: The groupId in which the managed private endpoint is created.
         :param pulumi.Input[str] private_link_resource_id: The ARM resource ID of the resource for which the managed private endpoint is created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] managed_private_endpoint_name: The name of the managed private endpoint.
         :param pulumi.Input[str] private_link_resource_region: The region of the resource to which the managed private endpoint is created.
         :param pulumi.Input[str] request_message: The user request message.
@@ -88,7 +88,7 @@ class ManagedPrivateEndpointArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Kusto cluster.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -148,9 +148,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a managed private endpoint.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +158,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] private_link_resource_id: The ARM resource ID of the resource for which the managed private endpoint is created.
         :param pulumi.Input[str] private_link_resource_region: The region of the resource to which the managed private endpoint is created.
         :param pulumi.Input[str] request_message: The user request message.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -170,9 +168,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a managed private endpoint.
-        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-08-27.
-
-        Other available API versions: 2023-05-02, 2023-08-15, 2024-04-13.
+        Azure REST API version: 2024-04-13. Prior API version in Azure Native 2.x: 2022-12-29.
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -220,6 +216,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
@@ -248,6 +245,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         __props__ = ManagedPrivateEndpointArgs.__new__(ManagedPrivateEndpointArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["group_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_link_resource_id"] = None
@@ -257,6 +255,14 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="groupId")

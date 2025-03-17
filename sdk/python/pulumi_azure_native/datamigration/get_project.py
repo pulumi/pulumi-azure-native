@@ -27,13 +27,22 @@ class GetProjectResult:
     """
     A project resource
     """
-    def __init__(__self__, creation_time=None, databases_info=None, id=None, location=None, name=None, provisioning_state=None, source_connection_info=None, source_platform=None, system_data=None, tags=None, target_connection_info=None, target_platform=None, type=None):
+    def __init__(__self__, azure_api_version=None, azure_authentication_info=None, creation_time=None, databases_info=None, etag=None, id=None, location=None, name=None, provisioning_state=None, source_connection_info=None, source_platform=None, system_data=None, tags=None, target_connection_info=None, target_platform=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if azure_authentication_info and not isinstance(azure_authentication_info, dict):
+            raise TypeError("Expected argument 'azure_authentication_info' to be a dict")
+        pulumi.set(__self__, "azure_authentication_info", azure_authentication_info)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if databases_info and not isinstance(databases_info, list):
             raise TypeError("Expected argument 'databases_info' to be a list")
         pulumi.set(__self__, "databases_info", databases_info)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -69,6 +78,22 @@ class GetProjectResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="azureAuthenticationInfo")
+    def azure_authentication_info(self) -> Optional['outputs.AzureActiveDirectoryAppResponse']:
+        """
+        Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        """
+        return pulumi.get(self, "azure_authentication_info")
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> str:
         """
@@ -86,26 +111,25 @@ class GetProjectResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> Optional[str]:
+        """
+        HTTP strong entity tag value. This is ignored if submitted.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
-        """
-        Resource ID.
-        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def location(self) -> str:
-        """
-        Resource location.
-        """
+    def location(self) -> Optional[str]:
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
     def name(self) -> str:
-        """
-        Resource name.
-        """
         return pulumi.get(self, "name")
 
     @property
@@ -135,17 +159,11 @@ class GetProjectResult:
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
         return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Resource tags.
-        """
         return pulumi.get(self, "tags")
 
     @property
@@ -167,9 +185,6 @@ class GetProjectResult:
     @property
     @pulumi.getter
     def type(self) -> str:
-        """
-        Resource type.
-        """
         return pulumi.get(self, "type")
 
 
@@ -179,8 +194,11 @@ class AwaitableGetProjectResult(GetProjectResult):
         if False:
             yield self
         return GetProjectResult(
+            azure_api_version=self.azure_api_version,
+            azure_authentication_info=self.azure_authentication_info,
             creation_time=self.creation_time,
             databases_info=self.databases_info,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -200,9 +218,7 @@ def get_project(group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str group_name: Name of the resource group
@@ -217,8 +233,11 @@ def get_project(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        azure_authentication_info=pulumi.get(__ret__, 'azure_authentication_info'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         databases_info=pulumi.get(__ret__, 'databases_info'),
+        etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
@@ -236,9 +255,7 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    Azure REST API version: 2021-06-30.
-
-    Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+    Azure REST API version: 2023-07-15-preview.
 
 
     :param str group_name: Name of the resource group
@@ -252,8 +269,11 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:datamigration:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        azure_authentication_info=pulumi.get(__response__, 'azure_authentication_info'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         databases_info=pulumi.get(__response__, 'databases_info'),
+        etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),

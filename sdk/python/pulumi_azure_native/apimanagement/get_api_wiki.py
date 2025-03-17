@@ -27,7 +27,10 @@ class GetApiWikiResult:
     """
     Wiki properties
     """
-    def __init__(__self__, documents=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_api_version=None, documents=None, id=None, name=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if documents and not isinstance(documents, list):
             raise TypeError("Expected argument 'documents' to be a list")
         pulumi.set(__self__, "documents", documents)
@@ -40,6 +43,14 @@ class GetApiWikiResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -80,6 +91,7 @@ class AwaitableGetApiWikiResult(GetApiWikiResult):
         if False:
             yield self
         return GetApiWikiResult(
+            azure_api_version=self.azure_api_version,
             documents=self.documents,
             id=self.id,
             name=self.name,
@@ -92,9 +104,7 @@ def get_api_wiki(api_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiWikiResult:
     """
     Gets the details of the Wiki for an API specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -109,6 +119,7 @@ def get_api_wiki(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiWiki', __args__, opts=opts, typ=GetApiWikiResult).value
 
     return AwaitableGetApiWikiResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         documents=pulumi.get(__ret__, 'documents'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
@@ -119,9 +130,7 @@ def get_api_wiki_output(api_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiWikiResult]:
     """
     Gets the details of the Wiki for an API specified by its identifier.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str api_id: API identifier. Must be unique in the current API Management service instance.
@@ -135,6 +144,7 @@ def get_api_wiki_output(api_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:apimanagement:getApiWiki', __args__, opts=opts, typ=GetApiWikiResult)
     return __ret__.apply(lambda __response__: GetApiWikiResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         documents=pulumi.get(__response__, 'documents'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),

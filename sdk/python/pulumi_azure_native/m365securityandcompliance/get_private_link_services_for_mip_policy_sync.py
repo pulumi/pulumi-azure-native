@@ -27,7 +27,10 @@ class GetPrivateLinkServicesForMIPPolicySyncResult:
     """
     The description of the service.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -58,6 +61,14 @@ class GetPrivateLinkServicesForMIPPolicySyncResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -146,6 +157,7 @@ class AwaitableGetPrivateLinkServicesForMIPPolicySyncResult(GetPrivateLinkServic
         if False:
             yield self
         return GetPrivateLinkServicesForMIPPolicySyncResult(
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -176,6 +188,7 @@ def get_private_link_services_for_mip_policy_sync(resource_group_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync', __args__, opts=opts, typ=GetPrivateLinkServicesForMIPPolicySyncResult).value
 
     return AwaitableGetPrivateLinkServicesForMIPPolicySyncResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -203,6 +216,7 @@ def get_private_link_services_for_mip_policy_sync_output(resource_group_name: Op
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:m365securityandcompliance:getPrivateLinkServicesForMIPPolicySync', __args__, opts=opts, typ=GetPrivateLinkServicesForMIPPolicySyncResult)
     return __ret__.apply(lambda __response__: GetPrivateLinkServicesForMIPPolicySyncResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),

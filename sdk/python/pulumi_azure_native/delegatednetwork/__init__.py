@@ -14,17 +14,3 @@ from .get_orchestrator_instance_service_details import *
 from .orchestrator_instance_service_details import *
 from ._inputs import *
 from . import outputs
-
-# Make subpackages available:
-if typing.TYPE_CHECKING:
-    import pulumi_azure_native.delegatednetwork.v20210315 as __v20210315
-    v20210315 = __v20210315
-    import pulumi_azure_native.delegatednetwork.v20230518preview as __v20230518preview
-    v20230518preview = __v20230518preview
-    import pulumi_azure_native.delegatednetwork.v20230627preview as __v20230627preview
-    v20230627preview = __v20230627preview
-else:
-    v20210315 = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20210315')
-    v20230518preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20230518preview')
-    v20230627preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20230627preview')
-

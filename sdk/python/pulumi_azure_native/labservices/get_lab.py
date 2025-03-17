@@ -27,10 +27,13 @@ class GetLabResult:
     """
     The lab resource.
     """
-    def __init__(__self__, auto_shutdown_profile=None, connection_profile=None, description=None, id=None, lab_plan_id=None, location=None, name=None, network_profile=None, provisioning_state=None, roster_profile=None, security_profile=None, state=None, system_data=None, tags=None, title=None, type=None, virtual_machine_profile=None):
+    def __init__(__self__, auto_shutdown_profile=None, azure_api_version=None, connection_profile=None, description=None, id=None, lab_plan_id=None, location=None, name=None, network_profile=None, provisioning_state=None, resource_operation_error=None, roster_profile=None, security_profile=None, state=None, system_data=None, tags=None, title=None, type=None, virtual_machine_profile=None):
         if auto_shutdown_profile and not isinstance(auto_shutdown_profile, dict):
             raise TypeError("Expected argument 'auto_shutdown_profile' to be a dict")
         pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if connection_profile and not isinstance(connection_profile, dict):
             raise TypeError("Expected argument 'connection_profile' to be a dict")
         pulumi.set(__self__, "connection_profile", connection_profile)
@@ -55,6 +58,9 @@ class GetLabResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_operation_error and not isinstance(resource_operation_error, dict):
+            raise TypeError("Expected argument 'resource_operation_error' to be a dict")
+        pulumi.set(__self__, "resource_operation_error", resource_operation_error)
         if roster_profile and not isinstance(roster_profile, dict):
             raise TypeError("Expected argument 'roster_profile' to be a dict")
         pulumi.set(__self__, "roster_profile", roster_profile)
@@ -87,6 +93,14 @@ class GetLabResult:
         The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         """
         return pulumi.get(self, "auto_shutdown_profile")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="connectionProfile")
@@ -151,6 +165,14 @@ class GetLabResult:
         Current provisioning state of the lab.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceOperationError")
+    def resource_operation_error(self) -> 'outputs.ResourceOperationErrorResponse':
+        """
+        Error details of last operation done on lab.
+        """
+        return pulumi.get(self, "resource_operation_error")
 
     @property
     @pulumi.getter(name="rosterProfile")
@@ -224,6 +246,7 @@ class AwaitableGetLabResult(GetLabResult):
             yield self
         return GetLabResult(
             auto_shutdown_profile=self.auto_shutdown_profile,
+            azure_api_version=self.azure_api_version,
             connection_profile=self.connection_profile,
             description=self.description,
             id=self.id,
@@ -232,6 +255,7 @@ class AwaitableGetLabResult(GetLabResult):
             name=self.name,
             network_profile=self.network_profile,
             provisioning_state=self.provisioning_state,
+            resource_operation_error=self.resource_operation_error,
             roster_profile=self.roster_profile,
             security_profile=self.security_profile,
             state=self.state,
@@ -247,9 +271,7 @@ def get_lab(lab_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
     """
     Returns the properties of a lab resource.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2018-10-15, 2023-06-07.
+    Azure REST API version: 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -263,6 +285,7 @@ def get_lab(lab_name: Optional[str] = None,
 
     return AwaitableGetLabResult(
         auto_shutdown_profile=pulumi.get(__ret__, 'auto_shutdown_profile'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         connection_profile=pulumi.get(__ret__, 'connection_profile'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
@@ -271,6 +294,7 @@ def get_lab(lab_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         network_profile=pulumi.get(__ret__, 'network_profile'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
         roster_profile=pulumi.get(__ret__, 'roster_profile'),
         security_profile=pulumi.get(__ret__, 'security_profile'),
         state=pulumi.get(__ret__, 'state'),
@@ -284,9 +308,7 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """
     Returns the properties of a lab resource.
-    Azure REST API version: 2022-08-01.
-
-    Other available API versions: 2018-10-15, 2023-06-07.
+    Azure REST API version: 2023-06-07.
 
 
     :param str lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -299,6 +321,7 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:labservices:getLab', __args__, opts=opts, typ=GetLabResult)
     return __ret__.apply(lambda __response__: GetLabResult(
         auto_shutdown_profile=pulumi.get(__response__, 'auto_shutdown_profile'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         connection_profile=pulumi.get(__response__, 'connection_profile'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
@@ -307,6 +330,7 @@ def get_lab_output(lab_name: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         network_profile=pulumi.get(__response__, 'network_profile'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        resource_operation_error=pulumi.get(__response__, 'resource_operation_error'),
         roster_profile=pulumi.get(__response__, 'roster_profile'),
         security_profile=pulumi.get(__response__, 'security_profile'),
         state=pulumi.get(__response__, 'state'),

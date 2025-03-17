@@ -45,7 +45,7 @@ MYPY = False
 if not MYPY:
     class DatadogOrganizationPropertiesArgsDict(TypedDict):
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         """
         api_key: NotRequired[pulumi.Input[str]]
         """
@@ -54,6 +54,10 @@ if not MYPY:
         application_key: NotRequired[pulumi.Input[str]]
         """
         Application key associated to the Datadog organization.
+        """
+        cspm: NotRequired[pulumi.Input[bool]]
+        """
+        The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
         """
         enterprise_app_id: NotRequired[pulumi.Input[str]]
         """
@@ -65,7 +69,7 @@ if not MYPY:
         """
         linking_auth_code: NotRequired[pulumi.Input[str]]
         """
-        The auth code used to linking to an existing datadog organization.
+        The auth code used to linking to an existing Datadog organization.
         """
         linking_client_id: NotRequired[pulumi.Input[str]]
         """
@@ -77,7 +81,7 @@ if not MYPY:
         """
         redirect_uri: NotRequired[pulumi.Input[str]]
         """
-        The redirect uri for linking.
+        The redirect URI for linking.
         """
 elif False:
     DatadogOrganizationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -87,6 +91,7 @@ class DatadogOrganizationPropertiesArgs:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_key: Optional[pulumi.Input[str]] = None,
+                 cspm: Optional[pulumi.Input[bool]] = None,
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  linking_auth_code: Optional[pulumi.Input[str]] = None,
@@ -94,20 +99,23 @@ class DatadogOrganizationPropertiesArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_uri: Optional[pulumi.Input[str]] = None):
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         :param pulumi.Input[str] api_key: Api key associated to the Datadog organization.
         :param pulumi.Input[str] application_key: Application key associated to the Datadog organization.
+        :param pulumi.Input[bool] cspm: The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
         :param pulumi.Input[str] id: Id of the Datadog organization.
-        :param pulumi.Input[str] linking_auth_code: The auth code used to linking to an existing datadog organization.
+        :param pulumi.Input[str] linking_auth_code: The auth code used to linking to an existing Datadog organization.
         :param pulumi.Input[str] linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
         :param pulumi.Input[str] name: Name of the Datadog organization.
-        :param pulumi.Input[str] redirect_uri: The redirect uri for linking.
+        :param pulumi.Input[str] redirect_uri: The redirect URI for linking.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
         if application_key is not None:
             pulumi.set(__self__, "application_key", application_key)
+        if cspm is not None:
+            pulumi.set(__self__, "cspm", cspm)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
         if id is not None:
@@ -146,6 +154,18 @@ class DatadogOrganizationPropertiesArgs:
         pulumi.set(self, "application_key", value)
 
     @property
+    @pulumi.getter
+    def cspm(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
+        """
+        return pulumi.get(self, "cspm")
+
+    @cspm.setter
+    def cspm(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cspm", value)
+
+    @property
     @pulumi.getter(name="enterpriseAppId")
     def enterprise_app_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -173,7 +193,7 @@ class DatadogOrganizationPropertiesArgs:
     @pulumi.getter(name="linkingAuthCode")
     def linking_auth_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The auth code used to linking to an existing datadog organization.
+        The auth code used to linking to an existing Datadog organization.
         """
         return pulumi.get(self, "linking_auth_code")
 
@@ -209,7 +229,7 @@ class DatadogOrganizationPropertiesArgs:
     @pulumi.getter(name="redirectUri")
     def redirect_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The redirect uri for linking.
+        The redirect URI for linking.
         """
         return pulumi.get(self, "redirect_uri")
 
@@ -298,7 +318,7 @@ if not MYPY:
     class IdentityPropertiesArgsDict(TypedDict):
         type: NotRequired[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]
         """
-        Identity type
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
 elif False:
     IdentityPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -308,7 +328,7 @@ class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None):
         """
-        :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Identity type
+        :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -317,7 +337,7 @@ class IdentityPropertiesArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]:
         """
-        Identity type
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
@@ -465,7 +485,7 @@ if not MYPY:
         """
         datadog_organization_properties: NotRequired[pulumi.Input['DatadogOrganizationPropertiesArgsDict']]
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         """
         monitoring_status: NotRequired[pulumi.Input[Union[str, 'MonitoringStatus']]]
         """
@@ -473,7 +493,7 @@ if not MYPY:
         """
         user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         """
 elif False:
     MonitorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -486,9 +506,9 @@ class MonitorPropertiesArgs:
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
-        :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Datadog organization properties
+        :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
-        :param pulumi.Input['UserInfoArgs'] user_info: User info
+        :param pulumi.Input['UserInfoArgs'] user_info: Includes name, email and optionally, phone number. User Information can't be null.
         """
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
@@ -501,7 +521,7 @@ class MonitorPropertiesArgs:
     @pulumi.getter(name="datadogOrganizationProperties")
     def datadog_organization_properties(self) -> Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]:
         """
-        Datadog organization properties
+        Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         """
         return pulumi.get(self, "datadog_organization_properties")
 
@@ -525,7 +545,7 @@ class MonitorPropertiesArgs:
     @pulumi.getter(name="userInfo")
     def user_info(self) -> Optional[pulumi.Input['UserInfoArgs']]:
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         """
         return pulumi.get(self, "user_info")
 
@@ -639,6 +659,10 @@ if not MYPY:
         """
         Configuration to enable/disable auto-muting flag
         """
+        custom_metrics: NotRequired[pulumi.Input[bool]]
+        """
+        Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
+        """
         log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
         """
         Set of rules for sending logs for the Monitor resource.
@@ -654,16 +678,20 @@ elif False:
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
                  automuting: Optional[pulumi.Input[bool]] = None,
+                 custom_metrics: Optional[pulumi.Input[bool]] = None,
                  log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
                  metric_rules: Optional[pulumi.Input['MetricRulesArgs']] = None):
         """
         Definition of the properties for a TagRules resource.
         :param pulumi.Input[bool] automuting: Configuration to enable/disable auto-muting flag
+        :param pulumi.Input[bool] custom_metrics: Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
         :param pulumi.Input['LogRulesArgs'] log_rules: Set of rules for sending logs for the Monitor resource.
         :param pulumi.Input['MetricRulesArgs'] metric_rules: Set of rules for sending metrics for the Monitor resource.
         """
         if automuting is not None:
             pulumi.set(__self__, "automuting", automuting)
+        if custom_metrics is not None:
+            pulumi.set(__self__, "custom_metrics", custom_metrics)
         if log_rules is not None:
             pulumi.set(__self__, "log_rules", log_rules)
         if metric_rules is not None:
@@ -680,6 +708,18 @@ class MonitoringTagRulesPropertiesArgs:
     @automuting.setter
     def automuting(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "automuting", value)
+
+    @property
+    @pulumi.getter(name="customMetrics")
+    def custom_metrics(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
+        """
+        return pulumi.get(self, "custom_metrics")
+
+    @custom_metrics.setter
+    def custom_metrics(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "custom_metrics", value)
 
     @property
     @pulumi.getter(name="logRules")
@@ -710,7 +750,7 @@ if not MYPY:
     class ResourceSkuArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Name of the SKU.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
 elif False:
     ResourceSkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -720,7 +760,7 @@ class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of the SKU.
+        :param pulumi.Input[str] name: Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         pulumi.set(__self__, "name", name)
 
@@ -728,7 +768,7 @@ class ResourceSkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the SKU.
+        Name of the SKU in {PlanId} format. For Terraform, the only allowed value is 'Linked'.
         """
         return pulumi.get(self, "name")
 
@@ -796,7 +836,7 @@ class SubscriptionListArgs:
 if not MYPY:
     class UserInfoArgsDict(TypedDict):
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         """
         email_address: NotRequired[pulumi.Input[str]]
         """
@@ -820,7 +860,7 @@ class UserInfoArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  phone_number: Optional[pulumi.Input[str]] = None):
         """
-        User info
+        Includes name, email and optionally, phone number. User Information can't be null.
         :param pulumi.Input[str] email_address: Email of the user used by Datadog for contacting them if needed
         :param pulumi.Input[str] name: Name of the user
         :param pulumi.Input[str] phone_number: Phone number of the user used by Datadog for contacting them if needed

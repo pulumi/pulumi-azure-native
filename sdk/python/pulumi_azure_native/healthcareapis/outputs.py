@@ -22,7 +22,8 @@ __all__ = [
     'AnalyticsConnectorFhirToParquetMappingResponse',
     'CorsConfigurationResponse',
     'DicomServiceAuthenticationConfigurationResponse',
-    'FhirServiceAccessPolicyEntryResponse',
+    'EncryptionResponse',
+    'EncryptionResponseCustomerManagedKeyEncryption',
     'FhirServiceAcrConfigurationResponse',
     'FhirServiceAuthenticationConfigurationResponse',
     'FhirServiceCorsConfigurationResponse',
@@ -46,6 +47,9 @@ __all__ = [
     'ServiceOciArtifactEntryResponse',
     'ServicesPropertiesResponse',
     'ServicesResourceResponseIdentity',
+    'SmartIdentityProviderApplicationResponse',
+    'SmartIdentityProviderConfigurationResponse',
+    'StorageConfigurationResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'WorkspaceResponseProperties',
@@ -352,42 +356,83 @@ class DicomServiceAuthenticationConfigurationResponse(dict):
 
 
 @pulumi.output_type
-class FhirServiceAccessPolicyEntryResponse(dict):
+class EncryptionResponse(dict):
     """
-    An access policy entry.
+    Settings to encrypt a service
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "objectId":
-            suggest = "object_id"
+        if key == "customerManagedKeyEncryption":
+            suggest = "customer_managed_key_encryption"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FhirServiceAccessPolicyEntryResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FhirServiceAccessPolicyEntryResponse.__key_warning(key)
+        EncryptionResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FhirServiceAccessPolicyEntryResponse.__key_warning(key)
+        EncryptionResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 object_id: str):
+                 customer_managed_key_encryption: Optional['outputs.EncryptionResponseCustomerManagedKeyEncryption'] = None):
         """
-        An access policy entry.
-        :param str object_id: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        Settings to encrypt a service
+        :param 'EncryptionResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: The encryption settings for the customer-managed key
         """
-        pulumi.set(__self__, "object_id", object_id)
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
 
     @property
-    @pulumi.getter(name="objectId")
-    def object_id(self) -> str:
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional['outputs.EncryptionResponseCustomerManagedKeyEncryption']:
         """
-        An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+        The encryption settings for the customer-managed key
         """
-        return pulumi.get(self, "object_id")
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+
+@pulumi.output_type
+class EncryptionResponseCustomerManagedKeyEncryption(dict):
+    """
+    The encryption settings for the customer-managed key
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyEncryptionKeyUrl":
+            suggest = "key_encryption_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponseCustomerManagedKeyEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_encryption_key_url: Optional[str] = None):
+        """
+        The encryption settings for the customer-managed key
+        :param str key_encryption_key_url: The URL of the key to use for encryption
+        """
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[str]:
+        """
+        The URL of the key to use for encryption
+        """
+        return pulumi.get(self, "key_encryption_key_url")
 
 
 @pulumi.output_type
@@ -452,7 +497,9 @@ class FhirServiceAuthenticationConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "smartProxyEnabled":
+        if key == "smartIdentityProviders":
+            suggest = "smart_identity_providers"
+        elif key == "smartProxyEnabled":
             suggest = "smart_proxy_enabled"
 
         if suggest:
@@ -469,17 +516,21 @@ class FhirServiceAuthenticationConfigurationResponse(dict):
     def __init__(__self__, *,
                  audience: Optional[str] = None,
                  authority: Optional[str] = None,
+                 smart_identity_providers: Optional[Sequence['outputs.SmartIdentityProviderConfigurationResponse']] = None,
                  smart_proxy_enabled: Optional[bool] = None):
         """
         Authentication configuration information
         :param str audience: The audience url for the service
         :param str authority: The authority url for the service
+        :param Sequence['SmartIdentityProviderConfigurationResponse'] smart_identity_providers: The array of identity provider configurations for SMART on FHIR authentication.
         :param bool smart_proxy_enabled: If the SMART on FHIR proxy is enabled
         """
         if audience is not None:
             pulumi.set(__self__, "audience", audience)
         if authority is not None:
             pulumi.set(__self__, "authority", authority)
+        if smart_identity_providers is not None:
+            pulumi.set(__self__, "smart_identity_providers", smart_identity_providers)
         if smart_proxy_enabled is not None:
             pulumi.set(__self__, "smart_proxy_enabled", smart_proxy_enabled)
 
@@ -498,6 +549,14 @@ class FhirServiceAuthenticationConfigurationResponse(dict):
         The authority url for the service
         """
         return pulumi.get(self, "authority")
+
+    @property
+    @pulumi.getter(name="smartIdentityProviders")
+    def smart_identity_providers(self) -> Optional[Sequence['outputs.SmartIdentityProviderConfigurationResponse']]:
+        """
+        The array of identity provider configurations for SMART on FHIR authentication.
+        """
+        return pulumi.get(self, "smart_identity_providers")
 
     @property
     @pulumi.getter(name="smartProxyEnabled")
@@ -1863,6 +1922,161 @@ class ServicesResourceResponseIdentity(dict):
         Type of identity being specified, currently SystemAssigned and None are allowed.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SmartIdentityProviderApplicationResponse(dict):
+    """
+    An Application configured in the Identity Provider used to access FHIR resources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedDataActions":
+            suggest = "allowed_data_actions"
+        elif key == "clientId":
+            suggest = "client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SmartIdentityProviderApplicationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SmartIdentityProviderApplicationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SmartIdentityProviderApplicationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_data_actions: Optional[Sequence[str]] = None,
+                 audience: Optional[str] = None,
+                 client_id: Optional[str] = None):
+        """
+        An Application configured in the Identity Provider used to access FHIR resources.
+        :param Sequence[str] allowed_data_actions: The actions that are permitted to be performed on FHIR resources for the application.
+        :param str audience: The audience that will be used to validate bearer tokens against the given authority.
+        :param str client_id: The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+        """
+        if allowed_data_actions is not None:
+            pulumi.set(__self__, "allowed_data_actions", allowed_data_actions)
+        if audience is not None:
+            pulumi.set(__self__, "audience", audience)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+
+    @property
+    @pulumi.getter(name="allowedDataActions")
+    def allowed_data_actions(self) -> Optional[Sequence[str]]:
+        """
+        The actions that are permitted to be performed on FHIR resources for the application.
+        """
+        return pulumi.get(self, "allowed_data_actions")
+
+    @property
+    @pulumi.getter
+    def audience(self) -> Optional[str]:
+        """
+        The audience that will be used to validate bearer tokens against the given authority.
+        """
+        return pulumi.get(self, "audience")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The application client id defined in the identity provider. This value will be used to validate bearer tokens against the given authority.
+        """
+        return pulumi.get(self, "client_id")
+
+
+@pulumi.output_type
+class SmartIdentityProviderConfigurationResponse(dict):
+    """
+    An object to configure an identity provider for use with SMART on FHIR authentication.
+    """
+    def __init__(__self__, *,
+                 applications: Optional[Sequence['outputs.SmartIdentityProviderApplicationResponse']] = None,
+                 authority: Optional[str] = None):
+        """
+        An object to configure an identity provider for use with SMART on FHIR authentication.
+        :param Sequence['SmartIdentityProviderApplicationResponse'] applications: The array of identity provider applications for SMART on FHIR authentication.
+        :param str authority: The identity provider token authority also known as the token issuing authority.
+        """
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
+        if authority is not None:
+            pulumi.set(__self__, "authority", authority)
+
+    @property
+    @pulumi.getter
+    def applications(self) -> Optional[Sequence['outputs.SmartIdentityProviderApplicationResponse']]:
+        """
+        The array of identity provider applications for SMART on FHIR authentication.
+        """
+        return pulumi.get(self, "applications")
+
+    @property
+    @pulumi.getter
+    def authority(self) -> Optional[str]:
+        """
+        The identity provider token authority also known as the token issuing authority.
+        """
+        return pulumi.get(self, "authority")
+
+
+@pulumi.output_type
+class StorageConfigurationResponse(dict):
+    """
+    The configuration of connected storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileSystemName":
+            suggest = "file_system_name"
+        elif key == "storageResourceId":
+            suggest = "storage_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_system_name: Optional[str] = None,
+                 storage_resource_id: Optional[str] = None):
+        """
+        The configuration of connected storage
+        :param str file_system_name: The filesystem name of connected storage account.
+        :param str storage_resource_id: The resource id of connected storage account.
+        """
+        if file_system_name is not None:
+            pulumi.set(__self__, "file_system_name", file_system_name)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
+
+    @property
+    @pulumi.getter(name="fileSystemName")
+    def file_system_name(self) -> Optional[str]:
+        """
+        The filesystem name of connected storage account.
+        """
+        return pulumi.get(self, "file_system_name")
+
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[str]:
+        """
+        The resource id of connected storage account.
+        """
+        return pulumi.get(self, "storage_resource_id")
 
 
 @pulumi.output_type

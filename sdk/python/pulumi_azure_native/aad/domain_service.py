@@ -291,7 +291,7 @@ class DomainService(pulumi.CustomResource):
                  __props__=None):
         """
         Domain service.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -319,7 +319,7 @@ class DomainService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain service.
-        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 2.x: 2022-12-01.
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.
@@ -379,6 +379,7 @@ class DomainService(pulumi.CustomResource):
                 sync_scope = 'All'
             __props__.__dict__["sync_scope"] = sync_scope
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_id"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["migration_properties"] = None
@@ -414,6 +415,7 @@ class DomainService(pulumi.CustomResource):
 
         __props__ = DomainServiceArgs.__new__(DomainServiceArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["config_diagnostics"] = None
         __props__.__dict__["deployment_id"] = None
         __props__.__dict__["domain_configuration_type"] = None
@@ -439,6 +441,14 @@ class DomainService(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return DomainService(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="configDiagnostics")

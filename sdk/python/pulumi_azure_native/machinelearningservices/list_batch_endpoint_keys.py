@@ -67,9 +67,7 @@ def list_batch_endpoint_keys(endpoint_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBatchEndpointKeysResult:
     """
     Keys for endpoint authentication.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
 
     :param str endpoint_name: Inference Endpoint name.
@@ -92,9 +90,7 @@ def list_batch_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] =
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBatchEndpointKeysResult]:
     """
     Keys for endpoint authentication.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+    Azure REST API version: 2024-10-01.
 
 
     :param str endpoint_name: Inference Endpoint name.

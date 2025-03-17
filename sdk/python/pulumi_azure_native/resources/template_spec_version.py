@@ -202,9 +202,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  __props__=None):
         """
         Template Spec Version object.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
-
-        Other available API versions: 2019-06-01-preview.
+        Azure REST API version: 2022-02-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,9 +225,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template Spec Version object.
-        Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01.
-
-        Other available API versions: 2019-06-01-preview.
+        Azure REST API version: 2022-02-01. Prior API version in Azure Native 2.x: 2022-02-01.
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.
@@ -279,6 +275,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
             __props__.__dict__["template_spec_name"] = template_spec_name
             __props__.__dict__["template_spec_version"] = template_spec_version
             __props__.__dict__["ui_form_definition"] = ui_form_definition
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -306,6 +303,7 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
         __props__ = TemplateSpecVersionArgs.__new__(TemplateSpecVersionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["linked_templates"] = None
         __props__.__dict__["location"] = None
@@ -317,6 +315,14 @@ class TemplateSpecVersion(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["ui_form_definition"] = None
         return TemplateSpecVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

@@ -145,9 +145,7 @@ class System(pulumi.CustomResource):
                  __props__=None):
         """
         Describes the system within the agent.
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -166,9 +164,7 @@ class System(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the system within the agent.
-        Azure REST API version: 2024-04-01-preview.
-
-        Other available API versions: 2024-10-01-preview, 2025-01-01-preview.
+        Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SystemArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +214,7 @@ class System(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
@@ -247,6 +244,7 @@ class System(pulumi.CustomResource):
 
         __props__ = SystemArgs.__new__(SystemArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
@@ -256,6 +254,14 @@ class System(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return System(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

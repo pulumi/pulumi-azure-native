@@ -27,13 +27,19 @@ class GetAzureFirewallResult:
     """
     Azure Firewall resource.
     """
-    def __init__(__self__, additional_properties=None, application_rule_collections=None, etag=None, firewall_policy=None, hub_ip_addresses=None, id=None, ip_configurations=None, ip_groups=None, location=None, management_ip_configuration=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, sku=None, tags=None, threat_intel_mode=None, type=None, virtual_hub=None, zones=None):
+    def __init__(__self__, additional_properties=None, application_rule_collections=None, autoscale_configuration=None, azure_api_version=None, etag=None, firewall_policy=None, hub_ip_addresses=None, id=None, ip_configurations=None, ip_groups=None, location=None, management_ip_configuration=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, sku=None, tags=None, threat_intel_mode=None, type=None, virtual_hub=None, zones=None):
         if additional_properties and not isinstance(additional_properties, dict):
             raise TypeError("Expected argument 'additional_properties' to be a dict")
         pulumi.set(__self__, "additional_properties", additional_properties)
         if application_rule_collections and not isinstance(application_rule_collections, list):
             raise TypeError("Expected argument 'application_rule_collections' to be a list")
         pulumi.set(__self__, "application_rule_collections", application_rule_collections)
+        if autoscale_configuration and not isinstance(autoscale_configuration, dict):
+            raise TypeError("Expected argument 'autoscale_configuration' to be a dict")
+        pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -104,6 +110,22 @@ class GetAzureFirewallResult:
         Collection of application rule collections used by Azure Firewall.
         """
         return pulumi.get(self, "application_rule_collections")
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional['outputs.AzureFirewallAutoscaleConfigurationResponse']:
+        """
+        Properties to provide a custom autoscale configuration to this azure firewall.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -258,6 +280,8 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
         return GetAzureFirewallResult(
             additional_properties=self.additional_properties,
             application_rule_collections=self.application_rule_collections,
+            autoscale_configuration=self.autoscale_configuration,
+            azure_api_version=self.azure_api_version,
             etag=self.etag,
             firewall_policy=self.firewall_policy,
             hub_ip_addresses=self.hub_ip_addresses,
@@ -283,9 +307,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureFirewallResult:
     """
     Gets the specified Azure Firewall.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str azure_firewall_name: The name of the Azure Firewall.
@@ -300,6 +322,8 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
     return AwaitableGetAzureFirewallResult(
         additional_properties=pulumi.get(__ret__, 'additional_properties'),
         application_rule_collections=pulumi.get(__ret__, 'application_rule_collections'),
+        autoscale_configuration=pulumi.get(__ret__, 'autoscale_configuration'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         etag=pulumi.get(__ret__, 'etag'),
         firewall_policy=pulumi.get(__ret__, 'firewall_policy'),
         hub_ip_addresses=pulumi.get(__ret__, 'hub_ip_addresses'),
@@ -323,9 +347,7 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureFirewallResult]:
     """
     Gets the specified Azure Firewall.
-    Azure REST API version: 2023-02-01.
-
-    Other available API versions: 2020-04-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+    Azure REST API version: 2024-05-01.
 
 
     :param str azure_firewall_name: The name of the Azure Firewall.
@@ -339,6 +361,8 @@ def get_azure_firewall_output(azure_firewall_name: Optional[pulumi.Input[str]] =
     return __ret__.apply(lambda __response__: GetAzureFirewallResult(
         additional_properties=pulumi.get(__response__, 'additional_properties'),
         application_rule_collections=pulumi.get(__response__, 'application_rule_collections'),
+        autoscale_configuration=pulumi.get(__response__, 'autoscale_configuration'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         etag=pulumi.get(__response__, 'etag'),
         firewall_policy=pulumi.get(__response__, 'firewall_policy'),
         hub_ip_addresses=pulumi.get(__response__, 'hub_ip_addresses'),

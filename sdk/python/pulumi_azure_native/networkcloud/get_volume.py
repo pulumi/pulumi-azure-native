@@ -24,16 +24,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, attached_to=None, detailed_status=None, detailed_status_message=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, serial_number=None, size_mi_b=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, attached_to=None, azure_api_version=None, detailed_status=None, detailed_status_message=None, etag=None, extended_location=None, id=None, location=None, name=None, provisioning_state=None, serial_number=None, size_mi_b=None, system_data=None, tags=None, type=None):
         if attached_to and not isinstance(attached_to, list):
             raise TypeError("Expected argument 'attached_to' to be a list")
         pulumi.set(__self__, "attached_to", attached_to)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if detailed_status and not isinstance(detailed_status, str):
             raise TypeError("Expected argument 'detailed_status' to be a str")
         pulumi.set(__self__, "detailed_status", detailed_status)
         if detailed_status_message and not isinstance(detailed_status_message, str):
             raise TypeError("Expected argument 'detailed_status_message' to be a str")
         pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -74,6 +80,14 @@ class GetVolumeResult:
         return pulumi.get(self, "attached_to")
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="detailedStatus")
     def detailed_status(self) -> str:
         """
@@ -88,6 +102,14 @@ class GetVolumeResult:
         The descriptive message about the current detailed status.
         """
         return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        Resource ETag.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -177,8 +199,10 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             yield self
         return GetVolumeResult(
             attached_to=self.attached_to,
+            azure_api_version=self.azure_api_version,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
+            etag=self.etag,
             extended_location=self.extended_location,
             id=self.id,
             location=self.location,
@@ -196,9 +220,7 @@ def get_volume(resource_group_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
     Get properties of the provided volume.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -212,8 +234,10 @@ def get_volume(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVolumeResult(
         attached_to=pulumi.get(__ret__, 'attached_to'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         detailed_status=pulumi.get(__ret__, 'detailed_status'),
         detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        etag=pulumi.get(__ret__, 'etag'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         id=pulumi.get(__ret__, 'id'),
         location=pulumi.get(__ret__, 'location'),
@@ -229,9 +253,7 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get properties of the provided volume.
-    Azure REST API version: 2023-10-01-preview.
-
-    Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    Azure REST API version: 2025-02-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -244,8 +266,10 @@ def get_volume_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure-native:networkcloud:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
         attached_to=pulumi.get(__response__, 'attached_to'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         detailed_status=pulumi.get(__response__, 'detailed_status'),
         detailed_status_message=pulumi.get(__response__, 'detailed_status_message'),
+        etag=pulumi.get(__response__, 'etag'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         id=pulumi.get(__response__, 'id'),
         location=pulumi.get(__response__, 'location'),

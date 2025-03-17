@@ -138,9 +138,7 @@ class RouteFilter(pulumi.CustomResource):
                  __props__=None):
         """
         Route Filter Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,9 +158,7 @@ class RouteFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Route Filter Resource.
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param RouteFilterArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +198,7 @@ class RouteFilter(pulumi.CustomResource):
             __props__.__dict__["route_filter_name"] = route_filter_name
             __props__.__dict__["rules"] = rules
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["ipv6_peerings"] = None
             __props__.__dict__["name"] = None
@@ -232,6 +229,7 @@ class RouteFilter(pulumi.CustomResource):
 
         __props__ = RouteFilterArgs.__new__(RouteFilterArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["ipv6_peerings"] = None
         __props__.__dict__["location"] = None
@@ -242,6 +240,14 @@ class RouteFilter(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return RouteFilter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter

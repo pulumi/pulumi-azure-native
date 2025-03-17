@@ -27,13 +27,16 @@ class GetAzureCliScriptResult:
     """
     Object model for the Azure CLI script.
     """
-    def __init__(__self__, arguments=None, az_cli_version=None, cleanup_preference=None, container_settings=None, environment_variables=None, force_update_tag=None, id=None, identity=None, kind=None, location=None, name=None, outputs=None, primary_script_uri=None, provisioning_state=None, retention_interval=None, script_content=None, status=None, storage_account_settings=None, supporting_script_uris=None, system_data=None, tags=None, timeout=None, type=None):
+    def __init__(__self__, arguments=None, az_cli_version=None, azure_api_version=None, cleanup_preference=None, container_settings=None, environment_variables=None, force_update_tag=None, id=None, identity=None, kind=None, location=None, name=None, outputs=None, primary_script_uri=None, provisioning_state=None, retention_interval=None, script_content=None, status=None, storage_account_settings=None, supporting_script_uris=None, system_data=None, tags=None, timeout=None, type=None):
         if arguments and not isinstance(arguments, str):
             raise TypeError("Expected argument 'arguments' to be a str")
         pulumi.set(__self__, "arguments", arguments)
         if az_cli_version and not isinstance(az_cli_version, str):
             raise TypeError("Expected argument 'az_cli_version' to be a str")
         pulumi.set(__self__, "az_cli_version", az_cli_version)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if cleanup_preference and not isinstance(cleanup_preference, str):
             raise TypeError("Expected argument 'cleanup_preference' to be a str")
         pulumi.set(__self__, "cleanup_preference", cleanup_preference)
@@ -113,6 +116,14 @@ class GetAzureCliScriptResult:
         Azure CLI module version to be used.
         """
         return pulumi.get(self, "az_cli_version")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="cleanupPreference")
@@ -292,6 +303,7 @@ class AwaitableGetAzureCliScriptResult(GetAzureCliScriptResult):
         return GetAzureCliScriptResult(
             arguments=self.arguments,
             az_cli_version=self.az_cli_version,
+            azure_api_version=self.azure_api_version,
             cleanup_preference=self.cleanup_preference,
             container_settings=self.container_settings,
             environment_variables=self.environment_variables,
@@ -320,7 +332,7 @@ def get_azure_cli_script(resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureCliScriptResult:
     """
     Gets a deployment script with a given name.
-    Azure REST API version: 2020-10-01.
+    Azure REST API version: 2023-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -335,6 +347,7 @@ def get_azure_cli_script(resource_group_name: Optional[str] = None,
     return AwaitableGetAzureCliScriptResult(
         arguments=pulumi.get(__ret__, 'arguments'),
         az_cli_version=pulumi.get(__ret__, 'az_cli_version'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         cleanup_preference=pulumi.get(__ret__, 'cleanup_preference'),
         container_settings=pulumi.get(__ret__, 'container_settings'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
@@ -361,7 +374,7 @@ def get_azure_cli_script_output(resource_group_name: Optional[pulumi.Input[str]]
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureCliScriptResult]:
     """
     Gets a deployment script with a given name.
-    Azure REST API version: 2020-10-01.
+    Azure REST API version: 2023-08-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -375,6 +388,7 @@ def get_azure_cli_script_output(resource_group_name: Optional[pulumi.Input[str]]
     return __ret__.apply(lambda __response__: GetAzureCliScriptResult(
         arguments=pulumi.get(__response__, 'arguments'),
         az_cli_version=pulumi.get(__response__, 'az_cli_version'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         cleanup_preference=pulumi.get(__response__, 'cleanup_preference'),
         container_settings=pulumi.get(__response__, 'container_settings'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),

@@ -28,13 +28,16 @@ class GetTaskResult:
     The task that has the ARM resource and task properties. 
     The task will have all information to schedule a run against it.
     """
-    def __init__(__self__, agent_configuration=None, agent_pool_name=None, creation_date=None, credentials=None, id=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, system_data=None, tags=None, timeout=None, trigger=None, type=None):
+    def __init__(__self__, agent_configuration=None, agent_pool_name=None, azure_api_version=None, creation_date=None, credentials=None, id=None, identity=None, is_system_task=None, location=None, log_template=None, name=None, platform=None, provisioning_state=None, status=None, step=None, system_data=None, tags=None, timeout=None, trigger=None, type=None):
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
         pulumi.set(__self__, "agent_configuration", agent_configuration)
         if agent_pool_name and not isinstance(agent_pool_name, str):
             raise TypeError("Expected argument 'agent_pool_name' to be a str")
         pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -102,6 +105,14 @@ class GetTaskResult:
         The dedicated agent pool for the task.
         """
         return pulumi.get(self, "agent_pool_name")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="creationDate")
@@ -248,6 +259,7 @@ class AwaitableGetTaskResult(GetTaskResult):
         return GetTaskResult(
             agent_configuration=self.agent_configuration,
             agent_pool_name=self.agent_pool_name,
+            azure_api_version=self.azure_api_version,
             creation_date=self.creation_date,
             credentials=self.credentials,
             id=self.id,
@@ -275,8 +287,6 @@ def get_task(registry_name: Optional[str] = None,
     Get the properties of a specified task.
     Azure REST API version: 2019-06-01-preview.
 
-    Other available API versions: 2018-09-01, 2019-04-01.
-
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -292,6 +302,7 @@ def get_task(registry_name: Optional[str] = None,
     return AwaitableGetTaskResult(
         agent_configuration=pulumi.get(__ret__, 'agent_configuration'),
         agent_pool_name=pulumi.get(__ret__, 'agent_pool_name'),
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
         credentials=pulumi.get(__ret__, 'credentials'),
         id=pulumi.get(__ret__, 'id'),
@@ -317,8 +328,6 @@ def get_task_output(registry_name: Optional[pulumi.Input[str]] = None,
     Get the properties of a specified task.
     Azure REST API version: 2019-06-01-preview.
 
-    Other available API versions: 2018-09-01, 2019-04-01.
-
 
     :param str registry_name: The name of the container registry.
     :param str resource_group_name: The name of the resource group to which the container registry belongs.
@@ -333,6 +342,7 @@ def get_task_output(registry_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetTaskResult(
         agent_configuration=pulumi.get(__response__, 'agent_configuration'),
         agent_pool_name=pulumi.get(__response__, 'agent_pool_name'),
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         creation_date=pulumi.get(__response__, 'creation_date'),
         credentials=pulumi.get(__response__, 'credentials'),
         id=pulumi.get(__response__, 'id'),

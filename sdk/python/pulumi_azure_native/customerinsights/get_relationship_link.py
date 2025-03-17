@@ -27,7 +27,10 @@ class GetRelationshipLinkResult:
     """
     The relationship link resource format.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, interaction_type=None, link_name=None, mappings=None, name=None, profile_property_references=None, provisioning_state=None, related_profile_property_references=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+    def __init__(__self__, azure_api_version=None, description=None, display_name=None, id=None, interaction_type=None, link_name=None, mappings=None, name=None, profile_property_references=None, provisioning_state=None, related_profile_property_references=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if description and not isinstance(description, dict):
             raise TypeError("Expected argument 'description' to be a dict")
         pulumi.set(__self__, "description", description)
@@ -70,6 +73,14 @@ class GetRelationshipLinkResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter
@@ -190,6 +201,7 @@ class AwaitableGetRelationshipLinkResult(GetRelationshipLinkResult):
         if False:
             yield self
         return GetRelationshipLinkResult(
+            azure_api_version=self.azure_api_version,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -227,6 +239,7 @@ def get_relationship_link(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getRelationshipLink', __args__, opts=opts, typ=GetRelationshipLinkResult).value
 
     return AwaitableGetRelationshipLinkResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
@@ -261,6 +274,7 @@ def get_relationship_link_output(hub_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:customerinsights:getRelationshipLink', __args__, opts=opts, typ=GetRelationshipLinkResult)
     return __ret__.apply(lambda __response__: GetRelationshipLinkResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),

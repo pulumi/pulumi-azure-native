@@ -27,10 +27,19 @@ class GetResourcePoolResult:
     """
     Define the resourcePool.
     """
-    def __init__(__self__, cpu_limit_m_hz=None, cpu_reservation_m_hz=None, cpu_shares_level=None, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mem_limit_mb=None, mem_reservation_mb=None, mem_shares_level=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, azure_api_version=None, cpu_capacity_m_hz=None, cpu_limit_m_hz=None, cpu_overall_usage_m_hz=None, cpu_reservation_m_hz=None, cpu_shares_level=None, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mem_capacity_gb=None, mem_limit_mb=None, mem_overall_usage_gb=None, mem_reservation_mb=None, mem_shares_level=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if cpu_capacity_m_hz and not isinstance(cpu_capacity_m_hz, float):
+            raise TypeError("Expected argument 'cpu_capacity_m_hz' to be a float")
+        pulumi.set(__self__, "cpu_capacity_m_hz", cpu_capacity_m_hz)
         if cpu_limit_m_hz and not isinstance(cpu_limit_m_hz, float):
             raise TypeError("Expected argument 'cpu_limit_m_hz' to be a float")
         pulumi.set(__self__, "cpu_limit_m_hz", cpu_limit_m_hz)
+        if cpu_overall_usage_m_hz and not isinstance(cpu_overall_usage_m_hz, float):
+            raise TypeError("Expected argument 'cpu_overall_usage_m_hz' to be a float")
+        pulumi.set(__self__, "cpu_overall_usage_m_hz", cpu_overall_usage_m_hz)
         if cpu_reservation_m_hz and not isinstance(cpu_reservation_m_hz, float):
             raise TypeError("Expected argument 'cpu_reservation_m_hz' to be a float")
         pulumi.set(__self__, "cpu_reservation_m_hz", cpu_reservation_m_hz)
@@ -58,9 +67,15 @@ class GetResourcePoolResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if mem_capacity_gb and not isinstance(mem_capacity_gb, float):
+            raise TypeError("Expected argument 'mem_capacity_gb' to be a float")
+        pulumi.set(__self__, "mem_capacity_gb", mem_capacity_gb)
         if mem_limit_mb and not isinstance(mem_limit_mb, float):
             raise TypeError("Expected argument 'mem_limit_mb' to be a float")
         pulumi.set(__self__, "mem_limit_mb", mem_limit_mb)
+        if mem_overall_usage_gb and not isinstance(mem_overall_usage_gb, float):
+            raise TypeError("Expected argument 'mem_overall_usage_gb' to be a float")
+        pulumi.set(__self__, "mem_overall_usage_gb", mem_overall_usage_gb)
         if mem_reservation_mb and not isinstance(mem_reservation_mb, float):
             raise TypeError("Expected argument 'mem_reservation_mb' to be a float")
         pulumi.set(__self__, "mem_reservation_mb", mem_reservation_mb)
@@ -102,6 +117,22 @@ class GetResourcePoolResult:
         pulumi.set(__self__, "v_center_id", v_center_id)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter(name="cpuCapacityMHz")
+    def cpu_capacity_m_hz(self) -> float:
+        """
+        Gets the max CPU usage across all cores on the pool in MHz.
+        """
+        return pulumi.get(self, "cpu_capacity_m_hz")
+
+    @property
     @pulumi.getter(name="cpuLimitMHz")
     def cpu_limit_m_hz(self) -> float:
         """
@@ -109,6 +140,14 @@ class GetResourcePoolResult:
         Utilization will not exceed this limit even if there are available resources.
         """
         return pulumi.get(self, "cpu_limit_m_hz")
+
+    @property
+    @pulumi.getter(name="cpuOverallUsageMHz")
+    def cpu_overall_usage_m_hz(self) -> float:
+        """
+        Gets the used CPU usage across all cores on the pool in MHz.
+        """
+        return pulumi.get(self, "cpu_overall_usage_m_hz")
 
     @property
     @pulumi.getter(name="cpuReservationMHz")
@@ -140,7 +179,7 @@ class GetResourcePoolResult:
     @pulumi.getter(name="datastoreIds")
     def datastore_ids(self) -> Sequence[str]:
         """
-        Gets or sets the datastore ARM ids.
+        Gets the datastore ARM ids.
         """
         return pulumi.get(self, "datastore_ids")
 
@@ -185,6 +224,14 @@ class GetResourcePoolResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="memCapacityGB")
+    def mem_capacity_gb(self) -> float:
+        """
+        Gets the total amount of physical memory on the pool in GB.
+        """
+        return pulumi.get(self, "mem_capacity_gb")
+
+    @property
     @pulumi.getter(name="memLimitMB")
     def mem_limit_mb(self) -> float:
         """
@@ -192,6 +239,14 @@ class GetResourcePoolResult:
         Utilization will not exceed the specified limit even if there are available resources.
         """
         return pulumi.get(self, "mem_limit_mb")
+
+    @property
+    @pulumi.getter(name="memOverallUsageGB")
+    def mem_overall_usage_gb(self) -> float:
+        """
+        Gets the used physical memory on the pool in GB.
+        """
+        return pulumi.get(self, "mem_overall_usage_gb")
 
     @property
     @pulumi.getter(name="memReservationMB")
@@ -239,7 +294,7 @@ class GetResourcePoolResult:
     @pulumi.getter(name="networkIds")
     def network_ids(self) -> Sequence[str]:
         """
-        Gets or sets the network ARM ids.
+        Gets the network ARM ids.
         """
         return pulumi.get(self, "network_ids")
 
@@ -247,7 +302,7 @@ class GetResourcePoolResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Gets or sets the provisioning state.
+        Gets the provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -306,7 +361,10 @@ class AwaitableGetResourcePoolResult(GetResourcePoolResult):
         if False:
             yield self
         return GetResourcePoolResult(
+            azure_api_version=self.azure_api_version,
+            cpu_capacity_m_hz=self.cpu_capacity_m_hz,
             cpu_limit_m_hz=self.cpu_limit_m_hz,
+            cpu_overall_usage_m_hz=self.cpu_overall_usage_m_hz,
             cpu_reservation_m_hz=self.cpu_reservation_m_hz,
             cpu_shares_level=self.cpu_shares_level,
             custom_resource_name=self.custom_resource_name,
@@ -316,7 +374,9 @@ class AwaitableGetResourcePoolResult(GetResourcePoolResult):
             inventory_item_id=self.inventory_item_id,
             kind=self.kind,
             location=self.location,
+            mem_capacity_gb=self.mem_capacity_gb,
             mem_limit_mb=self.mem_limit_mb,
+            mem_overall_usage_gb=self.mem_overall_usage_gb,
             mem_reservation_mb=self.mem_reservation_mb,
             mem_shares_level=self.mem_shares_level,
             mo_name=self.mo_name,
@@ -337,9 +397,7 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePoolResult:
     """
     Implements resourcePool GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -352,7 +410,10 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getResourcePool', __args__, opts=opts, typ=GetResourcePoolResult).value
 
     return AwaitableGetResourcePoolResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        cpu_capacity_m_hz=pulumi.get(__ret__, 'cpu_capacity_m_hz'),
         cpu_limit_m_hz=pulumi.get(__ret__, 'cpu_limit_m_hz'),
+        cpu_overall_usage_m_hz=pulumi.get(__ret__, 'cpu_overall_usage_m_hz'),
         cpu_reservation_m_hz=pulumi.get(__ret__, 'cpu_reservation_m_hz'),
         cpu_shares_level=pulumi.get(__ret__, 'cpu_shares_level'),
         custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
@@ -362,7 +423,9 @@ def get_resource_pool(resource_group_name: Optional[str] = None,
         inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
+        mem_capacity_gb=pulumi.get(__ret__, 'mem_capacity_gb'),
         mem_limit_mb=pulumi.get(__ret__, 'mem_limit_mb'),
+        mem_overall_usage_gb=pulumi.get(__ret__, 'mem_overall_usage_gb'),
         mem_reservation_mb=pulumi.get(__ret__, 'mem_reservation_mb'),
         mem_shares_level=pulumi.get(__ret__, 'mem_shares_level'),
         mo_name=pulumi.get(__ret__, 'mo_name'),
@@ -381,9 +444,7 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePoolResult]:
     """
     Implements resourcePool GET method.
-    Azure REST API version: 2022-07-15-preview.
-
-    Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+    Azure REST API version: 2023-12-01.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -395,7 +456,10 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:connectedvmwarevsphere:getResourcePool', __args__, opts=opts, typ=GetResourcePoolResult)
     return __ret__.apply(lambda __response__: GetResourcePoolResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        cpu_capacity_m_hz=pulumi.get(__response__, 'cpu_capacity_m_hz'),
         cpu_limit_m_hz=pulumi.get(__response__, 'cpu_limit_m_hz'),
+        cpu_overall_usage_m_hz=pulumi.get(__response__, 'cpu_overall_usage_m_hz'),
         cpu_reservation_m_hz=pulumi.get(__response__, 'cpu_reservation_m_hz'),
         cpu_shares_level=pulumi.get(__response__, 'cpu_shares_level'),
         custom_resource_name=pulumi.get(__response__, 'custom_resource_name'),
@@ -405,7 +469,9 @@ def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[str]] = 
         inventory_item_id=pulumi.get(__response__, 'inventory_item_id'),
         kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
+        mem_capacity_gb=pulumi.get(__response__, 'mem_capacity_gb'),
         mem_limit_mb=pulumi.get(__response__, 'mem_limit_mb'),
+        mem_overall_usage_gb=pulumi.get(__response__, 'mem_overall_usage_gb'),
         mem_reservation_mb=pulumi.get(__response__, 'mem_reservation_mb'),
         mem_shares_level=pulumi.get(__response__, 'mem_shares_level'),
         mo_name=pulumi.get(__response__, 'mo_name'),

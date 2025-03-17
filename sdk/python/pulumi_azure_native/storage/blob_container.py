@@ -203,9 +203,7 @@ class BlobContainer(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,9 +226,7 @@ class BlobContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-
-        Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+        Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param BlobContainerArgs args: The arguments to use to populate this resource's properties.
@@ -280,6 +276,7 @@ class BlobContainer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deleted"] = None
             __props__.__dict__["deleted_time"] = None
             __props__.__dict__["etag"] = None
@@ -319,6 +316,7 @@ class BlobContainer(pulumi.CustomResource):
 
         __props__ = BlobContainerArgs.__new__(BlobContainerArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["default_encryption_scope"] = None
         __props__.__dict__["deleted"] = None
         __props__.__dict__["deleted_time"] = None
@@ -342,6 +340,14 @@ class BlobContainer(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
         return BlobContainer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="defaultEncryptionScope")

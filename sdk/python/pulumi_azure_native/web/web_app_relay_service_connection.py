@@ -172,9 +172,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Hybrid Connection for an App Service app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,9 +188,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Hybrid Connection for an App Service app.
-        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-
-        Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
 
         :param str resource_name: The name of the resource.
         :param WebAppRelayServiceConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -242,6 +238,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_type"] = resource_type
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20150801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20160801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20180201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20181101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20190801:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20200601:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppRelayServiceConnection"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppRelayServiceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -267,6 +264,7 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
 
         __props__ = WebAppRelayServiceConnectionArgs.__new__(WebAppRelayServiceConnectionArgs)
 
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["biztalk_uri"] = None
         __props__.__dict__["entity_connection_string"] = None
         __props__.__dict__["entity_name"] = None
@@ -278,6 +276,14 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
         __props__.__dict__["resource_type"] = None
         __props__.__dict__["type"] = None
         return WebAppRelayServiceConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="biztalkUri")

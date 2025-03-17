@@ -238,9 +238,7 @@ class DscpConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Differentiated Services Code Point configuration for any given network interface
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,9 +263,7 @@ class DscpConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Differentiated Services Code Point configuration for any given network interface
-        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
-
-        Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
 
         :param str resource_name: The name of the resource.
         :param DscpConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -320,6 +316,7 @@ class DscpConfiguration(pulumi.CustomResource):
             __props__.__dict__["source_port_ranges"] = source_port_ranges
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_network_interfaces"] = None
+            __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -351,6 +348,7 @@ class DscpConfiguration(pulumi.CustomResource):
         __props__ = DscpConfigurationArgs.__new__(DscpConfigurationArgs)
 
         __props__.__dict__["associated_network_interfaces"] = None
+        __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["destination_ip_ranges"] = None
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["etag"] = None
@@ -375,6 +373,14 @@ class DscpConfiguration(pulumi.CustomResource):
         Associated Network Interfaces to the DSCP Configuration.
         """
         return pulumi.get(self, "associated_network_interfaces")
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> pulumi.Output[str]:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="destinationIpRanges")

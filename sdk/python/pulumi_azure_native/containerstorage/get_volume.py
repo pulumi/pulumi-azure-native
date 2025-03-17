@@ -27,7 +27,10 @@ class GetVolumeResult:
     """
     Concrete proxy resource types can be created by aliasing this type using a specific property type.
     """
-    def __init__(__self__, capacity_gi_b=None, id=None, labels=None, name=None, provisioning_state=None, status=None, system_data=None, type=None, volume_type=None):
+    def __init__(__self__, azure_api_version=None, capacity_gi_b=None, id=None, labels=None, name=None, provisioning_state=None, status=None, system_data=None, type=None, volume_type=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if capacity_gi_b and not isinstance(capacity_gi_b, float):
             raise TypeError("Expected argument 'capacity_gi_b' to be a float")
         pulumi.set(__self__, "capacity_gi_b", capacity_gi_b)
@@ -55,6 +58,14 @@ class GetVolumeResult:
         if volume_type and not isinstance(volume_type, dict):
             raise TypeError("Expected argument 'volume_type' to be a dict")
         pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
 
     @property
     @pulumi.getter(name="capacityGiB")
@@ -135,6 +146,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         if False:
             yield self
         return GetVolumeResult(
+            azure_api_version=self.azure_api_version,
             capacity_gi_b=self.capacity_gi_b,
             id=self.id,
             labels=self.labels,
@@ -167,6 +179,7 @@ def get_volume(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerstorage:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         capacity_gi_b=pulumi.get(__ret__, 'capacity_gi_b'),
         id=pulumi.get(__ret__, 'id'),
         labels=pulumi.get(__ret__, 'labels'),
@@ -196,6 +209,7 @@ def get_volume_output(pool_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:containerstorage:getVolume', __args__, opts=opts, typ=GetVolumeResult)
     return __ret__.apply(lambda __response__: GetVolumeResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         capacity_gi_b=pulumi.get(__response__, 'capacity_gi_b'),
         id=pulumi.get(__response__, 'id'),
         labels=pulumi.get(__response__, 'labels'),

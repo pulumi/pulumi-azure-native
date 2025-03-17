@@ -16,18 +16,21 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
-    'GetSAPDatabaseInstanceResult',
-    'AwaitableGetSAPDatabaseInstanceResult',
+    'GetSapDatabaseInstanceResult',
+    'AwaitableGetSapDatabaseInstanceResult',
     'get_sap_database_instance',
     'get_sap_database_instance_output',
 ]
 
 @pulumi.output_type
-class GetSAPDatabaseInstanceResult:
+class GetSapDatabaseInstanceResult:
     """
     Define the Database resource.
     """
-    def __init__(__self__, database_sid=None, database_type=None, errors=None, id=None, ip_address=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+    def __init__(__self__, azure_api_version=None, database_sid=None, database_type=None, errors=None, id=None, ip_address=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
+        if azure_api_version and not isinstance(azure_api_version, str):
+            raise TypeError("Expected argument 'azure_api_version' to be a str")
+        pulumi.set(__self__, "azure_api_version", azure_api_version)
         if database_sid and not isinstance(database_sid, str):
             raise TypeError("Expected argument 'database_sid' to be a str")
         pulumi.set(__self__, "database_sid", database_sid)
@@ -75,6 +78,14 @@ class GetSAPDatabaseInstanceResult:
         pulumi.set(__self__, "vm_details", vm_details)
 
     @property
+    @pulumi.getter(name="azureApiVersion")
+    def azure_api_version(self) -> str:
+        """
+        The Azure API version of the resource.
+        """
+        return pulumi.get(self, "azure_api_version")
+
+    @property
     @pulumi.getter(name="databaseSid")
     def database_sid(self) -> str:
         """
@@ -102,7 +113,7 @@ class GetSAPDatabaseInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -195,12 +206,13 @@ class GetSAPDatabaseInstanceResult:
         return pulumi.get(self, "vm_details")
 
 
-class AwaitableGetSAPDatabaseInstanceResult(GetSAPDatabaseInstanceResult):
+class AwaitableGetSapDatabaseInstanceResult(GetSapDatabaseInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return GetSAPDatabaseInstanceResult(
+        return GetSapDatabaseInstanceResult(
+            azure_api_version=self.azure_api_version,
             database_sid=self.database_sid,
             database_type=self.database_type,
             errors=self.errors,
@@ -221,12 +233,10 @@ class AwaitableGetSAPDatabaseInstanceResult(GetSAPDatabaseInstanceResult):
 def get_sap_database_instance(database_instance_name: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               sap_virtual_instance_name: Optional[str] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDatabaseInstanceResult:
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSapDatabaseInstanceResult:
     """
     Gets the SAP Database Instance resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -238,9 +248,10 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPDatabaseInstance', __args__, opts=opts, typ=GetSAPDatabaseInstanceResult).value
+    __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSapDatabaseInstance', __args__, opts=opts, typ=GetSapDatabaseInstanceResult).value
 
-    return AwaitableGetSAPDatabaseInstanceResult(
+    return AwaitableGetSapDatabaseInstanceResult(
+        azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         database_sid=pulumi.get(__ret__, 'database_sid'),
         database_type=pulumi.get(__ret__, 'database_type'),
         errors=pulumi.get(__ret__, 'errors'),
@@ -259,12 +270,10 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
 def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      sap_virtual_instance_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPDatabaseInstanceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapDatabaseInstanceResult]:
     """
     Gets the SAP Database Instance resource.
-    Azure REST API version: 2023-04-01.
-
-    Other available API versions: 2023-10-01-preview.
+    Azure REST API version: 2024-09-01.
 
 
     :param str database_instance_name: Database resource name string modeled as parameter for auto generation to work correctly.
@@ -276,8 +285,9 @@ def get_sap_database_instance_output(database_instance_name: Optional[pulumi.Inp
     __args__['resourceGroupName'] = resource_group_name
     __args__['sapVirtualInstanceName'] = sap_virtual_instance_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
-    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSAPDatabaseInstance', __args__, opts=opts, typ=GetSAPDatabaseInstanceResult)
-    return __ret__.apply(lambda __response__: GetSAPDatabaseInstanceResult(
+    __ret__ = pulumi.runtime.invoke_output('azure-native:workloads:getSapDatabaseInstance', __args__, opts=opts, typ=GetSapDatabaseInstanceResult)
+    return __ret__.apply(lambda __response__: GetSapDatabaseInstanceResult(
+        azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         database_sid=pulumi.get(__response__, 'database_sid'),
         database_type=pulumi.get(__response__, 'database_type'),
         errors=pulumi.get(__response__, 'errors'),
