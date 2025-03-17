@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Information about azure databricks accessConnector.
- * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
- *
- * Other available API versions: 2022-04-01-preview, 2024-05-01, 2024-09-01-preview.
+ * Information about Azure Databricks Access Connector.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-05-01.
  */
 export class AccessConnector extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class AccessConnector extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.databricks.ManagedServiceIdentityResponse | undefined>;
@@ -53,7 +55,7 @@ export class AccessConnector extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure Databricks accessConnector properties
+     * Azure Databricks Access Connector properties
      */
     public /*out*/ readonly properties!: pulumi.Output<outputs.databricks.AccessConnectorPropertiesResponse>;
     /**
@@ -88,11 +90,13 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,7 +117,7 @@ export class AccessConnector extends pulumi.CustomResource {
  */
 export interface AccessConnectorArgs {
     /**
-     * The name of the azure databricks accessConnector.
+     * The name of the Azure Databricks Access Connector.
      */
     connectorName?: pulumi.Input<string>;
     /**

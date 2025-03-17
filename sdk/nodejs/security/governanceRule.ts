@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Governance rule over a given scope
- * Azure REST API version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class GovernanceRule extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class GovernanceRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === GovernanceRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Description of the governance rule
      */
@@ -146,11 +150,13 @@ export class GovernanceRule extends pulumi.CustomResource {
             resourceInputs["ruleType"] = args ? args.ruleType : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["excludedScopes"] = undefined /*out*/;

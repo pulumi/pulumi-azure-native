@@ -45,6 +45,10 @@ export interface GetAssetFilterArgs {
  */
 export interface GetAssetFilterResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The first quality.
      */
     readonly firstQuality?: outputs.media.FirstQualityResponse;

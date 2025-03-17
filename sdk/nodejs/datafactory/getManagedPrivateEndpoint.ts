@@ -45,6 +45,10 @@ export interface GetManagedPrivateEndpointArgs {
  */
 export interface GetManagedPrivateEndpointResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Etag identifies change in the resource.
      */
     readonly etag: string;

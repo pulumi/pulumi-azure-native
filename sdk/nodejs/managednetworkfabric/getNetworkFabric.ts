@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Network Fabric resource details.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getNetworkFabric(args: GetNetworkFabricArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getNetworkFabric(args: GetNetworkFabricArgs, opts?: pulumi.Invok
 
 export interface GetNetworkFabricArgs {
     /**
-     * Name of the Network Fabric
+     * Name of the Network Fabric.
      */
     networkFabricName: string;
     /**
@@ -33,35 +31,51 @@ export interface GetNetworkFabricArgs {
 }
 
 /**
- * The NetworkFabric resource definition.
+ * The Network Fabric resource definition.
  */
 export interface GetNetworkFabricResult {
+    /**
+     * Administrative state of the resource.
+     */
+    readonly administrativeState: string;
     /**
      * Switch configuration description.
      */
     readonly annotation?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
+     * Configuration state of the resource.
+     */
+    readonly configurationState: string;
+    /**
      * ASN of CE devices for CE/PE connectivity.
      */
     readonly fabricASN: number;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The version of Network Fabric.
+     */
+    readonly fabricVersion?: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
-    readonly ipv4Prefix?: string;
+    readonly ipv4Prefix: string;
     /**
-     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59.
+     * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
      */
     readonly ipv6Prefix?: string;
     /**
-     * List of L2IsolationDomain resource IDs under the Network Fabric.
+     * List of L2 Isolation Domain resource IDs under the Network Fabric.
      */
     readonly l2IsolationDomains: string[];
     /**
-     * List of L3IsolationDomain resource IDs under the Network Fabric.
+     * List of L3 Isolation Domain resource IDs under the Network Fabric.
      */
     readonly l3IsolationDomains: string[];
     /**
@@ -71,7 +85,7 @@ export interface GetNetworkFabricResult {
     /**
      * Configuration to be used to setup the management network.
      */
-    readonly managementNetworkConfiguration: outputs.managednetworkfabric.ManagementNetworkConfigurationResponse;
+    readonly managementNetworkConfiguration: outputs.managednetworkfabric.ManagementNetworkConfigurationPropertiesResponse;
     /**
      * The name of the resource
      */
@@ -85,25 +99,21 @@ export interface GetNetworkFabricResult {
      */
     readonly networkFabricSku: string;
     /**
-     * Gets the operational state of the resource.
-     */
-    readonly operationalState: string;
-    /**
-     * Gets the provisioning state of the resource.
+     * Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
      */
     readonly provisioningState: string;
     /**
-     * Number of racks associated to Network Fabric.Possible values are from 2-8.
+     * Number of compute racks associated to Network Fabric.
      */
-    readonly rackCount: number;
+    readonly rackCount?: number;
     /**
      * List of NetworkRack resource IDs under the Network Fabric. The number of racks allowed depends on the Network Fabric SKU.
      */
     readonly racks: string[];
     /**
-     * Router Id of CE to be used for MP-BGP between PE and CE
+     * Array of router IDs.
      */
-    readonly routerId: string;
+    readonly routerIds: string[];
     /**
      * Number of servers.Possible values are from 1-16.
      */
@@ -127,9 +137,7 @@ export interface GetNetworkFabricResult {
 }
 /**
  * Get Network Fabric resource details.
- * Azure REST API version: 2023-02-01-preview.
- *
- * Other available API versions: 2023-06-15.
+ * Azure REST API version: 2023-06-15.
  */
 export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkFabricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +149,7 @@ export function getNetworkFabricOutput(args: GetNetworkFabricOutputArgs, opts?: 
 
 export interface GetNetworkFabricOutputArgs {
     /**
-     * Name of the Network Fabric
+     * Name of the Network Fabric.
      */
     networkFabricName: pulumi.Input<string>;
     /**

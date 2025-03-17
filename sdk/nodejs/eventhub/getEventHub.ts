@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Event Hubs description for the specified Event Hub.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getEventHub(args: GetEventHubArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetEventHubArgs {
  * Single item in List or Get Event Hub operation
  */
 export interface GetEventHubResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Properties of capture description
      */
@@ -93,12 +95,14 @@ export interface GetEventHubResult {
      * The exact time the message was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Gets and Sets Metadata of User.
+     */
+    readonly userMetadata?: string;
 }
 /**
  * Gets an Event Hubs description for the specified Event Hub.
- * Azure REST API version: 2022-10-01-preview.
- *
- * Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01.
  */
 export function getEventHubOutput(args: GetEventHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -40,6 +40,10 @@ export interface GetPipelineArgs {
  */
 export interface GetPipelineResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Detailed description of the Pipeline.
      */
     readonly description?: string;

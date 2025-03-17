@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy set definition.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-09-01.
- *
- * Other available API versions: 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+ * Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class PolicySetDefinition extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The policy set definition description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -69,7 +71,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     public readonly policyDefinitions!: pulumi.Output<outputs.authorization.PolicyDefinitionReferenceResponse[]>;
     /**
-     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     public readonly policyType!: pulumi.Output<string | undefined>;
     /**
@@ -80,6 +82,14 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The policy set definition version in #.#.# format.
+     */
+    public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * A list of available versions for this policy set definition.
+     */
+    public readonly versions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PolicySetDefinition resource with the given unique name, arguments, and options.
@@ -103,10 +113,14 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
@@ -117,9 +131,11 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versions"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20170601preview:PolicySetDefinition" }, { type: "azure-native:authorization/v20180301:PolicySetDefinition" }, { type: "azure-native:authorization/v20180501:PolicySetDefinition" }, { type: "azure-native:authorization/v20190101:PolicySetDefinition" }, { type: "azure-native:authorization/v20190601:PolicySetDefinition" }, { type: "azure-native:authorization/v20190901:PolicySetDefinition" }, { type: "azure-native:authorization/v20200301:PolicySetDefinition" }, { type: "azure-native:authorization/v20200901:PolicySetDefinition" }, { type: "azure-native:authorization/v20210601:PolicySetDefinition" }, { type: "azure-native:authorization/v20230401:PolicySetDefinition" }, { type: "azure-native:authorization/v20240501:PolicySetDefinition" }, { type: "azure-native:authorization/v20250101:PolicySetDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20170601preview:PolicySetDefinition" }, { type: "azure-native:authorization/v20180301:PolicySetDefinition" }, { type: "azure-native:authorization/v20180501:PolicySetDefinition" }, { type: "azure-native:authorization/v20190101:PolicySetDefinition" }, { type: "azure-native:authorization/v20190601:PolicySetDefinition" }, { type: "azure-native:authorization/v20190901:PolicySetDefinition" }, { type: "azure-native:authorization/v20200301:PolicySetDefinition" }, { type: "azure-native:authorization/v20200901:PolicySetDefinition" }, { type: "azure-native:authorization/v20210601:PolicySetDefinition" }, { type: "azure-native:authorization/v20230401:PolicySetDefinition" }, { type: "azure-native:authorization/v20240501:PolicySetDefinition" }, { type: "azure-native:authorization/v20250101:PolicySetDefinition" }, { type: "azure-native:authorization/v20250301:PolicySetDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicySetDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,7 +174,15 @@ export interface PolicySetDefinitionArgs {
      */
     policySetDefinitionName?: pulumi.Input<string>;
     /**
-     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
     policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
+    /**
+     * The policy set definition version in #.#.# format.
+     */
+    version?: pulumi.Input<string>;
+    /**
+     * A list of available versions for this policy set definition.
+     */
+    versions?: pulumi.Input<pulumi.Input<string>[]>;
 }

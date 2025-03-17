@@ -40,6 +40,10 @@ export interface GetDraArgs {
  */
 export interface GetDraResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets or sets the Id of the resource.
      */
     readonly id: string;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServicePlanRouteForVnet.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
      */
@@ -98,8 +100,10 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             resourceInputs["routeType"] = args ? args.routeType : undefined;
             resourceInputs["startAddress"] = args ? args.startAddress : undefined;
             resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endAddress"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

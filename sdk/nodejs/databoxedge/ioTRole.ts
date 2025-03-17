@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class IoTRole extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IoTRole extends pulumi.CustomResource {
         return obj['__pulumiType'] === IoTRole.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource allocation
      */
@@ -131,10 +135,12 @@ export class IoTRole extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
             resourceInputs["shareMappings"] = args ? args.shareMappings : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["computeResource"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
@@ -149,7 +155,7 @@ export class IoTRole extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:IoTRole" }, { type: "azure-native:databoxedge/v20190701:IoTRole" }, { type: "azure-native:databoxedge/v20190801:IoTRole" }, { type: "azure-native:databoxedge/v20200501preview:IoTRole" }, { type: "azure-native:databoxedge/v20200901:IoTRole" }, { type: "azure-native:databoxedge/v20200901preview:IoTRole" }, { type: "azure-native:databoxedge/v20201201:IoTRole" }, { type: "azure-native:databoxedge/v20210201:IoTRole" }, { type: "azure-native:databoxedge/v20210201preview:IoTRole" }, { type: "azure-native:databoxedge/v20210601:IoTRole" }, { type: "azure-native:databoxedge/v20210601preview:IoTRole" }, { type: "azure-native:databoxedge/v20220301:IoTRole" }, { type: "azure-native:databoxedge/v20220401preview:IoTRole" }, { type: "azure-native:databoxedge/v20221201preview:IoTRole" }, { type: "azure-native:databoxedge/v20230101preview:IoTRole" }, { type: "azure-native:databoxedge/v20230701:IoTRole" }, { type: "azure-native:databoxedge/v20231201:IoTRole" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20190301:IoTRole" }, { type: "azure-native:databoxedge/v20190701:IoTRole" }, { type: "azure-native:databoxedge/v20190801:IoTRole" }, { type: "azure-native:databoxedge/v20200501preview:IoTRole" }, { type: "azure-native:databoxedge/v20200901:IoTRole" }, { type: "azure-native:databoxedge/v20200901preview:IoTRole" }, { type: "azure-native:databoxedge/v20201201:IoTRole" }, { type: "azure-native:databoxedge/v20210201:IoTRole" }, { type: "azure-native:databoxedge/v20210201preview:IoTRole" }, { type: "azure-native:databoxedge/v20210601:IoTRole" }, { type: "azure-native:databoxedge/v20210601preview:IoTRole" }, { type: "azure-native:databoxedge/v20220301:IoTRole" }, { type: "azure-native:databoxedge/v20220401preview:IoTRole" }, { type: "azure-native:databoxedge/v20221201preview:IoTRole" }, { type: "azure-native:databoxedge/v20230101preview:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230101preview:IoTRole" }, { type: "azure-native:databoxedge/v20230101preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20230101preview:MECRole" }, { type: "azure-native:databoxedge/v20230701:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20230701:IoTRole" }, { type: "azure-native:databoxedge/v20230701:KubernetesRole" }, { type: "azure-native:databoxedge/v20230701:MECRole" }, { type: "azure-native:databoxedge/v20231201:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge/v20231201:IoTRole" }, { type: "azure-native:databoxedge/v20231201:KubernetesRole" }, { type: "azure-native:databoxedge/v20231201:MECRole" }, { type: "azure-native:databoxedge:CloudEdgeManagementRole" }, { type: "azure-native:databoxedge:KubernetesRole" }, { type: "azure-native:databoxedge:MECRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTRole.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describe SQL Server ESU license resource.
- * Azure REST API version: 2024-05-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class SqlServerEsuLicense extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SqlServerEsuLicense extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlServerEsuLicense.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -85,10 +89,12 @@ export class SqlServerEsuLicense extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlServerEsuLicenseName"] = args ? args.sqlServerEsuLicenseName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -97,7 +103,7 @@ export class SqlServerEsuLicense extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20240501preview:SqlServerEsuLicense" }, { type: "azure-native:azurearcdata/v20250301preview:SqlServerEsuLicense" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlServerEsuLicense.__pulumiType, name, resourceInputs, opts);
     }

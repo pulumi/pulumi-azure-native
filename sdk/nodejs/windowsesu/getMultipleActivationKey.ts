@@ -36,6 +36,10 @@ export interface GetMultipleActivationKeyResult {
      */
     readonly agreementNumber?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * End of support of security updates activated by the MAK key.
      */
     readonly expirationDate: string;

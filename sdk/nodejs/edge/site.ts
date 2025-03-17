@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site as ARM Resource
- * Azure REST API version: 2024-02-01-preview.
+ * Azure REST API version: 2024-02-01-preview. Prior API version in Azure Native 2.x: 2024-02-01-preview.
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Site extends pulumi.CustomResource {
         return obj['__pulumiType'] === Site.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -72,10 +76,12 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

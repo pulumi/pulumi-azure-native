@@ -37,6 +37,10 @@ export interface GetJobArgs {
 
 export interface GetJobResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Gets the job resource identifier.
      */
     readonly id: string;

@@ -35,6 +35,10 @@ export interface GetCustomEntityStoreAssignmentArgs {
  */
 export interface GetCustomEntityStoreAssignmentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The link to entity store database.
      */
     readonly entityStoreDatabaseLink?: string;

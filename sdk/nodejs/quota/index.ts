@@ -26,22 +26,6 @@ export const GroupQuotaSubscription: typeof import("./groupQuotaSubscription").G
 utilities.lazyLoad(exports, ["GroupQuotaSubscription"], () => require("./groupQuotaSubscription"));
 
 
-// Export enums:
-export * from "../types/enums/quota";
-
-// Export sub-modules:
-import * as v20230601preview from "./v20230601preview";
-import * as v20241015preview from "./v20241015preview";
-import * as v20241218preview from "./v20241218preview";
-import * as v20250301 from "./v20250301";
-
-export {
-    v20230601preview,
-    v20241015preview,
-    v20241218preview,
-    v20250301,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

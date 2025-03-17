@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The NetworkPacketBroker resource definition.
- * Azure REST API version: 2023-06-15.
+ * Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
  */
 export class NetworkPacketBroker extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class NetworkPacketBroker extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkPacketBroker.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
@@ -105,6 +109,7 @@ export class NetworkPacketBroker extends pulumi.CustomResource {
             resourceInputs["networkPacketBrokerName"] = args ? args.networkPacketBrokerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["neighborGroupIds"] = undefined /*out*/;
             resourceInputs["networkDeviceIds"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class NetworkPacketBroker extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["neighborGroupIds"] = undefined /*out*/;

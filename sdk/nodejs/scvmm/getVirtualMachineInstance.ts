@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Retrieves information about a virtual machine instance.
  * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2023-10-07, 2024-06-01.
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,6 +33,10 @@ export interface GetVirtualMachineInstanceResult {
      * Availability Sets in vm.
      */
     readonly availabilitySets?: outputs.scvmm.VirtualMachineInstancePropertiesResponseAvailabilitySets[];
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets the extended location.
      */
@@ -87,8 +89,6 @@ export interface GetVirtualMachineInstanceResult {
 /**
  * Retrieves information about a virtual machine instance.
  * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2023-10-07, 2024-06-01.
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Primary and secondary connection strings to the hybrid connection.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function listHybridConnectionKeys(args: ListHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -66,9 +64,7 @@ export interface ListHybridConnectionKeysResult {
 }
 /**
  * Primary and secondary connection strings to the hybrid connection.
- * Azure REST API version: 2021-11-01.
- *
- * Other available API versions: 2024-01-01.
+ * Azure REST API version: 2024-01-01.
  */
 export function listHybridConnectionKeysOutput(args: ListHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHybridConnectionKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

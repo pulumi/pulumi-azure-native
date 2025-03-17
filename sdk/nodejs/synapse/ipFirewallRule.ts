@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * IP firewall rule
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class IpFirewallRule extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class IpFirewallRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpFirewallRule.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
      */
@@ -80,10 +82,12 @@ export class IpFirewallRule extends pulumi.CustomResource {
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endIpAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

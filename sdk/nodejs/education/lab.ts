@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lab details.
- * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-12-01-preview.
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 2.x: 2021-12-01-preview.
  */
 export class Lab extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Lab extends pulumi.CustomResource {
         return obj['__pulumiType'] === Lab.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Default monetary cap for each student in this lab
      */
@@ -82,6 +86,10 @@ export class Lab extends pulumi.CustomResource {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
+    /**
+     * Total budget
+     */
+    public /*out*/ readonly totalBudget!: pulumi.Output<outputs.education.AmountResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -132,14 +140,17 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
             resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDate"] = undefined /*out*/;
             resourceInputs["invitationCode"] = undefined /*out*/;
             resourceInputs["maxStudentCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["budgetPerStudent"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -151,6 +162,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["totalBudget"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }

@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
- *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getProjectCatalog(args: GetProjectCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +43,10 @@ export interface GetProjectCatalogResult {
      * Properties for an Azure DevOps catalog type.
      */
     readonly adoGit?: outputs.devcenter.GitCatalogResponse;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The connection state of the catalog.
      */
@@ -101,8 +103,6 @@ export interface GetProjectCatalogResult {
 /**
  * Gets an associated project catalog.
  * Azure REST API version: 2024-02-01.
- *
- * Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
  */
 export function getProjectCatalogOutput(args: GetProjectCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

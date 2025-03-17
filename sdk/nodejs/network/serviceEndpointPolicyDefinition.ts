@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Endpoint policy definitions.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2018-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointPolicyDefinition.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
@@ -92,9 +94,11 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
             resourceInputs["serviceResources"] = args ? args.serviceResources : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an Endpoint resource.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -52,9 +54,9 @@ export interface GetEndpointResult {
     /**
      * The resource specific properties for the Storage Mover resource.
      */
-    readonly properties: outputs.storagemover.AzureStorageBlobContainerEndpointPropertiesResponse | outputs.storagemover.NfsMountEndpointPropertiesResponse;
+    readonly properties: outputs.storagemover.AzureStorageBlobContainerEndpointPropertiesResponse | outputs.storagemover.AzureStorageSmbFileShareEndpointPropertiesResponse | outputs.storagemover.NfsMountEndpointPropertiesResponse | outputs.storagemover.SmbMountEndpointPropertiesResponse;
     /**
-     * Resource system metadata.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.storagemover.SystemDataResponse;
     /**
@@ -64,9 +66,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets an Endpoint resource.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-07-01-preview, 2023-10-01, 2024-07-01.
+ * Azure REST API version: 2024-07-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

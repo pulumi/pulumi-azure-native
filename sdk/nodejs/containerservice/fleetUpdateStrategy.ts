@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines a multi-stage process to perform update operations across members of a Fleet.
- * Azure REST API version: 2023-08-15-preview.
- *
- * Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+ * Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-08-15-preview.
  */
 export class FleetUpdateStrategy extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FleetUpdateStrategy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
@@ -89,12 +91,14 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["strategy"] = args ? args.strategy : undefined;
             resourceInputs["updateStrategyName"] = args ? args.updateStrategyName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation returns properties of a MachinePool.
- * Azure REST API version: 2022-09-04.
- *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+ * Azure REST API version: 2023-11-22.
  */
 export function getMachinePool(args: GetMachinePoolArgs, opts?: pulumi.InvokeOptions): Promise<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetMachinePoolArgs {
  */
 export interface GetMachinePoolResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -61,9 +63,7 @@ export interface GetMachinePoolResult {
 }
 /**
  * The operation returns properties of a MachinePool.
- * Azure REST API version: 2022-09-04.
- *
- * Other available API versions: 2023-04-01, 2023-07-01-preview, 2023-09-04, 2023-11-22.
+ * Azure REST API version: 2023-11-22.
  */
 export function getMachinePoolOutput(args: GetMachinePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachinePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

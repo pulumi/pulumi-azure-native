@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace data table definition.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-12-01-preview.
- *
- * Other available API versions: 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Table extends pulumi.CustomResource {
      * The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
      */
     public /*out*/ readonly archiveRetentionInDays!: pulumi.Output<number>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The timestamp that table plan was last modified (UTC).
      */
@@ -128,6 +130,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -138,6 +141,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
@@ -154,7 +158,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20211201preview:Table" }, { type: "azure-native:operationalinsights/v20221001:Table" }, { type: "azure-native:operationalinsights/v20230901:Table" }, { type: "azure-native:operationalinsights/v20250201:Table" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Table.__pulumiType, name, resourceInputs, opts);
     }

@@ -8,10 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Operation to list the RegistrationTokens associated with the HostPool.
- * Azure REST API version: 2024-04-08-preview.
- *
- * Other available API versions: 2024-04-03, 2024-08-08-preview.
+ * Operation to list the RegistrationTokens associated with the HostPool
+ * Azure REST API version: 2024-04-03.
  */
 export function listHostPoolRegistrationTokens(args: ListHostPoolRegistrationTokensArgs, opts?: pulumi.InvokeOptions): Promise<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,10 +44,8 @@ export interface ListHostPoolRegistrationTokensResult {
     readonly value?: outputs.desktopvirtualization.RegistrationTokenMinimalResponse[];
 }
 /**
- * Operation to list the RegistrationTokens associated with the HostPool.
- * Azure REST API version: 2024-04-08-preview.
- *
- * Other available API versions: 2024-04-03, 2024-08-08-preview.
+ * Operation to list the RegistrationTokens associated with the HostPool
+ * Azure REST API version: 2024-04-03.
  */
 export function listHostPoolRegistrationTokensOutput(args: ListHostPoolRegistrationTokensOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListHostPoolRegistrationTokensResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

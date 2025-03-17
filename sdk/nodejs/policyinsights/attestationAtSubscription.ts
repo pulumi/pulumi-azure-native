@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An attestation resource.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class AttestationAtSubscription extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
      * The time the evidence was assessed
      */
     public readonly assessmentDate!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Comments describing why this attestation was created.
      */
@@ -121,6 +123,7 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
             resourceInputs["owner"] = args ? args.owner : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastComplianceStateChangeAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -128,6 +131,7 @@ export class AttestationAtSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assessmentDate"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["comments"] = undefined /*out*/;
             resourceInputs["complianceState"] = undefined /*out*/;
             resourceInputs["evidence"] = undefined /*out*/;

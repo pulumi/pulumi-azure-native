@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the access key for the specified configuration store.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function listConfigurationStoreKeys(args: ListConfigurationStoreKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationStoreKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -52,9 +50,7 @@ export interface ListConfigurationStoreKeysResult {
 }
 /**
  * Lists the access key for the specified configuration store.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function listConfigurationStoreKeysOutput(args: ListConfigurationStoreKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListConfigurationStoreKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

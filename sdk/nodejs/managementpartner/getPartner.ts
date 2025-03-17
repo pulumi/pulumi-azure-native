@@ -27,6 +27,10 @@ export interface GetPartnerArgs {
  */
 export interface GetPartnerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * This is the DateTime when the partner was created.
      */
     readonly createdTime?: string;

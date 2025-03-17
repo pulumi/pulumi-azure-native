@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A cluster resource belonging to a site resource.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class HypervClusterControllerCluster extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === HypervClusterControllerCluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the timestamp marking Hyper-V cluster creation.
      */
@@ -113,6 +115,7 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["functionalLevel"] = undefined /*out*/;
@@ -122,6 +125,7 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

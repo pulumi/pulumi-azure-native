@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab user.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,6 +44,10 @@ export interface GetUserResult {
      */
     readonly additionalUsageQuota?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Display name of the user, for example user's full name.
      */
     readonly displayName: string;
@@ -78,6 +80,10 @@ export interface GetUserResult {
      */
     readonly registrationState: string;
     /**
+     * Error details of last operation done on lab plan.
+     */
+    readonly resourceOperationError: outputs.labservices.ResourceOperationErrorResponse;
+    /**
      * Metadata pertaining to creation and last modification of the user resource.
      */
     readonly systemData: outputs.labservices.SystemDataResponse;
@@ -92,9 +98,7 @@ export interface GetUserResult {
 }
 /**
  * Returns the properties of a lab user.
- * Azure REST API version: 2022-08-01.
- *
- * Other available API versions: 2018-10-15, 2023-06-07.
+ * Azure REST API version: 2023-06-07.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Gets a hybrid connection configuration by its name.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -38,6 +36,10 @@ export interface GetWebAppRelayServiceConnectionArgs {
  * Hybrid Connection for an App Service app.
  */
 export interface GetWebAppRelayServiceConnectionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     readonly biztalkUri?: string;
     readonly entityConnectionString?: string;
     readonly entityName?: string;
@@ -64,9 +66,7 @@ export interface GetWebAppRelayServiceConnectionResult {
 }
 /**
  * Description for Gets a hybrid connection configuration by its name.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

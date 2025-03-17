@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details about the service to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getServiceConfiguration(args: GetServiceConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,7 +26,7 @@ export interface GetServiceConfigurationArgs {
      */
     endpointName: string;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: string;
     /**
@@ -42,33 +40,13 @@ export interface GetServiceConfigurationArgs {
  */
 export interface GetServiceConfigurationResult {
     /**
-     * The timestamp of resource creation (UTC).
+     * The Azure API version of the resource.
      */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The name of the resource
      */
@@ -100,9 +78,7 @@ export interface GetServiceConfigurationResult {
 }
 /**
  * Gets the details about the service to the resource.
- * Azure REST API version: 2023-03-15.
- *
- * Other available API versions: 2024-12-01.
+ * Azure REST API version: 2024-12-01.
  */
 export function getServiceConfigurationOutput(args: GetServiceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -119,7 +95,7 @@ export interface GetServiceConfigurationOutputArgs {
      */
     endpointName: pulumi.Input<string>;
     /**
-     * The fully qualified Azure Resource manager identifier of the resource to be connected.
+     * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
     /**

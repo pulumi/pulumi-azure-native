@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate details.
- * Azure REST API version: 2023-09-01-preview.
- *
- * Other available API versions: 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
  */
 export class WorkspaceCertificate extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceCertificate.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
@@ -92,12 +94,14 @@ export class WorkspaceCertificate extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subject"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["keyVault"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

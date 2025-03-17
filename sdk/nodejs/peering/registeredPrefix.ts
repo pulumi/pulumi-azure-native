@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The customer's prefix that is registered by the peering service provider.
- * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class RegisteredPrefix extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         return obj['__pulumiType'] === RegisteredPrefix.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The error message associated with the validation state, if any.
      */
@@ -85,6 +89,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             resourceInputs["prefix"] = args ? args.prefix : undefined;
             resourceInputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;
@@ -92,6 +97,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["peeringServicePrefixKey"] = undefined /*out*/;

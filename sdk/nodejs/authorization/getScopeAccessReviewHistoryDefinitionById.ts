@@ -35,6 +35,10 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdArgs {
  */
 export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Date time when history definition was created
      */
     readonly createdDateTime: string;
@@ -46,10 +50,6 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      * The display name for the history definition.
      */
     readonly displayName?: string;
-    /**
-     * The DateTime when the review is scheduled to end. Required if type is endDate
-     */
-    readonly endDate?: string;
     /**
      * The access review history definition id.
      */
@@ -67,10 +67,6 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly name: string;
     /**
-     * The number of times to repeat the access review. Required and must be positive if type is numbered.
-     */
-    readonly numberOfOccurrences?: number;
-    /**
      * The identity id
      */
     readonly principalId: string;
@@ -83,6 +79,10 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      */
     readonly principalType: string;
     /**
+     * Access Review History Definition recurrence settings.
+     */
+    readonly range?: outputs.authorization.AccessReviewRecurrenceRangeResponse;
+    /**
      * Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
      */
     readonly reviewHistoryPeriodEndDateTime: string;
@@ -94,10 +94,6 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdResult {
      * A collection of scopes used when selecting review history data
      */
     readonly scopes?: outputs.authorization.AccessReviewScopeResponse[];
-    /**
-     * The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-     */
-    readonly startDate?: string;
     /**
      * This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
      */

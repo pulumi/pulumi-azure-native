@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the config server and its properties.
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getConfigServer(args: GetConfigServerArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetConfigServerArgs {
  */
 export interface GetConfigServerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
@@ -59,9 +61,7 @@ export interface GetConfigServerResult {
 }
 /**
  * Get the config server and its properties.
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01, 2024-01-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-01-01-preview.
  */
 export function getConfigServerOutput(args: GetConfigServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

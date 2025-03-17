@@ -29,15 +29,6 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 // Export enums:
 export * from "../types/enums/iotfirmwaredefense";
 
-// Export sub-modules:
-import * as v20230208preview from "./v20230208preview";
-import * as v20240110 from "./v20240110";
-
-export {
-    v20230208preview,
-    v20240110,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

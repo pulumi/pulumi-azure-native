@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The configuration of the event streaming service resource attached to the Purview account for kafka notifications.
- * Azure REST API version: 2021-12-01.
- *
- * Other available API versions: 2023-05-01-preview, 2024-04-01-preview.
+ * Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
  */
 export class KafkaConfiguration extends pulumi.CustomResource {
     /**
@@ -41,11 +39,15 @@ export class KafkaConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Consumer group for hook event hub.
      */
     public readonly consumerGroup!: pulumi.Output<string | undefined>;
     /**
-     * Credentials to access event hub.
+     * Credentials to access the event streaming service attached to the purview account.
      */
     public readonly credentials!: pulumi.Output<outputs.purview.CredentialsResponse | undefined>;
     /**
@@ -105,10 +107,12 @@ export class KafkaConfiguration extends pulumi.CustomResource {
             resourceInputs["eventStreamingType"] = (args ? args.eventStreamingType : undefined) ?? "None";
             resourceInputs["kafkaConfigurationName"] = args ? args.kafkaConfigurationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["eventHubPartitionId"] = undefined /*out*/;
@@ -140,7 +144,7 @@ export interface KafkaConfigurationArgs {
      */
     consumerGroup?: pulumi.Input<string>;
     /**
-     * Credentials to access event hub.
+     * Credentials to access the event streaming service attached to the purview account.
      */
     credentials?: pulumi.Input<inputs.purview.CredentialsArgs>;
     /**

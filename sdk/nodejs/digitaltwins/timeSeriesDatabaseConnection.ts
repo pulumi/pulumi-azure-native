@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a time series database connection resource.
- * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 2.x: 2023-01-31.
  */
 export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === TimeSeriesDatabaseConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Extension resource name.
      */
@@ -76,10 +80,12 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["timeSeriesDatabaseConnectionName"] = args ? args.timeSeriesDatabaseConnectionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

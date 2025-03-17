@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a catalog.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2023-10-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class Catalog extends pulumi.CustomResource {
     /**
@@ -45,9 +43,25 @@ export class Catalog extends pulumi.CustomResource {
      */
     public readonly adoGit!: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The connection state of the catalog.
+     */
+    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    /**
      * Properties for a GitHub catalog type.
      */
     public readonly gitHub!: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
+    /**
+     * When the catalog was last connected.
+     */
+    public /*out*/ readonly lastConnectionTime!: pulumi.Output<string>;
+    /**
+     * Stats of the latest synchronization.
+     */
+    public /*out*/ readonly lastSyncStats!: pulumi.Output<outputs.devcenter.SyncStatsResponse>;
     /**
      * When the catalog was last synced.
      */
@@ -65,9 +79,17 @@ export class Catalog extends pulumi.CustomResource {
      */
     public /*out*/ readonly syncState!: pulumi.Output<string>;
     /**
+     * Indicates the type of sync that is configured for the catalog.
+     */
+    public readonly syncType!: pulumi.Output<string | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    /**
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -95,6 +117,12 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
             resourceInputs["gitHub"] = args ? args.gitHub : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["syncType"] = args ? args.syncType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["connectionState"] = undefined /*out*/;
+            resourceInputs["lastConnectionTime"] = undefined /*out*/;
+            resourceInputs["lastSyncStats"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -103,16 +131,22 @@ export class Catalog extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["adoGit"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["gitHub"] = undefined /*out*/;
+            resourceInputs["lastConnectionTime"] = undefined /*out*/;
+            resourceInputs["lastSyncStats"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["syncState"] = undefined /*out*/;
+            resourceInputs["syncType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230101preview:Catalog" }, { type: "azure-native:devcenter/v20230401:Catalog" }, { type: "azure-native:devcenter/v20230801preview:Catalog" }, { type: "azure-native:devcenter/v20231001preview:Catalog" }, { type: "azure-native:devcenter/v20240201:Catalog" }, { type: "azure-native:devcenter/v20240501preview:Catalog" }, { type: "azure-native:devcenter/v20240601preview:Catalog" }, { type: "azure-native:devcenter/v20240701preview:Catalog" }, { type: "azure-native:devcenter/v20240801preview:Catalog" }, { type: "azure-native:devcenter/v20241001preview:Catalog" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Catalog" }, { type: "azure-native:devcenter/v20220901preview:Catalog" }, { type: "azure-native:devcenter/v20221012preview:Catalog" }, { type: "azure-native:devcenter/v20221111preview:Catalog" }, { type: "azure-native:devcenter/v20230101preview:Catalog" }, { type: "azure-native:devcenter/v20230401:Catalog" }, { type: "azure-native:devcenter/v20230801preview:Catalog" }, { type: "azure-native:devcenter/v20231001preview:Catalog" }, { type: "azure-native:devcenter/v20240201:Catalog" }, { type: "azure-native:devcenter/v20240501preview:Catalog" }, { type: "azure-native:devcenter/v20240601preview:Catalog" }, { type: "azure-native:devcenter/v20240701preview:Catalog" }, { type: "azure-native:devcenter/v20240801preview:Catalog" }, { type: "azure-native:devcenter/v20241001preview:Catalog" }, { type: "azure-native:devcenter/v20250201:Catalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Catalog.__pulumiType, name, resourceInputs, opts);
     }
@@ -142,4 +176,12 @@ export interface CatalogArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Indicates the type of sync that is configured for the catalog.
+     */
+    syncType?: pulumi.Input<string | enums.devcenter.CatalogSyncType>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

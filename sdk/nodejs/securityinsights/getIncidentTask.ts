@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an incident task.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getIncidentTask(args: GetIncidentTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetIncidentTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,7 +40,14 @@ export interface GetIncidentTaskArgs {
     workspaceName: string;
 }
 
+/**
+ * Describes incident task properties
+ */
 export interface GetIncidentTaskResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Information on the client (user or application) that made some action
      */
@@ -75,6 +80,9 @@ export interface GetIncidentTaskResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The status of the task
+     */
     readonly status: string;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -91,9 +99,7 @@ export interface GetIncidentTaskResult {
 }
 /**
  * Gets an incident task.
- * Azure REST API version: 2023-06-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01.
  */
 export function getIncidentTaskOutput(args: GetIncidentTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIncidentTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The tenant configuration resource definition.
- * Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview.
- *
- * Other available API versions: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview. Prior API version in Azure Native 2.x: 2020-09-01-preview.
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class TenantConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === TenantConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -70,17 +72,19 @@ export class TenantConfiguration extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-native:portal/v20200901preview:TenantConfiguration" }, { type: "azure-native:portal/v20221201preview:TenantConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:portal/v20190101preview:TenantConfiguration" }, { type: "azure-native:portal/v20200901preview:TenantConfiguration" }, { type: "azure-native:portal/v20221201preview:TenantConfiguration" }, { type: "azure-native:portal/v20250401preview:TenantConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TenantConfiguration.__pulumiType, name, resourceInputs, opts);
     }

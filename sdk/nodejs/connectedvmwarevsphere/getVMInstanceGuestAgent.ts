@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVMInstanceGuestAgent(args: GetVMInstanceGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetVMInstanceGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +29,10 @@ export interface GetVMInstanceGuestAgentArgs {
  * Defines the GuestAgent.
  */
 export interface GetVMInstanceGuestAgentResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Username / Password Credentials to provision guest agent.
      */
@@ -86,9 +88,7 @@ export interface GetVMInstanceGuestAgentResult {
 }
 /**
  * Implements GuestAgent GET method.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVMInstanceGuestAgentOutput(args: GetVMInstanceGuestAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVMInstanceGuestAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2022-04-01-preview, 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Order extends pulumi.CustomResource {
         return obj['__pulumiType'] === Order.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The contact details.
      */
@@ -118,6 +120,7 @@ export class Order extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["shipmentType"] = args ? args.shipmentType : undefined;
             resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -129,6 +132,7 @@ export class Order extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contactInformation"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;

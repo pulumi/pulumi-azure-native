@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a network manager security user configuration rule collection.
  * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -51,6 +49,10 @@ export interface GetUserRuleCollectionResult {
      */
     readonly appliesToGroups: outputs.network.NetworkManagerSecurityGroupItemResponse[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * A description of the user rule collection.
      */
     readonly description?: string;
@@ -82,8 +84,6 @@ export interface GetUserRuleCollectionResult {
 /**
  * Gets a network manager security user configuration rule collection.
  * Azure REST API version: 2022-04-01-preview.
- *
- * Other available API versions: 2021-02-01-preview, 2021-05-01-preview.
  */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserRuleCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

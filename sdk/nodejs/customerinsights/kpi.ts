@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The KPI resource format.
- * Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+ * Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
  */
 export class Kpi extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Kpi extends pulumi.CustomResource {
      * The aliases.
      */
     public readonly aliases!: pulumi.Output<outputs.customerinsights.KpiAliasResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The calculation window.
      */
@@ -172,6 +176,7 @@ export class Kpi extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["thresHolds"] = args ? args.thresHolds : undefined;
             resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupByMetadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["participantProfilesMetadata"] = undefined /*out*/;
@@ -180,6 +185,7 @@ export class Kpi extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aliases"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["calculationWindow"] = undefined /*out*/;
             resourceInputs["calculationWindowFieldName"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

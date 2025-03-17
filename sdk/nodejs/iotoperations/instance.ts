@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Instance resource is a logical container for a set of child resources.
- * Azure REST API version: 2024-07-01-preview.
- *
- * Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+ * Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2024-07-01-preview.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -41,9 +39,17 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Edge location of the resource.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.iotoperations.ExtendedLocationResponse>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.iotoperations.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -87,16 +93,20 @@ export class Instance extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -105,7 +115,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Instance" }, { type: "azure-native:iotoperations/v20240815preview:Instance" }, { type: "azure-native:iotoperations/v20240915preview:Instance" }, { type: "azure-native:iotoperations/v20241101:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20240701preview:Instance" }, { type: "azure-native:iotoperations/v20240815preview:Instance" }, { type: "azure-native:iotoperations/v20240915preview:Instance" }, { type: "azure-native:iotoperations/v20241101:Instance" }, { type: "azure-native:iotoperations/v20250401:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,6 +129,10 @@ export interface InstanceArgs {
      * Edge location of the resource.
      */
     extendedLocation: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs>;
+    /**
+     * The managed service identities assigned to this resource.
+     */
+    identity?: pulumi.Input<inputs.iotoperations.ManagedServiceIdentityArgs>;
     /**
      * Name of instance.
      */

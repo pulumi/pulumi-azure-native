@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Static Site Linked Backend ARM resource.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
         return obj['__pulumiType'] === StaticSiteLinkedBackendForBuild.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The resource id of the backend linked to the static site
      */
@@ -93,10 +95,12 @@ export class StaticSiteLinkedBackendForBuild extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendResourceId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * The authorizationKey.
      */
     public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The connection mode for this connection.
      */
@@ -215,6 +217,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
             resourceInputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
             resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -226,6 +229,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionMode"] = undefined /*out*/;
             resourceInputs["connectionProtocol"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;

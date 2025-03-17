@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The relationship resource format.
- * Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26.
+ * Azure REST API version: 2017-04-26. Prior API version in Azure Native 2.x: 2017-04-26.
  */
 export class Relationship extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Relationship extends pulumi.CustomResource {
         return obj['__pulumiType'] === Relationship.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The Relationship Cardinality.
      */
@@ -129,12 +133,14 @@ export class Relationship extends pulumi.CustomResource {
             resourceInputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
             resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["relationshipGuidId"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cardinality"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;

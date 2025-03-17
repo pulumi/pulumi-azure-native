@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Grid Partner Destination.
- * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview.
- *
- * Other available API versions: 2021-10-15-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview.
+ * Azure REST API version: 2024-12-15-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
  */
 export class PartnerDestination extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class PartnerDestination extends pulumi.CustomResource {
      * Activation state of the partner destination.
      */
     public readonly activationState!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Endpoint Base URL of the partner destination
      */
@@ -78,7 +80,7 @@ export class PartnerDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to Partner Destination resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -114,12 +116,14 @@ export class PartnerDestination extends pulumi.CustomResource {
             resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activationState"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpointBaseUrl"] = undefined /*out*/;
             resourceInputs["endpointServiceContext"] = undefined /*out*/;
             resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;

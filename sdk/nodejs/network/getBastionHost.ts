@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Bastion Host.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getBastionHost(args: GetBastionHostArgs, opts?: pulumi.InvokeOptions): Promise<GetBastionHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,6 +35,10 @@ export interface GetBastionHostArgs {
  */
 export interface GetBastionHostResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Enable/Disable Copy/Paste feature of the Bastion Host resource.
      */
     readonly disableCopyPaste?: boolean;
@@ -56,6 +58,14 @@ export interface GetBastionHostResult {
      * Enable/Disable Kerberos feature of the Bastion Host resource.
      */
     readonly enableKerberos?: boolean;
+    /**
+     * Enable/Disable Private Only feature of the Bastion Host resource.
+     */
+    readonly enablePrivateOnlyBastion?: boolean;
+    /**
+     * Enable/Disable Session Recording feature of the Bastion Host resource.
+     */
+    readonly enableSessionRecording?: boolean;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
@@ -84,6 +94,7 @@ export interface GetBastionHostResult {
      * Resource name.
      */
     readonly name: string;
+    readonly networkAcls?: outputs.network.BastionHostPropertiesFormatResponseNetworkAcls;
     /**
      * The provisioning state of the bastion host resource.
      */
@@ -104,12 +115,18 @@ export interface GetBastionHostResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Reference to an existing virtual network required for Developer Bastion Host only.
+     */
+    readonly virtualNetwork?: outputs.network.SubResourceResponse;
+    /**
+     * A list of availability zones denoting where the resource needs to come from.
+     */
+    readonly zones?: string[];
 }
 /**
  * Gets the specified Bastion Host.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getBastionHostOutput(args: GetBastionHostOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBastionHostResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

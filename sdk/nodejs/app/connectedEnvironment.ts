@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2022-10-01.
  */
 export class ConnectedEnvironment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConnectedEnvironment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Custom domain configuration for the environment
      */
@@ -111,6 +113,7 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["staticIp"] = args ? args.staticIp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -118,6 +121,7 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDomainConfiguration"] = undefined /*out*/;
             resourceInputs["daprAIConnectionString"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;

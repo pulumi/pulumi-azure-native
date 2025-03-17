@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets an integration account.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccount(args: GetIntegrationAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +34,10 @@ export interface GetIntegrationAccountArgs {
  * The integration account.
  */
 export interface GetIntegrationAccountResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The resource id.
      */
@@ -72,8 +74,6 @@ export interface GetIntegrationAccountResult {
 /**
  * Gets an integration account.
  * Azure REST API version: 2019-05-01.
- *
- * Other available API versions: 2015-08-01-preview.
  */
 export function getIntegrationAccountOutput(args: GetIntegrationAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

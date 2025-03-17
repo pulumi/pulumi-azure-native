@@ -69,19 +69,6 @@ utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetw
 // Export enums:
 export * from "../types/enums/dbformariadb";
 
-// Export sub-modules:
-import * as v20180601 from "./v20180601";
-import * as v20180601preview from "./v20180601preview";
-import * as v20180601privatepreview from "./v20180601privatepreview";
-import * as v20200101privatepreview from "./v20200101privatepreview";
-
-export {
-    v20180601,
-    v20180601preview,
-    v20180601privatepreview,
-    v20200101privatepreview,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

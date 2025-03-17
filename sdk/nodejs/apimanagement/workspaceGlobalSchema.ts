@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Global Schema Contract details.
- * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-09-01-preview.
  */
 export class WorkspaceGlobalSchema extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WorkspaceGlobalSchema extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkspaceGlobalSchema.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Free-form schema entity description.
      */
@@ -91,9 +93,11 @@ export class WorkspaceGlobalSchema extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["schemaType"] = undefined /*out*/;

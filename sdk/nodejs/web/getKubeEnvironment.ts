@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description for Get the properties of a Kubernetes Environment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -50,6 +48,10 @@ export interface GetKubeEnvironmentResult {
      */
     readonly arcConfiguration?: outputs.web.ArcConfigurationResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
      */
     readonly containerAppsConfiguration?: outputs.web.ContainerAppsConfigurationResponse;
@@ -78,7 +80,7 @@ export interface GetKubeEnvironmentResult {
      */
     readonly internalLoadBalancerEnabled?: boolean;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     readonly kind?: string;
     /**
@@ -108,9 +110,7 @@ export interface GetKubeEnvironmentResult {
 }
 /**
  * Description for Get the properties of a Kubernetes Environment.
- * Azure REST API version: 2022-09-01.
- *
- * Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01.
  */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

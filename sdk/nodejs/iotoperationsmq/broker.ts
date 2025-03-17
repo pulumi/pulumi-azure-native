@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * MQ broker resource
- * Azure REST API version: 2023-10-04-preview.
+ * Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
  */
 export class Broker extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Broker extends pulumi.CustomResource {
      * The details of Authentication Docker Image.
      */
     public readonly authImage!: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The details of Broker Docker Image.
      */
@@ -165,12 +169,14 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["mqName"] = args ? args.mqName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authImage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["brokerImage"] = undefined /*out*/;
             resourceInputs["brokerNodeTolerations"] = undefined /*out*/;
             resourceInputs["cardinality"] = undefined /*out*/;

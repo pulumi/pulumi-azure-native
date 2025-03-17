@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Metadata resource definition.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
- *
- * Other available API versions: 2021-03-01-preview, 2023-02-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+ * Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class Metadata extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class Metadata extends pulumi.CustomResource {
      * The creator of the content item.
      */
     public readonly author!: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Categories for the solution content item
      */
@@ -178,12 +180,14 @@ export class Metadata extends pulumi.CustomResource {
             resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["categories"] = undefined /*out*/;
             resourceInputs["contentId"] = undefined /*out*/;
             resourceInputs["contentSchemaVersion"] = undefined /*out*/;
@@ -208,7 +212,7 @@ export class Metadata extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:Metadata" }, { type: "azure-native:securityinsights/v20210901preview:Metadata" }, { type: "azure-native:securityinsights/v20211001preview:Metadata" }, { type: "azure-native:securityinsights/v20220101preview:Metadata" }, { type: "azure-native:securityinsights/v20220401preview:Metadata" }, { type: "azure-native:securityinsights/v20220501preview:Metadata" }, { type: "azure-native:securityinsights/v20220601preview:Metadata" }, { type: "azure-native:securityinsights/v20220701preview:Metadata" }, { type: "azure-native:securityinsights/v20220801preview:Metadata" }, { type: "azure-native:securityinsights/v20220901preview:Metadata" }, { type: "azure-native:securityinsights/v20221001preview:Metadata" }, { type: "azure-native:securityinsights/v20221101preview:Metadata" }, { type: "azure-native:securityinsights/v20221201preview:Metadata" }, { type: "azure-native:securityinsights/v20230201:Metadata" }, { type: "azure-native:securityinsights/v20230201preview:Metadata" }, { type: "azure-native:securityinsights/v20230301preview:Metadata" }, { type: "azure-native:securityinsights/v20230401preview:Metadata" }, { type: "azure-native:securityinsights/v20230501preview:Metadata" }, { type: "azure-native:securityinsights/v20230601preview:Metadata" }, { type: "azure-native:securityinsights/v20230701preview:Metadata" }, { type: "azure-native:securityinsights/v20230801preview:Metadata" }, { type: "azure-native:securityinsights/v20230901preview:Metadata" }, { type: "azure-native:securityinsights/v20231001preview:Metadata" }, { type: "azure-native:securityinsights/v20231101:Metadata" }, { type: "azure-native:securityinsights/v20231201preview:Metadata" }, { type: "azure-native:securityinsights/v20240101preview:Metadata" }, { type: "azure-native:securityinsights/v20240301:Metadata" }, { type: "azure-native:securityinsights/v20240401preview:Metadata" }, { type: "azure-native:securityinsights/v20240901:Metadata" }, { type: "azure-native:securityinsights/v20241001preview:Metadata" }, { type: "azure-native:securityinsights/v20250101preview:Metadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:Metadata" }, { type: "azure-native:securityinsights/v20210901preview:Metadata" }, { type: "azure-native:securityinsights/v20211001preview:Metadata" }, { type: "azure-native:securityinsights/v20220101preview:Metadata" }, { type: "azure-native:securityinsights/v20220401preview:Metadata" }, { type: "azure-native:securityinsights/v20220501preview:Metadata" }, { type: "azure-native:securityinsights/v20220601preview:Metadata" }, { type: "azure-native:securityinsights/v20220701preview:Metadata" }, { type: "azure-native:securityinsights/v20220801preview:Metadata" }, { type: "azure-native:securityinsights/v20220901preview:Metadata" }, { type: "azure-native:securityinsights/v20221001preview:Metadata" }, { type: "azure-native:securityinsights/v20221101preview:Metadata" }, { type: "azure-native:securityinsights/v20221201preview:Metadata" }, { type: "azure-native:securityinsights/v20230201:Metadata" }, { type: "azure-native:securityinsights/v20230201preview:Metadata" }, { type: "azure-native:securityinsights/v20230301preview:Metadata" }, { type: "azure-native:securityinsights/v20230401preview:Metadata" }, { type: "azure-native:securityinsights/v20230501preview:Metadata" }, { type: "azure-native:securityinsights/v20230601preview:Metadata" }, { type: "azure-native:securityinsights/v20230701preview:Metadata" }, { type: "azure-native:securityinsights/v20230801preview:Metadata" }, { type: "azure-native:securityinsights/v20230901preview:Metadata" }, { type: "azure-native:securityinsights/v20231001preview:Metadata" }, { type: "azure-native:securityinsights/v20231101:Metadata" }, { type: "azure-native:securityinsights/v20231201preview:Metadata" }, { type: "azure-native:securityinsights/v20240101preview:Metadata" }, { type: "azure-native:securityinsights/v20240301:Metadata" }, { type: "azure-native:securityinsights/v20240401preview:Metadata" }, { type: "azure-native:securityinsights/v20240901:Metadata" }, { type: "azure-native:securityinsights/v20241001preview:Metadata" }, { type: "azure-native:securityinsights/v20250101preview:Metadata" }, { type: "azure-native:securityinsights/v20250301:Metadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Metadata.__pulumiType, name, resourceInputs, opts);
     }

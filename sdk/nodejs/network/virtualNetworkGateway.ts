@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A common class for general resource information.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2019-08-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**
@@ -57,6 +55,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly allowVirtualWanTraffic!: pulumi.Output<boolean | undefined>;
     /**
+     * Autoscale configuration for virutal network gateway
+     */
+    public readonly autoScaleConfiguration!: pulumi.Output<outputs.network.VirtualNetworkGatewayAutoScaleConfigurationResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Virtual network gateway's BGP speaker settings.
      */
     public readonly bgpSettings!: pulumi.Output<outputs.network.BgpSettingsResponse | undefined>;
@@ -101,6 +107,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly gatewayType!: pulumi.Output<string | undefined>;
     /**
+     * The identity of the virtual network gateway, if configured.
+     */
+    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    /**
      * The IP address allocated by the gateway to which dns requests can be sent.
      */
     public /*out*/ readonly inboundDnsForwardingEndpoint!: pulumi.Output<string>;
@@ -124,6 +134,10 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * The provisioning state of the virtual network gateway resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+     */
+    public readonly resiliencyModel!: pulumi.Output<string | undefined>;
     /**
      * The resource GUID property of the virtual network gateway resource.
      */
@@ -179,6 +193,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["adminState"] = args ? args.adminState : undefined;
             resourceInputs["allowRemoteVnetTraffic"] = args ? args.allowRemoteVnetTraffic : undefined;
             resourceInputs["allowVirtualWanTraffic"] = args ? args.allowVirtualWanTraffic : undefined;
+            resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["customRoutes"] = args ? args.customRoutes : undefined;
             resourceInputs["disableIPSecReplayProtection"] = args ? args.disableIPSecReplayProtection : undefined;
@@ -190,9 +205,11 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["gatewayDefaultSite"] = args ? args.gatewayDefaultSite : undefined;
             resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["natRules"] = args ? args.natRules : undefined;
+            resourceInputs["resiliencyModel"] = args ? args.resiliencyModel : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -202,6 +219,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             resourceInputs["vpnGatewayGeneration"] = args ? args.vpnGatewayGeneration : undefined;
             resourceInputs["vpnType"] = args ? args.vpnType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -213,6 +231,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["adminState"] = undefined /*out*/;
             resourceInputs["allowRemoteVnetTraffic"] = undefined /*out*/;
             resourceInputs["allowVirtualWanTraffic"] = undefined /*out*/;
+            resourceInputs["autoScaleConfiguration"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpSettings"] = undefined /*out*/;
             resourceInputs["customRoutes"] = undefined /*out*/;
             resourceInputs["disableIPSecReplayProtection"] = undefined /*out*/;
@@ -224,12 +244,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["gatewayDefaultSite"] = undefined /*out*/;
             resourceInputs["gatewayType"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["inboundDnsForwardingEndpoint"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["natRules"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resiliencyModel"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -267,6 +289,10 @@ export interface VirtualNetworkGatewayArgs {
      * Configures this gateway to accept traffic from remote Virtual WAN networks.
      */
     allowVirtualWanTraffic?: pulumi.Input<boolean>;
+    /**
+     * Autoscale configuration for virutal network gateway
+     */
+    autoScaleConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayAutoScaleConfigurationArgs>;
     /**
      * Virtual network gateway's BGP speaker settings.
      */
@@ -312,6 +338,10 @@ export interface VirtualNetworkGatewayArgs {
      */
     id?: pulumi.Input<string>;
     /**
+     * The identity of the virtual network gateway, if configured.
+     */
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
+    /**
      * IP configurations for virtual network gateway.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIPConfigurationArgs>[]>;
@@ -324,6 +354,10 @@ export interface VirtualNetworkGatewayArgs {
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     natRules?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleArgs>[]>;
+    /**
+     * Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
+     */
+    resiliencyModel?: pulumi.Input<string | enums.network.ResiliencyModel>;
     /**
      * The name of the resource group.
      */

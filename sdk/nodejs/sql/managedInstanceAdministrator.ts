@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance administrator.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
      * Type of the managed instance administrator.
      */
     public readonly administratorType!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Login name of the managed instance administrator.
      */
@@ -98,10 +100,12 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sid"] = args ? args.sid : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["administratorType"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["login"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sid"] = undefined /*out*/;

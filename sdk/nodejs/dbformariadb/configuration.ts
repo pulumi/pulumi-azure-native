@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01.
- *
- * Other available API versions: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01. Prior API version in Azure Native 2.x: 2018-06-01.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class Configuration extends pulumi.CustomResource {
      * Allowed values of the configuration.
      */
     public /*out*/ readonly allowedValues!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Data type of the configuration.
      */
@@ -93,6 +95,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

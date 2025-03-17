@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Managed Network resource
- * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
  */
 export class ScopeAssignment extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ScopeAssignment extends pulumi.CustomResource {
      * The managed network ID with scope will be assigned to.
      */
     public readonly assignedManagedNetwork!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -78,12 +82,14 @@ export class ScopeAssignment extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assignedManagedNetwork"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

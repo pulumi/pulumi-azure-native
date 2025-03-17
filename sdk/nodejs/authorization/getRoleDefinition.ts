@@ -39,6 +39,10 @@ export interface GetRoleDefinitionResult {
      */
     readonly assignableScopes?: string[];
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Id of the user who created the assignment
      */
     readonly createdBy: string;

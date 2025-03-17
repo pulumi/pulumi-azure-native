@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration to setup App Resiliency
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  */
 export class AppResiliency extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AppResiliency extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppResiliency.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Policy that defines circuit breaker conditions
      */
@@ -103,9 +105,11 @@ export class AppResiliency extends pulumi.CustomResource {
             resourceInputs["tcpConnectionPool"] = args ? args.tcpConnectionPool : undefined;
             resourceInputs["tcpRetryPolicy"] = args ? args.tcpRetryPolicy : undefined;
             resourceInputs["timeoutPolicy"] = args ? args.timeoutPolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitBreakerPolicy"] = undefined /*out*/;
             resourceInputs["httpConnectionPool"] = undefined /*out*/;
             resourceInputs["httpRetryPolicy"] = undefined /*out*/;

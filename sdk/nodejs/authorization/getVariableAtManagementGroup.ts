@@ -35,6 +35,10 @@ export interface GetVariableAtManagementGroupArgs {
  */
 export interface GetVariableAtManagementGroupResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Variable column definitions.
      */
     readonly columns: outputs.authorization.PolicyVariableColumnResponse[];

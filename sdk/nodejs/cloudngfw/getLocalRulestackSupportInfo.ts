@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * support info for rulestack.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRulestackSupportInfo(args: GetLocalRulestackSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,13 +37,21 @@ export interface GetLocalRulestackSupportInfoArgs {
  */
 export interface GetLocalRulestackSupportInfoResult {
     /**
-     * Support account associated with given resource
+     * Support account associated with given resource when association type is tenant
      */
     readonly accountId?: string;
+    /**
+     * Support account associated with given resource when association type is billing
+     */
+    readonly accountIdForBilling?: string;
     /**
      * account registered in Customer Support Portal
      */
     readonly accountRegistered?: string;
+    /**
+     * Association Type
+     */
+    readonly associationType?: string;
     /**
      * Product usage is in free trial period
      */
@@ -89,9 +95,7 @@ export interface GetLocalRulestackSupportInfoResult {
 }
 /**
  * support info for rulestack.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function getLocalRulestackSupportInfoOutput(args: GetLocalRulestackSupportInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

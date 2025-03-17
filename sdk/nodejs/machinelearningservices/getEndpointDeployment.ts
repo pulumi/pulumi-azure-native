@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getEndpointDeployment(args: GetEndpointDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +41,10 @@ export interface GetEndpointDeploymentArgs {
 
 export interface GetEndpointDeploymentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -61,9 +63,7 @@ export interface GetEndpointDeploymentResult {
     readonly type: string;
 }
 /**
- * Azure REST API version: 2024-01-01-preview.
- *
- * Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2025-01-01-preview.
  */
 export function getEndpointDeploymentOutput(args: GetEndpointDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

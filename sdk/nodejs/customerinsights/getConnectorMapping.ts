@@ -45,6 +45,10 @@ export interface GetConnectorMappingArgs {
  */
 export interface GetConnectorMappingResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The connector mapping name
      */
     readonly connectorMappingName: string;

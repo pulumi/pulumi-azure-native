@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a Domains resource.
- * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview.
- *
- * Other available API versions: 2022-07-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2024-09-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-03-31.
  *
  * Note: If `domainManagement` is set to `AzureManaged`, then `domainName` is required.
  */
@@ -42,6 +40,10 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The location where the Domains resource data is stored at rest.
      */
@@ -122,6 +124,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userEngagementTracking"] = args ? args.userEngagementTracking : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;
             resourceInputs["mailFromSenderDomain"] = undefined /*out*/;
@@ -132,6 +135,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["verificationRecords"] = undefined /*out*/;
             resourceInputs["verificationStates"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["domainManagement"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;

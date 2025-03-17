@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a DNC controller.
- * Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15.
- *
- * Other available API versions: 2023-05-18-preview, 2023-06-27-preview.
+ * Azure REST API version: 2023-06-27-preview. Prior API version in Azure Native 2.x: 2021-03-15.
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**
@@ -38,6 +39,10 @@ export class ControllerDetails extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * dnc application id should be used by customer to authenticate with dnc gateway.
      */
     public /*out*/ readonly dncAppId!: pulumi.Output<string>;
@@ -61,6 +66,10 @@ export class ControllerDetails extends pulumi.CustomResource {
      * The current state of dnc controller resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The purpose of the dnc controller resource.
+     */
+    public readonly purpose!: pulumi.Output<string | undefined>;
     /**
      * Resource guid.
      */
@@ -89,9 +98,11 @@ export class ControllerDetails extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["purpose"] = (args ? args.purpose : undefined) ?? "prod";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dncAppId"] = undefined /*out*/;
             resourceInputs["dncEndpoint"] = undefined /*out*/;
             resourceInputs["dncTenantId"] = undefined /*out*/;
@@ -100,12 +111,14 @@ export class ControllerDetails extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dncAppId"] = undefined /*out*/;
             resourceInputs["dncEndpoint"] = undefined /*out*/;
             resourceInputs["dncTenantId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["purpose"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -125,6 +138,10 @@ export interface ControllerDetailsArgs {
      * Location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The purpose of the dnc controller resource.
+     */
+    purpose?: pulumi.Input<string | enums.delegatednetwork.ControllerPurpose>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

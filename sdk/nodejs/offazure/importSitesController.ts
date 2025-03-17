@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A ImportSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class ImportSitesController extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ImportSitesController extends pulumi.CustomResource {
         return obj['__pulumiType'] === ImportSitesController.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the ARM ID of migration hub solution for SDS.
      */
@@ -97,12 +99,14 @@ export class ImportSitesController extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoverySolutionId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["masterSiteId"] = undefined /*out*/;

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Product serial and status for the service
- * Azure REST API version: 2024-02-07-preview.
- *
- * Other available API versions: 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatus(args?: ListPaloAltoNetworksCloudngfwProductSerialNumberStatusArgs, opts?: pulumi.InvokeOptions): Promise<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
     args = args || {};
@@ -35,9 +33,7 @@ export interface ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult {
 }
 /**
  * Product serial and status for the service
- * Azure REST API version: 2024-02-07-preview.
- *
- * Other available API versions: 2025-02-06-preview.
+ * Azure REST API version: 2025-02-06-preview.
  */
 export function listPaloAltoNetworksCloudngfwProductSerialNumberStatusOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListPaloAltoNetworksCloudngfwProductSerialNumberStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

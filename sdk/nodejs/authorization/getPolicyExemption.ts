@@ -39,6 +39,10 @@ export interface GetPolicyExemptionResult {
      */
     readonly assignmentScopeValidation?: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The description of the policy exemption.
      */
     readonly description?: string;

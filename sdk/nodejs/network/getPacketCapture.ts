@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a packet capture session by name.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,9 +40,21 @@ export interface GetPacketCaptureArgs {
  */
 export interface GetPacketCaptureResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
     readonly bytesToCapturePerPacket?: number;
+    /**
+     * The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
+     */
+    readonly captureSettings?: outputs.network.PacketCaptureSettingsResponse;
+    /**
+     * This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
+     */
+    readonly continuousCapture?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -92,9 +102,7 @@ export interface GetPacketCaptureResult {
 }
 /**
  * Gets a packet capture session by name.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getPacketCaptureOutput(args: GetPacketCaptureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPacketCaptureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

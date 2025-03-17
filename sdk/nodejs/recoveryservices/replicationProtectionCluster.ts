@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Replication protection Cluster.
- * Azure REST API version: 2024-02-01.
- *
- * Other available API versions: 2024-04-01, 2024-10-01.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2024-02-01.
  */
 export class ReplicationProtectionCluster extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationProtectionCluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the protection cluster.
      */
@@ -82,9 +84,11 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
             resourceInputs["replicationProtectionClusterName"] = args ? args.replicationProtectionClusterName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

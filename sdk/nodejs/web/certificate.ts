@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SSL certificate for an app.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-03-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Certificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * CNAME of the certificate to be issued via free certificate
      */
@@ -89,7 +91,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyVaultSecretStatus!: pulumi.Output<string>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -168,6 +170,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cerBlob"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
@@ -183,6 +186,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["valid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["canonicalName"] = undefined /*out*/;
             resourceInputs["cerBlob"] = undefined /*out*/;
             resourceInputs["domainValidationMethod"] = undefined /*out*/;
@@ -241,7 +245,7 @@ export interface CertificateArgs {
      */
     keyVaultSecretName?: pulumi.Input<string>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

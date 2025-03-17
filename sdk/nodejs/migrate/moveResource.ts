@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the move resource.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01.
- *
- * Other available API versions: 2023-08-01.
+ * Azure REST API version: 2023-08-01. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class MoveResource extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class MoveResource extends pulumi.CustomResource {
         return obj['__pulumiType'] === MoveResource.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -78,10 +80,12 @@ export class MoveResource extends pulumi.CustomResource {
             resourceInputs["moveResourceName"] = args ? args.moveResourceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

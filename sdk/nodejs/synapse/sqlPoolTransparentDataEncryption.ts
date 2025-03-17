@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Sql pool transparent data encryption configuration.
- * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2021-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
  */
 export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlPoolTransparentDataEncryption.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource location.
      */
@@ -82,10 +84,12 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

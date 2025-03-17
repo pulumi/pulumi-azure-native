@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The metric setting details for the role
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetMonitoringConfigArgs {
  */
 export interface GetMonitoringConfigResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The path ID that uniquely identifies the object.
      */
     readonly id: string;
@@ -64,9 +66,7 @@ export interface GetMonitoringConfigResult {
 }
 /**
  * The metric setting details for the role
- * Azure REST API version: 2022-03-01.
- *
- * Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+ * Azure REST API version: 2023-07-01.
  */
 export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

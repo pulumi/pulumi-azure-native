@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Microsoft.AwsConnector resource
- * Azure REST API version: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
  */
 export class Ec2Instance extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Ec2Instance extends pulumi.CustomResource {
         return obj['__pulumiType'] === Ec2Instance.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -71,10 +75,12 @@ export class Ec2Instance extends pulumi.CustomResource {
             }
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.awsconnector.ec2InstancePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

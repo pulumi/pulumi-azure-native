@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update instance details.
- * Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2023-07-01.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Instance extends pulumi.CustomResource {
      * Parent Device Update Account name which Instance belongs to.
      */
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Customer-initiated diagnostic log collection storage properties
      */
@@ -104,12 +108,14 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accountName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnosticStorageProperties"] = undefined /*out*/;
             resourceInputs["enableDiagnostics"] = undefined /*out*/;
             resourceInputs["iotHubs"] = undefined /*out*/;

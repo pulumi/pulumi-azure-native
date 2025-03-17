@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate profile resource.
- * Azure REST API version: 2024-02-05-preview.
- *
- * Other available API versions: 2024-09-30-preview.
+ * Azure REST API version: 2024-09-30-preview. Prior API version in Azure Native 2.x: 2024-02-05-preview.
  */
 export class CertificateProfile extends pulumi.CustomResource {
     /**
@@ -41,25 +39,13 @@ export class CertificateProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Used as L in the certificate subject name.
+     * The Azure API version of the resource.
      */
-    public /*out*/ readonly city!: pulumi.Output<string>;
-    /**
-     * Used as CN in the certificate subject name.
-     */
-    public /*out*/ readonly commonName!: pulumi.Output<string>;
-    /**
-     * Used as C in the certificate subject name.
-     */
-    public /*out*/ readonly country!: pulumi.Output<string>;
-    /**
-     * Enhanced key usage of the certificate.
-     */
-    public /*out*/ readonly enhancedKeyUsage!: pulumi.Output<string>;
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identity validation id used for the certificate subject name.
      */
-    public readonly identityValidationId!: pulumi.Output<string | undefined>;
+    public readonly identityValidationId!: pulumi.Output<string>;
     /**
      * Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
@@ -85,18 +71,6 @@ export class CertificateProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Used as O in the certificate subject name.
-     */
-    public /*out*/ readonly organization!: pulumi.Output<string>;
-    /**
-     * Used as OU in the private trust certificate subject name.
-     */
-    public /*out*/ readonly organizationUnit!: pulumi.Output<string>;
-    /**
-     * Used as PC in the certificate subject name.
-     */
-    public /*out*/ readonly postalCode!: pulumi.Output<string>;
-    /**
      * Profile type of the certificate.
      */
     public readonly profileType!: pulumi.Output<string>;
@@ -105,17 +79,9 @@ export class CertificateProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Used as S in the certificate subject name.
-     */
-    public /*out*/ readonly state!: pulumi.Output<string>;
-    /**
      * Status of the certificate profile.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Used as STREET in the certificate subject name.
-     */
-    public /*out*/ readonly streetAddress!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -139,6 +105,9 @@ export class CertificateProfile extends pulumi.CustomResource {
             if ((!args || args.accountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if ((!args || args.identityValidationId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'identityValidationId'");
+            }
             if ((!args || args.profileType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
@@ -155,25 +124,14 @@ export class CertificateProfile extends pulumi.CustomResource {
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["profileType"] = args ? args.profileType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["city"] = undefined /*out*/;
-            resourceInputs["commonName"] = undefined /*out*/;
-            resourceInputs["country"] = undefined /*out*/;
-            resourceInputs["enhancedKeyUsage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["organization"] = undefined /*out*/;
-            resourceInputs["organizationUnit"] = undefined /*out*/;
-            resourceInputs["postalCode"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["streetAddress"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["city"] = undefined /*out*/;
-            resourceInputs["commonName"] = undefined /*out*/;
-            resourceInputs["country"] = undefined /*out*/;
-            resourceInputs["enhancedKeyUsage"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identityValidationId"] = undefined /*out*/;
             resourceInputs["includeCity"] = undefined /*out*/;
             resourceInputs["includeCountry"] = undefined /*out*/;
@@ -181,14 +139,9 @@ export class CertificateProfile extends pulumi.CustomResource {
             resourceInputs["includeState"] = undefined /*out*/;
             resourceInputs["includeStreetAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["organization"] = undefined /*out*/;
-            resourceInputs["organizationUnit"] = undefined /*out*/;
-            resourceInputs["postalCode"] = undefined /*out*/;
             resourceInputs["profileType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["streetAddress"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -210,7 +163,7 @@ export interface CertificateProfileArgs {
     /**
      * Identity validation id used for the certificate subject name.
      */
-    identityValidationId?: pulumi.Input<string>;
+    identityValidationId: pulumi.Input<string>;
     /**
      * Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */

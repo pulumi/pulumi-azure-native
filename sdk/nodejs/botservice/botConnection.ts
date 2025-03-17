@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bot channel resource definition
- * Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01.
- *
- * Other available API versions: 2023-09-15-preview.
+ * Azure REST API version: 2023-09-15-preview. Prior API version in Azure Native 2.x: 2022-09-15.
  */
 export class BotConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class BotConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === BotConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Entity Tag.
      */
@@ -102,11 +104,13 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

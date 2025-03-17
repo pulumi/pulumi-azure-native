@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
- * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2020-10-01.
+ * Azure REST API version: 2021-02-01. Prior API version in Azure Native 2.x: 2021-02-01.
  */
 export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppAuthSettingsV2.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
@@ -98,8 +100,10 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["globalValidation"] = undefined /*out*/;
             resourceInputs["httpSettings"] = undefined /*out*/;
             resourceInputs["identityProviders"] = undefined /*out*/;

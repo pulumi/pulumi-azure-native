@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the resource and its properties.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -23,7 +21,7 @@ export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetSignalRArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -36,6 +34,10 @@ export interface GetSignalRArgs {
  * A class represent a resource.
  */
 export interface GetSignalRResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Cross-Origin Resource Sharing (CORS) settings.
      */
@@ -74,7 +76,7 @@ export interface GetSignalRResult {
      */
     readonly hostNamePrefix: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -82,7 +84,7 @@ export interface GetSignalRResult {
      */
     readonly identity?: outputs.signalrservice.ManagedIdentityResponse;
     /**
-     * The kind of the service, it can be SignalR or RawWebSockets
+     * The kind of the service
      */
     readonly kind?: string;
     /**
@@ -90,11 +92,11 @@ export interface GetSignalRResult {
      */
     readonly liveTraceConfiguration?: outputs.signalrservice.LiveTraceConfigurationResponse;
     /**
-     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -120,9 +122,21 @@ export interface GetSignalRResult {
      */
     readonly publicPort: number;
     /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     * This property is replica specific. Disable the regional endpoint without replica is not allowed.
+     */
+    readonly regionEndpointEnabled?: string;
+    /**
      * Resource log configuration of a Microsoft.SignalRService resource.
      */
     readonly resourceLogConfiguration?: outputs.signalrservice.ResourceLogConfigurationResponse;
+    /**
+     * Stop or start the resource.  Default to "False".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    readonly resourceStopped?: string;
     /**
      * The publicly accessible port of the resource which is designed for customer server side usage.
      */
@@ -140,11 +154,11 @@ export interface GetSignalRResult {
      */
     readonly sku?: outputs.signalrservice.ResourceSkuResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.signalrservice.SystemDataResponse;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -152,7 +166,7 @@ export interface GetSignalRResult {
      */
     readonly tls?: outputs.signalrservice.SignalRTlsSettingsResponse;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -166,9 +180,7 @@ export interface GetSignalRResult {
 }
 /**
  * Get the resource and its properties.
- * Azure REST API version: 2023-02-01.
- *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalRResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -180,7 +192,7 @@ export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.Invok
 
 export interface GetSignalROutputArgs {
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

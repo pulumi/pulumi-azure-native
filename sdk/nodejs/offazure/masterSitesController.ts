@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A MasterSite
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class MasterSitesController extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class MasterSitesController extends pulumi.CustomResource {
      * allowed.
      */
     public readonly allowMultipleSites!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets a value for customer storage account ARM id.
      */
@@ -114,6 +116,7 @@ export class MasterSitesController extends pulumi.CustomResource {
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["sites"] = args ? args.sites : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nestedSites"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -122,6 +125,7 @@ export class MasterSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowMultipleSites"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customerStorageAccountArmId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
- * Azure REST API version: 2022-01-25. Prior API version in Azure Native 1.x: 2020-06-25.
- *
- * Other available API versions: 2024-04-05.
+ * Azure REST API version: 2024-04-05. Prior API version in Azure Native 2.x: 2022-01-25.
  */
 export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
         return obj['__pulumiType'] === GuestConfigurationConnectedVMwarevSphereAssignment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Region where the VM is located.
      */
@@ -84,9 +86,11 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

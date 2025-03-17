@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get a run command.
- * Azure REST API version: 2023-10-03-preview.
- *
- * Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Azure REST API version: 2024-07-31-preview.
  */
 export function getMachineRunCommand(args: GetMachineRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineRunCommandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -45,6 +43,10 @@ export interface GetMachineRunCommandResult {
      * Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
      */
     readonly asyncExecution?: boolean;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
      */
@@ -120,9 +122,7 @@ export interface GetMachineRunCommandResult {
 }
 /**
  * The operation to get a run command.
- * Azure REST API version: 2023-10-03-preview.
- *
- * Other available API versions: 2024-03-31-preview, 2024-05-20-preview, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+ * Azure REST API version: 2024-07-31-preview.
  */
 export function getMachineRunCommandOutput(args: GetMachineRunCommandOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMachineRunCommandResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

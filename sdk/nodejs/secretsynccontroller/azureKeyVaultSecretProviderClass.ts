@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The AzureKeyVaultSecretProviderClass resource.
- * Azure REST API version: 2024-08-21-preview.
+ * Azure REST API version: 2024-08-21-preview. Prior API version in Azure Native 2.x: 2024-08-21-preview.
  */
 export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
         return obj['__pulumiType'] === AzureKeyVaultSecretProviderClass.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The user assigned managed identity client ID that should be used to access the Azure Key Vault.
      */
@@ -115,11 +119,13 @@ export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientId"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["keyvaultName"] = undefined /*out*/;

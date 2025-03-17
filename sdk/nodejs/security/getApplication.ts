@@ -27,6 +27,10 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * description of the application
      */
     readonly description?: string;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the automation account type.
- * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22.
- *
- * Other available API versions: 2023-05-15-preview, 2023-11-01, 2024-10-23.
+ * Azure REST API version: 2023-11-01. Prior API version in Azure Native 2.x: 2022-08-08.
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**
@@ -44,6 +42,10 @@ export class AutomationAccount extends pulumi.CustomResource {
      * URL of automation hybrid service which is used for hybrid worker on-boarding.
      */
     public /*out*/ readonly automationHybridServiceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
@@ -138,6 +140,7 @@ export class AutomationAccount extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["automationHybridServiceUrl"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -149,6 +152,7 @@ export class AutomationAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["automationHybridServiceUrl"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disableLocalAuth"] = undefined /*out*/;

@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A job agent private endpoint.
- * Azure REST API version: 2023-05-01-preview.
- *
- * Other available API versions: 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2024-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  */
 export class JobPrivateEndpoint extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class JobPrivateEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobPrivateEndpoint.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource name.
      */
@@ -82,10 +84,12 @@ export class JobPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["targetServerAzureResourceId"] = args ? args.targetServerAzureResourceId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointId"] = undefined /*out*/;
             resourceInputs["targetServerAzureResourceId"] = undefined /*out*/;

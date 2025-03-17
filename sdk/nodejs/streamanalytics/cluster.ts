@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Stream Analytics Cluster object
- * Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview.
- *
- * Other available API versions: 2020-03-01-preview.
+ * Azure REST API version: 2020-03-01. Prior API version in Azure Native 2.x: 2020-03-01.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Represents the number of streaming units currently being used on the cluster.
      */
@@ -104,6 +106,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityAllocated"] = undefined /*out*/;
             resourceInputs["capacityAssigned"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
@@ -113,6 +116,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityAllocated"] = undefined /*out*/;
             resourceInputs["capacityAssigned"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

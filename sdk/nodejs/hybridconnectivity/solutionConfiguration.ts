@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Solution Configuration
- * Azure REST API version: 2024-12-01.
+ * Azure REST API version: 2024-12-01. Prior API version in Azure Native 2.x: 2024-12-01.
  */
 export class SolutionConfiguration extends pulumi.CustomResource {
     /**
@@ -39,13 +39,37 @@ export class SolutionConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The last time resources were inventoried
+     */
+    public /*out*/ readonly lastSyncTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource-specific properties for this resource.
+     * The resource provisioning state.
      */
-    public readonly properties!: pulumi.Output<outputs.hybridconnectivity.SolutionConfigurationPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Solution settings
+     */
+    public readonly solutionSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the solution
+     */
+    public readonly solutionType!: pulumi.Output<string>;
+    /**
+     * The status of solution configurations
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * The detailed message of status details
+     */
+    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -69,15 +93,30 @@ export class SolutionConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            if ((!args || args.solutionType === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'solutionType'");
+            }
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["solutionConfiguration"] = args ? args.solutionConfiguration : undefined;
+            resourceInputs["solutionSettings"] = args ? args.solutionSettings : undefined;
+            resourceInputs["solutionType"] = args ? args.solutionType : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
+            resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["solutionSettings"] = undefined /*out*/;
+            resourceInputs["solutionType"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -93,10 +132,6 @@ export class SolutionConfiguration extends pulumi.CustomResource {
  */
 export interface SolutionConfigurationArgs {
     /**
-     * The resource-specific properties for this resource.
-     */
-    properties?: pulumi.Input<inputs.hybridconnectivity.SolutionConfigurationPropertiesArgs>;
-    /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
     resourceUri: pulumi.Input<string>;
@@ -104,4 +139,12 @@ export interface SolutionConfigurationArgs {
      * Represent Solution Configuration Resource.
      */
     solutionConfiguration?: pulumi.Input<string>;
+    /**
+     * Solution settings
+     */
+    solutionSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the solution
+     */
+    solutionType: pulumi.Input<string>;
 }

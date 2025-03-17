@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about a database Threat Detection policy.
- * Azure REST API version: 2014-04-01.
+ * Azure REST API version: 2014-04-01. Prior API version in Azure Native 2.x: 2014-04-01.
  */
 export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabaseThreatDetectionPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
      */
@@ -119,10 +123,12 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
             resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
             resourceInputs["useServerDefault"] = args ? args.useServerDefault : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["disabledAlerts"] = undefined /*out*/;
             resourceInputs["emailAccountAdmins"] = undefined /*out*/;
             resourceInputs["emailAddresses"] = undefined /*out*/;
@@ -136,7 +142,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             resourceInputs["useServerDefault"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20211101:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20221101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20211101:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20211101:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20211101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20220801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20221101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20230201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230501preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20230501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20230801preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20230801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20240501preview:DatabaseSecurityAlertPolicy" }, { type: "azure-native:sql/v20240501preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql:DatabaseSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseThreatDetectionPolicy.__pulumiType, name, resourceInputs, opts);
     }

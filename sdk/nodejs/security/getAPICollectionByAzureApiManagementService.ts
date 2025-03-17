@@ -37,6 +37,10 @@ export interface GetAPICollectionByAzureApiManagementServiceArgs {
  */
 export interface GetAPICollectionByAzureApiManagementServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The base URI for this API collection. All endpoints of this API collection extend this base URI.
      */
     readonly baseUrl: string;

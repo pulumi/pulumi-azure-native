@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Live Output.
- * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 2.x: 2022-11-01.
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class LiveOutput extends pulumi.CustomResource {
      * The asset that the live output will write to.
      */
     public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The creation time the live output.
      */
@@ -132,6 +136,7 @@ export class LiveOutput extends pulumi.CustomResource {
             resourceInputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rewindWindowLength"] = args ? args.rewindWindowLength : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -142,6 +147,7 @@ export class LiveOutput extends pulumi.CustomResource {
         } else {
             resourceInputs["archiveWindowLength"] = undefined /*out*/;
             resourceInputs["assetName"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hls"] = undefined /*out*/;

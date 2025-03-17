@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the SAP Migration discovery site resource.
- * Azure REST API version: 2023-10-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-10-01-preview.
  */
 export class SapDiscoverySite extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class SapDiscoverySite extends pulumi.CustomResource {
         return obj['__pulumiType'] === SapDiscoverySite.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Indicates any errors on the SAP Migration discovery site resource.
      */
@@ -100,12 +104,14 @@ export class SapDiscoverySite extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

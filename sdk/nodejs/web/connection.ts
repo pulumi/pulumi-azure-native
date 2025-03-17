@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * API connection
- * Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01.
- *
- * Other available API versions: 2015-08-01-preview.
+ * Azure REST API version: 2016-06-01. Prior API version in Azure Native 2.x: 2016-06-01.
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Resource ETag
      */
@@ -82,10 +84,12 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

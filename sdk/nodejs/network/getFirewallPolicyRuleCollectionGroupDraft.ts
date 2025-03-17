@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Rule Collection Group Draft.
- * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraft(args: GetFirewallPolicyRuleCollectionGroupDraftArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallPolicyRuleCollectionGroupDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetFirewallPolicyRuleCollectionGroupDraftArgs {
  */
 export interface GetFirewallPolicyRuleCollectionGroupDraftResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -68,9 +70,7 @@ export interface GetFirewallPolicyRuleCollectionGroupDraftResult {
 }
 /**
  * Get Rule Collection Group Draft.
- * Azure REST API version: 2023-11-01.
- *
- * Other available API versions: 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01.
  */
 export function getFirewallPolicyRuleCollectionGroupDraftOutput(args: GetFirewallPolicyRuleCollectionGroupDraftOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallPolicyRuleCollectionGroupDraftResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

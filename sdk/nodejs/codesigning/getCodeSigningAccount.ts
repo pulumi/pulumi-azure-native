@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a trusted Signing Account.
- * Azure REST API version: 2024-02-05-preview.
- *
- * Other available API versions: 2024-09-30-preview.
+ * Azure REST API version: 2024-09-30-preview.
  */
 export function getCodeSigningAccount(args: GetCodeSigningAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,6 +38,10 @@ export interface GetCodeSigningAccountResult {
      * The URI of the trusted signing account which is used during signing files.
      */
     readonly accountUri: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
@@ -75,9 +77,7 @@ export interface GetCodeSigningAccountResult {
 }
 /**
  * Get a trusted Signing Account.
- * Azure REST API version: 2024-02-05-preview.
- *
- * Other available API versions: 2024-09-30-preview.
+ * Azure REST API version: 2024-09-30-preview.
  */
 export function getCodeSigningAccountOutput(args: GetCodeSigningAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

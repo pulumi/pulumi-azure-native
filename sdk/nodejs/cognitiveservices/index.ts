@@ -114,23 +114,6 @@ utilities.lazyLoad(exports, ["SharedCommitmentPlan"], () => require("./sharedCom
 // Export enums:
 export * from "../types/enums/cognitiveservices";
 
-// Export sub-modules:
-import * as v20170418 from "./v20170418";
-import * as v20230501 from "./v20230501";
-import * as v20231001preview from "./v20231001preview";
-import * as v20240401preview from "./v20240401preview";
-import * as v20240601preview from "./v20240601preview";
-import * as v20241001 from "./v20241001";
-
-export {
-    v20170418,
-    v20230501,
-    v20231001preview,
-    v20240401preview,
-    v20240601preview,
-    v20241001,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

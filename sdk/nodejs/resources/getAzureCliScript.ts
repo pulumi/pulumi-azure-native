@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment script with a given name.
- * Azure REST API version: 2020-10-01.
+ * Azure REST API version: 2023-08-01.
  */
 export function getAzureCliScript(args: GetAzureCliScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureCliScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +42,10 @@ export interface GetAzureCliScriptResult {
      * Azure CLI module version to be used.
      */
     readonly azCliVersion: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
      */
@@ -130,7 +134,7 @@ export interface GetAzureCliScriptResult {
 }
 /**
  * Gets a deployment script with a given name.
- * Azure REST API version: 2020-10-01.
+ * Azure REST API version: 2023-08-01.
  */
 export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzureCliScriptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

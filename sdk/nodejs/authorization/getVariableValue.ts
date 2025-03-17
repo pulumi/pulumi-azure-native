@@ -35,6 +35,10 @@ export interface GetVariableValueArgs {
  */
 export interface GetVariableValueResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The ID of the variable.
      */
     readonly id: string;

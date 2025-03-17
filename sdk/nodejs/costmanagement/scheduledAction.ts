@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Scheduled action definition.
- * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview.
- *
- * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2023-03-01.
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ScheduledAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ScheduledAction.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Scheduled action name.
      */
@@ -129,10 +131,12 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["viewId"] = args ? args.viewId : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["fileDestination"] = undefined /*out*/;
@@ -148,7 +152,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["viewId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20221001:ScheduledAction" }, { type: "azure-native:costmanagement/v20230301:ScheduledAction" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20230701preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20230801:ScheduledAction" }, { type: "azure-native:costmanagement/v20230901:ScheduledAction" }, { type: "azure-native:costmanagement/v20231101:ScheduledAction" }, { type: "azure-native:costmanagement/v20240801:ScheduledAction" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20221001:ScheduledAction" }, { type: "azure-native:costmanagement/v20230301:ScheduledAction" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20230701preview:ScheduledAction" }, { type: "azure-native:costmanagement/v20230801:ScheduledAction" }, { type: "azure-native:costmanagement/v20230901:ScheduledAction" }, { type: "azure-native:costmanagement/v20231101:ScheduledAction" }, { type: "azure-native:costmanagement/v20240801:ScheduledAction" }, { type: "azure-native:costmanagement/v20241001preview:ScheduledAction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
     }

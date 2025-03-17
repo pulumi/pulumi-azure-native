@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The properties of a storage account’s Table service.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
- *
- * Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class TableServiceProperties extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class TableServiceProperties extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableServiceProperties.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
      */
@@ -74,9 +76,11 @@ export class TableServiceProperties extends pulumi.CustomResource {
             resourceInputs["cors"] = args ? args.cors : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableServiceName"] = args ? args.tableServiceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

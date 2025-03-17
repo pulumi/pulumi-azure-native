@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
 /**
  * Gets a streaming endpoint.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2018-06-01-preview.
  */
 export function getStreamingEndpoint(args: GetStreamingEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -49,6 +47,10 @@ export interface GetStreamingEndpointResult {
      * This feature is deprecated, do not set a value for this property.
      */
     readonly availabilitySetName?: string;
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The CDN enabled flag.
      */
@@ -137,8 +139,6 @@ export interface GetStreamingEndpointResult {
 /**
  * Gets a streaming endpoint.
  * Azure REST API version: 2022-11-01.
- *
- * Other available API versions: 2018-06-01-preview.
  */
 export function getStreamingEndpointOutput(args: GetStreamingEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

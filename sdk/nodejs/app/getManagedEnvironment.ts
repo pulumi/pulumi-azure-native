@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -41,6 +39,10 @@ export interface GetManagedEnvironmentResult {
      */
     readonly appLogsConfiguration?: outputs.app.AppLogsConfigurationResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Custom domain configuration for the environment
      */
     readonly customDomainConfiguration?: outputs.app.CustomDomainConfigurationResponse;
@@ -52,6 +54,10 @@ export interface GetManagedEnvironmentResult {
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
     readonly daprAIInstrumentationKey?: string;
+    /**
+     * The configuration of Dapr component.
+     */
+    readonly daprConfiguration?: outputs.app.DaprConfigurationResponse;
     /**
      * Default Domain Name for the cluster
      */
@@ -69,6 +75,14 @@ export interface GetManagedEnvironmentResult {
      */
     readonly id: string;
     /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
+     */
+    readonly infrastructureResourceGroup?: string;
+    /**
+     * The configuration of Keda component.
+     */
+    readonly kedaConfiguration?: outputs.app.KedaConfigurationResponse;
+    /**
      * Kind of the Environment.
      */
     readonly kind?: string;
@@ -81,13 +95,17 @@ export interface GetManagedEnvironmentResult {
      */
     readonly name: string;
     /**
+     * Peer authentication settings for the Managed Environment
+     */
+    readonly peerAuthentication?: outputs.app.ManagedEnvironmentResponsePeerAuthentication;
+    /**
+     * Peer traffic settings for the Managed Environment
+     */
+    readonly peerTrafficConfiguration?: outputs.app.ManagedEnvironmentResponsePeerTrafficConfiguration;
+    /**
      * Provisioning state of the Environment.
      */
     readonly provisioningState: string;
-    /**
-     * SKU properties of the Environment.
-     */
-    readonly sku?: outputs.app.EnvironmentSkuPropertiesResponse;
     /**
      * Static IP of the Environment
      */
@@ -119,9 +137,7 @@ export interface GetManagedEnvironmentResult {
 }
 /**
  * Get the properties of a Managed Environment used to host container apps.
- * Azure REST API version: 2022-10-01.
- *
- * Other available API versions: 2022-01-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function getManagedEnvironmentOutput(args: GetManagedEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

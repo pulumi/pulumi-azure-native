@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the webhook type.
- * Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31.
- *
- * Other available API versions: 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2015-10-31.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Webhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Webhook.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the creation time.
      */
@@ -85,7 +87,11 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly runbook!: pulumi.Output<outputs.automation.RunbookAssociationPropertyResponse | undefined>;
     /**
-     * The type of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -123,13 +129,16 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["runbook"] = args ? args.runbook : undefined;
             resourceInputs["uri"] = args ? args.uri : undefined;
             resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["lastInvokedTime"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["expiryTime"] = undefined /*out*/;
@@ -141,6 +150,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["runOn"] = undefined /*out*/;
             resourceInputs["runbook"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         }

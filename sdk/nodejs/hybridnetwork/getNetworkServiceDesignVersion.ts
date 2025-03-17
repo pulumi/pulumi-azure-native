@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a network service design version.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getNetworkServiceDesignVersion(args: GetNetworkServiceDesignVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkServiceDesignVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetNetworkServiceDesignVersionArgs {
  */
 export interface GetNetworkServiceDesignVersionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -77,9 +79,7 @@ export interface GetNetworkServiceDesignVersionResult {
 }
 /**
  * Gets information about a network service design version.
- * Azure REST API version: 2023-09-01.
- *
- * Other available API versions: 2024-04-15.
+ * Azure REST API version: 2024-04-15.
  */
 export function getNetworkServiceDesignVersionOutput(args: GetNetworkServiceDesignVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkServiceDesignVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

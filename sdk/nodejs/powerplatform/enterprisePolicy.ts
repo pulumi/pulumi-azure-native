@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the EnterprisePolicy.
- * Azure REST API version: 2020-10-30-preview. Prior API version in Azure Native 1.x: 2020-10-30-preview.
+ * Azure REST API version: 2020-10-30-preview. Prior API version in Azure Native 2.x: 2020-10-30-preview.
  */
 export class EnterprisePolicy extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === EnterprisePolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The encryption settings for a configuration store.
      */
@@ -114,11 +118,13 @@ export class EnterprisePolicy extends pulumi.CustomResource {
             resourceInputs["networkInjection"] = args ? args.networkInjection : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["systemId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;

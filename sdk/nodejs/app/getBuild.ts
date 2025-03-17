@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a BuildResource
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getBuild(args: GetBuildArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetBuildArgs {
  */
 export interface GetBuildResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Status of the build once it has been provisioned.
      */
     readonly buildStatus: string;
@@ -54,7 +56,7 @@ export interface GetBuildResult {
      */
     readonly destinationContainerRegistry?: outputs.app.ContainerRegistryWithCustomImageResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -88,9 +90,7 @@ export interface GetBuildResult {
 }
 /**
  * Get a BuildResource
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview.
  */
 export function getBuildOutput(args: GetBuildOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBuildResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

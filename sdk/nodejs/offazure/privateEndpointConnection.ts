@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
- * Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-07-07.
+ * Azure REST API version: 2020-07-07. Prior API version in Azure Native 2.x: 2020-07-07.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets the tag for optimistic concurrency control.
      */
@@ -79,12 +83,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["peConnectionName"] = args ? args.peConnectionName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -92,7 +98,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20240501preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200707:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20230606:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20231001preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure/v20240501preview:PrivateEndpointConnection" }, { type: "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController" }, { type: "azure-native:offazure:PrivateEndpointConnectionController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

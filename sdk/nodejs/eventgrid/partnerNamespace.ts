@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * EventGrid Partner Namespace.
- * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15. Prior API version in Azure Native 2.x: 2022-06-15.
  */
 export class PartnerNamespace extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class PartnerNamespace extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
      */
     public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
@@ -57,6 +59,10 @@ export class PartnerNamespace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Minimum TLS version of the publisher allowed to publish to this partner namespace
+     */
+    public readonly minimumTlsVersionAllowed!: pulumi.Output<string | undefined>;
+    /**
      * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -70,6 +76,9 @@ export class PartnerNamespace extends pulumi.CustomResource {
      * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
      */
     public readonly partnerTopicRoutingMode!: pulumi.Output<string | undefined>;
+    /**
+     * List of private endpoint connections.
+     */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the partner namespace.
@@ -81,7 +90,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to Partner Namespace resource.
+     * The system metadata relating to the Event Grid resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
@@ -110,12 +119,14 @@ export class PartnerNamespace extends pulumi.CustomResource {
             resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
             resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
             resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
             resourceInputs["partnerRegistrationFullyQualifiedId"] = args ? args.partnerRegistrationFullyQualifiedId : undefined;
             resourceInputs["partnerTopicRoutingMode"] = (args ? args.partnerTopicRoutingMode : undefined) ?? "SourceEventAttribute";
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -123,10 +134,12 @@ export class PartnerNamespace extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["inboundIpRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersionAllowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
             resourceInputs["partnerTopicRoutingMode"] = undefined /*out*/;
@@ -160,6 +173,10 @@ export interface PartnerNamespaceArgs {
      * Location of the resource.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Minimum TLS version of the publisher allowed to publish to this partner namespace
+     */
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * Name of the partner namespace.
      */

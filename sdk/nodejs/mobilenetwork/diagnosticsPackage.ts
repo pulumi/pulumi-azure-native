@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Diagnostics package resource.
- * Azure REST API version: 2023-06-01.
- *
- * Other available API versions: 2023-09-01, 2024-02-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2023-06-01.
  */
 export class DiagnosticsPackage extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
         return obj['__pulumiType'] === DiagnosticsPackage.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -85,6 +87,7 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
             resourceInputs["diagnosticsPackageName"] = args ? args.diagnosticsPackageName : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;
@@ -92,6 +95,7 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reason"] = undefined /*out*/;

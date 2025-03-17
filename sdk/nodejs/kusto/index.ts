@@ -179,33 +179,6 @@ utilities.lazyLoad(exports, ["Script"], () => require("./script"));
 // Export enums:
 export * from "../types/enums/kusto";
 
-// Export sub-modules:
-import * as v20180907preview from "./v20180907preview";
-import * as v20190515 from "./v20190515";
-import * as v20190907 from "./v20190907";
-import * as v20191109 from "./v20191109";
-import * as v20200215 from "./v20200215";
-import * as v20210827 from "./v20210827";
-import * as v20220707 from "./v20220707";
-import * as v20221229 from "./v20221229";
-import * as v20230502 from "./v20230502";
-import * as v20230815 from "./v20230815";
-import * as v20240413 from "./v20240413";
-
-export {
-    v20180907preview,
-    v20190515,
-    v20190907,
-    v20191109,
-    v20200215,
-    v20210827,
-    v20220707,
-    v20221229,
-    v20230502,
-    v20230815,
-    v20240413,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of hybrid connection resource.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class HybridConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class HybridConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === HybridConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The time the hybrid connection was created.
      */
@@ -99,6 +101,7 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -107,6 +110,7 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

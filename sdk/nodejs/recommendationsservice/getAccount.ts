@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns RecommendationsService Account resource for a given name.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2022-03-01-preview.
+ * Azure REST API version: 2022-03-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,9 +35,17 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The identity used for the resource.
+     */
+    readonly identity?: outputs.recommendationsservice.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -67,9 +73,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns RecommendationsService Account resource for a given name.
- * Azure REST API version: 2022-02-01.
- *
- * Other available API versions: 2022-03-01-preview.
+ * Azure REST API version: 2022-03-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom entity store assignment
- * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
+ * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
  */
 export class CustomEntityStoreAssignment extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomEntityStoreAssignment.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The link to entity store database.
      */
@@ -76,11 +80,13 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
             resourceInputs["customEntityStoreAssignmentName"] = args ? args.customEntityStoreAssignmentName : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principal"] = undefined /*out*/;

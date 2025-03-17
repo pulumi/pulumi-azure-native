@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getManagedClusterService(args: GetManagedClusterServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetManagedClusterServiceArgs {
  */
 export interface GetManagedClusterServiceResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Azure resource identifier.
      */
     readonly id: string;
@@ -77,9 +79,7 @@ export interface GetManagedClusterServiceResult {
 }
 /**
  * Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2023-11-01-preview, 2023-12-01-preview, 2024-02-01-preview, 2024-04-01, 2024-06-01-preview, 2024-09-01-preview, 2024-11-01-preview.
+ * Azure REST API version: 2024-04-01.
  */
 export function getManagedClusterServiceOutput(args: GetManagedClusterServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedClusterServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

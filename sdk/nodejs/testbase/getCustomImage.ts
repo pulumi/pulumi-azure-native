@@ -40,6 +40,10 @@ export interface GetCustomImageArgs {
  */
 export interface GetCustomImageResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The UTC timestamp when the custom image was published.
      */
     readonly creationTime: string;

@@ -39,6 +39,10 @@ export interface GetCapacityDetailsResult {
      */
     readonly administration?: outputs.powerbidedicated.DedicatedCapacityAdministratorsResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Capacity name
      */
     readonly friendlyName: string;

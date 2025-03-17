@@ -139,13 +139,6 @@ utilities.lazyLoad(exports, ["View"], () => require("./view"));
 // Export enums:
 export * from "../types/enums/customerinsights";
 
-// Export sub-modules:
-import * as v20170426 from "./v20170426";
-
-export {
-    v20170426,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

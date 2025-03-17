@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container Apps Job Secrets Collection ARM resource.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listJobSecrets(args: ListJobSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListJobSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,9 +41,7 @@ export interface ListJobSecretsResult {
 }
 /**
  * Container Apps Job Secrets Collection ARM resource.
- * Azure REST API version: 2023-04-01-preview.
- *
- * Other available API versions: 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-03-01.
  */
 export function listJobSecretsOutput(args: ListJobSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListJobSecretsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

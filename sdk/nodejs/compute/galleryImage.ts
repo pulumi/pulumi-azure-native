@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image definition that you want to create or update.
- * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30.
- *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Azure REST API version: 2024-03-03. Prior API version in Azure Native 2.x: 2022-03-03.
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**
@@ -41,9 +39,17 @@ export class GalleryImage extends pulumi.CustomResource {
     }
 
     /**
+     * Optional. Must be set to true if the gallery image features are being updated.
+     */
+    public readonly allowUpdateImage!: pulumi.Output<boolean | undefined>;
+    /**
      * The architecture of the image. Applicable to OS disks only.
      */
     public readonly architecture!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */
@@ -85,7 +91,7 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public readonly osState!: pulumi.Output<string>;
     /**
-     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
      */
     public readonly osType!: pulumi.Output<string>;
     /**
@@ -143,6 +149,7 @@ export class GalleryImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["allowUpdateImage"] = args ? args.allowUpdateImage : undefined;
             resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disallowed"] = args ? args.disallowed : undefined;
@@ -162,11 +169,14 @@ export class GalleryImage extends pulumi.CustomResource {
             resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allowUpdateImage"] = undefined /*out*/;
             resourceInputs["architecture"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["disallowed"] = undefined /*out*/;
             resourceInputs["endOfLifeDate"] = undefined /*out*/;
@@ -197,6 +207,10 @@ export class GalleryImage extends pulumi.CustomResource {
  * The set of arguments for constructing a GalleryImage resource.
  */
 export interface GalleryImageArgs {
+    /**
+     * Optional. Must be set to true if the gallery image features are being updated.
+     */
+    allowUpdateImage?: pulumi.Input<boolean>;
     /**
      * The architecture of the image. Applicable to OS disks only.
      */
@@ -246,7 +260,7 @@ export interface GalleryImageArgs {
      */
     osState: pulumi.Input<enums.compute.OperatingSystemStateTypes>;
     /**
-     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
      */
     osType: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**

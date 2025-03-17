@@ -40,6 +40,10 @@ export interface GetConnectionGatewayArgs {
  */
 export interface GetConnectionGatewayResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource ETag
      */
     readonly etag?: string;

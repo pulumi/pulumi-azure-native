@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent a resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview.
- *
- * Other available API versions: 2021-04-01-preview, 2021-06-01-preview, 2021-09-01-preview, 2023-03-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+ * Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class WebPubSub extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * DisableLocalAuth
      * Enable or disable aad auth
      * When set as true, connection with AuthType=aad won't work.
@@ -69,15 +71,19 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.webpubsub.ManagedIdentityResponse | undefined>;
     /**
+     * The kind of the service
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
      * Live trace configuration of a Microsoft.SignalRService resource.
      */
     public readonly liveTraceConfiguration!: pulumi.Output<outputs.webpubsub.LiveTraceConfigurationResponse | undefined>;
     /**
-     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -103,9 +109,21 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     * This property is replica specific. Disable the regional endpoint without replica is not allowed.
+     */
+    public readonly regionEndpointEnabled!: pulumi.Output<string | undefined>;
+    /**
      * Resource log configuration of a Microsoft.SignalRService resource.
      */
     public readonly resourceLogConfiguration!: pulumi.Output<outputs.webpubsub.ResourceLogConfigurationResponse | undefined>;
+    /**
+     * Stop or start the resource.  Default to "False".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    public readonly resourceStopped!: pulumi.Output<string | undefined>;
     /**
      * The publicly accessible port of the resource which is designed for customer server side usage.
      */
@@ -119,11 +137,15 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.webpubsub.ResourceSkuResponse | undefined>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * SocketIO settings for the resource
+     */
+    public readonly socketIO!: pulumi.Output<outputs.webpubsub.WebPubSubSocketIOSettingsResponse | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.webpubsub.SystemDataResponse>;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -131,7 +153,7 @@ export class WebPubSub extends pulumi.CustomResource {
      */
     public readonly tls!: pulumi.Output<outputs.webpubsub.WebPubSubTlsSettingsResponse | undefined>;
     /**
-     * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -156,16 +178,21 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["disableAadAuth"] = (args ? args.disableAadAuth : undefined) ?? false;
             resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["liveTraceConfiguration"] = args ? (args.liveTraceConfiguration ? pulumi.output(args.liveTraceConfiguration).apply(inputs.webpubsub.liveTraceConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkACLs"] = args ? args.networkACLs : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["regionEndpointEnabled"] = (args ? args.regionEndpointEnabled : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceLogConfiguration"] = args ? args.resourceLogConfiguration : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceStopped"] = (args ? args.resourceStopped : undefined) ?? "false";
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["socketIO"] = args ? args.socketIO : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.webpubsub.webPubSubTlsSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["externalIP"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["hostNamePrefix"] = undefined /*out*/;
@@ -179,12 +206,14 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["disableAadAuth"] = undefined /*out*/;
             resourceInputs["disableLocalAuth"] = undefined /*out*/;
             resourceInputs["externalIP"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["hostNamePrefix"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["liveTraceConfiguration"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -193,10 +222,13 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["regionEndpointEnabled"] = undefined /*out*/;
             resourceInputs["resourceLogConfiguration"] = undefined /*out*/;
+            resourceInputs["resourceStopped"] = undefined /*out*/;
             resourceInputs["serverPort"] = undefined /*out*/;
             resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["socketIO"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tls"] = undefined /*out*/;
@@ -231,11 +263,15 @@ export interface WebPubSubArgs {
      */
     identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs>;
     /**
+     * The kind of the service
+     */
+    kind?: pulumi.Input<string | enums.webpubsub.ServiceKind>;
+    /**
      * Live trace configuration of a Microsoft.SignalRService resource.
      */
     liveTraceConfiguration?: pulumi.Input<inputs.webpubsub.LiveTraceConfigurationArgs>;
     /**
-     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -249,7 +285,13 @@ export interface WebPubSubArgs {
      */
     publicNetworkAccess?: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * Enable or disable the regional endpoint. Default to "Enabled".
+     * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+     * This property is replica specific. Disable the regional endpoint without replica is not allowed.
+     */
+    regionEndpointEnabled?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -261,11 +303,21 @@ export interface WebPubSubArgs {
      */
     resourceName?: pulumi.Input<string>;
     /**
+     * Stop or start the resource.  Default to "False".
+     * When it's true, the data plane of the resource is shutdown.
+     * When it's false, the data plane of the resource is started.
+     */
+    resourceStopped?: pulumi.Input<string>;
+    /**
      * The billing information of the resource.
      */
     sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * SocketIO settings for the resource
+     */
+    socketIO?: pulumi.Input<inputs.webpubsub.WebPubSubSocketIOSettingsArgs>;
+    /**
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

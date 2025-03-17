@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
- * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01.
+ * Azure REST API version: 2022-07-01. Prior API version in Azure Native 2.x: 2022-07-01.
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Job extends pulumi.CustomResource {
         return obj['__pulumiType'] === Job.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
      */
@@ -126,6 +130,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["transformName"] = args ? args.transformName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["endTime"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
@@ -135,6 +140,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationData"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

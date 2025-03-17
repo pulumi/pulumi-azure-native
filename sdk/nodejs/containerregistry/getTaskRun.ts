@@ -41,6 +41,10 @@ export interface GetTaskRunArgs {
  */
 export interface GetTaskRunResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * How the run should be forced to rerun even if the run request configuration has not changed
      */
     readonly forceUpdateTag?: string;

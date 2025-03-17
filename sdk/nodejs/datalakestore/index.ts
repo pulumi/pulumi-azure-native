@@ -49,13 +49,6 @@ utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetw
 // Export enums:
 export * from "../types/enums/datalakestore";
 
-// Export sub-modules:
-import * as v20161101 from "./v20161101";
-
-export {
-    v20161101,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

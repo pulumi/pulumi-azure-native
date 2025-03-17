@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Web app data source web model.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResou
         return obj['__pulumiType'] === WebAppDiscoverySiteDataSourcesController.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the discovery site Id.
      */
@@ -86,11 +88,13 @@ export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResou
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["webAppSiteName"] = args ? args.webAppSiteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoverySiteId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance.
- * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview.
- *
- * Other available API versions: 2021-02-01-preview, 2022-11-01-preview, 2023-02-01-preview, 2023-05-01-preview, 2023-08-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 2.x: 2021-11-01.
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * The Azure Active Directory administrator of the server.
      */
     public readonly administrators!: pulumi.Output<outputs.sql.ManagedInstanceExternalAdministratorResponse | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Collation of the managed instance.
      */
@@ -206,6 +208,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
             resourceInputs["vCores"] = args ? args.vCores : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
@@ -217,6 +220,7 @@ export class ManagedInstance extends pulumi.CustomResource {
         } else {
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["administrators"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collation"] = undefined /*out*/;
             resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;

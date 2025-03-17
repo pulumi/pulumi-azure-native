@@ -329,59 +329,6 @@ utilities.lazyLoad(exports, ["VirtualMachineScaleSetVMRunCommand"], () => requir
 // Export enums:
 export * from "../types/enums/compute";
 
-// Export sub-modules:
-import * as v20201201 from "./v20201201";
-import * as v20210301 from "./v20210301";
-import * as v20210401 from "./v20210401";
-import * as v20210701 from "./v20210701";
-import * as v20211101 from "./v20211101";
-import * as v20220301 from "./v20220301";
-import * as v20220303 from "./v20220303";
-import * as v20220702 from "./v20220702";
-import * as v20220801 from "./v20220801";
-import * as v20220803 from "./v20220803";
-import * as v20220904 from "./v20220904";
-import * as v20221101 from "./v20221101";
-import * as v20230102 from "./v20230102";
-import * as v20230301 from "./v20230301";
-import * as v20230402 from "./v20230402";
-import * as v20230701 from "./v20230701";
-import * as v20230703 from "./v20230703";
-import * as v20230901 from "./v20230901";
-import * as v20231002 from "./v20231002";
-import * as v20240301 from "./v20240301";
-import * as v20240302 from "./v20240302";
-import * as v20240303 from "./v20240303";
-import * as v20240701 from "./v20240701";
-import * as v20241104 from "./v20241104";
-
-export {
-    v20201201,
-    v20210301,
-    v20210401,
-    v20210701,
-    v20211101,
-    v20220301,
-    v20220303,
-    v20220702,
-    v20220801,
-    v20220803,
-    v20220904,
-    v20221101,
-    v20230102,
-    v20230301,
-    v20230402,
-    v20230701,
-    v20230703,
-    v20230901,
-    v20231002,
-    v20240301,
-    v20240302,
-    v20240303,
-    v20240701,
-    v20241104,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

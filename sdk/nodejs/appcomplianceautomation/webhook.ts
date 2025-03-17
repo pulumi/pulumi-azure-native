@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class represent an AppComplianceAutomation webhook resource.
- * Azure REST API version: 2024-06-27.
+ * Azure REST API version: 2024-06-27. Prior API version in Azure Native 2.x: 2024-06-27.
  */
 export class Webhook extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Webhook extends pulumi.CustomResource {
         return obj['__pulumiType'] === Webhook.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * content type
      */
@@ -127,6 +131,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["updateWebhookKey"] = args ? args.updateWebhookKey : undefined;
             resourceInputs["webhookKey"] = args ? args.webhookKey : undefined;
             resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deliveryStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["webhookId"] = undefined /*out*/;
             resourceInputs["webhookKeyEnabled"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentType"] = undefined /*out*/;
             resourceInputs["deliveryStatus"] = undefined /*out*/;
             resourceInputs["enableSslVerification"] = undefined /*out*/;

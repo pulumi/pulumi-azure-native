@@ -32,6 +32,10 @@ export interface GetControllerArgs {
 
 export interface GetControllerResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * DNS name for accessing DataPlane services
      */
     readonly dataPlaneFqdn: string;

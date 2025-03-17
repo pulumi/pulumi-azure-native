@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified NSP profile.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspProfile(args: GetNspProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetNspProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,6 +41,10 @@ export interface GetNspProfileResult {
      */
     readonly accessRulesVersion: string;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Version number that increases with every update to diagnostic settings within the profile.
      */
     readonly diagnosticSettingsVersion: string;
@@ -69,9 +71,7 @@ export interface GetNspProfileResult {
 }
 /**
  * Gets the specified NSP profile.
- * Azure REST API version: 2021-02-01-preview.
- *
- * Other available API versions: 2023-07-01-preview, 2023-08-01-preview.
+ * Azure REST API version: 2023-08-01-preview.
  */
 export function getNspProfileOutput(args: GetNspProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNspProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

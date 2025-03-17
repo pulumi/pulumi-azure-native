@@ -45,6 +45,10 @@ export interface GetStudentArgs {
  */
 export interface GetStudentResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Student Budget
      */
     readonly budget: outputs.education.AmountResponse;

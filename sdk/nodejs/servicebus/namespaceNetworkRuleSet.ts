@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of NetworkRuleSet resource.
- * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01.
- *
- * Other available API versions: 2022-10-01-preview, 2023-01-01-preview, 2024-01-01.
+ * Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-01-01-preview.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === NamespaceNetworkRuleSet.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Default Action for Network Rule Set
      */
@@ -101,11 +103,13 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
             resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["ipRules"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -144,7 +148,7 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccessFlag>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

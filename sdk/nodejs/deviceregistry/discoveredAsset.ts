@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Discovered Asset definition.
- * Azure REST API version: 2024-09-01-preview.
+ * Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
  */
 export class DiscoveredAsset extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class DiscoveredAsset extends pulumi.CustomResource {
      * A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
      */
     public readonly assetEndpointProfileRef!: pulumi.Output<string>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
      */
@@ -178,12 +182,14 @@ export class DiscoveredAsset extends pulumi.CustomResource {
             resourceInputs["softwareRevision"] = args ? args.softwareRevision : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["assetEndpointProfileRef"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["datasets"] = undefined /*out*/;
             resourceInputs["defaultDatasetsConfiguration"] = undefined /*out*/;
             resourceInputs["defaultEventsConfiguration"] = undefined /*out*/;

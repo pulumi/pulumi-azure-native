@@ -42,6 +42,10 @@ export interface GetDatabaseThreatDetectionPolicyArgs {
  */
 export interface GetDatabaseThreatDetectionPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
      */
     readonly disabledAlerts?: string;

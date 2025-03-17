@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the full endpoint URL of a partner destination channel.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getChannelFullUrl(args: GetChannelFullUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetChannelFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -35,7 +33,7 @@ export interface GetChannelFullUrlArgs {
 }
 
 /**
- * Full endpoint url of an event subscription
+ * Full endpoint URL of an event subscription
  */
 export interface GetChannelFullUrlResult {
     /**
@@ -45,9 +43,7 @@ export interface GetChannelFullUrlResult {
 }
 /**
  * Get the full endpoint URL of a partner destination channel.
- * Azure REST API version: 2022-06-15.
- *
- * Other available API versions: 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+ * Azure REST API version: 2025-02-15.
  */
 export function getChannelFullUrlOutput(args: GetChannelFullUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelFullUrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

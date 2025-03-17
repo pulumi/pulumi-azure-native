@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2016-09-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+ * Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class AppServicePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServicePlan.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
      */
@@ -73,7 +75,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -199,6 +201,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
             resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
             resourceInputs["zoneRedundant"] = (args ? args.zoneRedundant : undefined) ?? false;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["numberOfSites"] = undefined /*out*/;
@@ -209,6 +212,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["subscription"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["elasticScaleEnabled"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["freeOfferExpirationTime"] = undefined /*out*/;
@@ -280,7 +284,7 @@ export interface AppServicePlanArgs {
      */
     isXenon?: pulumi.Input<boolean>;
     /**
-     * Kind of resource.
+     * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
     kind?: pulumi.Input<string>;
     /**

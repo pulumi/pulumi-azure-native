@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The springbootservers envelope resource definition.
- * Azure REST API version: 2023-01-01-preview.
+ * Azure REST API version: 2024-04-01-preview.
  */
 export class Springbootserver extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Springbootserver extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -50,10 +54,6 @@ export class Springbootserver extends pulumi.CustomResource {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.offazurespringboot.SystemDataResponse>;
-    /**
-     * Resource tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -80,19 +80,19 @@ export class Springbootserver extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["springbootserversName"] = args ? args.springbootserversName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootserver" }, { type: "azure-native:offazurespringboot/v20230101preview:springbootserver" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootserver" }, { type: "azure-native:offazurespringboot/v20240401preview:springbootserver" }, { type: "azure-native:offazurespringboot:springbootserver" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazurespringboot/v20230101preview:Springbootserver" }, { type: "azure-native:offazurespringboot/v20240401preview:Springbootserver" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Springbootserver.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,8 +118,4 @@ export interface SpringbootserverArgs {
      * The springbootservers name.
      */
     springbootserversName?: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

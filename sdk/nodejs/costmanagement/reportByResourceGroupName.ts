@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A report resource.
- * Azure REST API version: 2018-08-01-preview. Prior API version in Azure Native 1.x: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview. Prior API version in Azure Native 2.x: 2018-08-01-preview.
  */
 export class ReportByResourceGroupName extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReportByResourceGroupName.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Has definition for the report.
      */
@@ -93,10 +97,12 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
             resourceInputs["reportName"] = args ? args.reportName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["deliveryInfo"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;

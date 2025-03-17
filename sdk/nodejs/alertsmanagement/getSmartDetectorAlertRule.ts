@@ -44,6 +44,10 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly actionGroups: outputs.alertsmanagement.ActionGroupsInformationResponse;
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The alert rule description.
      */
     readonly description?: string;

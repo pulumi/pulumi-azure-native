@@ -6,9 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway hostname configuration details.
- * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01.
- *
- * Other available API versions: 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+ * Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 2.x: 2022-08-01.
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**
@@ -37,6 +35,10 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayHostnameConfiguration.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Identifier of Certificate entity that will be used for TLS connection establishment
      */
@@ -100,9 +102,11 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["tls10Enabled"] = args ? args.tls10Enabled : undefined;
             resourceInputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certificateId"] = undefined /*out*/;
             resourceInputs["hostname"] = undefined /*out*/;
             resourceInputs["http2Enabled"] = undefined /*out*/;

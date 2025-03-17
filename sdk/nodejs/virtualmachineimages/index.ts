@@ -29,17 +29,6 @@ utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./vi
 // Export enums:
 export * from "../types/enums/virtualmachineimages";
 
-// Export sub-modules:
-import * as v20220701 from "./v20220701";
-import * as v20230701 from "./v20230701";
-import * as v20240201 from "./v20240201";
-
-export {
-    v20220701,
-    v20230701,
-    v20240201,
-};
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application definition.
- * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01.
- *
- * Other available API versions: 2023-12-01-preview.
+ * Azure REST API version: 2021-07-01. Prior API version in Azure Native 2.x: 2021-07-01.
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class ApplicationDefinition extends pulumi.CustomResource {
      * The managed application provider authorizations.
      */
     public readonly authorizations!: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
@@ -167,12 +169,14 @@ export class ApplicationDefinition extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createUiDefinition"] = undefined /*out*/;
             resourceInputs["deploymentPolicy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

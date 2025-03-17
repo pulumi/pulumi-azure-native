@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
- * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview.
- *
- * Other available API versions: 2022-10-01-preview, 2023-11-01, 2024-05-01-preview, 2025-01-01.
+ * Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2023-05-01-preview.
  */
 export class TrafficControllerInterface extends pulumi.CustomResource {
     /**
@@ -45,6 +43,10 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly associations!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Configuration Endpoints.
      */
     public /*out*/ readonly configurationEndpoints!: pulumi.Output<string[]>;
@@ -64,6 +66,14 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
      * The status of the last operation.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Security Policies References List
+     */
+    public /*out*/ readonly securityPolicies!: pulumi.Output<outputs.servicenetworking.ResourceIdResponse[]>;
+    /**
+     * Security Policy Configuration
+     */
+    public readonly securityPolicyConfigurations!: pulumi.Output<outputs.servicenetworking.SecurityPolicyConfigurationsResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -93,28 +103,34 @@ export class TrafficControllerInterface extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityPolicyConfigurations"] = args ? args.securityPolicyConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
             resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationEndpoints"] = undefined /*out*/;
             resourceInputs["frontends"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityPolicies"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["associations"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationEndpoints"] = undefined /*out*/;
             resourceInputs["frontends"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityPolicies"] = undefined /*out*/;
+            resourceInputs["securityPolicyConfigurations"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20231101:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20250101:TrafficControllerInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20231101:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20240501preview:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20250101:TrafficControllerInterface" }, { type: "azure-native:servicenetworking/v20250301preview:TrafficControllerInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficControllerInterface.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,6 +148,10 @@ export interface TrafficControllerInterfaceArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Security Policy Configuration
+     */
+    securityPolicyConfigurations?: pulumi.Input<inputs.servicenetworking.SecurityPolicyConfigurationsArgs>;
     /**
      * Resource tags.
      */

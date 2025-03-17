@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * VirtualHub Resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**
@@ -48,6 +46,10 @@ export class VirtualHub extends pulumi.CustomResource {
      * Flag to control transit for VirtualRouter hub.
      */
     public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The azureFirewall associated with this VirtualHub.
      */
@@ -189,6 +191,7 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
             resourceInputs["virtualWan"] = args ? args.virtualWan : undefined;
             resourceInputs["vpnGateway"] = args ? args.vpnGateway : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["bgpConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
@@ -201,6 +204,7 @@ export class VirtualHub extends pulumi.CustomResource {
         } else {
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["allowBranchToBranchTraffic"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureFirewall"] = undefined /*out*/;
             resourceInputs["bgpConnections"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

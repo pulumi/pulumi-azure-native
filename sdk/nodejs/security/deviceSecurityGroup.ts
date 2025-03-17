@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The device security group resource
- * Azure REST API version: 2019-08-01. Prior API version in Azure Native 1.x: 2019-08-01.
+ * Azure REST API version: 2019-08-01. Prior API version in Azure Native 2.x: 2019-08-01.
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * The allow-list custom alert rules.
      */
     public readonly allowlistRules!: pulumi.Output<outputs.security.AllowlistCustomAlertRuleResponse[] | undefined>;
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The deny-list custom alert rules.
      */
@@ -83,10 +87,12 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["thresholdRules"] = args ? args.thresholdRules : undefined;
             resourceInputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowlistRules"] = undefined /*out*/;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["denylistRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["thresholdRules"] = undefined /*out*/;

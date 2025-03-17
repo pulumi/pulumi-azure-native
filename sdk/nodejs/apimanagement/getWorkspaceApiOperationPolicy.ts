@@ -7,8 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Get the policy configuration at the API Operation level.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceApiOperationPolicy(args: GetWorkspaceApiOperationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceApiOperationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,6 +57,10 @@ export interface GetWorkspaceApiOperationPolicyArgs {
  */
 export interface GetWorkspaceApiOperationPolicyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Format of the policyContent.
      */
     readonly format?: string;
@@ -82,8 +84,6 @@ export interface GetWorkspaceApiOperationPolicyResult {
 /**
  * Get the policy configuration at the API Operation level.
  * Azure REST API version: 2022-09-01-preview.
- *
- * Other available API versions: 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
  */
 export function getWorkspaceApiOperationPolicyOutput(args: GetWorkspaceApiOperationPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceApiOperationPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SecurityPolicy Subresource of Traffic Controller.
- * Azure REST API version: 2024-05-01-preview.
- *
- * Other available API versions: 2025-01-01.
+ * Azure REST API version: 2025-01-01. Prior API version in Azure Native 2.x: 2024-05-01-preview.
  */
 export class SecurityPoliciesInterface extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -69,7 +71,7 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Web Application Firewall Policy of the Traffic Controller Security Policy
+     * Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
      */
     public readonly wafPolicy!: pulumi.Output<outputs.servicenetworking.WafPolicyResponse | undefined>;
 
@@ -96,12 +98,14 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
             resourceInputs["wafPolicy"] = args ? args.wafPolicy : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
@@ -112,7 +116,7 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
             resourceInputs["wafPolicy"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20240501preview:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250101:SecurityPoliciesInterface" }, { type: "azure-native:servicenetworking/v20250301preview:SecurityPoliciesInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPoliciesInterface.__pulumiType, name, resourceInputs, opts);
     }
@@ -143,7 +147,7 @@ export interface SecurityPoliciesInterfaceArgs {
      */
     trafficControllerName: pulumi.Input<string>;
     /**
-     * Web Application Firewall Policy of the Traffic Controller Security Policy
+     * Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
      */
     wafPolicy?: pulumi.Input<inputs.servicenetworking.WafPolicyArgs>;
 }

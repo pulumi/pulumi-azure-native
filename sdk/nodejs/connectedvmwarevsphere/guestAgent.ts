@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the GuestAgent.
- * Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview.
- *
- * Other available API versions: 2023-03-01-preview.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 2.x: 2022-07-15-preview.
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class GuestAgent extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * Username / Password Credentials to provision guest agent.
      */
     public readonly credentials!: pulumi.Output<outputs.connectedvmwarevsphere.GuestCredentialResponse | undefined>;
@@ -57,11 +59,15 @@ export class GuestAgent extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    /**
      * Gets or sets the guest agent provisioning action.
      */
     public readonly provisioningAction!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the provisioning state.
+     * Gets the provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -73,7 +79,7 @@ export class GuestAgent extends pulumi.CustomResource {
      */
     public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
@@ -105,9 +111,11 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
             resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -116,10 +124,12 @@ export class GuestAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uuid"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["credentials"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["httpProxyConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopeResourceId"] = undefined /*out*/;
             resourceInputs["provisioningAction"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -151,6 +161,10 @@ export interface GuestAgentArgs {
      * Name of the guestAgents.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    privateLinkScopeResourceId?: pulumi.Input<string>;
     /**
      * Gets or sets the guest agent provisioning action.
      */

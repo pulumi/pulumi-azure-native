@@ -40,6 +40,10 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;

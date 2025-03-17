@@ -35,6 +35,10 @@ export interface GetAzureKeyVaultSecretProviderClassArgs {
  */
 export interface GetAzureKeyVaultSecretProviderClassResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The user assigned managed identity client ID that should be used to access the Azure Key Vault.
      */
     readonly clientId: string;

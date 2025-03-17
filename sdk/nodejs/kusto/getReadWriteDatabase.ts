@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a database.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -30,7 +30,7 @@ export interface GetReadWriteDatabaseArgs {
      */
     databaseName: string;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -39,6 +39,10 @@ export interface GetReadWriteDatabaseArgs {
  * Class representing a read write database.
  */
 export interface GetReadWriteDatabaseResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
@@ -51,6 +55,10 @@ export interface GetReadWriteDatabaseResult {
      * Indicates whether the database is followed.
      */
     readonly isFollowed: boolean;
+    /**
+     * KeyVault properties for the database encryption.
+     */
+    readonly keyVaultProperties?: outputs.kusto.KeyVaultPropertiesResponse;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
@@ -77,13 +85,17 @@ export interface GetReadWriteDatabaseResult {
      */
     readonly statistics: outputs.kusto.DatabaseStatisticsResponse;
     /**
+     * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
+     */
+    readonly suspensionDetails: outputs.kusto.SuspensionDetailsResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Returns a database.
- * Azure REST API version: 2022-12-29.
+ * Azure REST API version: 2024-04-13.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -104,7 +116,7 @@ export interface GetReadWriteDatabaseOutputArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Kusto cluster.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

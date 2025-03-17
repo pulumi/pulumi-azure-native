@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data Lake Store trusted identity provider information.
- * Azure REST API version: 2016-11-01. Prior API version in Azure Native 1.x: 2016-11-01.
+ * Azure REST API version: 2016-11-01. Prior API version in Azure Native 2.x: 2016-11-01.
  */
 export class TrustedIdProvider extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class TrustedIdProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrustedIdProvider.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The URL of this trusted identity provider.
      */
@@ -72,9 +76,11 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             resourceInputs["idProvider"] = args ? args.idProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["trustedIdProviderName"] = args ? args.trustedIdProviderName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["idProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

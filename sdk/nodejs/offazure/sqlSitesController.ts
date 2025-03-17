@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SQL site web model.
- * Azure REST API version: 2023-06-06.
- *
- * Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+ * Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
  */
 export class SqlSitesController extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SqlSitesController extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlSitesController.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Gets or sets the discovery scenario.
      */
@@ -93,12 +95,14 @@ export class SqlSitesController extends pulumi.CustomResource {
             resourceInputs["siteAppliancePropertiesCollection"] = args ? args.siteAppliancePropertiesCollection : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["sqlSiteName"] = args ? args.sqlSiteName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceEndpoint"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["discoveryScenario"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

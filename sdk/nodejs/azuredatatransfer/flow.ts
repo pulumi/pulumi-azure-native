@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The flow resource definition.
- * Azure REST API version: 2023-10-11-preview.
- *
- * Other available API versions: 2024-01-25, 2024-05-07, 2024-09-11, 2024-09-27.
+ * Azure REST API version: 2024-09-27. Prior API version in Azure Native 2.x: 2023-10-11-preview.
  */
 export class Flow extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Flow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Flow.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The managed identity of the flow resource, if configured.
      */
@@ -98,10 +100,12 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

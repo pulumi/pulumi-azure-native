@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Addon.
- * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 2.x: 2022-03-01.
  */
 export class IoTAddon extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IoTAddon extends pulumi.CustomResource {
         return obj['__pulumiType'] === IoTAddon.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Host OS supported by the IoT addon.
      */
@@ -116,6 +120,7 @@ export class IoTAddon extends pulumi.CustomResource {
             resourceInputs["kind"] = "IotEdge";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class IoTAddon extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["ioTDeviceDetails"] = undefined /*out*/;
@@ -136,7 +142,7 @@ export class IoTAddon extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20210601preview:IoTAddon" }, { type: "azure-native:databoxedge/v20220301:IoTAddon" }, { type: "azure-native:databoxedge/v20220401preview:IoTAddon" }, { type: "azure-native:databoxedge/v20221201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20230101preview:IoTAddon" }, { type: "azure-native:databoxedge/v20230701:IoTAddon" }, { type: "azure-native:databoxedge/v20231201:IoTAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20210601preview:IoTAddon" }, { type: "azure-native:databoxedge/v20220301:IoTAddon" }, { type: "azure-native:databoxedge/v20220401preview:IoTAddon" }, { type: "azure-native:databoxedge/v20221201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20230101preview:ArcAddon" }, { type: "azure-native:databoxedge/v20230101preview:IoTAddon" }, { type: "azure-native:databoxedge/v20230701:ArcAddon" }, { type: "azure-native:databoxedge/v20230701:IoTAddon" }, { type: "azure-native:databoxedge/v20231201:ArcAddon" }, { type: "azure-native:databoxedge/v20231201:IoTAddon" }, { type: "azure-native:databoxedge:ArcAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IoTAddon.__pulumiType, name, resourceInputs, opts);
     }

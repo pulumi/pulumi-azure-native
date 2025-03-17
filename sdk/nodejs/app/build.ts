@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information pertaining to an individual build.
- * Azure REST API version: 2023-08-01-preview.
- *
- * Other available API versions: 2023-11-02-preview, 2024-02-02-preview, 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2023-08-01-preview.
  */
 export class Build extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class Build extends pulumi.CustomResource {
         return obj['__pulumiType'] === Build.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Status of the build once it has been provisioned.
      */
@@ -103,6 +105,7 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["destinationContainerRegistry"] = args ? args.destinationContainerRegistry : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["logStreamEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -112,6 +115,7 @@ export class Build extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uploadEndpoint"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["destinationContainerRegistry"] = undefined /*out*/;

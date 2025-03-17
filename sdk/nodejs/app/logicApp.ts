@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A logic app extension resource
- * Azure REST API version: 2024-02-02-preview.
- *
- * Other available API versions: 2024-08-02-preview, 2024-10-02-preview.
+ * Azure REST API version: 2024-10-02-preview. Prior API version in Azure Native 2.x: 2024-02-02-preview.
  */
 export class LogicApp extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class LogicApp extends pulumi.CustomResource {
         return obj['__pulumiType'] === LogicApp.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -73,10 +75,12 @@ export class LogicApp extends pulumi.CustomResource {
             resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
             resourceInputs["logicAppName"] = args ? args.logicAppName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -40,6 +40,10 @@ export interface GetIntegrationAccountAssemblyArgs {
  */
 export interface GetIntegrationAccountAssemblyResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The resource id.
      */
     readonly id: string;

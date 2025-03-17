@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL server.
- * Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 1.x: 2019-07-24-preview.
+ * Azure REST API version: 2019-07-24-preview. Prior API version in Azure Native 2.x: 2019-07-24-preview.
  */
 export class SqlServer extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class SqlServer extends pulumi.CustomResource {
         return obj['__pulumiType'] === SqlServer.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * Cores of the Sql Server.
      */
@@ -89,9 +93,11 @@ export class SqlServer extends pulumi.CustomResource {
             resourceInputs["sqlServerName"] = args ? args.sqlServerName : undefined;
             resourceInputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cores"] = undefined /*out*/;
             resourceInputs["edition"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

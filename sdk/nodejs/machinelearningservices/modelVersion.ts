@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview.
- *
- * Other available API versions: 2021-03-01-preview, 2022-02-01-preview, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-04-01-preview, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2023-04-01.
  */
 export class ModelVersion extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class ModelVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelVersion.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -85,16 +87,18 @@ export class ModelVersion extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["modelVersionProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220501:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230401:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20231001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240401:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20241001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:ModelVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220501:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230401:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20230801preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20231001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240101preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240401:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240401preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20240701preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20241001:ModelVersion" }, { type: "azure-native:machinelearningservices/v20241001preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20250101preview:ModelVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelVersion.__pulumiType, name, resourceInputs, opts);
     }

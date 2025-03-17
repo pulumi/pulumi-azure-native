@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a Shared Image Gallery.
- * Azure REST API version: 2022-03-03.
- *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Azure REST API version: 2024-03-03.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,6 +45,10 @@ export interface GetGalleryArgs {
  */
 export interface GetGalleryResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The description of this Shared Image Gallery resource. This property is updatable.
      */
     readonly description?: string;
@@ -58,6 +60,10 @@ export interface GetGalleryResult {
      * Describes the gallery unique name.
      */
     readonly identifier?: outputs.compute.GalleryIdentifierResponse;
+    /**
+     * The identity of the gallery, if configured.
+     */
+    readonly identity?: outputs.compute.GalleryIdentityResponse;
     /**
      * Resource location
      */
@@ -93,9 +99,7 @@ export interface GetGalleryResult {
 }
 /**
  * Retrieves information about a Shared Image Gallery.
- * Azure REST API version: 2022-03-03.
- *
- * Other available API versions: 2022-08-03, 2023-07-03, 2024-03-03.
+ * Azure REST API version: 2024-03-03.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGalleryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

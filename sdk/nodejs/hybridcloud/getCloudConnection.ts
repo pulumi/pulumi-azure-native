@@ -35,6 +35,10 @@ export interface GetCloudConnectionArgs {
  */
 export interface GetCloudConnectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * The cloud connector which discovered the remote resource.
      */
     readonly cloudConnector?: outputs.hybridcloud.ResourceReferenceResponse;

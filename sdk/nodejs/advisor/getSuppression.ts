@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Obtains the details of a suppression.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2023-09-01-preview.
  */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -39,6 +39,10 @@ export interface GetSuppressionArgs {
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  */
 export interface GetSuppressionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets the expiration time stamp.
      */
@@ -70,7 +74,7 @@ export interface GetSuppressionResult {
 }
 /**
  * Obtains the details of a suppression.
- * Azure REST API version: 2023-01-01.
+ * Azure REST API version: 2023-09-01-preview.
  */
 export function getSuppressionOutput(args: GetSuppressionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuppressionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

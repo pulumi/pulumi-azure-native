@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Software update configuration properties.
- * Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
- *
- * Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+ * Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2019-06-01.
  */
 export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwareUpdateConfigurationByName.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * CreatedBy property, which only appears in the response.
      */
@@ -115,6 +117,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
             resourceInputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

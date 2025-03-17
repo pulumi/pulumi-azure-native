@@ -32,6 +32,10 @@ export interface GetWorkspaceCollectionArgs {
 
 export interface GetWorkspaceCollectionResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Resource id
      */
     readonly id?: string;

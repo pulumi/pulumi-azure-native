@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Role management policy
- * Azure REST API version: 2024-09-01-preview.
- *
- * Other available API versions: 2020-10-01, 2020-10-01-preview, 2024-02-01-preview.
+ * Azure REST API version: 2024-09-01-preview. Prior API version in Azure Native 2.x: 2024-09-01-preview.
  */
 export class RoleManagementPolicy extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleManagementPolicy.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The role management policy description.
      */
@@ -105,6 +107,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
             resourceInputs["roleManagementPolicyName"] = args ? args.roleManagementPolicyName : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedDateTime"] = undefined /*out*/;
@@ -112,6 +115,7 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
             resourceInputs["policyProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;

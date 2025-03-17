@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the private scheduled action by name.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +29,10 @@ export interface GetScheduledActionArgs {
  * Scheduled action definition.
  */
 export interface GetScheduledActionResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Scheduled action name.
      */
@@ -90,9 +92,7 @@ export interface GetScheduledActionResult {
 }
 /**
  * Get the private scheduled action by name.
- * Azure REST API version: 2023-03-01.
- *
- * Other available API versions: 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+ * Azure REST API version: 2024-08-01.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

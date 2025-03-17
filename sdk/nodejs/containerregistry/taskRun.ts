@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The task run that has the ARM resource and properties.
  * The task run will have the information of request and result of a run.
- * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 2.x: 2019-06-01-preview.
  */
 export class TaskRun extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class TaskRun extends pulumi.CustomResource {
         return obj['__pulumiType'] === TaskRun.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * How the run should be forced to rerun even if the run request configuration has not changed
      */
@@ -100,12 +104,14 @@ export class TaskRun extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["runRequest"] = args ? args.runRequest : undefined;
             resourceInputs["taskRunName"] = args ? args.taskRunName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["runResult"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

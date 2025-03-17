@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a virtual machine instance.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVirtualMachineInstance(args: GetVirtualMachineInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,6 +29,10 @@ export interface GetVirtualMachineInstanceArgs {
  * Define the virtualMachineInstance.
  */
 export interface GetVirtualMachineInstanceResult {
+    /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
     /**
      * Gets or sets the extended location.
      */
@@ -98,9 +100,7 @@ export interface GetVirtualMachineInstanceResult {
 }
 /**
  * Retrieves information about a virtual machine instance.
- * Azure REST API version: 2023-03-01-preview.
- *
- * Other available API versions: 2023-10-01, 2023-12-01.
+ * Azure REST API version: 2023-12-01.
  */
 export function getVirtualMachineInstanceOutput(args: GetVirtualMachineInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualMachineInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

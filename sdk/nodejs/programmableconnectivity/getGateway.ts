@@ -35,6 +35,10 @@ export interface GetGatewayArgs {
  */
 export interface GetGatewayResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Base URL of the Gateway resource. This is the URL that the users would use to make Open API Gateway requests to the Operators via Azure.
      */
     readonly gatewayBaseUrl: string;

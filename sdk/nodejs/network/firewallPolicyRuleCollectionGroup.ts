@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Rule Collection Group resource.
- * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01.
- *
- * Other available API versions: 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+ * Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2023-02-01.
  */
 export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     /**
@@ -41,6 +39,10 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -60,6 +62,10 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      * Group of Firewall Policy rule collections.
      */
     public readonly ruleCollections!: pulumi.Output<(outputs.network.FirewallPolicyFilterRuleCollectionResponse | outputs.network.FirewallPolicyNatRuleCollectionResponse)[] | undefined>;
+    /**
+     * A read-only string that represents the size of the FirewallPolicyRuleCollectionGroupProperties in MB. (ex 1.2MB)
+     */
+    public /*out*/ readonly size!: pulumi.Output<string>;
     /**
      * Rule Group type.
      */
@@ -89,15 +95,19 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
             resourceInputs["ruleCollections"] = args ? args.ruleCollections : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ruleCollections"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

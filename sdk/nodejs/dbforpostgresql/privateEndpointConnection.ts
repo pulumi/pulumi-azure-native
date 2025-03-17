@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection resource.
- * Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01.
- *
- * Other available API versions: 2018-06-01-privatepreview, 2023-03-02-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+ * Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-11-08.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The group ids for the private endpoint resource.
      */
@@ -80,19 +82,20 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            if ((!args || args.serverName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'serverName'");
+            }
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -100,6 +103,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
@@ -109,7 +113,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230302preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20230601preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20231201preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240301preview:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20240801:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20241101preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -120,11 +124,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * The name of the cluster.
-     */
-    clusterName: pulumi.Input<string>;
-    /**
-     * The name of the private endpoint connection associated with the cluster.
+     * The name of the private endpoint connection.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
@@ -135,4 +135,8 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the server.
+     */
+    serverName: pulumi.Input<string>;
 }

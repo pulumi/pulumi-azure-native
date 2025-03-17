@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An iSCSI path resource
- * Azure REST API version: 2023-09-01.
+ * Azure REST API version: 2023-09-01. Prior API version in Azure Native 2.x: 2023-09-01.
  */
 export class IscsiPath extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class IscsiPath extends pulumi.CustomResource {
         return obj['__pulumiType'] === IscsiPath.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -82,11 +86,13 @@ export class IscsiPath extends pulumi.CustomResource {
             resourceInputs["networkBlock"] = args ? args.networkBlock : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkBlock"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

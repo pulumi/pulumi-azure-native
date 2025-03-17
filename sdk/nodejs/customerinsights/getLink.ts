@@ -40,6 +40,10 @@ export interface GetLinkArgs {
  */
 export interface GetLinkResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * Localized descriptions for the Link.
      */
     readonly description?: {[key: string]: string};

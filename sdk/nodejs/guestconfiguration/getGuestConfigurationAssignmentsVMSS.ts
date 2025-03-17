@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a guest configuration assignment for VMSS
- * Azure REST API version: 2022-01-25.
- *
- * Other available API versions: 2024-04-05.
+ * Azure REST API version: 2024-04-05.
  */
 export function getGuestConfigurationAssignmentsVMSS(args: GetGuestConfigurationAssignmentsVMSSArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentsVMSSResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -42,6 +40,10 @@ export interface GetGuestConfigurationAssignmentsVMSSArgs {
  */
 export interface GetGuestConfigurationAssignmentsVMSSResult {
     /**
+     * The Azure API version of the resource.
+     */
+    readonly azureApiVersion: string;
+    /**
      * ARM resource id of the guest configuration assignment.
      */
     readonly id: string;
@@ -68,9 +70,7 @@ export interface GetGuestConfigurationAssignmentsVMSSResult {
 }
 /**
  * Get information about a guest configuration assignment for VMSS
- * Azure REST API version: 2022-01-25.
- *
- * Other available API versions: 2024-04-05.
+ * Azure REST API version: 2024-04-05.
  */
 export function getGuestConfigurationAssignmentsVMSSOutput(args: GetGuestConfigurationAssignmentsVMSSOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuestConfigurationAssignmentsVMSSResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

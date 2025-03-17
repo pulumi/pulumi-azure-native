@@ -9,9 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an curation profile resource.
- * Azure REST API version: 2024-08-01-preview.
- *
- * Other available API versions: 2024-10-01-preview.
+ * Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
  */
 export class CurationProfile extends pulumi.CustomResource {
     /**
@@ -40,6 +38,10 @@ export class CurationProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === CurationProfile.__pulumiType;
     }
 
+    /**
+     * The Azure API version of the resource.
+     */
+    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -87,11 +89,13 @@ export class CurationProfile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourcePolicies"] = args ? args.resourcePolicies : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourcePolicies"] = undefined /*out*/;
