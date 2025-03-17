@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a bookmark.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a bookmark.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a bookmark.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.SecurityInsights
     [OutputType]
     public sealed class GetBookmarkResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The time the bookmark was created
         /// </summary>
@@ -171,6 +169,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
         [OutputConstructor]
         private GetBookmarkResult(
+            string azureApiVersion,
+
             string? created,
 
             Outputs.UserInfoResponse? createdBy,
@@ -207,6 +207,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.UserInfoResponse? updatedBy)
         {
+            AzureApiVersion = azureApiVersion;
             Created = created;
             CreatedBy = createdBy;
             DisplayName = displayName;

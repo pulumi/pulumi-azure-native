@@ -101,37 +101,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// When to check if an asset is expired
-    /// </summary>
-    [EnumType]
-    public readonly struct AutoDeleteCondition : IEquatable<AutoDeleteCondition>
-    {
-        private readonly string _value;
-
-        private AutoDeleteCondition(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AutoDeleteCondition CreatedGreaterThan { get; } = new AutoDeleteCondition("CreatedGreaterThan");
-        public static AutoDeleteCondition LastAccessedGreaterThan { get; } = new AutoDeleteCondition("LastAccessedGreaterThan");
-
-        public static bool operator ==(AutoDeleteCondition left, AutoDeleteCondition right) => left.Equals(right);
-        public static bool operator !=(AutoDeleteCondition left, AutoDeleteCondition right) => !left.Equals(right);
-
-        public static explicit operator string(AutoDeleteCondition value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AutoDeleteCondition other && Equals(other);
-        public bool Equals(AutoDeleteCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Defines if image needs to be rebuilt based on base image changes.
     /// </summary>
     [EnumType]
@@ -155,6 +124,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AutoRebuildSetting other && Equals(other);
         public bool Equals(AutoRebuildSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The type of the deployment
+    /// </summary>
+    [EnumType]
+    public readonly struct BatchDeploymentConfigurationType : IEquatable<BatchDeploymentConfigurationType>
+    {
+        private readonly string _value;
+
+        private BatchDeploymentConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BatchDeploymentConfigurationType Model { get; } = new BatchDeploymentConfigurationType("Model");
+        public static BatchDeploymentConfigurationType PipelineComponent { get; } = new BatchDeploymentConfigurationType("PipelineComponent");
+
+        public static bool operator ==(BatchDeploymentConfigurationType left, BatchDeploymentConfigurationType right) => left.Equals(right);
+        public static bool operator !=(BatchDeploymentConfigurationType left, BatchDeploymentConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(BatchDeploymentConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BatchDeploymentConfigurationType other && Equals(other);
+        public bool Equals(BatchDeploymentConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -325,6 +325,129 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] The categorical data drift metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct CategoricalDataDriftMetric : IEquatable<CategoricalDataDriftMetric>
+    {
+        private readonly string _value;
+
+        private CategoricalDataDriftMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Jensen Shannon Distance (JSD) metric.
+        /// </summary>
+        public static CategoricalDataDriftMetric JensenShannonDistance { get; } = new CategoricalDataDriftMetric("JensenShannonDistance");
+        /// <summary>
+        /// The Population Stability Index (PSI) metric.
+        /// </summary>
+        public static CategoricalDataDriftMetric PopulationStabilityIndex { get; } = new CategoricalDataDriftMetric("PopulationStabilityIndex");
+        /// <summary>
+        /// The Pearsons Chi Squared Test metric.
+        /// </summary>
+        public static CategoricalDataDriftMetric PearsonsChiSquaredTest { get; } = new CategoricalDataDriftMetric("PearsonsChiSquaredTest");
+
+        public static bool operator ==(CategoricalDataDriftMetric left, CategoricalDataDriftMetric right) => left.Equals(right);
+        public static bool operator !=(CategoricalDataDriftMetric left, CategoricalDataDriftMetric right) => !left.Equals(right);
+
+        public static explicit operator string(CategoricalDataDriftMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CategoricalDataDriftMetric other && Equals(other);
+        public bool Equals(CategoricalDataDriftMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The categorical data quality metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct CategoricalDataQualityMetric : IEquatable<CategoricalDataQualityMetric>
+    {
+        private readonly string _value;
+
+        private CategoricalDataQualityMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Calculates the rate of null values.
+        /// </summary>
+        public static CategoricalDataQualityMetric NullValueRate { get; } = new CategoricalDataQualityMetric("NullValueRate");
+        /// <summary>
+        /// Calculates the rate of data type errors.
+        /// </summary>
+        public static CategoricalDataQualityMetric DataTypeErrorRate { get; } = new CategoricalDataQualityMetric("DataTypeErrorRate");
+        /// <summary>
+        /// Calculates the rate values are out of bounds.
+        /// </summary>
+        public static CategoricalDataQualityMetric OutOfBoundsRate { get; } = new CategoricalDataQualityMetric("OutOfBoundsRate");
+
+        public static bool operator ==(CategoricalDataQualityMetric left, CategoricalDataQualityMetric right) => left.Equals(right);
+        public static bool operator !=(CategoricalDataQualityMetric left, CategoricalDataQualityMetric right) => !left.Equals(right);
+
+        public static explicit operator string(CategoricalDataQualityMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CategoricalDataQualityMetric other && Equals(other);
+        public bool Equals(CategoricalDataQualityMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The categorical prediction drift metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct CategoricalPredictionDriftMetric : IEquatable<CategoricalPredictionDriftMetric>
+    {
+        private readonly string _value;
+
+        private CategoricalPredictionDriftMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Jensen Shannon Distance (JSD) metric.
+        /// </summary>
+        public static CategoricalPredictionDriftMetric JensenShannonDistance { get; } = new CategoricalPredictionDriftMetric("JensenShannonDistance");
+        /// <summary>
+        /// The Population Stability Index (PSI) metric.
+        /// </summary>
+        public static CategoricalPredictionDriftMetric PopulationStabilityIndex { get; } = new CategoricalPredictionDriftMetric("PopulationStabilityIndex");
+        /// <summary>
+        /// The Pearsons Chi Squared Test metric.
+        /// </summary>
+        public static CategoricalPredictionDriftMetric PearsonsChiSquaredTest { get; } = new CategoricalPredictionDriftMetric("PearsonsChiSquaredTest");
+
+        public static bool operator ==(CategoricalPredictionDriftMetric left, CategoricalPredictionDriftMetric right) => left.Equals(right);
+        public static bool operator !=(CategoricalPredictionDriftMetric left, CategoricalPredictionDriftMetric right) => !left.Equals(right);
+
+        public static explicit operator string(CategoricalPredictionDriftMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CategoricalPredictionDriftMetric other && Equals(other);
+        public bool Equals(CategoricalPredictionDriftMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enum for all classification models supported by AutoML.
     /// </summary>
     [EnumType]
@@ -381,7 +504,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ClassificationModels DecisionTree { get; } = new ClassificationModels("DecisionTree");
         /// <summary>
         /// Random forest is a supervised learning algorithm.
-        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
         /// The general idea of the bagging method is that a combination of learning models increases the overall result.
         /// </summary>
         public static ClassificationModels RandomForest { get; } = new ClassificationModels("RandomForest");
@@ -621,6 +744,86 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] The frequency to trigger schedule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeRecurrenceFrequency : IEquatable<ComputeRecurrenceFrequency>
+    {
+        private readonly string _value;
+
+        private ComputeRecurrenceFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Minute frequency
+        /// </summary>
+        public static ComputeRecurrenceFrequency Minute { get; } = new ComputeRecurrenceFrequency("Minute");
+        /// <summary>
+        /// Hour frequency
+        /// </summary>
+        public static ComputeRecurrenceFrequency Hour { get; } = new ComputeRecurrenceFrequency("Hour");
+        /// <summary>
+        /// Day frequency
+        /// </summary>
+        public static ComputeRecurrenceFrequency Day { get; } = new ComputeRecurrenceFrequency("Day");
+        /// <summary>
+        /// Week frequency
+        /// </summary>
+        public static ComputeRecurrenceFrequency Week { get; } = new ComputeRecurrenceFrequency("Week");
+        /// <summary>
+        /// Month frequency
+        /// </summary>
+        public static ComputeRecurrenceFrequency Month { get; } = new ComputeRecurrenceFrequency("Month");
+
+        public static bool operator ==(ComputeRecurrenceFrequency left, ComputeRecurrenceFrequency right) => left.Equals(right);
+        public static bool operator !=(ComputeRecurrenceFrequency left, ComputeRecurrenceFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeRecurrenceFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeRecurrenceFrequency other && Equals(other);
+        public bool Equals(ComputeRecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The schedule trigger type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeTriggerType : IEquatable<ComputeTriggerType>
+    {
+        private readonly string _value;
+
+        private ComputeTriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeTriggerType Recurrence { get; } = new ComputeTriggerType("Recurrence");
+        public static ComputeTriggerType Cron { get; } = new ComputeTriggerType("Cron");
+
+        public static bool operator ==(ComputeTriggerType left, ComputeTriggerType right) => left.Equals(right);
+        public static bool operator !=(ComputeTriggerType left, ComputeTriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeTriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeTriggerType other && Equals(other);
+        public bool Equals(ComputeTriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of compute
     /// </summary>
     [EnumType]
@@ -660,6 +863,63 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Enum of weekday
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeWeekDay : IEquatable<ComputeWeekDay>
+    {
+        private readonly string _value;
+
+        private ComputeWeekDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Monday weekday
+        /// </summary>
+        public static ComputeWeekDay Monday { get; } = new ComputeWeekDay("Monday");
+        /// <summary>
+        /// Tuesday weekday
+        /// </summary>
+        public static ComputeWeekDay Tuesday { get; } = new ComputeWeekDay("Tuesday");
+        /// <summary>
+        /// Wednesday weekday
+        /// </summary>
+        public static ComputeWeekDay Wednesday { get; } = new ComputeWeekDay("Wednesday");
+        /// <summary>
+        /// Thursday weekday
+        /// </summary>
+        public static ComputeWeekDay Thursday { get; } = new ComputeWeekDay("Thursday");
+        /// <summary>
+        /// Friday weekday
+        /// </summary>
+        public static ComputeWeekDay Friday { get; } = new ComputeWeekDay("Friday");
+        /// <summary>
+        /// Saturday weekday
+        /// </summary>
+        public static ComputeWeekDay Saturday { get; } = new ComputeWeekDay("Saturday");
+        /// <summary>
+        /// Sunday weekday
+        /// </summary>
+        public static ComputeWeekDay Sunday { get; } = new ComputeWeekDay("Sunday");
+
+        public static bool operator ==(ComputeWeekDay left, ComputeWeekDay right) => left.Equals(right);
+        public static bool operator !=(ComputeWeekDay left, ComputeWeekDay right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeWeekDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeWeekDay other && Equals(other);
+        public bool Equals(ComputeWeekDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Authentication type of the connection target
     /// </summary>
     [EnumType]
@@ -677,6 +937,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionAuthType UsernamePassword { get; } = new ConnectionAuthType("UsernamePassword");
         public static ConnectionAuthType None { get; } = new ConnectionAuthType("None");
         public static ConnectionAuthType SAS { get; } = new ConnectionAuthType("SAS");
+        public static ConnectionAuthType AccountKey { get; } = new ConnectionAuthType("AccountKey");
+        public static ConnectionAuthType ServicePrincipal { get; } = new ConnectionAuthType("ServicePrincipal");
+        public static ConnectionAuthType AccessKey { get; } = new ConnectionAuthType("AccessKey");
+        public static ConnectionAuthType ApiKey { get; } = new ConnectionAuthType("ApiKey");
+        public static ConnectionAuthType CustomKeys { get; } = new ConnectionAuthType("CustomKeys");
+        public static ConnectionAuthType OAuth2 { get; } = new ConnectionAuthType("OAuth2");
+        public static ConnectionAuthType AAD { get; } = new ConnectionAuthType("AAD");
 
         public static bool operator ==(ConnectionAuthType left, ConnectionAuthType right) => left.Equals(right);
         public static bool operator !=(ConnectionAuthType left, ConnectionAuthType right) => !left.Equals(right);
@@ -709,6 +976,108 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ConnectionCategory PythonFeed { get; } = new ConnectionCategory("PythonFeed");
         public static ConnectionCategory ContainerRegistry { get; } = new ConnectionCategory("ContainerRegistry");
         public static ConnectionCategory Git { get; } = new ConnectionCategory("Git");
+        public static ConnectionCategory S3 { get; } = new ConnectionCategory("S3");
+        public static ConnectionCategory Snowflake { get; } = new ConnectionCategory("Snowflake");
+        public static ConnectionCategory AzureSqlDb { get; } = new ConnectionCategory("AzureSqlDb");
+        public static ConnectionCategory AzureSynapseAnalytics { get; } = new ConnectionCategory("AzureSynapseAnalytics");
+        public static ConnectionCategory AzureMySqlDb { get; } = new ConnectionCategory("AzureMySqlDb");
+        public static ConnectionCategory AzurePostgresDb { get; } = new ConnectionCategory("AzurePostgresDb");
+        public static ConnectionCategory ADLSGen2 { get; } = new ConnectionCategory("ADLSGen2");
+        public static ConnectionCategory Redis { get; } = new ConnectionCategory("Redis");
+        public static ConnectionCategory ApiKey { get; } = new ConnectionCategory("ApiKey");
+        public static ConnectionCategory AzureOpenAI { get; } = new ConnectionCategory("AzureOpenAI");
+        public static ConnectionCategory AIServices { get; } = new ConnectionCategory("AIServices");
+        public static ConnectionCategory CognitiveSearch { get; } = new ConnectionCategory("CognitiveSearch");
+        public static ConnectionCategory CognitiveService { get; } = new ConnectionCategory("CognitiveService");
+        public static ConnectionCategory CustomKeys { get; } = new ConnectionCategory("CustomKeys");
+        public static ConnectionCategory AzureBlob { get; } = new ConnectionCategory("AzureBlob");
+        public static ConnectionCategory AzureOneLake { get; } = new ConnectionCategory("AzureOneLake");
+        public static ConnectionCategory CosmosDb { get; } = new ConnectionCategory("CosmosDb");
+        public static ConnectionCategory CosmosDbMongoDbApi { get; } = new ConnectionCategory("CosmosDbMongoDbApi");
+        public static ConnectionCategory AzureDataExplorer { get; } = new ConnectionCategory("AzureDataExplorer");
+        public static ConnectionCategory AzureMariaDb { get; } = new ConnectionCategory("AzureMariaDb");
+        public static ConnectionCategory AzureDatabricksDeltaLake { get; } = new ConnectionCategory("AzureDatabricksDeltaLake");
+        public static ConnectionCategory AzureSqlMi { get; } = new ConnectionCategory("AzureSqlMi");
+        public static ConnectionCategory AzureTableStorage { get; } = new ConnectionCategory("AzureTableStorage");
+        public static ConnectionCategory AmazonRdsForOracle { get; } = new ConnectionCategory("AmazonRdsForOracle");
+        public static ConnectionCategory AmazonRdsForSqlServer { get; } = new ConnectionCategory("AmazonRdsForSqlServer");
+        public static ConnectionCategory AmazonRedshift { get; } = new ConnectionCategory("AmazonRedshift");
+        public static ConnectionCategory Db2 { get; } = new ConnectionCategory("Db2");
+        public static ConnectionCategory Drill { get; } = new ConnectionCategory("Drill");
+        public static ConnectionCategory GoogleBigQuery { get; } = new ConnectionCategory("GoogleBigQuery");
+        public static ConnectionCategory Greenplum { get; } = new ConnectionCategory("Greenplum");
+        public static ConnectionCategory Hbase { get; } = new ConnectionCategory("Hbase");
+        public static ConnectionCategory Hive { get; } = new ConnectionCategory("Hive");
+        public static ConnectionCategory Impala { get; } = new ConnectionCategory("Impala");
+        public static ConnectionCategory Informix { get; } = new ConnectionCategory("Informix");
+        public static ConnectionCategory MariaDb { get; } = new ConnectionCategory("MariaDb");
+        public static ConnectionCategory MicrosoftAccess { get; } = new ConnectionCategory("MicrosoftAccess");
+        public static ConnectionCategory MySql { get; } = new ConnectionCategory("MySql");
+        public static ConnectionCategory Netezza { get; } = new ConnectionCategory("Netezza");
+        public static ConnectionCategory Oracle { get; } = new ConnectionCategory("Oracle");
+        public static ConnectionCategory Phoenix { get; } = new ConnectionCategory("Phoenix");
+        public static ConnectionCategory PostgreSql { get; } = new ConnectionCategory("PostgreSql");
+        public static ConnectionCategory Presto { get; } = new ConnectionCategory("Presto");
+        public static ConnectionCategory SapOpenHub { get; } = new ConnectionCategory("SapOpenHub");
+        public static ConnectionCategory SapBw { get; } = new ConnectionCategory("SapBw");
+        public static ConnectionCategory SapHana { get; } = new ConnectionCategory("SapHana");
+        public static ConnectionCategory SapTable { get; } = new ConnectionCategory("SapTable");
+        public static ConnectionCategory Spark { get; } = new ConnectionCategory("Spark");
+        public static ConnectionCategory SqlServer { get; } = new ConnectionCategory("SqlServer");
+        public static ConnectionCategory Sybase { get; } = new ConnectionCategory("Sybase");
+        public static ConnectionCategory Teradata { get; } = new ConnectionCategory("Teradata");
+        public static ConnectionCategory Vertica { get; } = new ConnectionCategory("Vertica");
+        public static ConnectionCategory Pinecone { get; } = new ConnectionCategory("Pinecone");
+        public static ConnectionCategory Cassandra { get; } = new ConnectionCategory("Cassandra");
+        public static ConnectionCategory Couchbase { get; } = new ConnectionCategory("Couchbase");
+        public static ConnectionCategory MongoDbV2 { get; } = new ConnectionCategory("MongoDbV2");
+        public static ConnectionCategory MongoDbAtlas { get; } = new ConnectionCategory("MongoDbAtlas");
+        public static ConnectionCategory AmazonS3Compatible { get; } = new ConnectionCategory("AmazonS3Compatible");
+        public static ConnectionCategory FileServer { get; } = new ConnectionCategory("FileServer");
+        public static ConnectionCategory FtpServer { get; } = new ConnectionCategory("FtpServer");
+        public static ConnectionCategory GoogleCloudStorage { get; } = new ConnectionCategory("GoogleCloudStorage");
+        public static ConnectionCategory Hdfs { get; } = new ConnectionCategory("Hdfs");
+        public static ConnectionCategory OracleCloudStorage { get; } = new ConnectionCategory("OracleCloudStorage");
+        public static ConnectionCategory Sftp { get; } = new ConnectionCategory("Sftp");
+        public static ConnectionCategory GenericHttp { get; } = new ConnectionCategory("GenericHttp");
+        public static ConnectionCategory ODataRest { get; } = new ConnectionCategory("ODataRest");
+        public static ConnectionCategory Odbc { get; } = new ConnectionCategory("Odbc");
+        public static ConnectionCategory GenericRest { get; } = new ConnectionCategory("GenericRest");
+        public static ConnectionCategory AmazonMws { get; } = new ConnectionCategory("AmazonMws");
+        public static ConnectionCategory Concur { get; } = new ConnectionCategory("Concur");
+        public static ConnectionCategory Dynamics { get; } = new ConnectionCategory("Dynamics");
+        public static ConnectionCategory DynamicsAx { get; } = new ConnectionCategory("DynamicsAx");
+        public static ConnectionCategory DynamicsCrm { get; } = new ConnectionCategory("DynamicsCrm");
+        public static ConnectionCategory GoogleAdWords { get; } = new ConnectionCategory("GoogleAdWords");
+        public static ConnectionCategory Hubspot { get; } = new ConnectionCategory("Hubspot");
+        public static ConnectionCategory Jira { get; } = new ConnectionCategory("Jira");
+        public static ConnectionCategory Magento { get; } = new ConnectionCategory("Magento");
+        public static ConnectionCategory Marketo { get; } = new ConnectionCategory("Marketo");
+        public static ConnectionCategory Office365 { get; } = new ConnectionCategory("Office365");
+        public static ConnectionCategory Eloqua { get; } = new ConnectionCategory("Eloqua");
+        public static ConnectionCategory Responsys { get; } = new ConnectionCategory("Responsys");
+        public static ConnectionCategory OracleServiceCloud { get; } = new ConnectionCategory("OracleServiceCloud");
+        public static ConnectionCategory PayPal { get; } = new ConnectionCategory("PayPal");
+        public static ConnectionCategory QuickBooks { get; } = new ConnectionCategory("QuickBooks");
+        public static ConnectionCategory Salesforce { get; } = new ConnectionCategory("Salesforce");
+        public static ConnectionCategory SalesforceServiceCloud { get; } = new ConnectionCategory("SalesforceServiceCloud");
+        public static ConnectionCategory SalesforceMarketingCloud { get; } = new ConnectionCategory("SalesforceMarketingCloud");
+        public static ConnectionCategory SapCloudForCustomer { get; } = new ConnectionCategory("SapCloudForCustomer");
+        public static ConnectionCategory SapEcc { get; } = new ConnectionCategory("SapEcc");
+        public static ConnectionCategory ServiceNow { get; } = new ConnectionCategory("ServiceNow");
+        public static ConnectionCategory SharePointOnlineList { get; } = new ConnectionCategory("SharePointOnlineList");
+        public static ConnectionCategory Shopify { get; } = new ConnectionCategory("Shopify");
+        public static ConnectionCategory Square { get; } = new ConnectionCategory("Square");
+        public static ConnectionCategory WebTable { get; } = new ConnectionCategory("WebTable");
+        public static ConnectionCategory Xero { get; } = new ConnectionCategory("Xero");
+        public static ConnectionCategory Zoho { get; } = new ConnectionCategory("Zoho");
+        public static ConnectionCategory GenericContainerRegistry { get; } = new ConnectionCategory("GenericContainerRegistry");
+        public static ConnectionCategory Elasticsearch { get; } = new ConnectionCategory("Elasticsearch");
+        public static ConnectionCategory OpenAI { get; } = new ConnectionCategory("OpenAI");
+        public static ConnectionCategory Serp { get; } = new ConnectionCategory("Serp");
+        public static ConnectionCategory BingLLMSearch { get; } = new ConnectionCategory("BingLLMSearch");
+        public static ConnectionCategory Serverless { get; } = new ConnectionCategory("Serverless");
+        public static ConnectionCategory ManagedOnlineEndpoint { get; } = new ConnectionCategory("ManagedOnlineEndpoint");
 
         public static bool operator ==(ConnectionCategory left, ConnectionCategory right) => left.Equals(right);
         public static bool operator !=(ConnectionCategory left, ConnectionCategory right) => !left.Equals(right);
@@ -757,6 +1126,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] Specifies the status of content safety.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentSafetyStatus : IEquatable<ContentSafetyStatus>
+    {
+        private readonly string _value;
+
+        private ContentSafetyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentSafetyStatus Enabled { get; } = new ContentSafetyStatus("Enabled");
+        public static ContentSafetyStatus Disabled { get; } = new ContentSafetyStatus("Disabled");
+
+        public static bool operator ==(ContentSafetyStatus left, ContentSafetyStatus right) => left.Equals(right);
+        public static bool operator !=(ContentSafetyStatus left, ContentSafetyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContentSafetyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentSafetyStatus other && Equals(other);
+        public bool Equals(ContentSafetyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Credential type used to authentication with storage.
     /// </summary>
     [EnumType]
@@ -783,6 +1183,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CredentialsType other && Equals(other);
         public bool Equals(CredentialsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or disable data collection.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataCollectionMode : IEquatable<DataCollectionMode>
+    {
+        private readonly string _value;
+
+        private DataCollectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataCollectionMode Enabled { get; } = new DataCollectionMode("Enabled");
+        public static DataCollectionMode Disabled { get; } = new DataCollectionMode("Disabled");
+
+        public static bool operator ==(DataCollectionMode left, DataCollectionMode right) => left.Equals(right);
+        public static bool operator !=(DataCollectionMode left, DataCollectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(DataCollectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataCollectionMode other && Equals(other);
+        public bool Equals(DataCollectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -870,6 +1301,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static DatastoreType AzureDataLakeGen1 { get; } = new DatastoreType("AzureDataLakeGen1");
         public static DatastoreType AzureDataLakeGen2 { get; } = new DatastoreType("AzureDataLakeGen2");
         public static DatastoreType AzureFile { get; } = new DatastoreType("AzureFile");
+        public static DatastoreType OneLake { get; } = new DatastoreType("OneLake");
 
         public static bool operator ==(DatastoreType left, DatastoreType right) => left.Equals(right);
         public static bool operator !=(DatastoreType left, DatastoreType right) => !left.Equals(right);
@@ -1145,7 +1577,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+    /// [Required] The authentication method for invoking the endpoint (data plane operation). Use 'Key' for key-based authentication. Use 'AMLToken' for Azure Machine Learning token-based authentication. Use 'AADToken' for Microsoft Entra token-based authentication.
     /// </summary>
     [EnumType]
     public readonly struct EndpointAuthMode : IEquatable<EndpointAuthMode>
@@ -1272,6 +1704,39 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] The feature attribution metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureAttributionMetric : IEquatable<FeatureAttributionMetric>
+    {
+        private readonly string _value;
+
+        private FeatureAttributionMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Normalized Discounted Cumulative Gain metric.
+        /// </summary>
+        public static FeatureAttributionMetric NormalizedDiscountedCumulativeGain { get; } = new FeatureAttributionMetric("NormalizedDiscountedCumulativeGain");
+
+        public static bool operator ==(FeatureAttributionMetric left, FeatureAttributionMetric right) => left.Equals(right);
+        public static bool operator !=(FeatureAttributionMetric left, FeatureAttributionMetric right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureAttributionMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureAttributionMetric other && Equals(other);
+        public bool Equals(FeatureAttributionMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the data type
     /// </summary>
     [EnumType]
@@ -1301,6 +1766,43 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeatureDataType other && Equals(other);
         public bool Equals(FeatureDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of operation for computing feature importance.
+    /// </summary>
+    [EnumType]
+    public readonly struct FeatureImportanceMode : IEquatable<FeatureImportanceMode>
+    {
+        private readonly string _value;
+
+        private FeatureImportanceMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Disables computing feature importance within a signal.
+        /// </summary>
+        public static FeatureImportanceMode Disabled { get; } = new FeatureImportanceMode("Disabled");
+        /// <summary>
+        /// Enables computing feature importance within a signal.
+        /// </summary>
+        public static FeatureImportanceMode Enabled { get; } = new FeatureImportanceMode("Enabled");
+
+        public static bool operator ==(FeatureImportanceMode left, FeatureImportanceMode right) => left.Equals(right);
+        public static bool operator !=(FeatureImportanceMode left, FeatureImportanceMode right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureImportanceMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureImportanceMode other && Equals(other);
+        public bool Equals(FeatureImportanceMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1381,6 +1883,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeaturizationMode other && Equals(other);
         public bool Equals(FeaturizationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Firewall Sku used for FQDN Rules
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallSku : IEquatable<FirewallSku>
+    {
+        private readonly string _value;
+
+        private FirewallSku(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallSku Standard { get; } = new FirewallSku("Standard");
+        public static FirewallSku Basic { get; } = new FirewallSku("Basic");
+
+        public static bool operator ==(FirewallSku left, FirewallSku right) => left.Equals(right);
+        public static bool operator !=(FirewallSku left, FirewallSku right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallSku value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallSku other && Equals(other);
+        public bool Equals(FirewallSku other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1507,7 +2040,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static ForecastingModels SGD { get; } = new ForecastingModels("SGD");
         /// <summary>
         /// Random forest is a supervised learning algorithm.
-        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
         /// The general idea of the bagging method is that a combination of learning models increases the overall result.
         /// </summary>
         public static ForecastingModels RandomForest { get; } = new ForecastingModels("RandomForest");
@@ -1844,6 +2377,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Isolation mode for the managed network of a machine learning workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct IsolationMode : IEquatable<IsolationMode>
+    {
+        private readonly string _value;
+
+        private IsolationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IsolationMode Disabled { get; } = new IsolationMode("Disabled");
+        public static IsolationMode AllowInternetOutbound { get; } = new IsolationMode("AllowInternetOutbound");
+        public static IsolationMode AllowOnlyApprovedOutbound { get; } = new IsolationMode("AllowOnlyApprovedOutbound");
+
+        public static bool operator ==(IsolationMode left, IsolationMode right) => left.Equals(right);
+        public static bool operator !=(IsolationMode left, IsolationMode right) => !left.Equals(right);
+
+        public static explicit operator string(IsolationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IsolationMode other && Equals(other);
+        public bool Equals(IsolationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Specifies the type of job.
     /// </summary>
     [EnumType]
@@ -1946,6 +2511,40 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Controls the compute job tier
+    /// </summary>
+    [EnumType]
+    public readonly struct JobTier : IEquatable<JobTier>
+    {
+        private readonly string _value;
+
+        private JobTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobTier Null { get; } = new JobTier("Null");
+        public static JobTier Spot { get; } = new JobTier("Spot");
+        public static JobTier Basic { get; } = new JobTier("Basic");
+        public static JobTier Standard { get; } = new JobTier("Standard");
+        public static JobTier Premium { get; } = new JobTier("Premium");
+
+        public static bool operator ==(JobTier left, JobTier right) => left.Equals(right);
+        public static bool operator !=(JobTier left, JobTier right) => !left.Equals(right);
+
+        public static explicit operator string(JobTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobTier other && Equals(other);
+        public bool Equals(JobTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// [Required] Specifies the type of job.
     /// </summary>
     [EnumType]
@@ -1962,6 +2561,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static JobType Command { get; } = new JobType("Command");
         public static JobType Sweep { get; } = new JobType("Sweep");
         public static JobType Pipeline { get; } = new JobType("Pipeline");
+        public static JobType Spark { get; } = new JobType("Spark");
 
         public static bool operator ==(JobType left, JobType right) => left.Equals(right);
         public static bool operator !=(JobType left, JobType right) => !left.Equals(right);
@@ -2165,6 +2765,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// Status for the managed network of a machine learning workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedNetworkStatus : IEquatable<ManagedNetworkStatus>
+    {
+        private readonly string _value;
+
+        private ManagedNetworkStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedNetworkStatus Inactive { get; } = new ManagedNetworkStatus("Inactive");
+        public static ManagedNetworkStatus Active { get; } = new ManagedNetworkStatus("Active");
+
+        public static bool operator ==(ManagedNetworkStatus left, ManagedNetworkStatus right) => left.Equals(right);
+        public static bool operator !=(ManagedNetworkStatus left, ManagedNetworkStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedNetworkStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedNetworkStatus other && Equals(other);
+        public bool Equals(ManagedNetworkStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
@@ -2313,6 +2944,305 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] The machine learning task type of the monitored model.
+    /// </summary>
+    [EnumType]
+    public readonly struct ModelTaskType : IEquatable<ModelTaskType>
+    {
+        private readonly string _value;
+
+        private ModelTaskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ModelTaskType Classification { get; } = new ModelTaskType("Classification");
+        public static ModelTaskType Regression { get; } = new ModelTaskType("Regression");
+
+        public static bool operator ==(ModelTaskType left, ModelTaskType right) => left.Equals(right);
+        public static bool operator !=(ModelTaskType left, ModelTaskType right) => !left.Equals(right);
+
+        public static explicit operator string(ModelTaskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ModelTaskType other && Equals(other);
+        public bool Equals(ModelTaskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the type of identity to use within the monitoring jobs.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitorComputeIdentityType : IEquatable<MonitorComputeIdentityType>
+    {
+        private readonly string _value;
+
+        private MonitorComputeIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Authenticates through user's AML token.
+        /// </summary>
+        public static MonitorComputeIdentityType AmlToken { get; } = new MonitorComputeIdentityType("AmlToken");
+        /// <summary>
+        /// Authenticates through a user-provided managed identity.
+        /// </summary>
+        public static MonitorComputeIdentityType ManagedIdentity { get; } = new MonitorComputeIdentityType("ManagedIdentity");
+
+        public static bool operator ==(MonitorComputeIdentityType left, MonitorComputeIdentityType right) => left.Equals(right);
+        public static bool operator !=(MonitorComputeIdentityType left, MonitorComputeIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitorComputeIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitorComputeIdentityType other && Equals(other);
+        public bool Equals(MonitorComputeIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the type of signal to monitor.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitorComputeType : IEquatable<MonitorComputeType>
+    {
+        private readonly string _value;
+
+        private MonitorComputeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Serverless Spark compute.
+        /// </summary>
+        public static MonitorComputeType ServerlessSpark { get; } = new MonitorComputeType("ServerlessSpark");
+
+        public static bool operator ==(MonitorComputeType left, MonitorComputeType right) => left.Equals(right);
+        public static bool operator !=(MonitorComputeType left, MonitorComputeType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitorComputeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitorComputeType other && Equals(other);
+        public bool Equals(MonitorComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the data type of the metric threshold.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringFeatureDataType : IEquatable<MonitoringFeatureDataType>
+    {
+        private readonly string _value;
+
+        private MonitoringFeatureDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Used for features of numerical data type.
+        /// </summary>
+        public static MonitoringFeatureDataType Numerical { get; } = new MonitoringFeatureDataType("Numerical");
+        /// <summary>
+        /// Used for features of categorical data type.
+        /// </summary>
+        public static MonitoringFeatureDataType Categorical { get; } = new MonitoringFeatureDataType("Categorical");
+
+        public static bool operator ==(MonitoringFeatureDataType left, MonitoringFeatureDataType right) => left.Equals(right);
+        public static bool operator !=(MonitoringFeatureDataType left, MonitoringFeatureDataType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringFeatureDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringFeatureDataType other && Equals(other);
+        public bool Equals(MonitoringFeatureDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringFeatureFilterType : IEquatable<MonitoringFeatureFilterType>
+    {
+        private readonly string _value;
+
+        private MonitoringFeatureFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Includes all features.
+        /// </summary>
+        public static MonitoringFeatureFilterType AllFeatures { get; } = new MonitoringFeatureFilterType("AllFeatures");
+        /// <summary>
+        /// Only includes the top contributing features, measured by feature attribution.
+        /// </summary>
+        public static MonitoringFeatureFilterType TopNByAttribution { get; } = new MonitoringFeatureFilterType("TopNByAttribution");
+        /// <summary>
+        /// Includes a user-defined subset of features.
+        /// </summary>
+        public static MonitoringFeatureFilterType FeatureSubset { get; } = new MonitoringFeatureFilterType("FeatureSubset");
+
+        public static bool operator ==(MonitoringFeatureFilterType left, MonitoringFeatureFilterType right) => left.Equals(right);
+        public static bool operator !=(MonitoringFeatureFilterType left, MonitoringFeatureFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringFeatureFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringFeatureFilterType other && Equals(other);
+        public bool Equals(MonitoringFeatureFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the type of signal to monitor.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringInputDataType : IEquatable<MonitoringInputDataType>
+    {
+        private readonly string _value;
+
+        private MonitoringInputDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// An input data with a fixed window size.
+        /// </summary>
+        public static MonitoringInputDataType Static { get; } = new MonitoringInputDataType("Static");
+        /// <summary>
+        /// An input data which rolls relatively to the monitor's current run time.
+        /// </summary>
+        public static MonitoringInputDataType Rolling { get; } = new MonitoringInputDataType("Rolling");
+        /// <summary>
+        /// An input data with tabular format which doesn't require preprocessing.
+        /// </summary>
+        public static MonitoringInputDataType Fixed { get; } = new MonitoringInputDataType("Fixed");
+
+        public static bool operator ==(MonitoringInputDataType left, MonitoringInputDataType right) => left.Equals(right);
+        public static bool operator !=(MonitoringInputDataType left, MonitoringInputDataType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringInputDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringInputDataType other && Equals(other);
+        public bool Equals(MonitoringInputDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct MonitoringNotificationType : IEquatable<MonitoringNotificationType>
+    {
+        private readonly string _value;
+
+        private MonitoringNotificationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables email notifications through AML notifications.
+        /// </summary>
+        public static MonitoringNotificationType AmlNotification { get; } = new MonitoringNotificationType("AmlNotification");
+
+        public static bool operator ==(MonitoringNotificationType left, MonitoringNotificationType right) => left.Equals(right);
+        public static bool operator !=(MonitoringNotificationType left, MonitoringNotificationType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringNotificationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringNotificationType other && Equals(other);
+        public bool Equals(MonitoringNotificationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Specifies the type of signal to monitor.
+    /// </summary>
+    [EnumType]
+    public readonly struct MonitoringSignalType : IEquatable<MonitoringSignalType>
+    {
+        private readonly string _value;
+
+        private MonitoringSignalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Tracks model input data distribution change, comparing against training data or past production data.
+        /// </summary>
+        public static MonitoringSignalType DataDrift { get; } = new MonitoringSignalType("DataDrift");
+        /// <summary>
+        /// Tracks prediction result data distribution change, comparing against validation/test label data or past production data.
+        /// </summary>
+        public static MonitoringSignalType PredictionDrift { get; } = new MonitoringSignalType("PredictionDrift");
+        /// <summary>
+        /// Tracks model input data integrity.
+        /// </summary>
+        public static MonitoringSignalType DataQuality { get; } = new MonitoringSignalType("DataQuality");
+        /// <summary>
+        /// Tracks feature importance change in production, comparing against feature importance at training time.
+        /// </summary>
+        public static MonitoringSignalType FeatureAttributionDrift { get; } = new MonitoringSignalType("FeatureAttributionDrift");
+        /// <summary>
+        /// Tracks a custom signal provided by users.
+        /// </summary>
+        public static MonitoringSignalType Custom { get; } = new MonitoringSignalType("Custom");
+
+        public static bool operator ==(MonitoringSignalType left, MonitoringSignalType right) => left.Equals(right);
+        public static bool operator !=(MonitoringSignalType left, MonitoringSignalType right) => !left.Equals(right);
+
+        public static explicit operator string(MonitoringSignalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MonitoringSignalType other && Equals(other);
+        public bool Equals(MonitoringSignalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether it is allowed to select multiple classes in this category.
     /// </summary>
     [EnumType]
@@ -2411,6 +3341,137 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// [Required] The numerical data drift metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct NumericalDataDriftMetric : IEquatable<NumericalDataDriftMetric>
+    {
+        private readonly string _value;
+
+        private NumericalDataDriftMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Jensen Shannon Distance (JSD) metric.
+        /// </summary>
+        public static NumericalDataDriftMetric JensenShannonDistance { get; } = new NumericalDataDriftMetric("JensenShannonDistance");
+        /// <summary>
+        /// The Population Stability Index (PSI) metric.
+        /// </summary>
+        public static NumericalDataDriftMetric PopulationStabilityIndex { get; } = new NumericalDataDriftMetric("PopulationStabilityIndex");
+        /// <summary>
+        /// The Normalized Wasserstein Distance metric.
+        /// </summary>
+        public static NumericalDataDriftMetric NormalizedWassersteinDistance { get; } = new NumericalDataDriftMetric("NormalizedWassersteinDistance");
+        /// <summary>
+        /// The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+        /// </summary>
+        public static NumericalDataDriftMetric TwoSampleKolmogorovSmirnovTest { get; } = new NumericalDataDriftMetric("TwoSampleKolmogorovSmirnovTest");
+
+        public static bool operator ==(NumericalDataDriftMetric left, NumericalDataDriftMetric right) => left.Equals(right);
+        public static bool operator !=(NumericalDataDriftMetric left, NumericalDataDriftMetric right) => !left.Equals(right);
+
+        public static explicit operator string(NumericalDataDriftMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NumericalDataDriftMetric other && Equals(other);
+        public bool Equals(NumericalDataDriftMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The numerical data quality metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct NumericalDataQualityMetric : IEquatable<NumericalDataQualityMetric>
+    {
+        private readonly string _value;
+
+        private NumericalDataQualityMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Calculates the rate of null values.
+        /// </summary>
+        public static NumericalDataQualityMetric NullValueRate { get; } = new NumericalDataQualityMetric("NullValueRate");
+        /// <summary>
+        /// Calculates the rate of data type errors.
+        /// </summary>
+        public static NumericalDataQualityMetric DataTypeErrorRate { get; } = new NumericalDataQualityMetric("DataTypeErrorRate");
+        /// <summary>
+        /// Calculates the rate values are out of bounds.
+        /// </summary>
+        public static NumericalDataQualityMetric OutOfBoundsRate { get; } = new NumericalDataQualityMetric("OutOfBoundsRate");
+
+        public static bool operator ==(NumericalDataQualityMetric left, NumericalDataQualityMetric right) => left.Equals(right);
+        public static bool operator !=(NumericalDataQualityMetric left, NumericalDataQualityMetric right) => !left.Equals(right);
+
+        public static explicit operator string(NumericalDataQualityMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NumericalDataQualityMetric other && Equals(other);
+        public bool Equals(NumericalDataQualityMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] The numerical prediction drift metric to calculate.
+    /// </summary>
+    [EnumType]
+    public readonly struct NumericalPredictionDriftMetric : IEquatable<NumericalPredictionDriftMetric>
+    {
+        private readonly string _value;
+
+        private NumericalPredictionDriftMetric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Jensen Shannon Distance (JSD) metric.
+        /// </summary>
+        public static NumericalPredictionDriftMetric JensenShannonDistance { get; } = new NumericalPredictionDriftMetric("JensenShannonDistance");
+        /// <summary>
+        /// The Population Stability Index (PSI) metric.
+        /// </summary>
+        public static NumericalPredictionDriftMetric PopulationStabilityIndex { get; } = new NumericalPredictionDriftMetric("PopulationStabilityIndex");
+        /// <summary>
+        /// The Normalized Wasserstein Distance metric.
+        /// </summary>
+        public static NumericalPredictionDriftMetric NormalizedWassersteinDistance { get; } = new NumericalPredictionDriftMetric("NormalizedWassersteinDistance");
+        /// <summary>
+        /// The Two Sample Kolmogorov-Smirnov Test (two-sample Kâ€“S) metric.
+        /// </summary>
+        public static NumericalPredictionDriftMetric TwoSampleKolmogorovSmirnovTest { get; } = new NumericalPredictionDriftMetric("TwoSampleKolmogorovSmirnovTest");
+
+        public static bool operator ==(NumericalPredictionDriftMetric left, NumericalPredictionDriftMetric right) => left.Equals(right);
+        public static bool operator !=(NumericalPredictionDriftMetric left, NumericalPredictionDriftMetric right) => !left.Equals(right);
+
+        public static explicit operator string(NumericalPredictionDriftMetric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NumericalPredictionDriftMetric other && Equals(other);
+        public bool Equals(NumericalPredictionDriftMetric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Primary metric to optimize for this task.
     /// </summary>
     [EnumType]
@@ -2437,6 +3498,36 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ObjectDetectionPrimaryMetrics other && Equals(other);
         public bool Equals(ObjectDetectionPrimaryMetrics other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] OneLake artifact type
+    /// </summary>
+    [EnumType]
+    public readonly struct OneLakeArtifactType : IEquatable<OneLakeArtifactType>
+    {
+        private readonly string _value;
+
+        private OneLakeArtifactType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OneLakeArtifactType LakeHouse { get; } = new OneLakeArtifactType("LakeHouse");
+
+        public static bool operator ==(OneLakeArtifactType left, OneLakeArtifactType right) => left.Equals(right);
+        public static bool operator !=(OneLakeArtifactType left, OneLakeArtifactType right) => !left.Equals(right);
+
+        public static explicit operator string(OneLakeArtifactType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OneLakeArtifactType other && Equals(other);
+        public bool Equals(OneLakeArtifactType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2521,6 +3612,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         public static OutputDeliveryMode ReadWriteMount { get; } = new OutputDeliveryMode("ReadWriteMount");
         public static OutputDeliveryMode Upload { get; } = new OutputDeliveryMode("Upload");
+        public static OutputDeliveryMode Direct { get; } = new OutputDeliveryMode("Direct");
 
         public static bool operator ==(OutputDeliveryMode left, OutputDeliveryMode right) => left.Equals(right);
         public static bool operator !=(OutputDeliveryMode left, OutputDeliveryMode right) => !left.Equals(right);
@@ -2914,7 +4006,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static RegressionModels SGD { get; } = new RegressionModels("SGD");
         /// <summary>
         /// Random forest is a supervised learning algorithm.
-        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the “bagging” method.
+        /// The "forest" it builds, is an ensemble of decision trees, usually trained with the "bagging" method.
         /// The general idea of the bagging method is that a combination of learning models increases the overall result.
         /// </summary>
         public static RegressionModels RandomForest { get; } = new RegressionModels("RandomForest");
@@ -3057,6 +4149,74 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+    /// If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+    /// If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+    /// The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+    /// </summary>
+    [EnumType]
+    public readonly struct RollingRateType : IEquatable<RollingRateType>
+    {
+        private readonly string _value;
+
+        private RollingRateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RollingRateType Year { get; } = new RollingRateType("Year");
+        public static RollingRateType Month { get; } = new RollingRateType("Month");
+        public static RollingRateType Day { get; } = new RollingRateType("Day");
+        public static RollingRateType Hour { get; } = new RollingRateType("Hour");
+        public static RollingRateType Minute { get; } = new RollingRateType("Minute");
+
+        public static bool operator ==(RollingRateType left, RollingRateType right) => left.Equals(right);
+        public static bool operator !=(RollingRateType left, RollingRateType right) => !left.Equals(right);
+
+        public static explicit operator string(RollingRateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RollingRateType other && Equals(other);
+        public bool Equals(RollingRateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action enum for networking rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleAction : IEquatable<RuleAction>
+    {
+        private readonly string _value;
+
+        private RuleAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleAction Allow { get; } = new RuleAction("Allow");
+        public static RuleAction Deny { get; } = new RuleAction("Deny");
+
+        public static bool operator ==(RuleAction left, RuleAction right) => left.Equals(right);
+        public static bool operator !=(RuleAction left, RuleAction right) => !left.Equals(right);
+
+        public static explicit operator string(RuleAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleAction other && Equals(other);
+        public bool Equals(RuleAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Category of a managed network Outbound Rule of a machine learning workspace.
     /// </summary>
     [EnumType]
@@ -3072,6 +4232,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static RuleCategory Required { get; } = new RuleCategory("Required");
         public static RuleCategory Recommended { get; } = new RuleCategory("Recommended");
         public static RuleCategory UserDefined { get; } = new RuleCategory("UserDefined");
+        public static RuleCategory Dependency { get; } = new RuleCategory("Dependency");
 
         public static bool operator ==(RuleCategory left, RuleCategory right) => left.Equals(right);
         public static bool operator !=(RuleCategory left, RuleCategory right) => !left.Equals(right);
@@ -3089,7 +4250,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Status of a managed network Outbound Rule of a machine learning workspace.
+    /// Type of a managed network Outbound Rule of a machine learning workspace.
     /// </summary>
     [EnumType]
     public readonly struct RuleStatus : IEquatable<RuleStatus>
@@ -3229,6 +4390,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         public static ScheduleActionType CreateJob { get; } = new ScheduleActionType("CreateJob");
         public static ScheduleActionType InvokeBatchEndpoint { get; } = new ScheduleActionType("InvokeBatchEndpoint");
+        public static ScheduleActionType CreateMonitor { get; } = new ScheduleActionType("CreateMonitor");
 
         public static bool operator ==(ScheduleActionType left, ScheduleActionType right) => left.Equals(right);
         public static bool operator !=(ScheduleActionType left, ScheduleActionType right) => !left.Equals(right);
@@ -3379,7 +4541,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
-    /// Specifies the authentication mode for the Serverless endpoint.
+    /// [Required] Specifies the authentication mode for the Serverless endpoint.
     /// </summary>
     [EnumType]
     public readonly struct ServerlessInferenceEndpointAuthMode : IEquatable<ServerlessInferenceEndpointAuthMode>
@@ -3392,7 +4554,6 @@ namespace Pulumi.AzureNative.MachineLearningServices
         }
 
         public static ServerlessInferenceEndpointAuthMode Key { get; } = new ServerlessInferenceEndpointAuthMode("Key");
-        public static ServerlessInferenceEndpointAuthMode AAD { get; } = new ServerlessInferenceEndpointAuthMode("AAD");
 
         public static bool operator ==(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => left.Equals(right);
         public static bool operator !=(ServerlessInferenceEndpointAuthMode left, ServerlessInferenceEndpointAuthMode right) => !left.Equals(right);
@@ -3553,6 +4714,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
         public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// [Required] Type of the job's entry point.
+    /// </summary>
+    [EnumType]
+    public readonly struct SparkJobEntryType : IEquatable<SparkJobEntryType>
+    {
+        private readonly string _value;
+
+        private SparkJobEntryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SparkJobEntryType SparkJobPythonEntry { get; } = new SparkJobEntryType("SparkJobPythonEntry");
+        public static SparkJobEntryType SparkJobScalaEntry { get; } = new SparkJobEntryType("SparkJobScalaEntry");
+
+        public static bool operator ==(SparkJobEntryType left, SparkJobEntryType right) => left.Equals(right);
+        public static bool operator !=(SparkJobEntryType left, SparkJobEntryType right) => !left.Equals(right);
+
+        public static explicit operator string(SparkJobEntryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SparkJobEntryType other && Equals(other);
+        public bool Equals(SparkJobEntryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

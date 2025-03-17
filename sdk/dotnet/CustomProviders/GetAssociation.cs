@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.CustomProviders
     public sealed class GetAssociationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The association id.
         /// </summary>
         public readonly string Id;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNative.CustomProviders
 
         [OutputConstructor]
         private GetAssociationResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.CustomProviders
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

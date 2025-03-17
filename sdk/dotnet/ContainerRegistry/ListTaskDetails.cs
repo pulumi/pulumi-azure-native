@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Returns a task with extended information that includes all secrets.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Task<ListTaskDetailsResult> InvokeAsync(ListTaskDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Returns a task with extended information that includes all secrets.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Returns a task with extended information that includes all secrets.
         /// Azure REST API version: 2019-06-01-preview.
-        /// 
-        /// Other available API versions: 2018-09-01, 2019-04-01.
         /// </summary>
         public static Output<ListTaskDetailsResult> Invoke(ListTaskDetailsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListTaskDetailsResult>("azure-native:containerregistry:listTaskDetails", args ?? new ListTaskDetailsInvokeArgs(), options.WithDefaults());

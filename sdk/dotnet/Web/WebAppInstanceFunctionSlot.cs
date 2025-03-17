@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Function information.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2016-08-01, 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+    /// Azure REST API version: 2024-04-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Config information.
         /// </summary>

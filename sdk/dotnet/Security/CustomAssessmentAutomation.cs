@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Custom Assessment Automation
-    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 2.x: 2021-07-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomAssessmentAutomation")]
     public partial class CustomAssessmentAutomation : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("assessmentKey")]
         public Output<string?> AssessmentKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// GZip encoded KQL query representing the assessment automation results required.

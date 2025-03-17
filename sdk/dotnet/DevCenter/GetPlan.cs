@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a devcenter plan.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("azure-native:devcenter:getPlan", args ?? new GetPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter plan.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("azure-native:devcenter:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a devcenter plan.
-        /// Azure REST API version: 2024-05-01-preview.
-        /// 
-        /// Other available API versions: 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("azure-native:devcenter:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.DevCenter
     public sealed class GetPlanResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.DevCenter
 
         [OutputConstructor]
         private GetPlanResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.DevCenter
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

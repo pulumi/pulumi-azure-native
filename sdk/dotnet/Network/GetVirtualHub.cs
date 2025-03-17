@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a VirtualHub.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a VirtualHub.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a VirtualHub.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2018-07-01, 2020-04-01, 2020-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.Network
         /// Flag to control transit for VirtualRouter hub.
         /// </summary>
         public readonly bool? AllowBranchToBranchTraffic;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The azureFirewall associated with this VirtualHub.
         /// </summary>
@@ -207,6 +205,8 @@ namespace Pulumi.AzureNative.Network
 
             bool? allowBranchToBranchTraffic,
 
+            string azureApiVersion,
+
             Outputs.SubResourceResponse? azureFirewall,
 
             ImmutableArray<Outputs.SubResourceResponse> bgpConnections,
@@ -263,6 +263,7 @@ namespace Pulumi.AzureNative.Network
         {
             AddressPrefix = addressPrefix;
             AllowBranchToBranchTraffic = allowBranchToBranchTraffic;
+            AzureApiVersion = azureApiVersion;
             AzureFirewall = azureFirewall;
             BgpConnections = bgpConnections;
             Etag = etag;

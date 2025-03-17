@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Task<GetIotHubDataConnectionResult> InvokeAsync(GetIotHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// Azure REST API version: 2022-12-29.
+        /// Azure REST API version: 2024-04-13.
         /// </summary>
         public static Output<GetIotHubDataConnectionResult> Invoke(GetIotHubDataConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIotHubDataConnectionResult>("azure-native:kusto:getIotHubDataConnection", args ?? new GetIotHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Kusto
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Kusto cluster.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -102,6 +102,10 @@ namespace Pulumi.AzureNative.Kusto
     [OutputType]
     public sealed class GetIotHubDataConnectionResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The iot hub consumer group.
         /// </summary>
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetIotHubDataConnectionResult(
+            string azureApiVersion,
+
             string consumerGroup,
 
             string? dataFormat,
@@ -196,6 +202,7 @@ namespace Pulumi.AzureNative.Kusto
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
             DatabaseRouting = databaseRouting;

@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class InterfacePropertiesResponse
     {
         /// <summary>
+        /// The IPv4 addresses of the endpoints to send BFD probes to.
+        /// </summary>
+        public readonly ImmutableArray<string> BfdIpv4Endpoints;
+        /// <summary>
         /// The IPv4 address.
         /// </summary>
         public readonly string? Ipv4Address;
+        /// <summary>
+        /// The list of IPv4 addresses, for a multi-node system.
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv4AddressList;
         /// <summary>
         /// The default IPv4 gateway (router).
         /// </summary>
@@ -32,21 +40,34 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// The logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// VLAN identifier of the network interface. Example: 501.
+        /// </summary>
+        public readonly int? VlanId;
 
         [OutputConstructor]
         private InterfacePropertiesResponse(
+            ImmutableArray<string> bfdIpv4Endpoints,
+
             string? ipv4Address,
+
+            ImmutableArray<string> ipv4AddressList,
 
             string? ipv4Gateway,
 
             string? ipv4Subnet,
 
-            string? name)
+            string? name,
+
+            int? vlanId)
         {
+            BfdIpv4Endpoints = bfdIpv4Endpoints;
             Ipv4Address = ipv4Address;
+            Ipv4AddressList = ipv4AddressList;
             Ipv4Gateway = ipv4Gateway;
             Ipv4Subnet = ipv4Subnet;
             Name = name;
+            VlanId = vlanId;
         }
     }
 }

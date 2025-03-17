@@ -17,28 +17,49 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class DeviceDetailsResponse
     {
         /// <summary>
-        /// Management Resource Id
+        /// Device serial number to be displayed.
+        /// </summary>
+        public readonly string DisplaySerialNumber;
+        /// <summary>
+        /// Management Resource Id.
         /// </summary>
         public readonly string ManagementResourceId;
         /// <summary>
-        /// Management Resource Tenant ID
+        /// Management Resource Tenant ID.
         /// </summary>
         public readonly string ManagementResourceTenantId;
         /// <summary>
-        /// device serial number
+        /// Provisioning Details for the device.
+        /// </summary>
+        public readonly Outputs.ProvisioningDetailsResponse ProvisioningDetails;
+        /// <summary>
+        /// Determining nature of provisioning that the configuration supports.
+        /// </summary>
+        public readonly string ProvisioningSupport;
+        /// <summary>
+        /// Device serial number.
         /// </summary>
         public readonly string SerialNumber;
 
         [OutputConstructor]
         private DeviceDetailsResponse(
+            string displaySerialNumber,
+
             string managementResourceId,
 
             string managementResourceTenantId,
 
+            Outputs.ProvisioningDetailsResponse provisioningDetails,
+
+            string provisioningSupport,
+
             string serialNumber)
         {
+            DisplaySerialNumber = displaySerialNumber;
             ManagementResourceId = managementResourceId;
             ManagementResourceTenantId = managementResourceTenantId;
+            ProvisioningDetails = provisioningDetails;
+            ProvisioningSupport = provisioningSupport;
             SerialNumber = serialNumber;
         }
     }

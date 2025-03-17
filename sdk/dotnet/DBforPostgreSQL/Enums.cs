@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
+    [EnumType]
+    public readonly struct ActiveDirectoryAuth : IEquatable<ActiveDirectoryAuth>
+    {
+        private readonly string _value;
+
+        private ActiveDirectoryAuth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ActiveDirectoryAuth Enabled { get; } = new ActiveDirectoryAuth("enabled");
+        public static ActiveDirectoryAuth Disabled { get; } = new ActiveDirectoryAuth("disabled");
+
+        public static bool operator ==(ActiveDirectoryAuth left, ActiveDirectoryAuth right) => left.Equals(right);
+        public static bool operator !=(ActiveDirectoryAuth left, ActiveDirectoryAuth right) => !left.Equals(right);
+
+        public static explicit operator string(ActiveDirectoryAuth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ActiveDirectoryAuth other && Equals(other);
+        public bool Equals(ActiveDirectoryAuth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// If Enabled, Azure Active Directory authentication is enabled.
     /// </summary>
@@ -31,6 +59,36 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ActiveDirectoryAuthEnum other && Equals(other);
         public bool Equals(ActiveDirectoryAuthEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of administrator.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdministratorType : IEquatable<AdministratorType>
+    {
+        private readonly string _value;
+
+        private AdministratorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdministratorType ActiveDirectory { get; } = new AdministratorType("ActiveDirectory");
+
+        public static bool operator ==(AdministratorType left, AdministratorType right) => left.Equals(right);
+        public static bool operator !=(AdministratorType left, AdministratorType right) => !left.Equals(right);
+
+        public static explicit operator string(AdministratorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdministratorType other && Equals(other);
+        public bool Equals(AdministratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -70,6 +128,49 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// Name of storage tier for IOPS.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureManagedDiskPerformanceTiers : IEquatable<AzureManagedDiskPerformanceTiers>
+    {
+        private readonly string _value;
+
+        private AzureManagedDiskPerformanceTiers(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureManagedDiskPerformanceTiers P1 { get; } = new AzureManagedDiskPerformanceTiers("P1");
+        public static AzureManagedDiskPerformanceTiers P2 { get; } = new AzureManagedDiskPerformanceTiers("P2");
+        public static AzureManagedDiskPerformanceTiers P3 { get; } = new AzureManagedDiskPerformanceTiers("P3");
+        public static AzureManagedDiskPerformanceTiers P4 { get; } = new AzureManagedDiskPerformanceTiers("P4");
+        public static AzureManagedDiskPerformanceTiers P6 { get; } = new AzureManagedDiskPerformanceTiers("P6");
+        public static AzureManagedDiskPerformanceTiers P10 { get; } = new AzureManagedDiskPerformanceTiers("P10");
+        public static AzureManagedDiskPerformanceTiers P15 { get; } = new AzureManagedDiskPerformanceTiers("P15");
+        public static AzureManagedDiskPerformanceTiers P20 { get; } = new AzureManagedDiskPerformanceTiers("P20");
+        public static AzureManagedDiskPerformanceTiers P30 { get; } = new AzureManagedDiskPerformanceTiers("P30");
+        public static AzureManagedDiskPerformanceTiers P40 { get; } = new AzureManagedDiskPerformanceTiers("P40");
+        public static AzureManagedDiskPerformanceTiers P50 { get; } = new AzureManagedDiskPerformanceTiers("P50");
+        public static AzureManagedDiskPerformanceTiers P60 { get; } = new AzureManagedDiskPerformanceTiers("P60");
+        public static AzureManagedDiskPerformanceTiers P70 { get; } = new AzureManagedDiskPerformanceTiers("P70");
+        public static AzureManagedDiskPerformanceTiers P80 { get; } = new AzureManagedDiskPerformanceTiers("P80");
+
+        public static bool operator ==(AzureManagedDiskPerformanceTiers left, AzureManagedDiskPerformanceTiers right) => left.Equals(right);
+        public static bool operator !=(AzureManagedDiskPerformanceTiers left, AzureManagedDiskPerformanceTiers right) => !left.Equals(right);
+
+        public static explicit operator string(AzureManagedDiskPerformanceTiers value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureManagedDiskPerformanceTiers other && Equals(other);
+        public bool Equals(AzureManagedDiskPerformanceTiers other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// To trigger cancel for entire migration we need to send this flag as True
     /// </summary>
     [EnumType]
@@ -101,7 +202,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The mode to create a new PostgreSQL server.
+    /// The mode to create a new server.
     /// </summary>
     [EnumType]
     public readonly struct CreateMode : IEquatable<CreateMode>
@@ -114,8 +215,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         }
 
         public static CreateMode Default { get; } = new CreateMode("Default");
-        public static CreateMode Create { get; } = new CreateMode("Create");
-        public static CreateMode Update { get; } = new CreateMode("Update");
         public static CreateMode PointInTimeRestore { get; } = new CreateMode("PointInTimeRestore");
         public static CreateMode GeoRestore { get; } = new CreateMode("GeoRestore");
         public static CreateMode Replica { get; } = new CreateMode("Replica");
@@ -128,6 +227,65 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CreateMode other && Equals(other);
         public bool Equals(CreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataEncryptionType : IEquatable<DataEncryptionType>
+    {
+        private readonly string _value;
+
+        private DataEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataEncryptionType AzureKeyVault { get; } = new DataEncryptionType("AzureKeyVault");
+        public static DataEncryptionType SystemAssigned { get; } = new DataEncryptionType("SystemAssigned");
+
+        public static bool operator ==(DataEncryptionType left, DataEncryptionType right) => left.Equals(right);
+        public static bool operator !=(DataEncryptionType left, DataEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(DataEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataEncryptionType other && Equals(other);
+        public bool Equals(DataEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable Geo-redundant or not for server backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeoRedundantBackup : IEquatable<GeoRedundantBackup>
+    {
+        private readonly string _value;
+
+        private GeoRedundantBackup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeoRedundantBackup Enabled { get; } = new GeoRedundantBackup("Enabled");
+        public static GeoRedundantBackup Disabled { get; } = new GeoRedundantBackup("Disabled");
+
+        public static bool operator ==(GeoRedundantBackup left, GeoRedundantBackup right) => left.Equals(right);
+        public static bool operator !=(GeoRedundantBackup left, GeoRedundantBackup right) => !left.Equals(right);
+
+        public static explicit operator string(GeoRedundantBackup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeoRedundantBackup other && Equals(other);
+        public bool Equals(GeoRedundantBackup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -199,7 +357,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
     /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
@@ -211,8 +369,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IdentityType None { get; } = new IdentityType("None");
-        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
@@ -222,6 +379,74 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
         public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status showing whether the server enabled infrastructure encryption.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfrastructureEncryption : IEquatable<InfrastructureEncryption>
+    {
+        private readonly string _value;
+
+        private InfrastructureEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default value for single layer of encryption for data at rest.
+        /// </summary>
+        public static InfrastructureEncryption Enabled { get; } = new InfrastructureEncryption("Enabled");
+        /// <summary>
+        /// Additional (2nd) layer of encryption for data at rest
+        /// </summary>
+        public static InfrastructureEncryption Disabled { get; } = new InfrastructureEncryption("Disabled");
+
+        public static bool operator ==(InfrastructureEncryption left, InfrastructureEncryption right) => left.Equals(right);
+        public static bool operator !=(InfrastructureEncryption left, InfrastructureEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(InfrastructureEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfrastructureEncryption other && Equals(other);
+        public bool Equals(InfrastructureEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Primary encryption key status for Data encryption enabled server.
+    /// </summary>
+    [EnumType]
+    public readonly struct KeyStatusEnum : IEquatable<KeyStatusEnum>
+    {
+        private readonly string _value;
+
+        private KeyStatusEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeyStatusEnum Valid { get; } = new KeyStatusEnum("Valid");
+        public static KeyStatusEnum Invalid { get; } = new KeyStatusEnum("Invalid");
+
+        public static bool operator ==(KeyStatusEnum left, KeyStatusEnum right) => left.Equals(right);
+        public static bool operator !=(KeyStatusEnum left, KeyStatusEnum right) => !left.Equals(right);
+
+        public static explicit operator string(KeyStatusEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeyStatusEnum other && Equals(other);
+        public bool Equals(KeyStatusEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -261,6 +486,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// To migrate roles and permissions we need to send this flag as True
+    /// </summary>
+    [EnumType]
+    public readonly struct MigrateRolesEnum : IEquatable<MigrateRolesEnum>
+    {
+        private readonly string _value;
+
+        private MigrateRolesEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MigrateRolesEnum True { get; } = new MigrateRolesEnum("True");
+        public static MigrateRolesEnum False { get; } = new MigrateRolesEnum("False");
+
+        public static bool operator ==(MigrateRolesEnum left, MigrateRolesEnum right) => left.Equals(right);
+        public static bool operator !=(MigrateRolesEnum left, MigrateRolesEnum right) => !left.Equals(right);
+
+        public static explicit operator string(MigrateRolesEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MigrateRolesEnum other && Equals(other);
+        public bool Equals(MigrateRolesEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// There are two types of migration modes Online and Offline
     /// </summary>
     [EnumType]
@@ -284,6 +540,71 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MigrationMode other && Equals(other);
         public bool Equals(MigrationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This indicates the supported Migration option for the migration
+    /// </summary>
+    [EnumType]
+    public readonly struct MigrationOption : IEquatable<MigrationOption>
+    {
+        private readonly string _value;
+
+        private MigrationOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MigrationOption Validate { get; } = new MigrationOption("Validate");
+        public static MigrationOption Migrate { get; } = new MigrationOption("Migrate");
+        public static MigrationOption ValidateAndMigrate { get; } = new MigrationOption("ValidateAndMigrate");
+
+        public static bool operator ==(MigrationOption left, MigrationOption right) => left.Equals(right);
+        public static bool operator !=(MigrationOption left, MigrationOption right) => !left.Equals(right);
+
+        public static explicit operator string(MigrationOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MigrationOption other && Equals(other);
+        public bool Equals(MigrationOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enforce a minimal Tls version for the server.
+    /// </summary>
+    [EnumType]
+    public readonly struct MinimalTlsVersionEnum : IEquatable<MinimalTlsVersionEnum>
+    {
+        private readonly string _value;
+
+        private MinimalTlsVersionEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MinimalTlsVersionEnum TLS1_0 { get; } = new MinimalTlsVersionEnum("TLS1_0");
+        public static MinimalTlsVersionEnum TLS1_1 { get; } = new MinimalTlsVersionEnum("TLS1_1");
+        public static MinimalTlsVersionEnum TLS1_2 { get; } = new MinimalTlsVersionEnum("TLS1_2");
+        public static MinimalTlsVersionEnum TLSEnforcementDisabled { get; } = new MinimalTlsVersionEnum("TLSEnforcementDisabled");
+
+        public static bool operator ==(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => left.Equals(right);
+        public static bool operator !=(MinimalTlsVersionEnum left, MinimalTlsVersionEnum right) => !left.Equals(right);
+
+        public static explicit operator string(MinimalTlsVersionEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MinimalTlsVersionEnum other && Equals(other);
+        public bool Equals(MinimalTlsVersionEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -322,6 +643,34 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PasswordAuth : IEquatable<PasswordAuth>
+    {
+        private readonly string _value;
+
+        private PasswordAuth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PasswordAuth Enabled { get; } = new PasswordAuth("enabled");
+        public static PasswordAuth Disabled { get; } = new PasswordAuth("disabled");
+
+        public static bool operator ==(PasswordAuth left, PasswordAuth right) => left.Equals(right);
+        public static bool operator !=(PasswordAuth left, PasswordAuth right) => !left.Equals(right);
+
+        public static explicit operator string(PasswordAuth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PasswordAuth other && Equals(other);
+        public bool Equals(PasswordAuth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// If Enabled, Password authentication is enabled.
     /// </summary>
@@ -353,9 +702,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// The principal type used to represent the type of Active Directory Administrator.
-    /// </summary>
     [EnumType]
     public readonly struct PrincipalType : IEquatable<PrincipalType>
     {
@@ -366,10 +712,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PrincipalType Unknown { get; } = new PrincipalType("Unknown");
-        public static PrincipalType User { get; } = new PrincipalType("User");
-        public static PrincipalType Group { get; } = new PrincipalType("Group");
-        public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
+        public static PrincipalType User { get; } = new PrincipalType("user");
+        public static PrincipalType ServicePrincipal { get; } = new PrincipalType("servicePrincipal");
+        public static PrincipalType @Group { get; } = new PrincipalType("group");
 
         public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
         public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
@@ -419,6 +764,99 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
+    /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessEnum : IEquatable<PublicNetworkAccessEnum>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessEnum Enabled { get; } = new PublicNetworkAccessEnum("Enabled");
+        public static PublicNetworkAccessEnum Disabled { get; } = new PublicNetworkAccessEnum("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessEnum left, PublicNetworkAccessEnum right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessEnum left, PublicNetworkAccessEnum right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessEnum other && Equals(other);
+        public bool Equals(PublicNetworkAccessEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the promote mode for a replica server. This is a write only property.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReadReplicaPromoteMode : IEquatable<ReadReplicaPromoteMode>
+    {
+        private readonly string _value;
+
+        private ReadReplicaPromoteMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReadReplicaPromoteMode Standalone { get; } = new ReadReplicaPromoteMode("standalone");
+        public static ReadReplicaPromoteMode Switchover { get; } = new ReadReplicaPromoteMode("switchover");
+
+        public static bool operator ==(ReadReplicaPromoteMode left, ReadReplicaPromoteMode right) => left.Equals(right);
+        public static bool operator !=(ReadReplicaPromoteMode left, ReadReplicaPromoteMode right) => !left.Equals(right);
+
+        public static explicit operator string(ReadReplicaPromoteMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReadReplicaPromoteMode other && Equals(other);
+        public bool Equals(ReadReplicaPromoteMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the promote options for a replica server. This is a write only property.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationPromoteOption : IEquatable<ReplicationPromoteOption>
+    {
+        private readonly string _value;
+
+        private ReplicationPromoteOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationPromoteOption Planned { get; } = new ReplicationPromoteOption("planned");
+        public static ReplicationPromoteOption Forced { get; } = new ReplicationPromoteOption("forced");
+
+        public static bool operator ==(ReplicationPromoteOption left, ReplicationPromoteOption right) => left.Equals(right);
+        public static bool operator !=(ReplicationPromoteOption left, ReplicationPromoteOption right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationPromoteOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationPromoteOption other && Equals(other);
+        public bool Equals(ReplicationPromoteOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Replication role of the server
     /// </summary>
     [EnumType]
@@ -451,8 +889,98 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct RoleType : IEquatable<RoleType>
+    {
+        private readonly string _value;
+
+        private RoleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RoleType User { get; } = new RoleType("user");
+        public static RoleType Admin { get; } = new RoleType("admin");
+
+        public static bool operator ==(RoleType left, RoleType right) => left.Equals(right);
+        public static bool operator !=(RoleType left, RoleType right) => !left.Equals(right);
+
+        public static explicit operator string(RoleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RoleType other && Equals(other);
+        public bool Equals(RoleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
-    /// PostgreSQL Server version.
+    /// public network access is enabled or not
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerPublicNetworkAccessState : IEquatable<ServerPublicNetworkAccessState>
+    {
+        private readonly string _value;
+
+        private ServerPublicNetworkAccessState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerPublicNetworkAccessState Enabled { get; } = new ServerPublicNetworkAccessState("Enabled");
+        public static ServerPublicNetworkAccessState Disabled { get; } = new ServerPublicNetworkAccessState("Disabled");
+
+        public static bool operator ==(ServerPublicNetworkAccessState left, ServerPublicNetworkAccessState right) => left.Equals(right);
+        public static bool operator !=(ServerPublicNetworkAccessState left, ServerPublicNetworkAccessState right) => !left.Equals(right);
+
+        public static explicit operator string(ServerPublicNetworkAccessState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccessState other && Equals(other);
+        public bool Equals(ServerPublicNetworkAccessState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the policy, whether it is enabled or disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerSecurityAlertPolicyState : IEquatable<ServerSecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private ServerSecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerSecurityAlertPolicyState Enabled { get; } = new ServerSecurityAlertPolicyState("Enabled");
+        public static ServerSecurityAlertPolicyState Disabled { get; } = new ServerSecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(ServerSecurityAlertPolicyState left, ServerSecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(ServerSecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerSecurityAlertPolicyState other && Equals(other);
+        public bool Equals(ServerSecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Server version.
     /// </summary>
     [EnumType]
     public readonly struct ServerVersion : IEquatable<ServerVersion>
@@ -464,9 +992,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerVersion ServerVersion_14 { get; } = new ServerVersion("14");
-        public static ServerVersion ServerVersion_13 { get; } = new ServerVersion("13");
-        public static ServerVersion ServerVersion_12 { get; } = new ServerVersion("12");
+        public static ServerVersion ServerVersion_9_5 { get; } = new ServerVersion("9.5");
+        public static ServerVersion ServerVersion_9_6 { get; } = new ServerVersion("9.6");
+        public static ServerVersion ServerVersion_10 { get; } = new ServerVersion("10");
+        public static ServerVersion ServerVersion_10_0 { get; } = new ServerVersion("10.0");
+        public static ServerVersion ServerVersion_10_2 { get; } = new ServerVersion("10.2");
         public static ServerVersion ServerVersion_11 { get; } = new ServerVersion("11");
 
         public static bool operator ==(ServerVersion left, ServerVersion right) => left.Equals(right);
@@ -485,7 +1015,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     }
 
     /// <summary>
-    /// The tier of the particular SKU, e.g. Burstable.
+    /// The tier of the particular SKU, e.g. Basic.
     /// </summary>
     [EnumType]
     public readonly struct SkuTier : IEquatable<SkuTier>
@@ -497,7 +1027,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SkuTier Burstable { get; } = new SkuTier("Burstable");
+        public static SkuTier Basic { get; } = new SkuTier("Basic");
         public static SkuTier GeneralPurpose { get; } = new SkuTier("GeneralPurpose");
         public static SkuTier MemoryOptimized { get; } = new SkuTier("MemoryOptimized");
 
@@ -509,6 +1039,111 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// migration source server type : OnPremises, AWS, GCP, AzureVM, PostgreSQLSingleServer, AWS_RDS, AWS_AURORA, AWS_EC2, GCP_CloudSQL, GCP_AlloyDB, GCP_Compute, or EDB
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceType : IEquatable<SourceType>
+    {
+        private readonly string _value;
+
+        private SourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceType OnPremises { get; } = new SourceType("OnPremises");
+        public static SourceType AWS { get; } = new SourceType("AWS");
+        public static SourceType GCP { get; } = new SourceType("GCP");
+        public static SourceType AzureVM { get; } = new SourceType("AzureVM");
+        public static SourceType PostgreSQLSingleServer { get; } = new SourceType("PostgreSQLSingleServer");
+        public static SourceType AWS_RDS { get; } = new SourceType("AWS_RDS");
+        public static SourceType AWS_AURORA { get; } = new SourceType("AWS_AURORA");
+        public static SourceType AWS_EC2 { get; } = new SourceType("AWS_EC2");
+        public static SourceType GCP_CloudSQL { get; } = new SourceType("GCP_CloudSQL");
+        public static SourceType GCP_AlloyDB { get; } = new SourceType("GCP_AlloyDB");
+        public static SourceType GCP_Compute { get; } = new SourceType("GCP_Compute");
+        public static SourceType EDB { get; } = new SourceType("EDB");
+
+        public static bool operator ==(SourceType left, SourceType right) => left.Equals(right);
+        public static bool operator !=(SourceType left, SourceType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceType other && Equals(other);
+        public bool Equals(SourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable ssl enforcement or not when connect to server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SslEnforcementEnum : IEquatable<SslEnforcementEnum>
+    {
+        private readonly string _value;
+
+        private SslEnforcementEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslEnforcementEnum Enabled { get; } = new SslEnforcementEnum("Enabled");
+        public static SslEnforcementEnum Disabled { get; } = new SslEnforcementEnum("Disabled");
+
+        public static bool operator ==(SslEnforcementEnum left, SslEnforcementEnum right) => left.Equals(right);
+        public static bool operator !=(SslEnforcementEnum left, SslEnforcementEnum right) => !left.Equals(right);
+
+        public static explicit operator string(SslEnforcementEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslEnforcementEnum other && Equals(other);
+        public bool Equals(SslEnforcementEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types
+    /// </summary>
+    [EnumType]
+    public readonly struct SslMode : IEquatable<SslMode>
+    {
+        private readonly string _value;
+
+        private SslMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SslMode Prefer { get; } = new SslMode("Prefer");
+        public static SslMode Require { get; } = new SslMode("Require");
+        public static SslMode VerifyCA { get; } = new SslMode("VerifyCA");
+        public static SslMode VerifyFull { get; } = new SslMode("VerifyFull");
+
+        public static bool operator ==(SslMode left, SslMode right) => left.Equals(right);
+        public static bool operator !=(SslMode left, SslMode right) => !left.Equals(right);
+
+        public static explicit operator string(SslMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SslMode other && Equals(other);
+        public bool Equals(SslMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -540,6 +1175,99 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StartDataMigrationEnum other && Equals(other);
         public bool Equals(StartDataMigrationEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Flag to enable / disable Storage Auto grow for flexible server.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAutoGrow : IEquatable<StorageAutoGrow>
+    {
+        private readonly string _value;
+
+        private StorageAutoGrow(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageAutoGrow Enabled { get; } = new StorageAutoGrow("Enabled");
+        public static StorageAutoGrow Disabled { get; } = new StorageAutoGrow("Disabled");
+
+        public static bool operator ==(StorageAutoGrow left, StorageAutoGrow right) => left.Equals(right);
+        public static bool operator !=(StorageAutoGrow left, StorageAutoGrow right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAutoGrow value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAutoGrow other && Equals(other);
+        public bool Equals(StorageAutoGrow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable Storage Auto Grow.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAutogrow : IEquatable<StorageAutogrow>
+    {
+        private readonly string _value;
+
+        private StorageAutogrow(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageAutogrow Enabled { get; } = new StorageAutogrow("Enabled");
+        public static StorageAutogrow Disabled { get; } = new StorageAutogrow("Disabled");
+
+        public static bool operator ==(StorageAutogrow left, StorageAutogrow right) => left.Equals(right);
+        public static bool operator !=(StorageAutogrow left, StorageAutogrow right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAutogrow value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAutogrow other && Equals(other);
+        public bool Equals(StorageAutogrow other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Storage type for the server. Allowed values are Premium_LRS and PremiumV2_LRS, and default is Premium_LRS if not specified
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageType : IEquatable<StorageType>
+    {
+        private readonly string _value;
+
+        private StorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageType Premium_LRS { get; } = new StorageType("Premium_LRS");
+        public static StorageType PremiumV2_LRS { get; } = new StorageType("PremiumV2_LRS");
+
+        public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
+        public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageType other && Equals(other);
+        public bool Equals(StorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

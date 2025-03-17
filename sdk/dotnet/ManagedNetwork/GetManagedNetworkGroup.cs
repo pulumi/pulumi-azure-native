@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ManagedNetwork
     public sealed class GetManagedNetworkGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
 
         [OutputConstructor]
         private GetManagedNetworkGroupResult(
+            string azureApiVersion,
+
             string etag,
 
             string id,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
 
             ImmutableArray<Outputs.ResourceIdResponse> virtualNetworks)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Kind = kind;

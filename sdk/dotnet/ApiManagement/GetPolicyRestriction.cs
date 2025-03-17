@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the policy restriction of the Api Management service.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Task<GetPolicyRestrictionResult> InvokeAsync(GetPolicyRestrictionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyRestrictionResult>("azure-native:apimanagement:getPolicyRestriction", args ?? new GetPolicyRestrictionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy restriction of the Api Management service.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetPolicyRestrictionResult> Invoke(GetPolicyRestrictionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyRestrictionResult>("azure-native:apimanagement:getPolicyRestriction", args ?? new GetPolicyRestrictionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the policy restriction of the Api Management service.
-        /// Azure REST API version: 2023-05-01-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2024-06-01-preview.
         /// </summary>
         public static Output<GetPolicyRestrictionResult> Invoke(GetPolicyRestrictionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyRestrictionResult>("azure-native:apimanagement:getPolicyRestriction", args ?? new GetPolicyRestrictionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetPolicyRestrictionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetPolicyRestrictionResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             RequireBase = requireBase;

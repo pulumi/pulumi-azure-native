@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Task<GetBareMetalMachineResult> InvokeAsync(GetBareMetalMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided bare metal machine.
-        /// Azure REST API version: 2023-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+        /// Azure REST API version: 2025-02-01.
         /// </summary>
         public static Output<GetBareMetalMachineResult> Invoke(GetBareMetalMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBareMetalMachineResult>("azure-native:networkcloud:getBareMetalMachine", args ?? new GetBareMetalMachineInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly ImmutableArray<string> AssociatedResourceIds;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The connection string for the baseboard management controller including IP address and protocol.
         /// </summary>
         public readonly string BmcConnectionString;
@@ -121,6 +119,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string DetailedStatusMessage;
         /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// The extended location of the cluster associated with the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -152,6 +154,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The cluster version that has been applied to this machine during deployment or a version update.
+        /// </summary>
+        public readonly string? MachineClusterVersion;
         /// <summary>
         /// The custom details provided by the customer.
         /// </summary>
@@ -209,6 +215,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.RuntimeProtectionStatusResponse RuntimeProtectionStatus;
         /// <summary>
+        /// The list of statuses that represent secret rotation activity.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecretRotationStatusResponse> SecretRotationStatus;
+        /// <summary>
         /// The serial number of the bare metal machine.
         /// </summary>
         public readonly string SerialNumber;
@@ -237,6 +247,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetBareMetalMachineResult(
             ImmutableArray<string> associatedResourceIds,
 
+            string azureApiVersion,
+
             string bmcConnectionString,
 
             Outputs.AdministrativeCredentialsResponse bmcCredentials,
@@ -253,6 +265,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             string detailedStatusMessage,
 
+            string etag,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             Outputs.HardwareInventoryResponse hardwareInventory,
@@ -268,6 +282,8 @@ namespace Pulumi.AzureNative.NetworkCloud
             string kubernetesVersion,
 
             string location,
+
+            string? machineClusterVersion,
 
             string machineDetails,
 
@@ -297,6 +313,8 @@ namespace Pulumi.AzureNative.NetworkCloud
 
             Outputs.RuntimeProtectionStatusResponse runtimeProtectionStatus,
 
+            ImmutableArray<Outputs.SecretRotationStatusResponse> secretRotationStatus,
+
             string serialNumber,
 
             string serviceTag,
@@ -310,6 +328,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> virtualMachinesAssociatedIds)
         {
             AssociatedResourceIds = associatedResourceIds;
+            AzureApiVersion = azureApiVersion;
             BmcConnectionString = bmcConnectionString;
             BmcCredentials = bmcCredentials;
             BmcMacAddress = bmcMacAddress;
@@ -318,6 +337,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             CordonStatus = cordonStatus;
             DetailedStatus = detailedStatus;
             DetailedStatusMessage = detailedStatusMessage;
+            Etag = etag;
             ExtendedLocation = extendedLocation;
             HardwareInventory = hardwareInventory;
             HardwareValidationStatus = hardwareValidationStatus;
@@ -326,6 +346,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             KubernetesNodeName = kubernetesNodeName;
             KubernetesVersion = kubernetesVersion;
             Location = location;
+            MachineClusterVersion = machineClusterVersion;
             MachineDetails = machineDetails;
             MachineName = machineName;
             MachineRoles = machineRoles;
@@ -340,6 +361,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             RackSlot = rackSlot;
             ReadyState = readyState;
             RuntimeProtectionStatus = runtimeProtectionStatus;
+            SecretRotationStatus = secretRotationStatus;
             SerialNumber = serialNumber;
             ServiceTag = serviceTag;
             SystemData = systemData;

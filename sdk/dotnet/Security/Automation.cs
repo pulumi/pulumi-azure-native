@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The security automation resource.
-    /// Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview.
-    /// 
-    /// Other available API versions: 2023-12-01-preview.
+    /// Azure REST API version: 2023-12-01-preview. Prior API version in Azure Native 2.x: 2019-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Automation")]
     public partial class Automation : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<object>> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The security automation description.

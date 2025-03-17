@@ -17,11 +17,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// List of instance view of the capacity reservations under the capacity reservation group.
         /// </summary>
         public readonly ImmutableArray<Outputs.CapacityReservationInstanceViewWithNameResponse> CapacityReservations;
+        /// <summary>
+        /// List of the subscriptions that the capacity reservation group is shared with. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> SharedSubscriptionIds;
 
         [OutputConstructor]
-        private CapacityReservationGroupInstanceViewResponse(ImmutableArray<Outputs.CapacityReservationInstanceViewWithNameResponse> capacityReservations)
+        private CapacityReservationGroupInstanceViewResponse(
+            ImmutableArray<Outputs.CapacityReservationInstanceViewWithNameResponse> capacityReservations,
+
+            ImmutableArray<Outputs.SubResourceReadOnlyResponse> sharedSubscriptionIds)
         {
             CapacityReservations = capacityReservations;
+            SharedSubscriptionIds = sharedSubscriptionIds;
         }
     }
 }

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Task<GetConfigurationGroupValueResult> InvokeAsync(GetConfigurationGroupValueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetConfigurationGroupValueResult> Invoke(GetConfigurationGroupValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified hybrid configuration group values.
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2024-04-15.
+        /// Azure REST API version: 2024-04-15.
         /// </summary>
         public static Output<GetConfigurationGroupValueResult> Invoke(GetConfigurationGroupValueInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationGroupValueResult>("azure-native:hybridnetwork:getConfigurationGroupValue", args ?? new GetConfigurationGroupValueInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.HybridNetwork
     public sealed class GetConfigurationGroupValueResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
         [OutputConstructor]
         private GetConfigurationGroupValueResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

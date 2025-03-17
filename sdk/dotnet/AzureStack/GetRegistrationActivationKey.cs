@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns Azure Stack Activation Key.
         /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Task<GetRegistrationActivationKeyResult> InvokeAsync(GetRegistrationActivationKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationActivationKeyResult>("azure-native:azurestack:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns Azure Stack Activation Key.
         /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Output<GetRegistrationActivationKeyResult> Invoke(GetRegistrationActivationKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationActivationKeyResult>("azure-native:azurestack:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Returns Azure Stack Activation Key.
         /// Azure REST API version: 2022-06-01.
-        /// 
-        /// Other available API versions: 2020-06-01-preview.
         /// </summary>
         public static Output<GetRegistrationActivationKeyResult> Invoke(GetRegistrationActivationKeyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationActivationKeyResult>("azure-native:azurestack:getRegistrationActivationKey", args ?? new GetRegistrationActivationKeyInvokeArgs(), options.WithDefaults());

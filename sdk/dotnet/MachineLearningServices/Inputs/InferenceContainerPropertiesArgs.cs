@@ -30,6 +30,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("scoringRoute")]
         public Input<Inputs.RouteArgs>? ScoringRoute { get; set; }
 
+        /// <summary>
+        /// The route to check the startup of the application in the container.
+        /// </summary>
+        [Input("startupRoute")]
+        public Input<Inputs.RouteArgs>? StartupRoute { get; set; }
+
         public InferenceContainerPropertiesArgs()
         {
         }

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about the model view or the instance view of a virtual machine.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a virtual machine.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model view or the instance view of a virtual machine.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:compute:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SubResourceResponse? AvailabilitySet;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the billing related details of a Azure Spot virtual machine. Minimum api-version: 2019-03-01.
         /// </summary>
         public readonly Outputs.BillingProfileResponse? BillingProfile;
@@ -120,6 +118,10 @@ namespace Pulumi.AzureNative.Compute
         /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
+        /// <summary>
+        /// Etag is property returned in Create/Update/Get response of the VM, so that customer can supply it in the header to ensure optimistic updates.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
@@ -165,6 +167,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// ManagedBy is set to Virtual Machine Scale Set(VMSS) flex ARM resourceID, if the VM is part of the VMSS. This property is used by platform for internal resource group delete optimization.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -176,6 +182,10 @@ namespace Pulumi.AzureNative.Compute
         /// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         /// </summary>
         public readonly Outputs.OSProfileResponse? OsProfile;
+        /// <summary>
+        /// Placement section specifies the user-defined constraints for virtual machine hardware placement. This property cannot be changed once VM is provisioned. Minimum api-version: 2024-11-01.
+        /// </summary>
+        public readonly Outputs.PlacementResponse? Placement;
         /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
@@ -200,6 +210,10 @@ namespace Pulumi.AzureNative.Compute
         /// The virtual machine child extension resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineExtensionResponse> Resources;
+        /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the virtual machine.
+        /// </summary>
+        public readonly Outputs.ScheduledEventsPolicyResponse? ScheduledEventsPolicy;
         /// <summary>
         /// Specifies Scheduled Event related configurations.
         /// </summary>
@@ -249,11 +263,15 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SubResourceResponse? availabilitySet,
 
+            string azureApiVersion,
+
             Outputs.BillingProfileResponse? billingProfile,
 
             Outputs.CapacityReservationProfileResponse? capacityReservation,
 
             Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
+
+            string etag,
 
             string? evictionPolicy,
 
@@ -277,11 +295,15 @@ namespace Pulumi.AzureNative.Compute
 
             string location,
 
+            string managedBy,
+
             string name,
 
             Outputs.NetworkProfileResponse? networkProfile,
 
             Outputs.OSProfileResponse? osProfile,
+
+            Outputs.PlacementResponse? placement,
 
             Outputs.PlanResponse? plan,
 
@@ -294,6 +316,8 @@ namespace Pulumi.AzureNative.Compute
             Outputs.SubResourceResponse? proximityPlacementGroup,
 
             ImmutableArray<Outputs.VirtualMachineExtensionResponse> resources,
+
+            Outputs.ScheduledEventsPolicyResponse? scheduledEventsPolicy,
 
             Outputs.ScheduledEventsProfileResponse? scheduledEventsProfile,
 
@@ -318,9 +342,11 @@ namespace Pulumi.AzureNative.Compute
             AdditionalCapabilities = additionalCapabilities;
             ApplicationProfile = applicationProfile;
             AvailabilitySet = availabilitySet;
+            AzureApiVersion = azureApiVersion;
             BillingProfile = billingProfile;
             CapacityReservation = capacityReservation;
             DiagnosticsProfile = diagnosticsProfile;
+            Etag = etag;
             EvictionPolicy = evictionPolicy;
             ExtendedLocation = extendedLocation;
             ExtensionsTimeBudget = extensionsTimeBudget;
@@ -332,15 +358,18 @@ namespace Pulumi.AzureNative.Compute
             InstanceView = instanceView;
             LicenseType = licenseType;
             Location = location;
+            ManagedBy = managedBy;
             Name = name;
             NetworkProfile = networkProfile;
             OsProfile = osProfile;
+            Placement = placement;
             Plan = plan;
             PlatformFaultDomain = platformFaultDomain;
             Priority = priority;
             ProvisioningState = provisioningState;
             ProximityPlacementGroup = proximityPlacementGroup;
             Resources = resources;
+            ScheduledEventsPolicy = scheduledEventsPolicy;
             ScheduledEventsProfile = scheduledEventsProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;

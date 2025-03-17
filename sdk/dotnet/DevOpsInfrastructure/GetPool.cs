@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
     {
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
-        /// 
-        /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+        /// Azure REST API version: 2025-01-21.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devopsinfrastructure:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
-        /// 
-        /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+        /// Azure REST API version: 2025-01-21.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devopsinfrastructure:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Pool
-        /// Azure REST API version: 2023-10-30-preview.
-        /// 
-        /// Other available API versions: 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-01-21.
+        /// Azure REST API version: 2025-01-21.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devopsinfrastructure:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// </summary>
         public readonly Union<Outputs.StatefulResponse, Outputs.StatelessAgentProfileResponse> AgentProfile;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id of the DevCenter Project the pool belongs to.
         /// </summary>
         public readonly string DevCenterProjectResourceId;
@@ -97,7 +95,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// </summary>
         public readonly Outputs.VmssFabricProfileResponse FabricProfile;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -119,7 +117,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         /// <summary>
         /// Defines the organization in which the pool will be used.
         /// </summary>
-        public readonly Outputs.AzureDevOpsOrganizationProfileResponse OrganizationProfile;
+        public readonly Union<Outputs.AzureDevOpsOrganizationProfileResponse, Outputs.GitHubOrganizationProfileResponse> OrganizationProfile;
         /// <summary>
         /// The status of the current operation.
         /// </summary>
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
         private GetPoolResult(
             Union<Outputs.StatefulResponse, Outputs.StatelessAgentProfileResponse> agentProfile,
 
+            string azureApiVersion,
+
             string devCenterProjectResourceId,
 
             Outputs.VmssFabricProfileResponse fabricProfile,
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
 
             string name,
 
-            Outputs.AzureDevOpsOrganizationProfileResponse organizationProfile,
+            Union<Outputs.AzureDevOpsOrganizationProfileResponse, Outputs.GitHubOrganizationProfileResponse> organizationProfile,
 
             string? provisioningState,
 
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
             string type)
         {
             AgentProfile = agentProfile;
+            AzureApiVersion = azureApiVersion;
             DevCenterProjectResourceId = devCenterProjectResourceId;
             FabricProfile = fabricProfile;
             Id = id;

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         public Input<Inputs.CodeConfigurationArgs>? CodeConfiguration { get; set; }
 
         /// <summary>
+        /// The mdc configuration, we disable mdc when it's null.
+        /// </summary>
+        [Input("dataCollector")]
+        public Input<Inputs.DataCollectorArgs>? DataCollector { get; set; }
+
+        /// <summary>
         /// Description of the endpoint deployment.
         /// </summary>
         [Input("description")]
@@ -65,7 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// Compute instance type.
+        /// Compute instance type. Default: Standard_F4s_v2.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -121,10 +127,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("scaleSettings")]
         public InputUnion<Inputs.DefaultScaleSettingsArgs, Inputs.TargetUtilizationScaleSettingsArgs>? ScaleSettings { get; set; }
 
+        /// <summary>
+        /// Startup probe verify whether an application within a container has started successfully.
+        /// </summary>
+        [Input("startupProbe")]
+        public Input<Inputs.ProbeSettingsArgs>? StartupProbe { get; set; }
+
         public ManagedOnlineDeploymentArgs()
         {
             AppInsightsEnabled = false;
             EgressPublicNetworkAccess = "Enabled";
+            InstanceType = "Standard_F4s_v2";
         }
         public static new ManagedOnlineDeploymentArgs Empty => new ManagedOnlineDeploymentArgs();
     }

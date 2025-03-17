@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("logStorageAccountId", required: true)]
         public Input<string> LogStorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The logical sector size (in bytes), 512 by default.
+        /// </summary>
+        [Input("sectorSizeInBytes")]
+        public Input<int>? SectorSizeInBytes { get; set; }
+
         public InMageRcmDiskInputArgs()
         {
         }

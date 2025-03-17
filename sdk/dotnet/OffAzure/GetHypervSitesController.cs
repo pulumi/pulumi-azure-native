@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.OffAzure
     {
         /// <summary>
         /// Get a HypervSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Task<GetHypervSitesControllerResult> InvokeAsync(GetHypervSitesControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHypervSitesControllerResult>("azure-native:offazure:getHypervSitesController", args ?? new GetHypervSitesControllerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervSitesControllerResult> Invoke(GetHypervSitesControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervSitesControllerResult>("azure-native:offazure:getHypervSitesController", args ?? new GetHypervSitesControllerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a HypervSite
-        /// Azure REST API version: 2023-06-06.
-        /// 
-        /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+        /// Azure REST API version: 2023-10-01-preview.
         /// </summary>
         public static Output<GetHypervSitesControllerResult> Invoke(GetHypervSitesControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervSitesControllerResult>("azure-native:offazure:getHypervSitesController", args ?? new GetHypervSitesControllerInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         public readonly string? ApplianceName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the ARM ID of migration hub solution for SDS.
         /// </summary>
         public readonly string? DiscoverySolutionId;
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.OffAzure
 
             string? applianceName,
 
+            string azureApiVersion,
+
             string? discoverySolutionId,
 
             string id,
@@ -169,6 +169,7 @@ namespace Pulumi.AzureNative.OffAzure
         {
             AgentDetails = agentDetails;
             ApplianceName = applianceName;
+            AzureApiVersion = azureApiVersion;
             DiscoverySolutionId = discoverySolutionId;
             Id = id;
             Location = location;

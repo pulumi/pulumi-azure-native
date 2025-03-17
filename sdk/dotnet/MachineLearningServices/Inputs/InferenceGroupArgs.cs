@@ -16,46 +16,49 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class InferenceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Capacity to be used from the pool's reserved capacity.
-        /// optional
-        /// </summary>
-        [Input("bonusExtraCapacity")]
-        public Input<int>? BonusExtraCapacity { get; set; }
-
-        /// <summary>
         /// Description of the resource.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Metadata for the inference group.
+        /// Gets or sets environment configuration for the inference group. Used if PoolType=ScaleUnit.
         /// </summary>
-        [Input("metadata")]
-        public Input<string>? Metadata { get; set; }
+        [Input("environmentConfiguration")]
+        public Input<Inputs.GroupEnvironmentConfigurationArgs>? EnvironmentConfiguration { get; set; }
 
         /// <summary>
-        /// Priority of the group within the N:Microsoft.MachineLearning.ManagementFrontEnd.Contracts.V20230801Preview.Pools.InferencePools.
+        /// Gets or sets model configuration for the inference group. Used if PoolType=ScaleUnit.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("modelConfiguration")]
+        public Input<Inputs.GroupModelConfigurationArgs>? ModelConfiguration { get; set; }
+
+        /// <summary>
+        /// Gets or sets compute instance type.
+        /// </summary>
+        [Input("nodeSkuType")]
+        public Input<string>? NodeSkuType { get; set; }
 
         [Input("properties")]
-        private InputMap<string>? _properties;
+        private InputList<Inputs.StringStringKeyValuePairArgs>? _properties;
 
         /// <summary>
         /// Property dictionary. Properties can be added, but not removed or altered.
         /// </summary>
-        public InputMap<string> Properties
+        public InputList<Inputs.StringStringKeyValuePairArgs> Properties
         {
-            get => _properties ?? (_properties = new InputMap<string>());
+            get => _properties ?? (_properties = new InputList<Inputs.StringStringKeyValuePairArgs>());
             set => _properties = value;
         }
 
+        /// <summary>
+        /// Gets or sets Scale Unit size.
+        /// </summary>
+        [Input("scaleUnitSize")]
+        public Input<int>? ScaleUnitSize { get; set; }
+
         public InferenceGroupArgs()
         {
-            BonusExtraCapacity = 0;
-            Priority = 0;
         }
         public static new InferenceGroupArgs Empty => new InferenceGroupArgs();
     }

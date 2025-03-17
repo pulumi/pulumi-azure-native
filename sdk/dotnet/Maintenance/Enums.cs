@@ -128,37 +128,6 @@ namespace Pulumi.AzureNative.Maintenance
     }
 
     /// <summary>
-    /// Global Task execute once when schedule trigger. Resource task execute for each VM.
-    /// </summary>
-    [EnumType]
-    public readonly struct TaskScope : IEquatable<TaskScope>
-    {
-        private readonly string _value;
-
-        private TaskScope(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static TaskScope Global { get; } = new TaskScope("Global");
-        public static TaskScope Resource { get; } = new TaskScope("Resource");
-
-        public static bool operator ==(TaskScope left, TaskScope right) => left.Equals(right);
-        public static bool operator !=(TaskScope left, TaskScope right) => !left.Equals(right);
-
-        public static explicit operator string(TaskScope value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TaskScope other && Equals(other);
-        public bool Equals(TaskScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Gets or sets the visibility of the configuration. The default value is 'Custom'
     /// </summary>
     [EnumType]

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Gets a virtual hard disk
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Task<GetVirtualHardDiskResult> InvokeAsync(GetVirtualHardDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHardDiskResult>("azure-native:azurestackhci:getVirtualHardDisk", args ?? new GetVirtualHardDiskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual hard disk
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetVirtualHardDiskResult> Invoke(GetVirtualHardDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHardDiskResult>("azure-native:azurestackhci:getVirtualHardDisk", args ?? new GetVirtualHardDiskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a virtual hard disk
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-02-01-preview.
+        /// Azure REST API version: 2025-02-01-preview.
         /// </summary>
         public static Output<GetVirtualHardDiskResult> Invoke(GetVirtualHardDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHardDiskResult>("azure-native:azurestackhci:getVirtualHardDisk", args ?? new GetVirtualHardDiskInvokeArgs(), options.WithDefaults());
@@ -84,11 +78,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
     [OutputType]
     public sealed class GetVirtualHardDiskResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Block size in bytes
+        /// </summary>
         public readonly int? BlockSizeBytes;
         /// <summary>
         /// Storage ContainerID of the storage container to be used for VHD
         /// </summary>
         public readonly string? ContainerId;
+        /// <summary>
+        /// Boolean indicating whether it is an existing local hard disk or if one should be created.
+        /// </summary>
+        public readonly bool? CreateFromLocal;
         /// <summary>
         /// The format of the actual VHD file [vhd, vhdx]
         /// </summary>
@@ -97,6 +102,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Size of the disk in GB
         /// </summary>
         public readonly double? DiskSizeGB;
+        /// <summary>
+        /// URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
+        /// </summary>
+        public readonly string? DownloadUrl;
         /// <summary>
         /// Boolean for enabling dynamic sizing on the virtual hard disk
         /// </summary>
@@ -110,18 +119,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Logical sector in bytes
+        /// </summary>
         public readonly int? LogicalSectorBytes;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Physical sector in bytes
+        /// </summary>
         public readonly int? PhysicalSectorBytes;
         /// <summary>
         /// Provisioning state of the virtual hard disk.
@@ -146,13 +161,19 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetVirtualHardDiskResult(
+            string azureApiVersion,
+
             int? blockSizeBytes,
 
             string? containerId,
 
+            bool? createFromLocal,
+
             string? diskFileFormat,
 
             double? diskSizeGB,
+
+            string? downloadUrl,
 
             bool? dynamic,
 
@@ -180,10 +201,13 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlockSizeBytes = blockSizeBytes;
             ContainerId = containerId;
+            CreateFromLocal = createFromLocal;
             DiskFileFormat = diskFileFormat;
             DiskSizeGB = diskSizeGB;
+            DownloadUrl = downloadUrl;
             Dynamic = dynamic;
             ExtendedLocation = extendedLocation;
             HyperVGeneration = hyperVGeneration;

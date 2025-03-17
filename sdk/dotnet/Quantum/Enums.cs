@@ -8,29 +8,31 @@ using Pulumi;
 namespace Pulumi.AzureNative.Quantum
 {
     /// <summary>
-    /// The identity type.
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
-    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
     {
         private readonly string _value;
 
-        private ResourceIdentityType(string value)
+        private ManagedServiceIdentityType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
-        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
-        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
-        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
 
-        public static explicit operator string(ResourceIdentityType value) => value._value;
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
-        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -42,30 +44,48 @@ namespace Pulumi.AzureNative.Quantum
     /// Provisioning status field
     /// </summary>
     [EnumType]
-    public readonly struct Status : IEquatable<Status>
+    public readonly struct ProviderStatus : IEquatable<ProviderStatus>
     {
         private readonly string _value;
 
-        private Status(string value)
+        private ProviderStatus(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Status Succeeded { get; } = new Status("Succeeded");
-        public static Status Launching { get; } = new Status("Launching");
-        public static Status Updating { get; } = new Status("Updating");
-        public static Status Deleting { get; } = new Status("Deleting");
-        public static Status Deleted { get; } = new Status("Deleted");
-        public static Status Failed { get; } = new Status("Failed");
+        /// <summary>
+        /// The provider is successfully provisioned.
+        /// </summary>
+        public static ProviderStatus Succeeded { get; } = new ProviderStatus("Succeeded");
+        /// <summary>
+        /// The provider is starting provisioning.
+        /// </summary>
+        public static ProviderStatus Launching { get; } = new ProviderStatus("Launching");
+        /// <summary>
+        /// The provider is updating.
+        /// </summary>
+        public static ProviderStatus Updating { get; } = new ProviderStatus("Updating");
+        /// <summary>
+        /// The provider is deleting.
+        /// </summary>
+        public static ProviderStatus Deleting { get; } = new ProviderStatus("Deleting");
+        /// <summary>
+        /// The provider is deleted.
+        /// </summary>
+        public static ProviderStatus Deleted { get; } = new ProviderStatus("Deleted");
+        /// <summary>
+        /// The provider is failed.
+        /// </summary>
+        public static ProviderStatus Failed { get; } = new ProviderStatus("Failed");
 
-        public static bool operator ==(Status left, Status right) => left.Equals(right);
-        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+        public static bool operator ==(ProviderStatus left, ProviderStatus right) => left.Equals(right);
+        public static bool operator !=(ProviderStatus left, ProviderStatus right) => !left.Equals(right);
 
-        public static explicit operator string(Status value) => value._value;
+        public static explicit operator string(ProviderStatus value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Status other && Equals(other);
-        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ProviderStatus other && Equals(other);
+        public bool Equals(ProviderStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

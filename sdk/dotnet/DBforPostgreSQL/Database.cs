@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a Database.
-    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01.
-    /// 
-    /// Other available API versions: 2017-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview.
+    /// Azure REST API version: 2024-08-01. Prior API version in Azure Native 2.x: 2022-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The charset of the database.
         /// </summary>
@@ -73,6 +77,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database" },
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database" },

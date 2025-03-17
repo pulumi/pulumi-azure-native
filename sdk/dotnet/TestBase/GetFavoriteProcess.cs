@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets a favorite process for a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Task<GetFavoriteProcessResult> InvokeAsync(GetFavoriteProcessArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a favorite process for a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a favorite process for a Test Base Package.
-        /// Azure REST API version: 2022-04-01-preview.
-        /// 
-        /// Other available API versions: 2023-11-01-preview.
+        /// Azure REST API version: 2023-11-01-preview.
         /// </summary>
         public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());
@@ -55,7 +49,7 @@ namespace Pulumi.AzureNative.TestBase
         public string PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -87,7 +81,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -113,25 +107,31 @@ namespace Pulumi.AzureNative.TestBase
         /// </summary>
         public readonly string ActualProcessName;
         /// <summary>
-        /// Resource ID.
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The system metadata relating to this resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetFavoriteProcessResult(
             string actualProcessName,
+
+            string azureApiVersion,
 
             string id,
 
@@ -142,6 +142,7 @@ namespace Pulumi.AzureNative.TestBase
             string type)
         {
             ActualProcessName = actualProcessName;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             SystemData = systemData;

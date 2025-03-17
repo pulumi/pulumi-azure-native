@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
-        /// Azure REST API version: 2020-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Task<GetCostAllocationRuleResult> InvokeAsync(GetCostAllocationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
-        /// Azure REST API version: 2020-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a cost allocation rule by rule name and billing account or enterprise enrollment.
-        /// Azure REST API version: 2020-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01, 2023-09-01, 2023-11-01, 2024-08-01.
+        /// Azure REST API version: 2024-08-01.
         /// </summary>
         public static Output<GetCostAllocationRuleResult> Invoke(GetCostAllocationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCostAllocationRuleResult>("azure-native:costmanagement:getCostAllocationRule", args ?? new GetCostAllocationRuleInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.CostManagement
     public sealed class GetCostAllocationRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure Resource Manager Id for the rule. This is a read ony value.
         /// </summary>
         public readonly string Id;
@@ -103,6 +101,8 @@ namespace Pulumi.AzureNative.CostManagement
 
         [OutputConstructor]
         private GetCostAllocationRuleResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -111,6 +111,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

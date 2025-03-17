@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         [Input("gitProperty")]
         public Input<Inputs.ConfigurationServiceGitPropertyArgs>? GitProperty { get; set; }
 
+        /// <summary>
+        /// How often (in seconds) to check repository updates. Minimum value is 0.
+        /// </summary>
+        [Input("refreshIntervalInSeconds")]
+        public Input<int>? RefreshIntervalInSeconds { get; set; }
+
         public ConfigurationServiceSettingsArgs()
         {
         }

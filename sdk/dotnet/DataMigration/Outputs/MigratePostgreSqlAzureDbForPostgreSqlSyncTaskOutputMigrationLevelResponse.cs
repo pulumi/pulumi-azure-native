@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse
     {
         /// <summary>
+        /// Number of databases to include
+        /// </summary>
+        public readonly double? DatabaseCount;
+        /// <summary>
         /// Migration end time
         /// </summary>
         public readonly string EndedOn;
@@ -61,6 +65,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigratePostgreSqlAzureDbForPostgreSqlSyncTaskOutputMigrationLevelResponse(
+            double? databaseCount,
+
             string endedOn,
 
             string id,
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string targetServerVersion)
         {
+            DatabaseCount = databaseCount;
             EndedOn = endedOn;
             Id = id;
             ResultType = resultType;

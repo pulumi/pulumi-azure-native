@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string? FullName;
         /// <summary>
+        /// The installation id of the repository.
+        /// </summary>
+        public readonly double? InstallationId;
+        /// <summary>
         /// The url to access the repository.
         /// </summary>
         public readonly string? Url;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             string? fullName,
 
+            double? installationId,
+
             string? url)
         {
             Branches = branches;
             FullName = fullName;
+            InstallationId = installationId;
             Url = url;
         }
     }

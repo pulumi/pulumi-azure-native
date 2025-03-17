@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Replication protection Cluster.
-    /// Azure REST API version: 2024-02-01.
-    /// 
-    /// Other available API versions: 2024-04-01, 2024-10-01.
+    /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationProtectionCluster")]
     public partial class ReplicationProtectionCluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the protection cluster.
         /// </summary>

@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the file share, including Id, resource name, resource type, Etag.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:FileShare")]
     public partial class FileShare : global::Pulumi.CustomResource
@@ -35,6 +33,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("accessTierStatus")]
         public Output<string> AccessTierStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether the share was deleted.
@@ -61,6 +65,18 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// File Share Paid Bursting properties.
+        /// </summary>
+        [Output("fileSharePaidBursting")]
+        public Output<Outputs.FileSharePropertiesResponseFileSharePaidBursting?> FileSharePaidBursting { get; private set; } = null!;
+
+        /// <summary>
+        /// The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
+        /// </summary>
+        [Output("includedBurstIops")]
+        public Output<int> IncludedBurstIops { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the date and time the share was last modified.
         /// </summary>
         [Output("lastModifiedTime")]
@@ -85,6 +101,12 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> LeaseStatus { get; private set; } = null!;
 
         /// <summary>
+        /// The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        /// </summary>
+        [Output("maxBurstCreditsForIops")]
+        public Output<double> MaxBurstCreditsForIops { get; private set; } = null!;
+
+        /// <summary>
         /// A name-value pair to associate with the share as metadata.
         /// </summary>
         [Output("metadata")]
@@ -95,6 +117,36 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        /// </summary>
+        [Output("nextAllowedProvisionedBandwidthDowngradeTime")]
+        public Output<string> NextAllowedProvisionedBandwidthDowngradeTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
+        /// </summary>
+        [Output("nextAllowedProvisionedIopsDowngradeTime")]
+        public Output<string> NextAllowedProvisionedIopsDowngradeTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
+        /// </summary>
+        [Output("nextAllowedQuotaDowngradeTime")]
+        public Output<string> NextAllowedQuotaDowngradeTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        /// </summary>
+        [Output("provisionedBandwidthMibps")]
+        public Output<int?> ProvisionedBandwidthMibps { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+        /// </summary>
+        [Output("provisionedIops")]
+        public Output<int?> ProvisionedIops { get; private set; } = null!;
 
         /// <summary>
         /// Remaining retention days for share that was soft deleted.
@@ -109,7 +161,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<string?> RootSquash { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        /// The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         /// </summary>
         [Output("shareQuota")]
         public Output<int?> ShareQuota { get; private set; } = null!;
@@ -231,6 +283,12 @@ namespace Pulumi.AzureNative.Storage
         [Input("expand")]
         public Input<string>? Expand { get; set; }
 
+        /// <summary>
+        /// File Share Paid Bursting properties.
+        /// </summary>
+        [Input("fileSharePaidBursting")]
+        public Input<Inputs.FileSharePropertiesFileSharePaidBurstingArgs>? FileSharePaidBursting { get; set; }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -242,6 +300,18 @@ namespace Pulumi.AzureNative.Storage
             get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
         }
+
+        /// <summary>
+        /// The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
+        /// </summary>
+        [Input("provisionedBandwidthMibps")]
+        public Input<int>? ProvisionedBandwidthMibps { get; set; }
+
+        /// <summary>
+        /// The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
+        /// </summary>
+        [Input("provisionedIops")]
+        public Input<int>? ProvisionedIops { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -262,7 +332,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string>? ShareName { get; set; }
 
         /// <summary>
-        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        /// The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
         /// </summary>
         [Input("shareQuota")]
         public Input<int>? ShareQuota { get; set; }

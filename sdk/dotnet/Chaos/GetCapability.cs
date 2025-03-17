@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Get a Capability resource that extends a Target resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetCapabilityResult> InvokeAsync(GetCapabilityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Capability resource that extends a Target resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Capability resource that extends a Target resource.
-        /// Azure REST API version: 2023-04-15-preview.
-        /// 
-        /// Other available API versions: 2023-09-01-preview, 2023-10-27-preview, 2023-11-01, 2024-01-01, 2024-03-22-preview, 2024-11-01-preview, 2025-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
@@ -133,6 +127,10 @@ namespace Pulumi.AzureNative.Chaos
     public sealed class GetCapabilityResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -155,6 +153,8 @@ namespace Pulumi.AzureNative.Chaos
 
         [OutputConstructor]
         private GetCapabilityResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.Chaos
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

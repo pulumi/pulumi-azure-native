@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetServerCommunicationLinkResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.Sql
 
         [OutputConstructor]
         private GetServerCommunicationLinkResult(
+            string azureApiVersion,
+
             string id,
 
             string kind,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.Sql
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Location = location;

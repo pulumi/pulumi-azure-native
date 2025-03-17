@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetIntegrationAccountResult> InvokeAsync(GetIntegrationAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets an integration account.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetIntegrationAccountResult> Invoke(GetIntegrationAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountResult>("azure-native:logic:getIntegrationAccount", args ?? new GetIntegrationAccountInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -119,6 +117,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get a role assignment by scope and name.
         /// Azure REST API version: 2022-04-01.
-        /// 
-        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
         public static Task<GetRoleAssignmentResult> InvokeAsync(GetRoleAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get a role assignment by scope and name.
         /// Azure REST API version: 2022-04-01.
-        /// 
-        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// Get a role assignment by scope and name.
         /// Azure REST API version: 2022-04-01.
-        /// 
-        /// Other available API versions: 2017-10-01-preview, 2020-03-01-preview, 2020-04-01-preview.
         /// </summary>
         public static Output<GetRoleAssignmentResult> Invoke(GetRoleAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentResult>("azure-native:authorization:getRoleAssignment", args ?? new GetRoleAssignmentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         /// </summary>
         public readonly string? Condition;
@@ -159,6 +157,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
+            string azureApiVersion,
+
             string? condition,
 
             string? conditionVersion,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string updatedOn)
         {
+            AzureApiVersion = azureApiVersion;
             Condition = condition;
             ConditionVersion = conditionVersion;
             CreatedBy = createdBy;

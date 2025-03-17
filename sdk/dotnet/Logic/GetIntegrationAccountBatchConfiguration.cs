@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Logic
     public sealed class GetIntegrationAccountBatchConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource id.
         /// </summary>
         public readonly string Id;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.Logic
 
         [OutputConstructor]
         private GetIntegrationAccountBatchConfigurationResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Logic
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

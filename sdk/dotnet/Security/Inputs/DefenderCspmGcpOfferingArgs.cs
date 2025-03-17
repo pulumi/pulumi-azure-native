@@ -16,11 +16,41 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderCspmGcpOfferingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// GCP Defenders CSPM Permissions Management OIDC (Open ID connect) connection configurations
+        /// </summary>
+        [Input("ciemDiscovery")]
+        public Input<Inputs.DefenderCspmGcpOfferingCiemDiscoveryArgs>? CiemDiscovery { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender Data Sensitivity discovery configuration
+        /// </summary>
+        [Input("dataSensitivityDiscovery")]
+        public Input<Inputs.DefenderCspmGcpOfferingDataSensitivityDiscoveryArgs>? DataSensitivityDiscovery { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender Container agentless discovery configuration
+        /// </summary>
+        [Input("mdcContainersAgentlessDiscoveryK8s")]
+        public Input<Inputs.DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8sArgs>? MdcContainersAgentlessDiscoveryK8s { get; set; }
+
+        /// <summary>
+        /// The Microsoft Defender Container image assessment configuration
+        /// </summary>
+        [Input("mdcContainersImageAssessment")]
+        public Input<Inputs.DefenderCspmGcpOfferingMdcContainersImageAssessmentArgs>? MdcContainersImageAssessment { get; set; }
+
+        /// <summary>
         /// The type of the security offering.
         /// Expected value is 'DefenderCspmGcp'.
         /// </summary>
         [Input("offeringType", required: true)]
         public Input<string> OfferingType { get; set; } = null!;
+
+        /// <summary>
+        /// The Microsoft Defender for CSPM VM scanning configuration
+        /// </summary>
+        [Input("vmScanners")]
+        public Input<Inputs.DefenderCspmGcpOfferingVmScannersArgs>? VmScanners { get; set; }
 
         public DefenderCspmGcpOfferingArgs()
         {

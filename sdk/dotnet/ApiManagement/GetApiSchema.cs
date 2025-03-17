@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the schema configuration at the API level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the schema configuration at the API level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the schema configuration at the API level.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2019-01-01, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetApiSchemaResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         /// </summary>
         public readonly object? Components;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetApiSchemaResult(
+            string azureApiVersion,
+
             object? components,
 
             string contentType,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? value)
         {
+            AzureApiVersion = azureApiVersion;
             Components = components;
             ContentType = contentType;
             Definitions = definitions;

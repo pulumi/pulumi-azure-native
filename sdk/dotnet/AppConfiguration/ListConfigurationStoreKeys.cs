@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AppConfiguration
     {
         /// <summary>
         /// Lists the access key for the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<ListConfigurationStoreKeysResult> InvokeAsync(ListConfigurationStoreKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the access key for the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the access key for the specified configuration store.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-09-01-preview, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<ListConfigurationStoreKeysResult> Invoke(ListConfigurationStoreKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListConfigurationStoreKeysResult>("azure-native:appconfiguration:listConfigurationStoreKeys", args ?? new ListConfigurationStoreKeysInvokeArgs(), options.WithDefaults());

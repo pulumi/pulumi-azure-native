@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01.
-    /// 
-    /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+    /// Azure REST API version: 2024-11-01. Prior API version in Azure Native 2.x: 2023-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Image")]
     public partial class Image : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The extended location of the Image.
         /// </summary>
@@ -120,6 +124,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20230901:Image" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240301:Image" },
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20240701:Image" },
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20241101:Image" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

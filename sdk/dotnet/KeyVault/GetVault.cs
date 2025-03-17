@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Azure key vault.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2024-04-01-preview, 2024-11-01, 2024-12-01-preview.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVaultResult>("azure-native:keyvault:getVault", args ?? new GetVaultInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.KeyVault
     public sealed class GetVaultResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified identifier of the key vault resource.
         /// </summary>
         public readonly string Id;
@@ -115,6 +113,8 @@ namespace Pulumi.AzureNative.KeyVault
 
         [OutputConstructor]
         private GetVaultResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.KeyVault
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure.Outputs
 {
 
     /// <summary>
-    /// described the storage properties of the azure baremetalstorage instance
+    /// described the storage properties of the azure bare metal storage instance
     /// </summary>
     [OutputType]
     public sealed class StoragePropertiesResponse

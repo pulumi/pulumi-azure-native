@@ -14,9 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// represented in the status of this resource. All resources associated with this cloud services network will be part
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
-    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview.
-    /// 
-    /// Other available API versions: 2023-07-01, 2024-06-01-preview, 2024-07-01, 2024-10-01-preview.
+    /// Azure REST API version: 2025-02-01. Prior API version in Azure Native 2.x: 2023-10-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource
@@ -32,6 +30,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("associatedResourceIds")]
         public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the Network Cloud cluster this cloud services network is associated with.
@@ -62,6 +66,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("enabledEgressEndpoints")]
         public Output<ImmutableArray<Outputs.EgressEndpointResponse>> EnabledEgressEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource ETag.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The extended location of the cluster associated with the resource.
@@ -153,6 +163,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240601preview:CloudServicesNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20240701:CloudServicesNetwork" },
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20241001preview:CloudServicesNetwork" },
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20250201:CloudServicesNetwork" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

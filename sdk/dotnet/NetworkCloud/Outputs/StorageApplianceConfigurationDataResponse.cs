@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class StorageApplianceConfigurationDataResponse
     {
         /// <summary>
-        /// The credentials of the administrative interface on this storage appliance.
+        /// The credentials of the administrative interface on this storage appliance. The password field is expected to be an Azure Key Vault key URL. Until the cluster is converted to utilize managed identity by setting the secret archive settings, the actual password value should be provided instead.
         /// </summary>
         public readonly Outputs.AdministrativeCredentialsResponse AdminCredentials;
         /// <summary>

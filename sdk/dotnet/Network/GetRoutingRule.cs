@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager routing configuration routing rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetRoutingRuleResult> InvokeAsync(GetRoutingRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoutingRuleResult>("azure-native:network:getRoutingRule", args ?? new GetRoutingRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager routing configuration routing rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRoutingRuleResult> Invoke(GetRoutingRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingRuleResult>("azure-native:network:getRoutingRule", args ?? new GetRoutingRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager routing configuration routing rule.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRoutingRuleResult> Invoke(GetRoutingRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingRuleResult>("azure-native:network:getRoutingRule", args ?? new GetRoutingRuleInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetRoutingRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description for this rule.
         /// </summary>
         public readonly string? Description;
@@ -163,6 +161,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetRoutingRuleResult(
+            string azureApiVersion,
+
             string? description,
 
             Outputs.RoutingRuleRouteDestinationResponse destination,
@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Destination = destination;
             Etag = etag;

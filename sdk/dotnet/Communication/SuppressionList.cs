@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing a SuppressionList resource.
-    /// Azure REST API version: 2023-06-01-preview.
-    /// 
-    /// Other available API versions: 2024-09-01-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SuppressionList")]
     public partial class SuppressionList : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The date the resource was created.
         /// </summary>

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// Get the metadata of a service instance.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a service instance.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the metadata of a service instance.
-        /// Azure REST API version: 2023-02-28.
-        /// 
-        /// Other available API versions: 2023-09-06, 2023-11-01, 2023-12-01, 2024-03-01, 2024-03-31.
+        /// Azure REST API version: 2024-03-31.
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure-native:healthcareapis:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetServiceResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Identity = identity;

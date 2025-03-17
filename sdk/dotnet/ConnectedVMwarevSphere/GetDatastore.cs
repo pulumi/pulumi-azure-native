@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements datastore GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetDatastoreResult> InvokeAsync(GetDatastoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements datastore GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements datastore GET method.
-        /// Azure REST API version: 2022-07-15-preview.
-        /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("azure-native:connectedvmwarevsphere:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     [OutputType]
     public sealed class GetDatastoreResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets or sets Maximum capacity of this datastore in GBs.
         /// </summary>
@@ -159,6 +157,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetDatastoreResult(
+            string azureApiVersion,
+
             double capacityGB,
 
             string customResourceName,
@@ -195,6 +195,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? vCenterId)
         {
+            AzureApiVersion = azureApiVersion;
             CapacityGB = capacityGB;
             CustomResourceName = customResourceName;
             ExtendedLocation = extendedLocation;

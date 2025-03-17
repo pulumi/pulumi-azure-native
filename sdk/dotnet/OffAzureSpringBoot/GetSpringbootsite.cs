@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     {
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Task<GetSpringbootsiteResult> InvokeAsync(GetSpringbootsiteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a springbootsites resource.
-        /// Azure REST API version: 2023-01-01-preview.
+        /// Azure REST API version: 2024-04-01-preview.
         /// </summary>
         public static Output<GetSpringbootsiteResult> Invoke(GetSpringbootsiteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpringbootsiteResult>("azure-native:offazurespringboot:getSpringbootsite", args ?? new GetSpringbootsiteInvokeArgs(), options.WithDefaults());
@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
     public sealed class GetSpringbootsiteResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The extended location definition.
         /// </summary>
         public readonly Outputs.SpringbootsitesModelResponseExtendedLocation? ExtendedLocation;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 
         [OutputConstructor]
         private GetSpringbootsiteResult(
+            string azureApiVersion,
+
             Outputs.SpringbootsitesModelResponseExtendedLocation? extendedLocation,
 
             string id,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

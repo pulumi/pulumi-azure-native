@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
-    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01.
-    /// 
-    /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Route")]
     public partial class Route : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         /// </summary>

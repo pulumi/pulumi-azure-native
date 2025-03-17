@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.CustomerInsights
     public sealed class GetViewResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Date time when view was last modified.
         /// </summary>
         public readonly string Changed;
@@ -145,6 +149,8 @@ namespace Pulumi.AzureNative.CustomerInsights
 
         [OutputConstructor]
         private GetViewResult(
+            string azureApiVersion,
+
             string changed,
 
             string created,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.CustomerInsights
 
             string viewName)
         {
+            AzureApiVersion = azureApiVersion;
             Changed = changed;
             Created = created;
             Definition = definition;

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents an curation profile resource.
-    /// Azure REST API version: 2024-08-01-preview.
-    /// 
-    /// Other available API versions: 2024-10-01-preview.
+    /// Azure REST API version: 2024-10-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:CurationProfile")]
     public partial class CurationProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

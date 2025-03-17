@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         public readonly int? Asn;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the resource.
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.Peering
         private GetRegisteredAsnResult(
             int? asn,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.Peering
             string type)
         {
             Asn = asn;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             PeeringServicePrefixKey = peeringServicePrefixKey;

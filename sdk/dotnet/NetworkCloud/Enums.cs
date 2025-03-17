@@ -301,6 +301,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         }
 
         public static ClusterUpdateStrategyType Rack { get; } = new ClusterUpdateStrategyType("Rack");
+        public static ClusterUpdateStrategyType PauseAfterRack { get; } = new ClusterUpdateStrategyType("PauseAfterRack");
 
         public static bool operator ==(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => left.Equals(right);
         public static bool operator !=(ClusterUpdateStrategyType left, ClusterUpdateStrategyType right) => !left.Equals(right);
@@ -603,6 +604,70 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
+    /// The type of managed identity that is being selected.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentitySelectorType : IEquatable<ManagedServiceIdentitySelectorType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentitySelectorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentitySelectorType SystemAssignedIdentity { get; } = new ManagedServiceIdentitySelectorType("SystemAssignedIdentity");
+        public static ManagedServiceIdentitySelectorType UserAssignedIdentity { get; } = new ManagedServiceIdentitySelectorType("UserAssignedIdentity");
+
+        public static bool operator ==(ManagedServiceIdentitySelectorType left, ManagedServiceIdentitySelectorType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentitySelectorType left, ManagedServiceIdentitySelectorType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentitySelectorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentitySelectorType other && Equals(other);
+        public bool Equals(ManagedServiceIdentitySelectorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The strategy for creating the OS disk.
     /// </summary>
     [EnumType]
@@ -615,7 +680,14 @@ namespace Pulumi.AzureNative.NetworkCloud
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Utilize the local storage of the host machine.
+        /// </summary>
         public static OsDiskCreateOption Ephemeral { get; } = new OsDiskCreateOption("Ephemeral");
+        /// <summary>
+        /// Utilize a storage appliance backed volume to host the disk.
+        /// </summary>
+        public static OsDiskCreateOption Persistent { get; } = new OsDiskCreateOption("Persistent");
 
         public static bool operator ==(OsDiskCreateOption left, OsDiskCreateOption right) => left.Equals(right);
         public static bool operator !=(OsDiskCreateOption left, OsDiskCreateOption right) => !left.Equals(right);
@@ -802,8 +874,18 @@ namespace Pulumi.AzureNative.NetworkCloud
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Traditional and most compatible device virtualization interface.
+        /// </summary>
         public static VirtualMachineDeviceModelType T1 { get; } = new VirtualMachineDeviceModelType("T1");
+        /// <summary>
+        /// Modern and enhanced device virtualization interface.
+        /// </summary>
         public static VirtualMachineDeviceModelType T2 { get; } = new VirtualMachineDeviceModelType("T2");
+        /// <summary>
+        /// Improved security and functionality (including TPM and secure boot support). Required for windows 11 and server 2025.
+        /// </summary>
+        public static VirtualMachineDeviceModelType T3 { get; } = new VirtualMachineDeviceModelType("T3");
 
         public static bool operator ==(VirtualMachineDeviceModelType left, VirtualMachineDeviceModelType right) => left.Equals(right);
         public static bool operator !=(VirtualMachineDeviceModelType left, VirtualMachineDeviceModelType right) => !left.Equals(right);
@@ -1002,6 +1084,37 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualMachineVirtioInterfaceType other && Equals(other);
         public bool Equals(VirtualMachineVirtioInterfaceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode selection for container vulnerability scanning.
+    /// </summary>
+    [EnumType]
+    public readonly struct VulnerabilityScanningSettingsContainerScan : IEquatable<VulnerabilityScanningSettingsContainerScan>
+    {
+        private readonly string _value;
+
+        private VulnerabilityScanningSettingsContainerScan(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VulnerabilityScanningSettingsContainerScan Disabled { get; } = new VulnerabilityScanningSettingsContainerScan("Disabled");
+        public static VulnerabilityScanningSettingsContainerScan Enabled { get; } = new VulnerabilityScanningSettingsContainerScan("Enabled");
+
+        public static bool operator ==(VulnerabilityScanningSettingsContainerScan left, VulnerabilityScanningSettingsContainerScan right) => left.Equals(right);
+        public static bool operator !=(VulnerabilityScanningSettingsContainerScan left, VulnerabilityScanningSettingsContainerScan right) => !left.Equals(right);
+
+        public static explicit operator string(VulnerabilityScanningSettingsContainerScan value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VulnerabilityScanningSettingsContainerScan other && Equals(other);
+        public bool Equals(VulnerabilityScanningSettingsContainerScan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

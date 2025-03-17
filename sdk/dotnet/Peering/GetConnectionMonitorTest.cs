@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Peering
     public sealed class GetConnectionMonitorTestResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The Connection Monitor test destination
         /// </summary>
         public readonly string? Destination;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Peering
 
         [OutputConstructor]
         private GetConnectionMonitorTestResult(
+            string azureApiVersion,
+
             string? destination,
 
             int? destinationPort,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Peering
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Destination = destination;
             DestinationPort = destinationPort;
             Id = id;

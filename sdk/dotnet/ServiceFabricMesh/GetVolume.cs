@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
     public sealed class GetVolumeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// This type describes a volume provided by an Azure Files file share.
         /// </summary>
         public readonly Outputs.VolumeProviderParametersAzureFileResponse? AzureFileParameters;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
         [OutputConstructor]
         private GetVolumeResult(
+            string azureApiVersion,
+
             Outputs.VolumeProviderParametersAzureFileResponse? azureFileParameters,
 
             string? description,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureFileParameters = azureFileParameters;
             Description = description;
             Id = id;

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
     public sealed class SecuritySettingsResponse
     {
         /// <summary>
+        /// Customer Managed Key details of the resource.
+        /// </summary>
+        public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
+        /// <summary>
         /// Immutability Settings at vault level
         /// </summary>
         public readonly Outputs.ImmutabilitySettingsResponse? ImmutabilitySettings;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
         [OutputConstructor]
         private SecuritySettingsResponse(
+            Outputs.EncryptionSettingsResponse? encryptionSettings,
+
             Outputs.ImmutabilitySettingsResponse? immutabilitySettings,
 
             Outputs.SoftDeleteSettingsResponse? softDeleteSettings)
         {
+            EncryptionSettings = encryptionSettings;
             ImmutabilitySettings = immutabilitySettings;
             SoftDeleteSettings = softDeleteSettings;
         }

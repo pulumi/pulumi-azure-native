@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     public sealed class GetEventHubEventSourceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The name of the event hub's consumer group that holds the partitions from which events will be read.
         /// </summary>
         public readonly string ConsumerGroupName;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
         [OutputConstructor]
         private GetEventHubEventSourceResult(
+            string azureApiVersion,
+
             string consumerGroupName,
 
             string creationTime,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ConsumerGroupName = consumerGroupName;
             CreationTime = creationTime;
             EventHubName = eventHubName;

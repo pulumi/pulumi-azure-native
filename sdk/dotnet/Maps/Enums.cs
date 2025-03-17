@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
+    /// (Optional) Discouraged to include in resource definition. Only needed where it is possible to disable platform (AKA infrastructure) encryption. Azure SQL TDE is an example of this. Values are enabled and disabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct InfrastructureEncryption : IEquatable<InfrastructureEncryption>
+    {
+        private readonly string _value;
+
+        private InfrastructureEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfrastructureEncryption Enabled { get; } = new InfrastructureEncryption("enabled");
+        public static InfrastructureEncryption Disabled { get; } = new InfrastructureEncryption("disabled");
+
+        public static bool operator ==(InfrastructureEncryption left, InfrastructureEncryption right) => left.Equals(right);
+        public static bool operator !=(InfrastructureEncryption left, InfrastructureEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(InfrastructureEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfrastructureEncryption other && Equals(other);
+        public bool Equals(InfrastructureEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Get or Set Kind property.
     /// </summary>
     [EnumType]
@@ -20,7 +51,6 @@ namespace Pulumi.AzureNative.Maps
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind Gen1 { get; } = new Kind("Gen1");
         public static Kind Gen2 { get; } = new Kind("Gen2");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
@@ -39,7 +69,40 @@ namespace Pulumi.AzureNative.Maps
     }
 
     /// <summary>
-    /// The name of the SKU, in standard format (such as S0).
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The name of the SKU, in standard format (such as G2).
     /// </summary>
     [EnumType]
     public readonly struct Name : IEquatable<Name>
@@ -51,8 +114,6 @@ namespace Pulumi.AzureNative.Maps
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Name S0 { get; } = new Name("S0");
-        public static Name S1 { get; } = new Name("S1");
         public static Name G2 { get; } = new Name("G2");
 
         public static bool operator ==(Name left, Name right) => left.Equals(right);
@@ -103,7 +164,7 @@ namespace Pulumi.AzureNative.Maps
     }
 
     /// <summary>
-    /// The Map account key to use for signing.
+    /// The Maps account key to use for signing. Picking `primaryKey` or `secondaryKey` will use the Maps account Shared Keys, and using `managedIdentity` will use the auto-renewed private key to sign the SAS.
     /// </summary>
     [EnumType]
     public readonly struct SigningKey : IEquatable<SigningKey>
@@ -117,6 +178,7 @@ namespace Pulumi.AzureNative.Maps
 
         public static SigningKey PrimaryKey { get; } = new SigningKey("primaryKey");
         public static SigningKey SecondaryKey { get; } = new SigningKey("secondaryKey");
+        public static SigningKey ManagedIdentity { get; } = new SigningKey("managedIdentity");
 
         public static bool operator ==(SigningKey left, SigningKey right) => left.Equals(right);
         public static bool operator !=(SigningKey left, SigningKey right) => !left.Equals(right);

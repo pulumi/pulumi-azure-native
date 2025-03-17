@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly Outputs.AssignedStandardItemResponse? AssignedStandard;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// description of the standardAssignment
         /// </summary>
         public readonly string? Description;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNative.Security
 
             Outputs.AssignedStandardItemResponse? assignedStandard,
 
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNative.Security
             AdditionalData = additionalData;
             AssignedComponent = assignedComponent;
             AssignedStandard = assignedStandard;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Effect = effect;

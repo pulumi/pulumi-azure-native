@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetContainerResult> InvokeAsync(GetContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a container on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("azure-native:databoxedge:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetContainerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Current status of the container.
         /// </summary>
         public readonly string ContainerStatus;
@@ -143,6 +141,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetContainerResult(
+            string azureApiVersion,
+
             string containerStatus,
 
             string createdDateTime,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContainerStatus = containerStatus;
             CreatedDateTime = createdDateTime;
             DataFormat = dataFormat;

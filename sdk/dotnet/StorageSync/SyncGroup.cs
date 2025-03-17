@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Sync Group object.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-    /// 
-    /// Other available API versions: 2022-09-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

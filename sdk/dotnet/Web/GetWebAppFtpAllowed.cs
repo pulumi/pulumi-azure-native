@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Returns whether FTP is allowed on the site or not.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppFtpAllowedResult> InvokeAsync(GetWebAppFtpAllowedArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppFtpAllowedResult>("azure-native:web:getWebAppFtpAllowed", args ?? new GetWebAppFtpAllowedArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Returns whether FTP is allowed on the site or not.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppFtpAllowedResult> Invoke(GetWebAppFtpAllowedInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedResult>("azure-native:web:getWebAppFtpAllowed", args ?? new GetWebAppFtpAllowedInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Returns whether FTP is allowed on the site or not.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2019-08-01, 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15, 2021-02-01, 2021-03-01, 2022-03-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppFtpAllowedResult> Invoke(GetWebAppFtpAllowedInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppFtpAllowedResult>("azure-native:web:getWebAppFtpAllowed", args ?? new GetWebAppFtpAllowedInvokeArgs(), options.WithDefaults());
@@ -89,6 +83,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly bool Allow;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -109,6 +107,8 @@ namespace Pulumi.AzureNative.Web
         private GetWebAppFtpAllowedResult(
             bool allow,
 
+            string azureApiVersion,
+
             string id,
 
             string? kind,
@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.Web
             string type)
         {
             Allow = allow;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Kind = kind;
             Name = name;

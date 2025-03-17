@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.HybridContainerService
     [OutputType]
     public sealed class GetVirtualNetworkRetrieveResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly Outputs.VirtualNetworksResponseExtendedLocation? ExtendedLocation;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.HybridContainerService
 
         [OutputConstructor]
         private GetVirtualNetworkRetrieveResult(
+            string azureApiVersion,
+
             Outputs.VirtualNetworksResponseExtendedLocation? extendedLocation,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.HybridContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

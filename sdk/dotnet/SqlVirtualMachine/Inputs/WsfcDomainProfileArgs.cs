@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<string>? FileShareWitnessPath { get; set; }
 
         /// <summary>
+        /// The flag to check if SQL service account is GMSA.
+        /// </summary>
+        [Input("isSqlServiceAccountGmsa")]
+        public Input<bool>? IsSqlServiceAccountGmsa { get; set; }
+
+        /// <summary>
         /// Organizational Unit path in which the nodes and cluster will be present.
         /// </summary>
         [Input("ouPath")]

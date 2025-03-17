@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
         /// </summary>
         public readonly string? LogOnDisk;
         /// <summary>
+        /// The redundant type of the server storage. The parameter is used for server creation.
+        /// </summary>
+        public readonly string? StorageRedundancy;
+        /// <summary>
         /// Max storage size allowed for a server.
         /// </summary>
         public readonly int? StorageSizeGB;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
 
             string? logOnDisk,
 
+            string? storageRedundancy,
+
             int? storageSizeGB,
 
             string storageSku)
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.DBforMySQL.Outputs
             AutoIoScaling = autoIoScaling;
             Iops = iops;
             LogOnDisk = logOnDisk;
+            StorageRedundancy = storageRedundancy;
             StorageSizeGB = storageSizeGB;
             StorageSku = storageSku;
         }

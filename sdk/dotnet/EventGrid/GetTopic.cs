@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a topic.
-        /// Azure REST API version: 2022-06-15.
-        /// 
-        /// Other available API versions: 2020-04-01-preview, 2023-06-01-preview, 2023-12-15-preview, 2024-06-01-preview, 2024-12-15-preview, 2025-02-15.
+        /// Azure REST API version: 2025-02-15.
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure-native:eventgrid:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data Residency Boundary of the resource.
         /// </summary>
         public readonly string? DataResidencyBoundary;
@@ -96,6 +94,11 @@ namespace Pulumi.AzureNative.EventGrid
         /// Endpoint for the topic.
         /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
+        /// subscriber to view different types of events that are published.
+        /// </summary>
+        public readonly Outputs.EventTypeInfoResponse? EventTypeInfo;
         /// <summary>
         /// Fully qualified identifier of the resource.
         /// </summary>
@@ -125,9 +128,16 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string MetricResourceId;
         /// <summary>
+        /// Minimum TLS version of the publisher allowed to publish to this topic
+        /// </summary>
+        public readonly string? MinimumTlsVersionAllowed;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the topic.
@@ -139,7 +149,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
-        /// The system metadata relating to Topic resource.
+        /// The system metadata relating to the Event Grid resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -153,11 +163,15 @@ namespace Pulumi.AzureNative.EventGrid
 
         [OutputConstructor]
         private GetTopicResult(
+            string azureApiVersion,
+
             string? dataResidencyBoundary,
 
             bool? disableLocalAuth,
 
             string endpoint,
+
+            Outputs.EventTypeInfoResponse? eventTypeInfo,
 
             string id,
 
@@ -173,6 +187,8 @@ namespace Pulumi.AzureNative.EventGrid
 
             string metricResourceId,
 
+            string? minimumTlsVersionAllowed,
+
             string name,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
@@ -187,9 +203,11 @@ namespace Pulumi.AzureNative.EventGrid
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataResidencyBoundary = dataResidencyBoundary;
             DisableLocalAuth = disableLocalAuth;
             Endpoint = endpoint;
+            EventTypeInfo = eventTypeInfo;
             Id = id;
             Identity = identity;
             InboundIpRules = inboundIpRules;
@@ -197,6 +215,7 @@ namespace Pulumi.AzureNative.EventGrid
             InputSchemaMapping = inputSchemaMapping;
             Location = location;
             MetricResourceId = metricResourceId;
+            MinimumTlsVersionAllowed = minimumTlsVersionAllowed;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

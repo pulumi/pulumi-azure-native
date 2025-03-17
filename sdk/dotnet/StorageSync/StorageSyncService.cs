@@ -11,13 +11,23 @@ namespace Pulumi.AzureNative.StorageSync
 {
     /// <summary>
     /// Storage Sync Service object.
-    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01.
-    /// 
-    /// Other available API versions: 2022-09-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 2.x: 2022-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:StorageSyncService")]
     public partial class StorageSyncService : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// Incoming Traffic Policy
         /// </summary>
@@ -90,6 +100,12 @@ namespace Pulumi.AzureNative.StorageSync
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Use Identity authorization when customer have finished setup RBAC permissions.
+        /// </summary>
+        [Output("useIdentity")]
+        public Output<bool> UseIdentity { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a StorageSyncService resource with the given unique name, arguments, and options.
@@ -151,13 +167,19 @@ namespace Pulumi.AzureNative.StorageSync
     public sealed class StorageSyncServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Incoming Traffic Policy
         /// </summary>
         [Input("incomingTrafficPolicy")]
         public InputUnion<string, Pulumi.AzureNative.StorageSync.IncomingTrafficPolicy>? IncomingTrafficPolicy { get; set; }
 
         /// <summary>
-        /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -178,13 +200,19 @@ namespace Pulumi.AzureNative.StorageSync
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Use Identity authorization when customer have finished setup RBAC permissions.
+        /// </summary>
+        [Input("useIdentity")]
+        public Input<bool>? UseIdentity { get; set; }
 
         public StorageSyncServiceArgs()
         {

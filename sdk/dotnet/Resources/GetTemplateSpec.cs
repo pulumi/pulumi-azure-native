@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Resources
     public sealed class GetTemplateSpecResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Template Spec description.
         /// </summary>
         public readonly string? Description;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.Resources
 
         [OutputConstructor]
         private GetTemplateSpecResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Resources
 
             ImmutableDictionary<string, Outputs.TemplateSpecVersionInfoResponse> versions)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// Static Route properties.
+    /// Route Properties.
     /// </summary>
     public sealed class StaticRoutePropertiesArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         private InputList<string>? _nextHop;
 
         /// <summary>
-        /// List of next hop IPv4 | IPv6 addresses.
+        /// List of next hop addresses.
         /// </summary>
         public InputList<string> NextHop
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
         }
 
         /// <summary>
-        /// IPv4 | IPv6 Prefix.
+        /// Prefix of the route.
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;

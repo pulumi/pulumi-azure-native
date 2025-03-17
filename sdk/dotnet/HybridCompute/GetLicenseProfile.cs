@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridCompute
     {
         /// <summary>
         /// Retrieves information about the view of a license profile.
-        /// Azure REST API version: 2023-06-20-preview.
-        /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Task<GetLicenseProfileResult> InvokeAsync(GetLicenseProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLicenseProfileResult>("azure-native:hybridcompute:getLicenseProfile", args ?? new GetLicenseProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the view of a license profile.
-        /// Azure REST API version: 2023-06-20-preview.
-        /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Output<GetLicenseProfileResult> Invoke(GetLicenseProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseProfileResult>("azure-native:hybridcompute:getLicenseProfile", args ?? new GetLicenseProfileInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the view of a license profile.
-        /// Azure REST API version: 2023-06-20-preview.
-        /// 
-        /// Other available API versions: 2023-10-03-preview, 2024-03-31-preview, 2024-05-20-preview, 2024-07-10, 2024-07-31-preview, 2024-09-10-preview, 2024-11-10-preview.
+        /// Azure REST API version: 2024-07-10.
         /// </summary>
         public static Output<GetLicenseProfileResult> Invoke(GetLicenseProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseProfileResult>("azure-native:hybridcompute:getLicenseProfile", args ?? new GetLicenseProfileInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,30 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string AssignedLicenseImmutableId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// The timestamp in UTC when the billing ends.
+        /// </summary>
+        public readonly string BillingEndDate;
+        /// <summary>
+        /// The timestamp in UTC when the billing starts.
+        /// </summary>
+        public readonly string BillingStartDate;
+        /// <summary>
+        /// The timestamp in UTC when the user disenrolled the feature.
+        /// </summary>
+        public readonly string DisenrollmentDate;
+        /// <summary>
+        /// The timestamp in UTC when the user enrolls the feature.
+        /// </summary>
+        public readonly string EnrollmentDate;
+        /// <summary>
+        /// The errors that were encountered during the feature enrollment or disenrollment.
+        /// </summary>
+        public readonly Outputs.ErrorDetailResponse Error;
+        /// <summary>
         /// Indicates the eligibility state of Esu.
         /// </summary>
         public readonly string EsuEligibility;
@@ -129,6 +147,14 @@ namespace Pulumi.AzureNative.HybridCompute
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The list of product features.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProductFeatureResponse> ProductFeatures;
+        /// <summary>
+        /// Indicates the product type of the license.
+        /// </summary>
+        public readonly string? ProductType;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -136,6 +162,14 @@ namespace Pulumi.AzureNative.HybridCompute
         /// The type of the Esu servers.
         /// </summary>
         public readonly string ServerType;
+        /// <summary>
+        /// Specifies if this machine is licensed as part of a Software Assurance agreement.
+        /// </summary>
+        public readonly bool? SoftwareAssuranceCustomer;
+        /// <summary>
+        /// Indicates the subscription status of the product.
+        /// </summary>
+        public readonly string? SubscriptionStatus;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -155,6 +189,18 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string assignedLicenseImmutableId,
 
+            string azureApiVersion,
+
+            string billingEndDate,
+
+            string billingStartDate,
+
+            string disenrollmentDate,
+
+            string enrollmentDate,
+
+            Outputs.ErrorDetailResponse error,
+
             string esuEligibility,
 
             string esuKeyState,
@@ -167,9 +213,17 @@ namespace Pulumi.AzureNative.HybridCompute
 
             string name,
 
+            ImmutableArray<Outputs.ProductFeatureResponse> productFeatures,
+
+            string? productType,
+
             string provisioningState,
 
             string serverType,
+
+            bool? softwareAssuranceCustomer,
+
+            string? subscriptionStatus,
 
             Outputs.SystemDataResponse systemData,
 
@@ -179,14 +233,24 @@ namespace Pulumi.AzureNative.HybridCompute
         {
             AssignedLicense = assignedLicense;
             AssignedLicenseImmutableId = assignedLicenseImmutableId;
+            AzureApiVersion = azureApiVersion;
+            BillingEndDate = billingEndDate;
+            BillingStartDate = billingStartDate;
+            DisenrollmentDate = disenrollmentDate;
+            EnrollmentDate = enrollmentDate;
+            Error = error;
             EsuEligibility = esuEligibility;
             EsuKeyState = esuKeyState;
             EsuKeys = esuKeys;
             Id = id;
             Location = location;
             Name = name;
+            ProductFeatures = productFeatures;
+            ProductType = productType;
             ProvisioningState = provisioningState;
             ServerType = serverType;
+            SoftwareAssuranceCustomer = softwareAssuranceCustomer;
+            SubscriptionStatus = subscriptionStatus;
             SystemData = systemData;
             Tags = tags;
             Type = type;

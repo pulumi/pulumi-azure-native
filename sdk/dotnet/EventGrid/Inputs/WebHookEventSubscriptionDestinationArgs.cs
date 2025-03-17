@@ -59,6 +59,12 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public Input<int>? MaxEventsPerBatch { get; set; }
 
         /// <summary>
+        /// Minimum TLS version that should be supported by webhook endpoint
+        /// </summary>
+        [Input("minimumTlsVersionAllowed")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.TlsVersion>? MinimumTlsVersionAllowed { get; set; }
+
+        /// <summary>
         /// Preferred batch size in Kilobytes.
         /// </summary>
         [Input("preferredBatchSizeInKilobytes")]

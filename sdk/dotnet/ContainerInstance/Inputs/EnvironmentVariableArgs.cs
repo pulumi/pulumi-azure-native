@@ -28,12 +28,6 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         public Input<string>? SecureValue { get; set; }
 
         /// <summary>
-        /// The reference of the secure environment variable.
-        /// </summary>
-        [Input("secureValueReference")]
-        public Input<string>? SecureValueReference { get; set; }
-
-        /// <summary>
         /// The value of the environment variable.
         /// </summary>
         [Input("value")]

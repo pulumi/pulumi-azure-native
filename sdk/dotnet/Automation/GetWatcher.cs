@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the watcher identified by watcher name.
-        /// Azure REST API version: 2020-01-13-preview.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Task<GetWatcherResult> InvokeAsync(GetWatcherArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the watcher identified by watcher name.
-        /// Azure REST API version: 2020-01-13-preview.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the watcher identified by watcher name.
-        /// Azure REST API version: 2020-01-13-preview.
-        /// 
-        /// Other available API versions: 2023-05-15-preview, 2024-10-23.
+        /// Azure REST API version: 2023-05-15-preview.
         /// </summary>
         public static Output<GetWatcherResult> Invoke(GetWatcherInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatcherResult>("azure-native:automation:getWatcher", args ?? new GetWatcherInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Automation
     public sealed class GetWatcherResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the creation time.
         /// </summary>
         public readonly string CreationTime;
@@ -113,7 +111,7 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly double? ExecutionFrequencyInSeconds;
         /// <summary>
-        /// Fully qualified resource Id for the resource
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -149,16 +147,22 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetWatcherResult(
+            string azureApiVersion,
+
             string creationTime,
 
             string? description,
@@ -185,10 +189,13 @@ namespace Pulumi.AzureNative.Automation
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Description = description;
             Etag = etag;
@@ -202,6 +209,7 @@ namespace Pulumi.AzureNative.Automation
             ScriptParameters = scriptParameters;
             ScriptRunOn = scriptRunOn;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

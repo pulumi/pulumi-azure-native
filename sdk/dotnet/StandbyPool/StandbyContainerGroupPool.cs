@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.StandbyPool
 {
     /// <summary>
     /// A StandbyContainerGroupPoolResource.
-    /// Azure REST API version: 2023-12-01-preview.
-    /// 
-    /// Other available API versions: 2024-03-01, 2024-03-01-preview.
+    /// Azure REST API version: 2024-03-01. Prior API version in Azure Native 2.x: 2023-12-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:standbypool:StandbyContainerGroupPool")]
     public partial class StandbyContainerGroupPool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies container group properties of standby container group pools.
         /// </summary>
@@ -94,6 +98,7 @@ namespace Pulumi.AzureNative.StandbyPool
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20231201preview:StandbyContainerGroupPool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301:StandbyContainerGroupPool" },
                     new global::Pulumi.Alias { Type = "azure-native:standbypool/v20240301preview:StandbyContainerGroupPool" },
+                    new global::Pulumi.Alias { Type = "azure-native:standbypool/v20250301:StandbyContainerGroupPool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

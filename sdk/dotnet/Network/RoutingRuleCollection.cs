@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Defines the routing rule collection.
-    /// Azure REST API version: 2024-03-01.
-    /// 
-    /// Other available API versions: 2024-05-01.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2024-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RoutingRuleCollection")]
     public partial class RoutingRuleCollection : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("appliesTo")]
         public Output<ImmutableArray<Outputs.NetworkManagerRoutingGroupItemResponse>> AppliesTo { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// A description of the routing rule collection.

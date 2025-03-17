@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
     public sealed class StatefulResponse
     {
         /// <summary>
+        /// How long should the machine be kept around after it ran a workload when there are no stand-by agents. The maximum is one week.
+        /// </summary>
+        public readonly string? GracePeriodTimeSpan;
+        /// <summary>
         /// Discriminator property for AgentProfile.
         /// Expected value is 'Stateful'.
         /// </summary>
@@ -24,23 +28,33 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure.Outputs
         /// <summary>
         /// How long should stateful machines be kept around. The maximum is one week.
         /// </summary>
-        public readonly string MaxAgentLifetime;
+        public readonly string? MaxAgentLifetime;
         /// <summary>
-        /// Defines pool buffer.
+        /// Defines pool buffer/stand-by agents.
         /// </summary>
         public readonly object? ResourcePredictions;
+        /// <summary>
+        /// Defines how the pool buffer/stand-by agents is provided.
+        /// </summary>
+        public readonly Union<Outputs.AutomaticResourcePredictionsProfileResponse, Outputs.ManualResourcePredictionsProfileResponse>? ResourcePredictionsProfile;
 
         [OutputConstructor]
         private StatefulResponse(
+            string? gracePeriodTimeSpan,
+
             string kind,
 
-            string maxAgentLifetime,
+            string? maxAgentLifetime,
 
-            object? resourcePredictions)
+            object? resourcePredictions,
+
+            Union<Outputs.AutomaticResourcePredictionsProfileResponse, Outputs.ManualResourcePredictionsProfileResponse>? resourcePredictionsProfile)
         {
+            GracePeriodTimeSpan = gracePeriodTimeSpan;
             Kind = kind;
             MaxAgentLifetime = maxAgentLifetime;
             ResourcePredictions = resourcePredictions;
+            ResourcePredictionsProfile = resourcePredictionsProfile;
         }
     }
 }

@@ -10,13 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Azure REST API version: 2023-06-01-preview.
-    /// 
-    /// Other available API versions: 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    /// Describes incident task properties
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentTask")]
     public partial class IncidentTask : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Information on the client (user or application) that made some action
         /// </summary>
@@ -59,6 +64,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the task
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -122,6 +130,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:IncidentTask" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:IncidentTask" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:IncidentTask" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:IncidentTask" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -181,6 +190,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the task
+        /// </summary>
         [Input("status", required: true)]
         public InputUnion<string, Pulumi.AzureNative.SecurityInsights.IncidentTaskStatus> Status { get; set; } = null!;
 

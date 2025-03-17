@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
-    /// Azure REST API version: 2023-03-15-preview.
-    /// 
-    /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+    /// Azure REST API version: 2024-05-02-preview. Prior API version in Azure Native 2.x: 2023-03-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:FleetMember")]
     public partial class FleetMember : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         /// </summary>

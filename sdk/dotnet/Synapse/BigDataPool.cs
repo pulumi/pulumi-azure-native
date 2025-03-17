@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A Big Data pool
-    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01.
-    /// 
-    /// Other available API versions: 2021-05-01, 2021-06-01-preview.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 2.x: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:BigDataPool")]
     public partial class BigDataPool : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("autoScale")]
         public Output<Outputs.AutoScalePropertiesResponse?> AutoScale { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The cache size

@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.AvsDataStore>? AvsDataStore { get; set; }
 
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Backup.
+        /// Resource identifier used to identify the Backup.
         /// </summary>
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
@@ -38,6 +38,21 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         /// </summary>
         [Input("coolAccess")]
         public Input<bool>? CoolAccess { get; set; }
+
+        /// <summary>
+        /// coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
+        ///  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
+        ///  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
+        ///  Never - No client-driven data is pulled from cool tier to standard storage.
+        /// </summary>
+        [Input("coolAccessRetrievalPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessRetrievalPolicy>? CoolAccessRetrievalPolicy { get; set; }
+
+        /// <summary>
+        /// coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
+        /// </summary>
+        [Input("coolAccessTieringPolicy")]
+        public InputUnion<string, Pulumi.AzureNative.NetApp.CoolAccessTieringPolicy>? CoolAccessTieringPolicy { get; set; }
 
         /// <summary>
         /// Specifies the number of days after which data that is not accessed by clients will be tiered.
@@ -136,7 +151,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Basic network, or Standard features available to the volume.
+        /// The original value of the network features type available to the volume at the time it was created.
         /// </summary>
         [Input("networkFeatures")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.NetworkFeatures>? NetworkFeatures { get; set; }
@@ -184,7 +199,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public InputUnion<string, Pulumi.AzureNative.NetApp.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
-        /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         /// </summary>
         [Input("smbAccessBasedEnumeration")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.SmbAccessBasedEnumeration>? SmbAccessBasedEnumeration { get; set; }
@@ -202,7 +217,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<bool>? SmbEncryption { get; set; }
 
         /// <summary>
-        /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
         /// </summary>
         [Input("smbNonBrowsable")]
         public InputUnion<string, Pulumi.AzureNative.NetApp.SmbNonBrowsable>? SmbNonBrowsable { get; set; }
@@ -214,7 +229,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<bool>? SnapshotDirectoryVisible { get; set; }
 
         /// <summary>
-        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// Resource identifier used to identify the Snapshot.
         /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
@@ -247,7 +262,7 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         public Input<string>? UnixPermissions { get; set; }
 
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
         /// </summary>
         [Input("usageThreshold", required: true)]
         public Input<double> UsageThreshold { get; set; } = null!;
@@ -264,6 +279,18 @@ namespace Pulumi.AzureNative.NetApp.Inputs
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Availability Zone
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public VolumeGroupVolumePropertiesArgs()
         {
             AvsDataStore = "Disabled";
@@ -276,12 +303,10 @@ namespace Pulumi.AzureNative.NetApp.Inputs
             IsLargeVolume = false;
             KerberosEnabled = false;
             LdapEnabled = false;
-            NetworkFeatures = "Basic";
             SecurityStyle = "unix";
             SmbContinuouslyAvailable = false;
             SmbEncryption = false;
             SnapshotDirectoryVisible = true;
-            UnixPermissions = "0770";
             UsageThreshold = 107374182400;
         }
         public static new VolumeGroupVolumePropertiesArgs Empty => new VolumeGroupVolumePropertiesArgs();

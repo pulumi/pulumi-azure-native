@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ApiManagement.Inputs
         /// Name of the Sku.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ApiManagement.SkuType> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.ApiGatewaySkuType> Name { get; set; } = null!;
 
         public ApiManagementGatewaySkuPropertiesArgs()
         {

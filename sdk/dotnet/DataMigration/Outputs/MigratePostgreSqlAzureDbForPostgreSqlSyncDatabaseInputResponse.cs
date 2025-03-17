@@ -17,9 +17,13 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse
     {
         /// <summary>
+        /// Result identifier
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Migration settings which tune the migration behavior
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? MigrationSetting;
+        public readonly object? MigrationSetting;
         /// <summary>
         /// Name of the database
         /// </summary>
@@ -43,7 +47,9 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse(
-            ImmutableDictionary<string, string>? migrationSetting,
+            string id,
+
+            object? migrationSetting,
 
             string? name,
 
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             ImmutableDictionary<string, string>? targetSetting)
         {
+            Id = id;
             MigrationSetting = migrationSetting;
             Name = name;
             SelectedTables = selectedTables;

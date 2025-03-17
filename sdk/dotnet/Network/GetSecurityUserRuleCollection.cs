@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityUserRuleCollectionResult> InvokeAsync(GetSecurityUserRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserRuleCollectionResult>("azure-native:network:getSecurityUserRuleCollection", args ?? new GetSecurityUserRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserRuleCollectionResult> Invoke(GetSecurityUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleCollectionResult>("azure-native:network:getSecurityUserRuleCollection", args ?? new GetSecurityUserRuleCollectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
-        /// Azure REST API version: 2024-03-01.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityUserRuleCollectionResult> Invoke(GetSecurityUserRuleCollectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserRuleCollectionResult>("azure-native:network:getSecurityUserRuleCollection", args ?? new GetSecurityUserRuleCollectionInvokeArgs(), options.WithDefaults());
@@ -113,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityUserGroupItemResponse> AppliesToGroups;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the security user rule collection.
         /// </summary>
         public readonly string? Description;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.Network
         private GetSecurityUserRuleCollectionResult(
             ImmutableArray<Outputs.SecurityUserGroupItemResponse> appliesToGroups,
 
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AppliesToGroups = appliesToGroups;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;

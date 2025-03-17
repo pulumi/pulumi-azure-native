@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WindowsESU
 {
     /// <summary>
     /// MAK key details.
-    /// Azure REST API version: 2019-09-16-preview. Prior API version in Azure Native 1.x: 2019-09-16-preview.
+    /// Azure REST API version: 2019-09-16-preview. Prior API version in Azure Native 2.x: 2019-09-16-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsesu:MultipleActivationKey")]
     public partial class MultipleActivationKey : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.WindowsESU
         /// </summary>
         [Output("agreementNumber")]
         public Output<string?> AgreementNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// End of support of security updates activated by the MAK key.

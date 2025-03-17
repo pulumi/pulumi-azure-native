@@ -12,11 +12,17 @@ namespace Pulumi.AzureNative.AzureLargeInstance
     /// <summary>
     /// Azure Large Instance info on Azure (ARM properties and AzureLargeInstance
     /// properties)
-    /// Azure REST API version: 2024-08-01-preview.
+    /// Azure REST API version: 2024-08-01-preview. Prior API version in Azure Native 2.x: 2024-08-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurelargeinstance:AzureLargeInstance")]
     public partial class AzureLargeInstance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the Azure Large Instance unique ID.
         /// </summary>

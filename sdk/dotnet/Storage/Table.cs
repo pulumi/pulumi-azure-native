@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>

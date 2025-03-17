@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified credential set resource.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Task<GetCredentialSetResult> InvokeAsync(GetCredentialSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCredentialSetResult>("azure-native:containerregistry:getCredentialSet", args ?? new GetCredentialSetArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified credential set resource.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// Gets the properties of the specified credential set resource.
         /// Azure REST API version: 2023-01-01-preview.
-        /// 
-        /// Other available API versions: 2023-06-01-preview, 2023-07-01, 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
         /// </summary>
         public static Output<GetCredentialSetResult> Invoke(GetCredentialSetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCredentialSetResult>("azure-native:containerregistry:getCredentialSet", args ?? new GetCredentialSetInvokeArgs(), options.WithDefaults());
@@ -102,6 +96,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly ImmutableArray<Outputs.AuthCredentialResponse> AuthCredentials;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of credential store resource.
         /// </summary>
         public readonly string CreationDate;
@@ -138,6 +136,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetCredentialSetResult(
             ImmutableArray<Outputs.AuthCredentialResponse> authCredentials,
 
+            string azureApiVersion,
+
             string creationDate,
 
             string id,
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string type)
         {
             AuthCredentials = authCredentials;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             Id = id;
             Identity = identity;

@@ -70,6 +70,38 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     }
 
     /// <summary>
+    /// Billing tier for this messaging flow
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowBillingTier : IEquatable<FlowBillingTier>
+    {
+        private readonly string _value;
+
+        private FlowBillingTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FlowBillingTier BlobTransport { get; } = new FlowBillingTier("BlobTransport");
+        public static FlowBillingTier Standard { get; } = new FlowBillingTier("Standard");
+        public static FlowBillingTier Premium { get; } = new FlowBillingTier("Premium");
+
+        public static bool operator ==(FlowBillingTier left, FlowBillingTier right) => left.Equals(right);
+        public static bool operator !=(FlowBillingTier left, FlowBillingTier right) => !left.Equals(right);
+
+        public static explicit operator string(FlowBillingTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowBillingTier other && Equals(other);
+        public bool Equals(FlowBillingTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the current flow
     /// </summary>
     [EnumType]
@@ -121,6 +153,10 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         public static FlowType MicrosoftInternal { get; } = new FlowType("MicrosoftInternal");
         public static FlowType BasicFiles { get; } = new FlowType("BasicFiles");
         public static FlowType Data { get; } = new FlowType("Data");
+        public static FlowType Standard { get; } = new FlowType("Standard");
+        public static FlowType StreamingVideo { get; } = new FlowType("StreamingVideo");
+        public static FlowType Opaque { get; } = new FlowType("Opaque");
+        public static FlowType MissionOpaqueXML { get; } = new FlowType("MissionOpaqueXML");
 
         public static bool operator ==(FlowType left, FlowType right) => left.Equals(right);
         public static bool operator !=(FlowType left, FlowType right) => !left.Equals(right);
@@ -202,6 +238,37 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     }
 
     /// <summary>
+    /// The direction of the schema.
+    /// </summary>
+    [EnumType]
+    public readonly struct SchemaDirection : IEquatable<SchemaDirection>
+    {
+        private readonly string _value;
+
+        private SchemaDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SchemaDirection Send { get; } = new SchemaDirection("Send");
+        public static SchemaDirection Receive { get; } = new SchemaDirection("Receive");
+
+        public static bool operator ==(SchemaDirection left, SchemaDirection right) => left.Equals(right);
+        public static bool operator !=(SchemaDirection left, SchemaDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SchemaDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchemaDirection other && Equals(other);
+        public bool Equals(SchemaDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status of the schema
     /// </summary>
     [EnumType]
@@ -225,6 +292,69 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SchemaStatus other && Equals(other);
         public bool Equals(SchemaStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Schema Type
+    /// </summary>
+    [EnumType]
+    public readonly struct SchemaType : IEquatable<SchemaType>
+    {
+        private readonly string _value;
+
+        private SchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SchemaType Xsd { get; } = new SchemaType("Xsd");
+        public static SchemaType Zip { get; } = new SchemaType("Zip");
+
+        public static bool operator ==(SchemaType left, SchemaType right) => left.Equals(right);
+        public static bool operator !=(SchemaType left, SchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(SchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchemaType other && Equals(other);
+        public bool Equals(SchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol of the stream
+    /// </summary>
+    [EnumType]
+    public readonly struct StreamProtocol : IEquatable<StreamProtocol>
+    {
+        private readonly string _value;
+
+        private StreamProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StreamProtocol UDP { get; } = new StreamProtocol("UDP");
+        public static StreamProtocol SRT { get; } = new StreamProtocol("SRT");
+        public static StreamProtocol RTP { get; } = new StreamProtocol("RTP");
+
+        public static bool operator ==(StreamProtocol left, StreamProtocol right) => left.Equals(right);
+        public static bool operator !=(StreamProtocol left, StreamProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(StreamProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StreamProtocol other && Equals(other);
+        public bool Equals(StreamProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ServiceBus
     public sealed class GetNamespaceVirtualNetworkRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.ServiceBus
 
         [OutputConstructor]
         private GetNamespaceVirtualNetworkRuleResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string? virtualNetworkSubnetId)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Type = type;

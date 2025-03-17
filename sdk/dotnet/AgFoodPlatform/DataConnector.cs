@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.AgFoodPlatform
 {
     /// <summary>
     /// DataConnector Model.
-    /// Azure REST API version: 2023-06-01-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 2.x: 2023-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:DataConnector")]
     public partial class DataConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The ETag value to implement optimistic concurrency.
         /// </summary>

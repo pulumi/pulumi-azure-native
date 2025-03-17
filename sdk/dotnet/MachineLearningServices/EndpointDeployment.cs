@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Azure REST API version: 2024-01-01-preview.
-    /// 
-    /// Other available API versions: 2024-04-01-preview, 2024-07-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2025-01-01-preview. Prior API version in Azure Native 2.x: 2024-01-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EndpointDeployment")]
     public partial class EndpointDeployment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -67,6 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240401preview:EndpointDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20240701preview:EndpointDeployment" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20241001preview:EndpointDeployment" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250101preview:EndpointDeployment" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

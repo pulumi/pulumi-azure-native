@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Management resource preference to link device
+    /// Management resource preference to link device.
     /// </summary>
     [OutputType]
     public sealed class ManagementResourcePreferencesResponse
     {
         /// <summary>
-        /// Customer preferred Management resource ARM ID
+        /// Customer preferred Management resource ARM ID.
         /// </summary>
         public readonly string? PreferredManagementResourceId;
 

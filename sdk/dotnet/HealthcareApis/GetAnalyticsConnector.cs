@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.HealthcareApis
     public sealed class GetAnalyticsConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Data destination configuration for Analytics Connector.
         /// </summary>
         public readonly Outputs.AnalyticsConnectorDataLakeDataDestinationResponse DataDestinationConfiguration;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.HealthcareApis
 
         [OutputConstructor]
         private GetAnalyticsConnectorResult(
+            string azureApiVersion,
+
             Outputs.AnalyticsConnectorDataLakeDataDestinationResponse dataDestinationConfiguration,
 
             Outputs.AnalyticsConnectorFhirToParquetMappingResponse dataMappingConfiguration,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataDestinationConfiguration = dataDestinationConfiguration;
             DataMappingConfiguration = dataMappingConfiguration;
             DataSourceConfiguration = dataSourceConfiguration;

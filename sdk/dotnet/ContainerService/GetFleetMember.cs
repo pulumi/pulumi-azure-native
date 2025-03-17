@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Task<GetFleetMemberResult> InvokeAsync(GetFleetMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetMember
-        /// Azure REST API version: 2023-03-15-preview.
-        /// 
-        /// Other available API versions: 2022-07-02-preview, 2023-06-15-preview, 2023-08-15-preview, 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetMemberResult> Invoke(GetFleetMemberInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMemberResult>("azure-native:containerservice:getFleetMember", args ?? new GetFleetMemberInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetFleetMemberResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
         /// </summary>
         public readonly string ClusterResourceId;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.ContainerService
 
         [OutputConstructor]
         private GetFleetMemberResult(
+            string azureApiVersion,
+
             string clusterResourceId,
 
             string eTag,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ClusterResourceId = clusterResourceId;
             ETag = eTag;
             Group = group;

@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.GraphServices
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Azure resource ID.
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.GraphServices
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.GraphServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// List of countries for Rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<ListLocalRulestackCountriesResult> InvokeAsync(ListLocalRulestackCountriesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListLocalRulestackCountriesResult>("azure-native:cloudngfw:listLocalRulestackCountries", args ?? new ListLocalRulestackCountriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of countries for Rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListLocalRulestackCountriesResult> Invoke(ListLocalRulestackCountriesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackCountriesResult>("azure-native:cloudngfw:listLocalRulestackCountries", args ?? new ListLocalRulestackCountriesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List of countries for Rulestack
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<ListLocalRulestackCountriesResult> Invoke(ListLocalRulestackCountriesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListLocalRulestackCountriesResult>("azure-native:cloudngfw:listLocalRulestackCountries", args ?? new ListLocalRulestackCountriesInvokeArgs(), options.WithDefaults());

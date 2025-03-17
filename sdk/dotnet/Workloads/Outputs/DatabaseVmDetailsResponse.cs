@@ -24,6 +24,9 @@ namespace Pulumi.AzureNative.Workloads.Outputs
         /// Storage details of all the Storage Accounts attached to the Database Virtual Machine. For e.g. NFS on AFS Shared Storage.
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageInformationResponse> StorageDetails;
+        /// <summary>
+        /// The virtual machine id.
+        /// </summary>
         public readonly string VirtualMachineId;
 
         [OutputConstructor]

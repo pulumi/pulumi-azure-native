@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Task<GetConnectionRaiBlocklistItemResult> InvokeAsync(GetConnectionRaiBlocklistItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetConnectionRaiBlocklistItemResult> Invoke(GetConnectionRaiBlocklistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// Azure REST API version: 2024-04-01-preview.
-        /// 
-        /// Other available API versions: 2024-07-01-preview, 2024-10-01-preview.
+        /// Azure REST API version: 2025-01-01-preview.
         /// </summary>
         public static Output<GetConnectionRaiBlocklistItemResult> Invoke(GetConnectionRaiBlocklistItemInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionRaiBlocklistItemResult>("azure-native:machinelearningservices:getConnectionRaiBlocklistItem", args ?? new GetConnectionRaiBlocklistItemInvokeArgs(), options.WithDefaults());
@@ -47,6 +41,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("connectionName", required: true)]
         public string ConnectionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the RaiBlocklist Item
+        /// </summary>
+        [Input("raiBlocklistItemName", required: true)]
+        public string RaiBlocklistItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the RaiBlocklist.
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
+        /// Name of the RaiBlocklist Item
+        /// </summary>
+        [Input("raiBlocklistItemName", required: true)]
+        public Input<string> RaiBlocklistItemName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the RaiBlocklist.
         /// </summary>
         [Input("raiBlocklistName", required: true)]
@@ -109,6 +115,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetConnectionRaiBlocklistItemResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -117,9 +127,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// RAI Custom Blocklist properties.
+        /// RAI Custom Blocklist Item properties.
         /// </summary>
-        public readonly Outputs.RaiBlocklistPropertiesResponse Properties;
+        public readonly Outputs.RaiBlocklistItemPropertiesResponse Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -131,16 +141,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetConnectionRaiBlocklistItemResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
 
-            Outputs.RaiBlocklistPropertiesResponse properties,
+            Outputs.RaiBlocklistItemPropertiesResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

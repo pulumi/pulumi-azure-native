@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? ArmTemplateFolderPath;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The artifact source's branch reference.
         /// </summary>
         public readonly string? BranchRef;
@@ -171,6 +175,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetArtifactSourceResult(
             string? armTemplateFolderPath,
 
+            string azureApiVersion,
+
             string? branchRef,
 
             string createdDate,
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.DevTestLab
             string? uri)
         {
             ArmTemplateFolderPath = armTemplateFolderPath;
+            AzureApiVersion = azureApiVersion;
             BranchRef = branchRef;
             CreatedDate = createdDate;
             DisplayName = displayName;

@@ -8,6 +8,121 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureFleet
 {
     /// <summary>
+    /// Accelerator manufacturers supported by Azure VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct AcceleratorManufacturer : IEquatable<AcceleratorManufacturer>
+    {
+        private readonly string _value;
+
+        private AcceleratorManufacturer(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// AMD GpuType
+        /// </summary>
+        public static AcceleratorManufacturer AMD { get; } = new AcceleratorManufacturer("AMD");
+        /// <summary>
+        /// Nvidia GpuType
+        /// </summary>
+        public static AcceleratorManufacturer Nvidia { get; } = new AcceleratorManufacturer("Nvidia");
+        /// <summary>
+        /// Xilinx GpuType
+        /// </summary>
+        public static AcceleratorManufacturer Xilinx { get; } = new AcceleratorManufacturer("Xilinx");
+
+        public static bool operator ==(AcceleratorManufacturer left, AcceleratorManufacturer right) => left.Equals(right);
+        public static bool operator !=(AcceleratorManufacturer left, AcceleratorManufacturer right) => !left.Equals(right);
+
+        public static explicit operator string(AcceleratorManufacturer value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AcceleratorManufacturer other && Equals(other);
+        public bool Equals(AcceleratorManufacturer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Accelerator types supported by Azure VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct AcceleratorType : IEquatable<AcceleratorType>
+    {
+        private readonly string _value;
+
+        private AcceleratorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// GPU Accelerator
+        /// </summary>
+        public static AcceleratorType GPU { get; } = new AcceleratorType("GPU");
+        /// <summary>
+        /// FPGA Accelerator
+        /// </summary>
+        public static AcceleratorType FPGA { get; } = new AcceleratorType("FPGA");
+
+        public static bool operator ==(AcceleratorType left, AcceleratorType right) => left.Equals(right);
+        public static bool operator !=(AcceleratorType left, AcceleratorType right) => !left.Equals(right);
+
+        public static explicit operator string(AcceleratorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AcceleratorType other && Equals(other);
+        public bool Equals(AcceleratorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Architecture types supported by Azure VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArchitectureType : IEquatable<ArchitectureType>
+    {
+        private readonly string _value;
+
+        private ArchitectureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// ARM64 Architecture
+        /// </summary>
+        public static ArchitectureType ARM64 { get; } = new ArchitectureType("ARM64");
+        /// <summary>
+        /// X64 Architecture
+        /// </summary>
+        public static ArchitectureType X64 { get; } = new ArchitectureType("X64");
+
+        public static bool operator ==(ArchitectureType left, ArchitectureType right) => left.Equals(right);
+        public static bool operator !=(ArchitectureType left, ArchitectureType right) => !left.Equals(right);
+
+        public static explicit operator string(ArchitectureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArchitectureType other && Equals(other);
+        public bool Equals(ArchitectureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the caching requirements. Possible values are: **None,**
     /// **ReadOnly,** **ReadWrite.** The default values are: **None for Standard
     /// storage. ReadOnly for Premium storage.**
@@ -74,6 +189,51 @@ namespace Pulumi.AzureNative.AzureFleet
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ComponentName other && Equals(other);
         public bool Equals(ComponentName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Cpu Manufacturers  supported by Azure VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct CpuManufacturer : IEquatable<CpuManufacturer>
+    {
+        private readonly string _value;
+
+        private CpuManufacturer(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Intel CPU.
+        /// </summary>
+        public static CpuManufacturer Intel { get; } = new CpuManufacturer("Intel");
+        /// <summary>
+        /// AMD CPU.
+        /// </summary>
+        public static CpuManufacturer AMD { get; } = new CpuManufacturer("AMD");
+        /// <summary>
+        /// Microsoft CPU.
+        /// </summary>
+        public static CpuManufacturer Microsoft { get; } = new CpuManufacturer("Microsoft");
+        /// <summary>
+        /// Ampere CPU.
+        /// </summary>
+        public static CpuManufacturer Ampere { get; } = new CpuManufacturer("Ampere");
+
+        public static bool operator ==(CpuManufacturer left, CpuManufacturer right) => left.Equals(right);
+        public static bool operator !=(CpuManufacturer left, CpuManufacturer right) => !left.Equals(right);
+
+        public static explicit operator string(CpuManufacturer value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CpuManufacturer other && Equals(other);
+        public bool Equals(CpuManufacturer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -581,6 +741,43 @@ namespace Pulumi.AzureNative.AzureFleet
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LinuxVMGuestPatchMode other && Equals(other);
         public bool Equals(LinuxVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Different kind of Local storage disk types supported by Azure VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct LocalStorageDiskType : IEquatable<LocalStorageDiskType>
+    {
+        private readonly string _value;
+
+        private LocalStorageDiskType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// HDD DiskType.
+        /// </summary>
+        public static LocalStorageDiskType HDD { get; } = new LocalStorageDiskType("HDD");
+        /// <summary>
+        /// SDD DiskType.
+        /// </summary>
+        public static LocalStorageDiskType SSD { get; } = new LocalStorageDiskType("SSD");
+
+        public static bool operator ==(LocalStorageDiskType left, LocalStorageDiskType right) => left.Equals(right);
+        public static bool operator !=(LocalStorageDiskType left, LocalStorageDiskType right) => !left.Equals(right);
+
+        public static explicit operator string(LocalStorageDiskType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LocalStorageDiskType other && Equals(other);
+        public bool Equals(LocalStorageDiskType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1223,6 +1420,110 @@ namespace Pulumi.AzureNative.AzureFleet
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageAccountTypes other && Equals(other);
         public bool Equals(StorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether the VMSize supporting RDMA (Remote Direct Memory Access) should be used to build Fleet or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct VMAttributeSupport : IEquatable<VMAttributeSupport>
+    {
+        private readonly string _value;
+
+        private VMAttributeSupport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All VMSizes having the feature support will be excluded.
+        /// </summary>
+        public static VMAttributeSupport Excluded { get; } = new VMAttributeSupport("Excluded");
+        /// <summary>
+        ///  VMSizes that have the feature support and that do not have the feature support will be used. Included is a union of Excluded and Required.
+        /// </summary>
+        public static VMAttributeSupport Included { get; } = new VMAttributeSupport("Included");
+        /// <summary>
+        /// Only the VMSizes having the feature support will be used.
+        /// </summary>
+        public static VMAttributeSupport Required { get; } = new VMAttributeSupport("Required");
+
+        public static bool operator ==(VMAttributeSupport left, VMAttributeSupport right) => left.Equals(right);
+        public static bool operator !=(VMAttributeSupport left, VMAttributeSupport right) => !left.Equals(right);
+
+        public static explicit operator string(VMAttributeSupport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VMAttributeSupport other && Equals(other);
+        public bool Equals(VMAttributeSupport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// VMCategories defined for Azure VMs.
+    /// See: https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist#general-purpose
+    /// </summary>
+    [EnumType]
+    public readonly struct VMCategory : IEquatable<VMCategory>
+    {
+        private readonly string _value;
+
+        private VMCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers.
+        /// </summary>
+        public static VMCategory GeneralPurpose { get; } = new VMCategory("GeneralPurpose");
+        /// <summary>
+        /// Compute optimized VM sizes have a high CPU-to-memory ratio. These sizes are good for medium traffic web servers, network appliances, batch processes, and application servers.
+        /// </summary>
+        public static VMCategory ComputeOptimized { get; } = new VMCategory("ComputeOptimized");
+        /// <summary>
+        /// Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for relational database servers, medium to large caches, and in-memory analytics.
+        /// </summary>
+        public static VMCategory MemoryOptimized { get; } = new VMCategory("MemoryOptimized");
+        /// <summary>
+        /// Storage optimized virtual machine (VM) sizes offer high disk throughput and IO, and are ideal for Big Data, SQL, NoSQL databases, data warehousing, and large transactional databases. 
+        /// Examples include Cassandra, MongoDB, Cloudera, and Redis.
+        /// </summary>
+        public static VMCategory StorageOptimized { get; } = new VMCategory("StorageOptimized");
+        /// <summary>
+        /// GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. 
+        /// These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
+        /// </summary>
+        public static VMCategory GpuAccelerated { get; } = new VMCategory("GpuAccelerated");
+        /// <summary>
+        /// FPGA optimized VM sizes are specialized virtual machines available with single or multiple FPGA. 
+        /// These sizes are designed for compute-intensive workloads. This article provides information about the number and type of FPGA, vCPUs, data disks, and NICs. 
+        /// Storage throughput and network bandwidth are also included for each size in this grouping.
+        /// </summary>
+        public static VMCategory FpgaAccelerated { get; } = new VMCategory("FpgaAccelerated");
+        /// <summary>
+        /// Azure High Performance Compute VMs are optimized for various HPC workloads such as computational fluid dynamics, finite element analysis, frontend and backend EDA, 
+        /// rendering, molecular dynamics, computational geo science, weather simulation, and financial risk analysis.
+        /// </summary>
+        public static VMCategory HighPerformanceCompute { get; } = new VMCategory("HighPerformanceCompute");
+
+        public static bool operator ==(VMCategory left, VMCategory right) => left.Equals(right);
+        public static bool operator !=(VMCategory left, VMCategory right) => !left.Equals(right);
+
+        public static explicit operator string(VMCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VMCategory other && Equals(other);
+        public bool Equals(VMCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

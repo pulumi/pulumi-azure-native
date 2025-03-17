@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetScopeAccessReviewHistoryDefinitionByIdResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Date time when history definition was created
         /// </summary>
         public readonly string CreatedDateTime;
@@ -90,10 +94,6 @@ namespace Pulumi.AzureNative.Authorization
         /// The display name for the history definition.
         /// </summary>
         public readonly string? DisplayName;
-        /// <summary>
-        /// The DateTime when the review is scheduled to end. Required if type is endDate
-        /// </summary>
-        public readonly string? EndDate;
         /// <summary>
         /// The access review history definition id.
         /// </summary>
@@ -111,10 +111,6 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of times to repeat the access review. Required and must be positive if type is numbered.
-        /// </summary>
-        public readonly int? NumberOfOccurrences;
-        /// <summary>
         /// The identity id
         /// </summary>
         public readonly string PrincipalId;
@@ -127,6 +123,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string PrincipalType;
         /// <summary>
+        /// Access Review History Definition recurrence settings.
+        /// </summary>
+        public readonly Outputs.AccessReviewRecurrenceRangeResponse? Range;
+        /// <summary>
         /// Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
         /// </summary>
         public readonly string ReviewHistoryPeriodEndDateTime;
@@ -138,10 +138,6 @@ namespace Pulumi.AzureNative.Authorization
         /// A collection of scopes used when selecting review history data
         /// </summary>
         public readonly ImmutableArray<Outputs.AccessReviewScopeResponse> Scopes;
-        /// <summary>
-        /// The DateTime when the review is scheduled to be start. This could be a date in the future. Required on create.
-        /// </summary>
-        public readonly string? StartDate;
         /// <summary>
         /// This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
         /// </summary>
@@ -157,13 +153,13 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetScopeAccessReviewHistoryDefinitionByIdResult(
+            string azureApiVersion,
+
             string createdDateTime,
 
             ImmutableArray<string> decisions,
 
             string? displayName,
-
-            string? endDate,
 
             string id,
 
@@ -173,13 +169,13 @@ namespace Pulumi.AzureNative.Authorization
 
             string name,
 
-            int? numberOfOccurrences,
-
             string principalId,
 
             string principalName,
 
             string principalType,
+
+            Outputs.AccessReviewRecurrenceRangeResponse? range,
 
             string reviewHistoryPeriodEndDateTime,
 
@@ -187,30 +183,27 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.AccessReviewScopeResponse> scopes,
 
-            string? startDate,
-
             string status,
 
             string type,
 
             string userPrincipalName)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDateTime = createdDateTime;
             Decisions = decisions;
             DisplayName = displayName;
-            EndDate = endDate;
             Id = id;
             Instances = instances;
             Interval = interval;
             Name = name;
-            NumberOfOccurrences = numberOfOccurrences;
             PrincipalId = principalId;
             PrincipalName = principalName;
             PrincipalType = principalType;
+            Range = range;
             ReviewHistoryPeriodEndDateTime = reviewHistoryPeriodEndDateTime;
             ReviewHistoryPeriodStartDateTime = reviewHistoryPeriodStartDateTime;
             Scopes = scopes;
-            StartDate = startDate;
             Status = status;
             Type = type;
             UserPrincipalName = userPrincipalName;

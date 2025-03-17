@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.IoTOperations
     {
         /// <summary>
         /// Get a BrokerAuthenticationResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetBrokerAuthenticationResult> InvokeAsync(GetBrokerAuthenticationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerAuthenticationResult>("azure-native:iotoperations:getBrokerAuthentication", args ?? new GetBrokerAuthenticationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerAuthenticationResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetBrokerAuthenticationResult> Invoke(GetBrokerAuthenticationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerAuthenticationResult>("azure-native:iotoperations:getBrokerAuthentication", args ?? new GetBrokerAuthenticationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a BrokerAuthenticationResource
-        /// Azure REST API version: 2024-07-01-preview.
-        /// 
-        /// Other available API versions: 2024-08-15-preview, 2024-09-15-preview, 2024-11-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetBrokerAuthenticationResult> Invoke(GetBrokerAuthenticationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerAuthenticationResult>("azure-native:iotoperations:getBrokerAuthentication", args ?? new GetBrokerAuthenticationInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.IoTOperations
     public sealed class GetBrokerAuthenticationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Edge location of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.IoTOperations
 
         [OutputConstructor]
         private GetBrokerAuthenticationResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.IoTOperations
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Name = name;

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// A private endpoint connection class.
-    /// Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview.
-    /// 
-    /// Other available API versions: 2021-07-01, 2023-05-01-preview, 2024-04-01-preview.
+    /// Azure REST API version: 2024-04-01-preview. Prior API version in Azure Native 2.x: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>

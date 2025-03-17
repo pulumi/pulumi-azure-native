@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
+    /// <summary>
+    /// Properties of the subnet.
+    /// </summary>
     [OutputType]
     public sealed class SubnetResponse
     {
@@ -28,7 +31,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// <summary>
         /// IPConfigurationReferences - list of IPConfigurationReferences
         /// </summary>
-        public readonly ImmutableArray<Outputs.SubnetPropertiesFormatResponseIpConfigurationReferences> IpConfigurationReferences;
+        public readonly ImmutableArray<Outputs.SubnetIpConfigurationReferenceResponse> IpConfigurationReferences;
         /// <summary>
         /// network associated pool of IP Addresses
         /// </summary>
@@ -37,6 +40,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Name - The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// NetworkSecurityGroup - Network Security Group attached to the logical network.
+        /// </summary>
+        public readonly Outputs.NetworkSecurityGroupArmReferenceResponse? NetworkSecurityGroup;
         /// <summary>
         /// Route table resource.
         /// </summary>
@@ -54,11 +61,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string? ipAllocationMethod,
 
-            ImmutableArray<Outputs.SubnetPropertiesFormatResponseIpConfigurationReferences> ipConfigurationReferences,
+            ImmutableArray<Outputs.SubnetIpConfigurationReferenceResponse> ipConfigurationReferences,
 
             ImmutableArray<Outputs.IPPoolResponse> ipPools,
 
             string? name,
+
+            Outputs.NetworkSecurityGroupArmReferenceResponse? networkSecurityGroup,
 
             Outputs.RouteTableResponse? routeTable,
 
@@ -70,6 +79,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             IpConfigurationReferences = ipConfigurationReferences;
             IpPools = ipPools;
             Name = name;
+            NetworkSecurityGroup = networkSecurityGroup;
             RouteTable = routeTable;
             Vlan = vlan;
         }

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The lock information.
-    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01.
+    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 2.x: 2020-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockByScope")]
     public partial class ManagementLockByScope : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>

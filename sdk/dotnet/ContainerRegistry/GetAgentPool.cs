@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
     public sealed class GetAgentPoolResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The count of agent machine
         /// </summary>
         public readonly int? Count;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
         [OutputConstructor]
         private GetAgentPoolResult(
+            string azureApiVersion,
+
             int? count,
 
             string id,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string? virtualNetworkSubnetResourceId)
         {
+            AzureApiVersion = azureApiVersion;
             Count = count;
             Id = id;
             Location = location;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Gets an existing custom domain for a particular static site.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetStaticSiteCustomDomainResult> InvokeAsync(GetStaticSiteCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteCustomDomainResult>("azure-native:web:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets an existing custom domain for a particular static site.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetStaticSiteCustomDomainResult> Invoke(GetStaticSiteCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Gets an existing custom domain for a particular static site.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetStaticSiteCustomDomainResult> Invoke(GetStaticSiteCustomDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteCustomDomainResult>("azure-native:web:getStaticSiteCustomDomain", args ?? new GetStaticSiteCustomDomainInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetStaticSiteCustomDomainResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The date and time on which the custom domain was created for the static site.
         /// </summary>
         public readonly string CreatedOn;
@@ -132,6 +130,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetStaticSiteCustomDomainResult(
+            string azureApiVersion,
+
             string createdOn,
 
             string domainName,
@@ -150,6 +150,7 @@ namespace Pulumi.AzureNative.Web
 
             string validationToken)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedOn = createdOn;
             DomainName = domainName;
             ErrorMessage = errorMessage;

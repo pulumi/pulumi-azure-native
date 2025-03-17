@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.GuestConfiguration
     {
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Task<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> InvokeAsync(GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment", args ?? new GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> Invoke(GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment", args ?? new GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> Invoke(GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationConnectedVMwarevSphereAssignment", args ?? new GetGuestConfigurationConnectedVMwarevSphereAssignmentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
     public sealed class GetGuestConfigurationConnectedVMwarevSphereAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM resource id of the guest configuration assignment.
         /// </summary>
         public readonly string Id;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
         [OutputConstructor]
         private GetGuestConfigurationConnectedVMwarevSphereAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

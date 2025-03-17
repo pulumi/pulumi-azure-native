@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.MachineLearning
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation time for this workspace resource.
         /// </summary>
         public readonly string CreationTime;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.MachineLearning
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string azureApiVersion,
+
             string creationTime,
 
             string id,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNative.MachineLearning
 
             string workspaceType)
         {
+            AzureApiVersion = azureApiVersion;
             CreationTime = creationTime;
             Id = id;
             KeyVaultIdentifierId = keyVaultIdentifierId;

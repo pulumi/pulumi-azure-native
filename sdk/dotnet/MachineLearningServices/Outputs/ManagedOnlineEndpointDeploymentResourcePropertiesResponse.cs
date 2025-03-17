@@ -13,10 +13,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class ManagedOnlineEndpointDeploymentResourcePropertiesResponse
     {
+        public readonly string? EndpointComputeType;
         /// <summary>
         /// The failure reason if the creation failed.
         /// </summary>
         public readonly string? FailureReason;
+        public readonly string? Model;
         /// <summary>
         /// Read-only provision state status property.
         /// </summary>
@@ -29,13 +31,19 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ManagedOnlineEndpointDeploymentResourcePropertiesResponse(
+            string? endpointComputeType,
+
             string? failureReason,
+
+            string? model,
 
             string provisioningState,
 
             string type)
         {
+            EndpointComputeType = endpointComputeType;
             FailureReason = failureReason;
+            Model = model;
             ProvisioningState = provisioningState;
             Type = type;
         }

@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? Author;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the custom image.
         /// </summary>
         public readonly string CreationDate;
@@ -175,6 +179,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetCustomImageResult(
             string? author,
 
+            string azureApiVersion,
+
             string creationDate,
 
             Outputs.CustomImagePropertiesFromPlanResponse? customImagePlan,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNative.DevTestLab
             Outputs.CustomImagePropertiesFromVmResponse? vm)
         {
             Author = author;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             CustomImagePlan = customImagePlan;
             DataDiskStorageInfo = dataDiskStorageInfo;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Virtual machine model
-    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01.
+    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 2.x: 2019-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// </summary>
         [Output("amountOfRam")]
         public Output<int> AmountOfRam { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The list of Virtual Disks' Controllers

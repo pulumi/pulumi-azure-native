@@ -11,18 +11,46 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// The RoutePolicy resource definition.
-    /// Azure REST API version: 2023-02-01-preview. Prior API version in Azure Native 1.x: 2023-02-01-preview.
-    /// 
-    /// Other available API versions: 2023-06-15.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:RoutePolicy")]
     public partial class RoutePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+        /// </summary>
+        [Output("addressFamilyType")]
+        public Output<string?> AddressFamilyType { get; private set; } = null!;
+
+        /// <summary>
+        /// Administrative state of the resource.
+        /// </summary>
+        [Output("administrativeState")]
+        public Output<string> AdministrativeState { get; private set; } = null!;
+
+        /// <summary>
         /// Switch configuration description.
         /// </summary>
         [Output("annotation")]
         public Output<string?> Annotation { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration state of the resource.
+        /// </summary>
+        [Output("configurationState")]
+        public Output<string> ConfigurationState { get; private set; } = null!;
+
+        /// <summary>
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        /// </summary>
+        [Output("defaultAction")]
+        public Output<string?> DefaultAction { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -37,7 +65,13 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the provisioning state of the resource.
+        /// Arm Resource ID of Network Fabric.
+        /// </summary>
+        [Output("networkFabricId")]
+        public Output<string> NetworkFabricId { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -117,10 +151,22 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     public sealed class RoutePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
+        /// </summary>
+        [Input("addressFamilyType")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.AddressFamilyType>? AddressFamilyType { get; set; }
+
+        /// <summary>
         /// Switch configuration description.
         /// </summary>
         [Input("annotation")]
         public Input<string>? Annotation { get; set; }
+
+        /// <summary>
+        /// Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
+        /// </summary>
+        [Input("defaultAction")]
+        public InputUnion<string, Pulumi.AzureNative.ManagedNetworkFabric.CommunityActionTypes>? DefaultAction { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -129,13 +175,19 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Arm Resource ID of Network Fabric.
+        /// </summary>
+        [Input("networkFabricId", required: true)]
+        public Input<string> NetworkFabricId { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Route Policy
+        /// Name of the Route Policy.
         /// </summary>
         [Input("routePolicyName")]
         public Input<string>? RoutePolicyName { get; set; }
@@ -166,6 +218,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 
         public RoutePolicyArgs()
         {
+            AddressFamilyType = "IPv4";
+            DefaultAction = "Deny";
         }
         public static new RoutePolicyArgs Empty => new RoutePolicyArgs();
     }

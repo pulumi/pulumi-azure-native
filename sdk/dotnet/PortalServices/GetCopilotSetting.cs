@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.PortalServices
     {
         /// <summary>
         /// Get a CopilotSettingsResource
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetCopilotSettingResult> InvokeAsync(GetCopilotSettingArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCopilotSettingResult>("azure-native:portalservices:getCopilotSetting", args ?? new GetCopilotSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a CopilotSettingsResource
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCopilotSettingResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
 
         /// <summary>
         /// Get a CopilotSettingsResource
-        /// Azure REST API version: 2024-04-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetCopilotSettingResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCopilotSettingResult>("azure-native:portalservices:getCopilotSetting", InvokeArgs.Empty, options.WithDefaults());
@@ -50,6 +50,10 @@ namespace Pulumi.AzureNative.PortalServices
         /// Boolean indicating if role-based access control is enabled for copilot in this tenant.
         /// </summary>
         public readonly bool AccessControlEnabled;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
@@ -75,6 +79,8 @@ namespace Pulumi.AzureNative.PortalServices
         private GetCopilotSettingResult(
             bool accessControlEnabled,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNative.PortalServices
             string type)
         {
             AccessControlEnabled = accessControlEnabled;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

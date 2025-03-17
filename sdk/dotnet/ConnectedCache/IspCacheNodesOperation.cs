@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ConnectedCache
 {
     /// <summary>
     /// Represents the high level Nodes needed to provision cache node resources
-    /// Azure REST API version: 2023-05-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 2.x: 2023-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedcache:IspCacheNodesOperation")]
     public partial class IspCacheNodesOperation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>

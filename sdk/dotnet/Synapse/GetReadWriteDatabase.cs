@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetReadWriteDatabaseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The time the data should be kept in cache for fast queries in TimeSpan.
         /// </summary>
         public readonly string? HotCachePeriod;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetReadWriteDatabaseResult(
+            string azureApiVersion,
+
             string? hotCachePeriod,
 
             string id,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             HotCachePeriod = hotCachePeriod;
             Id = id;
             IsFollowed = isFollowed;

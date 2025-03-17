@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get the properties of an connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentResult> InvokeAsync(GetConnectedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentResult>("azure-native:app:getConnectedEnvironment", args ?? new GetConnectedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of an connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of an connectedEnvironment.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentResult> Invoke(GetConnectedEnvironmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentResult>("azure-native:app:getConnectedEnvironment", args ?? new GetConnectedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.App
     [OutputType]
     public sealed class GetConnectedEnvironmentResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Custom domain configuration for the environment
         /// </summary>
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetConnectedEnvironmentResult(
+            string azureApiVersion,
+
             Outputs.CustomDomainConfigurationResponse? customDomainConfiguration,
 
             string? daprAIConnectionString,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.App
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             CustomDomainConfiguration = customDomainConfiguration;
             DaprAIConnectionString = daprAIConnectionString;
             DefaultDomain = defaultDomain;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Task<GetAvailabilitySetResult> InvokeAsync(GetAvailabilitySetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about an availability set.
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01.
+        /// Azure REST API version: 2024-11-01.
         /// </summary>
         public static Output<GetAvailabilitySetResult> Invoke(GetAvailabilitySetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAvailabilitySetResult>("azure-native:compute:getAvailabilitySet", args ?? new GetAvailabilitySetInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetAvailabilitySetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -109,6 +107,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.SubResourceResponse? ProximityPlacementGroup;
         /// <summary>
+        /// Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
+        /// </summary>
+        public readonly Outputs.ScheduledEventsPolicyResponse? ScheduledEventsPolicy;
+        /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -125,12 +127,18 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Describes the migration properties on the Availability Set.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetMigrationInfoResponse VirtualMachineScaleSetMigrationInfo;
+        /// <summary>
         /// A list of references to all virtual machines in the availability set.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualMachines;
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -143,6 +151,8 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.SubResourceResponse? proximityPlacementGroup,
 
+            Outputs.ScheduledEventsPolicyResponse? scheduledEventsPolicy,
+
             Outputs.SkuResponse? sku,
 
             ImmutableArray<Outputs.InstanceViewStatusResponse> statuses,
@@ -151,18 +161,23 @@ namespace Pulumi.AzureNative.Compute
 
             string type,
 
+            Outputs.VirtualMachineScaleSetMigrationInfoResponse virtualMachineScaleSetMigrationInfo,
+
             ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;
             PlatformFaultDomainCount = platformFaultDomainCount;
             PlatformUpdateDomainCount = platformUpdateDomainCount;
             ProximityPlacementGroup = proximityPlacementGroup;
+            ScheduledEventsPolicy = scheduledEventsPolicy;
             Sku = sku;
             Statuses = statuses;
             Tags = tags;
             Type = type;
+            VirtualMachineScaleSetMigrationInfo = virtualMachineScaleSetMigrationInfo;
             VirtualMachines = virtualMachines;
         }
     }

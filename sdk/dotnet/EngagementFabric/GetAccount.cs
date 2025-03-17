@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.EngagementFabric
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The ID of the resource
         /// </summary>
         public readonly string Id;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.EngagementFabric
 
         [OutputConstructor]
         private GetAccountResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNative.EngagementFabric
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// List users success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Task<ListAccessUsersResult> InvokeAsync(ListAccessUsersArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// List users success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// List users success response
-        /// Azure REST API version: 2023-08-22.
-        /// 
-        /// Other available API versions: 2024-02-13, 2024-07-01.
+        /// Azure REST API version: 2024-07-01.
         /// </summary>
         public static Output<ListAccessUsersResult> Invoke(ListAccessUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListAccessUsersResult>("azure-native:confluent:listAccessUsers", args ?? new ListAccessUsersInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.Confluent
         public string OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -81,7 +75,7 @@ namespace Pulumi.AzureNative.Confluent
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// Resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

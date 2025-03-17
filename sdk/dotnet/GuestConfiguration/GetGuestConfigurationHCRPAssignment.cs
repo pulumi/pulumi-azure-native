@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.GuestConfiguration
     {
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Task<GetGuestConfigurationHCRPAssignmentResult> InvokeAsync(GetGuestConfigurationHCRPAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationHCRPAssignmentResult> Invoke(GetGuestConfigurationHCRPAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a guest configuration assignment
-        /// Azure REST API version: 2022-01-25.
-        /// 
-        /// Other available API versions: 2024-04-05.
+        /// Azure REST API version: 2024-04-05.
         /// </summary>
         public static Output<GetGuestConfigurationHCRPAssignmentResult> Invoke(GetGuestConfigurationHCRPAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestConfigurationHCRPAssignmentResult>("azure-native:guestconfiguration:getGuestConfigurationHCRPAssignment", args ?? new GetGuestConfigurationHCRPAssignmentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.GuestConfiguration
     public sealed class GetGuestConfigurationHCRPAssignmentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// ARM resource id of the guest configuration assignment.
         /// </summary>
         public readonly string Id;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
         [OutputConstructor]
         private GetGuestConfigurationHCRPAssignmentResult(
+            string azureApiVersion,
+
             string id,
 
             string? location,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

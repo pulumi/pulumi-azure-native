@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.ElasticSan
 {
     /// <summary>
     /// Response for Volume request.
-    /// Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview.
-    /// 
-    /// Other available API versions: 2022-12-01-preview, 2023-01-01, 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2024-05-01. Prior API version in Azure Native 2.x: 2021-11-20-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:Volume")]
     public partial class Volume : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// State of the operation on the resource.
         /// </summary>
@@ -25,16 +29,28 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<Outputs.SourceCreationDataResponse?> CreationData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name.
+        /// Parent resource information.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<Outputs.ManagedByInfoResponse?> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// State of the operation on the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Volume size.
         /// </summary>
         [Output("sizeGiB")]
-        public Output<double?> SizeGiB { get; private set; } = null!;
+        public Output<double> SizeGiB { get; private set; } = null!;
 
         /// <summary>
         /// Storage target information
@@ -43,19 +59,13 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<Outputs.IscsiTargetInfoResponse> StorageTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Resource metadata required by ARM RPC
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,6 +142,12 @@ namespace Pulumi.AzureNative.ElasticSan
         public Input<string> ElasticSanName { get; set; } = null!;
 
         /// <summary>
+        /// Parent resource information.
+        /// </summary>
+        [Input("managedBy")]
+        public Input<Inputs.ManagedByInfoArgs>? ManagedBy { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -140,20 +156,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// Volume size.
         /// </summary>
-        [Input("sizeGiB")]
-        public Input<double>? SizeGiB { get; set; }
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Azure resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("sizeGiB", required: true)]
+        public Input<double> SizeGiB { get; set; } = null!;
 
         /// <summary>
         /// The name of the VolumeGroup.

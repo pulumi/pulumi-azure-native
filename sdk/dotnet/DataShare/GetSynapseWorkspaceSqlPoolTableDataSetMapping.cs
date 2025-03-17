@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DataShare
     public sealed class GetSynapseWorkspaceSqlPoolTableDataSetMappingResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The id of the source data set.
         /// </summary>
         public readonly string DataSetId;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.DataShare
 
         [OutputConstructor]
         private GetSynapseWorkspaceSqlPoolTableDataSetMappingResult(
+            string azureApiVersion,
+
             string dataSetId,
 
             string dataSetMappingStatus,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNative.DataShare
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DataSetId = dataSetId;
             DataSetMappingStatus = dataSetMappingStatus;
             Id = id;

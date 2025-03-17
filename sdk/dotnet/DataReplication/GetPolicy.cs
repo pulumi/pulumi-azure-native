@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.DataReplication
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Gets or sets the Id of the resource.
         /// </summary>
         public readonly string Id;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNative.DataReplication
 
         [OutputConstructor]
         private GetPolicyResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNative.DataReplication
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

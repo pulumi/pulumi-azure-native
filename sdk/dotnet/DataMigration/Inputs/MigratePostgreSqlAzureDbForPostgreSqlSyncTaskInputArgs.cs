@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// </summary>
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        [Input("encryptedKeyForSecureFields")]
+        public Input<string>? EncryptedKeyForSecureFields { get; set; }
+
         [Input("selectedDatabases", required: true)]
         private InputList<Inputs.MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputArgs>? _selectedDatabases;
 

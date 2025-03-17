@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<string> AddressPrefixes;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Direction that specifies whether the access rules is inbound/outbound.
         /// </summary>
         public readonly string? Direction;
@@ -163,6 +167,8 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkSecurityPerimeterAccessRuleResult(
             ImmutableArray<string> addressPrefixes,
 
+            string azureApiVersion,
+
             string? direction,
 
             ImmutableArray<string> emailAddresses,
@@ -190,6 +196,7 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             AddressPrefixes = addressPrefixes;
+            AzureApiVersion = azureApiVersion;
             Direction = direction;
             EmailAddresses = emailAddresses;
             FullyQualifiedDomainNames = fullyQualifiedDomainNames;

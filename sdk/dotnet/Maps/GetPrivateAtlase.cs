@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.Maps
     public sealed class GetPrivateAtlaseResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNative.Maps
 
         [OutputConstructor]
         private GetPrivateAtlaseResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.Maps
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

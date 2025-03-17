@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         public readonly string Algorithm;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Represents the CEK of the resource.
         /// </summary>
         public readonly string? EncryptionKey;
@@ -127,6 +131,8 @@ namespace Pulumi.AzureNative.StorSimple
         private GetManagerExtendedInfoResult(
             string algorithm,
 
+            string azureApiVersion,
+
             string? encryptionKey,
 
             string? encryptionKeyThumbprint,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.StorSimple
             string? version)
         {
             Algorithm = algorithm;
+            AzureApiVersion = azureApiVersion;
             EncryptionKey = encryptionKey;
             EncryptionKeyThumbprint = encryptionKeyThumbprint;
             Etag = etag;

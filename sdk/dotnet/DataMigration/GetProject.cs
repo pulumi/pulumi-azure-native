@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataMigration
     {
         /// <summary>
         /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2021-10-30-preview, 2022-03-30-preview, 2023-07-15-preview.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure-native:datamigration:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,14 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetProjectResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
+        /// Field that defines the Azure active directory application info, used to connect to the target Azure resource
+        /// </summary>
+        public readonly Outputs.AzureActiveDirectoryAppResponse? AzureAuthenticationInfo;
+        /// <summary>
         /// UTC Date and time when project was created
         /// </summary>
         public readonly string CreationTime;
@@ -105,16 +107,11 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         public readonly ImmutableArray<Outputs.DatabaseInfoResponse> DatabasesInfo;
         /// <summary>
-        /// Resource ID.
+        /// HTTP strong entity tag value. This is ignored if submitted.
         /// </summary>
+        public readonly string? Etag;
         public readonly string Id;
-        /// <summary>
-        /// Resource location.
-        /// </summary>
-        public readonly string Location;
-        /// <summary>
-        /// Resource name.
-        /// </summary>
+        public readonly string? Location;
         public readonly string Name;
         /// <summary>
         /// The project's provisioning state
@@ -128,13 +125,7 @@ namespace Pulumi.AzureNative.DataMigration
         /// Source platform for the project
         /// </summary>
         public readonly string SourcePlatform;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Resource tags.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Information for connecting to target
@@ -144,20 +135,23 @@ namespace Pulumi.AzureNative.DataMigration
         /// Target platform for the project
         /// </summary>
         public readonly string TargetPlatform;
-        /// <summary>
-        /// Resource type.
-        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetProjectResult(
+            string azureApiVersion,
+
+            Outputs.AzureActiveDirectoryAppResponse? azureAuthenticationInfo,
+
             string creationTime,
 
             ImmutableArray<Outputs.DatabaseInfoResponse> databasesInfo,
 
+            string? etag,
+
             string id,
 
-            string location,
+            string? location,
 
             string name,
 
@@ -177,8 +171,11 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
+            AzureAuthenticationInfo = azureAuthenticationInfo;
             CreationTime = creationTime;
             DatabasesInfo = databasesInfo;
+            Etag = etag;
             Id = id;
             Location = location;
             Name = name;

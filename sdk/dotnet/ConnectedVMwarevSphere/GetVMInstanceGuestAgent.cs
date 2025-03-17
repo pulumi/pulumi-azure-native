@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Task<GetVMInstanceGuestAgentResult> InvokeAsync(GetVMInstanceGuestAgentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVMInstanceGuestAgentResult>("azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements GuestAgent GET method.
-        /// Azure REST API version: 2023-03-01-preview.
-        /// 
-        /// Other available API versions: 2023-10-01, 2023-12-01.
+        /// Azure REST API version: 2023-12-01.
         /// </summary>
         public static Output<GetVMInstanceGuestAgentResult> Invoke(GetVMInstanceGuestAgentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVMInstanceGuestAgentResult>("azure-native:connectedvmwarevsphere:getVMInstanceGuestAgent", args ?? new GetVMInstanceGuestAgentInvokeArgs(), options.WithDefaults());
@@ -72,6 +66,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     [OutputType]
     public sealed class GetVMInstanceGuestAgentResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Username / Password Credentials to provision guest agent.
         /// </summary>
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
         [OutputConstructor]
         private GetVMInstanceGuestAgentResult(
+            string azureApiVersion,
+
             Outputs.GuestCredentialResponse? credentials,
 
             string customResourceName,
@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string uuid)
         {
+            AzureApiVersion = azureApiVersion;
             Credentials = credentials;
             CustomResourceName = customResourceName;
             HttpProxyConfig = httpProxyConfig;

@@ -17,21 +17,13 @@ namespace Pulumi.AzureNative.IoTOperations.Outputs
     public sealed class MetricsResponse
     {
         /// <summary>
-        /// The open telemetry export configuration.
-        /// </summary>
-        public readonly Outputs.OpenTelemetryExportConfigResponse? OpentelemetryExportConfig;
-        /// <summary>
         /// The prometheus port to expose the metrics.
         /// </summary>
         public readonly int? PrometheusPort;
 
         [OutputConstructor]
-        private MetricsResponse(
-            Outputs.OpenTelemetryExportConfigResponse? opentelemetryExportConfig,
-
-            int? prometheusPort)
+        private MetricsResponse(int? prometheusPort)
         {
-            OpentelemetryExportConfig = opentelemetryExportConfig;
             PrometheusPort = prometheusPort;
         }
     }

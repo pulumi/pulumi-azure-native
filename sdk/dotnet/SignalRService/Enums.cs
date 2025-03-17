@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.SignalRService
     }
 
     /// <summary>
-    /// The kind of the service, it can be SignalR or RawWebSockets
+    /// The kind of the service
     /// </summary>
     [EnumType]
     public readonly struct ServiceKind : IEquatable<ServiceKind>

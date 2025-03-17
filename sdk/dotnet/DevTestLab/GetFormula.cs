@@ -107,6 +107,10 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string Author;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the formula.
         /// </summary>
         public readonly string CreationDate;
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNative.DevTestLab
         private GetFormulaResult(
             string author,
 
+            string azureApiVersion,
+
             string creationDate,
 
             string? description,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.DevTestLab
             Outputs.FormulaPropertiesFromVmResponse? vm)
         {
             Author = author;
+            AzureApiVersion = azureApiVersion;
             CreationDate = creationDate;
             Description = description;
             FormulaContent = formulaContent;

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets a streaming endpoint.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetStreamingEndpointResult> InvokeAsync(GetStreamingEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets a streaming endpoint.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Media
         /// <summary>
         /// Gets a streaming endpoint.
         /// Azure REST API version: 2022-11-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetStreamingEndpointResult> Invoke(GetStreamingEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingEndpointResult>("azure-native:media:getStreamingEndpoint", args ?? new GetStreamingEndpointInvokeArgs(), options.WithDefaults());
@@ -104,6 +98,10 @@ namespace Pulumi.AzureNative.Media
         /// This feature is deprecated, do not set a value for this property.
         /// </summary>
         public readonly string? AvailabilitySetName;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The CDN enabled flag.
         /// </summary>
@@ -195,6 +193,8 @@ namespace Pulumi.AzureNative.Media
 
             string? availabilitySetName,
 
+            string azureApiVersion,
+
             bool? cdnEnabled,
 
             string? cdnProfile,
@@ -239,6 +239,7 @@ namespace Pulumi.AzureNative.Media
         {
             AccessControl = accessControl;
             AvailabilitySetName = availabilitySetName;
+            AzureApiVersion = azureApiVersion;
             CdnEnabled = cdnEnabled;
             CdnProfile = cdnProfile;
             CdnProvider = cdnProvider;

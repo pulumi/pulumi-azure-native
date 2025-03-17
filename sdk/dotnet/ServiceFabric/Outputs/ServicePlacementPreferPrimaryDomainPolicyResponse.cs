@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Outputs
 {
 
     /// <summary>
-    /// Describes the policy to be used for placement of a Service Fabric service where the service's 
+    /// Describes the policy to be used for placement of a Service Fabric service where the service's
     /// Primary replicas should optimally be placed in a particular domain.
     /// 
     /// This placement policy is usually used with fault domains in scenarios where the Service Fabric

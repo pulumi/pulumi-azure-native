@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetMigrationServiceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -113,6 +117,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetMigrationServiceResult(
+            string azureApiVersion,
+
             string id,
 
             string integrationRuntimeState,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IntegrationRuntimeState = integrationRuntimeState;
             Location = location;

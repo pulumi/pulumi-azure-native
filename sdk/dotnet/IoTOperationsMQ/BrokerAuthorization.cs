@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ broker/authorization resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:BrokerAuthorization")]
     public partial class BrokerAuthorization : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// </summary>
         [Output("authorizationPolicies")]
         public Output<Outputs.AuthorizationConfigResponse> AuthorizationPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Extended Location

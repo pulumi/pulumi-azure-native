@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Task<GetAzureCliScriptResult> InvokeAsync(GetAzureCliScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetAzureCliScriptResult> Invoke(GetAzureCliScriptInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureCliScriptResult>("azure-native:resources:getAzureCliScript", args ?? new GetAzureCliScriptInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Resources
         /// Azure CLI module version to be used.
         /// </summary>
         public readonly string AzCliVersion;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         /// </summary>
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Resources
 
             string azCliVersion,
 
+            string azureApiVersion,
+
             string? cleanupPreference,
 
             Outputs.ContainerConfigurationResponse? containerSettings,
@@ -222,6 +228,7 @@ namespace Pulumi.AzureNative.Resources
         {
             Arguments = arguments;
             AzCliVersion = azCliVersion;
+            AzureApiVersion = azureApiVersion;
             CleanupPreference = cleanupPreference;
             ContainerSettings = containerSettings;
             EnvironmentVariables = environmentVariables;

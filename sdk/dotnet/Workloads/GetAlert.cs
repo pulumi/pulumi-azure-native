@@ -99,6 +99,10 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string AlertRuleResourceId;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Defines the alert instance errors.
         /// </summary>
         public readonly Outputs.ErrorDetailResponse Errors;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Workloads
 
             string alertRuleResourceId,
 
+            string azureApiVersion,
+
             Outputs.ErrorDetailResponse errors,
 
             string id,
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNative.Workloads
         {
             AlertRuleProperties = alertRuleProperties;
             AlertRuleResourceId = alertRuleResourceId;
+            AzureApiVersion = azureApiVersion;
             Errors = errors;
             Id = id;
             Name = name;

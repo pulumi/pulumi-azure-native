@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
     /// The NetworkTapRule resource definition.
-    /// Azure REST API version: 2023-06-15.
+    /// Azure REST API version: 2023-06-15. Prior API version in Azure Native 2.x: 2023-06-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkTapRule")]
     public partial class NetworkTapRule : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// </summary>
         [Output("annotation")]
         public Output<string?> Annotation { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Configuration state of the resource.

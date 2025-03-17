@@ -83,6 +83,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> AllowlistRules;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The deny-list custom alert rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNative.Security
         private GetDeviceSecurityGroupResult(
             ImmutableArray<Outputs.AllowlistCustomAlertRuleResponse> allowlistRules,
 
+            string azureApiVersion,
+
             ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> denylistRules,
 
             string id,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AllowlistRules = allowlistRules;
+            AzureApiVersion = azureApiVersion;
             DenylistRules = denylistRules;
             Id = id;
             Name = name;

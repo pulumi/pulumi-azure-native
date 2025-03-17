@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
 {
 
     /// <summary>
-    /// Record of the environment
+    /// Details on principal, role name and crn pattern of a role binding
     /// </summary>
     [OutputType]
     public sealed class RoleBindingRecordResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Confluent.Outputs
         /// </summary>
         public readonly string? CrnPattern;
         /// <summary>
-        /// Id of the role
+        /// Id of the role binding
         /// </summary>
         public readonly string? Id;
         /// <summary>

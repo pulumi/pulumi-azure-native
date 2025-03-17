@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.EventGrid.Inputs
         public InputUnion<string, Pulumi.AzureNative.EventGrid.DeliveryMode>? DeliveryMode { get; set; }
 
         /// <summary>
+        /// This property should be populated when deliveryMode is push and represents information about the push subscription.
+        /// </summary>
+        [Input("push")]
+        public Input<Inputs.PushInfoArgs>? Push { get; set; }
+
+        /// <summary>
         /// This property should be populated when deliveryMode is queue and represents information about the queue subscription.
         /// </summary>
         [Input("queue")]

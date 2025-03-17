@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerAccountResponse> Accounts;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The OuContainer name
         /// </summary>
         public readonly string ContainerId;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNative.Aad
         private GetOuContainerResult(
             ImmutableArray<Outputs.ContainerAccountResponse> accounts,
 
+            string azureApiVersion,
+
             string containerId,
 
             string deploymentId,
@@ -184,6 +190,7 @@ namespace Pulumi.AzureNative.Aad
             string type)
         {
             Accounts = accounts;
+            AzureApiVersion = azureApiVersion;
             ContainerId = containerId;
             DeploymentId = deploymentId;
             DistinguishedName = distinguishedName;

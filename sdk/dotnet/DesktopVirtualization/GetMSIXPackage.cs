@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a msixpackage.
-        /// Azure REST API version: 2022-09-09.
-        /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Task<GetMSIXPackageResult> InvokeAsync(GetMSIXPackageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a msixpackage.
-        /// Azure REST API version: 2022-09-09.
-        /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a msixpackage.
-        /// Azure REST API version: 2022-09-09.
-        /// 
-        /// Other available API versions: 2022-10-14-preview, 2023-07-07-preview, 2023-09-05, 2023-10-04-preview, 2023-11-01-preview, 2024-01-16-preview, 2024-03-06-preview, 2024-04-03, 2024-04-08-preview, 2024-08-08-preview.
+        /// Azure REST API version: 2024-04-03.
         /// </summary>
         public static Output<GetMSIXPackageResult> Invoke(GetMSIXPackageInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMSIXPackageResult>("azure-native:desktopvirtualization:getMSIXPackage", args ?? new GetMSIXPackageInvokeArgs(), options.WithDefaults());
@@ -97,11 +91,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     public sealed class GetMSIXPackageResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// User friendly Name to be displayed in the portal. 
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -145,7 +143,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string? PackageRelativePath;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -153,12 +151,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Package Version found in the appxmanifest.xml. 
+        /// Package version found in the appxmanifest.xml. 
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private GetMSIXPackageResult(
+            string azureApiVersion,
+
             string? displayName,
 
             string id,
@@ -189,6 +189,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Id = id;
             ImagePath = imagePath;

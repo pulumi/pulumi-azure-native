@@ -35,6 +35,14 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly Outputs.ScaleResponse? Scale;
         /// <summary>
+        /// List of container app services bound to the app
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ServiceBindResponse> ServiceBinds;
+        /// <summary>
+        /// Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.
+        /// </summary>
+        public readonly double? TerminationGracePeriodSeconds;
+        /// <summary>
         /// List of volume definitions for the Container App.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
@@ -49,12 +57,18 @@ namespace Pulumi.AzureNative.App.Outputs
 
             Outputs.ScaleResponse? scale,
 
+            ImmutableArray<Outputs.ServiceBindResponse> serviceBinds,
+
+            double? terminationGracePeriodSeconds,
+
             ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
             InitContainers = initContainers;
             RevisionSuffix = revisionSuffix;
             Scale = scale;
+            ServiceBinds = serviceBinds;
+            TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             Volumes = volumes;
         }
     }

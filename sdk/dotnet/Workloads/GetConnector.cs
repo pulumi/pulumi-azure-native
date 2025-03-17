@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class GetConnectorResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Indicates any errors on the connector resource.
         /// </summary>
         public readonly Outputs.ConnectorErrorDefinitionResponse Errors;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.Workloads
 
         [OutputConstructor]
         private GetConnectorResult(
+            string azureApiVersion,
+
             Outputs.ConnectorErrorDefinitionResponse errors,
 
             string id,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.Workloads
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Errors = errors;
             Id = id;
             Identity = identity;

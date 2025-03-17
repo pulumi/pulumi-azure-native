@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cdn
     {
         /// <summary>
         /// Gets an existing origin group within a profile.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Task<GetAFDOriginGroupResult> InvokeAsync(GetAFDOriginGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginGroupResult>("azure-native:cdn:getAFDOriginGroup", args ?? new GetAFDOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing origin group within a profile.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing origin group within a profile.
-        /// Azure REST API version: 2023-05-01.
-        /// 
-        /// Other available API versions: 2020-09-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01.
+        /// Azure REST API version: 2024-09-01.
         /// </summary>
         public static Output<GetAFDOriginGroupResult> Invoke(GetAFDOriginGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginGroupResult>("azure-native:cdn:getAFDOriginGroup", args ?? new GetAFDOriginGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +90,10 @@ namespace Pulumi.AzureNative.Cdn
     [OutputType]
     public sealed class GetAFDOriginGroupResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string DeploymentStatus;
         /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
@@ -140,6 +138,8 @@ namespace Pulumi.AzureNative.Cdn
 
         [OutputConstructor]
         private GetAFDOriginGroupResult(
+            string azureApiVersion,
+
             string deploymentStatus,
 
             Outputs.HealthProbeParametersResponse? healthProbeSettings,
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.Cdn
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             DeploymentStatus = deploymentStatus;
             HealthProbeSettings = healthProbeSettings;
             Id = id;

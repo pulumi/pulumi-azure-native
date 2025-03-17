@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// Gets a workflow.
         /// Azure REST API version: 2019-05-01.
-        /// 
-        /// Other available API versions: 2015-02-01-preview, 2016-06-01, 2018-07-01-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:logic:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
@@ -92,6 +86,10 @@ namespace Pulumi.AzureNative.Logic
         /// Gets the access endpoint.
         /// </summary>
         public readonly string AccessEndpoint;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Gets the changed time.
         /// </summary>
@@ -167,6 +165,8 @@ namespace Pulumi.AzureNative.Logic
 
             string accessEndpoint,
 
+            string azureApiVersion,
+
             string changedTime,
 
             string createdTime,
@@ -203,6 +203,7 @@ namespace Pulumi.AzureNative.Logic
         {
             AccessControl = accessControl;
             AccessEndpoint = accessEndpoint;
+            AzureApiVersion = azureApiVersion;
             ChangedTime = changedTime;
             CreatedTime = createdTime;
             Definition = definition;

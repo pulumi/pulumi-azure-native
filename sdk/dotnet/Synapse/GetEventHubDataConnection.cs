@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class GetEventHubDataConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The event hub messages compression type
         /// </summary>
         public readonly string? Compression;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetEventHubDataConnectionResult(
+            string azureApiVersion,
+
             string? compression,
 
             string consumerGroup,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Compression = compression;
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;

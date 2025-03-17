@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Portal
     {
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Task<GetTenantConfigurationResult> InvokeAsync(GetTenantConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the tenant configuration.
-        /// Azure REST API version: 2020-09-01-preview.
-        /// 
-        /// Other available API versions: 2022-12-01-preview.
+        /// Azure REST API version: 2022-12-01-preview.
         /// </summary>
         public static Output<GetTenantConfigurationResult> Invoke(GetTenantConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTenantConfigurationResult>("azure-native:portal:getTenantConfiguration", args ?? new GetTenantConfigurationInvokeArgs(), options.WithDefaults());
@@ -73,6 +67,10 @@ namespace Pulumi.AzureNative.Portal
     public sealed class GetTenantConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -95,6 +93,8 @@ namespace Pulumi.AzureNative.Portal
 
         [OutputConstructor]
         private GetTenantConfigurationResult(
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -105,6 +105,7 @@ namespace Pulumi.AzureNative.Portal
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             Properties = properties;

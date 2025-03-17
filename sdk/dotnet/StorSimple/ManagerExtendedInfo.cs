@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorSimple
 {
     /// <summary>
     /// The extended info of the manager.
-    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01.
+    /// Azure REST API version: 2017-06-01. Prior API version in Azure Native 2.x: 2017-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:ManagerExtendedInfo")]
     public partial class ManagerExtendedInfo : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.StorSimple
         /// </summary>
         [Output("algorithm")]
         public Output<string> Algorithm { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Represents the CEK of the resource.

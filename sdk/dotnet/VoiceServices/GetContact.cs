@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.VoiceServices
     public sealed class GetContactResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Full name of contact
         /// </summary>
         public readonly string ContactName;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNative.VoiceServices
 
         [OutputConstructor]
         private GetContactResult(
+            string azureApiVersion,
+
             string contactName,
 
             string email,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.VoiceServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ContactName = contactName;
             Email = email;
             Id = id;

@@ -11,15 +11,15 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
 {
 
     /// <summary>
-    /// Option B configuration.
+    /// Option B configuration to be used for Management VPN.
     /// </summary>
     public sealed class FabricOptionBPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("exportRouteTargets", required: true)]
+        [Input("exportRouteTargets")]
         private InputList<string>? _exportRouteTargets;
 
         /// <summary>
-        /// Route Targets to be applied for outgoing routes from CE.
+        /// Route Targets to be applied for outgoing routes from CE. This is for backward compatibility.
         /// </summary>
         public InputList<string> ExportRouteTargets
         {
@@ -27,17 +27,23 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.Inputs
             set => _exportRouteTargets = value;
         }
 
-        [Input("importRouteTargets", required: true)]
+        [Input("importRouteTargets")]
         private InputList<string>? _importRouteTargets;
 
         /// <summary>
-        /// Route Targets to be applied for incoming routes into CE.
+        /// Route Targets to be applied for incoming routes into CE. This is for backward compatibility.
         /// </summary>
         public InputList<string> ImportRouteTargets
         {
             get => _importRouteTargets ?? (_importRouteTargets = new InputList<string>());
             set => _importRouteTargets = value;
         }
+
+        /// <summary>
+        /// Route Targets to be applied.
+        /// </summary>
+        [Input("routeTargets")]
+        public Input<Inputs.RouteTargetInformationArgs>? RouteTargets { get; set; }
 
         public FabricOptionBPropertiesArgs()
         {

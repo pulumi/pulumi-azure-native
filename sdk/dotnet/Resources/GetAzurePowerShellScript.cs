@@ -13,21 +13,21 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Task<GetAzurePowerShellScriptResult> InvokeAsync(GetAzurePowerShellScriptArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a deployment script with a given name.
-        /// Azure REST API version: 2020-10-01.
+        /// Azure REST API version: 2023-08-01.
         /// </summary>
         public static Output<GetAzurePowerShellScriptResult> Invoke(GetAzurePowerShellScriptInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzurePowerShellScriptResult>("azure-native:resources:getAzurePowerShellScript", args ?? new GetAzurePowerShellScriptInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.Resources
         /// Azure PowerShell module version to be used.
         /// </summary>
         public readonly string AzPowerShellVersion;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         /// </summary>
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Resources
 
             string azPowerShellVersion,
 
+            string azureApiVersion,
+
             string? cleanupPreference,
 
             Outputs.ContainerConfigurationResponse? containerSettings,
@@ -222,6 +228,7 @@ namespace Pulumi.AzureNative.Resources
         {
             Arguments = arguments;
             AzPowerShellVersion = azPowerShellVersion;
+            AzureApiVersion = azureApiVersion;
             CleanupPreference = cleanupPreference;
             ContainerSettings = containerSettings;
             EnvironmentVariables = environmentVariables;

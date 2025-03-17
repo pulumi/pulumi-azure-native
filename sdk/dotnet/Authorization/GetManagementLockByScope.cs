@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetManagementLockByScopeResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID of the lock.
         /// </summary>
         public readonly string Id;
@@ -109,6 +113,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetManagementLockByScopeResult(
+            string azureApiVersion,
+
             string id,
 
             string level,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNative.Authorization
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Level = level;
             Name = name;

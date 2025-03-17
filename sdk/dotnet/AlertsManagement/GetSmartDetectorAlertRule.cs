@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// </summary>
         public readonly Outputs.ActionGroupsInformationResponse ActionGroups;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The alert rule description.
         /// </summary>
         public readonly string? Description;
@@ -147,6 +151,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         private GetSmartDetectorAlertRuleResult(
             Outputs.ActionGroupsInformationResponse actionGroups,
 
+            string azureApiVersion,
+
             string? description,
 
             Outputs.DetectorResponse detector,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNative.AlertsManagement
             string type)
         {
             ActionGroups = actionGroups;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Detector = detector;
             Frequency = frequency;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetExpressRouteGatewayResult> InvokeAsync(GetExpressRouteGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Fetches the details of a ExpressRoute gateway in a resource group.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-03-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetExpressRouteGatewayResult> Invoke(GetExpressRouteGatewayInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetExpressRouteGatewayResult>("azure-native:network:getExpressRouteGateway", args ?? new GetExpressRouteGatewayInvokeArgs(), options.WithDefaults());
@@ -93,6 +87,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? AutoScaleConfiguration;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -135,6 +133,8 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration? autoScaleConfiguration,
 
+            string azureApiVersion,
+
             string etag,
 
             ImmutableArray<Outputs.ExpressRouteConnectionResponse> expressRouteConnections,
@@ -155,6 +155,7 @@ namespace Pulumi.AzureNative.Network
         {
             AllowNonVirtualWanTraffic = allowNonVirtualWanTraffic;
             AutoScaleConfiguration = autoScaleConfiguration;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             ExpressRouteConnections = expressRouteConnections;
             Id = id;

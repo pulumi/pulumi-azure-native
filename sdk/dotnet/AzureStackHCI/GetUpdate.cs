@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// Get specified Update
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetUpdateResult> InvokeAsync(GetUpdateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUpdateResult>("azure-native:azurestackhci:getUpdate", args ?? new GetUpdateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get specified Update
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetUpdateResult> Invoke(GetUpdateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateResult>("azure-native:azurestackhci:getUpdate", args ?? new GetUpdateInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get specified Update
-        /// Azure REST API version: 2023-03-01.
-        /// 
-        /// Other available API versions: 2022-12-15-preview, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-04-01, 2024-09-01-preview, 2024-12-01-preview.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetUpdateResult> Invoke(GetUpdateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUpdateResult>("azure-native:azurestackhci:getUpdate", args ?? new GetUpdateInvokeArgs(), options.WithDefaults());
@@ -105,6 +99,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         public readonly string? AvailabilityType;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Description of the update.
         /// </summary>
         public readonly string? Description;
@@ -128,6 +126,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Minimum Sbe Version of the update.
+        /// </summary>
+        public readonly string? MinSbeVersionRequired;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -191,6 +193,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? availabilityType,
 
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -202,6 +206,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
             string? installedDate,
 
             string? location,
+
+            string? minSbeVersionRequired,
 
             string name,
 
@@ -233,12 +239,14 @@ namespace Pulumi.AzureNative.AzureStackHCI
         {
             AdditionalProperties = additionalProperties;
             AvailabilityType = availabilityType;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             HealthCheckDate = healthCheckDate;
             Id = id;
             InstalledDate = installedDate;
             Location = location;
+            MinSbeVersionRequired = minSbeVersionRequired;
             Name = name;
             NotifyMessage = notifyMessage;
             PackagePath = packagePath;

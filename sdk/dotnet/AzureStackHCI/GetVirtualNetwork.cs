@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.AzureStackHCI
     {
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkResult> InvokeAsync(GetVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The virtual network resource definition.
-        /// Azure REST API version: 2022-12-15-preview.
-        /// 
-        /// Other available API versions: 2023-07-01-preview.
+        /// Azure REST API version: 2023-07-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkResult> Invoke(GetVirtualNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkResult>("azure-native:azurestackhci:getVirtualNetwork", args ?? new GetVirtualNetworkInvokeArgs(), options.WithDefaults());
@@ -84,6 +78,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
     [OutputType]
     public sealed class GetVirtualNetworkResult
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
         /// </summary>
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            string azureApiVersion,
+
             Outputs.VirtualNetworkPropertiesResponseDhcpOptions? dhcpOptions,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
@@ -165,6 +165,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 
             string? vmSwitchName)
         {
+            AzureApiVersion = azureApiVersion;
             DhcpOptions = dhcpOptions;
             ExtendedLocation = extendedLocation;
             Id = id;

@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// Arc Sql Server Availability Group
-    /// Azure REST API version: 2024-01-01.
-    /// 
-    /// Other available API versions: 2024-05-01-preview.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2024-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlServerAvailabilityGroup")]
     public partial class SqlServerAvailabilityGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -81,6 +85,7 @@ namespace Pulumi.AzureNative.AzureArcData
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:SqlServerAvailabilityGroup" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:SqlServerAvailabilityGroup" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:SqlServerAvailabilityGroup" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

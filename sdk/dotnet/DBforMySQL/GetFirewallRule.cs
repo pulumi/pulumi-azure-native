@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about a server firewall rule.
-        /// Azure REST API version: 2022-01-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Azure REST API version: 2023-12-30.
         /// </summary>
         public static Task<GetFirewallRuleResult> InvokeAsync(GetFirewallRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server firewall rule.
-        /// Azure REST API version: 2022-01-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Azure REST API version: 2023-12-30.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a server firewall rule.
-        /// Azure REST API version: 2022-01-01.
-        /// 
-        /// Other available API versions: 2017-12-01, 2023-06-01-preview, 2023-06-30, 2023-12-30.
+        /// Azure REST API version: 2023-12-30.
         /// </summary>
         public static Output<GetFirewallRuleResult> Invoke(GetFirewallRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleResult>("azure-native:dbformysql:getFirewallRule", args ?? new GetFirewallRuleInvokeArgs(), options.WithDefaults());
@@ -97,11 +91,15 @@ namespace Pulumi.AzureNative.DBforMySQL
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The end IP address of the server firewall rule. Must be IPv4 format.
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -113,7 +111,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string StartIpAddress;
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string azureApiVersion,
+
             string endIpAddress,
 
             string id,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             EndIpAddress = endIpAddress;
             Id = id;
             Name = name;

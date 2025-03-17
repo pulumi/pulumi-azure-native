@@ -115,6 +115,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class GetSourceControlConfigurationResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Compliance Status of the Configuration
         /// </summary>
         public readonly Outputs.ComplianceStatusResponse ComplianceStatus;
@@ -185,6 +189,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
         [OutputConstructor]
         private GetSourceControlConfigurationResult(
+            string azureApiVersion,
+
             Outputs.ComplianceStatusResponse complianceStatus,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
@@ -219,6 +225,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ComplianceStatus = complianceStatus;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             EnableHelmOperator = enableHelmOperator;

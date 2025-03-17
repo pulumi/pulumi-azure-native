@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Task<GetServiceConfigurationResult> InvokeAsync(GetServiceConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details about the service to the resource.
-        /// Azure REST API version: 2023-03-15.
-        /// 
-        /// Other available API versions: 2024-12-01.
+        /// Azure REST API version: 2024-12-01.
         /// </summary>
         public static Output<GetServiceConfigurationResult> Invoke(GetServiceConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceConfigurationResult>("azure-native:hybridconnectivity:getServiceConfiguration", args ?? new GetServiceConfigurationInvokeArgs(), options.WithDefaults());
@@ -49,7 +43,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public string EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public string ResourceUri { get; set; } = null!;
@@ -75,7 +69,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified Azure Resource manager identifier of the resource to be connected.
+        /// The fully qualified Azure Resource manager identifier of the resource.
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
@@ -97,33 +91,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
     public sealed class GetServiceConfigurationResult
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -155,19 +129,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
         [OutputConstructor]
         private GetServiceConfigurationResult(
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
+            string azureApiVersion,
 
             string id,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string name,
 
@@ -183,13 +147,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
             string type)
         {
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
+            AzureApiVersion = azureApiVersion;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Name = name;
             Port = port;
             ProvisioningState = provisioningState;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DataBoxEdge
     {
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetStorageAccountResult> InvokeAsync(GetStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Represents a Storage Account on the  Data Box Edge/Gateway device.
-        /// Azure REST API version: 2022-03-01.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2023-07-01, 2023-12-01.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetStorageAccountResult> Invoke(GetStorageAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageAccountResult>("azure-native:databoxedge:getStorageAccount", args ?? new GetStorageAccountInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class GetStorageAccountResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// BlobEndpoint of Storage Account
         /// </summary>
         public readonly string BlobEndpoint;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
         [OutputConstructor]
         private GetStorageAccountResult(
+            string azureApiVersion,
+
             string blobEndpoint,
 
             int containerCount,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             BlobEndpoint = blobEndpoint;
             ContainerCount = containerCount;
             DataPolicy = dataPolicy;

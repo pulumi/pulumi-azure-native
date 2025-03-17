@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlDbTaskInputResponse
     {
         /// <summary>
+        /// encrypted key for secure fields
+        /// </summary>
+        public readonly string? EncryptedKeyForSecureFields;
+        /// <summary>
         /// Databases to migrate
         /// </summary>
         public readonly ImmutableArray<Outputs.MigrateSqlServerSqlDbDatabaseInputResponse> SelectedDatabases;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// Information for connecting to source
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse SourceConnectionInfo;
+        /// <summary>
+        /// Date and time relative to UTC when the migration was started on
+        /// </summary>
+        public readonly string? StartedOn;
         /// <summary>
         /// Information for connecting to target
         /// </summary>
@@ -37,16 +45,22 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlDbTaskInputResponse(
+            string? encryptedKeyForSecureFields,
+
             ImmutableArray<Outputs.MigrateSqlServerSqlDbDatabaseInputResponse> selectedDatabases,
 
             Outputs.SqlConnectionInfoResponse sourceConnectionInfo,
+
+            string? startedOn,
 
             Outputs.SqlConnectionInfoResponse targetConnectionInfo,
 
             Outputs.MigrationValidationOptionsResponse? validationOptions)
         {
+            EncryptedKeyForSecureFields = encryptedKeyForSecureFields;
             SelectedDatabases = selectedDatabases;
             SourceConnectionInfo = sourceConnectionInfo;
+            StartedOn = startedOn;
             TargetConnectionInfo = targetConnectionInfo;
             ValidationOptions = validationOptions;
         }

@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
     public sealed class TopicSpacesConfigurationResponse
     {
         /// <summary>
-        /// Client authentication settings for topic spaces configuration.
+        /// List of custom domain configurations for the namespace.
         /// </summary>
-        public readonly Outputs.ClientAuthenticationSettingsResponse? ClientAuthentication;
+        public readonly ImmutableArray<Outputs.CustomDomainConfigurationResponse> CustomDomains;
         /// <summary>
         /// The endpoint for the topic spaces configuration. This is a read-only property.
         /// </summary>
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
         [OutputConstructor]
         private TopicSpacesConfigurationResponse(
-            Outputs.ClientAuthenticationSettingsResponse? clientAuthentication,
+            ImmutableArray<Outputs.CustomDomainConfigurationResponse> customDomains,
 
             string hostname,
 
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.EventGrid.Outputs
 
             string? state)
         {
-            ClientAuthentication = clientAuthentication;
+            CustomDomains = customDomains;
             Hostname = hostname;
             MaximumClientSessionsPerAuthenticationName = maximumClientSessionsPerAuthenticationName;
             MaximumSessionExpiryInHours = maximumSessionExpiryInHours;

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Cloudngfw
     {
         /// <summary>
         /// Get a GlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Task<GetGlobalRulestackResult> InvokeAsync(GetGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalRulestackResult>("azure-native:cloudngfw:getGlobalRulestack", args ?? new GetGlobalRulestackArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a GlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetGlobalRulestackResult> Invoke(GetGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalRulestackResult>("azure-native:cloudngfw:getGlobalRulestack", args ?? new GetGlobalRulestackInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a GlobalRulestackResource
-        /// Azure REST API version: 2023-09-01.
-        /// 
-        /// Other available API versions: 2022-08-29, 2022-08-29-preview, 2023-09-01-preview, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview.
+        /// Azure REST API version: 2025-02-06-preview.
         /// </summary>
         public static Output<GetGlobalRulestackResult> Invoke(GetGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalRulestackResult>("azure-native:cloudngfw:getGlobalRulestack", args ?? new GetGlobalRulestackInvokeArgs(), options.WithDefaults());
@@ -76,6 +70,10 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// subscription scope of global rulestack
         /// </summary>
         public readonly ImmutableArray<string> AssociatedSubscriptions;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// Mode for default rules creation
         /// </summary>
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetGlobalRulestackResult(
             ImmutableArray<string> associatedSubscriptions,
 
+            string azureApiVersion,
+
             string? defaultMode,
 
             string? description,
@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             string type)
         {
             AssociatedSubscriptions = associatedSubscriptions;
+            AzureApiVersion = azureApiVersion;
             DefaultMode = defaultMode;
             Description = description;
             Id = id;

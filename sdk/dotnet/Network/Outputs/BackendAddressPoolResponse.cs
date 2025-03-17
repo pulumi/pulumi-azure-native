@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Backend address synchronous mode for the backend pool
+        /// </summary>
+        public readonly string? SyncMode;
+        /// <summary>
         /// An array of gateway load balancer tunnel interfaces.
         /// </summary>
         public readonly ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> TunnelInterfaces;
@@ -103,6 +107,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
+            string? syncMode,
+
             ImmutableArray<Outputs.GatewayLoadBalancerTunnelInterfaceResponse> tunnelInterfaces,
 
             string type,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             OutboundRule = outboundRule;
             OutboundRules = outboundRules;
             ProvisioningState = provisioningState;
+            SyncMode = syncMode;
             TunnelInterfaces = tunnelInterfaces;
             Type = type;
             VirtualNetwork = virtualNetwork;

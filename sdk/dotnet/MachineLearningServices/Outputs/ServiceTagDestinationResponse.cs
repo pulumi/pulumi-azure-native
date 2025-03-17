@@ -16,18 +16,32 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     [OutputType]
     public sealed class ServiceTagDestinationResponse
     {
+        /// <summary>
+        /// The action enum for networking rule.
+        /// </summary>
+        public readonly string? Action;
+        /// <summary>
+        /// Optional, if provided, the ServiceTag property will be ignored.
+        /// </summary>
+        public readonly ImmutableArray<string> AddressPrefixes;
         public readonly string? PortRanges;
         public readonly string? Protocol;
         public readonly string? ServiceTag;
 
         [OutputConstructor]
         private ServiceTagDestinationResponse(
+            string? action,
+
+            ImmutableArray<string> addressPrefixes,
+
             string? portRanges,
 
             string? protocol,
 
             string? serviceTag)
         {
+            Action = action;
+            AddressPrefixes = addressPrefixes;
             PortRanges = portRanges;
             Protocol = protocol;
             ServiceTag = serviceTag;

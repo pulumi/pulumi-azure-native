@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.AzureArcData
 {
     /// <summary>
     /// Active directory connector resource
-    /// Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2022-03-01-preview.
-    /// 
-    /// Other available API versions: 2024-01-01, 2024-05-01-preview.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2023-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:ActiveDirectoryConnector")]
     public partial class ActiveDirectoryConnector : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -72,6 +76,7 @@ namespace Pulumi.AzureNative.AzureArcData
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240101:ActiveDirectoryConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20240501preview:ActiveDirectoryConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:azurearcdata/v20250301preview:ActiveDirectoryConnector" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

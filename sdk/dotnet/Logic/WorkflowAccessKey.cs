@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logic
 {
     /// <summary>
-    /// Azure REST API version: 2015-02-01-preview. Prior API version in Azure Native 1.x: 2015-02-01-preview.
+    /// Azure REST API version: 2015-02-01-preview. Prior API version in Azure Native 2.x: 2015-02-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:WorkflowAccessKey")]
     public partial class WorkflowAccessKey : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets the workflow access key name.
         /// </summary>

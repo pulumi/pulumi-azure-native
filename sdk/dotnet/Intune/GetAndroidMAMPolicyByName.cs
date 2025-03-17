@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns AndroidMAMPolicy with given name.
         /// Azure REST API version: 2015-01-14-preview.
-        /// 
-        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Task<GetAndroidMAMPolicyByNameResult> InvokeAsync(GetAndroidMAMPolicyByNameArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns AndroidMAMPolicy with given name.
         /// Azure REST API version: 2015-01-14-preview.
-        /// 
-        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Returns AndroidMAMPolicy with given name.
         /// Azure REST API version: 2015-01-14-preview.
-        /// 
-        /// Other available API versions: 2015-01-14-privatepreview.
         /// </summary>
         public static Output<GetAndroidMAMPolicyByNameResult> Invoke(GetAndroidMAMPolicyByNameInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAndroidMAMPolicyByNameResult>("azure-native:intune:getAndroidMAMPolicyByName", args ?? new GetAndroidMAMPolicyByNameInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Intune
         public readonly string? AppSharingFromLevel;
         public readonly string? AppSharingToLevel;
         public readonly string? Authentication;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         public readonly string? ClipboardSharingLevel;
         public readonly string? DataBackup;
         public readonly string? Description;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.Intune
 
             string? authentication,
 
+            string azureApiVersion,
+
             string? clipboardSharingLevel,
 
             string? dataBackup,
@@ -194,6 +194,7 @@ namespace Pulumi.AzureNative.Intune
             AppSharingFromLevel = appSharingFromLevel;
             AppSharingToLevel = appSharingToLevel;
             Authentication = authentication;
+            AzureApiVersion = azureApiVersion;
             ClipboardSharingLevel = clipboardSharingLevel;
             DataBackup = dataBackup;
             Description = description;

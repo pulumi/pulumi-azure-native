@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// [Required] The recurrence schedule.
         /// </summary>
-        public readonly Outputs.RecurrenceScheduleResponse? Schedule;
+        public readonly Outputs.ComputeRecurrenceScheduleResponse? Schedule;
         /// <summary>
         /// The start time in yyyy-MM-ddTHH:mm:ss format.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             int? interval,
 
-            Outputs.RecurrenceScheduleResponse? schedule,
+            Outputs.ComputeRecurrenceScheduleResponse? schedule,
 
             string? startTime,
 

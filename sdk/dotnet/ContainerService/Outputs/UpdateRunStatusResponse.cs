@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class UpdateRunStatusResponse
     {
         /// <summary>
+        /// The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.
+        /// </summary>
+        public readonly Outputs.NodeImageSelectionStatusResponse NodeImageSelection;
+        /// <summary>
         /// The stages composing an update run. Stages are run sequentially withing an UpdateRun.
         /// </summary>
         public readonly ImmutableArray<Outputs.UpdateStageStatusResponse> Stages;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
         [OutputConstructor]
         private UpdateRunStatusResponse(
+            Outputs.NodeImageSelectionStatusResponse nodeImageSelection,
+
             ImmutableArray<Outputs.UpdateStageStatusResponse> stages,
 
             Outputs.UpdateStatusResponse status)
         {
+            NodeImageSelection = nodeImageSelection;
             Stages = stages;
             Status = status;
         }

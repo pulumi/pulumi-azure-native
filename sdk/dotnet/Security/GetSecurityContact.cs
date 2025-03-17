@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get Default Security contact configurations for the subscription
-        /// Azure REST API version: 2020-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Task<GetSecurityContactResult> InvokeAsync(GetSecurityContactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Default Security contact configurations for the subscription
-        /// Azure REST API version: 2020-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get Default Security contact configurations for the subscription
-        /// Azure REST API version: 2020-01-01-preview.
-        /// 
-        /// Other available API versions: 2017-08-01-preview, 2023-12-01-preview.
+        /// Azure REST API version: 2023-12-01-preview.
         /// </summary>
         public static Output<GetSecurityContactResult> Invoke(GetSecurityContactInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityContactResult>("azure-native:security:getSecurityContact", args ?? new GetSecurityContactInvokeArgs(), options.WithDefaults());
@@ -73,9 +67,9 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityContactResult
     {
         /// <summary>
-        /// Defines whether to send email notifications about new security alerts
+        /// The Azure API version of the resource.
         /// </summary>
-        public readonly Outputs.SecurityContactPropertiesResponseAlertNotifications? AlertNotifications;
+        public readonly string AzureApiVersion;
         /// <summary>
         /// List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         /// </summary>
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Indicates whether the security contact is enabled.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -92,6 +90,10 @@ namespace Pulumi.AzureNative.Security
         /// Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         /// </summary>
         public readonly Outputs.SecurityContactPropertiesResponseNotificationsByRole? NotificationsByRole;
+        /// <summary>
+        /// A collection of sources types which evaluate the email notification.
+        /// </summary>
+        public readonly ImmutableArray<Union<Outputs.NotificationsSourceAlertResponse, Outputs.NotificationsSourceAttackPathResponse>> NotificationsSources;
         /// <summary>
         /// The security contact's phone number
         /// </summary>
@@ -103,25 +105,31 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetSecurityContactResult(
-            Outputs.SecurityContactPropertiesResponseAlertNotifications? alertNotifications,
+            string azureApiVersion,
 
             string? emails,
 
             string id,
 
+            bool? isEnabled,
+
             string name,
 
             Outputs.SecurityContactPropertiesResponseNotificationsByRole? notificationsByRole,
+
+            ImmutableArray<Union<Outputs.NotificationsSourceAlertResponse, Outputs.NotificationsSourceAttackPathResponse>> notificationsSources,
 
             string? phone,
 
             string type)
         {
-            AlertNotifications = alertNotifications;
+            AzureApiVersion = azureApiVersion;
             Emails = emails;
             Id = id;
+            IsEnabled = isEnabled;
             Name = name;
             NotificationsByRole = notificationsByRole;
+            NotificationsSources = notificationsSources;
             Phone = phone;
             Type = type;
         }

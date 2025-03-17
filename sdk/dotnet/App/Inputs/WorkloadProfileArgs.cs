@@ -18,14 +18,20 @@ namespace Pulumi.AzureNative.App.Inputs
         /// <summary>
         /// The maximum capacity.
         /// </summary>
-        [Input("maximumCount", required: true)]
-        public Input<int> MaximumCount { get; set; } = null!;
+        [Input("maximumCount")]
+        public Input<int>? MaximumCount { get; set; }
 
         /// <summary>
         /// The minimum capacity.
         /// </summary>
-        [Input("minimumCount", required: true)]
-        public Input<int> MinimumCount { get; set; } = null!;
+        [Input("minimumCount")]
+        public Input<int>? MinimumCount { get; set; }
+
+        /// <summary>
+        /// Workload profile type for the workloads to run on.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Workload profile type for the workloads to run on.

@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly object? AuthenticationDetails;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         /// </summary>
         public readonly Outputs.HybridComputeSettingsPropertiesResponse? HybridComputeSettings;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNative.Security
         private GetConnectorResult(
             object? authenticationDetails,
 
+            string azureApiVersion,
+
             Outputs.HybridComputeSettingsPropertiesResponse? hybridComputeSettings,
 
             string id,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AuthenticationDetails = authenticationDetails;
+            AzureApiVersion = azureApiVersion;
             HybridComputeSettings = hybridComputeSettings;
             Id = id;
             Name = name;

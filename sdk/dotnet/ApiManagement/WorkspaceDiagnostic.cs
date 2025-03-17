@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Diagnostic details.
-    /// Azure REST API version: 2023-09-01-preview.
-    /// 
-    /// Other available API versions: 2024-05-01, 2024-06-01-preview.
+    /// Azure REST API version: 2024-06-01-preview. Prior API version in Azure Native 2.x: 2023-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:WorkspaceDiagnostic")]
     public partial class WorkspaceDiagnostic : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("alwaysLog")]
         public Output<string?> AlwaysLog { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
@@ -41,6 +45,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("httpCorrelationProtocol")]
         public Output<string?> HttpCorrelationProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Large Language Models diagnostic settings
+        /// </summary>
+        [Output("largeLanguageModel")]
+        public Output<Outputs.LLMDiagnosticSettingsResponse?> LargeLanguageModel { get; private set; } = null!;
 
         /// <summary>
         /// Log the ClientIP. Default is false.
@@ -170,6 +180,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Input("httpCorrelationProtocol")]
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
+
+        /// <summary>
+        /// Large Language Models diagnostic settings
+        /// </summary>
+        [Input("largeLanguageModel")]
+        public Input<Inputs.LLMDiagnosticSettingsArgs>? LargeLanguageModel { get; set; }
 
         /// <summary>
         /// Log the ClientIP. Default is false.

@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// </summary>
         public readonly string AssignmentName;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Widget types set for the assignment.
         /// </summary>
         public readonly Outputs.ResourceSetDescriptionResponse? ConflationPolicies;
@@ -187,6 +191,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         private GetRoleAssignmentResult(
             string assignmentName,
 
+            string azureApiVersion,
+
             Outputs.ResourceSetDescriptionResponse? conflationPolicies,
 
             Outputs.ResourceSetDescriptionResponse? connectors,
@@ -232,6 +238,7 @@ namespace Pulumi.AzureNative.CustomerInsights
             Outputs.ResourceSetDescriptionResponse? widgetTypes)
         {
             AssignmentName = assignmentName;
+            AzureApiVersion = azureApiVersion;
             ConflationPolicies = conflationPolicies;
             Connectors = connectors;
             Description = description;

@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string NodeType;
         /// <summary>
+        /// OEM activation status of the node.
+        /// </summary>
+        public readonly string OemActivation;
+        /// <summary>
         /// Display version of the operating system running on the cluster node.
         /// </summary>
         public readonly string OsDisplayVersion;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string nodeType,
 
+            string oemActivation,
+
             string osDisplayVersion,
 
             string osName,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
             Model = model;
             Name = name;
             NodeType = nodeType;
+            OemActivation = oemActivation;
             OsDisplayVersion = osDisplayVersion;
             OsName = osName;
             OsVersion = osVersion;

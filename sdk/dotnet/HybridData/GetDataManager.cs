@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.HybridData
     public sealed class GetDataManagerResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Etag of the Resource.
         /// </summary>
         public readonly string? Etag;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNative.HybridData
 
         [OutputConstructor]
         private GetDataManagerResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.HybridData
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;

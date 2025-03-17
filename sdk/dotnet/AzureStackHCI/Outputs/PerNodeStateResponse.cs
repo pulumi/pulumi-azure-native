@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string ArcInstance;
         /// <summary>
+        /// The service principal id of the arc for server node
+        /// </summary>
+        public readonly string ArcNodeServicePrincipalObjectId;
+        /// <summary>
         /// Name of the Node in HCI Cluster
         /// </summary>
         public readonly string Name;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         private PerNodeStateResponse(
             string arcInstance,
 
+            string arcNodeServicePrincipalObjectId,
+
             string name,
 
             string state)
         {
             ArcInstance = arcInstance;
+            ArcNodeServicePrincipalObjectId = arcNodeServicePrincipalObjectId;
             Name = name;
             State = state;
         }

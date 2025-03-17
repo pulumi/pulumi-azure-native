@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
+        /// Azure REST API version: 2023-06-30.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbformysql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
+        /// Azure REST API version: 2023-06-30.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbformysql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// Azure REST API version: 2022-09-30-preview.
-        /// 
-        /// Other available API versions: 2018-06-01-privatepreview, 2023-06-30.
+        /// Azure REST API version: 2023-06-30.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbformysql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DBforMySQL
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The group ids for the private endpoint resource.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string azureApiVersion,
+
             ImmutableArray<string> groupIds,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             GroupIds = groupIds;
             Id = id;
             Name = name;

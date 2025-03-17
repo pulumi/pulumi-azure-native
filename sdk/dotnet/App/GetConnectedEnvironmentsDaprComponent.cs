@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Dapr Component.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Task<GetConnectedEnvironmentsDaprComponentResult> InvokeAsync(GetConnectedEnvironmentsDaprComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component.
-        /// Azure REST API version: 2022-10-01.
-        /// 
-        /// Other available API versions: 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview.
+        /// Azure REST API version: 2024-03-01.
         /// </summary>
         public static Output<GetConnectedEnvironmentsDaprComponentResult> Invoke(GetConnectedEnvironmentsDaprComponentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedEnvironmentsDaprComponentResult>("azure-native:app:getConnectedEnvironmentsDaprComponent", args ?? new GetConnectedEnvironmentsDaprComponentInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.App
     public sealed class GetConnectedEnvironmentsDaprComponentResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Component type
         /// </summary>
         public readonly string? ComponentType;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.App
 
         [OutputConstructor]
         private GetConnectedEnvironmentsDaprComponentResult(
+            string azureApiVersion,
+
             string? componentType,
 
             string id,
@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.App
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             ComponentType = componentType;
             Id = id;
             IgnoreErrors = ignoreErrors;

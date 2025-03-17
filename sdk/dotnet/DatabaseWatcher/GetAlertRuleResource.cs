@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.DatabaseWatcher
     {
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Task<GetAlertRuleResourceResult> InvokeAsync(GetAlertRuleResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a AlertRuleResource
-        /// Azure REST API version: 2024-07-19-preview.
-        /// 
-        /// Other available API versions: 2024-10-01-preview, 2025-01-02.
+        /// Azure REST API version: 2024-10-01-preview.
         /// </summary>
         public static Output<GetAlertRuleResourceResult> Invoke(GetAlertRuleResourceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleResourceResult>("azure-native:databasewatcher:getAlertRuleResource", args ?? new GetAlertRuleResourceInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public readonly string AlertRuleTemplateVersion;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The properties with which the alert rule resource was created.
         /// </summary>
         public readonly string CreatedWithProperties;
@@ -145,6 +143,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
 
             string alertRuleTemplateVersion,
 
+            string azureApiVersion,
+
             string createdWithProperties,
 
             string creationTime,
@@ -162,6 +162,7 @@ namespace Pulumi.AzureNative.DatabaseWatcher
             AlertRuleResourceId = alertRuleResourceId;
             AlertRuleTemplateId = alertRuleTemplateId;
             AlertRuleTemplateVersion = alertRuleTemplateVersion;
+            AzureApiVersion = azureApiVersion;
             CreatedWithProperties = createdWithProperties;
             CreationTime = creationTime;
             Id = id;

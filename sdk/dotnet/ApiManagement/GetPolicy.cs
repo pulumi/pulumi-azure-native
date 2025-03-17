@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Get the Global policy definition of the Api Management service.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("azure-native:apimanagement:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Global policy definition of the Api Management service.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:apimanagement:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Global policy definition of the Api Management service.
-        /// Azure REST API version: 2022-08-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview, 2022-09-01-preview, 2023-03-01-preview, 2023-05-01-preview, 2023-09-01-preview, 2024-05-01, 2024-06-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("azure-native:apimanagement:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.ApiManagement
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Format of the policyContent.
         /// </summary>
         public readonly string? Format;
@@ -131,6 +129,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         [OutputConstructor]
         private GetPolicyResult(
+            string azureApiVersion,
+
             string? format,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string value)
         {
+            AzureApiVersion = azureApiVersion;
             Format = format;
             Id = id;
             Name = name;

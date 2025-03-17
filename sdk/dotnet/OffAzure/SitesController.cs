@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.OffAzure
 {
     /// <summary>
     /// A VmwareSite
-    /// Azure REST API version: 2023-06-06.
-    /// 
-    /// Other available API versions: 2023-10-01-preview, 2024-05-01-preview.
+    /// Azure REST API version: 2023-10-01-preview. Prior API version in Azure Native 2.x: 2023-06-06.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:SitesController")]
     public partial class SitesController : global::Pulumi.CustomResource
@@ -29,6 +27,12 @@ namespace Pulumi.AzureNative.OffAzure
         /// </summary>
         [Output("applianceName")]
         public Output<string?> ApplianceName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the ARM ID of migration hub solution for SDS.
@@ -124,10 +128,12 @@ namespace Pulumi.AzureNative.OffAzure
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200101:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:Site" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20200707:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:SitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:SitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure:Site" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

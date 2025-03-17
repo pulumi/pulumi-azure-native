@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Dashboard
 {
     /// <summary>
     /// The grafana resource type.
-    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2022-05-01-preview.
-    /// 
-    /// Other available API versions: 2021-09-01-preview, 2022-10-01-preview, 2023-09-01, 2023-10-01-preview, 2024-10-01.
+    /// Azure REST API version: 2024-10-01. Prior API version in Azure Native 2.x: 2022-08-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Grafana")]
     public partial class Grafana : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The managed identity of the grafana resource.
         /// </summary>

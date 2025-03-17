@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a catalog.
-    /// Azure REST API version: 2024-02-01.
-    /// 
-    /// Other available API versions: 2024-05-01-preview, 2024-06-01-preview, 2024-07-01-preview, 2024-08-01-preview, 2024-10-01-preview.
+    /// Azure REST API version: 2024-02-01. Prior API version in Azure Native 2.x: 2024-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectCatalog")]
     public partial class ProjectCatalog : global::Pulumi.CustomResource
@@ -23,6 +21,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("adoGit")]
         public Output<Outputs.GitCatalogResponse?> AdoGit { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The connection state of the catalog.
@@ -127,6 +131,7 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240701preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20240801preview:ProjectCatalog" },
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20241001preview:ProjectCatalog" },
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20250201:ProjectCatalog" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

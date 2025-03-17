@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Task<GetAssessmentResult> InvokeAsync(GetAssessmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Get a security assessment on your scanned resource
         /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2020-01-01.
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("azure-native:security:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableDictionary<string, string>? AdditionalData;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// User friendly display name of the assessment
         /// </summary>
         public readonly string DisplayName;
@@ -141,6 +139,8 @@ namespace Pulumi.AzureNative.Security
         private GetAssessmentResult(
             ImmutableDictionary<string, string>? additionalData,
 
+            string azureApiVersion,
+
             string displayName,
 
             string id,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.Security
             string type)
         {
             AdditionalData = additionalData;
+            AzureApiVersion = azureApiVersion;
             DisplayName = displayName;
             Id = id;
             Links = links;

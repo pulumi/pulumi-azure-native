@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? PickHostNameFromBackendSettings;
         /// <summary>
-        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        /// Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.
         /// </summary>
         public readonly int? Port;
         /// <summary>

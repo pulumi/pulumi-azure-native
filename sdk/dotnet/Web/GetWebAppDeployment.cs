@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Description for Get a deployment by its ID for an app, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Task<GetWebAppDeploymentResult> InvokeAsync(GetWebAppDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get a deployment by its ID for an app, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDeploymentResult> Invoke(GetWebAppDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description for Get a deployment by its ID for an app, or a deployment slot.
-        /// Azure REST API version: 2022-09-01.
-        /// 
-        /// Other available API versions: 2020-10-01, 2023-01-01, 2023-12-01, 2024-04-01.
+        /// Azure REST API version: 2024-04-01.
         /// </summary>
         public static Output<GetWebAppDeploymentResult> Invoke(GetWebAppDeploymentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppDeploymentResult>("azure-native:web:getWebAppDeployment", args ?? new GetWebAppDeploymentInvokeArgs(), options.WithDefaults());
@@ -109,6 +103,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string? AuthorEmail;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Who performed the deployment.
         /// </summary>
         public readonly string? Deployer;
@@ -157,6 +155,8 @@ namespace Pulumi.AzureNative.Web
 
             string? authorEmail,
 
+            string azureApiVersion,
+
             string? deployer,
 
             string? details,
@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Web
             Active = active;
             Author = author;
             AuthorEmail = authorEmail;
+            AzureApiVersion = azureApiVersion;
             Deployer = deployer;
             Details = details;
             EndTime = endTime;

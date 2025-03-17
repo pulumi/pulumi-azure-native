@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get the specified network security rule.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityRuleResult> InvokeAsync(GetSecurityRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified network security rule.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified network security rule.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2022-07-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityRuleResult> Invoke(GetSecurityRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityRuleResult>("azure-native:network:getSecurityRule", args ?? new GetSecurityRuleInvokeArgs(), options.WithDefaults());
@@ -100,6 +94,10 @@ namespace Pulumi.AzureNative.Network
         /// The network traffic is allowed or denied.
         /// </summary>
         public readonly string Access;
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
         /// </summary>
@@ -181,6 +179,8 @@ namespace Pulumi.AzureNative.Network
         private GetSecurityRuleResult(
             string access,
 
+            string azureApiVersion,
+
             string? description,
 
             string? destinationAddressPrefix,
@@ -220,6 +220,7 @@ namespace Pulumi.AzureNative.Network
             string? type)
         {
             Access = access;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DestinationAddressPrefix = destinationAddressPrefix;
             DestinationAddressPrefixes = destinationAddressPrefixes;

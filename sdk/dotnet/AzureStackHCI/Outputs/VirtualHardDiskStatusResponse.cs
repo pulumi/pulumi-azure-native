@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
     public sealed class VirtualHardDiskStatusResponse
     {
         /// <summary>
+        /// The download status of the virtual hard disk
+        /// </summary>
+        public readonly Outputs.VirtualHardDiskDownloadStatusResponse? DownloadStatus;
+        /// <summary>
         /// VirtualHardDisk provisioning error code
         /// </summary>
         public readonly string? ErrorCode;
@@ -24,19 +28,32 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Descriptive error message
         /// </summary>
         public readonly string? ErrorMessage;
-        public readonly Outputs.VirtualHardDiskStatusResponseProvisioningStatus? ProvisioningStatus;
+        /// <summary>
+        /// Provisioning status of the vhd
+        /// </summary>
+        public readonly Outputs.VirtualHardDiskStatusProvisioningStatusResponse? ProvisioningStatus;
+        /// <summary>
+        /// The upload status of the virtual hard disk
+        /// </summary>
+        public readonly Outputs.VirtualHardDiskUploadStatusResponse? UploadStatus;
 
         [OutputConstructor]
         private VirtualHardDiskStatusResponse(
+            Outputs.VirtualHardDiskDownloadStatusResponse? downloadStatus,
+
             string? errorCode,
 
             string? errorMessage,
 
-            Outputs.VirtualHardDiskStatusResponseProvisioningStatus? provisioningStatus)
+            Outputs.VirtualHardDiskStatusProvisioningStatusResponse? provisioningStatus,
+
+            Outputs.VirtualHardDiskUploadStatusResponse? uploadStatus)
         {
+            DownloadStatus = downloadStatus;
             ErrorCode = errorCode;
             ErrorMessage = errorMessage;
             ProvisioningStatus = provisioningStatus;
+            UploadStatus = uploadStatus;
         }
     }
 }

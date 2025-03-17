@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the details of an EventHub schema group.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetSchemaRegistryResult> InvokeAsync(GetSchemaRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSchemaRegistryResult>("azure-native:eventhub:getSchemaRegistry", args ?? new GetSchemaRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an EventHub schema group.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:eventhub:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an EventHub schema group.
-        /// Azure REST API version: 2022-10-01-preview.
-        /// 
-        /// Other available API versions: 2023-01-01-preview, 2024-01-01, 2024-05-01-preview.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetSchemaRegistryResult> Invoke(GetSchemaRegistryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaRegistryResult>("azure-native:eventhub:getSchemaRegistry", args ?? new GetSchemaRegistryInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetSchemaRegistryResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Exact time the Schema Group was created.
         /// </summary>
         public readonly string CreatedAtUtc;
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.EventHub
 
         [OutputConstructor]
         private GetSchemaRegistryResult(
+            string azureApiVersion,
+
             string createdAtUtc,
 
             string eTag,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.EventHub
 
             string updatedAtUtc)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAtUtc = createdAtUtc;
             ETag = eTag;
             GroupProperties = groupProperties;

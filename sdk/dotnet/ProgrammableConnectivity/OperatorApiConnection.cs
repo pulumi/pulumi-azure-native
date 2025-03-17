@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
 {
     /// <summary>
     /// A Programmable Connectivity Operator API Connection resource
-    /// Azure REST API version: 2024-01-15-preview.
+    /// Azure REST API version: 2024-01-15-preview. Prior API version in Azure Native 2.x: 2024-01-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:programmableconnectivity:OperatorApiConnection")]
     public partial class OperatorApiConnection : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// </summary>
         [Output("appId")]
         public Output<string?> AppId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// The Network API for the current operator in the country/region provided in the linked Operator API Plan.

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Migrate Project REST Resource.
-    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 2.x: 2018-09-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProject")]
     public partial class MigrateProject : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// Gets or sets the eTag for concurrency control.
         /// </summary>
@@ -79,7 +85,10 @@ namespace Pulumi.AzureNative.Migrate
                 {
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject" },
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:MigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230101:MigrateProjectsControllerMigrateProject" },
+                    new global::Pulumi.Alias { Type = "azure-native:migrate:MigrateProjectsControllerMigrateProject" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

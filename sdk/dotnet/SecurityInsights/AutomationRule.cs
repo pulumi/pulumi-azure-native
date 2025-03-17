@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
-    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-01-01-preview.
-    /// 
-    /// Other available API versions: 2019-01-01-preview, 2023-06-01-preview, 2023-07-01-preview, 2023-08-01-preview, 2023-09-01-preview, 2023-10-01-preview, 2023-11-01, 2023-12-01-preview, 2024-01-01-preview, 2024-03-01, 2024-04-01-preview, 2024-09-01, 2024-10-01-preview, 2025-01-01-preview.
+    /// Azure REST API version: 2024-09-01. Prior API version in Azure Native 2.x: 2023-02-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
@@ -21,7 +19,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// The actions to execute when the automation rule is triggered.
         /// </summary>
         [Output("actions")]
-        public Output<ImmutableArray<Union<Outputs.AutomationRuleModifyPropertiesActionResponse, Outputs.AutomationRuleRunPlaybookActionResponse>>> Actions { get; private set; } = null!;
+        public Output<ImmutableArray<object>> Actions { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Information on the client (user or application) that made some action
@@ -148,6 +152,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20240901:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20241001preview:AutomationRule" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250101preview:AutomationRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250301:AutomationRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -172,14 +177,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>>? _actions;
+        private InputList<object>? _actions;
 
         /// <summary>
         /// The actions to execute when the automation rule is triggered.
         /// </summary>
-        public InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>> Actions
+        public InputList<object> Actions
         {
-            get => _actions ?? (_actions = new InputList<Union<Inputs.AutomationRuleModifyPropertiesActionArgs, Inputs.AutomationRuleRunPlaybookActionArgs>>());
+            get => _actions ?? (_actions = new InputList<object>());
             set => _actions = value;
         }
 

@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// Returns a BotService specified by the parameters.
-        /// Azure REST API version: 2022-09-15.
-        /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Azure REST API version: 2023-09-15-preview.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:botservice:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a BotService specified by the parameters.
-        /// Azure REST API version: 2022-09-15.
-        /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Azure REST API version: 2023-09-15-preview.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:botservice:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a BotService specified by the parameters.
-        /// Azure REST API version: 2022-09-15.
-        /// 
-        /// Other available API versions: 2023-09-15-preview.
+        /// Azure REST API version: 2023-09-15-preview.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:botservice:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.BotService
     public sealed class GetBotResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.BotService
 
         [OutputConstructor]
         private GetBotResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.BotService
 
             ImmutableArray<string> zones)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Kind = kind;

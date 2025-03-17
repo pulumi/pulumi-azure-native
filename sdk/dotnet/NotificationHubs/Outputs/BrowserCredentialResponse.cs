@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class BrowserCredentialResponse
     {
         /// <summary>
-        /// Description of a NotificationHub BrowserCredential.
+        /// Gets or sets web push subject.
         /// </summary>
-        public readonly Outputs.BrowserCredentialPropertiesResponse Properties;
+        public readonly string Subject;
+        /// <summary>
+        /// Gets or sets VAPID private key.
+        /// </summary>
+        public readonly string VapidPrivateKey;
+        /// <summary>
+        /// Gets or sets VAPID public key.
+        /// </summary>
+        public readonly string VapidPublicKey;
 
         [OutputConstructor]
-        private BrowserCredentialResponse(Outputs.BrowserCredentialPropertiesResponse properties)
+        private BrowserCredentialResponse(
+            string subject,
+
+            string vapidPrivateKey,
+
+            string vapidPublicKey)
         {
-            Properties = properties;
+            Subject = subject;
+            VapidPrivateKey = vapidPrivateKey;
+            VapidPublicKey = vapidPublicKey;
         }
     }
 }

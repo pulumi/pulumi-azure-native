@@ -16,16 +16,28 @@ namespace Pulumi.AzureNative.Migrate.Inputs
     public sealed class MoveCollectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the move region which indicates the region where the VM Regional to Zonal move will be conducted.
+        /// </summary>
+        [Input("moveRegion")]
+        public Input<string>? MoveRegion { get; set; }
+
+        /// <summary>
+        /// Defines the MoveType.
+        /// </summary>
+        [Input("moveType")]
+        public InputUnion<string, Pulumi.AzureNative.Migrate.MoveType>? MoveType { get; set; }
+
+        /// <summary>
         /// Gets or sets the source region.
         /// </summary>
-        [Input("sourceRegion", required: true)]
-        public Input<string> SourceRegion { get; set; } = null!;
+        [Input("sourceRegion")]
+        public Input<string>? SourceRegion { get; set; }
 
         /// <summary>
         /// Gets or sets the target region.
         /// </summary>
-        [Input("targetRegion", required: true)]
-        public Input<string> TargetRegion { get; set; } = null!;
+        [Input("targetRegion")]
+        public Input<string>? TargetRegion { get; set; }
 
         /// <summary>
         /// Gets or sets the version of move collection.

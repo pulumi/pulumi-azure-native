@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Task<GetVirtualNetworkRuleResult> InvokeAsync(GetVirtualNetworkRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkRuleResult>("azure-native:dbformariadb:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformariadb:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.DBforMariaDB
         /// <summary>
         /// Gets a virtual network rule.
         /// Azure REST API version: 2018-06-01.
-        /// 
-        /// Other available API versions: 2018-06-01-preview.
         /// </summary>
         public static Output<GetVirtualNetworkRuleResult> Invoke(GetVirtualNetworkRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkRuleResult>("azure-native:dbformariadb:getVirtualNetworkRule", args ?? new GetVirtualNetworkRuleInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.DBforMariaDB
     public sealed class GetVirtualNetworkRuleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -123,6 +121,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
 
         [OutputConstructor]
         private GetVirtualNetworkRuleResult(
+            string azureApiVersion,
+
             string id,
 
             bool? ignoreMissingVnetServiceEndpoint,
@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.DBforMariaDB
 
             string virtualNetworkSubnetId)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             Name = name;

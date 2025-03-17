@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// List new plans notifications
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Task<ListPrivateStoreNewPlansNotificationsResult> InvokeAsync(ListPrivateStoreNewPlansNotificationsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// List new plans notifications
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// List new plans notifications
         /// Azure REST API version: 2023-01-01.
-        /// 
-        /// Other available API versions: 2021-12-01, 2022-03-01, 2022-09-01.
         /// </summary>
         public static Output<ListPrivateStoreNewPlansNotificationsResult> Invoke(ListPrivateStoreNewPlansNotificationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPrivateStoreNewPlansNotificationsResult>("azure-native:marketplace:listPrivateStoreNewPlansNotifications", args ?? new ListPrivateStoreNewPlansNotificationsInvokeArgs(), options.WithDefaults());

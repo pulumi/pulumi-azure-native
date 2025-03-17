@@ -79,6 +79,10 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
     public sealed class GetInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Edge location of the resource.
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
@@ -133,6 +137,8 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
 
         [OutputConstructor]
         private GetInstanceResult(
+            string azureApiVersion,
+
             Outputs.ExtendedLocationResponse extendedLocation,
 
             string id,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
 
             string? version)
         {
+            AzureApiVersion = azureApiVersion;
             ExtendedLocation = extendedLocation;
             Id = id;
             Location = location;

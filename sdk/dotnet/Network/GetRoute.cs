@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified route from a route table.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetRouteResult> InvokeAsync(GetRouteArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified route from a route table.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified route from a route table.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2019-06-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("azure-native:network:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? AddressPrefix;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -137,6 +135,8 @@ namespace Pulumi.AzureNative.Network
         private GetRouteResult(
             string? addressPrefix,
 
+            string azureApiVersion,
+
             string etag,
 
             bool hasBgpOverride,
@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Network
             string? type)
         {
             AddressPrefix = addressPrefix;
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             HasBgpOverride = hasBgpOverride;
             Id = id;

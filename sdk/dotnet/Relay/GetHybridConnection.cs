@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Returns the description for the specified hybrid connection.
-        /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the description for the specified hybrid connection.
-        /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the description for the specified hybrid connection.
-        /// Azure REST API version: 2021-11-01.
-        /// 
-        /// Other available API versions: 2024-01-01.
+        /// Azure REST API version: 2024-01-01.
         /// </summary>
         public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Relay
     public sealed class GetHybridConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The time the hybrid connection was created.
         /// </summary>
         public readonly string CreatedAt;
@@ -139,6 +137,8 @@ namespace Pulumi.AzureNative.Relay
 
         [OutputConstructor]
         private GetHybridConnectionResult(
+            string azureApiVersion,
+
             string createdAt,
 
             string id,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.Relay
 
             string? userMetadata)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedAt = createdAt;
             Id = id;
             ListenerCount = listenerCount;

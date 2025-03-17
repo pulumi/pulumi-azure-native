@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// Azure REST API version: 2023-02-01.
-        /// 
-        /// Other available API versions: 2021-05-01-preview, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-01-01-preview, 2024-03-01, 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());
@@ -101,6 +95,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<string> ApplyOnNetworkIntentPolicyBasedServices;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// A description of the security configuration.
         /// </summary>
         public readonly string? Description;
@@ -116,6 +114,10 @@ namespace Pulumi.AzureNative.Network
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Determine update behavior for changes to network groups referenced within the rules in this configuration.
+        /// </summary>
+        public readonly string? NetworkGroupAddressSpaceAggregationOption;
         /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
@@ -137,6 +139,8 @@ namespace Pulumi.AzureNative.Network
         private GetSecurityAdminConfigurationResult(
             ImmutableArray<string> applyOnNetworkIntentPolicyBasedServices,
 
+            string azureApiVersion,
+
             string? description,
 
             string etag,
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.Network
             string id,
 
             string name,
+
+            string? networkGroupAddressSpaceAggregationOption,
 
             string provisioningState,
 
@@ -154,10 +160,12 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             ApplyOnNetworkIntentPolicyBasedServices = applyOnNetworkIntentPolicyBasedServices;
+            AzureApiVersion = azureApiVersion;
             Description = description;
             Etag = etag;
             Id = id;
             Name = name;
+            NetworkGroupAddressSpaceAggregationOption = networkGroupAddressSpaceAggregationOption;
             ProvisioningState = provisioningState;
             ResourceGuid = resourceGuid;
             SystemData = systemData;

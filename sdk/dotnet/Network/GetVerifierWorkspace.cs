@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Task<GetVerifierWorkspaceResult> InvokeAsync(GetVerifierWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Instance of Verifier Workspace.
-        /// Azure REST API version: 2024-01-01-preview.
-        /// 
-        /// Other available API versions: 2024-05-01.
+        /// Azure REST API version: 2024-05-01.
         /// </summary>
         public static Output<GetVerifierWorkspaceResult> Invoke(GetVerifierWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifierWorkspaceResult>("azure-native:network:getVerifierWorkspace", args ?? new GetVerifierWorkspaceInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetVerifierWorkspaceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetVerifierWorkspaceResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

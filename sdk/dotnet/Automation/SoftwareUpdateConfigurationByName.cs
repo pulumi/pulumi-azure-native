@@ -11,13 +11,17 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Software update configuration properties.
-    /// Azure REST API version: 2019-06-01. Prior API version in Azure Native 1.x: 2019-06-01.
-    /// 
-    /// Other available API versions: 2017-05-15-preview, 2023-05-15-preview, 2024-10-23.
+    /// Azure REST API version: 2023-05-15-preview. Prior API version in Azure Native 2.x: 2019-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// CreatedBy property, which only appears in the response.
         /// </summary>

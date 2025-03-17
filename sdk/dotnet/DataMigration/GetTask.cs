@@ -12,28 +12,22 @@ namespace Pulumi.AzureNative.DataMigration
     public static class GetTask
     {
         /// <summary>
-        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS instance. The GET method retrieves information about a task.
-        /// Azure REST API version: 2021-06-30.
-        /// 
-        /// Other available API versions: 2022-03-30-preview, 2023-07-15-preview.
+        /// The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.
+        /// Azure REST API version: 2023-07-15-preview.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:datamigration:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
@@ -121,6 +115,10 @@ namespace Pulumi.AzureNative.DataMigration
     public sealed class GetTaskResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// HTTP strong entity tag value. This is ignored if submitted.
         /// </summary>
         public readonly string? Etag;
@@ -147,6 +145,8 @@ namespace Pulumi.AzureNative.DataMigration
 
         [OutputConstructor]
         private GetTaskResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.DataMigration
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Name = name;

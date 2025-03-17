@@ -11,9 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The storage account.
-    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01.
-    /// 
-    /// Other available API versions: 2023-01-01, 2023-04-01, 2023-05-01, 2024-01-01.
+    /// Azure REST API version: 2024-01-01. Prior API version in Azure Native 2.x: 2022-09-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource
@@ -25,13 +23,19 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> AccessTier { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        /// If customer initiated account migration is in progress, the value will be true else it will be null.
+        /// </summary>
+        [Output("accountMigrationInProgress")]
+        public Output<bool> AccountMigrationInProgress { get; private set; } = null!;
+
+        /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
         /// </summary>
         [Output("allowBlobPublicAccess")]
         public Output<bool?> AllowBlobPublicAccess { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        /// Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
         /// </summary>
         [Output("allowCrossTenantReplication")]
         public Output<bool?> AllowCrossTenantReplication { get; private set; } = null!;
@@ -47,6 +51,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("allowedCopyScope")]
         public Output<string?> AllowedCopyScope { get; private set; } = null!;
+
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
         /// Provides the identity based authentication settings for Azure Files.
@@ -83,6 +93,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("dnsEndpointType")]
         public Output<string?> DnsEndpointType { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        [Output("enableExtendedGroups")]
+        public Output<bool?> EnableExtendedGroups { get; private set; } = null!;
 
         /// <summary>
         /// Allows https traffic only to storage service if sets to true.
@@ -149,6 +165,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Output("isSftpEnabled")]
         public Output<bool?> IsSftpEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// This property will be set to true or false on an event of ongoing migration. Default value is null.
+        /// </summary>
+        [Output("isSkuConversionBlocked")]
+        public Output<bool> IsSkuConversionBlocked { get; private set; } = null!;
 
         /// <summary>
         /// Storage account keys creation time.
@@ -229,7 +251,7 @@ namespace Pulumi.AzureNative.Storage
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -381,13 +403,13 @@ namespace Pulumi.AzureNative.Storage
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
         /// </summary>
         [Input("allowBlobPublicAccess")]
         public Input<bool>? AllowBlobPublicAccess { get; set; }
 
         /// <summary>
-        /// Allow or disallow cross AAD tenant object replication. The default interpretation is true for this property.
+        /// Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
         /// </summary>
         [Input("allowCrossTenantReplication")]
         public Input<bool>? AllowCrossTenantReplication { get; set; }
@@ -427,6 +449,12 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         [Input("dnsEndpointType")]
         public InputUnion<string, Pulumi.AzureNative.Storage.DnsEndpointType>? DnsEndpointType { get; set; }
+
+        /// <summary>
+        /// Enables extended group support with local users feature, if set to true
+        /// </summary>
+        [Input("enableExtendedGroups")]
+        public Input<bool>? EnableExtendedGroups { get; set; }
 
         /// <summary>
         /// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
@@ -519,7 +547,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
-        /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+        /// Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Storage.PublicNetworkAccess>? PublicNetworkAccess { get; set; }

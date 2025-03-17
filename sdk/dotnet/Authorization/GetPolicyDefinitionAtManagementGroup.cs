@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves the policy definition in the given management group with the given name.
-        /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Task<GetPolicyDefinitionAtManagementGroupResult> InvokeAsync(GetPolicyDefinitionAtManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy definition in the given management group with the given name.
-        /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetPolicyDefinitionAtManagementGroupResult> Invoke(GetPolicyDefinitionAtManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves the policy definition in the given management group with the given name.
-        /// Azure REST API version: 2021-06-01.
-        /// 
-        /// Other available API versions: 2018-05-01, 2019-06-01, 2023-04-01, 2024-05-01, 2025-01-01.
+        /// Azure REST API version: 2025-01-01.
         /// </summary>
         public static Output<GetPolicyDefinitionAtManagementGroupResult> Invoke(GetPolicyDefinitionAtManagementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefinitionAtManagementGroupResult>("azure-native:authorization:getPolicyDefinitionAtManagementGroup", args ?? new GetPolicyDefinitionAtManagementGroupInvokeArgs(), options.WithDefaults());
@@ -85,6 +79,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetPolicyDefinitionAtManagementGroupResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The policy definition description.
         /// </summary>
         public readonly string? Description;
@@ -128,9 +126,19 @@ namespace Pulumi.AzureNative.Authorization
         /// The type of the resource (Microsoft.Authorization/policyDefinitions).
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The policy definition version in #.#.# format.
+        /// </summary>
+        public readonly string? Version;
+        /// <summary>
+        /// A list of available versions for this policy definition.
+        /// </summary>
+        public readonly ImmutableArray<string> Versions;
 
         [OutputConstructor]
         private GetPolicyDefinitionAtManagementGroupResult(
+            string azureApiVersion,
+
             string? description,
 
             string? displayName,
@@ -151,8 +159,13 @@ namespace Pulumi.AzureNative.Authorization
 
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            string? version,
+
+            ImmutableArray<string> versions)
         {
+            AzureApiVersion = azureApiVersion;
             Description = description;
             DisplayName = displayName;
             Id = id;
@@ -164,6 +177,8 @@ namespace Pulumi.AzureNative.Authorization
             PolicyType = policyType;
             SystemData = systemData;
             Type = type;
+            Version = version;
+            Versions = versions;
         }
     }
 }

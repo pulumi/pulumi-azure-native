@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
 {
     /// <summary>
     /// MQ kafkaConnector/topicMap resource
-    /// Azure REST API version: 2023-10-04-preview.
+    /// Azure REST API version: 2023-10-04-preview. Prior API version in Azure Native 2.x: 2023-10-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotoperationsmq:KafkaConnectorTopicMap")]
     public partial class KafkaConnectorTopicMap : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        [Output("azureApiVersion")]
+        public Output<string> AzureApiVersion { get; private set; } = null!;
+
         /// <summary>
         /// The batching settings for kafka messages.
         /// </summary>

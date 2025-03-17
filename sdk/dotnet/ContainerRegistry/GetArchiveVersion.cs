@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the archive version.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Task<GetArchiveVersionResult> InvokeAsync(GetArchiveVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetArchiveVersionResult>("azure-native:containerregistry:getArchiveVersion", args ?? new GetArchiveVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the archive version.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetArchiveVersionResult> Invoke(GetArchiveVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchiveVersionResult>("azure-native:containerregistry:getArchiveVersion", args ?? new GetArchiveVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the archive version.
-        /// Azure REST API version: 2023-06-01-preview.
-        /// 
-        /// Other available API versions: 2023-08-01-preview, 2023-11-01-preview, 2024-11-01-preview.
+        /// Azure REST API version: 2024-11-01-preview.
         /// </summary>
         public static Output<GetArchiveVersionResult> Invoke(GetArchiveVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetArchiveVersionResult>("azure-native:containerregistry:getArchiveVersion", args ?? new GetArchiveVersionInvokeArgs(), options.WithDefaults());
@@ -125,6 +119,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string? ArchiveVersionErrorMessage;
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The resource ID.
         /// </summary>
         public readonly string Id;
@@ -149,6 +147,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         private GetArchiveVersionResult(
             string? archiveVersionErrorMessage,
 
+            string azureApiVersion,
+
             string id,
 
             string name,
@@ -160,6 +160,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             string type)
         {
             ArchiveVersionErrorMessage = archiveVersionErrorMessage;
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;

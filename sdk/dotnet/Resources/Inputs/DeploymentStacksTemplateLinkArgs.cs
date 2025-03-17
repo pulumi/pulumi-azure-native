@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Resources.Inputs
         public Input<string>? ContentVersion { get; set; }
 
         /// <summary>
-        /// The resource id of a Template Spec. Use either the id or uri property, but not both.
+        /// The resourceId of a Template Spec. Use either the id or uri property, but not both.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Resources.Inputs
         public Input<string>? QueryString { get; set; }
 
         /// <summary>
-        /// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs
+        /// The relativePath property can be used to deploy a linked template at a location relative to the parent. If the parent template was linked with a TemplateSpec, this will reference an artifact in the TemplateSpec.  If the parent was linked with a URI, the child deployment will be a combination of the parent and relativePath URIs.
         /// </summary>
         [Input("relativePath")]
         public Input<string>? RelativePath { get; set; }

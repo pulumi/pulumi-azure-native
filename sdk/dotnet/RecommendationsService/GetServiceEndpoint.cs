@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.RecommendationsService
     {
         /// <summary>
         /// Returns ServiceEndpoint resources for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Task<GetServiceEndpointResult> InvokeAsync(GetServiceEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointResult>("azure-native:recommendationsservice:getServiceEndpoint", args ?? new GetServiceEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns ServiceEndpoint resources for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetServiceEndpointResult> Invoke(GetServiceEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointResult>("azure-native:recommendationsservice:getServiceEndpoint", args ?? new GetServiceEndpointInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns ServiceEndpoint resources for a given name.
-        /// Azure REST API version: 2022-02-01.
-        /// 
-        /// Other available API versions: 2022-03-01-preview.
+        /// Azure REST API version: 2022-03-01-preview.
         /// </summary>
         public static Output<GetServiceEndpointResult> Invoke(GetServiceEndpointInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointResult>("azure-native:recommendationsservice:getServiceEndpoint", args ?? new GetServiceEndpointInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.RecommendationsService
     public sealed class GetServiceEndpointResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.RecommendationsService
 
         [OutputConstructor]
         private GetServiceEndpointResult(
+            string azureApiVersion,
+
             string id,
 
             string location,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.RecommendationsService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Location = location;
             Name = name;

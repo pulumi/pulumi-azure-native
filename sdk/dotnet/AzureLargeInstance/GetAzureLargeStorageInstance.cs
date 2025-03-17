@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.AzureLargeInstance
     public sealed class GetAzureLargeStorageInstanceResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the AzureLargeStorageInstance unique ID.
         /// </summary>
         public readonly string? AzureLargeStorageInstanceUniqueIdentifier;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
 
         [OutputConstructor]
         private GetAzureLargeStorageInstanceResult(
+            string azureApiVersion,
+
             string? azureLargeStorageInstanceUniqueIdentifier,
 
             string id,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.AzureLargeInstance
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             AzureLargeStorageInstanceUniqueIdentifier = azureLargeStorageInstanceUniqueIdentifier;
             Id = id;
             Identity = identity;

@@ -91,6 +91,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetMachineLearningDatasetResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Specifies the resource ID.
         /// </summary>
         public readonly string Id;
@@ -125,6 +129,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetMachineLearningDatasetResult(
+            string azureApiVersion,
+
             string id,
 
             Outputs.IdentityResponse? identity,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Id = id;
             Identity = identity;
             Location = location;

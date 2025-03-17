@@ -13,27 +13,21 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Get a FleetUpdateStrategy
-        /// Azure REST API version: 2023-08-15-preview.
-        /// 
-        /// Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Task<GetFleetUpdateStrategyResult> InvokeAsync(GetFleetUpdateStrategyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFleetUpdateStrategyResult>("azure-native:containerservice:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetUpdateStrategy
-        /// Azure REST API version: 2023-08-15-preview.
-        /// 
-        /// Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a FleetUpdateStrategy
-        /// Azure REST API version: 2023-08-15-preview.
-        /// 
-        /// Other available API versions: 2023-10-15, 2024-02-02-preview, 2024-04-01, 2024-05-02-preview.
+        /// Azure REST API version: 2024-05-02-preview.
         /// </summary>
         public static Output<GetFleetUpdateStrategyResult> Invoke(GetFleetUpdateStrategyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetUpdateStrategyResult>("azure-native:containerservice:getFleetUpdateStrategy", args ?? new GetFleetUpdateStrategyInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class GetFleetUpdateStrategyResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string ETag;
@@ -127,6 +125,8 @@ namespace Pulumi.AzureNative.ContainerService
 
         [OutputConstructor]
         private GetFleetUpdateStrategyResult(
+            string azureApiVersion,
+
             string eTag,
 
             string id,
@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.ContainerService
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             ETag = eTag;
             Id = id;
             Name = name;

@@ -14,8 +14,6 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Get a specific connection
         /// Azure REST API version: 2016-06-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("azure-native:web:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -23,8 +21,6 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Get a specific connection
         /// Azure REST API version: 2016-06-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:web:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
@@ -32,8 +28,6 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Get a specific connection
         /// Azure REST API version: 2016-06-01.
-        /// 
-        /// Other available API versions: 2015-08-01-preview.
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("azure-native:web:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
@@ -97,6 +91,10 @@ namespace Pulumi.AzureNative.Web
     public sealed class GetConnectionResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// Resource ETag
         /// </summary>
         public readonly string? Etag;
@@ -124,6 +122,8 @@ namespace Pulumi.AzureNative.Web
 
         [OutputConstructor]
         private GetConnectionResult(
+            string azureApiVersion,
+
             string? etag,
 
             string id,
@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Web
 
             string type)
         {
+            AzureApiVersion = azureApiVersion;
             Etag = etag;
             Id = id;
             Location = location;

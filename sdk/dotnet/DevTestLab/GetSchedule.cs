@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DevTestLab
     public sealed class GetScheduleResult
     {
         /// <summary>
+        /// The Azure API version of the resource.
+        /// </summary>
+        public readonly string AzureApiVersion;
+        /// <summary>
         /// The creation date of the schedule.
         /// </summary>
         public readonly string CreatedDate;
@@ -169,6 +173,8 @@ namespace Pulumi.AzureNative.DevTestLab
 
         [OutputConstructor]
         private GetScheduleResult(
+            string azureApiVersion,
+
             string createdDate,
 
             Outputs.DayDetailsResponse? dailyRecurrence,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNative.DevTestLab
 
             Outputs.WeekDetailsResponse? weeklyRecurrence)
         {
+            AzureApiVersion = azureApiVersion;
             CreatedDate = createdDate;
             DailyRecurrence = dailyRecurrence;
             HourlyRecurrence = hourlyRecurrence;
