@@ -829,7 +829,7 @@ DesktopVirtualization:
         AppAttachPackage: 2023-10-04-preview
         PrivateEndpointConnectionByHostPool: 2022-10-14-preview
         PrivateEndpointConnectionByWorkspace: 2022-10-14-preview
-        ScalingPlanPersonalSchedule: 2023-07-07-preview
+        ScalingPlanPersonalSchedule: 2024-04-08-preview
         listHostPoolRegistrationTokens: 2024-04-08-preview
 DevCenter:
     tracking: "2023-04-01"
