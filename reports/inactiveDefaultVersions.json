@@ -9,15 +9,16 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
+  "BillingBenefits": [
+    "2024-11-01-preview"
+  ],
   "Cloudngfw": [
     "2023-09-01",
     "2024-02-07-preview"
   ],
-  "ContainerInstance": [
-    "2024-11-01-preview"
-  ],
   "ContainerService": [
-    "2019-10-27-preview"
+    "2019-10-27-preview",
+    "2023-05-02-preview"
   ],
   "ContainerStorage": [
     "2023-07-01-preview"
@@ -33,9 +34,6 @@
   ],
   "DataCatalog": [
     "2016-03-30"
-  ],
-  "DevHub": [
-    "2024-08-01-preview"
   ],
   "DevSpaces": [
     "2019-04-01"
@@ -64,9 +62,6 @@
   "Intune": [
     "2015-01-14-preview"
   ],
-  "Logz": [
-    "2022-01-01-preview"
-  ],
   "M365SecurityAndCompliance": [
     "2021-03-25-preview"
   ],
@@ -83,6 +78,9 @@
   ],
   "ManagementPartner": [
     "2018-02-01"
+  ],
+  "ManufacturingPlatform": [
+    "2025-03-01"
   ],
   "Media": [
     "2020-02-01-preview"
@@ -130,9 +128,6 @@
   ],
   "VideoAnalyzer": [
     "2021-11-01-preview"
-  ],
-  "VisualStudio": [
-    "2017-11-01-preview"
   ],
   "WeightsAndBiases": [
     "2024-09-18-preview"
