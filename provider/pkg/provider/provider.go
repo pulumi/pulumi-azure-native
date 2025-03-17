@@ -277,14 +277,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 }
 
 func (k *azureNativeProvider) isParameterized() bool {
-	var p struct {
-		Parameterization map[string]any `json:"parameterization"`
-	}
-	err := json.Unmarshal(k.schemaBytes, &p)
-	if err != nil {
-		return false
-	}
-	return p.Parameterization != nil
+	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
 }
 
 func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {

@@ -171,6 +171,12 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	return resp, nil
 }
 
+const parameterizedNameSeparator = "_"
+
+func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiVersion string) string {
+	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
+}
+
 // createParameterizedSchemaForApiVersion creates a new schema for the given module and API version by picking the
 // required resources, types, and functions from the providers existing schema and metadata. This assumes that the given
 // provider has a full schema with all API versions.
@@ -184,7 +190,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 // To separate concerns, the `Parameterization` of the new schema is NOT populated yet, the caller is responsible for
 // doing that.
 func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
-	newPackageName := fmt.Sprintf("%s_%s_%s", schema.Name, targetModule, targetApiVersion) // "." is not allowed
+	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
 
 	newSchema := pschema.PackageSpec{
 		Name:        newPackageName,

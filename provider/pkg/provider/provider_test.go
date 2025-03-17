@@ -874,3 +874,26 @@ func TestProviderDiff(t *testing.T) {
 		})
 	}
 }
+
+func TestIsParameterized(t *testing.T) {
+	t.Run("parameterized", func(t *testing.T) {
+		provider := &azureNativeProvider{
+			name: generateNewPackageName("azure-native", "aad", "v20221201"),
+		}
+		assert.True(t, provider.isParameterized())
+	})
+
+	t.Run("not parameterized", func(t *testing.T) {
+		provider := &azureNativeProvider{
+			name: "azure-native",
+		}
+		assert.False(t, provider.isParameterized())
+	})
+
+	t.Run("unexpected format", func(t *testing.T) {
+		provider := &azureNativeProvider{
+			name: "azure-native-aad-parameterized",
+		}
+		assert.False(t, provider.isParameterized())
+	})
+}
