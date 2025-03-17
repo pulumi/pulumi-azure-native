@@ -3,6 +3,7 @@
 package resources
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"sort"
@@ -258,6 +259,19 @@ type APIMetadata struct {
 	Types     MapLike[AzureAPIType]     `json:"types"`
 	Resources MapLike[AzureAPIResource] `json:"resources"`
 	Invokes   MapLike[AzureAPIInvoke]   `json:"invokes"`
+}
+
+// UnmarshalJSON implements custom unmarshaling for APIMetadata
+func (m *APIMetadata) UnmarshalJSON(data []byte) error {
+	p := PartialAzureAPIMetadata{}
+	if err := json.Unmarshal(data, &p); err != nil {
+		return err
+	}
+
+	m.Invokes = &p.Invokes
+	m.Resources = &p.Resources
+	m.Types = &p.Types
+	return nil
 }
 
 // AzureAPIMetadata is a collection of resources and functions in the Azure REST API surface, supplementing the Pulumi schema.

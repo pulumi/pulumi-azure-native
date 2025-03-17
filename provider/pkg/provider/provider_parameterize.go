@@ -148,11 +148,16 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
+	s = updateRefs(s, newPackageName)
 
-	s = bytes.ReplaceAll(s, []byte(`"$ref":"#/types/azure-native`), []byte(`"$ref": "#/types/`+newPackageName))
+	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to update metadata $refs: %v", err)
+	}
 
 	p.schemaBytes = s
 	p.resourceMap = newMetadata
+	p.name = newPackageName
 
 	if _, found := os.LookupEnv("PULUMI_DEBUG_PARAMETERIZE"); found {
 		tmpPath := filepath.Join(os.TempDir(), newPackageName+".json")
@@ -175,6 +180,29 @@ const parameterizedNameSeparator = "_"
 
 func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiVersion string) string {
 	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
+}
+
+// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name, e.g., from `"$ref":
+// "#/types/azure-native:..."` to `"$ref": "#/types/azure-native_resources_20240101:..."`.
+func updateRefs(serialized []byte, newPackageName string) []byte {
+	newRefPrefix := []byte(`"$ref": "#/types/` + newPackageName)
+	return bytes.ReplaceAll(serialized, []byte(`"$ref":"#/types/azure-native`), newRefPrefix)
+}
+
+// updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
+// This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
+func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName string) (*resources.APIMetadata, error) {
+	m, err := json.Marshal(metadata)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to marshal metadata: %v", err)
+	}
+	updated := updateRefs(m, newPackageName)
+	newMetadata := &resources.APIMetadata{}
+	err = json.Unmarshal(updated, newMetadata)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to unmarshal metadata: %v", err)
+	}
+	return newMetadata, nil
 }
 
 // createParameterizedSchemaForApiVersion creates a new schema for the given module and API version by picking the
@@ -250,7 +278,9 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 
 	for resourceTok, resourceName := range resourceNames {
 		newTok := makeToken(resourceName)
-		newSchema.Resources[newTok] = schema.Resources[resourceTok]
+		schemaResource := schema.Resources[resourceTok]
+		// schemaResource.Aliases = append(schemaResource.Aliases, pschema.AliasSpec{Type: pulumi.StringRef(newTok)})
+		newSchema.Resources[newTok] = schemaResource
 
 		resource, ok, err := p.resourceMap.Resources.Get(resourceTok)
 		if err != nil {
